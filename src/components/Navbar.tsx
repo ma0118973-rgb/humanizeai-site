@@ -1,0 +1,300 @@
+import React, { useState } from "react";
+import {
+  Sparkles,
+  ShieldCheck,
+  Search,
+  Tag,
+  Flame,
+  Clock,
+  Globe,
+  Download,
+  Smartphone,
+  Video,
+  ChevronDown,
+  BookMarked,
+  Maximize2,
+  AlertOctagon,
+  GitCompare,
+  TrendingUp,
+} from "lucide-react";
+import { ActivePage, LanguageCode } from "../types";
+import { SUPPORTED_LANGUAGES, TRANSLATIONS } from "../data/translations";
+
+interface NavbarProps {
+  activePage: ActivePage;
+  setActivePage: (page: ActivePage) => void;
+  onOpenBlueprint: () => void;
+  selectedLanguage: LanguageCode;
+  onLanguageChange: (lang: LanguageCode) => void;
+  draftsCount?: number;
+  onOpenHistory?: () => void;
+  onOpenInstall?: () => void;
+}
+
+export function Navbar({
+  activePage,
+  setActivePage,
+  onOpenBlueprint,
+  selectedLanguage,
+  onLanguageChange,
+  draftsCount = 0,
+  onOpenHistory,
+  onOpenInstall,
+}: NavbarProps) {
+  const [isToolsDropdownOpen, setIsToolsDropdownOpen] = useState(false);
+  const t = TRANSLATIONS[selectedLanguage] || TRANSLATIONS.en;
+
+  return (
+    <header className="sticky top-0 z-40 bg-stone-900/95 backdrop-blur-md border-b border-stone-800 text-stone-100 w-full max-w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 gap-1 sm:gap-4">
+          {/* Brand Logo & Title */}
+          <div
+            onClick={() => setActivePage("humanizer")}
+            className="flex items-center gap-1.5 sm:gap-3 cursor-pointer select-none min-w-0 shrink"
+          >
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-md sm:shadow-lg shadow-emerald-500/20 shrink-0">
+              <ShieldCheck className="w-4 h-4 sm:w-6 sm:h-6 text-stone-950 stroke-[2.5]" />
+            </div>
+            <div className="min-w-0">
+              <div className="flex items-center gap-1 sm:gap-2">
+                <span className="text-base sm:text-xl font-extrabold tracking-tight text-white font-sans truncate">
+                  Clever<span className="text-emerald-400">Humanizer</span>
+                </span>
+                <span className="hidden xs:inline-block px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-extrabold tracking-wide uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full shrink-0">
+                  Free
+                </span>
+              </div>
+              <p className="text-[10px] sm:text-[11px] text-stone-400 hidden md:block truncate">
+                {t.nav.brandSubtitle}
+              </p>
+            </div>
+          </div>
+
+          {/* Desktop Navigation Links (hidden on small mobile screens to prevent overflow) */}
+          <div className="hidden md:flex items-center gap-1">
+            <button
+              id="nav-tab-humanizer"
+              onClick={() => setActivePage("humanizer")}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                activePage === "humanizer"
+                  ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
+                  : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+              }`}
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>{t.nav.humanizerTab}</span>
+            </button>
+
+            <button
+              id="nav-tab-detector"
+              onClick={() => setActivePage("detector")}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                activePage === "detector"
+                  ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
+                  : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+              }`}
+            >
+              <Search className="w-4 h-4" />
+              <span>{t.nav.detectorTab}</span>
+            </button>
+
+            <button
+              id="nav-tab-media"
+              onClick={() => setActivePage("media")}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                activePage === "media"
+                  ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
+                  : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+              }`}
+            >
+              <Video className="w-4 h-4 text-emerald-400" />
+              <span>{t.nav.mediaTab}</span>
+            </button>
+
+            <button
+              id="nav-tab-blog"
+              onClick={() => setActivePage("blog")}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                activePage === "blog"
+                  ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
+                  : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+              }`}
+            >
+              <Tag className="w-4 h-4" />
+              <span>{t.nav.blogTab}</span>
+            </button>
+
+            {/* Academic & SEO More Tools Dropdown */}
+            <div className="relative">
+              <button
+                id="nav-tab-more-tools"
+                onClick={() => setIsToolsDropdownOpen(!isToolsDropdownOpen)}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                  ["citation", "expander", "cleaner", "diff", "seo"].includes(activePage)
+                    ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
+                    : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+                }`}
+              >
+                <span>More Tools</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isToolsDropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {isToolsDropdownOpen && (
+                <div
+                  className="absolute left-0 mt-2 w-64 bg-stone-900 border border-stone-800 rounded-2xl shadow-2xl p-2 space-y-1 z-50 animate-in fade-in slide-in-from-top-2"
+                  onMouseLeave={() => setIsToolsDropdownOpen(false)}
+                >
+                  <button
+                    onClick={() => {
+                      setActivePage("citation");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "citation" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                    }`}
+                  >
+                    <BookMarked className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <div>
+                      <div className="font-bold">Citation Generator</div>
+                      <div className="text-[10px] text-stone-400">APA 7, MLA 9, Chicago</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("expander");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "expander" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                    }`}
+                  >
+                    <Maximize2 className="w-4 h-4 text-violet-400 shrink-0" />
+                    <div>
+                      <div className="font-bold">Sentence Expander</div>
+                      <div className="text-[10px] text-stone-400">Scholarly Depth & Burstiness</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("cleaner");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "cleaner" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                    }`}
+                  >
+                    <AlertOctagon className="w-4 h-4 text-rose-400 shrink-0" />
+                    <div>
+                      <div className="font-bold">AI Cliché Purger</div>
+                      <div className="text-[10px] text-stone-400">Strip Hallmark AI Words</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("diff");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "diff" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                    }`}
+                  >
+                    <GitCompare className="w-4 h-4 text-blue-400 shrink-0" />
+                    <div>
+                      <div className="font-bold">Similarity Diff Checker</div>
+                      <div className="text-[10px] text-stone-400">Turnitin Match Predictor</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("seo");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "seo" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                    }`}
+                  >
+                    <TrendingUp className="w-4 h-4 text-amber-400 shrink-0" />
+                    <div>
+                      <div className="font-bold">High-RPM SEO Optimizer</div>
+                      <div className="text-[10px] text-stone-400">Viral Tags & Keywords</div>
+                    </div>
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right Action Icons: Install App, History, 2026 Blueprint, Language */}
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+            {/* Prominent High-Converting "Install App / Download App" Button */}
+            {onOpenInstall && (
+              <button
+                id="nav-btn-install"
+                onClick={onOpenInstall}
+                className="flex items-center gap-1 px-2 py-1.5 sm:px-3 sm:py-2 rounded-xl text-xs font-extrabold bg-gradient-to-r from-emerald-500 to-teal-400 text-stone-950 shadow-md shadow-emerald-500/20 hover:brightness-110 active:scale-95 transition-all cursor-pointer shrink-0"
+                title="Install Clever Humanizer WebApp on iPhone or Android"
+              >
+                <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
+                <span className="hidden xs:inline">{t.nav.installBtn}</span>
+              </button>
+            )}
+
+            {/* Revision History Drawer Button */}
+            {onOpenHistory && (
+              <button
+                id="nav-btn-history"
+                onClick={onOpenHistory}
+                className="flex items-center gap-1 px-2 py-1.5 sm:px-2.5 sm:py-2 rounded-xl text-xs font-semibold text-stone-300 hover:text-white hover:bg-stone-800/80 transition-all border border-stone-800 shrink-0"
+                title="View Saved Drafts & History"
+              >
+                <Clock className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="hidden sm:inline">{t.nav.historyBtn}</span>
+                {draftsCount > 0 && (
+                  <span className="px-1.5 py-0.2 bg-emerald-500 text-stone-950 text-[10px] font-bold rounded-full font-mono">
+                    {draftsCount}
+                  </span>
+                )}
+              </button>
+            )}
+
+            {/* Strategic 2026 Blueprint Button (hidden on mobile screens) */}
+            <button
+              id="nav-btn-blueprint"
+              onClick={onOpenBlueprint}
+              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 sm:py-2 rounded-xl text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30 hover:bg-amber-500/25 transition-all shrink-0"
+              title="View 2026 Real-Time Market Strategy & Competitor Clone Analysis"
+            >
+              <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+              <span>{t.nav.blueprintBtn}</span>
+            </button>
+
+            {/* Language Selector */}
+            <div className="relative flex items-center shrink-0">
+              <div className="flex items-center gap-1 px-1.5 py-1.5 sm:px-2 sm:py-2 bg-stone-800/80 hover:bg-stone-800 border border-stone-700/60 rounded-xl text-xs font-semibold text-stone-200 cursor-pointer">
+                <Globe className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <select
+                  id="nav-language-select"
+                  value={selectedLanguage}
+                  onChange={(e) => onLanguageChange(e.target.value as LanguageCode)}
+                  className="bg-transparent text-stone-200 outline-none cursor-pointer text-xs font-semibold pr-0.5 max-w-[55px] xs:max-w-[75px] sm:max-w-none"
+                  aria-label="Select Language"
+                >
+                  {SUPPORTED_LANGUAGES.map((lang) => (
+                    <option key={lang.code} value={lang.code} className="bg-stone-900 text-stone-100">
+                      {lang.flag} {lang.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
