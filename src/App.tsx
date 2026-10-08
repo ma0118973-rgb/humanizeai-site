@@ -43,6 +43,9 @@ const DiffCheckerWorkspace = lazy(() =>
 const SummarizerWorkspace = lazy(() =>
   import("./components/SummarizerWorkspace").then((m) => ({ default: m.SummarizerWorkspace }))
 );
+const VoiceTypingWorkspace = lazy(() =>
+  import("./components/VoiceTypingWorkspace").then((m) => ({ default: m.VoiceTypingWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -136,6 +139,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "text-summarizer" || primarySlug === "summarizer" || primarySlug === "ai-text-summarizer") {
     return { page: "summarizer", lang, blogSlug: null };
+  }
+  if (primarySlug === "voice-typing" || primarySlug === "speech-to-text" || primarySlug === "voice-to-text") {
+    return { page: "voiceTyping", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -372,6 +378,7 @@ export default function App() {
     activePage === "cleaner" ||
     activePage === "diff" ||
     activePage === "summarizer" ||
+    activePage === "voiceTyping" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
 
@@ -511,6 +518,20 @@ export default function App() {
         {activePage === "summarizer" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <SummarizerWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "voiceTyping" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <VoiceTypingWorkspace
+              selectedLanguage={selectedLanguage}
+              onSendToHumanizer={handleSendToHumanizer}
+            />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

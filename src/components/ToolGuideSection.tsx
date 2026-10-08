@@ -11,6 +11,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   citation: "citation-generator-urdu-guide",
   expander: "sentence-expander-urdu-guide",
   summarizer: "text-summarizer-urdu-guide",
+  voiceTyping: "voice-typing-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
   pdfTools: "pdf-tools-urdu-guide",
   media: "video-tools-urdu-guide",

@@ -63,6 +63,7 @@ const ROUTES = [
   ["citation", "/citation-generator/"],
   ["expander", "/sentence-expander/"],
   ["summarizer", "/text-summarizer/"],
+  ["voiceTyping", "/voice-typing/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -105,6 +106,7 @@ function pageMeta(page, lang, blogPost) {
     case "citation": return [seo.citationTitle || fb.citationTitle, seo.citationDesc || fb.citationDesc];
     case "expander": return [seo.expanderTitle || fb.expanderTitle, seo.expanderDesc || fb.expanderDesc];
     case "summarizer": return [seo.summarizerTitle || fb.summarizerTitle, seo.summarizerDesc || fb.summarizerDesc];
+    case "voiceTyping": return [seo.voiceTypingTitle || fb.voiceTypingTitle, seo.voiceTypingDesc || fb.voiceTypingDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -156,7 +158,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -220,6 +222,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "What's the difference between Brief, Balanced, and Detailed summaries?",
           acceptedAnswer: { "@type": "Answer", text: "Brief keeps ~25% of sentences for a quick overview. Balanced keeps ~40% for a solid summary. Detailed keeps ~60% for comprehensive coverage while still saving reading time." },
+        },
+      ],
+    });
+  }
+  if (page === "voiceTyping") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to turn speech into text in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Pick your language and allow the microphone", text: "Choose the language you will speak, then press Start Speaking and allow microphone access when the browser asks." },
+        { "@type": "HowToStep", position: 2, name: "Speak naturally", text: "Talk at a normal pace in a quiet place. Say punctuation out loud, like full stop or comma, and keep sentences short." },
+        { "@type": "HowToStep", position: 3, name: "Review, copy or polish", text: "Proofread the transcript, then copy it, download it as a text file, or send it to the humanizer to polish the writing." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this voice typing tool free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free to use with no sign-up and no install. It runs in your browser using the browser's built-in speech recognition." },
+        },
+        {
+          "@type": "Question",
+          name: "Which browsers support voice typing?",
+          acceptedAnswer: { "@type": "Answer", text: "Google Chrome and Microsoft Edge work best because they include speech recognition. Some other browsers do not support it yet; the tool tells you honestly when that is the case." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my voice recorded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "This website does not receive or store your audio. In Chrome and Edge, the browser maker's speech service converts your voice to text, and the text stays in your browser tab." },
+        },
+        {
+          "@type": "Question",
+          name: "How accurate is voice typing?",
+          acceptedAnswer: { "@type": "Answer", text: "Accuracy is usually good in a quiet room at a natural speaking pace, but background noise, very fast speech and strong accents can cause mistakes. Always proofread the result before using it." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I dictate in Urdu and other languages?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. You can pick from 13 dictation languages, including Urdu, English, Hindi, Arabic, Spanish, German, French, Turkish, Portuguese, Japanese, Italian, Dutch and Norwegian." },
         },
       ],
     });

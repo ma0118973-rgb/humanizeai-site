@@ -68,6 +68,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "AI Text Summarizer",
   },
+  voiceTyping: {
+    title: "Free Voice Typing – Speech to Text Online, No Sign-Up",
+    description: "Free voice typing tool. Speak and watch your words become text in 11+ languages, right in your browser. No app, no sign-up.",
+    canonicalPath: "/voice-typing/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Voice Typing – Speech to Text",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -212,6 +220,9 @@ export function applyPageSeo(
   } else if (page === "diff") {
     title = (t.seo as any).diffTitle || baseConfig.title;
     description = (t.seo as any).diffDesc || baseConfig.description;
+  } else if (page === "voiceTyping") {
+    title = (t.seo as any).voiceTypingTitle || baseConfig.title;
+    description = (t.seo as any).voiceTypingDesc || baseConfig.description;
   } else if (page === "blog") {
     if (blogPost) {
       title = `${blogPost.title} – ${t.nav.humanizerTab}`;

@@ -60,6 +60,7 @@ export type ActivePage =
   | "citation"
   | "expander"
   | "summarizer"
+  | "voiceTyping"
   | "imageCompressor"
   | "pdfTools"
   | "cleaner"
