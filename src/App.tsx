@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense, useCallback } from "react";
 import { Navbar } from "./components/Navbar";
 import { MobileAppBanner } from "./components/MobileAppBanner";
-import { MobileBottomNav } from "./components/MobileBottomNav";
+import { MobileToolStrip } from "./components/MobileToolStrip";
 import { PWAInstallModal } from "./components/PWAInstallModal";
 import { OtherToolsSection } from "./components/OtherToolsSection";
 import { MobileToolHero } from "./components/MobileToolHero";
@@ -377,7 +377,7 @@ export default function App() {
 
   return (
     <DiagnosticBoundary>
-    <div className="min-h-screen bg-gradient-to-b from-amber-50/60 via-white to-yellow-50/40 text-stone-900 flex flex-col font-sans selection:bg-amber-100 selection:text-amber-900 pb-20 md:pb-0 w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50/60 via-white to-yellow-50/40 text-stone-900 flex flex-col font-sans selection:bg-amber-100 selection:text-amber-900 w-full max-w-full overflow-x-hidden">
       {/* Mobile App Install Smart Banner (Top 1-Tap Trigger) */}
       <MobileAppBanner onOpenInstall={() => setIsInstallOpen(true)} />
 
@@ -392,6 +392,9 @@ export default function App() {
         onOpenHistory={() => setIsHistoryOpen(true)}
         onOpenInstall={() => setIsInstallOpen(true)}
       />
+
+      {/* Mobile Tool Strip: all 11 tools, horizontal scroll (replaces bottom dock) */}
+      <MobileToolStrip activePage={activePage} onSelectPage={handlePageChange} />
 
       {/* Main Content Area: Active Tool Appears Directly At Top */}
       <main id="active-tool-workspace" className="flex-1 scroll-mt-6 w-full max-w-full overflow-x-hidden min-w-0">
@@ -619,12 +622,6 @@ export default function App() {
         onClose={() => setIsInstallOpen(false)}
       />
 
-      {/* Mobile Bottom Navigation Dock (100% WebApp Experience) */}
-      <MobileBottomNav
-        activePage={activePage}
-        onSelectPage={handlePageChange}
-        onOpenInstall={() => setIsInstallOpen(true)}
-      />
     </div>
     </DiagnosticBoundary>
   );

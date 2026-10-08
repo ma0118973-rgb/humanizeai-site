@@ -33,7 +33,7 @@ export function MobileAppBanner({ onOpenInstall }: MobileAppBannerProps) {
   };
 
   return (
-    <div className="bg-gradient-to-r from-white via-emerald-950 to-white text-white border-b border-emerald-500/30 px-3 py-2 sm:py-2.5 text-xs">
+    <div className="bg-gradient-to-r from-emerald-50 via-white to-emerald-50 text-stone-900 border-b border-emerald-200 px-3 py-1.5 text-xs">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
         <div className="flex items-center gap-2.5 min-w-0">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shrink-0 shadow-sm shadow-emerald-500/30 text-stone-950 font-bold">
@@ -41,15 +41,15 @@ export function MobileAppBanner({ onOpenInstall }: MobileAppBannerProps) {
           </div>
           <div className="truncate">
             <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="font-extrabold text-white text-xs">
+              <span className="font-extrabold text-stone-900 text-xs">
                 Install WebApp on {isIOS ? "iPhone / iPad" : "Android / Mobile"}
               </span>
-              <span className="hidden xs:inline px-1.5 py-0.2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded text-[10px] font-bold">
+              <span className="hidden xs:inline px-1.5 py-0.2 bg-emerald-100 text-emerald-700 border border-emerald-300 rounded text-[10px] font-bold">
                 100% Free
               </span>
             </div>
             <p className="text-[11px] text-stone-600 truncate">
-              Fast 1-tap home screen access • Zero ads • Works offline
+              Fast 1-tap home screen access • Works offline
             </p>
           </div>
         </div>
