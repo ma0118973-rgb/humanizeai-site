@@ -17,6 +17,7 @@ import {
   GitCompare,
   TrendingUp,
   Mic,
+  Briefcase,
 } from "lucide-react";
 import { ActivePage, LanguageCode } from "../types";
 import { SUPPORTED_LANGUAGES, TRANSLATIONS } from "../data/translations";
@@ -132,7 +133,7 @@ export function Navbar({
                 id="nav-tab-more-tools"
                 onClick={() => setIsToolsDropdownOpen(!isToolsDropdownOpen)}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "voiceTyping", "imageCompressor", "pdfTools"].includes(activePage)
+                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "voiceTyping", "cvBuilder", "imageCompressor", "pdfTools"].includes(activePage)
                     ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold shadow-md shadow-emerald-500/20"
                     : "text-stone-600 hover:text-amber-700 hover:bg-amber-100/60"
                 }`}
@@ -255,6 +256,22 @@ export function Navbar({
                     <div>
                       <div className="font-bold">Voice Typing</div>
                       <div className="text-[10px] text-stone-400">Speak & Get Text</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("cvBuilder");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "cvBuilder" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
+                    }`}
+                  >
+                    <Briefcase className="w-4 h-4 text-indigo-500 shrink-0" />
+                    <div>
+                      <div className="font-bold">CV Builder</div>
+                      <div className="text-[10px] text-stone-400">Resume in Minutes</div>
                     </div>
                   </button>
 

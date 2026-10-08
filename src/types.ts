@@ -61,6 +61,7 @@ export type ActivePage =
   | "expander"
   | "summarizer"
   | "voiceTyping"
+  | "cvBuilder"
   | "imageCompressor"
   | "pdfTools"
   | "cleaner"

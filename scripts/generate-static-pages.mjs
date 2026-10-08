@@ -64,6 +64,7 @@ const ROUTES = [
   ["expander", "/sentence-expander/"],
   ["summarizer", "/text-summarizer/"],
   ["voiceTyping", "/voice-typing/"],
+  ["cvBuilder", "/cv-builder/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -107,6 +108,7 @@ function pageMeta(page, lang, blogPost) {
     case "expander": return [seo.expanderTitle || fb.expanderTitle, seo.expanderDesc || fb.expanderDesc];
     case "summarizer": return [seo.summarizerTitle || fb.summarizerTitle, seo.summarizerDesc || fb.summarizerDesc];
     case "voiceTyping": return [seo.voiceTypingTitle || fb.voiceTypingTitle, seo.voiceTypingDesc || fb.voiceTypingDesc];
+    case "cvBuilder": return [seo.cvBuilderTitle || fb.cvBuilderTitle, seo.cvBuilderDesc || fb.cvBuilderDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -158,7 +160,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -268,6 +270,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Can I dictate in Urdu and other languages?",
           acceptedAnswer: { "@type": "Answer", text: "Yes. You can pick from 13 dictation languages, including Urdu, English, Hindi, Arabic, Spanish, German, French, Turkish, Portuguese, Japanese, Italian, Dutch and Norwegian." },
+        },
+      ],
+    });
+  }
+  if (page === "cvBuilder") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to make a CV in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Fill in your details", text: "Add your name, contact details, a short professional summary, your jobs, education, skills, and languages." },
+        { "@type": "HowToStep", position: 2, name: "Choose a template and check the preview", text: "Pick a modern or classic layout, adjust the accent color, and watch the CV update live as you type." },
+        { "@type": "HowToStep", position: 3, name: "Print or save as PDF", text: "Press Print / Save as PDF. Only the CV prints, ready to send with your job application." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this CV builder free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Fill the form, preview your CV, and print it or save it as a PDF." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my CV data uploaded anywhere?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Everything runs in your browser and your entries are saved only on your own device, so you can continue editing later. We never receive or store your CV data." },
+        },
+        {
+          "@type": "Question",
+          name: "Will this CV pass applicant tracking systems (ATS)?",
+          acceptedAnswer: { "@type": "Answer", text: "The clean, simple layouts with standard headings are the kind applicant tracking systems read most reliably. No builder can guarantee selection, but honest keywords from the job ad and a simple format give your CV its best reading." },
+        },
+        {
+          "@type": "Question",
+          name: "Should I add a photo to my CV?",
+          acceptedAnswer: { "@type": "Answer", text: "It depends on the country and the job. Photos are common in much of Europe and parts of Asia, and usually left out in the US and UK. The photo here is optional — add one only if it is normal for the job you want." },
+        },
+        {
+          "@type": "Question",
+          name: "Can the builder write my experience for me?",
+          acceptedAnswer: { "@type": "Answer", text: "No — and it should not. The builder handles layout and formatting; your experience and words must be your own. Invented experience on a CV is dishonest and usually falls apart in the interview." },
         },
       ],
     });

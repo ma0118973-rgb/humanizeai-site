@@ -76,6 +76,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Voice Typing – Speech to Text",
   },
+  cvBuilder: {
+    title: "Free CV Builder – Make a Professional Resume Online",
+    description: "Free CV builder. Fill in your details, see your CV live, then print or save it as PDF. Your data never leaves your device. No sign-up.",
+    canonicalPath: "/cv-builder/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "CV Builder – Resume Maker",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -220,6 +228,9 @@ export function applyPageSeo(
   } else if (page === "diff") {
     title = (t.seo as any).diffTitle || baseConfig.title;
     description = (t.seo as any).diffDesc || baseConfig.description;
+  } else if (page === "cvBuilder") {
+    title = (t.seo as any).cvBuilderTitle || baseConfig.title;
+    description = (t.seo as any).cvBuilderDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

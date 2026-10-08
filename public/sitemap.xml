@@ -163,6 +163,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
   </url>
   <url>
+    <loc>/en/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
+  </url>
+  <url>
     <loc>/en/image-compressor/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -439,6 +457,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/en/blog/cv-builder-guide-free-resume/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/es/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -599,6 +623,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="/nl/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="it" href="/it/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
+  </url>
+  <url>
+    <loc>/es/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
   </url>
   <url>
     <loc>/es/image-compressor/</loc>
@@ -847,6 +889,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/es/blog/crear-curriculum-guia/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/ur/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1007,6 +1055,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="/nl/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="it" href="/it/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
+  </url>
+  <url>
+    <loc>/ur/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
   </url>
   <url>
     <loc>/ur/image-compressor/</loc>
@@ -1255,6 +1321,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/ur/blog/cv-builder-urdu-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/de/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1415,6 +1487,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="/nl/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="it" href="/it/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
+  </url>
+  <url>
+    <loc>/de/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
   </url>
   <url>
     <loc>/de/image-compressor/</loc>
@@ -1657,6 +1747,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/de/blog/lebenslauf-erstellen-anleitung/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/fr/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1817,6 +1913,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="/nl/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="it" href="/it/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
+  </url>
+  <url>
+    <loc>/fr/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
   </url>
   <url>
     <loc>/fr/image-compressor/</loc>
@@ -2059,6 +2173,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/fr/blog/creer-cv-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/pt/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -2219,6 +2339,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="/nl/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="it" href="/it/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
+  </url>
+  <url>
+    <loc>/pt/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
   </url>
   <url>
     <loc>/pt/image-compressor/</loc>
@@ -2455,6 +2593,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/pt/blog/digitacao-por-voz-guia/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/pt/blog/criar-curriculo-guia/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/tr/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -2615,6 +2765,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="/nl/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="it" href="/it/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
+  </url>
+  <url>
+    <loc>/tr/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
   </url>
   <url>
     <loc>/tr/image-compressor/</loc>
@@ -2857,6 +3025,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/tr/blog/cv-olusturma-rehberi/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/ja/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -3017,6 +3191,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="/nl/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="it" href="/it/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
+  </url>
+  <url>
+    <loc>/ja/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
   </url>
   <url>
     <loc>/ja/image-compressor/</loc>
@@ -3253,6 +3445,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/ja/blog/onsei-nyuryoku-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ja/blog/rirekisho-sakusei-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/no/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -3413,6 +3617,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="/nl/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="it" href="/it/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
+  </url>
+  <url>
+    <loc>/no/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
   </url>
   <url>
     <loc>/no/image-compressor/</loc>
@@ -3649,6 +3871,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/no/blog/stemmeskriving-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/nl/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -3809,6 +4037,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="/nl/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="it" href="/it/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
+  </url>
+  <url>
+    <loc>/nl/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
   </url>
   <url>
     <loc>/nl/image-compressor/</loc>
@@ -4045,6 +4291,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/nl/blog/spraaktypen-gids/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/nl/blog/cv-maken-gids/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/it/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -4205,6 +4463,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="/nl/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="it" href="/it/voice-typing/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="/en/voice-typing/" />
+  </url>
+  <url>
+    <loc>/it/cv-builder/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="es" href="/es/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="/ur/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="/de/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="/fr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="/tr/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="/ja/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="no" href="/no/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="/nl/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="it" href="/it/cv-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/en/cv-builder/" />
   </url>
   <url>
     <loc>/it/image-compressor/</loc>
@@ -4436,6 +4712,18 @@
   </url>
   <url>
     <loc>/it/blog/umanizzatore-testo-guida-italiano/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/it/blog/dettatura-vocale-guida/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/it/blog/creare-cv-guida/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

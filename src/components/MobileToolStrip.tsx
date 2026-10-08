@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Sparkles, Search, Video, TrendingUp, BookMarked, Maximize2,
-  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic,
+  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase,
 } from "lucide-react";
 import { ActivePage } from "../types";
 
@@ -17,6 +17,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "expander", label: "Expander", icon: Maximize2 },
   { id: "summarizer", label: "Summarizer", icon: Scissors },
   { id: "voiceTyping", label: "Voice Typing", icon: Mic },
+  { id: "cvBuilder", label: "CV Builder", icon: Briefcase },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },
   { id: "media", label: "Video", icon: Video },

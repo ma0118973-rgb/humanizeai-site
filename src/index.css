@@ -69,3 +69,28 @@ html, body {
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
 }
+
+/* CV Builder: when printing, show only the CV document */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #cv-print-area,
+  #cv-print-area * {
+    visibility: visible;
+  }
+  #cv-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+}
