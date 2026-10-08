@@ -1,7 +1,7 @@
 import { LanguageCode } from "../types";
 
 export interface TranslationDict {
-  nav: {
+  nav?: {
     brandSubtitle: string;
     humanizerTab: string;
     detectorTab: string;
@@ -11,17 +11,17 @@ export interface TranslationDict {
     historyBtn: string;
     blueprintBtn: string;
   };
-  seo: {
-    humanizerTitle: string;
-    humanizerDesc: string;
-    detectorTitle: string;
-    detectorDesc: string;
-    mediaTitle: string;
-    mediaDesc: string;
-    seoTitle: string;
-    seoDesc: string;
-    blogTitle: string;
-    blogDesc: string;
+  seo?: {
+    humanizerTitle?: string;
+    humanizerDesc?: string;
+    detectorTitle?: string;
+    detectorDesc?: string;
+    mediaTitle?: string;
+    mediaDesc?: string;
+    seoTitle?: string;
+    seoDesc?: string;
+    blogTitle?: string;
+    blogDesc?: string;
     citationTitle?: string;
     citationDesc?: string;
     expanderTitle?: string;
@@ -30,8 +30,14 @@ export interface TranslationDict {
     cleanerDesc?: string;
     diffTitle?: string;
     diffDesc?: string;
+    summarizerTitle?: string;
+    summarizerDesc?: string;
+    imageCompressorTitle?: string;
+    imageCompressorDesc?: string;
+    pdfToolsTitle?: string;
+    pdfToolsDesc?: string;
   };
-  humanizer: {
+  humanizer?: {
     badge: string;
     heroTitle: string;
     heroSubtitle: string;
@@ -46,7 +52,39 @@ export interface TranslationDict {
     wordCountLabel: string;
     stages: { title: string; desc: string }[];
   };
-  detector: {
+  summarizer?: {
+    badge: string;
+    title: string;
+    brief: string;
+    balanced: string;
+    detailed: string;
+  };
+  pdfTools?: {
+    badge?: string;
+    title?: string;
+  };
+  imageCompressor?: {
+    badge?: string;
+    title?: string;
+    subtitle?: string;
+    dropTitle?: string;
+    dropSubtitle?: string;
+    qualityLabel?: string;
+    formatLabel?: string;
+    download?: string;
+    processing?: string;
+    original?: string;
+    compressed?: string;
+    saved?: string;
+    smaller?: string;
+    better?: string;
+    private?: string;
+    instant?: string;
+    free?: string;
+    quickAnswerTitle?: string;
+    quickAnswer?: string;
+  };
+  detector?: {
     badge: string;
     heroTitle: string;
     heroSubtitle: string;
@@ -59,7 +97,7 @@ export interface TranslationDict {
     legendAi: string;
     sendToHumanizerBtn: string;
   };
-  media: {
+  media?: {
     badge: string;
     title: string;
     subtitle: string;
@@ -67,7 +105,7 @@ export interface TranslationDict {
     tabVideo: string;
     tabImage: string;
   };
-  seoTool: {
+  seoTool?: {
     badge: string;
     title: string;
     subtitle: string;
@@ -75,7 +113,7 @@ export interface TranslationDict {
     topicPlaceholder: string;
     generateBtn: string;
   };
-  otherTools: {
+  otherTools?: {
     badge: string;
     title: string;
     subtitle: string;
@@ -98,12 +136,15 @@ export const SUPPORTED_LANGUAGES: {
 }[] = [
   { code: "en", label: "English", flag: "🇺🇸", region: "US, UK, CA, AU" },
   { code: "es", label: "Español", flag: "🇪🇸", region: "España y Latinoamérica" },
-  { code: "ur", label: "اردو", flag: "🇵🇰", region: "پاکستان اور جنوبی ایشیا" },
+  { code: "ur", label: "Urdu", flag: "🇵🇰", region: "Pakistan aur Junubi Asia" },
   { code: "de", label: "Deutsch", flag: "🇩🇪", region: "Deutschland, Österreich, CH" },
   { code: "fr", label: "Français", flag: "🇫🇷", region: "France et Canada" },
   { code: "pt", label: "Português", flag: "🇧🇷", region: "Brasil e Portugal" },
   { code: "tr", label: "Türkçe", flag: "🇹🇷", region: "Türkiye ve Avrasya" },
   { code: "ja", label: "日本語", flag: "🇯🇵", region: "日本" },
+  { code: "no", label: "Norsk", flag: "🇳🇴", region: "Norge" },
+  { code: "nl", label: "Nederlands", flag: "🇳🇱", region: "Nederland en België" },
+  { code: "it", label: "Italiano", flag: "🇮🇹", region: "Italia" },
 ];
 
 export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
@@ -122,6 +163,10 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       blueprintBtn: "Blueprint",
     },
     seo: {
+      pdfToolsTitle: "Free PDF Tools Online – Merge PDF & Images to PDF (2026)",
+      pdfToolsDesc: "Free PDF tools. Merge multiple PDFs into one, or convert JPG/PNG images to PDF. 100% in-browser, no upload, no signup.",
+      imageCompressorTitle: "Free Image Compressor Online – Compress JPG, PNG, WebP (2026)",
+      imageCompressorDesc: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup. 100% private.",
       humanizerTitle: "Free AI Text Humanizer – Natural-Sounding AI Text (2026)",
       humanizerDesc: "Free AI Humanizer. Convert ChatGPT, Claude & Gemini text into natural, human-sounding writing with zero word limits.",
       detectorTitle: "Free AI Content Detector – No Sign-Up, Sentence Heatmap Scanner",
@@ -136,10 +181,27 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       citationDesc: "Generate APA 7th, MLA 9th, Chicago and Harvard citations instantly for academic essays and dissertations.",
       expanderTitle: "Free Sentence Expander – No Word Limit, Academic Depth Enhancer",
       expanderDesc: "Expand short sentences into scholarly paragraphs with causal reasoning, high perplexity, and natural burstiness. 100% free with no word limits.",
+      summarizerTitle: "Free AI Text Summarizer – Summarize Articles in Seconds (2026)",
+      summarizerDesc: "Free text summarizer. Paste long articles, papers & documents — get instant extractive summaries in 8 languages. No sign-up.",
       cleanerTitle: "AI Cliché & Buzzword Purger – De-AI Polish & Hallmark Remover",
       cleanerDesc: "Scan and strip dead-giveaway AI clichés ('delve', 'tapestry', 'testament') with 1-click organic human vocabulary replacements.",
       diffTitle: "Paraphrase Similarity & Text Diff Checker – Word Change Analysis",
       diffDesc: "Compare original AI draft vs rewritten human text side-by-side with color-coded word diff and % similarity score.",
+    },
+    pdfTools: {
+      badge: "PDF Tools",
+      title: "Merge PDF & Convert Images to PDF — Free",
+    },
+    imageCompressor: {
+      badge: "Image Compressor",
+      title: "Compress Images Online — Free, Private, Instant",
+    },
+    summarizer: {
+      badge: "AI Text Summarizer",
+      title: "Summarize Any Text in Seconds",
+      brief: "Brief",
+      balanced: "Balanced",
+      detailed: "Detailed",
     },
     humanizer: {
       badge: "⭐ 100% Free Forever • Zero Word Limits • No Sign-Up",
@@ -250,6 +312,10 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       blueprintBtn: "Estrategia",
     },
     seo: {
+      pdfToolsTitle: "Herramientas PDF Gratis Online – Unir PDF e Imágenes a PDF (2026)",
+      pdfToolsDesc: "Herramientas PDF gratuitas. Une varios PDF en uno o convierte imágenes JPG/PNG a PDF. 100% en el navegador, sin subir archivos.",
+      imageCompressorTitle: "Compresor de Imágenes Gratis Online – JPG, PNG, WebP (2026)",
+      imageCompressorDesc: "Compresor de imágenes gratuito. Comprime JPG, PNG y WebP en tu navegador. Sin subir, sin registro. 100% privado.",
       humanizerTitle: "Humanizar Texto IA Gratis Sin Registro – Escritura Natural (2026)",
       humanizerDesc: "Herramienta gratuita para humanizar textos de IA. Transforma ChatGPT en contenido humano más natural, sin límites.",
       detectorTitle: "Detector de IA Gratis para Textos en Español – Mapa de Calor",
@@ -264,10 +330,27 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       citationDesc: "Genera referencias bibliográficas en formato APA 7, MLA 9 y Chicago online gratis. Ideal para tesis universitarias y referencias correctas.",
       expanderTitle: "Expansor de Frases Académicas – Aumenta Perplejidad y Longitud",
       expanderDesc: "Expande frases cortas y notas en párrafos académicos rigurosos con alta perplejidad y variedad sintáctica. 100% gratis sin límite.",
+      summarizerTitle: "Resumidor de Texto IA Gratis – Resume Artículos en Segundos (2026)",
+      summarizerDesc: "Resumidor de texto gratuito. Pega artículos largos y obtén resúmenes instantáneos en 8 idiomas. Sin registro.",
       cleanerTitle: "Limpiador de Clichés y Palabras Típicas de IA – Pulido Humano",
       cleanerDesc: "Detecta y elimina palabras delatoras de ChatGPT ('crucial', 'tapiz', 'testimonio') sustituyéndolas por vocabulario humano natural.",
       diffTitle: "Comparador de Similitud y Diferencias de Texto – Análisis de Cambios",
       diffDesc: "Compara el borrador original de IA con el texto humanizado en tiempo real. Diferencias visuales palabra por palabra y porcentaje de similitud.",
+    },
+    pdfTools: {
+      badge: "Herramientas PDF",
+      title: "Unir PDF y Convertir Imágenes a PDF — Gratis",
+    },
+    imageCompressor: {
+      badge: "Compresor de Imágenes",
+      title: "Comprime Imágenes Online — Gratis, Privado, Instantáneo",
+    },
+    summarizer: {
+      badge: "Resumidor de Texto IA",
+      title: "Resume Cualquier Texto en Segundos",
+      brief: "Breve",
+      balanced: "Equilibrado",
+      detailed: "Detallado",
     },
     humanizer: {
       badge: "⭐ 100% Gratis Para Siempre • Sin Límite de Palabras • Sin Registro",
@@ -364,127 +447,148 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
   },
 
   // ==========================================
-  // URDU (اردو - Keywords: AI text ko insani banana, AI detection se bachne ke tareeqe, Turnitin bypass Urdu)
+  // URDU (Roman Urdu - Keywords: AI text ko insani banana, qudrati tehreer ke tareeqe)
   // ==========================================
   ur: {
     nav: {
-      brandSubtitle: "مصنوعی ذہانت کے ٹیکسٹ کو قدرتی انسانی انداز کی تحریر میں بدلیں",
-      humanizerTab: "اے آئی ہیومنائزر",
-      detectorTab: "اے آئی ڈیٹیکٹر",
-      mediaTab: "ریلز اسٹوڈیو",
-      blogTab: "رہنما گائیڈز",
-      installBtn: "ایپ انسٹال کریں",
-      historyBtn: "تاریخچہ",
-      blueprintBtn: "مارکیٹ بلیو پرنٹ",
+      brandSubtitle: "AI ke text ko qudrati insani andaz ki tehreer mein badlein",
+      humanizerTab: "AI Humanizer",
+      detectorTab: "AI Detector",
+      mediaTab: "Reels Studio",
+      blogTab: "Rehnuma Guides",
+      installBtn: "App Install Karein",
+      historyBtn: "History",
+      blueprintBtn: "Market Blueprint",
     },
     seo: {
-      humanizerTitle: "AI Text Ko Insani Banana – مفت قدرتی تحریر کا ٹول (2026)",
-      humanizerDesc: "100% مفت اردو اور انگلش AI ہیومنائزر۔ ChatGPT اور Gemini کی مشینی تحریر کو زیادہ قدرتی انسانی انداز کی تحریر میں تبدیل کریں۔",
-      detectorTitle: "مفت AI کنٹینٹ ڈیٹیکٹر – جملہ بہ جملہ رسک ہیٹ میپ اسکینر",
-      detectorDesc: "اپنے مضامین اور تحریروں کا ہمارے اپنے پیٹرن اینالائزر سے مفت تجزیہ کریں۔ ہر مشینی جملے کو رنگین ہیٹ میپ کے ساتھ پہچانیں۔ یہ ہمارا اپنا تخمینہ ہے، سرکاری نتیجہ نہیں۔",
-      mediaTitle: "اے آئی ویڈیو ریلز اور واٹر مارک ہٹانے کا اسٹوڈیو – شارٹس و ٹک ٹاک",
-      mediaDesc: "ویڈیوز سے واٹر مارک اور لوگو بالکل صاف کریں۔ ویڈیو کے فریم ریٹ اور آواز کو انسانی انداز دے کر یوٹیوب مونیٹائزیشن محفوظ بنائیں۔",
-      seoTitle: "ہائی آر پی ایم وائرل ایس ای او اور ہیش ٹیگ جنریٹر – گوگل رینکنگ #1",
-      seoDesc: "ہائی سی ٹی آر گوگل میٹا ٹائٹلز، ڈسکرپشنز اور یوٹیوب شارٹس کے وائرل ہیش ٹیگز مفت میں حاصل کریں بغیر کسی پیڈ ٹول کے۔",
-      blogTitle: "اے آئی ڈیٹیکشن اور ہیومنائزیشن گائیڈز (2026 ایڈیشن)",
-      blogDesc: "یونیورسٹی اسٹوڈنٹس اور بلاگرز کے لیے قدرتی تحریر، گوگل ہیلپ فل کنٹینٹ اور مشینی تحریر کو بہتر بنانے کے مکمل طریقے اور رہنما مضامین۔",
-      citationTitle: "مفت تعلیمی حوالہ جات جنریٹر – APA 7 اور MLA 9 فارمیٹر",
-      citationDesc: "تحقیقی مقالوں اور تھیسس کے لیے APA 7، MLA 9 اور شکاگو فارمیٹ میں مفت حوالہ جات اور کتابیات تیار کریں۔ ٹرنٹن سرقہ (Plagiarism) سے مکمل محفوظ۔",
-      expanderTitle: "اکیڈمک جملہ ایکسپینڈر – فقروں کی طوالت اور گہرائی میں اضافہ",
-      expanderDesc: "مختصر اور مشینی جملوں کو علمی اور جامع پیراگراف میں تبدیل کریں۔ جملوں کے تنوع اور روانی میں اضافہ۔",
-      cleanerTitle: "اے آئی کلے شے اور روایتی الفاظ کی صفائی – مشینی نقوش کا خاتمہ",
-      cleanerDesc: "مشینی الفاظ ('delve'، 'tapestry'، 'testament') کی فوری نشاندہی اور 1 کلک میں قدرتی انسانی متبادل الفاظ سے تبدیلی۔",
-      diffTitle: "ٹیکسٹ مشابہت اور فرق چیکر – ٹرنٹن رسک اسکور پریڈکٹر",
-      diffDesc: "اصل اور ہیومنائزڈ ٹیکسٹ کا آمنے سامنے جائزہ لیں۔ رنگین لفظ بہ لفظ فرق اور ٹرنٹن کی مشابہت کا فی صد اسکور چیک کریں۔",
+      pdfToolsTitle: "Free PDF Tools Online – PDF Merge Karen Aur Images Se PDF (2026)",
+      pdfToolsDesc: "Muft PDF tools. Kayi PDFs ko ek mein merge karen ya JPG/PNG images se PDF banayen. Browser mein, koi upload nahi.",
+      imageCompressorTitle: "Free Image Compressor Online – JPG, PNG Compress Karen (2026)",
+      imageCompressorDesc: "Muft image compressor. JPG, PNG aur WebP ko browser mein compress karen. Koi upload nahi, koi signup nahi.",
+      humanizerTitle: "AI Text Ko Insani Banana \u2013 Muft Qudrati Tehreer Ka Tool (2026)",
+      humanizerDesc: "100% muft Urdu aur English AI humanizer. ChatGPT aur Gemini ki machinei tehreer ko zyada qudrati insani andaz ki tehreer mein tabdeel karein.",
+      detectorTitle: "Muft AI Content Detector \u2013 Jumla Ba Jumla Risk Heatmap Scanner",
+      detectorDesc: "Apne mazameen aur tehreeron ka hamare apne pattern analyzer se muft tajziya karein. Har machinei jumle ko rangeen heatmap ke saath pehchanein. Ye hamara apna takhmeena hai, sarkari nateeja nahi.",
+      mediaTitle: "AI Video Reels Aur Watermark Hatane Ka Studio \u2013 Shorts o TikTok",
+      mediaDesc: "Videos se watermark aur logo saaf karein. Video ke frame rate aur awaz ko behtar bana kar YouTube Shorts ke liye tayyar karein.",
+      seoTitle: "High RPM Viral SEO Aur Hashtag Generator \u2013 Muft Meta Tags Tool (2026)",
+      seoDesc: "High CTR Google meta titles, descriptions aur YouTube Shorts ke viral hashtags muft mein hasil karein baghair kisi paid tool ke.",
+      blogTitle: "AI Detection Aur Humanization Guides (2026 Edition)",
+      blogDesc: "University students aur bloggers ke liye qudrati tehreer, Google helpful content aur machinei tehreer ko behtar banane ke mukammal tareeqe aur rehnuma mazameen.",
+      citationTitle: "Muft Taleemi Hawala Jaat Generator \u2013 APA 7 Aur MLA 9 Formatter",
+      citationDesc: "Tehqeeqi maqalon aur thesis ke liye APA 7, MLA 9 aur Chicago format mein muft hawala jaat aur kitabiyaat tayyar karein. Har hawale ko durust academic format mein likhein.",
+      expanderTitle: "Academic Jumla Expander \u2013 Fiqron Ki Tawalat Aur Gehraai Mein Izafa",
+      expanderDesc: "Mukhtasir aur machinei jumlon ko ilmi aur jamey paragraph mein tabdeel karein. Jumlon ke tanawwu aur rawani mein izafa.",
+      summarizerTitle: "Free AI Text Summarizer – Articles Ko Seconds Mein Summarize Karen (2026)",
+      summarizerDesc: "Muft text summarizer. Lambe articles paste karen — 8 languages mein fori summary payein. Koi sign-up nahi.",
+      cleanerTitle: "AI Cliche Aur Rawayati Alfaz Ki Safai \u2013 Machinei Naqoosh Ka Khatma",
+      cleanerDesc: "Machinei alfaz ('delve', 'tapestry', 'testament') ki fori nishandahi aur 1 click mein qudrati insani mutabadil alfaz se tabdeeli.",
+      diffTitle: "Text Mushabihat Aur Farq Checker \u2013 Similarity Risk Score",
+      diffDesc: "Asal aur humanized text ka aamne saamne jaiza lein. Rangeen lafz ba lafz farq aur mushabihat ka feesad score check karein.",
+    },
+    pdfTools: {
+      badge: "PDF Tools",
+      title: "PDF Merge Karen Aur Images Se PDF Banayen — Muft",
+    },
+    imageCompressor: {
+      badge: "Image Compressor",
+      title: "Images Ko Online Compress Karen — Muft, Private, Fori",
+    },
+    summarizer: {
+      badge: "AI Text Summarizer",
+      title: "Kisi Bhi Text Ko Seconds Mein Summarize Karen",
+      brief: "Mukhtasar",
+      balanced: "Mutawazin",
+      detailed: "Tafseeli",
     },
     humanizer: {
-      badge: "⭐ ہمیشہ کے لیے 100% مفت • بغیر کسی لفظ کی حد • بغیر لاگ ان",
-      heroTitle: "مشینی AI تحریر کو قدرتی انسانی انداز کی تحریر میں تبدیل کریں",
-      heroSubtitle: "غیر معمولی روانی، جملوں کے قدرتی تنوع اور بغیر کسی کریڈٹ کارڈ کے۔",
-      inputPlaceholder: "یہاں اپنا AI کا تیار کردہ ٹیکسٹ پیسٹ کریں (ChatGPT, Claude, Gemini, DeepSeek وغیرہ)...",
-      humanizeBtn: "ٹیکسٹ کو ابھی ہیومنائز کریں",
-      processingBtn: "انسانی لب و لہجہ اور روانی شامل کی جا رہی ہے...",
-      outputTitle: "ہیومنائزڈ نتیجہ اور براہِ راست صداقت کے میٹرکس",
-      outputEmpty: "قدرتی انسانی تحریر کے لیے 'ٹیکسٹ کو ابھی ہیومنائز کریں' پر کلک کریں۔",
+      badge: "\u2b50 Hamesha ke liye 100% muft \u2022 Baghair kisi lafz ki had \u2022 Baghair login",
+      heroTitle: "Machinei AI Tehreer Ko Qudrati Insani Andaz Ki Tehreer Mein Tabdeel Karein",
+      heroSubtitle: "Ghair mamooli rawani, jumlon ke qudrati tanawwu aur baghair kisi credit card ke.",
+      inputPlaceholder: "Yahan apna AI ka tayyar karda text paste karein (ChatGPT, Claude, Gemini, DeepSeek waghera)...",
+      humanizeBtn: "Text Ko Abhi Humanize Karein",
+      processingBtn: "Insani lehja aur rawani shamil ki ja rahi hai...",
+      outputTitle: "Humanized Nateeja Aur Barah-e-Rast Sadaqat Ke Metrics",
+      outputEmpty: "Qudrati insani tehreer ke liye 'Text Ko Abhi Humanize Karein' par click karein.",
       tones: {
-        conversational: "گفتگو کا روایتی انداز (Conversational)",
-        academic: "تعلیمی اور تحقیقی (رسمی انداز)",
-        professional: "پیشہ ورانہ اور دفتری (Professional)",
-        creative: "تخلیقی اور دلچسپ (Creative)",
-        balanced: "متوازن اور عام فہم (Balanced)",
+        conversational: "Guftagu ka rawayati andaz (Conversational)",
+        academic: "Taleemi aur tehqeeqi (rasmi andaz)",
+        professional: "Pesha warana aur daftari (Professional)",
+        creative: "Takhleeqi aur dilchasp (Creative)",
+        balanced: "Mutawazin aur aam fehm (Balanced)",
       },
       levels: {
-        standard: "معیاری بہتری (Standard)",
-        stealth: "اسٹیلتھ موڈ (ڈیٹیکٹرز سے مکمل بچاؤ)",
-        ultraStealth: "الٹرا اسٹیلتھ (زیادہ سے زیادہ تنوع)",
+        standard: "Mayari behtari (Standard)",
+        stealth: "Stealth Mode (Zyada Qudrati Tehreeri Andaz)",
+        ultraStealth: "Ultra Stealth (Zyada Se Zyada Tanawwu)",
       },
-      sampleSelectLabel: "یا تیار شدہ نمونہ تحریر منتخب کریں:",
-      wordCountLabel: "الفاظ",
+      sampleSelectLabel: "Ya tayyar shuda namuna tehreer muntakhib karein:",
+      wordCountLabel: "Alfaz",
       stages: [
-        { title: "جملوں کی ساخت کا تجزیہ", desc: "مشینی الفاظ کی تکرار اور غیر لچکدار فقروں کی جانچ..." },
-        { title: "روبوٹک انداز کا خاتمہ", desc: "جملوں کی لمبائی میں فطری انسانی اتار چڑھاؤ شامل کرنا..." },
-        { title: "مصنوعی الفاظ کی صفائی", desc: "مشینی لگے بندھے فقروں اور روایتی AI کلichés کی تطہیر..." },
-        { title: "حتمی جائزہ", desc: "روانی اور پڑھنے کی آسانی کی آخری جانچ..." },
+        { title: "Jumlon Ki Sakht Ka Tajziya", desc: "Machinei alfaz ki takrar aur ghair lachakdar fiqron ki jaanch..." },
+        { title: "Robotic Andaz Ka Khatma", desc: "Jumlon ki lambai mein fitri insani utar charhao shamil karna..." },
+        { title: "Masnoi Alfaz Ki Safai", desc: "Machinei lage bandhe fiqron aur rawayati AI cliches ki tatheer..." },
+        { title: "Hatmi Jaiza", desc: "Rawani aur parhne ki aasani ki aakhri jaanch..." },
       ],
     },
     detector: {
-      badge: "ملٹی ماڈل ادارہ جاتی AI اسکینر",
-      heroTitle: "مفت AI کنٹینٹ ڈیٹیکٹر اور رنگین جملہ بہ جملہ ہیٹ میپ",
-      heroSubtitle: "اپنے ڈاکومنٹ کا فوری اندازہ لگائیں۔ یہ ہمارا اپنا تخمینہ ہے، Turnitin یا کسی اور ڈیٹیکٹر کا سرکاری نتیجہ نہیں۔",
-      inputPlaceholder: "اپنا مضمون، ریسرچ پیپر یا بلاگ پوسٹ یہاں پیسٹ کریں تاکہ 4 مختلف AI ماڈلز پر اسکین کیا جا سکے...",
-      scanBtn: "AI کے لیے اسکین کریں (0% غلط فہمی کا خطرہ)",
-      scanningBtn: "4 نیورل ماڈلز پر اسکیننگ جاری ہے...",
-      samplesLabel: "فوری ٹیسٹ کے نمونے:",
-      legendHuman: "مکمل انسانی تحریر (سبز)",
-      legendMixed: "مشکوک جملہ (پیلا)",
-      legendAi: "مشینی AI تحریر (سرخ)",
-      sendToHumanizerBtn: "1 کلک میں حل: اس تحریر کو ابھی ہیومنائز کریں",
+      badge: "Tehreeri Pattern Check Karne Wala AI Scanner",
+      heroTitle: "Muft AI Content Detector Aur Rangeen Jumla Ba Jumla Heatmap",
+      heroSubtitle: "Apne document ka fori andaza lagayein. Ye hamara apna takhmeena hai, Turnitin ya kisi aur detector ka sarkari nateeja nahi.",
+      inputPlaceholder: "Apna mazmoon, research paper ya blog post yahan paste karein taake hamare pattern analyzer se scan kiya ja sake...",
+      scanBtn: "AI Ke Liye Scan Karein (Tehreeri Pattern Check)",
+      scanningBtn: "Scanning jari hai...",
+      samplesLabel: "Fori Test Ke Namune:",
+      legendHuman: "Mukammal Insani Tehreer (Sabz)",
+      legendMixed: "Mashkook Jumla (Peela)",
+      legendAi: "Machinei AI Tehreer (Surkh)",
+      sendToHumanizerBtn: "1 Click Mein Hal: Is Tehreer Ko Abhi Humanize Karein",
     },
     media: {
-      badge: "ویڈیو و میڈیا تخلیق کار اسٹوڈیو",
-      title: "AI ویڈیو ریلز اور واٹر مارک ہٹانے کا اسٹوڈیو",
-      subtitle: "ویڈیوز سے کونے کے واٹر مارک اور لوگو ہٹائیں، میٹا ڈیٹا صاف کریں اور یوٹیوب شارٹس کے لیے فریم ریٹ درست کریں۔",
-      tabSeo: "وائرل ویڈیو SEO اور ہک اسکرپٹ",
-      tabVideo: "ویڈیو واٹر مارک اور فریم ریٹ",
-      tabImage: "تصاویر سے C2PA میٹا ڈیٹا صفائی",
+      badge: "Video o Media Takhleeq Kar Studio",
+      title: "AI Video Reels Aur Watermark Hatane Ka Studio",
+      subtitle: "Videos se kone ke watermark aur logo hatayein, metadata saaf karein aur YouTube Shorts ke liye frame rate durust karein.",
+      tabSeo: "Viral Video SEO Aur Hook Script",
+      tabVideo: "Video Watermark Aur Frame Rate",
+      tabImage: "Tasaveer Se C2PA Metadata Safai",
     },
     seoTool: {
-      badge: "ہائی آر پی ایم گروتھ انجن",
-      title: "وائرل ایس ای او میٹا ٹیگز اور ٹرینڈنگ ہیش ٹیگ جنریٹر",
-      subtitle: "گوگل پر #1 رینک کرنے کے لیے ہائی سی ٹی آر میٹا ٹائٹلز، سرچ کی ورڈز اور ٹک ٹاک و شارٹس کے وائرل ہیش ٹیگز۔",
-      topicLabel: "موضوع، مضمون کا ڈرافٹ یا کی ورڈ نچ",
-      topicPlaceholder: "مثلاً: AI text ko insani banana aur Turnitin se bachna...",
-      generateBtn: "ہائی آر پی ایم SEO مواد حاصل کریں",
+      badge: "High RPM Growth Engine",
+      title: "Viral SEO Meta Tags Aur Trending Hashtag Generator",
+      subtitle: "High CTR meta titles, search keywords aur TikTok o Shorts ke viral hashtags banayein.",
+      topicLabel: "Mauzu, Mazmoon Ka Draft Ya Keyword Niche",
+      topicPlaceholder: "Misaal: AI text ko qudrati insani andaz mein likhna...",
+      generateBtn: "High RPM SEO Mawad Hasil Karein",
     },
     otherTools: {
-      badge: "کریئیٹرز کے لیے پاور سویٹ",
-      title: "ہمارے دیگر تیز ترین اور مفت ٹولز آزمائیں",
-      subtitle: "صرف ایک کلک پر ٹولز تبدیل کریں — انسانی تحریر، تصدیق اور یوٹیوب رینکنگ کے لیے تمام ضروری سہولیات۔",
-      launchBtn: "ٹول کھولیں",
+      badge: "Creators Ke Liye Power Suite",
+      title: "Hamare Deegar Tez Tareen Aur Muft Tools Aazmayein",
+      subtitle: "Sirf ek click par tools tabdeel karein \u2014 insani tehreer, tasdeeq aur YouTube ranking ke liye tamam zaroori sahuliyaat.",
+      launchBtn: "Tool Kholein",
       tools: {
         humanizer: {
-          title: "AI ٹیکسٹ ہیومنائزر",
-          subtitle: "مشینی تحریر کو قدرتی بنائیں",
-          desc: "ChatGPT اور دیگر ٹولز کے مشینی مواد کو قدرتی انسانی تحریر میں بدلیں۔ قدرتی انسانی روانی کے ساتھ۔",
-          bullets: ["Turnitin 3.0 اور GPTZero سے محفوظ", "5 مختلف انسانی تحریری انداز", "1 کلک میں Word اور TXT ڈاؤن لوڈ"],
+          title: "AI Text Humanizer",
+          subtitle: "Machinei Tehreer Ko Qudrati Banayein",
+          desc: "ChatGPT aur deegar tools ke machinei mawad ko qudrati insani tehreer mein badlein. Qudrati insani rawani ke saath.",
+          bullets: ["Qudrati insani tehreeri andaz", "5 mukhtalif insani tehreeri andaz", "1 click mein Word aur TXT download"],
         },
         detector: {
-          title: "انٹرپرائز AI ڈیٹیکٹر 4.0",
-          subtitle: "جملہ بہ جملہ رنگین ہیٹ میپ",
-          desc: "کسی بھی دستاویز کو ٹرنٹن اور کاپی لیکس کے ماڈل پر پرکھیں۔ روبوٹک جملے سرخ اور انسانی جملے سبز رنگ میں دیکھیں۔",
-          bullets: ["واضح سرخ اور سبز رنگین ہیٹ میپ", "یونیورسٹی لیول اسکیننگ ماڈل", "1 کلک میں ہیومنائزر کو بھیجیں"],
+          title: "AI Content Detector",
+          subtitle: "Jumla Ba Jumla Rangeen Heatmap",
+          desc: "Kisi bhi dastavez ko hamare tehreeri pattern analyzer par parkhein. Robotic jumle surkh aur insani jumle sabz rang mein dekhein.",
+          bullets: ["Wazeh surkh aur sabz rangeen heatmap", "Jumla ba jumla pattern tajziya", "1 click mein humanizer ko bhejein"],
         },
         media: {
-          title: "ویڈیو ریلز اور واٹر مارک اسٹوڈیو",
-          subtitle: "لوگو اور واٹر مارک ہٹانے کا ٹول",
-          desc: "ڈاؤن لوڈ کردہ ویڈیوز سے غیر ضروری واٹر مارک صاف کریں۔ یوٹیوب شارٹس اور ٹک ٹاک کے لیے بہترین۔",
-          bullets: ["کونے کے واٹر مارک کی صفائی", "فطری ویڈیو فریم ریٹ اور رفتار", "مونیٹائزیشن اور کاپی رائٹ سے محفوظ"],
+          title: "Video Reels Aur Watermark Studio",
+          subtitle: "Logo Aur Watermark Hatane Ka Tool",
+          desc: "Download karda videos se ghair zaroori watermark saaf karein. YouTube Shorts aur TikTok ke liye behtareen.",
+          bullets: ["Kone ke watermark ki safai", "Fitri video frame rate aur raftaar", "Monetization-friendly video tayyari"],
         },
         seo: {
-          title: "ہائی آر پی ایم SEO اور وائرل ہیش ٹیگز",
-          subtitle: "گوگل اور یوٹیوب پر پہلی پوزیشن حاصل کریں",
-          desc: "زیادہ آمدنی والے کی ورڈز، سرچ ٹیگز اور سوشل ہیش ٹیگز حاصل کریں تاکہ آپ کی ویب سائٹ کی ٹریفک اور آمدنی میں اضافہ ہو۔",
-          bullets: ["زیادہ سی پی سی والے کی ورڈز", "وائرل یوٹیوب اور ٹک ٹاک ٹیگز", "1 کلک میں فوری کاپی کریں"],
+          title: "High RPM SEO Aur Viral Hashtags",
+          subtitle: "Google Aur YouTube Par Behtar Dikhein",
+          desc: "Zyada aamdani wale keywords, search tags aur social hashtags hasil karein taake aap ki website ki traffic mein izafa ho.",
+          bullets: ["Zyada CPC wale keywords", "Viral YouTube aur TikTok tags", "1 click mein fori copy karein"],
         },
       },
     },
@@ -506,6 +610,10 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       blueprintBtn: "Blueprint",
     },
     seo: {
+      pdfToolsTitle: "Kostenlose PDF-Tools Online – PDF Zusammenführen & Bilder zu PDF (2026)",
+      pdfToolsDesc: "Kostenlose PDF-Tools. Mehrere PDFs zusammenführen oder JPG/PNG-Bilder in PDF umwandeln. 100% im Browser, kein Upload.",
+      imageCompressorTitle: "Kostenloser Bildkompressor Online – JPG, PNG, WebP (2026)",
+      imageCompressorDesc: "Kostenloser Bildkompressor. JPG, PNG & WebP direkt im Browser komprimieren. Kein Upload, keine Anmeldung. 100% privat.",
       humanizerTitle: "KI Text Umschreiben Kostenlos Ohne Anmeldung – Natürlicher Stil (2026)",
       humanizerDesc: "100% kostenloser KI-Humanizer. ChatGPT-Texte in natürliche menschliche Sprache umwandeln – ganz ohne Wortbegrenzung.",
       detectorTitle: "KI Detektor für Deutsche Texte Kostenlos – Sätze Farbig Markiert",
@@ -520,8 +628,25 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       citationDesc: "Kostenlose Zitationen in APA, MLA und Chicago – ohne Anmeldung, direkt im Browser.",
       expanderTitle: "Kostenloser Satz-Expander – Texte Verlängern Ohne Wortlimit",
       expanderDesc: "Kurze Sätze zu ausführlichen Absätzen erweitern – kostenlos und ohne Wortlimit.",
+      summarizerTitle: "Kostenloser KI-Text-Zusammenfasser – Artikel in Sekunden (2026)",
+      summarizerDesc: "Kostenloser Text-Zusammenfasser. Lange Artikel einfügen — sofortige Zusammenfassungen in 8 Sprachen. Keine Anmeldung.",
       cleanerTitle: "KI-Klischee-Entferner – Floskeln Kostenlos Bereinigen",
       cleanerDesc: "KI-Floskeln und Buzzwords finden und durch natürliche Formulierungen ersetzen.",
+    },
+    pdfTools: {
+      badge: "PDF-Tools",
+      title: "PDF Zusammenführen & Bilder zu PDF — Kostenlos",
+    },
+    imageCompressor: {
+      badge: "Bildkompressor",
+      title: "Bilder Online Komprimieren — Kostenlos, Privat, Sofort",
+    },
+    summarizer: {
+      badge: "KI-Text-Zusammenfasser",
+      title: "Jeden Text in Sekunden Zusammenfassen",
+      brief: "Kurz",
+      balanced: "Ausgewogen",
+      detailed: "Ausführlich",
     },
     humanizer: {
       badge: "⭐ 100% Dauerhaft Kostenlos • Keine Wortlimits • Ohne Anmeldung",
@@ -632,6 +757,10 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       blueprintBtn: "Stratégie",
     },
     seo: {
+      pdfToolsTitle: "Outils PDF Gratuits en Ligne – Fusionner PDF et Images en PDF (2026)",
+      pdfToolsDesc: "Outils PDF gratuits. Fusionnez plusieurs PDF en un seul ou convertissez des images JPG/PNG en PDF. 100% dans le navigateur.",
+      imageCompressorTitle: "Compresseur d'Images Gratuit en Ligne – JPG, PNG, WebP (2026)",
+      imageCompressorDesc: "Compresseur d'images gratuit. Compressez JPG, PNG et WebP dans votre navigateur. Sans téléchargement, sans inscription.",
       humanizerTitle: "Humaniser Texte IA Gratuit Sans Inscription – Style Naturel (2026)",
       humanizerDesc: "Outil 100% gratuit pour humaniser les textes ChatGPT, Claude et Gemini. Rendez vos écrits plus naturels, sans aucune limite.",
       detectorTitle: "Détecteur IA Gratuit pour Textes en Français – Analyse Phrase par Phrase",
@@ -646,8 +775,25 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       citationDesc: "Citations gratuites en APA, MLA et Chicago – sans inscription, dans le navigateur.",
       expanderTitle: "Allongeur de Phrases Gratuit – Textes Plus Longs Sans Limite",
       expanderDesc: "Allongez vos phrases en paragraphes riches – gratuit et sans limite de mots.",
+      summarizerTitle: "Résumeur de Texte IA Gratuit – Résumez en Secondes (2026)",
+      summarizerDesc: "Résumeur de texte gratuit. Collez de longs articles — obtenez des résumés instantanés en 8 langues. Sans inscription.",
       cleanerTitle: "Nettoyeur de Clichés IA – Style Naturel Gratuit",
       cleanerDesc: "Détectez les clichés de l'IA et remplacez-les par un style naturel.",
+    },
+    pdfTools: {
+      badge: "Outils PDF",
+      title: "Fusionner PDF et Convertir Images en PDF — Gratuit",
+    },
+    imageCompressor: {
+      badge: "Compresseur d'Images",
+      title: "Compressez des Images en Ligne — Gratuit, Privé, Instantané",
+    },
+    summarizer: {
+      badge: "Résumeur de Texte IA",
+      title: "Résumez Tout Texte en Secondes",
+      brief: "Bref",
+      balanced: "Équilibré",
+      detailed: "Détaillé",
     },
     humanizer: {
       badge: "⭐ 100% Gratuit à Vie • Sans Limite de Mots • Sans Inscription",
@@ -758,6 +904,10 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       blueprintBtn: "Strateji",
     },
     seo: {
+      pdfToolsTitle: "Ücretsiz Çevrimiçi PDF Araçları – PDF Birleştirme (2026)",
+      pdfToolsDesc: "Ücretsiz PDF araçları. Birden fazla PDF'yi birleştirin veya JPG/PNG görselleri PDF'ye dönüştürün. %100 tarayıcıda.",
+      imageCompressorTitle: "Ücretsiz Çevrimiçi Görüntü Sıkıştırıcı – JPG, PNG, WebP (2026)",
+      imageCompressorDesc: "Ücretsiz görüntü sıkıştırıcı. JPG, PNG ve WebP'yi tarayıcınızda sıkıştırın. Yükleme yok, kayıt yok. %100 gizli.",
       humanizerTitle: "Yapay Zeka Metnini Doğallaştırma Ücretsiz – Doğal Yazım (2026)",
       humanizerDesc: "%100 Ücretsiz AI Metin İnsanlaştırıcı. ChatGPT ve Gemini yazılarını Turnitin ve GPTZero tarafından tespit edilemeyen doğal Türkçe metne dönüştürün.",
       detectorTitle: "Ücretsiz AI İçerik Dedektörü – Cümle Bazlı Isı Haritası",
@@ -772,8 +922,25 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       citationDesc: "APA, MLA ve Chicago alıntıları ücretsiz oluşturun – kayıt gerekmez.",
       expanderTitle: "Ücretsiz Cümle Genişletici – Kelime Sınırı Yok",
       expanderDesc: "Kısa cümleleri zengin paragraflara genişletin – ücretsiz, kelime sınırı yok.",
+      summarizerTitle: "Ücretsiz AI Metin Özetleyici – Saniyeler İçinde Özetleyin (2026)",
+      summarizerDesc: "Ücretsiz metin özetleyici. Uzun makaleleri yapıştırın — 8 dilde anında özet alın. Kayıt yok.",
       cleanerTitle: "Yapay Zeka Klişe Temizleyici – Ücretsiz",
       cleanerDesc: "Yapay zeka klişelerini bulup doğal ifadelerle değiştirin.",
+    },
+    pdfTools: {
+      badge: "PDF Araçları",
+      title: "PDF Birleştir ve Görselleri PDF'ye Dönüştür — Ücretsiz",
+    },
+    imageCompressor: {
+      badge: "Görüntü Sıkıştırıcı",
+      title: "Görüntüleri Çevrimiçi Sıkıştırın — Ücretsiz, Gizli, Anında",
+    },
+    summarizer: {
+      badge: "AI Metin Özetleyici",
+      title: "Herhangi Bir Metni Saniyeler İçinde Özetleyin",
+      brief: "Kısa",
+      balanced: "Dengeli",
+      detailed: "Detaylı",
     },
     humanizer: {
       badge: "⭐ Sürekli %100 Ücretsiz • Kelime Sınırı Yok • Kayıt Gerekmez",
@@ -884,6 +1051,10 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       blueprintBtn: "Estratégia",
     },
     seo: {
+      pdfToolsTitle: "Ferramentas PDF Grátis Online – Juntar PDF e Imagens em PDF (2026)",
+      pdfToolsDesc: "Ferramentas PDF gratuitas. Junte vários PDFs em um só ou converta imagens JPG/PNG em PDF. 100% no navegador.",
+      imageCompressorTitle: "Compressor de Imagens Grátis Online – JPG, PNG, WebP (2026)",
+      imageCompressorDesc: "Compressor de imagens gratuito. Comprima JPG, PNG e WebP no navegador. Sem upload, sem cadastro. 100% privado.",
       humanizerTitle: "Humanizar Texto IA Grátis Sem Cadastro – Escrita Natural (2026)",
       humanizerDesc: "Ferramenta 100% gratuita para humanizar textos de IA. Converta rascunhos do ChatGPT em escrita humana mais natural.",
       detectorTitle: "Detector de IA para Textos em Português Grátis – Mapa de Calor",
@@ -898,8 +1069,25 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       citationDesc: "Citações gratuitas em APA, MLA e Chicago – sem cadastro, no navegador.",
       expanderTitle: "Expansor de Frases Grátis – Sem Limite de Palavras",
       expanderDesc: "Expanda frases curtas em parágrafos ricos – grátis e sem limite de palavras.",
+      summarizerTitle: "Resumidor de Texto IA Grátis – Resuma em Segundos (2026)",
+      summarizerDesc: "Resumidor de texto gratuito. Cole artigos longos — obtenha resumos instantâneos em 8 idiomas. Sem cadastro.",
       cleanerTitle: "Limpador de Clichês de IA – Grátis",
       cleanerDesc: "Encontre clichês de IA e substitua por um estilo natural.",
+    },
+    pdfTools: {
+      badge: "Ferramentas PDF",
+      title: "Juntar PDF e Converter Imagens em PDF — Grátis",
+    },
+    imageCompressor: {
+      badge: "Compressor de Imagens",
+      title: "Comprima Imagens Online — Grátis, Privado, Instantâneo",
+    },
+    summarizer: {
+      badge: "Resumidor de Texto IA",
+      title: "Resuma Qualquer Texto em Segundos",
+      brief: "Breve",
+      balanced: "Equilibrado",
+      detailed: "Detalhado",
     },
     humanizer: {
       badge: "⭐ 100% Grátis Para Sempre • Sem Limites de Palavras • Sem Cadastro",
@@ -1010,6 +1198,10 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       blueprintBtn: "市場分析",
     },
     seo: {
+      pdfToolsTitle: "無料PDFツール – PDF結合・画像からPDF作成 (2026)",
+      pdfToolsDesc: "無料のPDFツール。複数のPDFを結合したり、JPG/PNG画像からPDFを作成。ブラウザ内で完結、アップロード不要。",
+      imageCompressorTitle: "無料画像圧縮ツール – JPG・PNG・WebP対応 (2026)",
+      imageCompressorDesc: "無料の画像圧縮ツール。JPG・PNG・WebPをブラウザで圧縮。アップロード不要、登録不要。完全プライベート。",
       humanizerTitle: "AI文章を自然な日本語に書き換え – 無料ツール (2026)",
       humanizerDesc: "100%完全無料のAIテキスト人間化ツール。ChatGPTやGeminiの文章をより自然な日本語に変換します。",
       detectorTitle: "AI文章チェッカー 文単位 無料 – 日本語対応",
@@ -1024,8 +1216,25 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       citationDesc: "APA・MLA・シカゴ形式の引用を無料で生成 – 登録不要。",
       expanderTitle: "無料文章拡張ツール – 文字数制限なし",
       expanderDesc: "短い文を豊かな段落に拡張 – 無料・文字数制限なし。",
+      summarizerTitle: "無料AI要約ツール – 数秒で文章を要約 (2026)",
+      summarizerDesc: "無料の文章要約ツール。長い記事を貼り付けて8言語ですぐに要約。登録不要。",
       cleanerTitle: "AI特有の言い回し修正ツール – 無料",
       cleanerDesc: "AI特有の言い回しを見つけて自然な表現に置き換え。",
+    },
+    pdfTools: {
+      badge: "PDFツール",
+      title: "PDF結合・画像からPDF作成 — 無料",
+    },
+    imageCompressor: {
+      badge: "画像圧縮ツール",
+      title: "画像をオンラインで圧縮 — 無料・プライベート・即時",
+    },
+    summarizer: {
+      badge: "AI要約ツール",
+      title: "あらゆる文章を数秒で要約",
+      brief: "簡潔",
+      balanced: "バランス",
+      detailed: "詳細",
     },
     humanizer: {
       badge: "⭐ 永久完全無料 • 文字数無制限 • 会員登録不要",
@@ -1119,5 +1328,110 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       },
     },
 
+  },
+  no: {
+    seo: {
+      pdfToolsTitle: "Gratis PDF-Verktøy – Slå Sammen PDF og Bilder til PDF (2026)",
+      pdfToolsDesc: "Gratis PDF-verktøy. Slå sammen flere PDF-er til én, eller konverter JPG/PNG-bilder til PDF. 100% i nettleseren, ingen opplasting.",
+      humanizerTitle: "Gratis AI Tekst Humanizer – Naturlig Tekst (2026)",
+      humanizerDesc: "Gratis AI humanizer. Gjør ChatGPT og Gemini-tekst om til naturlig skriving.",
+      imageCompressorTitle: "Gratis Bildekompressor Online – Komprimer Bilder Uten Opplasting (2026)",
+      imageCompressorDesc: "Komprimer JPG, PNG og WebP gratis direkte i nettleseren. Ingen opplasting, ingen registrering. 100% privat.",
+    },
+    pdfTools: {
+      badge: "PDF-Verktøy",
+      title: "Slå Sammen PDF og Bilder til PDF — Gratis",
+    },
+    imageCompressor: {
+      badge: "Bildekompressor",
+      title: "Komprimer Bilder Online — Gratis, Privat, Øyeblikkelig",
+      subtitle: "Slipp bildene dine nedenfor. De forlater aldri enheten din — komprimering skjer i nettleseren.",
+      dropTitle: "Slipp bilder her eller klikk for å bla gjennom",
+      dropSubtitle: "JPG, PNG, WebP, GIF — behandles lokalt, lastes aldri opp",
+      qualityLabel: "Kvalitet",
+      formatLabel: "Utdataformat",
+      download: "Last ned",
+      processing: "Behandler...",
+      original: "Original",
+      compressed: "Komprimert",
+      saved: "Sparet",
+      smaller: "Mindre",
+      better: "Bedre kvalitet",
+      private: "100% Privat",
+      instant: "Øyeblikkelig",
+      free: "Gratis For Alltid",
+      quickAnswerTitle: "Hvordan fungerer nettleserbasert bildekomprimering?",
+      quickAnswer: "Nettleserens Canvas API re-koder bilder med lavere kvalitetsinnstillinger — helt på enheten din. Ingen opplasting, ingen server, ingen venting.",
+    },
+  },
+  nl: {
+    seo: {
+      pdfToolsTitle: "Gratis PDF Tools Online – PDF Samenvoegen en Afbeeldingen naar PDF (2026)",
+      pdfToolsDesc: "Gratis PDF-tools. Voeg meerdere PDF's samen of converteer JPG/PNG-afbeeldingen naar PDF. 100% in de browser, geen upload.",
+      humanizerTitle: "Gratis AI Tekst Humanizer – Natuurlijke Tekst (2026)",
+      humanizerDesc: "Gratis AI humanizer. Maak ChatGPT en Gemini-tekst natuurlijk.",
+      imageCompressorTitle: "Gratis Afbeelding Compressor Online – Comprimeer Zonder Uploaden (2026)",
+      imageCompressorDesc: "Comprimeer JPG, PNG en WebP gratis direct in je browser. Geen upload, geen registratie. 100% privé.",
+    },
+    pdfTools: {
+      badge: "PDF Tools",
+      title: "PDF Samenvoegen en Afbeeldingen naar PDF — Gratis",
+    },
+    imageCompressor: {
+      badge: "Afbeelding Compressor",
+      title: "Comprimeer Afbeeldingen Online — Gratis, Privé, Direct",
+      subtitle: "Sleep je afbeeldingen hieronder. Ze verlaten nooit je apparaat — compressie gebeurt in je browser.",
+      dropTitle: "Sleep afbeeldingen hierheen of klik om te bladeren",
+      dropSubtitle: "JPG, PNG, WebP, GIF — lokaal verwerkt, nooit geüpload",
+      qualityLabel: "Kwaliteit",
+      formatLabel: "Uitvoerformaat",
+      download: "Downloaden",
+      processing: "Verwerken...",
+      original: "Origineel",
+      compressed: "Gecomprimeerd",
+      saved: "Bespaard",
+      smaller: "Kleiner",
+      better: "Betere kwaliteit",
+      private: "100% Privé",
+      instant: "Direct",
+      free: "Voor Altijd Gratis",
+      quickAnswerTitle: "Hoe werkt browser-based beeldcompressie?",
+      quickAnswer: "De Canvas API van je browser codeert afbeeldingen opnieuw met lagere kwaliteitsinstellingen — volledig op je apparaat. Geen upload, geen server, geen wachttijd.",
+    },
+  },
+  it: {
+    seo: {
+      pdfToolsTitle: "Strumenti PDF Gratis Online – Unire PDF e Immagini in PDF (2026)",
+      pdfToolsDesc: "Strumenti PDF gratuiti. Unisci più PDF in uno solo o converti immagini JPG/PNG in PDF. 100% nel browser, nessun caricamento.",
+      humanizerTitle: "Umanizzatore Testo AI Gratis – Testo Naturale (2026)",
+      humanizerDesc: "Umanizzatore AI gratuito. Rendi naturale il testo di ChatGPT e Gemini.",
+      imageCompressorTitle: "Compressore Immagini Gratis Online – Comprimi Senza Caricare (2026)",
+      imageCompressorDesc: "Comprimi JPG, PNG e WebP gratis direttamente nel browser. Nessun caricamento, nessuna registrazione. 100% privato.",
+    },
+    pdfTools: {
+      badge: "Strumenti PDF",
+      title: "Unire PDF e Convertire Immagini in PDF — Gratis",
+    },
+    imageCompressor: {
+      badge: "Compressore Immagini",
+      title: "Comprimi Immagini Online — Gratis, Privato, Istantaneo",
+      subtitle: "Trascina le tue immagini qui sotto. Non lasciano mai il tuo dispositivo — la compressione avviene nel browser.",
+      dropTitle: "Trascina le immagini qui o clicca per sfogliare",
+      dropSubtitle: "JPG, PNG, WebP, GIF — elaborate localmente, mai caricate",
+      qualityLabel: "Qualità",
+      formatLabel: "Formato di output",
+      download: "Scarica",
+      processing: "Elaborazione...",
+      original: "Originale",
+      compressed: "Compressa",
+      saved: "Risparmiato",
+      smaller: "Più piccolo",
+      better: "Migliore qualità",
+      private: "100% Privato",
+      instant: "Istantaneo",
+      free: "Gratis Per Sempre",
+      quickAnswerTitle: "Come funziona la compressione immagini nel browser?",
+      quickAnswer: "La Canvas API del browser ricodifica le immagini con impostazioni di qualità inferiori — interamente sul tuo dispositivo. Nessun caricamento, nessun server, nessuna attesa.",
+    },
   },
 };

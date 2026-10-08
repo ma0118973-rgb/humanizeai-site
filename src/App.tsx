@@ -38,6 +38,15 @@ const ClicheCleanerWorkspace = lazy(() =>
 const DiffCheckerWorkspace = lazy(() =>
   import("./components/DiffCheckerWorkspace").then((m) => ({ default: m.DiffCheckerWorkspace }))
 );
+const SummarizerWorkspace = lazy(() =>
+  import("./components/SummarizerWorkspace").then((m) => ({ default: m.SummarizerWorkspace }))
+);
+const ImageCompressorWorkspace = lazy(() =>
+  import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
+);
+const PdfToolsWorkspace = lazy(() =>
+  import("./components/PdfToolsWorkspace").then((m) => ({ default: m.PdfToolsWorkspace }))
+);
 const CompliancePages = lazy(() =>
   import("./components/CompliancePages").then((m) => ({ default: m.CompliancePages }))
 );
@@ -122,6 +131,15 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "sentence-expander" || primarySlug === "expander" || primarySlug === "ai-sentence-expander") {
     return { page: "expander", lang, blogSlug: null };
+  }
+  if (primarySlug === "text-summarizer" || primarySlug === "summarizer" || primarySlug === "ai-text-summarizer") {
+    return { page: "summarizer", lang, blogSlug: null };
+  }
+  if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
+    return { page: "imageCompressor", lang, blogSlug: null };
+  }
+  if (primarySlug === "pdf-tools" || primarySlug === "merge-pdf" || primarySlug === "pdfTools") {
+    return { page: "pdfTools", lang, blogSlug: null };
   }
   if (primarySlug === "cliche-cleaner" || primarySlug === "cleaner" || primarySlug === "ai-cliche-cleaner") {
     return { page: "cleaner", lang, blogSlug: null };
@@ -310,9 +328,16 @@ export default function App() {
   const handleLanguageChange = useCallback(
     (newLang: LanguageCode) => {
       setSelectedLanguage(newLang);
-      const newPath = buildCanonicalUrl(activePage, newLang, activeBlogSlug);
+      // When reading a blog article, go back to the blog listing in the new
+      // language — articles are written per-language (not translated), so the
+      // same article slug does not exist in other languages.
+      const newSlug = activePage === "blog" && activeBlogSlug ? null : activeBlogSlug;
+      if (newSlug === null && activeBlogSlug !== null) {
+        setActiveBlogSlug(null);
+      }
+      const newPath = buildCanonicalUrl(activePage, newLang, newSlug);
       try {
-        window.history.pushState({ page: activePage, lang: newLang, blogSlug: activeBlogSlug }, "", newPath);
+        window.history.pushState({ page: activePage, lang: newLang, blogSlug: newSlug }, "", newPath);
       } catch {
         // Fallback
       }
@@ -343,7 +368,10 @@ export default function App() {
     activePage === "citation" ||
     activePage === "expander" ||
     activePage === "cleaner" ||
-    activePage === "diff";
+    activePage === "diff" ||
+    activePage === "summarizer" ||
+    activePage === "imageCompressor" ||
+    activePage === "pdfTools";
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900 pb-20 md:pb-0 w-full max-w-full overflow-x-hidden">
@@ -459,6 +487,36 @@ export default function App() {
               selectedLanguage={selectedLanguage}
               onSendToHumanizer={handleSendToHumanizer}
             />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "summarizer" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <SummarizerWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "imageCompressor" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <ImageCompressorWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "pdfTools" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <PdfToolsWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

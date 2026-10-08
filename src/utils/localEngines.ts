@@ -218,6 +218,77 @@ function stablePick(options: string[], seed: string): string {
   return options[h % options.length];
 }
 
+/**
+ * Plain-language swaps: stiff/formal words AI models overuse, replaced with
+ * the plain alternative a human editor would choose. Meaning-preserving.
+ */
+const PLAIN_WORD_SWAPS: Record<string, string[]> = {
+  "utilize": ["use"],
+  "utilizes": ["uses"],
+  "utilizing": ["using"],
+  "commence": ["start", "begin"],
+  "commencing": ["starting", "beginning"],
+  "commenced": ["started", "began"],
+  "purchased": ["bought"],
+  "purchase": ["buy"],
+  "assistance": ["help"],
+  "individuals": ["people"],
+  "numerous": ["many"],
+  "facilitate": ["help"],
+  "demonstrate": ["show"],
+  "demonstrates": ["shows"],
+  "indicate": ["show", "point to"],
+  "indicates": ["shows"],
+  "obtain": ["get"],
+  "obtained": ["got"],
+  "require": ["need"],
+  "requires": ["needs"],
+  "required": ["needed"],
+  "sufficient": ["enough"],
+  "approximately": ["about", "around"],
+  "prior to": ["before"],
+  "subsequent to": ["after"],
+  "in order to": ["to"],
+  "due to the fact that": ["because"],
+  "despite the fact that": ["although", "even though"],
+  "in the event that": ["if"],
+  "are able to": ["can"],
+  "is able to": ["can"],
+  "has the ability to": ["can"],
+  "a large number of": ["many"],
+  "a wide range of": ["many", "various"],
+  "in the realm of": ["in"],
+  "serves as": ["is", "acts as"],
+  "plays a pivotal role in": ["is key to", "drives"],
+  "shed light on": ["explain", "clarify"],
+  "at the end of the day": ["ultimately"],
+  "first and foremost": ["first"],
+  "each and every": ["every", "each"],
+  "in close proximity to": ["near"],
+  "in light of the fact that": ["because", "since"],
+  "with regard to": ["about", "on"],
+  "with respect to": ["about", "on"],
+};
+
+/**
+ * Filler phrases that add words without meaning. Shortened or cut.
+ * Empty-string replacement removes the phrase (and tidies spacing).
+ */
+const FILLER_CUTS: Record<string, string> = {
+  "it is important to note that": "note that",
+  "it is important to remember that": "remember that",
+  "it is essential to understand that": "understand that",
+  "there is no doubt that": "",
+  "it goes without saying that": "",
+  "in today's fast-paced world,": "",
+  "in todays fast-paced world,": "",
+  "when it comes to": "for",
+  "the fact that": "that",
+  "for all intents and purposes,": "",
+  "at this point in time": "now",
+  "in the current era of": "in today's",
+};
+
 const EXPAND_CONTRACTIONS: Record<string, string> = {
   "it is": "it's",
   "It is": "It's",
@@ -262,13 +333,45 @@ export function runLocalHumanize(
   let clicheReplacements = 0;
   let contractionsApplied = 0;
   let sentencesSplit = 0;
+  let plainSwaps = 0;
+  let fillerCuts = 0;
+
+  // Helper: apply a dictionary of replacements with case preservation
+  const applyDict = (
+    dict: Record<string, string[] | string>,
+    counter: { n: number }
+  ) => {
+    // Longer phrases first so "in order to" beats "order" etc.
+    const keys = Object.keys(dict).sort((a, b) => b.length - a.length);
+    for (const key of keys) {
+      const options = Array.isArray(dict[key]) ? (dict[key] as string[]) : [dict[key] as string];
+      const scan = new RegExp(`(?<!\\w)${key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?!\\w)`, "gi");
+      let m: RegExpExecArray | null;
+      const matches: string[] = [];
+      while ((m = scan.exec(rewritten)) !== null) matches.push(m[0]);
+      for (const match of matches) {
+        const chosen = options.length > 1 ? stablePick(options, match.toLowerCase() + rewritten.length) : options[0];
+        let replacement: string;
+        if (!chosen) {
+          // Filler cut: remove the phrase, tidy up leftover spacing/punctuation
+          replacement = "";
+        } else if (match[0] === match[0].toUpperCase()) {
+          replacement = chosen.charAt(0).toUpperCase() + chosen.slice(1);
+        } else {
+          replacement = chosen;
+        }
+        rewritten = rewritten.replace(match, replacement);
+        counter.n++;
+      }
+    }
+  };
 
   // 1. Substitute robotic cliché markers (deterministic: same input -> same output)
   for (const [cliche, replacements] of Object.entries(CLICHE_REPLACEMENTS)) {
     let m: RegExpExecArray | null;
     // Collect matches first so each gets its own stable pick
     const matches: string[] = [];
-    const scan = new RegExp(`\\b${cliche}\\b`, "gi");
+    const scan = new RegExp(`(?<!\\w)${cliche}(?!\\w)`, "gi");
     while ((m = scan.exec(rewritten)) !== null) matches.push(m[0]);
     for (const match of matches) {
       const chosen = stablePick(replacements, match.toLowerCase());
@@ -281,10 +384,31 @@ export function runLocalHumanize(
     }
   }
 
+  // 1b. Plain-language swaps: stiff formal words -> natural alternatives
+  {
+    const c = { n: 0 };
+    applyDict(PLAIN_WORD_SWAPS, c);
+    plainSwaps = c.n;
+  }
+
+  // 1c. Filler cuts: drop empty phrases, then tidy spacing
+  {
+    const c = { n: 0 };
+    applyDict(FILLER_CUTS, c);
+    fillerCuts = c.n;
+    rewritten = rewritten
+      .replace(/[ \t]{2,}/g, " ")
+      .replace(/\s+([,.!?;:])/g, "$1")
+      .replace(/\(\s+/g, "(")
+      .replace(/\s+\)/g, ")");
+    // Re-capitalize sentence starts (a cut may have exposed a lowercase word)
+    rewritten = rewritten.replace(/(^|[.!?]\s+)([a-z])/g, (_m, p1, p2) => p1 + p2.toUpperCase());
+  }
+
   // 2. Inject contractions for natural human flow
   if (tone === "conversational" || tone === "creative" || level === "ultra-stealth") {
     for (const [formal, contracted] of Object.entries(EXPAND_CONTRACTIONS)) {
-      const reg = new RegExp(`\\b${formal}\\b`, "g");
+      const reg = new RegExp(`(?<!\\w)${formal}(?!\\w)`, "g");
       const before = rewritten;
       rewritten = rewritten.replace(reg, contracted);
       if (rewritten !== before) contractionsApplied++;
@@ -334,7 +458,15 @@ export function runLocalHumanize(
     outBurstiness >= 4.5 ? "High variance" : outBurstiness >= 2.5 ? "Moderate variance" : "Low variance";
 
   const changesHighlights = [
-    `Replaced ${clicheReplacements} AI-style cliché${clicheReplacements === 1 ? "" : "s"} with plain alternatives.`,
+    clicheReplacements > 0
+      ? `Replaced ${clicheReplacements} AI-style cliché${clicheReplacements === 1 ? "" : "s"} with plain alternatives.`
+      : "No overused AI clichés found.",
+    plainSwaps > 0
+      ? `Simplified ${plainSwaps} stiff formal word${plainSwaps === 1 ? "" : "s"} into plain language.`
+      : "Word choice already natural — no simplifications needed.",
+    fillerCuts > 0
+      ? `Cut ${fillerCuts} empty filler phrase${fillerCuts === 1 ? "" : "s"} for tighter writing.`
+      : "No filler phrases to cut.",
     contractionsApplied > 0
       ? `Applied natural contractions in ${contractionsApplied} phrase pattern${contractionsApplied === 1 ? "" : "s"}.`
       : "No forced contractions needed for the selected tone.",
@@ -416,64 +548,52 @@ export function analyzeReadability(text: string): {
 
 export function runLocalSeoOptimization(topicOrText: string, targetAudience = "Global / USA"): SeoResult {
   const clean = topicOrText.trim();
-  const words = clean
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, " ")
-    .split(/\s+/)
-    .filter((w) => w.length >= 3);
+  // Use the FULL topic as the primary keyword, not just top-2 words
+  const topic = clean.length > 0 ? clean : "AI Content";
+  // Clean topic for keyword use (lowercase, no special chars)
+  const topicLower = topic.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+  const topicTitle = topic.length <= 50 ? topic : topic.slice(0, 47) + "...";
+  const startsWithBest = /^(best|top)\s/i.test(topicLower);
+  const topicNoBest = topicLower.replace(/^(best|top)\s+/i, "");
 
-  // Common stop words to exclude
-  const stopWords = new Set([
-    "the", "and", "that", "have", "for", "not", "with", "you", "this", "but", "his", "from",
-    "they", "say", "her", "she", "will", "one", "all", "would", "there", "their", "what",
-    "out", "about", "who", "get", "which", "when", "make", "can", "like", "time", "just",
-    "him", "know", "take", "people", "into", "year", "your", "good", "some", "could", "them",
-    "see", "other", "than", "then", "now", "look", "only", "come", "its", "over", "think", "also"
-  ]);
-
-  const freq: Record<string, number> = {};
-  for (const w of words) {
-    if (!stopWords.has(w)) {
-      freq[w] = (freq[w] || 0) + 1;
-    }
+  // Smart SEO title: avoid cutting mid-word
+  let seoTitle = `${topicTitle} – Complete Guide & Free Tools (2026)`;
+  if (seoTitle.length > 60) {
+    seoTitle = seoTitle.slice(0, 57).replace(/\s+\S*$/, "") + "...";
   }
 
-  const sortedTerms = Object.entries(freq)
-    .sort((a, b) => b[1] - a[1])
-    .map(([w]) => w);
+  // Natural meta description using the FULL topic
+  let metaDescription = `Learn everything about ${topicLower}: practical tips, free tools, and step-by-step guidance. Updated for 2026.`;
+  if (metaDescription.length > 158) {
+    metaDescription = metaDescription.slice(0, 155).replace(/\s+\S*$/, "") + "...";
+  }
 
-  const topTerm = sortedTerms[0] || "AI Content";
-  const secondTerm = sortedTerms[1] || "Humanizer";
-  const capitalizedTopic = clean.length <= 40 ? clean : `${topTerm} ${secondTerm}`;
-
-  const seoTitle = `${capitalizedTopic.slice(0, 38)} – Free Guide & High-RPM Tools (2026)`.slice(0, 60);
-  const metaDescription = `Discover the ultimate 2026 insights for ${topTerm} and ${secondTerm}. Free, fast, and engineered for high CTR, zero penalties, and viral growth across the US and ${targetAudience}.`.slice(0, 158);
-
+  // Sensible keyword variations based on the full topic (avoid "best best" duplication)
   const primaryKeywords = [
-    `${topTerm} 2026`,
-    `best ${topTerm} tools`,
-    `free ${secondTerm}`,
-    `${topTerm} guide`,
-    `how to rank ${topTerm}`,
-  ];
+    topicLower,
+    startsWithBest ? `${topicLower} guide` : `best ${topicLower}`,
+    startsWithBest ? `${topicLower} 2026` : `${topicLower} guide`,
+    `${topicLower} 2026`,
+    `free ${topicNoBest || topicLower} tools`,
+  ].filter((v, i, a) => a.indexOf(v) === i).slice(0, 5);
 
   const longTailKeywords = [
-    `how to optimize ${topTerm} for google`,
-    `best free ${topTerm} alternative without subscription`,
-    `${topTerm} humanizer tutorial`,
-    `highest rpm niches for ${secondTerm}`,
-    `${topTerm} viral strategy for beginners`,
+    `${topicLower} for beginners step by step`,
+    `${topicNoBest || topicLower} tips and tricks 2026`,
+    `how to choose ${topicNoBest || topicLower}`,
+    `${topicLower} complete tutorial`,
+    `free ${topicNoBest || topicLower} resources online`,
   ];
 
+  // Hashtags from meaningful topic words (skip stop words, use up to 3)
+  const stopWords = new Set(["the", "and", "for", "with", "best", "top", "how", "what", "why"]);
+  const topicWords = topicLower.split(" ").filter((w) => w.length >= 3 && !stopWords.has(w)).slice(0, 3);
   const viralHashtags = [
-    `#${topTerm.replace(/\s+/g, "")}`,
-    `#${secondTerm.replace(/\s+/g, "")}`,
-    "#ViralSEO",
-    "#AlgorithmHacks",
-    "#ContentCreators",
-    "#GrowFaster2026",
+    ...topicWords.map((w) => `#${w.charAt(0).toUpperCase() + w.slice(1)}`),
+    "#SEO",
+    "#ContentMarketing",
     "#DigitalMarketing",
-    "#HighCTR",
+    "#GrowOnline",
   ];
 
   const openGraphTitle = seoTitle;
@@ -532,18 +652,18 @@ export function runLocalVideoViralSeo(
   videoLink: string = "",
   fileName: string = ""
 ): CompetitorSeoResult {
-  const subject = topicName.trim() || fileName.replace(/\.[^/.]+$/, "") || "Viral Video Secret";
+  const subject = topicName.trim() || fileName.replace(/\.[^/.]+$/, "") || "Video Topic";
 
-  const viralTitle = `I Tested 10 AI Tools — THIS One Changes Everything! 🤯`.slice(0, 60);
+  const viralTitle = `${subject.slice(0, 40)}: Honest Review & Practical Tips (2026)`.slice(0, 60);
   const secondaryTitles = [
-    `Why Nobody Talks About This ${subject.slice(0, 20)} Secret (Until Now)`,
-    `Do NOT Use ChatGPT Until You Watch This (100% Free Hack)`,
-    `The Only ${subject.slice(0, 22)} Guide You Need in 2026`,
+    `${subject.slice(0, 35)} Explained Simply for Beginners`,
+    `What I Learned About ${subject.slice(0, 30)} (2026 Update)`,
+    `${subject.slice(0, 35)}: Common Mistakes to Avoid`,
   ];
 
-  const hookScript = `Stop scrolling! If you are still using basic AI tools in 2026, you are leaving 90% of your views on the table. Here is what top 1M-view creators do behind closed doors:`;
+  const hookScript = `In the next few minutes, I'll share practical tips about ${subject} that actually work — no hype, just what I've learned from experience.`;
 
-  const competitorSecretBreakdown = `Top viral competitor videos in this niche maintain an 82%+ retention rate by changing visuals every 2.4 seconds, utilizing an open curiosity loop in the first 3 seconds, and omitting long introductory banter. The audio utilizes subtle background lofi beats with compressed vocal presence.`;
+  const competitorSecretBreakdown = `Successful videos in this niche tend to: hook viewers in the first few seconds with a clear promise, keep a brisk pace with frequent visual changes, deliver on the title's promise early, and end with a clear call to action. Focus on genuine value over tricks — audiences can tell the difference.`;
 
   const viralHashtags = [
     `#${subject.replace(/\s+/g, "")}`,
@@ -567,7 +687,7 @@ export function runLocalVideoViralSeo(
     `high retention video editing`,
   ];
 
-  const viralDescription = `The complete truth about ${subject} in 2026. Bookmark this video before the algorithm updates! Drop a comment with what tool you want tested next.`;
+  const viralDescription = `A practical guide to ${subject} in 2026. Timestamps and resources in the description. Let me know in the comments what you'd like covered next.`;
 
   const bestPostingTimeUS = `12:30 PM - 2:00 PM EST / 5:30 PM - 7:30 PM EST (Peak smartphone lunch & commute traffic)`;
 
@@ -851,7 +971,7 @@ export function calculateTextDiff(
   diffTokens: DiffToken[];
   similarityPercent: number;
   changedWordsCount: number;
-  turnitinRiskScore: number;
+  similarityRiskScore: number;
   lexicalDiversityRatio: number;
 } {
   const origWords = originalText.trim().split(/\s+/).filter(Boolean);
@@ -907,7 +1027,7 @@ export function calculateTextDiff(
 
   // Turnitin risk rating inversely proportional to token churn
   const changeRatio = (addedCount + removedCount) / Math.max(1, origWords.length * 2);
-  const turnitinRiskScore = Math.max(0, Math.min(100, Math.round((1 - changeRatio) * 85)));
+  const similarityRiskScore = Math.max(0, Math.min(100, Math.round((1 - changeRatio) * 85)));
   const uniqueWords = new Set(humanWords.map((w) => w.toLowerCase())).size;
   const lexicalDiversityRatio = Math.round((uniqueWords / Math.max(1, humanWords.length)) * 100);
 
@@ -915,7 +1035,125 @@ export function calculateTextDiff(
     diffTokens,
     similarityPercent,
     changedWordsCount: addedCount + removedCount,
-    turnitinRiskScore,
+    similarityRiskScore,
     lexicalDiversityRatio,
+  };
+}
+
+// ==========================================
+// 10. EXTRACTIVE TEXT SUMMARIZER (100% Client-Side, Language-Agnostic)
+// ==========================================
+
+export interface SummaryResult {
+  summary: string;
+  keySentences: string[];
+  originalWordCount: number;
+  summaryWordCount: number;
+  compressionRatio: number;
+  readingTimeSaved: string;
+}
+
+const SUMMARY_STOP_WORDS = new Set([
+  "the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for", "of", "with",
+  "by", "from", "as", "is", "was", "are", "were", "be", "been", "being", "have",
+  "has", "had", "do", "does", "did", "will", "would", "could", "should", "may",
+  "might", "must", "shall", "can", "this", "that", "these", "those", "i", "you",
+  "he", "she", "it", "we", "they", "them", "their", "what", "which", "who",
+  "whom", "whose", "where", "when", "why", "how", "all", "each", "every", "both",
+  "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only",
+  "own", "same", "so", "than", "too", "very", "just", "into", "over", "after",
+]);
+
+export function summarizeText(
+  text: string,
+  targetRatio: "brief" | "balanced" | "detailed" = "balanced"
+): SummaryResult {
+  const clean = text.trim();
+  const originalWordCount = clean.split(/\s+/).filter(Boolean).length;
+
+  if (!clean || originalWordCount < 30) {
+    return {
+      summary: clean,
+      keySentences: clean ? [clean] : [],
+      originalWordCount,
+      summaryWordCount: originalWordCount,
+      compressionRatio: 100,
+      readingTimeSaved: "0 min",
+    };
+  }
+
+  // Split into sentences (works for most languages)
+  const sentences = clean
+    .split(/(?<=[.!?。！？…])\s+/)
+    .map((s) => s.trim())
+    .filter((s) => s.split(/\s+/).length >= 4);
+
+  if (sentences.length <= 3) {
+    return {
+      summary: clean,
+      keySentences: sentences,
+      originalWordCount,
+      summaryWordCount: originalWordCount,
+      compressionRatio: 100,
+      readingTimeSaved: "0 min",
+    };
+  }
+
+  // Word frequency (excluding stop words)
+  const freq: Record<string, number> = {};
+  for (const s of sentences) {
+    const words = s.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, " ").split(/\s+/);
+    for (const w of words) {
+      if (w.length >= 3 && !SUMMARY_STOP_WORDS.has(w)) {
+        freq[w] = (freq[w] || 0) + 1;
+      }
+    }
+  }
+
+  // Score sentences: sum of word frequencies, normalized by length
+  // Bonus for sentences containing numbers/dates (often key facts)
+  // Bonus for first and last sentences (often contain thesis/conclusion)
+  const scored = sentences.map((s, idx) => {
+    const words = s.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, " ").split(/\s+/).filter(Boolean);
+    let score = 0;
+    for (const w of words) {
+      if (w.length >= 3 && !SUMMARY_STOP_WORDS.has(w)) {
+        score += freq[w] || 0;
+      }
+    }
+    // Normalize by sqrt of length (favor informative but not bloated sentences)
+    score = score / Math.sqrt(Math.max(1, words.length));
+    // Position bonus: first 2 and last 1 sentences
+    if (idx < 2) score *= 1.15;
+    if (idx === sentences.length - 1) score *= 1.1;
+    // Number/date bonus (key facts)
+    if (/\d/.test(s)) score *= 1.1;
+    return { sentence: s, score, idx };
+  });
+
+  // How many sentences to keep
+  const ratios = { brief: 0.25, balanced: 0.4, detailed: 0.6 };
+  const keepCount = Math.max(2, Math.min(sentences.length - 1, Math.round(sentences.length * ratios[targetRatio])));
+
+  // Pick top sentences, then restore original order
+  const top = scored
+    .sort((a, b) => b.score - a.score)
+    .slice(0, keepCount)
+    .sort((a, b) => a.idx - b.idx);
+
+  const keySentences = top.map((t) => t.sentence);
+  const summary = keySentences.join(" ");
+  const summaryWordCount = summary.split(/\s+/).filter(Boolean).length;
+  const compressionRatio = Math.round((summaryWordCount / Math.max(1, originalWordCount)) * 100);
+  const minutesSaved = Math.max(0, Math.round((originalWordCount - summaryWordCount) / 200));
+  const readingTimeSaved = minutesSaved < 1 ? "<1 min" : `~${minutesSaved} min`;
+
+  return {
+    summary,
+    keySentences,
+    originalWordCount,
+    summaryWordCount,
+    compressionRatio,
+    readingTimeSaved,
   };
 }

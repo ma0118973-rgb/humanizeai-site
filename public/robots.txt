@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://peaceful-pika-383468.netlify.app/sitemap.xml
+Sitemap: https://humanize-a.netlify.app/sitemap.xml

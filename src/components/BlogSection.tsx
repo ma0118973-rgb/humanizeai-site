@@ -74,7 +74,7 @@ export function BlogSection({
             Latest Guides, Detection Benchmarks & Algorithm Insights
           </h2>
           <p className="text-xs sm:text-sm text-stone-600 max-w-2xl">
-            In-depth engineering analyses on bypassing Turnitin 3.0, GPTZero, Copyleaks, and Google Helpful Content guidelines.
+            In-depth guides on natural AI-assisted writing, detection literacy, and Google Helpful Content guidelines.
           </p>
         </div>
 

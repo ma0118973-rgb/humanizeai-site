@@ -55,9 +55,9 @@ export function DiffCheckerWorkspace({
           </div>
           <div className="bg-stone-800/90 border border-stone-700/80 rounded-2xl p-3 text-center min-w-[110px]">
             <div className="text-2xl font-black text-blue-400 font-mono">
-              {diff.turnitinRiskScore}%
+              {diff.similarityRiskScore}%
             </div>
-            <div className="text-[10px] font-bold text-stone-300">Turnitin Risk</div>
+            <div className="text-[10px] font-bold text-stone-300">Similarity Risk</div>
           </div>
           <div className="bg-stone-800/90 border border-stone-700/80 rounded-2xl p-3 text-center min-w-[110px]">
             <div className="text-2xl font-black text-amber-400 font-mono">

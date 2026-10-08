@@ -52,7 +52,7 @@ function loadConst(tsPath, constName) {
 const TRANSLATIONS = loadConst(path.join(root, "src/data/translations.ts"), "TRANSLATIONS");
 const BLOG_POSTS = loadConst(path.join(root, "src/data/blogArticles.ts"), "BLOG_POSTS");
 
-const LANGUAGES = ["en", "es", "ur", "de", "fr", "pt", "tr", "ja"];
+const LANGUAGES = ["en", "es", "ur", "de", "fr", "pt", "tr", "ja", "no", "nl", "it"];
 
 // [pageId, canonicalPath] — canonicalPath mirrors SEO_CONFIGS in src/utils/seo.ts
 const ROUTES = [
@@ -62,6 +62,9 @@ const ROUTES = [
   ["seo", "/seo-tools/"],
   ["citation", "/citation-generator/"],
   ["expander", "/sentence-expander/"],
+  ["summarizer", "/text-summarizer/"],
+  ["imageCompressor", "/image-compressor/"],
+  ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
   ["diff", "/diff-checker/"],
   ["blog", "/blog/"],
@@ -101,6 +104,9 @@ function pageMeta(page, lang, blogPost) {
     case "seo": return [seo.seoTitle || fb.seoTitle, seo.seoDesc || fb.seoDesc];
     case "citation": return [seo.citationTitle || fb.citationTitle, seo.citationDesc || fb.citationDesc];
     case "expander": return [seo.expanderTitle || fb.expanderTitle, seo.expanderDesc || fb.expanderDesc];
+    case "summarizer": return [seo.summarizerTitle || fb.summarizerTitle, seo.summarizerDesc || fb.summarizerDesc];
+    case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
+    case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
     case "diff": return [seo.diffTitle || fb.diffTitle, seo.diffDesc || fb.diffDesc];
     case "blog":
@@ -124,7 +130,7 @@ function hreflangLinks(origin, pathWithoutLang) {
   return s;
 }
 
-function jsonLd(origin, canonicalUrl, title, description, page, post = null) {
+function jsonLd(origin, canonicalUrl, title, description, page, post = null, lang = "en") {
   const data = [
     {
       "@context": "https://schema.org",
@@ -146,7 +152,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null) {
       name: title,
       description,
       url: canonicalUrl,
-      inLanguage: "en",
+      inLanguage: lang,
     },
   ];
   if (page === "humanizer") {
@@ -159,6 +165,47 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null) {
         { "@type": "HowToStep", position: 1, name: "Paste your text", text: "Paste your AI-generated draft into the input box." },
         { "@type": "HowToStep", position: 2, name: "Choose a tone", text: "Pick Conversational, Academic, Professional or Creative tone." },
         { "@type": "HowToStep", position: 3, name: "Humanize and copy", text: "Click Humanize Text, review the rewritten result and copy it." },
+      ],
+    });
+  }
+  if (page === "summarizer") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to summarize text in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste your text", text: "Paste your long article, paper, or document into the input box." },
+        { "@type": "HowToStep", position: 2, name: "Choose summary length", text: "Pick Brief (~25%), Balanced (~40%), or Detailed (~60%) summary length." },
+        { "@type": "HowToStep", position: 3, name: "Copy your summary", text: "Review the extracted key sentences and copy your summary." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How does the text summarizer work?",
+          acceptedAnswer: { "@type": "Answer", text: "Our summarizer uses extractive summarization: it scores every sentence by word frequency, position, and key-fact signals, then selects the most important sentences in their original order. It never invents content — every word comes from your text." },
+        },
+        {
+          "@type": "Question",
+          name: "Is the text summarizer free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, completely free with no sign-up, no word limits, and no text leaving your device. Everything runs in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Which languages does the summarizer support?",
+          acceptedAnswer: { "@type": "Answer", text: "The summarizer works with 8 languages: English, Spanish, Urdu (Roman Urdu), German, French, Turkish, Portuguese, and Japanese. The extractive algorithm is language-agnostic." },
+        },
+        {
+          "@type": "Question",
+          name: "What's the difference between Brief, Balanced, and Detailed summaries?",
+          acceptedAnswer: { "@type": "Answer", text: "Brief keeps ~25% of sentences for a quick overview. Balanced keeps ~40% for a solid summary. Detailed keeps ~60% for comprehensive coverage while still saving reading time." },
+        },
       ],
     });
   }
@@ -190,7 +237,7 @@ const template = fs.readFileSync(indexPath, "utf8");
 const canonMatch = template.match(/<link rel="canonical" href="([^"]+)" \/>/);
 const origin = canonMatch
   ? canonMatch[1].replace(/\/en\/ai-humanizer\/$/, "").replace(/\/$/, "")
-  : "https://peaceful-pika-383468.netlify.app";
+  : "https://humanize-a.netlify.app";
 console.log(`[static-seo] origin: ${origin}`);
 
 let count = 0;
@@ -254,7 +301,7 @@ function emitFile(lang, routePath, title, description, page, post = null) {
   // JSON-LD: replace existing block
   html = html.replace(
     /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
-    jsonLd(origin, canonicalUrl, title, description, page, post)
+    jsonLd(origin, canonicalUrl, title, description, page, post, lang)
   );
 
   const outDir = path.join(dist, lang, routePath.replace(/^\/|\/$/g, ""));
@@ -299,4 +346,5 @@ for (const u of emittedUrls) {
 }
 sm += `</urlset>\n`;
 fs.writeFileSync(path.join(root, "public", "sitemap.xml"), sm);
+fs.writeFileSync(path.join(dist, "sitemap.xml"), sm);
 console.log(`[static-seo] sitemap.xml written (${emittedUrls.length} URLs)`);

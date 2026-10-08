@@ -2,7 +2,7 @@ export type ToneType = "balanced" | "academic" | "conversational" | "professiona
 
 export type BypassLevel = "standard" | "stealth" | "ultra-stealth";
 
-export type LanguageCode = "en" | "es" | "tr" | "de" | "fr" | "pt" | "ja" | "ur";
+export type LanguageCode = "en" | "es" | "tr" | "de" | "fr" | "pt" | "ja" | "ur" | "no" | "nl" | "it";
 
 export interface HumanizeResult {
   humanizedText: string;
@@ -59,6 +59,9 @@ export type ActivePage =
   | "seo"
   | "citation"
   | "expander"
+  | "summarizer"
+  | "imageCompressor"
+  | "pdfTools"
   | "cleaner"
   | "diff"
   | "privacy"
