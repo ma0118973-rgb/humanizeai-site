@@ -373,6 +373,48 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://humanizeai-f2e.pages.dev/en/blog/cliche-cleaner-english-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/en/blog/diff-checker-english-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/en/blog/image-compressor-english-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/en/blog/pdf-tools-english-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/en/blog/seo-tools-english-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/en/blog/text-summarizer-english-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/en/blog/video-tools-english-guide/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://humanizeai-f2e.pages.dev/es/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -728,6 +770,30 @@
   </url>
   <url>
     <loc>https://humanizeai-f2e.pages.dev/es/blog/limpiador-cliches-guia-espanol/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/es/blog/comparador-diff-guia-espanol/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/es/blog/compresor-imagenes-guia-espanol/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/es/blog/herramientas-pdf-guia-espanol/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/es/blog/resumidor-texto-guia-espanol/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1472,6 +1538,24 @@
   </url>
   <url>
     <loc>https://humanizeai-f2e.pages.dev/de/blog/diff-checker-anleitung-deutsch/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/de/blog/bild-kompressor-anleitung-deutsch/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/de/blog/pdf-tools-anleitung-deutsch/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://humanizeai-f2e.pages.dev/de/blog/text-zusammenfasser-anleitung-deutsch/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
