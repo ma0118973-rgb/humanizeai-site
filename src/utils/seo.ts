@@ -84,6 +84,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "CV Builder – Resume Maker",
   },
+  wordCounter: {
+    title: "Free Word Counter – Count Words & Characters Online",
+    description: "Free word counter. Count words, characters, sentences, paragraphs and reading time live in your browser. No sign-up, nothing uploaded.",
+    canonicalPath: "/word-counter/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Word Counter",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -180,12 +188,15 @@ export function getSiteOrigin(): string {
 export const ALL_SUPPORTED_LANGUAGES: LanguageCode[] = [
   "en",
   "es",
-  "tr",
+  "ur",
   "de",
   "fr",
+  "tr",
   "pt",
   "ja",
-  "ur",
+  "no",
+  "nl",
+  "it",
 ];
 
 /**
@@ -231,6 +242,9 @@ export function applyPageSeo(
   } else if (page === "cvBuilder") {
     title = (t.seo as any).cvBuilderTitle || baseConfig.title;
     description = (t.seo as any).cvBuilderDesc || baseConfig.description;
+  } else if (page === "wordCounter") {
+    title = (t.seo as any).wordCounterTitle || baseConfig.title;
+    description = (t.seo as any).wordCounterDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

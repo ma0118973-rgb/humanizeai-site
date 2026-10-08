@@ -13,6 +13,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   summarizer: "text-summarizer-urdu-guide",
   voiceTyping: "voice-typing-urdu-guide",
   cvBuilder: "cv-builder-urdu-guide",
+  wordCounter: "word-counter-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
   pdfTools: "pdf-tools-urdu-guide",
   media: "video-tools-urdu-guide",
