@@ -333,7 +333,7 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
     <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8 animate-fadeIn overflow-hidden">
       <MobileToolHero toolId="media" selectedLanguage={selectedLanguage} />
       {/* Visual Top Headline */}
-      <div className="bg-gradient-to-r from-white via-stone-800 to-white rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-amber-200 relative overflow-hidden w-full max-w-full">
+      <div className="bg-gradient-to-r from-amber-100 via-yellow-50 to-amber-100 rounded-3xl p-4 sm:p-8 text-stone-900 shadow-xl border border-amber-200 relative overflow-hidden w-full max-w-full">
         <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-2">
           <div className="flex items-center gap-2 flex-wrap">

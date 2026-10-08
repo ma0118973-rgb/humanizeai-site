@@ -154,7 +154,7 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
           </div>
 
           {/* Section 4: Monetization Strategy Without Charging Users */}
-          <div className="p-5 bg-gradient-to-r from-white to-amber-50 text-white rounded-2xl space-y-2">
+          <div className="p-5 bg-gradient-to-r from-amber-100 to-yellow-50 text-stone-900 rounded-2xl space-y-2 border border-amber-200">
             <h4 className="text-base font-bold text-amber-300">
               💡 Agar Ham User Se Paise Nahin Lenge, To Website Paise Kaise Kamayegi?
             </h4>

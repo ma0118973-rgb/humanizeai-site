@@ -84,7 +84,7 @@ export function DedicatedSeoArticleSection({ toolId }: DedicatedSeoArticleSectio
 
           <button
             onClick={handleCopyHashtags}
-            className="px-4 py-2.5 rounded-xl bg-white hover:bg-amber-50 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all shrink-0 cursor-pointer"
+            className="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all shrink-0 cursor-pointer"
           >
             {copiedHash ? (
               <>

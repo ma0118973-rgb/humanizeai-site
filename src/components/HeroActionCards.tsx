@@ -99,7 +99,7 @@ export function HeroActionCards({ activePage, onSelectPage }: HeroActionCardsPro
               onClick={() => onSelectPage(tool.id)}
               className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 cursor-pointer group border-2 ${
                 isCurrent
-                  ? "bg-gradient-to-b from-white to-[#fffdf8] text-white border-emerald-500 shadow-xl shadow-emerald-500/10 scale-[1.02]"
+                  ? "bg-gradient-to-b from-amber-50 to-[#fffdf8] text-stone-900 border-amber-400 shadow-xl shadow-amber-500/10 scale-[1.02]"
                   : "bg-white text-stone-900 border-stone-200 hover:border-stone-400 hover:shadow-lg shadow-sm"
               }`}
             >
