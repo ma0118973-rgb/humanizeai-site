@@ -46,7 +46,7 @@ export function BlogSection({
     onSelectPost?.(null);
   };
 
-  const categories = ["All", "Detection Bypass", "Academic Integrity", "SEO & Content", "Video & Visual AI"];
+  const categories = ["All", "AI Detection", "Academic Integrity", "SEO & Content", "Video & Visual AI"];
 
   // Show posts written in the current language; fall back to English posts
   // so the blog never looks empty while more translations are being added.
@@ -89,7 +89,7 @@ export function BlogSection({
               }}
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                 selectedCategory === cat && !selectedPost
-                  ? "bg-stone-900 text-white shadow-sm"
+                  ? "bg-white text-white shadow-sm"
                   : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200"
               }`}
             >
@@ -159,15 +159,15 @@ export function BlogSection({
           </div>
 
           {/* Internal Links & Free Tool CTAs */}
-          <div className="p-5 bg-stone-900 text-white rounded-2xl space-y-4 my-6">
+          <div className="p-5 bg-white text-white rounded-2xl space-y-4 my-6">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
               <h3 className="text-base font-bold text-white">
                 Ready to Humanize Your Writing or Scan for AI?
               </h3>
             </div>
-            <p className="text-xs sm:text-sm text-stone-300">
-              Put this guide into practice right now using our 100% free web utilities — zero sign-up required:
+            <p className="text-xs sm:text-sm text-stone-600">
+              Put this guide into practice right now using our free web utilities — no sign-up required:
             </p>
             <div className="flex items-center gap-3 flex-wrap">
               {onNavigatePage && (
@@ -180,7 +180,7 @@ export function BlogSection({
                   </button>
                   <button
                     onClick={() => onNavigatePage("detector")}
-                    className="px-4 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-white font-bold text-xs flex items-center gap-1.5 transition-all border border-stone-700 cursor-pointer"
+                    className="px-4 py-2 rounded-xl bg-amber-50 hover:bg-stone-700 text-white font-bold text-xs flex items-center gap-1.5 transition-all border border-amber-200 cursor-pointer"
                   >
                     <Search className="w-3.5 h-3.5 text-emerald-400" /> Test AI Detector Scanner
                   </button>

@@ -33,7 +33,7 @@ export function HistoryDrawer({
     <div className="fixed inset-0 z-50 overflow-hidden">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-stone-900/60 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-white/60 backdrop-blur-xs transition-opacity"
         onClick={onClose}
       />
 
@@ -75,7 +75,7 @@ export function HistoryDrawer({
           <div className="flex-1 overflow-y-auto p-4 space-y-3">
             {drafts.length === 0 ? (
               <div className="h-64 flex flex-col items-center justify-center text-center p-6 text-stone-400 space-y-2">
-                <FileText className="w-10 h-10 stroke-1 text-stone-300" />
+                <FileText className="w-10 h-10 stroke-1 text-stone-600" />
                 <p className="text-sm font-semibold text-stone-700">No Drafts Saved Yet</p>
                 <p className="text-xs text-stone-500 max-w-xs">
                   Whenever you click "Humanize", your transformed text is automatically saved here for quick reference.

@@ -63,7 +63,7 @@ export function SentenceExpanderWorkspace({
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
       <MobileToolHero toolId="expander" selectedLanguage={selectedLanguage} />
       {/* Hero Header */}
-      <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-stone-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-white via-stone-800 to-white rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-amber-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
         <div className="relative z-10 max-w-3xl space-y-2">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
@@ -75,7 +75,7 @@ export function SentenceExpanderWorkspace({
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             {e.title || "Expand Short Sentences Into In-Depth Academic Prose"}
           </h1>
-          <p className="text-sm sm:text-base text-stone-300 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
             {e.desc || "Lengthen concise thoughts and robotic bullet points into rigorous, scholarly paragraphs."}
           </p>
         </div>
@@ -88,7 +88,7 @@ export function SentenceExpanderWorkspace({
                 "Social media algorithms polarize public opinion. Users consume echo chamber content. Society becomes divided."
               )
             }
-            className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-stone-800/80 text-stone-300 border border-stone-700 hover:bg-stone-700 transition-all cursor-pointer"
+            className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-amber-50/80 text-stone-600 border border-amber-200 hover:bg-stone-700 transition-all cursor-pointer"
           >
             {e.sampleMedia || "Sample: Media"}
           </button>
@@ -98,7 +98,7 @@ export function SentenceExpanderWorkspace({
                 "Renewable energy reduces carbon emissions. Wind and solar power are cheaper now. Governments must invest in grid infrastructure."
               )
             }
-            className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-stone-800/80 text-stone-300 border border-stone-700 hover:bg-stone-700 transition-all cursor-pointer"
+            className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-amber-50/80 text-stone-600 border border-amber-200 hover:bg-stone-700 transition-all cursor-pointer"
           >
             {e.sampleClimate || "Sample: Climate"}
           </button>
@@ -108,7 +108,7 @@ export function SentenceExpanderWorkspace({
       {/* AEO / GEO Direct Answer Capsule */}
       <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-2xl p-4 sm:p-6 text-stone-800">
         <div className="flex items-start gap-3">
-          <div className="p-2 bg-emerald-500 text-stone-950 rounded-xl font-bold shrink-0">
+          <div className="p-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-xl font-bold shrink-0">
             <Sparkles className="w-4 h-4" />
           </div>
           <div className="space-y-1">
@@ -224,7 +224,7 @@ export function SentenceExpanderWorkspace({
             {onSendToHumanizer && (
               <button
                 onClick={() => onSendToHumanizer(shownText)}
-                className="flex items-center justify-center gap-1 px-3 py-2 rounded-xl bg-stone-900 text-white hover:bg-stone-800 text-xs font-bold transition-all cursor-pointer"
+                className="flex items-center justify-center gap-1 px-3 py-2 rounded-xl bg-white text-white hover:bg-amber-50 text-xs font-bold transition-all cursor-pointer"
               >
                 <span>{e.sendHumanizer || "Send to Humanizer"}</span>
                 <ArrowRight className="w-3.5 h-3.5" />

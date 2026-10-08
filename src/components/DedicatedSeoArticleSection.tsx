@@ -84,7 +84,7 @@ export function DedicatedSeoArticleSection({ toolId }: DedicatedSeoArticleSectio
 
           <button
             onClick={handleCopyHashtags}
-            className="px-4 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all shrink-0 cursor-pointer"
+            className="px-4 py-2.5 rounded-xl bg-white hover:bg-amber-50 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all shrink-0 cursor-pointer"
           >
             {copiedHash ? (
               <>
@@ -101,7 +101,7 @@ export function DedicatedSeoArticleSection({ toolId }: DedicatedSeoArticleSectio
         </div>
 
         {/* Key Takeaways Box */}
-        <div className="p-5 sm:p-6 bg-stone-900 text-white rounded-3xl space-y-3 shadow-md">
+        <div className="p-5 sm:p-6 bg-white text-white rounded-3xl space-y-3 shadow-md">
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-emerald-400" />
             <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400">
@@ -110,7 +110,7 @@ export function DedicatedSeoArticleSection({ toolId }: DedicatedSeoArticleSectio
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {article.keyTakeaways.map((takeaway, idx) => (
-              <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-stone-200">
+              <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-stone-700">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
                 <span className="leading-snug">{takeaway}</span>
               </div>

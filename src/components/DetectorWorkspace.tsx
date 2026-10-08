@@ -77,7 +77,7 @@ export function DetectorWorkspace({
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
       <MobileToolHero toolId="detector" selectedLanguage={selectedLanguage} />
       {/* Enterprise-grade Header Banner */}
-      <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-stone-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden w-full max-w-full">
+      <div className="bg-gradient-to-r from-white via-stone-800 to-white rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-amber-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden w-full max-w-full">
         <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-2">
           <div className="flex items-center gap-2 flex-wrap">
@@ -89,7 +89,7 @@ export function DetectorWorkspace({
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             {t.detector.heroTitle}
           </h1>
-          <p className="text-sm sm:text-base text-stone-300 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
             {t.detector.heroSubtitle}
           </p>
         </div>
@@ -205,7 +205,7 @@ export function DetectorWorkspace({
               <div className="space-y-1 max-w-sm">
                 <h3 className="font-semibold text-stone-800 text-sm">Deep AI Verification</h3>
                 <p className="text-xs text-stone-500">
-                  Hit "Run Scan" to analyze your document. Our algorithm evaluates sentence length burstiness, vocabulary perplexity, and AI cliché density across simulated Turnitin, GPTZero, and Copyleaks models.
+                  Hit "Run Scan" to analyze your document. Our algorithm evaluates sentence length burstiness, vocabulary perplexity, and AI cliché density using heuristic pattern analysis.
                 </p>
               </div>
             </div>
@@ -213,7 +213,7 @@ export function DetectorWorkspace({
 
           {isLoading && (
             <div className="h-full flex flex-col items-center justify-center text-center p-8 space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-stone-900 text-emerald-400 flex items-center justify-center animate-spin">
+              <div className="w-12 h-12 rounded-2xl bg-white text-emerald-400 flex items-center justify-center animate-spin">
                 <Search className="w-6 h-6" />
               </div>
               <p className="text-sm font-semibold text-stone-800">

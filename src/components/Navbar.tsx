@@ -45,7 +45,7 @@ export function Navbar({
   const t = TRANSLATIONS[selectedLanguage] || TRANSLATIONS.en;
 
   return (
-    <header className="sticky top-0 z-40 bg-stone-900/95 backdrop-blur-md border-b border-stone-800 text-stone-100 w-full max-w-full overflow-hidden">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-amber-200 text-stone-900 w-full max-w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 gap-1 sm:gap-4">
           {/* Brand Logo & Title */}
@@ -58,10 +58,10 @@ export function Navbar({
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1 sm:gap-2">
-                <span className="text-base sm:text-xl font-extrabold tracking-tight text-white font-sans truncate">
-                  Clever<span className="text-emerald-400">Humanizer</span>
+                <span className="text-base sm:text-xl font-extrabold tracking-tight text-stone-900 font-sans truncate">
+                  Clever<span className="text-amber-600">Humanizer</span>
                 </span>
-                <span className="hidden xs:inline-block px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-extrabold tracking-wide uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full shrink-0">
+                <span className="hidden xs:inline-block px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-extrabold tracking-wide uppercase bg-amber-100 text-amber-700 border border-amber-300 rounded-full shrink-0">
                   Free
                 </span>
               </div>
@@ -78,8 +78,8 @@ export function Navbar({
               onClick={() => setActivePage("humanizer")}
               className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 activePage === "humanizer"
-                  ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
-                  : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold shadow-md shadow-emerald-500/20"
+                  : "text-stone-600 hover:text-amber-700 hover:bg-amber-100/60"
               }`}
             >
               <Sparkles className="w-4 h-4" />
@@ -91,8 +91,8 @@ export function Navbar({
               onClick={() => setActivePage("detector")}
               className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 activePage === "detector"
-                  ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
-                  : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold shadow-md shadow-emerald-500/20"
+                  : "text-stone-600 hover:text-amber-700 hover:bg-amber-100/60"
               }`}
             >
               <Search className="w-4 h-4" />
@@ -104,8 +104,8 @@ export function Navbar({
               onClick={() => setActivePage("media")}
               className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 activePage === "media"
-                  ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
-                  : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold shadow-md shadow-emerald-500/20"
+                  : "text-stone-600 hover:text-amber-700 hover:bg-amber-100/60"
               }`}
             >
               <Video className="w-4 h-4 text-emerald-400" />
@@ -117,8 +117,8 @@ export function Navbar({
               onClick={() => setActivePage("blog")}
               className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 activePage === "blog"
-                  ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
-                  : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold shadow-md shadow-emerald-500/20"
+                  : "text-stone-600 hover:text-amber-700 hover:bg-amber-100/60"
               }`}
             >
               <Tag className="w-4 h-4" />
@@ -132,8 +132,8 @@ export function Navbar({
                 onClick={() => setIsToolsDropdownOpen(!isToolsDropdownOpen)}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "imageCompressor", "pdfTools"].includes(activePage)
-                    ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
-                    : "text-stone-300 hover:text-white hover:bg-stone-800/60"
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold shadow-md shadow-emerald-500/20"
+                    : "text-stone-600 hover:text-amber-700 hover:bg-amber-100/60"
                 }`}
               >
                 <span>More Tools</span>
@@ -142,7 +142,7 @@ export function Navbar({
 
               {isToolsDropdownOpen && (
                 <div
-                  className="absolute left-0 mt-2 w-64 bg-stone-900 border border-stone-800 rounded-2xl shadow-2xl p-2 space-y-1 z-50 animate-in fade-in slide-in-from-top-2"
+                  className="absolute left-0 mt-2 w-64 bg-white border border-amber-200 rounded-2xl shadow-2xl p-2 space-y-1 z-50 animate-in fade-in slide-in-from-top-2"
                   onMouseLeave={() => setIsToolsDropdownOpen(false)}
                 >
                   <button
@@ -151,7 +151,7 @@ export function Navbar({
                       setIsToolsDropdownOpen(false);
                     }}
                     className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
-                      activePage === "citation" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                      activePage === "citation" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
                     }`}
                   >
                     <BookMarked className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -167,7 +167,7 @@ export function Navbar({
                       setIsToolsDropdownOpen(false);
                     }}
                     className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
-                      activePage === "expander" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                      activePage === "expander" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
                     }`}
                   >
                     <Maximize2 className="w-4 h-4 text-violet-400 shrink-0" />
@@ -183,7 +183,7 @@ export function Navbar({
                       setIsToolsDropdownOpen(false);
                     }}
                     className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
-                      activePage === "cleaner" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                      activePage === "cleaner" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
                     }`}
                   >
                     <AlertOctagon className="w-4 h-4 text-rose-400 shrink-0" />
@@ -199,7 +199,7 @@ export function Navbar({
                       setIsToolsDropdownOpen(false);
                     }}
                     className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
-                      activePage === "diff" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                      activePage === "diff" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
                     }`}
                   >
                     <GitCompare className="w-4 h-4 text-blue-400 shrink-0" />
@@ -215,7 +215,7 @@ export function Navbar({
                       setIsToolsDropdownOpen(false);
                     }}
                     className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
-                      activePage === "seo" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                      activePage === "seo" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
                     }`}
                   >
                     <TrendingUp className="w-4 h-4 text-amber-400 shrink-0" />
@@ -231,7 +231,7 @@ export function Navbar({
                       setIsToolsDropdownOpen(false);
                     }}
                     className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
-                      activePage === "summarizer" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                      activePage === "summarizer" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
                     }`}
                   >
                     <BookMarked className="w-4 h-4 text-violet-400 shrink-0" />
@@ -247,7 +247,7 @@ export function Navbar({
                       setIsToolsDropdownOpen(false);
                     }}
                     className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
-                      activePage === "imageCompressor" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                      activePage === "imageCompressor" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
                     }`}
                   >
                     <Maximize2 className="w-4 h-4 text-cyan-400 shrink-0" />
@@ -263,7 +263,7 @@ export function Navbar({
                       setIsToolsDropdownOpen(false);
                     }}
                     className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
-                      activePage === "pdfTools" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                      activePage === "pdfTools" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
                     }`}
                   >
                     <Flame className="w-4 h-4 text-red-400 shrink-0" />
@@ -297,13 +297,13 @@ export function Navbar({
               <button
                 id="nav-btn-history"
                 onClick={onOpenHistory}
-                className="flex items-center gap-1 px-2 py-1.5 sm:px-2.5 sm:py-2 rounded-xl text-xs font-semibold text-stone-300 hover:text-white hover:bg-stone-800/80 transition-all border border-stone-800 shrink-0"
+                className="flex items-center gap-1 px-2 py-1.5 sm:px-2.5 sm:py-2 rounded-xl text-xs font-semibold text-stone-600 hover:text-amber-700 hover:bg-amber-50/80 transition-all border border-amber-200 shrink-0"
                 title="View Saved Drafts & History"
               >
                 <Clock className="w-3.5 h-3.5 text-emerald-400" />
                 <span className="hidden sm:inline">{t.nav.historyBtn}</span>
                 {draftsCount > 0 && (
-                  <span className="px-1.5 py-0.2 bg-emerald-500 text-stone-950 text-[10px] font-bold rounded-full font-mono">
+                  <span className="px-1.5 py-0.2 bg-gradient-to-r from-amber-500 to-yellow-600 text-white text-[10px] font-bold rounded-full font-mono">
                     {draftsCount}
                   </span>
                 )}
@@ -323,17 +323,17 @@ export function Navbar({
 
             {/* Language Selector */}
             <div className="relative flex items-center shrink-0">
-              <div className="flex items-center gap-1 px-1.5 py-1.5 sm:px-2 sm:py-2 bg-stone-800/80 hover:bg-stone-800 border border-stone-700/60 rounded-xl text-xs font-semibold text-stone-200 cursor-pointer">
+              <div className="flex items-center gap-1 px-1.5 py-1.5 sm:px-2 sm:py-2 bg-amber-50/80 hover:bg-amber-50 border border-amber-200/60 rounded-xl text-xs font-semibold text-stone-700 cursor-pointer">
                 <Globe className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <select
                   id="nav-language-select"
                   value={selectedLanguage}
                   onChange={(e) => onLanguageChange(e.target.value as LanguageCode)}
-                  className="bg-transparent text-stone-200 outline-none cursor-pointer text-xs font-semibold pr-0.5 max-w-[55px] xs:max-w-[75px] sm:max-w-none"
+                  className="bg-transparent text-stone-700 outline-none cursor-pointer text-xs font-semibold pr-0.5 max-w-[55px] xs:max-w-[75px] sm:max-w-none"
                   aria-label="Select Language"
                 >
                   {SUPPORTED_LANGUAGES.map((lang) => (
-                    <option key={lang.code} value={lang.code} className="bg-stone-900 text-stone-100">
+                    <option key={lang.code} value={lang.code} className="bg-white text-stone-900">
                       {lang.flag} {lang.label}
                     </option>
                   ))}

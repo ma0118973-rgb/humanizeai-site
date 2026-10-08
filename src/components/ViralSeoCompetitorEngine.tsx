@@ -139,7 +139,7 @@ export function ViralSeoCompetitorEngine() {
                 onClick={() => setPlatform(p.id as any)}
                 className={`py-3 px-3 rounded-2xl border text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-stone-900 text-white border-stone-900 shadow-md scale-[1.02]"
+                    ? "bg-white text-white border-stone-900 shadow-md scale-[1.02]"
                     : "bg-stone-50 hover:bg-stone-100 text-stone-700 border-stone-200"
                 }`}
               >
@@ -262,7 +262,7 @@ export function ViralSeoCompetitorEngine() {
         type="button"
         onClick={handleGenerateViralSeo}
         disabled={isLoading}
-        className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-stone-900 via-rose-950 to-stone-900 hover:opacity-95 text-white font-extrabold text-sm sm:text-base shadow-xl flex items-center justify-center gap-2.5 transition-all cursor-pointer disabled:opacity-50"
+        className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-white via-rose-50 to-white hover:opacity-95 text-white font-extrabold text-sm sm:text-base shadow-xl flex items-center justify-center gap-2.5 transition-all cursor-pointer disabled:opacity-50"
       >
         {isLoading ? (
           <>
@@ -305,13 +305,13 @@ export function ViralSeoCompetitorEngine() {
           </div>
 
           {/* High CTR Viral Title */}
-          <div className="p-5 rounded-2xl bg-stone-900 text-white space-y-2 relative group">
+          <div className="p-5 rounded-2xl bg-white text-white space-y-2 relative group">
             <div className="flex items-center justify-between text-xs text-rose-400 font-bold uppercase tracking-wider">
               <span>Primary High-CTR Viral Title (Under 60 Chars):</span>
               <button
                 type="button"
                 onClick={() => copyToClipboard(seoResult.viralTitle, "title")}
-                className="flex items-center gap-1 text-[11px] text-white/80 hover:text-white bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-lg transition-colors cursor-pointer"
+                className="flex items-center gap-1 text-[11px] text-white/80 hover:text-amber-700 bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-lg transition-colors cursor-pointer"
               >
                 {copiedField === "title" ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copiedField === "title" ? "Copied" : "Copy Title"}</span>
@@ -322,9 +322,9 @@ export function ViralSeoCompetitorEngine() {
             </div>
 
             {/* A/B Test Alternative Titles */}
-            <div className="pt-2 border-t border-stone-800 space-y-1">
+            <div className="pt-2 border-t border-amber-200 space-y-1">
               <span className="text-[11px] text-stone-400 font-bold block">A/B Testing Alternatives:</span>
-              <ul className="space-y-1 text-xs text-stone-300">
+              <ul className="space-y-1 text-xs text-stone-600">
                 {seoResult.secondaryTitles.map((t, idx) => (
                   <li key={idx} className="flex items-center justify-between gap-2 py-0.5">
                     <span className="truncate">• {t}</span>

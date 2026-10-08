@@ -199,13 +199,13 @@ export function MobileToolHero({ toolId, selectedLanguage = "en" }: Props) {
   if (!data) return null;
 
   return (
-    <div className="w-full bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800 text-white px-4 pt-5 pb-6 sm:hidden shadow-lg relative overflow-hidden">
+    <div className="w-full bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-50 text-stone-900 px-4 pt-5 pb-6 sm:hidden shadow-lg relative overflow-hidden border-b border-amber-200">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_50%)] pointer-events-none" />
       <div className="flex items-center gap-3 relative">
         <div className="text-4xl">{data.icon}</div>
         <div className="flex-1 min-w-0">
           <h1 className="text-xl font-bold leading-tight">{data.name}</h1>
-          <p className="text-sm text-emerald-100 leading-snug mt-0.5">{data.tagline}</p>
+          <p className="text-sm text-stone-600 leading-snug mt-0.5">{data.tagline}</p>
         </div>
       </div>
       <div className="flex gap-1.5 mt-3 relative flex-wrap">

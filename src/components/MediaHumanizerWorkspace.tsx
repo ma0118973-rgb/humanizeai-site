@@ -333,7 +333,7 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
     <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8 animate-fadeIn overflow-hidden">
       <MobileToolHero toolId="media" selectedLanguage={selectedLanguage} />
       {/* Visual Top Headline */}
-      <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-stone-800 relative overflow-hidden w-full max-w-full">
+      <div className="bg-gradient-to-r from-white via-stone-800 to-white rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-amber-200 relative overflow-hidden w-full max-w-full">
         <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-2">
           <div className="flex items-center gap-2 flex-wrap">
@@ -348,7 +348,7 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             {m.title || "Crop Out Watermarks & Build Your Video SEO Kit"}
           </h1>
-          <p className="text-sm sm:text-base text-stone-300 leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
             {m.subtitle || "Crop edge watermarks out of frame with smart zoom, then generate title ideas, hooks, captions, and hashtag sets from proven templates."}
           </p>
         </div>
@@ -377,7 +377,7 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
           onClick={() => setActiveSubTab("video")}
           className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0 ${
             activeSubTab === "video"
-              ? "bg-stone-900 text-white shadow-md scale-[1.01]"
+              ? "bg-white text-white shadow-md scale-[1.01]"
               : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200"
           }`}
         >
@@ -390,7 +390,7 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
           onClick={() => setActiveSubTab("image")}
           className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0 ${
             activeSubTab === "image"
-              ? "bg-stone-900 text-white shadow-md scale-[1.01]"
+              ? "bg-white text-white shadow-md scale-[1.01]"
               : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200"
           }`}
         >
@@ -447,14 +447,14 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
                 </div>
                 <button
                   type="button"
-                  className="px-5 py-2.5 bg-stone-900 text-white text-xs font-extrabold rounded-xl shadow-sm"
+                  className="px-5 py-2.5 bg-white text-white text-xs font-extrabold rounded-xl shadow-sm"
                 >
                   Choose Video File
                 </button>
               </div>
             ) : (
               <div className="space-y-4">
-                <div className="relative rounded-2xl overflow-hidden bg-black border border-stone-800 aspect-video flex items-center justify-center shadow-md">
+                <div className="relative rounded-2xl overflow-hidden bg-black border border-amber-200 aspect-video flex items-center justify-center shadow-md">
                   <video
                     ref={videoRef}
                     src={videoPreviewUrl}
@@ -680,7 +680,7 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
                       </span>
                     </div>
 
-                    <div className="rounded-2xl overflow-hidden bg-black border border-stone-800 aspect-video shadow-md">
+                    <div className="rounded-2xl overflow-hidden bg-black border border-amber-200 aspect-video shadow-md">
                       <video src={processedBlobUrl} controls playsInline className="w-full h-full object-contain" />
                     </div>
                   </div>
@@ -702,13 +702,13 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
                 </div>
 
                 {/* 1-Click Download Clean Video */}
-                <div className="p-5 bg-stone-900 rounded-2xl text-white space-y-3 shadow-lg">
+                <div className="p-5 bg-white rounded-2xl text-white space-y-3 shadow-lg">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="font-extrabold text-sm text-white">Clean Video Ready for YouTube & TikTok</div>
                       <div className="text-xs text-stone-400">Cleaned File</div>
                     </div>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500 text-stone-950">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-gradient-to-r from-amber-500 to-yellow-600 text-white">
                       Clean Watermark
                     </span>
                   </div>

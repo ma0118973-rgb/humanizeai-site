@@ -13,16 +13,16 @@ export function HeroActionCards({ activePage, onSelectPage }: HeroActionCardsPro
       id: "humanizer" as ActivePage,
       hash: "#humanizer",
       badge: "⭐ Free to Use",
-      badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-      accentBg: "from-emerald-950/70 via-stone-900 to-stone-950",
-      iconBg: "bg-emerald-500 text-stone-950",
+      badgeColor: "bg-emerald-100 text-emerald-700 border-emerald-300",
+      accentBg: "from-emerald-100/60 via-white to-[#fffdf8]",
+      iconBg: "bg-gradient-to-r from-amber-500 to-yellow-600 text-white",
       icon: Sparkles,
       title: "AI Text Humanizer",
       subtitle: "Natural, Human-Sounding Rewrites",
       description:
         "Transform raw AI drafts from ChatGPT, Claude, and Gemini into natural, nuanced American English prose. Eliminates robotic cadence.",
       features: [
-        "Turnitin 3.0 & GPTZero 0% Detection",
+        "Natural rewrite styles",
         "5 Writing Styles (Casual to Academic)",
         "1-Click Word & TXT Export",
       ],
@@ -33,17 +33,17 @@ export function HeroActionCards({ activePage, onSelectPage }: HeroActionCardsPro
       id: "detector" as ActivePage,
       hash: "#detector",
       badge: "🔍 Institutional Multi-Model",
-      badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
-      accentBg: "from-cyan-950/70 via-stone-900 to-stone-950",
+      badgeColor: "bg-cyan-100 text-cyan-700 border-cyan-300",
+      accentBg: "from-cyan-100/60 via-white to-[#fffdf8]",
       iconBg: "bg-cyan-400 text-stone-950",
       icon: Search,
       title: "AI Content Detector 4.0",
       subtitle: "Sentence-by-Sentence Colored Heatmap",
       description:
-        "Audit any document against simulated Turnitin, GPTZero, and Copyleaks models. Pinpoint high-risk sentences with vivid colored heatmaps and one-click auto-fixing.",
+        "Audit any document with heuristic pattern analysis. Pinpoint high-risk sentences with vivid colored heatmaps and one-click auto-fixing.",
       features: [
         "Sentence Heatmap (Red AI, Green Human)",
-        "Simulated 4-Engine Cross Verification",
+        "Heuristic Pattern Analysis",
         "1-Click Auto-Fix to Humanizer",
       ],
       ctaText: "Open AI Detector",
@@ -53,8 +53,8 @@ export function HeroActionCards({ activePage, onSelectPage }: HeroActionCardsPro
       id: "media" as ActivePage,
       hash: "#media",
       badge: "🎬 Viral Reels, Shorts & SEO",
-      badgeColor: "bg-rose-500/20 text-rose-300 border-rose-500/30",
-      accentBg: "from-rose-950/70 via-stone-900 to-stone-950",
+      badgeColor: "bg-rose-100 text-rose-700 border-rose-300",
+      accentBg: "from-rose-100/60 via-white to-[#fffdf8]",
       iconBg: "bg-rose-500 text-white",
       icon: Video,
       title: "Video Studio & Viral SEO Optimizer",
@@ -75,7 +75,7 @@ export function HeroActionCards({ activePage, onSelectPage }: HeroActionCardsPro
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
       {/* Top Banner Heading */}
       <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-stone-900 text-emerald-400 border border-emerald-500/30 tracking-wide uppercase">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-white text-emerald-400 border border-emerald-500/30 tracking-wide uppercase">
           <Zap className="w-3.5 h-3.5" />
           US Creator & Student Suite
         </span>
@@ -99,7 +99,7 @@ export function HeroActionCards({ activePage, onSelectPage }: HeroActionCardsPro
               onClick={() => onSelectPage(tool.id)}
               className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 cursor-pointer group border-2 ${
                 isCurrent
-                  ? "bg-gradient-to-b from-stone-900 to-stone-950 text-white border-emerald-500 shadow-xl shadow-emerald-500/10 scale-[1.02]"
+                  ? "bg-gradient-to-b from-white to-[#fffdf8] text-white border-emerald-500 shadow-xl shadow-emerald-500/10 scale-[1.02]"
                   : "bg-white text-stone-900 border-stone-200 hover:border-stone-400 hover:shadow-lg shadow-sm"
               }`}
             >
@@ -113,8 +113,8 @@ export function HeroActionCards({ activePage, onSelectPage }: HeroActionCardsPro
                   </div>
                   <div className="flex items-center gap-2">
                     {isCurrent && (
-                      <span className="px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-emerald-500 text-stone-950 flex items-center gap-1 animate-pulse shadow-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-stone-950" />
+                      <span className="px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-gradient-to-r from-amber-500 to-yellow-600 text-white flex items-center gap-1 animate-pulse shadow-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#fffdf8]" />
                         OPEN NOW
                       </span>
                     )}
@@ -145,7 +145,7 @@ export function HeroActionCards({ activePage, onSelectPage }: HeroActionCardsPro
 
                 <p
                   className={`text-xs sm:text-sm leading-relaxed ${
-                    isCurrent ? "text-stone-300" : "text-stone-600"
+                    isCurrent ? "text-stone-600" : "text-stone-600"
                   }`}
                 >
                   {tool.description}
@@ -157,7 +157,7 @@ export function HeroActionCards({ activePage, onSelectPage }: HeroActionCardsPro
                     <div
                       key={idx}
                       className={`text-xs flex items-center gap-2 font-medium ${
-                        isCurrent ? "text-stone-300" : "text-stone-700"
+                        isCurrent ? "text-stone-600" : "text-stone-700"
                       }`}
                     >
                       <CheckCircle2

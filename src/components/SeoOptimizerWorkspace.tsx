@@ -188,7 +188,7 @@ export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerW
         <div className="lg:col-span-7 bg-white rounded-2xl border border-stone-200 shadow-sm p-6 space-y-6">
           {!result && !isLoading && (
             <div className="h-full min-h-[340px] flex flex-col items-center justify-center text-center p-8 space-y-3 text-stone-400">
-              <Tag className="w-10 h-10 text-stone-300" />
+              <Tag className="w-10 h-10 text-stone-600" />
               <p className="text-sm font-semibold text-stone-700">{s.previewTitle || "SEO Assets & Meta Tags Preview"}</p>
               <p className="text-xs text-stone-500 max-w-md">
                 {s.previewDesc || "Click Generate to get title tags, meta descriptions, keywords, and hashtags."}

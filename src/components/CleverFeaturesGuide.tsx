@@ -37,7 +37,7 @@ export function CleverFeaturesGuide() {
   const comparisons = [
     {
       feature: "Monthly Cost",
-      clever: "100% Free",
+      clever: "Free",
       competitor: "$25.00 - $49.00 / mo",
       winner: true,
     },
@@ -105,7 +105,7 @@ export function CleverFeaturesGuide() {
                 <div className="w-10 h-10 rounded-xl bg-white border border-stone-200 shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform">
                   {item.icon}
                 </div>
-                <span className="font-mono text-2xl font-extrabold text-stone-300 group-hover:text-emerald-500 transition-colors">
+                <span className="font-mono text-2xl font-extrabold text-stone-600 group-hover:text-emerald-500 transition-colors">
                   {item.step}
                 </span>
               </div>
@@ -139,7 +139,7 @@ export function CleverFeaturesGuide() {
               <tr className="border-b border-stone-200 bg-stone-50/80">
                 <th className="py-3 px-4 font-semibold text-stone-700">Feature</th>
                 <th className="py-3 px-4 font-bold text-emerald-700 bg-emerald-50/60 border-x border-emerald-100">
-                  Clever Humanizer (100% Free)
+                  Clever Humanizer (Free)
                 </th>
                 <th className="py-3 px-4 font-semibold text-stone-500">
                   Standard Paid Tools ($25+/mo)

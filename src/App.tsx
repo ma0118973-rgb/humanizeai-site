@@ -377,7 +377,7 @@ export default function App() {
 
   return (
     <DiagnosticBoundary>
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-emerald-50/30 text-stone-900 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900 pb-20 md:pb-0 w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50/60 via-white to-yellow-50/40 text-stone-900 flex flex-col font-sans selection:bg-amber-100 selection:text-amber-900 pb-20 md:pb-0 w-full max-w-full overflow-x-hidden">
       {/* Mobile App Install Smart Banner (Top 1-Tap Trigger) */}
       <MobileAppBanner onOpenInstall={() => setIsInstallOpen(true)} />
 

@@ -85,19 +85,19 @@ export function CitationWorkspace({ selectedLanguage = "en" }: CitationWorkspace
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
       <MobileToolHero toolId="citation" selectedLanguage={selectedLanguage} />
       {/* Hero Header */}
-      <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-stone-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-white via-stone-800 to-white rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-amber-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
         <div className="relative z-10 max-w-3xl space-y-2">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
               <BookMarked className="w-3.5 h-3.5 text-emerald-400" />
-              100% Free APA 7, MLA 9 & Chicago Citation Engine
+              Free APA 7, MLA 9 & Chicago Citation Engine
             </span>
             <span className="text-xs text-stone-400 font-mono">Turnitin & Plagiarism Safe</span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             Free Academic Citation & Bibliography Formatter
           </h1>
-          <p className="text-sm sm:text-base text-stone-300 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
             Generate authentic references for journal papers, books, websites, and theses. Formats references instantly in APA 7, MLA 9, Chicago 17, and Harvard styles without paywalls or ads.
           </p>
         </div>
@@ -110,8 +110,8 @@ export function CitationWorkspace({ selectedLanguage = "en" }: CitationWorkspace
               onClick={() => handleQuickPreset(st)}
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold capitalize border transition-all cursor-pointer ${
                 input.sourceType === st
-                  ? "bg-emerald-500 text-stone-950 border-emerald-400 font-bold"
-                  : "bg-stone-800/80 text-stone-300 border-stone-700 hover:bg-stone-700"
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white border-emerald-400 font-bold"
+                  : "bg-amber-50/80 text-stone-600 border-amber-200 hover:bg-stone-700"
               }`}
             >
               {st} Example
@@ -123,7 +123,7 @@ export function CitationWorkspace({ selectedLanguage = "en" }: CitationWorkspace
       {/* AEO / GEO Answer Engine Direct Capsule */}
       <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-2xl p-4 sm:p-6 text-stone-800">
         <div className="flex items-start gap-3">
-          <div className="p-2 bg-emerald-500 text-stone-950 rounded-xl font-bold shrink-0">
+          <div className="p-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-xl font-bold shrink-0">
             <Sparkles className="w-4 h-4" />
           </div>
           <div className="space-y-1">
@@ -237,7 +237,7 @@ export function CitationWorkspace({ selectedLanguage = "en" }: CitationWorkspace
           {/* APA 7 */}
           <div className="bg-white rounded-3xl border border-stone-200 p-4 sm:p-6 shadow-sm space-y-2">
             <div className="flex items-center justify-between">
-              <span className="px-2.5 py-1 rounded-md bg-stone-900 text-white text-xs font-bold">
+              <span className="px-2.5 py-1 rounded-md bg-white text-white text-xs font-bold">
                 APA 7th Edition (American Psychological Association)
               </span>
               <button
@@ -312,7 +312,7 @@ export function CitationWorkspace({ selectedLanguage = "en" }: CitationWorkspace
           {/* Harvard Referencing */}
           <div className="bg-white rounded-3xl border border-stone-200 p-4 sm:p-6 shadow-sm space-y-2">
             <div className="flex items-center justify-between">
-              <span className="px-2.5 py-1 rounded-md bg-stone-800 text-stone-100 text-xs font-bold">
+              <span className="px-2.5 py-1 rounded-md bg-amber-50 text-stone-900 text-xs font-bold">
                 Harvard Referencing Style
               </span>
               <button

@@ -42,7 +42,7 @@ export function ClicheCleanerWorkspace({
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
       <MobileToolHero toolId="cleaner" selectedLanguage={selectedLanguage} />
       {/* Hero Header */}
-      <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-stone-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-white via-stone-800 to-white rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-amber-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
         <div className="relative z-10 max-w-3xl space-y-2">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1.5">
@@ -54,17 +54,17 @@ export function ClicheCleanerWorkspace({
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             Strip Dead-Giveaway AI Clichés & Buzzwords
           </h1>
-          <p className="text-sm sm:text-base text-stone-300 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
             Eliminates robotic hallmark vocabulary like <em>"delve", "tapestry", "testament", "pivotal role"</em> and formulaic transition phrases that instantly trigger AI detection filters.
           </p>
         </div>
 
         {/* AI Cliché Count Stat Box */}
-        <div className="bg-stone-800/90 border border-stone-700/80 rounded-2xl p-4 text-center shrink-0 min-w-[160px] relative z-10">
+        <div className="bg-amber-50/90 border border-amber-200/80 rounded-2xl p-4 text-center shrink-0 min-w-[160px] relative z-10">
           <div className="text-3xl font-extrabold text-rose-400 font-mono">
             {analysis.detectedCount}
           </div>
-          <div className="text-xs font-bold text-stone-300 mt-1">AI Clichés Found</div>
+          <div className="text-xs font-bold text-stone-600 mt-1">AI Clichés Found</div>
           <div className="text-[10px] text-stone-400 font-mono mt-0.5">
             Risk Density: {analysis.aiDensityScore}%
           </div>
@@ -74,7 +74,7 @@ export function ClicheCleanerWorkspace({
       {/* AEO / GEO Direct Answer Capsule */}
       <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-2xl p-4 sm:p-6 text-stone-800">
         <div className="flex items-start gap-3">
-          <div className="p-2 bg-emerald-500 text-stone-950 rounded-xl font-bold shrink-0">
+          <div className="p-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-xl font-bold shrink-0">
             <Sparkles className="w-4 h-4" />
           </div>
           <div className="space-y-1">
@@ -128,7 +128,7 @@ export function ClicheCleanerWorkspace({
             {onSendToHumanizer && (
               <button
                 onClick={() => onSendToHumanizer(analysis.cleanedText)}
-                className="flex items-center gap-1 px-3 py-2 rounded-xl bg-stone-900 text-white hover:bg-stone-800 text-xs font-bold transition-all cursor-pointer"
+                className="flex items-center gap-1 px-3 py-2 rounded-xl bg-white text-white hover:bg-amber-50 text-xs font-bold transition-all cursor-pointer"
               >
                 <span>Send to Humanizer</span>
                 <ArrowRight className="w-3.5 h-3.5" />

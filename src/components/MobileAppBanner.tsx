@@ -33,7 +33,7 @@ export function MobileAppBanner({ onOpenInstall }: MobileAppBannerProps) {
   };
 
   return (
-    <div className="bg-gradient-to-r from-stone-900 via-emerald-950 to-stone-900 text-white border-b border-emerald-500/30 px-3 py-2 sm:py-2.5 text-xs">
+    <div className="bg-gradient-to-r from-white via-emerald-950 to-white text-white border-b border-emerald-500/30 px-3 py-2 sm:py-2.5 text-xs">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
         <div className="flex items-center gap-2.5 min-w-0">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shrink-0 shadow-sm shadow-emerald-500/30 text-stone-950 font-bold">
@@ -48,7 +48,7 @@ export function MobileAppBanner({ onOpenInstall }: MobileAppBannerProps) {
                 100% Free
               </span>
             </div>
-            <p className="text-[11px] text-stone-300 truncate">
+            <p className="text-[11px] text-stone-600 truncate">
               Fast 1-tap home screen access • Zero ads • Works offline
             </p>
           </div>
@@ -64,7 +64,7 @@ export function MobileAppBanner({ onOpenInstall }: MobileAppBannerProps) {
           </button>
           <button
             onClick={handleDismiss}
-            className="p-1 text-stone-400 hover:text-white rounded-md hover:bg-stone-800 transition-colors"
+            className="p-1 text-stone-400 hover:text-amber-700 rounded-md hover:bg-amber-50 transition-colors"
             title="Dismiss banner"
           >
             <X className="w-3.5 h-3.5" />

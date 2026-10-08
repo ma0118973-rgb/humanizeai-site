@@ -96,7 +96,7 @@ export function PdfToolsWorkspace({ selectedLanguage = "en" }: PdfToolsWorkspace
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
       <MobileToolHero toolId="pdfTools" selectedLanguage={selectedLanguage} />
       {/* Hero — Tool FIRST */}
-      <div className="bg-gradient-to-br from-red-950 via-stone-900 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-2xl border border-red-800/30 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-red-950 via-white to-white rounded-3xl p-4 sm:p-8 text-white shadow-2xl border border-red-800/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(248,113,113,0.15),transparent_50%)] pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-3">
           <div className="flex items-center gap-2 flex-wrap">
@@ -111,7 +111,7 @@ export function PdfToolsWorkspace({ selectedLanguage = "en" }: PdfToolsWorkspace
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             {pt.title || "Merge PDF & Convert Images to PDF — Free"}
           </h1>
-          <p className="text-sm sm:text-base text-stone-300 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
             {pt.subtitle || "Combine PDFs or turn images into a PDF. Everything happens in your browser — files never leave your device."}
           </p>
         </div>

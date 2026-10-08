@@ -799,7 +799,7 @@ export function HumanizerWorkspace({
                 <button
                   id="btn-copy-output"
                   onClick={handleCopy}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-extrabold bg-stone-900 hover:bg-stone-800 text-white transition-all shadow-xs cursor-pointer active:scale-95"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-extrabold bg-white hover:bg-amber-50 text-white transition-all shadow-xs cursor-pointer active:scale-95"
                 >
                   {copied ? (
                     <>

@@ -10,10 +10,10 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 w-full max-w-full">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#fffdf8]/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 w-full max-w-full">
       <div className="relative bg-white w-full max-w-4xl rounded-3xl shadow-2xl border border-stone-200 overflow-hidden my-8 max-w-full">
         {/* Modal Header */}
-        <div className="bg-stone-900 text-white p-6 sm:p-8 flex items-start justify-between relative overflow-hidden">
+        <div className="bg-white text-white p-6 sm:p-8 flex items-start justify-between relative overflow-hidden">
           <div className="space-y-2 relative z-10">
             <div className="flex items-center gap-2">
               <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1">
@@ -24,14 +24,14 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
               2026 Fastest Growing AI Web Tools & Clone Strategy
             </h3>
-            <p className="text-xs sm:text-sm text-stone-300 max-w-2xl">
-              Real-time analysis on why AI Humanizer & Detection Bypass tools receive millions of monthly visits in the United States, how paid competitors operate, and our 100% Free disruption blueprint.
+            <p className="text-xs sm:text-sm text-stone-600 max-w-2xl">
+              An overview of AI writing tools, how paid competitors operate, and our free-tool approach.
             </p>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-full bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white transition-all relative z-10"
+            className="p-2 rounded-full bg-amber-50 hover:bg-stone-700 text-stone-600 hover:text-amber-700 transition-all relative z-10"
           >
             <X className="w-5 h-5" />
           </button>
@@ -84,7 +84,7 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
                   🚨 Turnitin & University AI Bans in the US
                 </strong>
                 <p className="text-stone-600 text-xs">
-                  US universities and schools use Turnitin AI Detection which falsely flags students. Students are desperate for a tool that bypasses detection.
+                  Writers and students look for tools that make AI-assisted drafts sound more natural.
                 </p>
               </div>
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
@@ -154,11 +154,11 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
           </div>
 
           {/* Section 4: Monetization Strategy Without Charging Users */}
-          <div className="p-5 bg-gradient-to-r from-stone-900 to-stone-800 text-white rounded-2xl space-y-2">
+          <div className="p-5 bg-gradient-to-r from-white to-amber-50 text-white rounded-2xl space-y-2">
             <h4 className="text-base font-bold text-amber-300">
               💡 Agar Ham User Se Paise Nahin Lenge, To Website Paise Kaise Kamayegi?
             </h4>
-            <ul className="text-xs sm:text-sm text-stone-300 space-y-2 pt-1">
+            <ul className="text-xs sm:text-sm text-stone-600 space-y-2 pt-1">
               <li className="flex items-start gap-2">
                 <span className="text-emerald-400 font-bold">1. Display Ads:</span>
                 <span>Ad networks like Google AdSense can show ads to visitors; earnings depend on traffic and niche.</span>
@@ -179,7 +179,7 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
         <div className="p-4 bg-stone-50 border-t border-stone-200 flex justify-end">
           <button
             onClick={onClose}
-            className="px-5 py-2.5 bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold rounded-xl transition-all"
+            className="px-5 py-2.5 bg-white hover:bg-amber-50 text-white text-xs font-semibold rounded-xl transition-all"
           >
             Close & Start Using Tool
           </button>

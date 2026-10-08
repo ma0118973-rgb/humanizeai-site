@@ -50,14 +50,14 @@ export function MobileBottomNav({
             className="absolute inset-0 bg-black/60"
             onClick={() => setShowMore(false)}
           />
-          <div className="absolute bottom-0 left-0 right-0 bg-stone-900 rounded-t-3xl border-t border-stone-700 max-h-[75vh] overflow-y-auto">
-            <div className="sticky top-0 bg-stone-900 px-4 pt-3 pb-2 border-b border-stone-800">
+          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl border-t border-amber-200 max-h-[75vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white px-4 pt-3 pb-2 border-b border-amber-200">
               <div className="w-10 h-1 rounded-full bg-stone-700 mx-auto mb-2" />
               <div className="flex items-center justify-between">
-                <h3 className="text-white font-bold text-base">All Tools</h3>
+                <h3 className="text-stone-900 font-bold text-base">All Tools</h3>
                 <button
                   onClick={() => setShowMore(false)}
-                  className="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center text-stone-300"
+                  className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-stone-600"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -72,15 +72,15 @@ export function MobileBottomNav({
                     key={tool.id}
                     onClick={() => handleSelect(tool.id)}
                     className={`w-full flex items-center gap-3 p-3 rounded-2xl text-left transition-all ${
-                      isActive ? "bg-emerald-500/20 border border-emerald-500/40" : "hover:bg-stone-800"
+                      isActive ? "bg-amber-100 border border-amber-300" : "hover:bg-amber-50"
                     }`}
                   >
-                    <div className={`w-10 h-10 rounded-xl bg-stone-800 flex items-center justify-center ${tool.color}`}>
+                    <div className={`w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center ${tool.color}`}>
                       <Icon className="w-5 h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-white font-semibold text-sm">{tool.label}</div>
-                      <div className="text-stone-400 text-xs">{tool.desc}</div>
+                      <div className="text-stone-900 font-semibold text-sm">{tool.label}</div>
+                      <div className="text-stone-500 text-xs">{tool.desc}</div>
                     </div>
                     <ChevronRight className="w-4 h-4 text-stone-500" />
                   </button>
@@ -106,7 +106,7 @@ export function MobileBottomNav({
       )}
 
       {/* Bottom Nav Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-stone-900/95 backdrop-blur-lg border-t border-stone-800 px-2 py-1.5 shadow-2xl safe-area-inset-bottom">
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-lg border-t border-amber-200 px-2 py-1.5 shadow-2xl safe-area-inset-bottom">
         <div className="flex items-center justify-around max-w-md mx-auto">
           {mainItems.map((item) => {
             const Icon = item.icon;

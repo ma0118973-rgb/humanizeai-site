@@ -80,7 +80,7 @@ export function SummarizerWorkspace({ selectedLanguage = "en" }: SummarizerWorks
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
       <MobileToolHero toolId="summarizer" selectedLanguage={selectedLanguage} />
       {/* Hero Header — Premium Design */}
-      <div className="bg-gradient-to-br from-violet-950 via-stone-900 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-2xl border border-violet-800/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-violet-950 via-white to-white rounded-3xl p-4 sm:p-8 text-white shadow-2xl border border-violet-800/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.15),transparent_50%)] pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-3">
           <div className="flex items-center gap-2 flex-wrap">
@@ -93,7 +93,7 @@ export function SummarizerWorkspace({ selectedLanguage = "en" }: SummarizerWorks
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             {sum.title || "Summarize Any Text in Seconds"}
           </h1>
-          <p className="text-sm sm:text-base text-stone-300 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
             {sum.subtitle || "Paste long articles, papers, or documents and get instant, accurate summaries. Extractive AI picks the most important sentences — your summary stays true to the original."}
           </p>
         </div>
