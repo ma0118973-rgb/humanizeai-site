@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MobileToolHero } from "./MobileToolHero";
 import { BookMarked, Copy, Check, Sparkles, BookOpen, ExternalLink, ShieldCheck } from "lucide-react";
 import { generateCitationFormats, CitationInput, CitationResult } from "../utils/localEngines";
 import { LanguageCode } from "../types";
@@ -81,7 +82,8 @@ export function CitationWorkspace({ selectedLanguage = "en" }: CitationWorkspace
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 overflow-hidden">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
+      <MobileToolHero toolId="citation" selectedLanguage={selectedLanguage} />
       {/* Hero Header */}
       <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-stone-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
         <div className="relative z-10 max-w-3xl space-y-2">

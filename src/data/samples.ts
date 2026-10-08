@@ -51,7 +51,7 @@ export const COMPETITOR_DATA = [
     freeLimit: "250 words only",
     turnitinBypass: "Varies by text",
     stealthEngine: "Standard Paraphrase",
-    ourAdvantage: "100% Free Forever, Unlimited Words, No Sign-Up Needed",
+    ourAdvantage: "100% Free, Unlimited Words, No Sign-Up Needed",
   },
   {
     name: "StealthGPT",

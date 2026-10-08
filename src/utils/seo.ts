@@ -22,11 +22,11 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   },
   detector: {
     title: "AI Content Detector – Text Pattern Scanner & Sentence Heatmap",
-    description: "Scan documents with simulated Turnitin, GPTZero, Copyleaks & Originality.ai models. Features sentence-by-sentence visual risk heatmaps and zero false positives.",
+    description: "Scan documents with simulated Turnitin, GPTZero, Copyleaks & Originality.ai models. Features sentence-by-sentence visual risk heatmaps. Heuristic estimates, not official verdicts.",
     canonicalPath: "/ai-detector/",
     ogType: "website",
     schemaType: "WebApplication",
-    toolName: "Enterprise AI Content Detector 4.0",
+    toolName: "AI Content Detector",
   },
   media: {
     title: "AI Video & Media Studio – Watermark Remover & Reels Pacing",
@@ -37,7 +37,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     toolName: "AI Video Reels & Watermark Studio",
   },
   seo: {
-    title: "High-RPM SEO Optimizer – Viral Tags & Meta Engine (2026)",
+    title: "High-RPM SEO Optimizer – Viral Tags & Meta Engine",
     description: "Generate high-CTR Google meta tags, search keywords, and viral social hashtags for YouTube Shorts, TikTok, and web publishers.",
     canonicalPath: "/seo-tools/",
     ogType: "website",
@@ -54,14 +54,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   },
   expander: {
     title: "Academic Sentence Expander & Depth Enhancer – Free Writing Tool",
-    description: "Expand short, robotic sentences into rich academic prose with high perplexity, causal depth, and diverse sentence burstiness. 100% free forever.",
+    description: "Expand short, robotic sentences into rich academic prose with high perplexity, causal depth, and diverse sentence burstiness. 100% free.",
     canonicalPath: "/sentence-expander/",
     ogType: "website",
     schemaType: "WebApplication",
     toolName: "Academic Sentence Expander",
   },
   summarizer: {
-    title: "Free AI Text Summarizer – Summarize Articles in Seconds (2026)",
+    title: "Free AI Text Summarizer – Summarize Articles in Seconds",
     description: "Free text summarizer. Paste long articles, papers & documents — get instant extractive summaries in 8 languages. No sign-up.",
     canonicalPath: "/text-summarizer/",
     ogType: "website",
@@ -69,7 +69,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     toolName: "AI Text Summarizer",
   },
   imageCompressor: {
-    title: "Free Image Compressor Online – Compress JPG, PNG, WebP (2026)",
+    title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup. 100% private.",
     canonicalPath: "/image-compressor/",
     ogType: "website",
@@ -77,7 +77,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     toolName: "Image Compressor",
   },
   pdfTools: {
-    title: "Free PDF Tools Online – Merge PDF & Images to PDF (2026)",
+    title: "Free PDF Tools Online – Merge PDF & Images to PDF",
     description: "Free PDF tools. Merge multiple PDFs into one, or convert JPG/PNG images to PDF. 100% in-browser, no upload, no signup.",
     canonicalPath: "/pdf-tools/",
     ogType: "website",
@@ -101,7 +101,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     toolName: "Paraphrase Similarity Diff Checker",
   },
   blog: {
-    title: "AI Detection & Humanization Guides (2026 Edition)",
+    title: "AI Detection & Humanization Guides",
     description: "In-depth benchmarks on Turnitin 3.0, perplexity, burstiness algorithms, and ethical AI humanization workflows for students and creators.",
     canonicalPath: "/blog/",
     ogType: "article",

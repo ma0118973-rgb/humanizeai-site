@@ -1,20 +1,33 @@
 import { useState } from "react";
-import { Tag, Search, Copy, Check, Sparkles, Hash, Globe, Code, Layers } from "lucide-react";
+import { MobileToolHero } from "./MobileToolHero";
+import { Tag, Search, Copy, Check, Sparkles, Hash, Globe, Code, Layers, Wand2 } from "lucide-react";
 import { SeoResult } from "../types";
 import { runLocalSeoOptimization } from "../utils/localEngines";
+import { tryAiAssist } from "../utils/aiAssist";
 import { getSiteOrigin } from "../utils/seo";
+import { LanguageCode } from "../types";
+import { TRANSLATIONS } from "../data/translations";
 
-export function SeoOptimizerWorkspace() {
+interface SeoOptimizerWorkspaceProps {
+  selectedLanguage?: LanguageCode;
+}
+
+export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerWorkspaceProps) {
+  const t = TRANSLATIONS[selectedLanguage] || TRANSLATIONS.en;
+  const s = (t as any).seoTools || {};
   const [topic, setTopic] = useState("AI Humanizer & Text Rewriting Tool");
   const [region, setRegion] = useState("United States & Global");
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<SeoResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [aiSuggestions, setAiSuggestions] = useState<string | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiFailed, setAiFailed] = useState(false);
 
   const handleGenerate = async () => {
     if (!topic.trim()) {
-      setError("Please enter a topic or text.");
+      setError(s.errorEmpty || "Please enter a topic or text.");
       return;
     }
 
@@ -27,9 +40,25 @@ export function SeoOptimizerWorkspace() {
       setResult(localResult);
     } catch (err: any) {
       console.error(err);
-      setError(err.message || "Failed to generate SEO assets.");
+      setError(err.message || s.errorFailed || "Failed to generate SEO assets.");
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleAiSuggestions = async () => {
+    if (!topic.trim() || aiLoading) return;
+    setAiLoading(true);
+    setAiFailed(false);
+    const text = await tryAiAssist(
+      `Topic: "${topic}". Target region: ${region}.`,
+      "seo"
+    );
+    setAiLoading(false);
+    if (text) {
+      setAiSuggestions(text);
+    } else {
+      setAiFailed(true);
     }
   };
 
@@ -41,22 +70,24 @@ export function SeoOptimizerWorkspace() {
 
   return (
     <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6 overflow-hidden">
+      <MobileToolHero toolId="seo" selectedLanguage={selectedLanguage} />
       {/* Header */}
       <div className="bg-white border border-stone-200 rounded-2xl p-4 sm:p-6 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 w-full max-w-full overflow-hidden">
         <div>
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
-              Rank #1 on Google in 2026
+              {s.badge || "SEO Helper for Content Creators"}
             </span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mt-1">
-            Viral SEO Engine, Meta Tags & Trending Hashtags
+            {s.mainTitle || "Viral SEO Engine, Meta Tags & Trending Hashtags"}
           </h2>
           <p className="text-sm text-stone-600 max-w-2xl mt-1">
-            Generate high-CTR Meta Titles, Descriptions, Google-indexed search keywords, and viral social hashtags to drive millions of organic US & global visitors.
+            {s.desc || "Generate meta titles, descriptions, keyword ideas, and social hashtags as a starting point for your content. Always research and verify keywords with professional SEO tools before publishing."}
           </p>
         </div>
 
+        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto shrink-0">
         <button
           onClick={handleGenerate}
           disabled={isLoading || !topic.trim()}
@@ -65,15 +96,33 @@ export function SeoOptimizerWorkspace() {
           {isLoading ? (
             <>
               <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              <span>Analyzing 2026 SEO Signals...</span>
+              <span>{s.analyzing || "Analyzing SEO Signals..."}</span>
             </>
           ) : (
             <>
               <Sparkles className="w-4 h-4 text-emerald-200" />
-              <span>Generate SEO & Tags</span>
+              <span>{s.generateBtn || "Generate SEO & Tags"}</span>
             </>
           )}
         </button>
+        <button
+          onClick={handleAiSuggestions}
+          disabled={aiLoading || !topic.trim()}
+          className="px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50 w-full sm:w-auto shrink-0"
+        >
+          {aiLoading ? (
+            <>
+              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              <span>Thinking…</span>
+            </>
+          ) : (
+            <>
+              <Wand2 className="w-4 h-4 text-violet-200" />
+              <span>AI Suggestions</span>
+            </>
+          )}
+        </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -81,7 +130,7 @@ export function SeoOptimizerWorkspace() {
         <div className="lg:col-span-5 bg-white rounded-2xl border border-stone-200 shadow-sm p-5 space-y-4">
           <div>
             <label className="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1.5">
-              Topic, Article, or Keyword Niche
+              {s.topicLabel || "Topic, Article, or Keyword Niche"}
             </label>
             <textarea
               value={topic}
@@ -93,7 +142,7 @@ export function SeoOptimizerWorkspace() {
 
           <div>
             <label className="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1.5">
-              Target Search Geography
+              {s.geoLabel || "Target Search Geography"}
             </label>
             <select
               value={region}
@@ -115,13 +164,13 @@ export function SeoOptimizerWorkspace() {
 
           {/* Quick presets */}
           <div className="pt-2">
-            <span className="text-xs text-stone-500 block mb-2 font-medium">Quick 2026 Trending Niches:</span>
+            <span className="text-xs text-stone-500 block mb-2 font-medium">{s.quickNiches || "Quick Trending Niches:"}</span>
             <div className="flex flex-wrap gap-1.5">
               {[
                 "AI Humanizer",
-                "ChatGPT Detector Bypass",
-                "College Student Essay Paraphraser",
+                "Essay Paraphraser for Students",
                 "ATS Resume Optimizer Free",
+                "Blog Title Generator",
               ].map((niche, i) => (
                 <button
                   key={i}
@@ -140,9 +189,9 @@ export function SeoOptimizerWorkspace() {
           {!result && !isLoading && (
             <div className="h-full min-h-[340px] flex flex-col items-center justify-center text-center p-8 space-y-3 text-stone-400">
               <Tag className="w-10 h-10 text-stone-300" />
-              <p className="text-sm font-semibold text-stone-700">SEO Assets & Meta Tags Preview</p>
+              <p className="text-sm font-semibold text-stone-700">{s.previewTitle || "SEO Assets & Meta Tags Preview"}</p>
               <p className="text-xs text-stone-500 max-w-md">
-                Click "Generate SEO & Tags" to get high-CTR title tags, meta descriptions, long-tail search keywords, and viral social hashtags.
+                {s.previewDesc || "Click Generate to get title tags, meta descriptions, keywords, and hashtags."}
               </p>
             </div>
           )}
@@ -151,7 +200,7 @@ export function SeoOptimizerWorkspace() {
             <div className="h-full min-h-[340px] flex flex-col items-center justify-center text-center p-8 space-y-3">
               <Sparkles className="w-8 h-8 text-emerald-600 animate-spin" />
               <p className="text-sm font-semibold text-stone-800">
-                Formulating 2026 High-Volume Keywords & Search Engine Snippets...
+                {s.formulating || "Formulating High-Volume Keywords & Search Engine Snippets..."}
               </p>
             </div>
           )}
@@ -161,7 +210,7 @@ export function SeoOptimizerWorkspace() {
               {/* Google Snippet Preview */}
               <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-1">
                 <span className="text-[10px] uppercase font-bold tracking-wider text-stone-400">
-                  Google Search Snippet Preview
+                  {s.snippetPreview || "Google Search Snippet Preview"}
                 </span>
                 <div className="text-xs text-emerald-700 flex items-center gap-1 font-mono truncate">
                   {getSiteOrigin()} › seo-tools
@@ -185,12 +234,12 @@ export function SeoOptimizerWorkspace() {
                     {copiedKey === "metaTags" ? (
                       <>
                         <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-600">Copied HTML Meta</span>
+                        <span className="text-emerald-600">{s.copiedMeta || "Copied!"}</span>
                       </>
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5" />
-                        <span>Copy HTML Meta Tags</span>
+                        <span>{s.copyMeta || "Copy HTML Meta Tags"}</span>
                       </>
                     )}
                   </button>
@@ -200,7 +249,7 @@ export function SeoOptimizerWorkspace() {
               {/* Primary & Long Tail Keywords */}
               <div className="space-y-2">
                 <span className="text-xs font-semibold text-stone-700 uppercase tracking-wider block">
-                  High-Intent Search Keywords (Organic Traffic)
+                  {s.keywordsTitle || "High-Intent Search Keywords"}
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {result.primaryKeywords.map((kw, i) => (
@@ -226,7 +275,7 @@ export function SeoOptimizerWorkspace() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold text-stone-700 uppercase tracking-wider">
-                    Viral Social Hashtags (TikTok, X, LinkedIn, YouTube)
+                    {s.hashtagsTitle || "Viral Social Hashtags"}
                   </span>
                   <button
                     onClick={() => copyToClipboard(result.viralHashtags.join(" "), "hashtags")}
@@ -237,7 +286,7 @@ export function SeoOptimizerWorkspace() {
                     ) : (
                       <Copy className="w-3.5 h-3.5" />
                     )}
-                    <span>Copy All Hashtags</span>
+                    <span>{s.copyHashtags || "Copy All Hashtags"}</span>
                   </button>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
@@ -251,6 +300,56 @@ export function SeoOptimizerWorkspace() {
                   ))}
                 </div>
               </div>
+
+              {/* AI Suggestions panel */}
+              {(aiSuggestions || aiLoading || aiFailed) && (
+                <div className="p-4 bg-violet-50 rounded-xl border border-violet-200 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Wand2 className="w-4 h-4 text-violet-600" />
+                    <span className="text-xs font-bold text-violet-900 uppercase tracking-wider">
+                      AI Suggestions
+                    </span>
+                    {aiSuggestions && (
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-violet-600 text-white font-mono">
+                        AI-generated
+                      </span>
+                    )}
+                  </div>
+                  {aiLoading && (
+                    <p className="text-xs text-stone-500">Asking the AI for ideas…</p>
+                  )}
+                  {aiFailed && (
+                    <p className="text-xs text-amber-700">
+                      AI suggestions are unavailable right now — the keyword ideas above were generated offline.
+                    </p>
+                  )}
+                  {aiSuggestions && (
+                    <>
+                      <p className="text-xs sm:text-sm text-stone-700 leading-relaxed whitespace-pre-wrap">
+                        {aiSuggestions}
+                      </p>
+                      <div className="flex justify-end">
+                        <button
+                          onClick={() => copyToClipboard(aiSuggestions, "aiSeo")}
+                          className="text-xs flex items-center gap-1 px-2.5 py-1 bg-white hover:bg-stone-100 border border-stone-300 rounded text-stone-700 font-medium"
+                        >
+                          {copiedKey === "aiSeo" ? (
+                            <>
+                              <Check className="w-3.5 h-3.5 text-emerald-600" />
+                              <span className="text-emerald-600">Copied!</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="w-3.5 h-3.5" />
+                              <span>Copy</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
           )}
         </div>

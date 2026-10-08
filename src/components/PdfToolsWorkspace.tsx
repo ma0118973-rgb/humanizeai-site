@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { MobileToolHero } from "./MobileToolHero";
 import { Upload, Download, FileText, Files, ImagePlus, ShieldCheck, Zap, RefreshCw, X, Check, Sparkles, ArrowUp, ArrowDown } from "lucide-react";
 import { mergePdfs, imagesToPdf, downloadBlob, formatFileSize, MergedPdf } from "../utils/pdfEngine";
 import { LanguageCode } from "../types";
@@ -70,7 +71,7 @@ export function PdfToolsWorkspace({ selectedLanguage = "en" }: PdfToolsWorkspace
       const out = mode === "merge" ? await mergePdfs(fileList) : await imagesToPdf(fileList);
       setResult(out);
     } catch {
-      setError(pt.errorMsg || "Something went wrong. Please try different files.");
+      setError(pt.errorMsg || "Could not process these files. For merge: use valid PDF files. For images: use JPG or PNG. Encrypted PDFs are not supported.");
     } finally {
       setIsProcessing(false);
     }
@@ -92,7 +93,8 @@ export function PdfToolsWorkspace({ selectedLanguage = "en" }: PdfToolsWorkspace
   const totalSize = files.reduce((s, f) => s + f.file.size, 0);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 overflow-hidden">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
+      <MobileToolHero toolId="pdfTools" selectedLanguage={selectedLanguage} />
       {/* Hero — Tool FIRST */}
       <div className="bg-gradient-to-br from-red-950 via-stone-900 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-2xl border border-red-800/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(248,113,113,0.15),transparent_50%)] pointer-events-none" />
@@ -261,7 +263,7 @@ export function PdfToolsWorkspace({ selectedLanguage = "en" }: PdfToolsWorkspace
         {[
           { icon: ShieldCheck, label: pt.private || "100% Private" },
           { icon: Zap, label: pt.instant || "Instant" },
-          { icon: Check, label: pt.free || "Free Forever" },
+          { icon: Check, label: pt.free || "Free" },
         ].map((b, i) => (
           <div key={i} className="bg-white rounded-2xl border border-stone-200 p-4">
             <b.icon className="w-6 h-6 mx-auto mb-2 text-red-600" />

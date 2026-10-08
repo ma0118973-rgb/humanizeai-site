@@ -24,7 +24,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
       a: "Yes! Unlike competitors (Undetectable AI, StealthGPT, Walter Writes) who charge $15–$25/month or lock users after 250 words, HumanizeAI is completely free without limits or credit card requirements.",
     },
     {
-      q: "Will Google penalize humanized content for SEO in 2026?",
+      q: "Will Google penalize humanized content for SEO?",
       a: "Google's Helpful Content guidance targets low-value, repetitive content regardless of how it was written. Rewriting for clarity, accuracy, and genuine reader value is the right approach — but no tool can guarantee search rankings.",
     },
     {
@@ -54,7 +54,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
       <div className="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8 shadow-sm space-y-6 w-full max-w-full overflow-hidden">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-            Market Comparison 2026
+            Market Comparison
           </span>
           <h3 className="text-2xl font-bold text-stone-900 tracking-tight">
             Why Pay $25/Month When You Can Get It 100% Free?
@@ -96,10 +96,10 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
                   </div>
                 </td>
                 <td className="p-3.5 text-emerald-700 font-extrabold">$0.00 Free</td>
-                <td className="p-3.5 text-emerald-800">Unlimited Forever</td>
+                <td className="p-3.5 text-emerald-800">Unlimited</td>
                 <td className="p-3.5 text-emerald-800">Varies by text</td>
                 <td className="p-3.5 text-emerald-900 text-xs">
-                  Zero Paywall • Free Forever • In-Browser Text Analysis
+                  Zero Paywall • 100% Free • In-Browser Text Analysis
                 </td>
               </tr>
             </tbody>

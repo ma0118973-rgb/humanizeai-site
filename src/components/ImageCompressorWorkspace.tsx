@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback } from "react";
+import { MobileToolHero } from "./MobileToolHero";
 import { Upload, Download, Image as ImageIcon, Sparkles, ShieldCheck, Zap, RefreshCw, X, Check, FileImage } from "lucide-react";
 import { compressImage, downloadBlob, formatFileSize, OutputFormat, CompressedImage } from "../utils/imageEngine";
 import { LanguageCode } from "../types";
@@ -81,7 +82,8 @@ export function ImageCompressorWorkspace({ selectedLanguage = "en" }: ImageCompr
   const totalSaved = totalOriginal > 0 ? Math.round((1 - totalCompressed / totalOriginal) * 100) : 0;
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 overflow-hidden">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
+      <MobileToolHero toolId="imageCompressor" selectedLanguage={selectedLanguage} />
       {/* Hero Header — Tool FIRST, visible immediately */}
       <div className="bg-gradient-to-br from-sky-950 via-stone-900 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-2xl border border-sky-800/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(56,189,248,0.15),transparent_50%)] pointer-events-none" />
@@ -269,7 +271,7 @@ export function ImageCompressorWorkspace({ selectedLanguage = "en" }: ImageCompr
         {[
           { icon: ShieldCheck, label: ic.private || "100% Private" },
           { icon: Zap, label: ic.instant || "Instant" },
-          { icon: Check, label: ic.free || "Free Forever" },
+          { icon: Check, label: ic.free || "Free" },
         ].map((b, i) => (
           <div key={i} className="bg-white rounded-2xl border border-stone-200 p-4">
             <b.icon className="w-6 h-6 mx-auto mb-2 text-sky-600" />

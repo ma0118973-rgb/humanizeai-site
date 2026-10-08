@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { MobileToolHero } from "./MobileToolHero";
 import { Copy, Check, Sparkles, FileText, Zap, Clock, BarChart3, ListChecks, ArrowRight, Wand2 } from "lucide-react";
 import { summarizeText } from "../utils/localEngines";
+import { tryAiAssist } from "../utils/aiAssist";
 import { LanguageCode } from "../types";
 import { TRANSLATIONS } from "../data/translations";
 
@@ -26,9 +28,40 @@ export function SummarizerWorkspace({ selectedLanguage = "en" }: SummarizerWorks
   const [inputText, setInputText] = useState<string>(SAMPLE_TEXTS[selectedLanguage] || SAMPLE_TEXTS.en);
   const [ratio, setRatio] = useState<"brief" | "balanced" | "detailed">("balanced");
   const [isCopied, setIsCopied] = useState(false);
+  const [aiSummary, setAiSummary] = useState<string | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiFailed, setAiFailed] = useState(false);
+  const [showAi, setShowAi] = useState(false);
 
   const result = summarizeText(inputText, ratio);
   const wordCount = inputText.trim().split(/\s+/).filter(Boolean).length;
+
+  const clearAi = () => {
+    setAiSummary(null);
+    setAiFailed(false);
+    setShowAi(false);
+  };
+
+  const handleAiSummary = async () => {
+    if (aiLoading || !inputText.trim()) return;
+    if (aiSummary) {
+      setShowAi(true);
+      return;
+    }
+    setAiLoading(true);
+    setAiFailed(false);
+    const text = await tryAiAssist(
+      `Write a concise ${ratio} summary of the following text, keeping the same language. Return only the summary:\n\n${inputText}`,
+      "summarize"
+    );
+    setAiLoading(false);
+    if (text) {
+      setAiSummary(text);
+      setShowAi(true);
+    } else {
+      setAiFailed(true);
+    }
+  };
 
   const handleCopy = () => {
     if (!result.summary) return;
@@ -44,7 +77,8 @@ export function SummarizerWorkspace({ selectedLanguage = "en" }: SummarizerWorks
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 overflow-hidden">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
+      <MobileToolHero toolId="summarizer" selectedLanguage={selectedLanguage} />
       {/* Hero Header — Premium Design */}
       <div className="bg-gradient-to-br from-violet-950 via-stone-900 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-2xl border border-violet-800/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.15),transparent_50%)] pointer-events-none" />
@@ -54,7 +88,7 @@ export function SummarizerWorkspace({ selectedLanguage = "en" }: SummarizerWorks
               <FileText className="w-3.5 h-3.5 text-violet-400" />
               {sum.badge || "AI Text Summarizer"}
             </span>
-            <span className="text-xs text-stone-400 font-mono">100% Client-Side • 8 Languages • Free Forever</span>
+            <span className="text-xs text-stone-400 font-mono">Free • 11 Languages • No sign-up</span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
             {sum.title || "Summarize Any Text in Seconds"}
@@ -95,7 +129,7 @@ export function SummarizerWorkspace({ selectedLanguage = "en" }: SummarizerWorks
           </div>
           <textarea
             value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
+            onChange={(e) => { setInputText(e.target.value); clearAi(); }}
             placeholder={sum.placeholder || "Paste your article, essay, or document here..."}
             className="w-full h-72 sm:h-80 p-5 text-sm sm:text-base text-stone-800 placeholder-stone-400 focus:outline-none resize-none leading-relaxed"
           />
@@ -106,7 +140,7 @@ export function SummarizerWorkspace({ selectedLanguage = "en" }: SummarizerWorks
               {ratioOptions.map((opt) => (
                 <button
                   key={opt.key}
-                  onClick={() => setRatio(opt.key)}
+                  onClick={() => { setRatio(opt.key); clearAi(); }}
                   className={`px-3 py-2.5 rounded-xl text-sm font-semibold border transition-all cursor-pointer flex flex-col items-center gap-1 ${
                     ratio === opt.key
                       ? "bg-violet-600 text-white border-violet-600 shadow-md"
@@ -128,22 +162,56 @@ export function SummarizerWorkspace({ selectedLanguage = "en" }: SummarizerWorks
             <h3 className="font-bold text-stone-800 flex items-center gap-2">
               <Wand2 className="w-4 h-4 text-violet-600" />
               {sum.outputLabel || "Summary"}
+              {showAi && aiSummary && (
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-violet-100 text-violet-800 font-mono">
+                  AI-generated
+                </span>
+              )}
             </h3>
-            <button
-              onClick={handleCopy}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleAiSummary}
+                disabled={aiLoading || !inputText.trim()}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-violet-600 text-white hover:bg-violet-700 transition-all cursor-pointer disabled:opacity-50"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                {aiLoading ? "Summarizing…" : "AI Summary"}
+              </button>
+              <button
+              onClick={() => { if (showAi && aiSummary) navigator.clipboard.writeText(aiSummary); else handleCopy(); }}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-violet-100 text-violet-700 hover:bg-violet-200 transition-all cursor-pointer"
             >
               {isCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
               {isCopied ? (sum.copied || "Copied!") : (sum.copy || "Copy")}
             </button>
+            </div>
           </div>
           <div className="p-5 min-h-[18rem] sm:min-h-[20rem]">
-            {result.summary ? (
+            {showAi && aiSummary ? (
+              <p className="text-sm sm:text-base text-stone-800 leading-relaxed">{aiSummary}</p>
+            ) : result.summary ? (
               <p className="text-sm sm:text-base text-stone-800 leading-relaxed">{result.summary}</p>
             ) : (
               <p className="text-sm text-stone-400 italic">{sum.emptyState || "Your summary will appear here..."}</p>
             )}
           </div>
+          {showAi && aiSummary && (
+            <div className="px-5 pb-3">
+              <button
+                onClick={() => setShowAi(false)}
+                className="text-xs font-semibold text-violet-700 hover:text-violet-900 underline underline-offset-2 cursor-pointer"
+              >
+                Show extractive (offline) version instead
+              </button>
+            </div>
+          )}
+          {aiFailed && (
+            <div className="px-5 pb-4">
+              <p className="text-[11px] text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">
+                AI summary is unavailable right now — showing the built-in offline extractive summary instead.
+              </p>
+            </div>
+          )}
           {/* Stats Bar */}
           {result.summary && (
             <div className="px-5 py-4 border-t border-stone-100 bg-gradient-to-r from-violet-50 to-stone-50 grid grid-cols-3 gap-2 text-center">

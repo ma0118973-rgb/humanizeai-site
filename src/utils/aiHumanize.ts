@@ -1,12 +1,12 @@
 import { HumanizeResult, ToneType, BypassLevel, LanguageCode } from "../types";
 import { runLocalHumanize, analyzeReadability } from "./localEngines";
 
-const FUNCTION_URL = "/.netlify/functions/humanize";
+const FUNCTION_URL = "/api/gemini";
 const AI_TIMEOUT_MS = 20000;
 
 /**
  * Humanize with AI when available, always falling back to the local engine.
- * - Tries the Netlify Function (Gemini, key kept server-side in env vars).
+ * - Tries the Cloudflare Pages Function (Gemini, key kept server-side in env vars).
  * - On ANY failure — no key configured, quota exhausted (429), rate limit,
  *   timeout, network error — silently uses the deterministic local engine.
  * Returns the result plus which engine produced it.
@@ -37,7 +37,12 @@ export async function humanizeWithFallback(
         method: "POST",
         headers: { "Content-Type": "application/json" },
         signal: controller.signal,
-        body: JSON.stringify({ text: clean.slice(0, 12000), tone }),
+        body: JSON.stringify({
+          prompt: clean.slice(0, 4000),
+          type: "humanize",
+          tone,
+          language: targetLanguage,
+        }),
       });
     } finally {
       clearTimeout(timer);

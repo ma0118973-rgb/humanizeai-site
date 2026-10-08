@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { MobileToolHero } from "./MobileToolHero";
 import {
   Search,
   ShieldCheck,
@@ -73,7 +74,8 @@ export function DetectorWorkspace({
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 overflow-hidden">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
+      <MobileToolHero toolId="detector" selectedLanguage={selectedLanguage} />
       {/* Enterprise-grade Header Banner */}
       <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-stone-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden w-full max-w-full">
         <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />

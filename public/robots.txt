@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://humanize-a.netlify.app/sitemap.xml
+Sitemap: https://YOUR-DOMAIN.com/sitemap.xml

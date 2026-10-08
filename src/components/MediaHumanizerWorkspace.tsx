@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { MobileToolHero } from "./MobileToolHero";
 import {
   Video,
   Upload,
@@ -20,8 +21,16 @@ import {
   Flame,
 } from "lucide-react";
 import { ViralSeoCompetitorEngine } from "./ViralSeoCompetitorEngine";
+import { LanguageCode } from "../types";
+import { TRANSLATIONS } from "../data/translations";
 
-export function MediaHumanizerWorkspace() {
+interface MediaHumanizerWorkspaceProps {
+  selectedLanguage?: LanguageCode;
+}
+
+export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumanizerWorkspaceProps) {
+  const t = TRANSLATIONS[selectedLanguage] || TRANSLATIONS.en;
+  const m = (t as any).media || {};
   const [activeSubTab, setActiveSubTab] = useState<"seo" | "video" | "image">("seo");
 
   // Video Upload & Processing State
@@ -322,6 +331,7 @@ export function MediaHumanizerWorkspace() {
 
   return (
     <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-8 animate-fadeIn overflow-hidden">
+      <MobileToolHero toolId="media" selectedLanguage={selectedLanguage} />
       {/* Visual Top Headline */}
       <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-stone-800 relative overflow-hidden w-full max-w-full">
         <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -329,17 +339,17 @@ export function MediaHumanizerWorkspace() {
           <div className="flex items-center gap-2 flex-wrap">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1.5">
               <Flame className="w-3.5 h-3.5 text-rose-400" />
-              Creator Studio: Watermark Stripper & Competitor SEO Clones
+              {m.badge || "Creator Studio: Watermark Stripper & Competitor SEO Clones"}
             </span>
             <span className="text-xs text-stone-400 font-mono">
               YouTube Shorts • TikTok • Instagram Reels • Facebook Reels
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
-            Remove Watermarks & Reverse-Engineer 1M+ View Competitor SEO
+            {m.title || "Remove Watermarks & Reverse-Engineer 1M+ View Competitor SEO"}
           </h1>
           <p className="text-sm sm:text-base text-stone-300 leading-relaxed">
-            Eliminate corner logos, strip AI watermarks, and unlock the exact viral algorithms used by top creators in the US market. Clean metadata, high-retention speech hooks, and algorithmic hashtag hierarchy.
+            {m.subtitle || "Eliminate corner logos, strip AI watermarks, and unlock the exact viral algorithms used by top creators in the US market."}
           </p>
         </div>
       </div>
@@ -356,9 +366,9 @@ export function MediaHumanizerWorkspace() {
           }`}
         >
           <Flame className="w-4 h-4 text-white" />
-          <span>Competitor Viral SEO & Hashtag Clone</span>
+          <span>{m.tabSeo || "Competitor Viral SEO & Hashtag Clone"}</span>
           <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-white/20 text-white">
-            POPULAR
+            {m.popular || "POPULAR"}
           </span>
         </button>
 
@@ -372,7 +382,7 @@ export function MediaHumanizerWorkspace() {
           }`}
         >
           <Video className="w-4 h-4 text-rose-500" />
-          <span>Video Watermark & Logo Stripper</span>
+          <span>{m.tabVideo || "Video Watermark & Logo Stripper"}</span>
         </button>
 
         <button
@@ -385,7 +395,7 @@ export function MediaHumanizerWorkspace() {
           }`}
         >
           <ImageIcon className="w-4 h-4 text-emerald-500" />
-          <span>AI Image Watermark Stripper</span>
+          <span>{m.tabImage || "AI Image Watermark Stripper"}</span>
         </button>
       </div>
 
@@ -429,7 +439,7 @@ export function MediaHumanizerWorkspace() {
                 </div>
                 <div className="space-y-1">
                   <p className="text-base font-bold text-stone-800">
-                    Click to Upload Video (MP4, MOV, WEBM)
+                    {m.uploadVideo || "Click to Upload Video (MP4, MOV, WEBM)"}
                   </p>
                   <p className="text-xs text-stone-500">
                     Supports up to 100MB • Ideal for 10s–60s YouTube Shorts & TikTok Reels
@@ -628,7 +638,7 @@ export function MediaHumanizerWorkspace() {
                   <Scissors className="w-8 h-8" />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-bold text-stone-800 text-sm">No Video Processed Yet</h4>
+                  <h4 className="font-bold text-stone-800 text-sm">{m.noVideo || "No Video Processed Yet"}</h4>
                   <p className="text-xs text-stone-500 max-w-sm mx-auto">
                     Upload your video and click "Remove Logos & Clean Video Frames". The canvas engine renders each frame, punches out corner watermarks, and prepares a clean MP4 file.
                   </p>
@@ -666,7 +676,7 @@ export function MediaHumanizerWorkspace() {
                         <span>Cleaned Output (Logos & Watermarks Removed):</span>
                       </span>
                       <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-mono">
-                        Ready to Download
+                        {m.readyDownload || "Ready to Download"}
                       </span>
                     </div>
 
@@ -709,7 +719,7 @@ export function MediaHumanizerWorkspace() {
                     className="w-full py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-stone-950 font-extrabold text-sm flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer block text-center"
                   >
                     <Download className="w-4 h-4" />
-                    <span>Download Clean Video (MP4)</span>
+                    <span>{m.downloadVideo || "Download Clean Video (MP4)"}</span>
                   </a>
                 </div>
               </div>
@@ -745,7 +755,7 @@ export function MediaHumanizerWorkspace() {
                 <Upload className="w-8 h-8" />
               </div>
               <div>
-                <p className="text-base font-bold text-stone-800">Click to Select AI Image</p>
+                <p className="text-base font-bold text-stone-800">{m.uploadImage || "Click to Select AI Image"}</p>
                 <p className="text-xs text-stone-500 mt-1">Supports PNG, JPG, WEBP • Max 25MB</p>
               </div>
             </div>
@@ -780,7 +790,7 @@ export function MediaHumanizerWorkspace() {
                   disabled={isProcessingImage}
                   className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm rounded-xl transition-all shadow-md cursor-pointer disabled:opacity-50"
                 >
-                  {isProcessingImage ? "Stripping Watermarks..." : "Clean & Strip AI Watermark"}
+                  {isProcessingImage ? (m.processing || "Stripping Watermarks...") : (m.cleanButton || "Clean & Strip AI Watermark")}
                 </button>
                 <button
                   type="button"
@@ -806,7 +816,7 @@ export function MediaHumanizerWorkspace() {
                     download={`cleaned_image_${Date.now()}.jpg`}
                     className="block w-full py-2.5 rounded-xl bg-emerald-600 text-white text-center font-bold"
                   >
-                    Download Clean Image
+                    {m.downloadImage || "Download Clean Image"}
                   </a>
                 </div>
               )}

@@ -131,7 +131,7 @@ export function Navbar({
                 id="nav-tab-more-tools"
                 onClick={() => setIsToolsDropdownOpen(!isToolsDropdownOpen)}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  ["citation", "expander", "cleaner", "diff", "seo"].includes(activePage)
+                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "imageCompressor", "pdfTools"].includes(activePage)
                     ? "bg-emerald-500 text-stone-950 font-bold shadow-md shadow-emerald-500/20"
                     : "text-stone-300 hover:text-white hover:bg-stone-800/60"
                 }`}
@@ -222,6 +222,54 @@ export function Navbar({
                     <div>
                       <div className="font-bold">High-RPM SEO Optimizer</div>
                       <div className="text-[10px] text-stone-400">Viral Tags & Keywords</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("summarizer");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "summarizer" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                    }`}
+                  >
+                    <BookMarked className="w-4 h-4 text-violet-400 shrink-0" />
+                    <div>
+                      <div className="font-bold">Text Summarizer</div>
+                      <div className="text-[10px] text-stone-400">Long Text to Key Points</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("imageCompressor");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "imageCompressor" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                    }`}
+                  >
+                    <Maximize2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                    <div>
+                      <div className="font-bold">Image Compressor</div>
+                      <div className="text-[10px] text-stone-400">Shrink Photos Fast</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("pdfTools");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "pdfTools" ? "bg-emerald-500 text-stone-950 font-bold" : "text-stone-200 hover:bg-stone-800"
+                    }`}
+                  >
+                    <Flame className="w-4 h-4 text-red-400 shrink-0" />
+                    <div>
+                      <div className="font-bold">PDF Tools</div>
+                      <div className="text-[10px] text-stone-400">Merge & Create PDFs</div>
                     </div>
                   </button>
                 </div>

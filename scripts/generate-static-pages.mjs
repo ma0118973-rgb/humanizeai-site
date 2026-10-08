@@ -155,6 +155,21 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
       inLanguage: lang,
     },
   ];
+  // WebApplication schema for tool pages
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  if (toolPages.includes(page)) {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: title,
+      description,
+      url: canonicalUrl,
+      inLanguage: lang,
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "Any",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    });
+  }
   if (page === "humanizer") {
     data.push({
       "@context": "https://schema.org",
@@ -302,6 +317,13 @@ function emitFile(lang, routePath, title, description, page, post = null) {
   html = html.replace(
     /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
     jsonLd(origin, canonicalUrl, title, description, page, post, lang)
+  );
+  // H1 for SEO: inject page title as H1 right after <div id="root">
+  // Use clean title without year suffix for heading
+  const h1Text = esc(title.replace(/\s*[–-]\s*\(?2026\)?\s*$/, "").trim());
+  html = html.replace(
+    /<div id="root">/,
+    `<div id="root"><h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">${h1Text}</h1>`
   );
 
   const outDir = path.join(dist, lang, routePath.replace(/^\/|\/$/g, ""));

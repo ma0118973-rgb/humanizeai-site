@@ -37,7 +37,7 @@ export function CleverFeaturesGuide() {
   const comparisons = [
     {
       feature: "Monthly Cost",
-      clever: "100% Free Forever",
+      clever: "100% Free",
       competitor: "$25.00 - $49.00 / mo",
       winner: true,
     },
@@ -48,7 +48,7 @@ export function CleverFeaturesGuide() {
       winner: true,
     },
     {
-      feature: "Turnitin 2026 AI Bypass",
+      feature: "AI Detection Patterns",
       clever: "Natural, varied sentence flow",
       competitor: "Often Fails or Mixed Scores",
       winner: true,
@@ -123,7 +123,7 @@ export function CleverFeaturesGuide() {
             Transparent Comparison
           </span>
           <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
-            Clever Humanizer vs. $25/Month Paid AI Bypassers
+            Clever Humanizer vs. $25/Month Paid Tools
           </h2>
           <p className="text-xs sm:text-sm text-stone-500">
             See why thousands of students, researchers, and copywriters choose Clever Humanizer over expensive subscription tools like Undetectable AI, StealthGPT, and QuillBot Pro.

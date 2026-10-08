@@ -4,6 +4,7 @@ import { MobileAppBanner } from "./components/MobileAppBanner";
 import { MobileBottomNav } from "./components/MobileBottomNav";
 import { PWAInstallModal } from "./components/PWAInstallModal";
 import { OtherToolsSection } from "./components/OtherToolsSection";
+import { MobileToolHero } from "./components/MobileToolHero";
 import { HumanizerWorkspace } from "./components/HumanizerWorkspace";
 import { ToolLoadingSkeleton } from "./components/ToolLoadingSkeleton";
 import { DedicatedSeoArticleSection } from "./components/DedicatedSeoArticleSection";
@@ -374,7 +375,7 @@ export default function App() {
     activePage === "pdfTools";
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900 pb-20 md:pb-0 w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-emerald-50/30 text-stone-900 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900 pb-20 md:pb-0 w-full max-w-full overflow-x-hidden">
       {/* Mobile App Install Smart Banner (Top 1-Tap Trigger) */}
       <MobileAppBanner onOpenInstall={() => setIsInstallOpen(true)} />
 
@@ -406,6 +407,7 @@ export default function App() {
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
 
             {/* Dedicated SEO Knowledge Article & Viral Hashtags for Humanizer */}
@@ -414,16 +416,18 @@ export default function App() {
         )}
 
         {activePage === "detector" && (
-          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <Suspense fallback={<ToolLoadingSkeleton />}>
             <DetectorWorkspace
               initialText={textForDetector}
               onSendToHumanizer={handleSendToHumanizer}
+              selectedLanguage={selectedLanguage}
             />
 
             {/* The 3 Other Tools Displayed Prominently Below Detector */}
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
 
             {/* Dedicated SEO Knowledge Article & Viral Hashtags for Detector */}
@@ -432,13 +436,14 @@ export default function App() {
         )}
 
         {activePage === "media" && (
-          <Suspense fallback={<ToolLoadingSkeleton />}>
-            <MediaHumanizerWorkspace />
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <MediaHumanizerWorkspace selectedLanguage={selectedLanguage} />
 
             {/* The 3 Other Tools Displayed Prominently Below Media */}
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
 
             {/* Dedicated SEO Knowledge Article & Viral Hashtags for Video Studio */}
@@ -457,32 +462,35 @@ export default function App() {
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
           </Suspense>
         )}
 
         {activePage === "seo" && (
-          <Suspense fallback={<ToolLoadingSkeleton />}>
-            <SeoOptimizerWorkspace />
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <SeoOptimizerWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
           </Suspense>
         )}
 
         {activePage === "citation" && (
-          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <Suspense fallback={<ToolLoadingSkeleton />}>
             <CitationWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
           </Suspense>
         )}
 
         {activePage === "expander" && (
-          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <Suspense fallback={<ToolLoadingSkeleton />}>
             <SentenceExpanderWorkspace
               selectedLanguage={selectedLanguage}
               onSendToHumanizer={handleSendToHumanizer}
@@ -490,42 +498,46 @@ export default function App() {
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
           </Suspense>
         )}
 
         {activePage === "summarizer" && (
-          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <Suspense fallback={<ToolLoadingSkeleton />}>
             <SummarizerWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
           </Suspense>
         )}
 
         {activePage === "imageCompressor" && (
-          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <Suspense fallback={<ToolLoadingSkeleton />}>
             <ImageCompressorWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
           </Suspense>
         )}
 
         {activePage === "pdfTools" && (
-          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <Suspense fallback={<ToolLoadingSkeleton />}>
             <PdfToolsWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
           </Suspense>
         )}
 
         {activePage === "cleaner" && (
-          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <Suspense fallback={<ToolLoadingSkeleton />}>
             <ClicheCleanerWorkspace
               selectedLanguage={selectedLanguage}
               onSendToHumanizer={handleSendToHumanizer}
@@ -533,12 +545,13 @@ export default function App() {
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
           </Suspense>
         )}
 
         {activePage === "diff" && (
-          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <Suspense fallback={<ToolLoadingSkeleton />}>
             <DiffCheckerWorkspace
               selectedLanguage={selectedLanguage}
               onSendToHumanizer={handleSendToHumanizer}
@@ -546,6 +559,7 @@ export default function App() {
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
             />
           </Suspense>
         )}

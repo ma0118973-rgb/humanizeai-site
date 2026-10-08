@@ -209,6 +209,151 @@ const CLICHE_REPLACEMENTS: Record<string, string[]> = {
   "interplay": ["give and take", "balance", "connection"],
   "paramount": ["top priority", "essential", "critical"],
   "multifaceted": ["layered", "nuanced", "wide-ranging"],
+  "it is important to note that": ["note that", "keep in mind that", "it's worth remembering that"],
+  "it is important to note": ["note", "remember"],
+  "in today's fast-paced world": ["today", "in our time", "nowadays"],
+  "in today's world": ["today", "now"],
+  "dive into": ["explore", "look at", "examine"],
+  "diving into": ["exploring", "looking at"],
+  "unlock the power of": ["use", "tap into", "harness"],
+  "harness the power of": ["use", "leverage"],
+  "in the ever-evolving world of": ["in", "across"],
+  "ever-evolving": ["changing", "shifting", "developing"],
+  "cutting-edge": ["advanced", "modern", "latest"],
+  "state-of-the-art": ["advanced", "modern", "top-tier"],
+  "revolutionize": ["transform", "change", "reshape"],
+  "revolutionizes": ["transforms", "changes"],
+  "revolutionary": ["groundbreaking", "innovative", "transformative"],
+  "seamless": ["smooth", "effortless"],
+  "seamlessly": ["smoothly", "easily"],
+  "leverage": ["use", "take advantage of"],
+  "leveraging": ["using"],
+  "robust": ["strong", "solid", "reliable"],
+  "comprehensive": ["thorough", "complete", "detailed"],
+  "innovative": ["new", "creative", "fresh"],
+  "transformative": ["powerful", "major", "significant"],
+  "unleash": ["release", "unlock"],
+  "elevate": ["improve", "boost", "raise"],
+  "elevates": ["improves", "boosts"],
+  "navigate": ["handle", "manage", "work through"],
+  "navigating": ["handling", "working through"],
+  "landscape": ["field", "area", "space"],
+  "realm": ["area", "field"],
+  "tapestry": ["mix", "blend"],
+  "delve": ["explore", "examine"],
+  "furthermore": ["also", "plus", "what's more"],
+  "nevertheless": ["still", "even so", "however"],
+  "nonetheless": ["still", "however"],
+  "consequently": ["so", "as a result", "therefore"],
+  "accordingly": ["so", "therefore"],
+  "hence": ["so", "therefore"],
+  "thus": ["so", "this way"],
+  "therefore": ["so"],
+  "in addition": ["also", "plus"],
+  "additionally": ["also", "plus"],
+  "in summary": ["in short", "to sum up"],
+  "to summarize": ["in short"],
+  "overall": ["all in all"],
+  "ultimately": ["in the end", "finally"],
+  "basically": [""],
+  "essentially": [""],
+  "literally": [""],
+  "very": [""],
+  "really": [""],
+  "quite": [""],
+  "rather": [""],
+  "fairly": [""],
+  "in order to": ["to"],
+  "due to": ["because of", "thanks to"],
+  "owing to": ["because of"],
+  "with regard to": ["about", "regarding"],
+  "in regards to": ["about"],
+  "as well as": ["and"],
+  "along with": ["with"],
+  "in terms of": ["for", "regarding"],
+  "a number of": ["several", "many"],
+  "a variety of": ["various", "different"],
+  "a range of": ["several"],
+  "kind of": [""],
+  "sort of": [""],
+  "type of": [""],
+  "in the process of": [""],
+  "the fact that": ["that"],
+  "it goes without saying that": [""],
+  "needless to say": [""],
+  "as a matter of fact": ["actually", "in fact"],
+  "for all intents and purposes": ["practically"],
+  "at this point in time": ["now"],
+  "in this day and age": ["today", "now"],
+  "when it comes to": ["for"],
+  "in the context of": ["in"],
+  "from the perspective of": ["for"],
+  "it is evident that": ["clearly"],
+  "it is clear that": ["clearly"],
+  "it is obvious that": ["obviously"],
+  "there is no doubt that": [""],
+  "without a doubt": [""],
+  "it should be noted that": ["note that"],
+  "it must be noted that": ["note that"],
+  "it is worth mentioning that": [""],
+  "last but not least": ["finally"],
+  "first of all": ["first"],
+  "to begin with": ["first"],
+  "in the first place": ["first"],
+  "on the other hand": ["but", "however"],
+  "by contrast": ["but"],
+  "in contrast": ["but"],
+  "on the contrary": ["instead"],
+  "in spite of": ["despite"],
+  "regardless of": ["despite"],
+  "in place of": ["instead of"],
+  "as opposed to": ["rather than"],
+  "with the exception of": ["except"],
+  "in excess of": ["more than"],
+  "in lieu of": ["instead of"],
+  "prior to": ["before"],
+  "subsequent to": ["after"],
+  "following": ["after"],
+  "during the course of": ["during"],
+  "in the course of": ["during"],
+  "by means of": ["by", "with"],
+  "by virtue of": ["because of"],
+  "in view of": ["given"],
+  "in light of": ["given"],
+  "taking into account": ["considering"],
+  "take into account": ["consider"],
+  "give rise to": ["cause"],
+  "bring about": ["cause"],
+  "result in": ["cause", "lead to"],
+  "lead to": ["cause"],
+  "contribute to": ["help"],
+  "play a role in": ["affect"],
+  "have an impact on": ["affect"],
+  "make a difference": ["help"],
+  "take advantage of": ["use"],
+  "make use of": ["use"],
+  "put to use": ["use"],
+  "come up with": ["create", "think of"],
+  "carry out": ["do"],
+  "bring up": ["mention", "raise"],
+  "point out": ["note", "mention"],
+  "figure out": ["solve", "understand"],
+  "find out": ["learn", "discover"],
+  "look into": ["check", "investigate"],
+  "deal with": ["handle"],
+  "cope with": ["handle"],
+  "keep up with": ["follow"],
+  "catch up with": ["meet"],
+  "get rid of": ["remove", "drop"],
+  "do away with": ["remove"],
+  "make sure": ["ensure", "check"],
+  "find a way to": [""],
+  "there are": [""],
+  "there is": [""],
+  "it is": ["it's"],
+  "that is": ["that's"],
+  "there are many": ["many"],
+  "in conclusion": ["to wrap up", "finally", "in short"],
 };
 
 /** Deterministic pick: same input always yields the same replacement. */
@@ -440,7 +585,48 @@ export function runLocalHumanize(
     return modified.join(" ");
   });
 
-  const finalHumanizedText = rewrittenParagraphs.join("\n\n");
+  // 3b. Fallback: if nothing changed, apply natural human touches so output is never identical
+  const totalChanges = clicheReplacements + contractionsApplied + sentencesSplit + plainSwaps + fillerCuts;
+  let finalText = rewrittenParagraphs.join("\n\n");
+  if (totalChanges === 0 && finalText.trim()) {
+    const sentences = finalText.split(/(?<=[.?!])\s+/).filter(Boolean);
+    // Natural contractions
+    finalText = finalText
+      .replace(/\bIt is\b/g, "It's")
+      .replace(/\bThere is\b/g, "There's")
+      .replace(/\bI am\b/g, "I'm")
+      .replace(/\bWe are\b/g, "We're")
+      .replace(/\bYou are\b/g, "You're")
+      .replace(/\bThey are\b/g, "They're")
+      .replace(/\bDo not\b/g, "Don't")
+      .replace(/\bDoes not\b/g, "Doesn't")
+      .replace(/\bDid not\b/g, "Didn't")
+      .replace(/\bCannot\b/g, "Can't")
+      .replace(/\bWill not\b/g, "Won't")
+      .replace(/\bShould not\b/g, "Shouldn't")
+      .replace(/\bCould not\b/g, "Couldn't")
+      .replace(/\bWould not\b/g, "Wouldn't")
+      .replace(/\bHave not\b/g, "Haven't")
+      .replace(/\bHas not\b/g, "Hasn't");
+    // Add natural variety to repetitive sentence starts
+    if (sentences.length >= 3) {
+      const varied = sentences.map((s, i) => {
+        s = s.trim();
+        if (i > 0 && i % 3 === 2 && s.length > 15) {
+          // Every 3rd sentence: add a natural connector for flow
+          const connectors = ["And ", "Plus, ", "Also, "];
+          const conn = connectors[i % connectors.length];
+          if (!/^(And|But|So|Plus|Also|However)/i.test(s)) {
+            s = conn.charAt(0).toLowerCase() + conn.slice(1) + s.charAt(0).toLowerCase() + s.slice(1);
+          }
+        }
+        return s;
+      });
+      finalText = varied.join(" ");
+    }
+  }
+
+  const finalHumanizedText = finalText;
 
   const metrics = analyzeReadability(finalHumanizedText);
   const origWords = clean.split(/\s+/).filter(Boolean);

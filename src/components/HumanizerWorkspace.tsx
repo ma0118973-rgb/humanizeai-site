@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { MobileToolHero } from "./MobileToolHero";
 import {
   Sparkles,
   Copy,
@@ -360,7 +361,8 @@ export function HumanizerWorkspace({
   const wordPercent = Math.min(100, Math.round((wordCount / maxWords) * 100));
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6 overflow-hidden">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
+      <MobileToolHero toolId="humanizer" selectedLanguage={selectedLanguage} />
       {/* Visual Onboarding Header: Crystal-clear understanding for new users */}
       <div className="bg-white p-4 sm:p-6 rounded-3xl border border-stone-200 shadow-sm space-y-4 w-full max-w-full overflow-hidden">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -635,10 +637,10 @@ export function HumanizerWorkspace({
           {/* Controls Bar & Submit Button */}
           <div className="p-3.5 sm:p-4 bg-stone-50/90 border-t border-stone-100 space-y-3.5">
             <div className="grid grid-cols-2 gap-2.5">
-              {/* Bypass Level */}
+              {/* Rewrite Intensity */}
               <div>
                 <label className="block text-[11px] font-extrabold uppercase tracking-wider text-stone-600 mb-1">
-                  Bypass Level
+                  Rewrite Intensity
                 </label>
                 <select
                   id="select-level"
@@ -646,9 +648,9 @@ export function HumanizerWorkspace({
                   onChange={(e) => setLevel(e.target.value as BypassLevel)}
                   className="w-full text-xs font-bold bg-white border border-stone-200 rounded-xl px-2.5 py-2 text-stone-800 outline-none focus:border-emerald-500 shadow-2xs"
                 >
-                  <option value="standard">Standard Humanize</option>
-                  <option value="stealth">Stealth (Maximum Rewriting)</option>
-                  <option value="ultra-stealth">Ultra Stealth (Highest)</option>
+                  <option value="standard">Light (Gentle Polish)</option>
+                  <option value="stealth">Standard (Balanced Rewrite)</option>
+                  <option value="ultra-stealth">Deep (Full Restructure)</option>
                 </select>
               </div>
 

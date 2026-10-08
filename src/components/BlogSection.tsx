@@ -137,13 +137,24 @@ export function BlogSection({
             </h1>
           </div>
 
+          {selectedPost.image && (
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img
+                src={selectedPost.image}
+                alt={selectedPost.title}
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
+
           <div className="p-4 bg-emerald-50/70 border border-emerald-200/80 rounded-2xl text-stone-800 text-sm font-medium leading-relaxed">
             <strong>Executive Summary:</strong> {selectedPost.summary}
           </div>
 
-          <div className="space-y-5 text-stone-700 text-sm sm:text-base leading-relaxed">
+          <div className="space-y-6 text-stone-800 text-base sm:text-lg leading-8 sm:leading-9">
             {selectedPost.content.map((paragraph, idx) => (
-              <p key={idx}>{paragraph}</p>
+              <p key={idx} className={idx === 0 ? "text-lg sm:text-xl font-medium text-stone-900 leading-8 sm:leading-9" : ""}>{paragraph}</p>
             ))}
           </div>
 

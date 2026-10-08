@@ -108,7 +108,7 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
                   💸 Frustration with Competitor Paywalls
                 </strong>
                 <p className="text-stone-600 text-xs">
-                  Competitors charge $20/month and stop users mid-sentence. When users find a <strong>100% Free Forever</strong> tool, it goes instantly viral on Reddit, TikTok, and Twitter!
+                  Competitors charge $20/month and stop users mid-sentence. When users find a <strong>100% Free</strong> tool, it goes instantly viral on Reddit, TikTok, and Twitter!
                 </p>
               </div>
             </div>
@@ -146,7 +146,7 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
                     <td className="p-3 text-emerald-800">HumanizeAI (This App)</td>
                     <td className="p-3 text-emerald-600 font-extrabold">$0.00 (100% Free)</td>
                     <td className="p-3 text-emerald-700">Unlimited Words</td>
-                    <td className="p-3 text-emerald-800">No Sign-up • Free Forever</td>
+                    <td className="p-3 text-emerald-800">No Sign-up • 100% Free</td>
                   </tr>
                 </tbody>
               </table>
