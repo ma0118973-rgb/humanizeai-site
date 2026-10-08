@@ -13,6 +13,7 @@ import { HistoryDrawer } from "./components/HistoryDrawer";
 import { ActivePage, LanguageCode, SavedDraft } from "./types";
 import { applyPageSeo, SEO_CONFIGS, ALL_SUPPORTED_LANGUAGES } from "./utils/seo";
 import { findBlogPostBySlug, BlogPost } from "./data/blogArticles";
+import { DiagnosticBoundary } from "./components/DiagnosticBoundary";
 
 // Lazy-load secondary workspaces and modal dialogs to maximize Core Web Vitals (LCP, INP, CLS)
 const DetectorWorkspace = lazy(() =>
@@ -375,6 +376,7 @@ export default function App() {
     activePage === "pdfTools";
 
   return (
+    <DiagnosticBoundary>
     <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-emerald-50/30 text-stone-900 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900 pb-20 md:pb-0 w-full max-w-full overflow-x-hidden">
       {/* Mobile App Install Smart Banner (Top 1-Tap Trigger) */}
       <MobileAppBanner onOpenInstall={() => setIsInstallOpen(true)} />
@@ -624,5 +626,6 @@ export default function App() {
         onOpenInstall={() => setIsInstallOpen(true)}
       />
     </div>
+    </DiagnosticBoundary>
   );
 }

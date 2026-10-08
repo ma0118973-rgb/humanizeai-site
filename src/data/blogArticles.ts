@@ -647,7 +647,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "## The Bottom Line",
       "Our Sentence Expander turns short, thin text into longer, more detailed versions using rule-based expansion patterns. It is genuinely useful for reaching word counts, developing ideas, and generating first-draft material. Its limitation is that the output is formulaic — so the best results come from expanding and then editing with your own judgment. Use it as a starting point, add your own specifics, and cut what does not serve the meaning. Done that way, it is a practical tool for any writer facing the thin-paragraph problem.",
     ],
-  },,
+  },
 {
     id: "detector-ia-guia-espanol",
     slug: "detector-ia-guia-espanol",
@@ -743,7 +743,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "## En resumen",
       "Nuestro Generador de Citas crea referencias en APA 7, MLA 9 y Chicago en segundos, gratis y sin cuenta. Te ahorra el trabajo mecánico del formato para que puedas concentrarte en el contenido. Úsalo para los casos comunes con confianza, verifica los casos raros con la guía oficial y cita mientras escribes. Así, la bibliografía deja de ser la parte temida del trabajo.",
     ],
-  },,
+  },
   {
     id: "expansor-oraciones-guia-espanol",
     slug: "expansor-oraciones-guia-espanol",
@@ -827,7 +827,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "## En resumen",
       "Nuestro Estudio de Video prepara tus clips para Reels, TikTok y Shorts con filtros de imagen, recorte de marcas de agua en esquinas y procesado de imágenes, todo en tu navegador y gratis. Es honesto en lo que hace: mejora el aspecto y limpia encuadres, sin prometer milagros de calidad ni borrados imposibles. Para el creador que publica a diario, es una parada rápida entre la grabación y la publicación.",
     ],
-  },,
+  },
   {
     id: "herramientas-seo-guia-espanol",
     slug: "herramientas-seo-guia-espanol",
@@ -913,7 +913,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "## En resumen",
       "Nuestro Limpiador de Clichés encuentra las frases hechas típicas de la IA y te propone alternativas más directas, gratis y en privado. Es una forma rápida de que tu texto suene más humano y, de paso, mejor escrito. Úsalo con criterio —revisa cada sugerencia—, lee el resultado en voz alta para cazar desajustes gramaticales y quédate con la versión que suene más a ti. Menos clichés, más voz propia: esa es toda la fórmula.",
     ],
-  },,
+  },
 {
     id: "ki-detektor-anleitung-deutsch",
     slug: "ki-detektor-anleitung-deutsch",
@@ -3293,7 +3293,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "## Conclusão",
       "Nosso Resumidor de Texto transforma textos longos em versões curtas usando sumarização extrativa: ele pontua as frases por importância e monta o resumo com as melhores delas. É rápido, privado e eficaz para triagem e revisão. Conhecendo seus limites — sem compreensão real do texto, dependente da estrutura original — você usa a ferramenta no ponto certo e ganha horas de leitura por semana.",
     ],
-  },,  {
+  },  {
     id: "compressor-imagens-guia-portugues",
     slug: "compressor-imagens-guia-portugues",
     language: "pt",
@@ -3380,7 +3380,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "## Conclusão",
       "Nossas Ferramentas PDF unem vários arquivos num PDF único e criam PDFs a partir de imagens — tudo local, privado e gratuito. Elas não comprimem de verdade nem aplicam senha, mas para organização e montagem de documentos são tudo o que a maioria das pessoas precisa. Com bons hábitos de captura e ordenação, você entrega documentos profissionais em minutos, sem expor seus dados a servidores desconhecidos.",
     ],
-  },,  {
+  },  {
     id: "estudio-video-guia-portugues",
     slug: "estudio-video-guia-portugues",
     language: "pt",
@@ -3463,7 +3463,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "## Conclusão",
       "Nosso Otimizador SEO aponta melhorias reais em palavras-chave, meta descrições, estrutura e hashtags — os fundamentos que o Google valoriza. O que ele não faz, e nenhuma ferramenta honesta faz, é garantir posições: SEO é construção de autoridade ao longo de meses, com conteúdo útil e boa experiência. Use a ferramenta para acertar os fundamentos, meça no Search Console e desconfie de quem promete atalhos.",
     ],
-  },,  {
+  },  {
     id: "limpador-cliches-guia-portugues",
     slug: "limpador-cliches-guia-portugues",
     language: "pt",
@@ -3676,7 +3676,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "## Personvern",
       "Sammendraget kjører helt i nettleseren din. Teksten du limer inn, forlater aldri din egen maskin – den lastes ikke opp, lagres ikke og deles ikke. Du kan trygt oppsummere fortrolige rapporter og upubliserte manus.",
     ],
-  },,
+  },
 {
     id: "bilde-kompressor-guide-norsk",
     slug: "bilde-kompressor-guide-norsk",
@@ -4469,12 +4469,15 @@ export const BLOG_POSTS: BlogPost[] = [
 
 export function findBlogPostBySlug(slug: string, lang?: string): BlogPost | undefined {
   const clean = slug.toLowerCase().replace(/^\/|\/$/g, "");
+  // Defensive: skip any malformed/hole entries so a bad record can never white-screen the site.
+  const safe = (p: BlogPost | undefined): p is BlogPost =>
+    !!p && typeof p.slug === "string";
   // Direct match — prefer the requested language, fall back to any language
-  const direct = BLOG_POSTS.find((p) => p.slug.toLowerCase() === clean);
+  const direct = BLOG_POSTS.find((p) => safe(p) && p.slug.toLowerCase() === clean);
   if (direct) {
     if (lang) {
       const langMatch = BLOG_POSTS.find(
-        (p) => p.slug.toLowerCase() === clean && p.language === lang
+        (p) => safe(p) && p.slug.toLowerCase() === clean && p.language === lang
       );
       if (langMatch) return langMatch;
     }
@@ -4483,10 +4486,10 @@ export function findBlogPostBySlug(slug: string, lang?: string): BlogPost | unde
 
   // Aliases for search and user convenience
   if (clean === "ai-content-detection-guide" || clean === "how-ai-detectors-work") {
-    return BLOG_POSTS.find((p) => p.slug === "copyleaks-vs-turnitin-accuracy-study");
+    return BLOG_POSTS.find((p) => safe(p) && p.slug === "copyleaks-vs-turnitin-accuracy-study");
   }
   if (clean === "ai-humanizer-guide" || clean === "undetectable-ai-guide") {
-    return BLOG_POSTS.find((p) => p.slug === "turnitin-gptzero-bypass-guide-2026");
+    return BLOG_POSTS.find((p) => safe(p) && p.slug === "turnitin-gptzero-bypass-guide-2026");
   }
   return undefined;
 }
