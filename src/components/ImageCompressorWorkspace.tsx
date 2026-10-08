@@ -89,7 +89,7 @@ export function ImageCompressorWorkspace({ selectedLanguage = "en" }: ImageCompr
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(56,189,248,0.15),transparent_50%)] pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-3">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30 flex items-center gap-1.5">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-sky-100 text-sky-700 border border-sky-300 flex items-center gap-1.5">
               <ImageIcon className="w-3.5 h-3.5 text-sky-400" />
               {ic.badge || "Image Compressor"}
             </span>

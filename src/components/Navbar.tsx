@@ -314,7 +314,7 @@ export function Navbar({
             <button
               id="nav-btn-blueprint"
               onClick={onOpenBlueprint}
-              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 sm:py-2 rounded-xl text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30 hover:bg-amber-500/25 transition-all shrink-0"
+              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 sm:py-2 rounded-xl text-xs font-semibold bg-amber-100 text-amber-700 border border-amber-300 hover:bg-amber-500/25 transition-all shrink-0"
               title="View 2026 Real-Time Market Strategy & Competitor Clone Analysis"
             >
               <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />

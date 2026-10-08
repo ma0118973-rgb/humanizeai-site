@@ -66,7 +66,7 @@ export function SentenceExpanderWorkspace({
       <div className="bg-gradient-to-r from-amber-100 via-yellow-50 to-amber-100 rounded-3xl p-4 sm:p-8 text-stone-900 shadow-xl border border-amber-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden">
         <div className="relative z-10 max-w-3xl space-y-2">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 border border-emerald-300 flex items-center gap-1.5">
               <Maximize2 className="w-3.5 h-3.5 text-emerald-400" />
               {e.badge || "Academic Sentence Expander & Depth Enhancer"}
             </span>

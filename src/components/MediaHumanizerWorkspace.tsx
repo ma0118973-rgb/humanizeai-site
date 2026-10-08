@@ -337,7 +337,7 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
         <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-2">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1.5">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 border border-rose-300 flex items-center gap-1.5">
               <Flame className="w-3.5 h-3.5 text-rose-400" />
               {m.badge || "Creator Studio: Watermark Crop & Video SEO Kit"}
             </span>

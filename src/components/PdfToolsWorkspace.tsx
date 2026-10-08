@@ -100,7 +100,7 @@ export function PdfToolsWorkspace({ selectedLanguage = "en" }: PdfToolsWorkspace
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(248,113,113,0.15),transparent_50%)] pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-3">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-red-500/20 text-red-300 border border-red-500/30 flex items-center gap-1.5">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-300 flex items-center gap-1.5">
               <FileText className="w-3.5 h-3.5 text-red-400" />
               {pt.badge || "PDF Tools"}
             </span>

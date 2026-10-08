@@ -84,7 +84,7 @@ export function SummarizerWorkspace({ selectedLanguage = "en" }: SummarizerWorks
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.15),transparent_50%)] pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-3">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-violet-500/20 text-violet-300 border border-violet-500/30 flex items-center gap-1.5">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-violet-100 text-violet-700 border border-violet-300 flex items-center gap-1.5">
               <FileText className="w-3.5 h-3.5 text-violet-400" />
               {sum.badge || "AI Text Summarizer"}
             </span>

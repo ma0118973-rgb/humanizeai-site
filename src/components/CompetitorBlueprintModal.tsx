@@ -16,7 +16,7 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
         <div className="bg-white text-white p-6 sm:p-8 flex items-start justify-between relative overflow-hidden">
           <div className="space-y-2 relative z-10">
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700 border border-amber-300 flex items-center gap-1">
                 <Flame className="w-3.5 h-3.5" /> 2026 Market Intelligence Report
               </span>
               <span className="text-xs text-stone-400">Search Data Overview</span>

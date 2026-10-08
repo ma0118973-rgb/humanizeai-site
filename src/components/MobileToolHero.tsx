@@ -156,9 +156,9 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
 };
 
 const FREE_BADGE: Record<LanguageCode, string> = {
-  en: "100% Free", es: "100% Gratis", ur: "100% Muft", de: "100% Kostenlos",
-  fr: "100% Gratuit", tr: "%100 Ücretsiz", pt: "100% Grátis", ja: "100%無料",
-  no: "100% Gratis", nl: "100% Gratis", it: "100% Gratis",
+  en: "Free", es: "Gratis", ur: "Muft", de: "Kostenlos",
+  fr: "Gratuit", tr: "Ücretsiz", pt: "Grátis", ja: "無料",
+  no: "Gratis", nl: "Gratis", it: "Gratis",
 };
 
 // Map tool to its guide article slug (Urdu guides exist for all)
