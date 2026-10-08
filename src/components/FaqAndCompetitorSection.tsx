@@ -84,7 +84,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
                   <td className="p-3.5 font-medium text-stone-900">{item.name}</td>
                   <td className="p-3.5 text-rose-600 font-semibold">{item.price}</td>
                   <td className="p-3.5 text-stone-600">{item.freeLimit}</td>
-                  <td className="p-3.5 text-stone-600">{item.turnitinBypass}</td>
+                  <td className="p-3.5 text-stone-600">{item.notes}</td>
                   <td className="p-3.5 text-stone-500 text-xs">{item.ourAdvantage}</td>
                 </tr>
               ))}
@@ -95,9 +95,9 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
                     <span>HumanizeAI (This App)</span>
                   </div>
                 </td>
-                <td className="p-3.5 text-emerald-700 font-extrabold">$0.00 Free</td>
-                <td className="p-3.5 text-emerald-800">Unlimited</td>
-                <td className="p-3.5 text-emerald-800">Varies by text</td>
+                <td className="p-3.5 text-emerald-700 font-extrabold">Free</td>
+                <td className="p-3.5 text-emerald-800">No sign-up needed</td>
+                <td className="p-3.5 text-emerald-800">Runs in your browser</td>
                 <td className="p-3.5 text-emerald-900 text-xs">
                   Zero Paywall • 100% Free • In-Browser Text Analysis
                 </td>

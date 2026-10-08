@@ -144,9 +144,9 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
                   ))}
                   <tr className="bg-emerald-50/70 font-semibold text-stone-900">
                     <td className="p-3 text-emerald-800">HumanizeAI (This App)</td>
-                    <td className="p-3 text-emerald-600 font-extrabold">$0.00 (100% Free)</td>
-                    <td className="p-3 text-emerald-700">Unlimited Words</td>
-                    <td className="p-3 text-emerald-800">No Sign-up • 100% Free</td>
+                    <td className="p-3 text-emerald-600 font-extrabold">Free</td>
+                    <td className="p-3 text-emerald-700">No sign-up needed</td>
+                    <td className="p-3 text-emerald-800">Free tools, no account</td>
                   </tr>
                 </tbody>
               </table>
@@ -160,16 +160,16 @@ export function CompetitorBlueprintModal({ isOpen, onClose }: CompetitorBlueprin
             </h4>
             <ul className="text-xs sm:text-sm text-stone-300 space-y-2 pt-1">
               <li className="flex items-start gap-2">
-                <span className="text-emerald-400 font-bold">1. Google AdSense / Mediavine Ads:</span>
-                <span>With 500,000+ monthly visitors from the USA (Tier-1 high RPM of $15–$30 CPM), ad revenue alone can generate $7,500 – $15,000/month passively.</span>
+                <span className="text-emerald-400 font-bold">1. Display Ads:</span>
+                <span>Ad networks like Google AdSense can show ads to visitors; earnings depend on traffic and niche.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-400 font-bold">2. Affiliate Partnerships:</span>
-                <span>Recommending student tools (Grammarly, Notion, Bluehost) pays $20–$100 per referral.</span>
+                <span>Recommending tools the audience already uses can earn referral commissions; rates vary by program.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-emerald-400 font-bold">3. Enterprise / API Integration:</span>
-                <span>Keeping the web tool 100% free for students and charging marketing agencies for bulk API access.</span>
+                <span className="text-emerald-400 font-bold">3. Premium Features:</span>
+                <span>Keeping the core web tools free while offering optional extras is one common approach.</span>
               </li>
             </ul>
           </div>

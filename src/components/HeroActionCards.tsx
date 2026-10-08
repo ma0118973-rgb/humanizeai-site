@@ -12,7 +12,7 @@ export function HeroActionCards({ activePage, onSelectPage }: HeroActionCardsPro
     {
       id: "humanizer" as ActivePage,
       hash: "#humanizer",
-      badge: "⭐ 100% Free & Unlimited",
+      badge: "⭐ Free to Use",
       badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
       accentBg: "from-emerald-950/70 via-stone-900 to-stone-950",
       iconBg: "bg-emerald-500 text-stone-950",

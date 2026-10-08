@@ -21,7 +21,7 @@ export interface ToolSeoArticle {
 export const TOOL_SEO_ARTICLES: Record<"humanizer" | "detector" | "media", ToolSeoArticle> = {
   humanizer: {
     toolId: "humanizer",
-    badge: "100% Free AI Humanizer Guide & SEO Blueprint",
+    badge: "Free AI Humanizer Guide & SEO Blueprint",
     metaTitle: "Free AI Text Humanizer 2026: Make ChatGPT Text Sound More Natural",
     h1: "The Complete Guide to Humanizing AI Text in 2026",
     subtitle:

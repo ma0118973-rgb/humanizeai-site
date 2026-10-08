@@ -79,7 +79,7 @@ export function ViralSeoCompetitorEngine() {
 
     setIsLoading(true);
     try {
-      // 100% Client-Side local reverse-engineering engine
+      // Client-side template-based idea generator
       const localResult = runLocalVideoViralSeo(
         platform,
         inputType,
@@ -90,7 +90,7 @@ export function ViralSeoCompetitorEngine() {
       setSeoResult(localResult);
     } catch (err: any) {
       console.error(err);
-      setFormError("Could not complete viral reverse-engineering. Please verify input and try again.");
+      setFormError("Could not generate the SEO kit. Please check your input and try again.");
     } finally {
       setIsLoading(false);
     }
@@ -104,15 +104,15 @@ export function ViralSeoCompetitorEngine() {
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-rose-500/10 text-rose-600 border border-rose-500/20 uppercase tracking-wider flex items-center gap-1">
               <Flame className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-              US Algorithm Hacker (2026 Edition)
+              Video SEO Idea Generator
             </span>
-            <span className="text-xs text-stone-500 font-mono hidden md:inline">1M+ View Competitor Reverse-Engineer</span>
+            <span className="text-xs text-stone-500 font-mono hidden md:inline">Template-Based Idea Generator</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight">
-            Viral Video SEO, Hashtags & Competitor Clone Engine
+            Video SEO, Hashtags & Content Idea Engine
           </h2>
           <p className="text-xs sm:text-sm text-stone-500">
-            Scans current trending algorithms for your exact niche, decodes your competitor's viral blueprint, and gives you high-CTR titles, opening hook scripts, and top-ranking tags.
+            Generates title ideas, opening hook suggestions, captions, and hashtag sets from proven templates. It does not access real platform data or analyze actual competitors.
           </p>
         </div>
       </div>
@@ -267,12 +267,12 @@ export function ViralSeoCompetitorEngine() {
         {isLoading ? (
           <>
             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-            <span>Scanning 1M+ View Competitors & Algorithm Trends in Real Time...</span>
+            <span>Generating your SEO kit...</span>
           </>
         ) : (
           <>
             <Sparkles className="w-5 h-5 text-rose-400" />
-            <span>Reverse-Engineer Competitor & Generate Viral SEO Kit</span>
+            <span>Generate Video SEO Kit</span>
           </>
         )}
       </button>
@@ -284,7 +284,7 @@ export function ViralSeoCompetitorEngine() {
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
               <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full">
-                1M+ Competitor Algorithm Match Complete
+                SEO Kit Ready
               </span>
             </div>
             <span className="text-xs text-stone-500 font-mono flex items-center gap-1">
@@ -297,7 +297,7 @@ export function ViralSeoCompetitorEngine() {
           <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-rose-50 to-amber-50 border border-rose-200 space-y-2">
             <div className="flex items-center gap-2 text-rose-800 font-bold text-xs uppercase tracking-wider">
               <Eye className="w-4 h-4 text-rose-600" />
-              <span>Competitor 1M+ Views Secret Reverse-Engineered:</span>
+              <span>Suggested Content Angle:</span>
             </div>
             <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-medium">
               {seoResult.competitorSecretBreakdown}

@@ -46,7 +46,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   },
   citation: {
     title: "Free Academic Citation Generator – APA 7, MLA 9, Chicago & Harvard Formatter",
-    description: "100% Free academic citation generator. Format references in APA 7th, MLA 9th, Chicago, and Harvard styles instantly.",
+    description: "Free academic citation generator. Format references in APA 7th, MLA 9th, Chicago, and Harvard styles instantly.",
     canonicalPath: "/citation-generator/",
     ogType: "website",
     schemaType: "WebApplication",
@@ -333,7 +333,7 @@ function updateJsonLd(
       "@type": "WebSite",
       "name": "Clever Humanizer",
       "url": `${origin}/`,
-      "description": "100% Free AI Humanizer and AI Text Pattern Scanner.",
+      "description": "Free AI Humanizer and AI Text Pattern Scanner.",
       "potentialAction": {
         "@type": "SearchAction",
         "target": `${origin}/ai-humanizer/?q={search_term_string}`,
@@ -413,7 +413,7 @@ function updateJsonLd(
         "availability": "https://schema.org/InStock",
       },
       "featureList": [
-        "100% Free & Unlimited Usage",
+        "Free Usage",
         "Sentence-by-sentence writing pattern analysis",
         "Tone and readability customization",
         "Instant Export to DOCX & TXT",

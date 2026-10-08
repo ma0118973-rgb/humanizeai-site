@@ -65,7 +65,7 @@ export function DiffCheckerWorkspace({
             <div className="text-2xl font-black text-amber-400 font-mono">
               {diff.changedWordsCount}
             </div>
-            <div className="text-[10px] font-bold text-stone-300">Words Shifted</div>
+            <div className="text-[10px] font-bold text-stone-300">Words Changed</div>
           </div>
         </div>
       </div>

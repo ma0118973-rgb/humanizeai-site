@@ -413,7 +413,7 @@ export function HumanizerWorkspace({
               2
             </span>
             <span className="text-[11px] sm:text-xs font-bold text-stone-800">Pick Tone & Click</span>
-            <span className="text-[10px] text-stone-500 hidden sm:inline">100% Free & Unlimited</span>
+            <span className="text-[10px] text-stone-500 hidden sm:inline">Free to Use</span>
           </div>
           <div className="bg-emerald-50 p-2.5 rounded-2xl border border-emerald-200 flex flex-col items-center justify-center">
             <span className="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-black flex items-center justify-center mb-1">

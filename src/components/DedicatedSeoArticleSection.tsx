@@ -67,7 +67,7 @@ export function DedicatedSeoArticleSection({ toolId }: DedicatedSeoArticleSectio
             <div className="flex items-center gap-2">
               <Hash className="w-4 h-4 text-emerald-700" />
               <span className="text-xs font-bold uppercase tracking-wider text-emerald-900">
-                Viral SEO Hashtags (Rank #1 on Google, YouTube & TikTok):
+                Viral SEO Hashtags:
               </span>
             </div>
             <div className="flex items-center gap-1.5 flex-wrap">

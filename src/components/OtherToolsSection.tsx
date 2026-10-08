@@ -368,7 +368,7 @@ export function OtherToolsSection({ activePage, onSelectPage, selectedLanguage =
               <Zap className="w-3 h-3 text-emerald-600" />
               Creator Power Suite
             </span>
-            <span className="text-xs text-stone-500 font-medium">100% Free & Unlimited</span>
+            <span className="text-xs text-stone-500 font-medium">Free to Use</span>
           </div>
           <h3 className="text-xl sm:text-2xl font-extrabold text-stone-900 tracking-tight">
             {ot.heading || "Explore Other High-Performance Tools"}

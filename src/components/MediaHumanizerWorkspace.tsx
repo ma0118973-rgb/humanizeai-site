@@ -339,17 +339,17 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
           <div className="flex items-center gap-2 flex-wrap">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1.5">
               <Flame className="w-3.5 h-3.5 text-rose-400" />
-              {m.badge || "Creator Studio: Watermark Stripper & Competitor SEO Clones"}
+              {m.badge || "Creator Studio: Watermark Crop & Video SEO Kit"}
             </span>
             <span className="text-xs text-stone-400 font-mono">
               YouTube Shorts • TikTok • Instagram Reels • Facebook Reels
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
-            {m.title || "Remove Watermarks & Reverse-Engineer 1M+ View Competitor SEO"}
+            {m.title || "Crop Out Watermarks & Build Your Video SEO Kit"}
           </h1>
           <p className="text-sm sm:text-base text-stone-300 leading-relaxed">
-            {m.subtitle || "Eliminate corner logos, strip AI watermarks, and unlock the exact viral algorithms used by top creators in the US market."}
+            {m.subtitle || "Crop edge watermarks out of frame with smart zoom, then generate title ideas, hooks, captions, and hashtag sets from proven templates."}
           </p>
         </div>
       </div>
