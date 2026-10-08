@@ -6653,6 +6653,57 @@ export const BLOG_POSTS: BlogPost[] = [
       "Aam Sawal: CV kitni lambi ho? Jawab: naye tajurbe walon ke liye aik safha kaafi hai, tajurba kar logon ke liye do safhay zyada se zyada. Jo hissa is nokri mein kaam ka nahi, use chhota kar dein ya nikaal dein. Allah aap ko halal aur achi rozi de — mehnat aap ki, aur saaf si CV us ka pehla qad hai."
     ]
   },
+  {
+    "id": "cv-lage-guide",
+    "slug": "cv-lage-guide",
+    "language": "no",
+    "title": "Lage CV Gratis: Komplett Guide Steg For Steg",
+    "readTime": "8 min read",
+    "date": "October 2026",
+    "author": "HumanizeAI Editorial Team",
+    "category": "Academic Integrity",
+    "summary": "Lær hva en god CV må inneholde, hvordan du bygger den steg for steg med et gratis verktøy i nettleseren, og hvilke feil du bør unngå. Med ærlige råd om bilde på CV-en i Norge.",
+    "keywords": [
+      "lage CV gratis",
+      "hvordan skrive CV",
+      "CV eksempel norsk",
+      "CV tips jobbsøking"
+    ],
+    "content": [
+      "Å sitte foran et tomt dokument og lure på hvor du skal begynne, er en kjent følelse når en CV skal skrives. Hva skal med? I hvilken rekkefølge? Hvor lang kan den være? Denne guiden svarer rolig på det og viser hvordan du bygger en ryddig og troverdig CV med et gratis verktøy i nettleseren: du fyller inn et skjema, ser resultatet med en gang og lagrer alt som PDF. Uten konto, og uten at opplysningene dine sendes noe sted.",
+      "Del 1: Hva en god CV må inneholde",
+      "Innholdet kommer før utseendet. En solid CV har som regel seks deler. Begynn med kontaktinformasjon: fullt navn, bosted, en ryddig e-postadresse og et telefonnummer du faktisk svarer på. Er e-postadressen din en vits eller full av tilfeldige tall, lag en enkel adresse med for- og etternavn. Den er ditt første visittkort.",
+      "Deretter kommer en kort presentasjon av deg selv: tre–fire linjer som sier hvem du er, hvilket fagområde du tilhører og hva som er din tydeligste styrke. Unngå tomme fraser som «jeg er en lagspiller som liker utfordringer». Det skriver alle. Skriv heller noe som kan etterprøves, for eksempel: «Butikkmedarbeider med tre års erfaring, vant til kasse, lager og kundekontakt».",
+      "Den viktigste delen er arbeidserfaringen, og det er her det oftest går galt: å ramse opp oppgaver i stedet for resultater. «Ansvarlig for kundeservice» sier lite. «Hjalp i snitt 40 kunder om dagen og satte opp en ny turnus som kortet ned ventetiden» sier langt mer. Bruk tall der du kan: antall, frister, teamstørrelse, mål du nådde. Tall skaper tillit fordi arbeidsgiveren kan spørre om dem i intervjuet.",
+      "Så følger utdanning, ferdigheter — verktøy, programmer og teknikker du virkelig behersker — og språk, med et ærlig nivå på hvert. Er engelsken din god til hverdagsbruk, men ikke flytende, så skriv det. Å blåse opp nivået faller sammen ved første spørsmål på engelsk. Avslutt eventuelt med interesser, men bare dersom de sier noe relevant om deg.",
+      "Del 2: Slik bruker du verktøyet, steg for steg",
+      "Steg 1: Fyll inn personopplysningene. Navn, stillingen du søker, bosted, e-post og telefonnummer. Kontroller hvert felt en gang til: ett feil siffer i telefonnummeret har kostet mange gode kandidater et intervju.",
+      "Steg 2: Skriv presentasjonen av deg selv. En nyttig formel er «yrke + års erfaring + spesialfelt + ett resultat». Er du ny i arbeidslivet, bytt ut erfaring med utdanning og prosjekter: praksis, deltidsjobber, studieprosjekter og frivillig arbeid teller, så lenge det er sant og godt formulert.",
+      "Steg 3: Legg til erfaringen din, fra den nyeste til den eldste. For hver jobb: firmanavn, stillingstittel, periode og tre til fem linjer som begynner med et handlingsverb — organiserte, hjalp, bygde, reduserte, lærte opp. Avslutt linjene med et målbart resultat der det er mulig.",
+      "Steg 4: Legg til utdanning og kurs. Den viktigste utdanningen først. Korte kurs hører med dersom de henger sammen med stillingen: et kurs i Excel sier mer for en administrativ jobb enn tre kurs uten noen sammenheng.",
+      "Steg 5: Før opp ferdigheter og språk. En ferdighet er noe du kan vise frem. Skriver du «god i Excel», må du også kunne lage en enkel tabell med formler.",
+      "Steg 6: Velg en mal og se forhåndsvisningen mens du jobber. Verktøyet bygger CV-en mens du skriver. Bruk øyeblikket til å fange opp skrivefeil, merkelige mellomrom og linjer som kuttes.",
+      "Steg 7: Skriv ut eller lagre som PDF. Med nettleserens utskriftsknapp velger du «Lagre som PDF». Gi filen et tydelig navn, for eksempel «CV-Fornavn-Etternavn-Selger.pdf»: det er navnet leseren ser i nedlastingsmappen sin.",
+      "Del 3: Opplysningene dine blir i nettleseren din",
+      "Det rettferdige spørsmålet er: hvor tar opplysningene mine veien? Med dette verktøyet ingen steder. Alt skjer i siden på din egen enhet: du skriver, forhåndsvisningen vises på skjermen og PDF-en lages der. Ingen registrering, ingen sending til en server, og ingenting som blir liggende igjen når du lukker fanen. Det fritar deg ikke for egen forsiktighet: ikke bygg CV på en offentlig eller delt datamaskin, og ikke sett opplysninger på CV-en som ikke hører hjemme der, som fødselsnummer eller full hjemmeadresse med husnummer. Bosted holder.",
+      "Del 4: De ærlige grensene for enhver CV-bygger",
+      "Verktøyet ordner og formgir; det finner ikke opp erfaring, skriver ikke en fortid du ikke har hatt og garanterer verken intervju eller jobb. Den som lover det, selger illusjoner. Det en god mal faktisk gjør, er å fjerne hindringer: jevne marger, tydelige overskrifter, ingen skjeve tabeller eller blandede skrifttyper. Da bruker leseren tiden sin på innholdet ditt i stedet for å slåss med oppsettet.",
+      "Det finnes også en praktisk side: mange bedrifter filtrerer CV-er først med automatiske utvelgelsessystemer, kalt ATS, før et menneske ser dem. Slike systemer leser enkle, rene dokumenter best: tydelige avsnittsoverskrifter, ekte tekst i stedet for bilder av tekst, og nøkkelordene fra utlysningen. Svært pyntede maler med kompliserte kolonner og ikoner overalt blir av og til lest i feil rekkefølge. Et rolig oppsett er derfor ikke et kjedelig valg, men et strategisk et.",
+      "Og bildet? I Norge blir det stadig vanligere å ha bilde på CV-en, men det er fortsatt valgfritt, ikke et krav. I stillinger med mye kundekontakt kan et ryddig bilde virke naturlig; i mange andre bransjer lar folk det være, og det går helt fint. Velger du bilde, ta et enkelt og profesjonelt: bare ansikt og skuldre, rolig bakgrunn, klær som passer til jobben. Ingen feriebilder, ingen solbriller og ingen bilder klippet ut av gruppebilder.",
+      "Del 5: Feilene som får gode CV-er til å stryke",
+      "Den første er skrivefeilen. Én slurvete feil i presentasjonen sår tvil om nøyaktigheten din. Les til slutt alt høyt: øret fanger det øyet hopper over. Den andre feilen er å sende den samme generelle CV-en til hver eneste utlysning: en leser ser på få sekunder om teksten passer til annonsen. Den tredje er å lyve — om språk, vitnemål eller erfaring. Kontroller finnes, og den som blir tatt, er ute med en gang. Den fjerde er lengden: én side holder for de fleste yrkesliv; to er maks for lengre karrierer. En CV på fem sider etter tre år i arbeid viser mest mangel på prioritering. Og den femte: utdatert kontaktinformasjon eller en innboks du aldri åpner.",
+      "Del 6: Tips for å gjøre CV-en sterkere",
+      "Les utlysningen nøye og understrek ordene som går igjen: verktøy, oppgaver, krav. Kan du virkelig de tingene, bruk de samme ordene i CV-en din. Det hjelper både de automatiske systemene og den menneskelige leseren å se sammenhengen. Det er ikke juks: det er å oversette din egen erfaring ærlig til utlysningens språk. Grensen er enkel — lån aldri et krav du ikke oppfyller.",
+      "Bytt adjektiver med fakta. I stedet for «jeg er svært organisert», skriv hva organiseringen førte til: «holdt lageroversikt over 200 varer uten avvik ved den månedlige tellingen». Adjektiver skriver alle; fakta skriver bare den som har opplevd dem. Les til slutt gjennom neste dag med friske øyne, la en du stoler på lese med, og send alltid PDF, aldri en redigerbar fil. Da kommer oppsettet likt frem på alle skjermer.",
+      "Spørsmål og svar",
+      "Spørsmål: Er verktøyet virkelig gratis? Svar: ja. Du bygger, ser over og lagrer som PDF uten å betale og uten konto. Det finnes ingen skjult betalingsvegg bak nedlastingsknappen.",
+      "Spørsmål: Lagres opplysningene mine på en server? Svar: nei. Utfylling og formgiving skjer i nettleseren din. Lukker du fanen, er det ingenting igjen fra vår side.",
+      "Spørsmål: Kan jeg bruke samme CV til hver søknad? Svar: du kan, men det virker dårligere. Ha en grunn-CV og tilpass presentasjon og ferdigheter til hver utlysning, med vekt på det du faktisk kan og stillingen krever.",
+      "Spørsmål: Hvor lang bør CV-en min være? Svar: én side for den som begynner eller har lite erfaring, maks to for lengre karrierer. Mer hjelper sjelden.",
+      "Spørsmål: Må jeg ha bilde på CV-en? Svar: i Norge er det valgfritt. Det blir stadig vanligere, og i kunderettede stillinger virker det ofte naturlig, men mange lar det være. Begge valg kan være riktige, så lenge bildet — hvis du bruker et — er enkelt og profesjonelt.",
+      "Å bygge en god CV er til syvende og sist ærlighet i en ryddig form: å fortelle hva du har gjort, med tall der det går an, på en side hvem som helst — menneske eller system — kan lese på få sekunder. Verktøyet tar seg av det kjedelige formgivingsarbeidet; den overbevisende delen, din sanne historie, forblir din."
+    ]
+  },
 ];
 
 export function findBlogPostBySlug(slug: string, lang?: string): BlogPost | undefined {
