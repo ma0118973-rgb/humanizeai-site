@@ -86,7 +86,7 @@ export function DetectorWorkspace({
               {t.detector.badge}
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
             {t.detector.heroTitle}
           </h1>
           <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">

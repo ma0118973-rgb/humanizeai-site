@@ -94,7 +94,7 @@ export function CitationWorkspace({ selectedLanguage = "en" }: CitationWorkspace
             </span>
             <span className="text-xs text-stone-400 font-mono">Turnitin & Plagiarism Safe</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
             Free Academic Citation & Bibliography Formatter
           </h1>
           <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">

@@ -341,11 +341,11 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
               <Flame className="w-3.5 h-3.5 text-rose-400" />
               {m.badge || "Creator Studio: Watermark Crop & Video SEO Kit"}
             </span>
-            <span className="text-xs text-stone-400 font-mono">
+            <span className="text-xs text-stone-600 font-mono">
               YouTube Shorts • TikTok • Instagram Reels • Facebook Reels
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
             {m.title || "Crop Out Watermarks & Build Your Video SEO Kit"}
           </h1>
           <p className="text-sm sm:text-base text-stone-600 leading-relaxed">

@@ -39,7 +39,7 @@ export function DiffCheckerWorkspace({
             </span>
             <span className="text-xs text-stone-400 font-mono">Turnitin Plagiarism Match Predictor</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
             Side-by-Side Text Similarity & Token Diff Comparison
           </h1>
           <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">

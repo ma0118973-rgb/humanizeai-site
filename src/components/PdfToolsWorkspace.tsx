@@ -104,8 +104,8 @@ export function PdfToolsWorkspace({ selectedLanguage = "en" }: PdfToolsWorkspace
               <FileText className="w-3.5 h-3.5 text-red-400" />
               {pt.badge || "PDF Tools"}
             </span>
-            <span className="text-xs text-stone-500 font-mono flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> 100% In-Browser • No Upload
+            <span className="text-xs text-stone-600 font-mono flex items-center gap-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> In-Browser • No Upload
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
