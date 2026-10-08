@@ -321,9 +321,10 @@ function emitFile(lang, routePath, title, description, page, post = null) {
   // H1 for SEO: inject page title as H1 right after <div id="root">
   // Use clean title without year suffix for heading
   const h1Text = esc(title.replace(/\s*[–-]\s*\(?2026\)?\s*$/, "").trim());
+  const h2Text = esc(description);
   html = html.replace(
     /<div id="root">/,
-    `<div id="root"><h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">${h1Text}</h1>`
+    `<div id="root"><h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">${h1Text}</h1><h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">${h2Text}</h2>`
   );
 
   const outDir = path.join(dist, lang, routePath.replace(/^\/|\/$/g, ""));

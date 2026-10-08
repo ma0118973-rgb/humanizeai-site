@@ -199,11 +199,11 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
     },
     seo: {
       pdfToolsTitle: "Free PDF Tools Online – Merge PDF & Images to PDF",
-      pdfToolsDesc: "Free PDF tools. Merge multiple PDFs into one, or convert JPG/PNG images to PDF. 100% in-browser, no upload, no signup.",
+      pdfToolsDesc: "Free PDF tools. Merge multiple PDFs into one, or convert JPG/PNG images to PDF. in-browser, no upload, no signup.",
       imageCompressorTitle: "Free Image Compressor Online – Compress JPG, PNG, WebP",
-      imageCompressorDesc: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup. 100% private.",
+      imageCompressorDesc: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup. private.",
       humanizerTitle: "Free AI Text Humanizer – Natural-Sounding AI Text",
-      humanizerDesc: "Free AI Humanizer. Convert ChatGPT, Claude & Gemini text into natural, human-sounding writing with zero word limits.",
+      humanizerDesc: "Free AI Humanizer. Convert ChatGPT, Claude & Gemini text into natural, human-sounding writing.",
       detectorTitle: "Free AI Content Detector – No Sign-Up, Sentence Heatmap Scanner",
       detectorDesc: "Scan documents with our own pattern-based writing analyzer. Pinpoint robotic sentences with line-by-line visual heatmaps. Independent estimate — not an official detector result.",
       mediaTitle: "AI Video Reels & Watermark Remover Studio – TikTok & Shorts Safe",
@@ -215,7 +215,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       citationTitle: "Free Citation Generator – APA 7, MLA 9, Chicago & Harvard (No Sign-Up)",
       citationDesc: "Generate APA 7th, MLA 9th, Chicago and Harvard citations instantly for academic essays and dissertations.",
       expanderTitle: "Free Sentence Expander – No Word Limit, Academic Depth Enhancer",
-      expanderDesc: "Expand short sentences into scholarly paragraphs with causal reasoning, high perplexity, and natural burstiness. 100% free with no word limits.",
+      expanderDesc: "Expand short sentences into scholarly paragraphs with causal reasoning, high perplexity, and natural burstiness. ",
       summarizerTitle: "Free AI Text Summarizer – Summarize Articles in Seconds",
       summarizerDesc: "Free text summarizer. Paste long articles, papers & documents — get instant extractive summaries in 8 languages. No sign-up.",
       cleanerTitle: "AI Cliché & Buzzword Purger – De-AI Polish & Hallmark Remover",
@@ -403,11 +403,11 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
     },
     seo: {
       pdfToolsTitle: "Herramientas PDF Gratis Online – Unir PDF e Imágenes a PDF",
-      pdfToolsDesc: "Herramientas PDF gratuitas. Une varios PDF en uno o convierte imágenes JPG/PNG a PDF. 100% en el navegador, sin subir archivos.",
+      pdfToolsDesc: "Herramientas PDF gratuitas. Une varios PDF en uno o convierte imágenes JPG/PNG a PDF. en el navegador, sin subir archivos.",
       imageCompressorTitle: "Compresor de Imágenes Gratis Online – JPG, PNG, WebP",
-      imageCompressorDesc: "Compresor de imágenes gratuito. Comprime JPG, PNG y WebP en tu navegador. Sin subir, sin registro. 100% privado.",
+      imageCompressorDesc: "Compresor de imágenes gratuito. Comprime JPG, PNG y WebP en tu navegador. Sin subir, sin registro. privado.",
       humanizerTitle: "Humanizar Texto IA Gratis Sin Registro – Escritura Natural",
-      humanizerDesc: "Herramienta gratuita para humanizar textos de IA. Transforma ChatGPT en contenido humano más natural, sin límites.",
+      humanizerDesc: "Herramienta gratuita para humanizar textos de IA. Transforma ChatGPT en contenido humano más natural.",
       detectorTitle: "Detector de IA Gratis para Textos en Español – Mapa de Calor",
       detectorDesc: "Escanea textos con nuestro analizador de patrones de escritura. Descubre frases robóticas con mapa visual en tiempo real. Estimación propia, no un resultado oficial.",
       mediaTitle: "Eliminar Marcas de Agua en Videos IA – Reels de TikTok y Shorts",
@@ -419,7 +419,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       citationTitle: "Generador de Citas Académicas Gratis – Formato APA 7, MLA 9 y Chicago",
       citationDesc: "Genera referencias bibliográficas en formato APA 7, MLA 9 y Chicago online gratis. Ideal para tesis universitarias y referencias correctas.",
       expanderTitle: "Expansor de Frases Académicas – Aumenta Perplejidad y Longitud",
-      expanderDesc: "Expande frases cortas y notas en párrafos académicos rigurosos con alta perplejidad y variedad sintáctica. 100% gratis sin límite.",
+      expanderDesc: "Expande frases cortas y notas en párrafos académicos rigurosos con alta perplejidad y variedad sintáctica. gratis.",
       summarizerTitle: "Resumidor de Texto IA Gratis – Resume Artículos en Segundos",
       summarizerDesc: "Resumidor de texto gratuito. Pega artículos largos y obtén resúmenes instantáneos en 8 idiomas. Sin registro.",
       cleanerTitle: "Limpiador de Clichés y Palabras Típicas de IA – Pulido Humano",
@@ -468,7 +468,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       detailed: "Detallado",
     },
     humanizer: {
-      badge: "⭐ 100% Gratis Para Siempre • Sin Límite de Palabras • Sin Registro",
+      badge: "⭐ Gratis • Sin Registro",
       heroTitle: "Humanizar Texto IA Online Gratis: Hazlo Sonar Natural",
       heroSubtitle: "Mejora textos de IA con variación sintáctica y ritmo humano natural. Sin tarjetas de crédito ni suscripciones mensuales.",
       inputPlaceholder: "Pega aquí tu texto generado por IA (ChatGPT, Claude, Gemini, DeepSeek, Jasper)...",
@@ -611,7 +611,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       imageCompressorTitle: "Free Image Compressor Online – JPG, PNG Compress Karen",
       imageCompressorDesc: "Muft image compressor. JPG, PNG aur WebP ko browser mein compress karen. Koi upload nahi, koi signup nahi.",
       humanizerTitle: "AI Text Ko Insani Banana \u2013 Muft Qudrati Tehreer Ka Tool",
-      humanizerDesc: "100% muft Urdu aur English AI humanizer. ChatGPT aur Gemini ki machinei tehreer ko zyada qudrati insani andaz ki tehreer mein tabdeel karein.",
+      humanizerDesc: "Muft Urdu aur English AI humanizer. ChatGPT aur Gemini ki machinei tehreer ko zyada qudrati insani andaz ki tehreer mein tabdeel karein.",
       detectorTitle: "Muft AI Content Detector \u2013 Jumla Ba Jumla Risk Heatmap Scanner",
       detectorDesc: "Apne mazameen aur tehreeron ka hamare apne pattern analyzer se muft tajziya karein. Har machinei jumle ko rangeen heatmap ke saath pehchanein. Ye hamara apna takhmeena hai, sarkari nateeja nahi.",
       mediaTitle: "AI Video Reels Aur Watermark Hatane Ka Studio \u2013 Shorts o TikTok",
@@ -672,7 +672,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       detailed: "Tafseeli",
     },
     humanizer: {
-      badge: "\u2b50 Hamesha ke liye 100% muft \u2022 Baghair kisi lafz ki had \u2022 Baghair login",
+      badge: "\u2b50 Muft \u2022 Baghair login",
       heroTitle: "Machinei AI Tehreer Ko Qudrati Insani Andaz Ki Tehreer Mein Tabdeel Karein",
       heroSubtitle: "Ghair mamooli rawani, jumlon ke qudrati tanawwu aur baghair kisi credit card ke.",
       inputPlaceholder: "Yahan apna AI ka tayyar karda text paste karein (ChatGPT, Claude, Gemini, DeepSeek waghera)...",
@@ -811,11 +811,11 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
     },
     seo: {
       pdfToolsTitle: "Kostenlose PDF-Tools Online – PDF Zusammenführen & Bilder zu PDF",
-      pdfToolsDesc: "Kostenlose PDF-Tools. Mehrere PDFs zusammenführen oder JPG/PNG-Bilder in PDF umwandeln. 100% im Browser, kein Upload.",
+      pdfToolsDesc: "Kostenlose PDF-Tools. Mehrere PDFs zusammenführen oder JPG/PNG-Bilder in PDF umwandeln. im Browser, kein Upload.",
       imageCompressorTitle: "Kostenloser Bildkompressor Online – JPG, PNG, WebP",
-      imageCompressorDesc: "Kostenloser Bildkompressor. JPG, PNG & WebP direkt im Browser komprimieren. Kein Upload, keine Anmeldung. 100% privat.",
+      imageCompressorDesc: "Kostenloser Bildkompressor. JPG, PNG & WebP direkt im Browser komprimieren. Kein Upload, keine Anmeldung. privat.",
       humanizerTitle: "KI Text Umschreiben Kostenlos Ohne Anmeldung – Natürlicher Stil",
-      humanizerDesc: "100% kostenloser KI-Humanizer. ChatGPT-Texte in natürliche menschliche Sprache umwandeln – ganz ohne Wortbegrenzung.",
+      humanizerDesc: "Kostenloser KI-Humanizer. ChatGPT-Texte in natürliche menschliche Sprache umwandeln .",
       detectorTitle: "KI Detektor für Deutsche Texte Kostenlos – Sätze Farbig Markiert",
       detectorDesc: "Überprüfen Sie Texte auf KI-Spuren mit simulierten Modellen von Turnitin, GPTZero und Copyleaks. Präzise Heatmap ohne Fehlalarme.",
       mediaTitle: "KI-Video Reels & Wasserzeichen-Entferner Studio",
@@ -874,7 +874,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       detailed: "Ausführlich",
     },
     humanizer: {
-      badge: "⭐ 100% Dauerhaft Kostenlos • Keine Wortlimits • Ohne Anmeldung",
+      badge: "⭐ Kostenlos • Ohne Anmeldung",
       heroTitle: "KI-Texte menschlicher machen",
       heroSubtitle: "Natürlicher Satzrhythmus und flüssiger Lesefluss für KI-Texte. Komplett kostenlos.",
       inputPlaceholder: "Fügen Sie hier Ihren KI-generierten Text ein (aus ChatGPT, Claude, Gemini)...",
@@ -1013,11 +1013,11 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
     },
     seo: {
       pdfToolsTitle: "Outils PDF Gratuits en Ligne – Fusionner PDF et Images en PDF",
-      pdfToolsDesc: "Outils PDF gratuits. Fusionnez plusieurs PDF en un seul ou convertissez des images JPG/PNG en PDF. 100% dans le navigateur.",
+      pdfToolsDesc: "Outils PDF gratuits. Fusionnez plusieurs PDF en un seul ou convertissez des images JPG/PNG en PDF. dans le navigateur.",
       imageCompressorTitle: "Compresseur d'Images Gratuit en Ligne – JPG, PNG, WebP",
       imageCompressorDesc: "Compresseur d'images gratuit. Compressez JPG, PNG et WebP dans votre navigateur. Sans téléchargement, sans inscription.",
       humanizerTitle: "Humaniser Texte IA Gratuit Sans Inscription – Style Naturel",
-      humanizerDesc: "Outil 100% gratuit pour humaniser les textes ChatGPT, Claude et Gemini. Rendez vos écrits plus naturels, sans aucune limite.",
+      humanizerDesc: "Outil gratuit pour humaniser les textes ChatGPT, Claude et Gemini. Rendez vos écrits plus naturels.",
       detectorTitle: "Détecteur IA Gratuit pour Textes en Français – Analyse Phrase par Phrase",
       detectorDesc: "Analysez vos documents avec des modèles simulant Turnitin, GPTZero et Copyleaks. Carte thermique visuelle précise sans faux positifs.",
       mediaTitle: "Studio Vidéo Reels IA et Suppression de Filigranes",
@@ -1076,7 +1076,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       detailed: "Détaillé",
     },
     humanizer: {
-      badge: "⭐ 100% Gratuit à Vie • Sans Limite de Mots • Sans Inscription",
+      badge: "⭐ Gratuit • Sans Inscription",
       heroTitle: "Humanisateur de Texte IA Gratuit",
       heroSubtitle: "Donnez à vos textes IA un rythme dynamique et une expression naturelle authentique.",
       inputPlaceholder: "Collez votre texte généré par IA ici (ChatGPT, Claude, Gemini, DeepSeek)...",
@@ -1200,7 +1200,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
 },
 
   // ==========================================
-  // TURKISH (Türkçe - Keywords: yapay zeka metnini insanlaştırma ücretsiz, tespit edilemeyen yapay zeka)
+  // TURKISH (Türkçe - Keywords: yapay zeka metnini insanlaştırma ücretsiz, doğal yapay zeka metni)
   // ==========================================
   tr: {
     nav: {
@@ -1219,7 +1219,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       imageCompressorTitle: "Ücretsiz Çevrimiçi Görüntü Sıkıştırıcı – JPG, PNG, WebP",
       imageCompressorDesc: "Ücretsiz görüntü sıkıştırıcı. JPG, PNG ve WebP'yi tarayıcınızda sıkıştırın. Yükleme yok, kayıt yok. %100 gizli.",
       humanizerTitle: "Yapay Zeka Metnini Doğallaştırma Ücretsiz – Doğal Yazım",
-      humanizerDesc: "%100 Ücretsiz AI Metin İnsanlaştırıcı. ChatGPT ve Gemini yazılarını Turnitin ve GPTZero tarafından tespit edilemeyen doğal Türkçe metne dönüştürün.",
+      humanizerDesc: "Ücretsiz AI Metin İnsanlaştırıcı. ChatGPT ve Gemini yazılarını daha doğal Türkçe metne dönüştürün.",
       detectorTitle: "Ücretsiz AI İçerik Dedektörü – Cümle Bazlı Isı Haritası",
       detectorDesc: "Turnitin, GPTZero ve Copyleaks algoritmalarıyla içeriklerinizi tarayın. Cümle bazlı renkli ısı haritası ile yapay zeka izlerini görün.",
       mediaTitle: "AI Video Reels ve Filigran Kaldırma Stüdyosu",
@@ -1231,7 +1231,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       citationTitle: "Ücretsiz Alıntı Oluşturucu – APA, MLA ve Chicago",
       citationDesc: "APA, MLA ve Chicago alıntıları ücretsiz oluşturun – kayıt gerekmez.",
       expanderTitle: "Ücretsiz Cümle Genişletici – Kelime Sınırı Yok",
-      expanderDesc: "Kısa cümleleri zengin paragraflara genişletin – ücretsiz, kelime sınırı yok.",
+      expanderDesc: "Kısa cümleleri zengin paragraflara genişletin – ücretsiz.",
       summarizerTitle: "Ücretsiz AI Metin Özetleyici – Saniyeler İçinde Özetleyin",
       summarizerDesc: "Ücretsiz metin özetleyici. Uzun makaleleri yapıştırın — 8 dilde anında özet alın. Kayıt yok.",
       cleanerTitle: "Yapay Zeka Klişe Temizleyici – Ücretsiz",
@@ -1417,11 +1417,11 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
     },
     seo: {
       pdfToolsTitle: "Ferramentas PDF Grátis Online – Juntar PDF e Imagens em PDF",
-      pdfToolsDesc: "Ferramentas PDF gratuitas. Junte vários PDFs em um só ou converta imagens JPG/PNG em PDF. 100% no navegador.",
+      pdfToolsDesc: "Ferramentas PDF gratuitas. Junte vários PDFs em um só ou converta imagens JPG/PNG em PDF. no navegador.",
       imageCompressorTitle: "Compressor de Imagens Grátis Online – JPG, PNG, WebP",
-      imageCompressorDesc: "Compressor de imagens gratuito. Comprima JPG, PNG e WebP no navegador. Sem upload, sem cadastro. 100% privado.",
+      imageCompressorDesc: "Compressor de imagens gratuito. Comprima JPG, PNG e WebP no navegador. Sem upload, sem cadastro. privado.",
       humanizerTitle: "Humanizar Texto IA Grátis Sem Cadastro – Escrita Natural",
-      humanizerDesc: "Ferramenta 100% gratuita para humanizar textos de IA. Converta rascunhos do ChatGPT em escrita humana mais natural.",
+      humanizerDesc: "Ferramenta gratuita para humanizar textos de IA. Converta rascunhos do ChatGPT em escrita humana mais natural.",
       detectorTitle: "Detector de IA para Textos em Português Grátis – Mapa de Calor",
       detectorDesc: "Escaneie documentos contra Turnitin, GPTZero e Copyleaks com mapa visual colorido frase a frase e 0% falsos positivos.",
       mediaTitle: "Remover Marca d'Água de Vídeos de IA – Reels e Shorts",
@@ -1480,7 +1480,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       detailed: "Detalhado",
     },
     humanizer: {
-      badge: "⭐ 100% Grátis Para Sempre • Sem Limites de Palavras • Sem Cadastro",
+      badge: "⭐ Grátis • Sem Cadastro",
       heroTitle: "Humanizar Texto de IA Grátis: Texto Mais Natural",
       heroSubtitle: "Melhore textos de IA com variação sintática dinâmica e ritmo humano natural. Sem assinaturas.",
       inputPlaceholder: "Cole o texto gerado por IA aqui (ChatGPT, Claude, Gemini, DeepSeek)...",
@@ -1623,7 +1623,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       imageCompressorTitle: "無料画像圧縮ツール – JPG・PNG・WebP対応",
       imageCompressorDesc: "無料の画像圧縮ツール。JPG・PNG・WebPをブラウザで圧縮。アップロード不要、登録不要。完全プライベート。",
       humanizerTitle: "AI文章を自然な日本語に書き換え – 無料ツール",
-      humanizerDesc: "100%完全無料のAIテキスト人間化ツール。ChatGPTやGeminiの文章をより自然な日本語に変換します。",
+      humanizerDesc: "無料のAIテキスト人間化ツール。ChatGPTやGeminiの文章をより自然な日本語に変換します。",
       detectorTitle: "AI文章チェッカー 文単位 無料 – 日本語対応",
       detectorDesc: "Turnitin、GPTZero、CopyleaksのシミュレーションモデルでAI文章を判定。不自然な文を色分けヒートマップで可視化します。",
       mediaTitle: "AI動画リール＆透かし消去スタジオ – ショート動画向け",
@@ -1807,11 +1807,11 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
   no: {
     seo: {
       pdfToolsTitle: "Gratis PDF-Verktøy – Slå Sammen PDF og Bilder til PDF",
-      pdfToolsDesc: "Gratis PDF-verktøy. Slå sammen flere PDF-er til én, eller konverter JPG/PNG-bilder til PDF. 100% i nettleseren, ingen opplasting.",
+      pdfToolsDesc: "Gratis PDF-verktøy. Slå sammen flere PDF-er til én, eller konverter JPG/PNG-bilder til PDF. i nettleseren, ingen opplasting.",
       humanizerTitle: "Gratis AI Tekst Humanizer – Naturlig Tekst",
       humanizerDesc: "Gratis AI humanizer. Gjør ChatGPT og Gemini-tekst om til naturlig skriving.",
       imageCompressorTitle: "Gratis Bildekompressor Online – Komprimer Bilder Uten Opplasting",
-      imageCompressorDesc: "Komprimer JPG, PNG og WebP gratis direkte i nettleseren. Ingen opplasting, ingen registrering. 100% privat.",
+      imageCompressorDesc: "Komprimer JPG, PNG og WebP gratis direkte i nettleseren. Ingen opplasting, ingen registrering. privat.",
       detectorTitle: "Gratis AI-innholdsdetektor – Setningsheatmap-skanner",
       detectorDesc: "Gratis AI-detektor. Skann tekst med setningsvis heatmap. Ingen registrering.",
       mediaTitle: "Gratis Video- og Bildeverktøy – Fjerne Vannmerker",
@@ -1823,7 +1823,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       expanderTitle: "Gratis Setningsutvider – Gjør Tekst Lengre",
       expanderDesc: "Utvid korte setninger til fyldige avsnitt gratis.",
       summarizerTitle: "Gratis Tekstsummerer – Oppsummer på Sekunder",
-      summarizerDesc: "Lim inn lang tekst og få umiddelbar sammendrag. 100% gratis.",
+      summarizerDesc: "Lim inn lang tekst og få umiddelbar sammendrag. gratis.",
       blogTitle: "Blogg – Skriveguider og Verktøytips",
       blogDesc: "Praktiske guider om skriving, SEO og gratis nettverktøy."
 
@@ -1872,7 +1872,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       saved: "Sparet",
       smaller: "Mindre",
       better: "Bedre kvalitet",
-      private: "100% Privat",
+      private: "Privat",
       instant: "Øyeblikkelig",
       free: "Gratis",
       quickAnswerTitle: "Hvordan fungerer nettleserbasert bildekomprimering?",
@@ -1905,11 +1905,11 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
   nl: {
     seo: {
       pdfToolsTitle: "Gratis PDF Tools Online – PDF Samenvoegen en Afbeeldingen naar PDF",
-      pdfToolsDesc: "Gratis PDF-tools. Voeg meerdere PDF's samen of converteer JPG/PNG-afbeeldingen naar PDF. 100% in de browser, geen upload.",
+      pdfToolsDesc: "Gratis PDF-tools. Voeg meerdere PDF's samen of converteer JPG/PNG-afbeeldingen naar PDF. in de browser, geen upload.",
       humanizerTitle: "Gratis AI Tekst Humanizer – Natuurlijke Tekst",
       humanizerDesc: "Gratis AI humanizer. Maak ChatGPT en Gemini-tekst natuurlijk.",
       imageCompressorTitle: "Gratis Afbeelding Compressor Online – Comprimeer Zonder Uploaden",
-      imageCompressorDesc: "Comprimeer JPG, PNG en WebP gratis direct in je browser. Geen upload, geen registratie. 100% privé.",
+      imageCompressorDesc: "Comprimeer JPG, PNG en WebP gratis direct in je browser. Geen upload, geen registratie. privé.",
       detectorTitle: "Gratis AI-contentdetector – Zinsheatmap-scanner",
       detectorDesc: "Gratis AI-detector. Scan tekst met zinsheatmap. Geen registratie.",
       mediaTitle: "Gratis Video- en Beeldtools – Watermerken Verwijderen",
@@ -1921,7 +1921,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       expanderTitle: "Gratis Zinsuitbreider – Maak Tekst Langer",
       expanderDesc: "Breid korte zinnen gratis uit tot volledige alinea's.",
       summarizerTitle: "Gratis Tekstsamentatter – Vat Samen in Seconden",
-      summarizerDesc: "Plak lange tekst en krijg direct een samenvatting. 100% gratis.",
+      summarizerDesc: "Plak lange tekst en krijg direct een samenvatting. gratis.",
       blogTitle: "Blog – Schrijfgidsen en Tooltips",
       blogDesc: "Praktische gidsen over schrijven, SEO en gratis online tools."
 
@@ -1970,7 +1970,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       saved: "Bespaard",
       smaller: "Kleiner",
       better: "Betere kwaliteit",
-      private: "100% Privé",
+      private: "Privé",
       instant: "Direct",
       free: "Gratis",
       quickAnswerTitle: "Hoe werkt browser-based beeldcompressie?",
@@ -2003,11 +2003,11 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
   it: {
     seo: {
       pdfToolsTitle: "Strumenti PDF Gratis Online – Unire PDF e Immagini in PDF",
-      pdfToolsDesc: "Strumenti PDF gratuiti. Unisci più PDF in uno solo o converti immagini JPG/PNG in PDF. 100% nel browser, nessun caricamento.",
+      pdfToolsDesc: "Strumenti PDF gratuiti. Unisci più PDF in uno solo o converti immagini JPG/PNG in PDF. nel browser, nessun caricamento.",
       humanizerTitle: "Umanizzatore Testo AI Gratis – Testo Naturale",
       humanizerDesc: "Umanizzatore AI gratuito. Rendi naturale il testo di ChatGPT e Gemini.",
       imageCompressorTitle: "Compressore Immagini Gratis Online – Comprimi Senza Caricare",
-      imageCompressorDesc: "Comprimi JPG, PNG e WebP gratis direttamente nel browser. Nessun caricamento, nessuna registrazione. 100% privato.",
+      imageCompressorDesc: "Comprimi JPG, PNG e WebP gratis direttamente nel browser. Nessun caricamento, nessuna registrazione. privato.",
       detectorTitle: "Rilevatore Contenuti AI Gratis – Scanner Heatmap Frasi",
       detectorDesc: "Rilevatore AI gratuito. Scansiona il testo con heatmap per frase. Nessuna registrazione.",
       mediaTitle: "Strumenti Video e Immagini Gratis – Rimuovi Filigrane",
@@ -2019,7 +2019,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       expanderTitle: "Espansore Frasi Gratis – Allunga il Testo",
       expanderDesc: "Espandi frasi brevi in paragrafi completi gratis.",
       summarizerTitle: "Riassuntore Testo Gratis – Riassumi in Secondi",
-      summarizerDesc: "Incolla un testo lungo e ottieni subito un riassunto. 100% gratis.",
+      summarizerDesc: "Incolla un testo lungo e ottieni subito un riassunto. gratis.",
       blogTitle: "Blog – Guide di Scrittura e Consigli",
       blogDesc: "Guide pratiche su scrittura, SEO e strumenti online gratuiti."
 
@@ -2068,7 +2068,7 @@ export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
       saved: "Risparmiato",
       smaller: "Più piccolo",
       better: "Migliore qualità",
-      private: "100% Privato",
+      private: "Privato",
       instant: "Istantaneo",
       free: "Gratis",
       quickAnswerTitle: "Come funziona la compressione immagini nel browser?",

@@ -54,7 +54,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   },
   expander: {
     title: "Academic Sentence Expander & Depth Enhancer – Free Writing Tool",
-    description: "Expand short, robotic sentences into rich academic prose with high perplexity, causal depth, and diverse sentence burstiness. 100% free.",
+    description: "Expand short, robotic sentences into rich academic prose with high perplexity, causal depth, and diverse sentence burstiness.",
     canonicalPath: "/sentence-expander/",
     ogType: "website",
     schemaType: "WebApplication",
@@ -70,7 +70,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
-    description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup. 100% private.",
+    description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
     canonicalPath: "/image-compressor/",
     ogType: "website",
     schemaType: "WebApplication",
@@ -78,7 +78,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   },
   pdfTools: {
     title: "Free PDF Tools Online – Merge PDF & Images to PDF",
-    description: "Free PDF tools. Merge multiple PDFs into one, or convert JPG/PNG images to PDF. 100% in-browser, no upload, no signup.",
+    description: "Free PDF tools. Merge multiple PDFs into one, or convert JPG/PNG images to PDF. Runs in your browser — no upload, no signup.",
     canonicalPath: "/pdf-tools/",
     ogType: "website",
     schemaType: "WebApplication",
@@ -443,7 +443,7 @@ function updateJsonLd(
         "name": "Is Clever Humanizer completely free to use without word limits?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. All tools on Clever Humanizer are 100% free with zero limits, zero paywalls, and no account sign-up required.",
+          "text": "Yes. The tools on Clever Humanizer are free to use, and no account sign-up is required.",
         },
       },
       {

@@ -163,7 +163,7 @@ const FREE_BADGE: Record<LanguageCode, string> = {
 
 // Map tool to its guide article slug (Urdu guides exist for all)
 const TOOL_ARTICLE_SLUG: Record<string, string> = {
-  humanizer: "ai-humanizer-urdu-guide",
+  humanizer: "ai-text-ko-insani-banana-urdu-guide",
   detector: "ai-detector-urdu-guide",
   citation: "citation-generator-urdu-guide",
   expander: "sentence-expander-urdu-guide",
