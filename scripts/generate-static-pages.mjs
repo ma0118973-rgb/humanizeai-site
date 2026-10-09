@@ -75,6 +75,7 @@ const ROUTES = [
   ["textRepeater", "/text-repeater/"],
   ["invisibleCharacter", "/invisible-character/"],
   ["wordFrequency", "/word-frequency-counter/"],
+  ["readingTime", "/reading-time-calculator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -129,6 +130,7 @@ function pageMeta(page, lang, blogPost) {
     case "textRepeater": return [seo.textRepeaterTitle || fb.textRepeaterTitle, seo.textRepeaterDesc || fb.textRepeaterDesc];
     case "invisibleCharacter": return [seo.invisibleCharacterTitle || fb.invisibleCharacterTitle, seo.invisibleCharacterDesc || fb.invisibleCharacterDesc];
     case "wordFrequency": return [seo.wordFrequencyTitle || fb.wordFrequencyTitle, seo.wordFrequencyDesc || fb.wordFrequencyDesc];
+    case "readingTime": return [seo.readingTimeTitle || fb.readingTimeTitle, seo.readingTimeDesc || fb.readingTimeDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -180,7 +182,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -811,6 +813,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "How should Japanese text be counted?",
           acceptedAnswer: { "@type": "Answer", text: "Japanese does not normally separate words with spaces, so the browser's segmentation is a guide rather than an exact word count. For submissions with strict limits, check the character count as well." },
+        },
+      ],
+    });
+  }
+  if (page === "readingTime") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to estimate reading and speaking time in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste or open your text", text: "Paste or type your text into the box, or open a plain-text file from your device. The file is read locally in your browser." },
+        { "@type": "HowToStep", position: 2, name: "Choose reading or speaking mode and set your speed", text: "Pick silent reading or speaking aloud, then move the words-per-minute slider. Reading starts at 200 wpm and speaking at 140 wpm, both labelled averages that you can change. Speaking mode can also add a pause allowance for presentations." },
+        { "@type": "HowToStep", position: 3, name: "Read or copy the estimate", text: "The result shows the time as minutes:seconds plus a plain-language breakdown, and the time the other mode would take. Copy the summary if you need it for planning." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this reading time calculator free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Paste, type or open a text file and the estimate updates live in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my text uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The counting and timing happen locally in your browser tab, including when you open a text file. This tool does not upload your text or save it on a server." },
+        },
+        {
+          "@type": "Question",
+          name: "What reading and speaking speeds does it assume?",
+          acceptedAnswer: { "@type": "Answer", text: "Silent reading starts at 200 words per minute and speaking at 140 words per minute. Published studies put average adult silent reading near 200–238 wpm and presentation speaking near 130–150 wpm. These are averages, not promises, and both sliders can be changed to match your own pace." },
+        },
+        {
+          "@type": "Question",
+          name: "What is the pause allowance for?",
+          acceptedAnswer: { "@type": "Answer", text: "Real speeches include pauses, slide changes and audience reactions. Speaking mode can add a pause allowance (for example 10–25%) on top of the raw speaking time so presentation planning is more realistic." },
+        },
+        {
+          "@type": "Question",
+          name: "How accurate is the estimate?",
+          acceptedAnswer: { "@type": "Answer", text: "It is a planning estimate only. Real speed changes with language, text difficulty, familiarity and purpose. The honest way to calibrate is to time yourself on one page and then set the sliders to your own pace." },
+        },
+        {
+          "@type": "Question",
+          name: "How does it handle Japanese and other scripts without spaces?",
+          acceptedAnswer: { "@type": "Answer", text: "Word counting follows spaces, punctuation and browser segmentation. Scripts that do not separate words with spaces, such as Japanese, are approximated, so treat those results as a rough guide and check character counts for strict limits." },
         },
       ],
     });

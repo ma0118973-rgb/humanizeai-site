@@ -164,6 +164,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Word Frequency Counter",
   },
+  readingTime: {
+    title: "Free Reading Time Calculator – Reading & Speaking Time by Words",
+    description: "Free reading time calculator. Paste text to estimate silent reading time and speaking/presentation time with adjustable WPM speeds and pause allowance. Runs locally, nothing uploaded.",
+    canonicalPath: "/reading-time-calculator/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Reading Time Calculator",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -344,6 +352,9 @@ export function applyPageSeo(
   } else if (page === "wordFrequency") {
     title = (t.seo as any).wordFrequencyTitle || baseConfig.title;
     description = (t.seo as any).wordFrequencyDesc || baseConfig.description;
+  } else if (page === "readingTime") {
+    title = (t.seo as any).readingTimeTitle || baseConfig.title;
+    description = (t.seo as any).readingTimeDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

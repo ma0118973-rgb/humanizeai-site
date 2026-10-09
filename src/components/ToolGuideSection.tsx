@@ -23,6 +23,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   textRepeater: "text-repeater-urdu-guide",
   invisibleCharacter: "invisible-character-urdu-guide",
   wordFrequency: "word-frequency-counter-urdu-guide",
+  readingTime: "reading-time-calculator-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
   pdfTools: "pdf-tools-urdu-guide",
   media: "video-tools-urdu-guide",

@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Sparkles, Search, Video, TrendingUp, BookMarked, Maximize2,
-  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3,
+  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer,
 } from "lucide-react";
 import { ActivePage } from "../types";
 
@@ -28,6 +28,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "textRepeater", label: "Text Repeater", icon: Repeat },
   { id: "invisibleCharacter", label: "Invisible Text", icon: Ghost },
   { id: "wordFrequency", label: "Word Frequency", icon: BarChart3 },
+  { id: "readingTime", label: "Reading Time", icon: Timer },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },
   { id: "media", label: "Video", icon: Video },

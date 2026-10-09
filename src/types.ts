@@ -72,6 +72,7 @@ export type ActivePage =
   | "textRepeater"
   | "invisibleCharacter"
   | "wordFrequency"
+  | "readingTime"
   | "imageCompressor"
   | "pdfTools"
   | "cleaner"
