@@ -73,6 +73,7 @@ export type ActivePage =
   | "invisibleCharacter"
   | "wordFrequency"
   | "readingTime"
+  | "base64"
   | "imageCompressor"
   | "pdfTools"
   | "cleaner"

@@ -82,6 +82,9 @@ const WordFrequencyWorkspace = lazy(() =>
 const ReadingTimeWorkspace = lazy(() =>
   import("./components/ReadingTimeWorkspace").then((m) => ({ default: m.ReadingTimeWorkspace }))
 );
+const Base64Workspace = lazy(() =>
+  import("./components/Base64Workspace").then((m) => ({ default: m.Base64Workspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -214,6 +217,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "reading-time-calculator" || primarySlug === "speaking-time-calculator" || primarySlug === "reading-time" || primarySlug === "speech-time-calculator" || primarySlug === "speaking-time") {
     return { page: "readingTime", lang, blogSlug: null };
+  }
+  if (primarySlug === "base64-encoder-decoder" || primarySlug === "base64-encode-decode" || primarySlug === "base64" || primarySlug === "base64-encoder" || primarySlug === "base64-decoder" || primarySlug === "encode-base64" || primarySlug === "decode-base64") {
+    return { page: "base64", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -463,6 +469,7 @@ export default function App() {
     activePage === "invisibleCharacter" ||
     activePage === "wordFrequency" ||
     activePage === "readingTime" ||
+    activePage === "base64" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
 
@@ -775,6 +782,17 @@ export default function App() {
             <ReadingTimeWorkspace
               selectedLanguage={selectedLanguage}
             />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "base64" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <Base64Workspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

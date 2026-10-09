@@ -76,6 +76,7 @@ const ROUTES = [
   ["invisibleCharacter", "/invisible-character/"],
   ["wordFrequency", "/word-frequency-counter/"],
   ["readingTime", "/reading-time-calculator/"],
+  ["base64", "/base64-encoder-decoder/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -131,6 +132,7 @@ function pageMeta(page, lang, blogPost) {
     case "invisibleCharacter": return [seo.invisibleCharacterTitle || fb.invisibleCharacterTitle, seo.invisibleCharacterDesc || fb.invisibleCharacterDesc];
     case "wordFrequency": return [seo.wordFrequencyTitle || fb.wordFrequencyTitle, seo.wordFrequencyDesc || fb.wordFrequencyDesc];
     case "readingTime": return [seo.readingTimeTitle || fb.readingTimeTitle, seo.readingTimeDesc || fb.readingTimeDesc];
+    case "base64": return [seo.base64Title || fb.base64Title, seo.base64Desc || fb.base64Desc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -182,7 +184,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -864,6 +866,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "How does it handle Japanese and other scripts without spaces?",
           acceptedAnswer: { "@type": "Answer", text: "Word counting follows spaces, punctuation and browser segmentation. Scripts that do not separate words with spaces, such as Japanese, are approximated, so treat those results as a rough guide and check character counts for strict limits." },
+        },
+      ],
+    });
+  }
+  if (page === "base64") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to encode or decode Base64 in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose Encode or Decode", text: "Pick Encode to turn text into Base64, or Decode to turn Base64 back into readable text." },
+        { "@type": "HowToStep", position: 2, name: "Paste text or open a small file", text: "Paste text into the box, or use the small-file option (under 2 MB) to turn a local file into Base64 text. Nothing is uploaded." },
+        { "@type": "HowToStep", position: 3, name: "Copy, swap or download", text: "Copy the result, swap it back through the opposite mode to check the round trip, or download it as a .txt file." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is Base64 encryption?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Base64 is encoding, not encryption. Anyone who has the Base64 string can decode it without a key, so never use Base64 to protect passwords, tokens or secrets." },
+        },
+        {
+          "@type": "Question",
+          name: "Does this tool upload my text or file?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Text and files are processed locally in your browser tab. Nothing is uploaded, saved on a server, or shared by this tool." },
+        },
+        {
+          "@type": "Question",
+          name: "What is URL-safe Base64?",
+          acceptedAnswer: { "@type": "Answer", text: "URL-safe Base64 replaces + with - and / with _, and usually drops the trailing = padding. It carries the same data in an alphabet that is safer inside URLs and filenames." },
+        },
+        {
+          "@type": "Question",
+          name: "Why did my Base64 fail to decode?",
+          acceptedAnswer: { "@type": "Answer", text: "Usually a character is missing, extra or changed, padding is in the wrong place, or the decoded bytes are binary data rather than UTF-8 text. This tool explains the specific problem instead of silently showing garbled output." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I encode a file to Base64 here?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, for small files under 2 MB. Base64 output is about one-third larger than the original file, and very large files can slow or freeze a browser tab, so this feature is deliberately limited." },
         },
       ],
     });

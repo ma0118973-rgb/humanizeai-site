@@ -24,6 +24,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   invisibleCharacter: "invisible-character-urdu-guide",
   wordFrequency: "word-frequency-counter-urdu-guide",
   readingTime: "reading-time-calculator-urdu-guide",
+  base64: "base64-encode-decode-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
   pdfTools: "pdf-tools-urdu-guide",
   media: "video-tools-urdu-guide",

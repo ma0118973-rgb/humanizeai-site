@@ -29,6 +29,7 @@ import {
   LetterText,
   BarChart3,
   Timer,
+  Binary,
 } from "lucide-react";
 import { ActivePage, LanguageCode } from "../types";
 import { SUPPORTED_LANGUAGES, TRANSLATIONS } from "../data/translations";
@@ -144,7 +145,7 @@ export function Navbar({
                 id="nav-tab-more-tools"
                 onClick={() => setIsToolsDropdownOpen(!isToolsDropdownOpen)}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "imageCompressor", "pdfTools"].includes(activePage)
+                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "imageCompressor", "pdfTools"].includes(activePage)
                     ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold shadow-md shadow-emerald-500/20"
                     : "text-stone-600 hover:text-amber-700 hover:bg-amber-100/60"
                 }`}
@@ -459,6 +460,22 @@ export function Navbar({
                     <div>
                       <div className="font-bold">Reading Time Calculator</div>
                       <div className="text-[10px] text-stone-400">Reading & speaking time</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("base64");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "base64" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
+                    }`}
+                  >
+                    <Binary className="w-4 h-4 text-indigo-600 shrink-0" />
+                    <div>
+                      <div className="font-bold">Base64 Encoder & Decoder</div>
+                      <div className="text-[10px] text-stone-400">UTF-8 and URL-safe</div>
                     </div>
                   </button>
 

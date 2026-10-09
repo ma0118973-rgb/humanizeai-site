@@ -172,6 +172,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Reading Time Calculator",
   },
+  base64: {
+    title: "Free Base64 Encoder & Decoder – UTF-8 Text and URL-Safe Online",
+    description: "Free Base64 encoder and decoder. Convert UTF-8 text, emoji and scripts safely, use URL-safe Base64, and decode with clear errors. Local in your browser, nothing uploaded.",
+    canonicalPath: "/base64-encoder-decoder/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Base64 Encoder & Decoder",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -355,6 +363,9 @@ export function applyPageSeo(
   } else if (page === "readingTime") {
     title = (t.seo as any).readingTimeTitle || baseConfig.title;
     description = (t.seo as any).readingTimeDesc || baseConfig.description;
+  } else if (page === "base64") {
+    title = (t.seo as any).base64Title || baseConfig.title;
+    description = (t.seo as any).base64Desc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;
