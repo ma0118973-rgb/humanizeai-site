@@ -316,6 +316,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "JSON to CSV Converter",
   },
+  regexTester: {
+    title: "Regex Tester — Test Patterns, Groups & Replace Online, Free",
+    description: "Free regex tester. Test a regular expression live with highlighted matches, capture groups, flags and a replace preview, plus common-pattern examples. JavaScript RegExp, fully local — nothing uploaded.",
+    canonicalPath: "/regex-tester/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Regex Tester",
+  },
   unitConverter: {
     title: "Unit Converter — Length, Weight, Temperature, Volume & More, Free",
     description: "Free unit converter. Convert length, weight, temperature, volume, area, speed, time, data, pressure and energy with real factors, shown formulas and presets. No currency, no sign-up, nothing uploaded.",
@@ -585,6 +593,9 @@ export function applyPageSeo(
   } else if (page === "jsonToCsv") {
     title = (t.seo as any).jsonToCsvTitle || baseConfig.title;
     description = (t.seo as any).jsonToCsvDesc || baseConfig.description;
+  } else if (page === "regexTester") {
+    title = (t.seo as any).regexTesterTitle || baseConfig.title;
+    description = (t.seo as any).regexTesterDesc || baseConfig.description;
   } else if (page === "unitConverter") {
     title = (t.seo as any).unitConverterTitle || baseConfig.title;
     description = (t.seo as any).unitConverterDesc || baseConfig.description;
@@ -1043,6 +1054,32 @@ function updateJsonLd(
         { "@type": "HowToStep", position: 1, name: "Paste or upload your JSON", text: "Paste an array of objects or open a .json file. Read any plain-language shape note — a single object converts as one row." },
         { "@type": "HowToStep", position: 2, name: "Check the flattening and safety warnings", text: "Review the preview table: nested objects are dot-path columns, lists of values are joined with '; '. If fields begin with =, +, - or @, keep Safe export on so a spreadsheet cannot run them as formulas." },
         { "@type": "HowToStep", position: 3, name: "Choose a delimiter and download", text: "Pick comma, semicolon or tab for your target system, keep or remove the header row, then download the .csv or copy the CSV text." },
+      ],
+    });
+  }
+
+  // Regex Tester: FAQ + HowTo (JavaScript flavour, honest caps, slow-pattern guidance)
+  if (page === "regexTester" && !blogPost) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", name: "Is this regex tester free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Write a pattern, toggle the g/i/m/s/u/y flags, and see highlighted matches, positions, captured groups and a replace preview. A small library of common patterns is included as starting points." } },
+        { "@type": "Question", name: "Which regex flavour does it use?", acceptedAnswer: { "@type": "Answer", text: "JavaScript (ECMAScript), the RegExp engine in your browser. Regex dialects differ — lookbehind, named groups, Unicode behaviour and even what \d matches can vary in Python, PHP, Java or PCRE. Treat a pass here as a strong draft and run the final check in the engine your code actually uses." } },
+        { "@type": "Question", name: "Why did matching stop, and why can a pattern be slow?", acceptedAnswer: { "@type": "Answer", text: "To keep the tab responsive there are printed caps: patterns up to 1,000 characters, test text up to 20,000 characters, and matching stops after 1,000 matches. Separately, nested quantifiers such as (a+)+ can cause catastrophic backtracking and make any regex engine grind; test risky patterns on a few lines first." } },
+        { "@type": "Question", name: "Can I use the built-in patterns as validators?", acceptedAnswer: { "@type": "Answer", text: "They are teaching examples and starting points, not guarantees. The IPv4 example accepts 999.1.1.1, and no email regex can replace the receiving server's own decision. For validation people depend on, add real checks behind the regex." } },
+        { "@type": "Question", name: "Is my pattern or text uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. Matching runs locally with the RegExp engine in your browser tab. Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
+      ],
+    });
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to test a regular expression in 3 steps",
+      description: config.description,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Write the pattern and set flags", text: "Type your regular expression and toggle g, i, m, s, u and y as needed. Each flag carries a one-line plain-language explanation." },
+        { "@type": "HowToStep", position: 2, name: "Paste test text and read the matches", text: "Paste text that resembles your real data, including a deliberate near-miss. Read the highlighted preview and the match list: position, matched text, numbered and named groups." },
+        { "@type": "HowToStep", position: 3, name: "Preview the replacement", text: "Type a replacement using $1 for numbered groups or $<name> for named groups, check the preview, and copy the result. Without the g flag only the first match is replaced." },
       ],
     });
   }

@@ -139,6 +139,9 @@ const TimestampConverterWorkspace = lazy(() =>
 const JsonToCsvConverterWorkspace = lazy(() =>
   import("./components/JsonToCsvConverterWorkspace").then((m) => ({ default: m.JsonToCsvConverterWorkspace }))
 );
+const RegexTesterWorkspace = lazy(() =>
+  import("./components/RegexTesterWorkspace").then((m) => ({ default: m.RegexTesterWorkspace }))
+);
 const ImageResizerWorkspace = lazy(() =>
   import("./components/ImageResizerWorkspace").then((m) => ({ default: m.ImageResizerWorkspace }))
 );
@@ -340,6 +343,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "json-to-csv-converter" || primarySlug === "json-to-csv" || primarySlug === "convert-json-to-csv" || primarySlug === "json2csv" || primarySlug === "json-csv-converter") {
     return { page: "jsonToCsv", lang, blogSlug: null };
+  }
+  if (primarySlug === "regex-tester" || primarySlug === "regex-test" || primarySlug === "regex-checker" || primarySlug === "regular-expression-tester" || primarySlug === "regex-matcher" || primarySlug === "regex-online" || primarySlug === "regex") {
+    return { page: "regexTester", lang, blogSlug: null };
   }
   if (primarySlug === "unit-converter" || primarySlug === "unit-conversion" || primarySlug === "measurement-converter" || primarySlug === "convert-units" || primarySlug === "units-converter" || primarySlug === "unit-converter-online") {
     return { page: "unitConverter", lang, blogSlug: null };
@@ -1126,6 +1132,17 @@ export default function App() {
         {activePage === "jsonToCsv" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <JsonToCsvConverterWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "regexTester" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <RegexTesterWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

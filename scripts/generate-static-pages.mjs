@@ -97,6 +97,7 @@ const ROUTES = [
   ["uuidGenerator", "/uuid-generator/"],
   ["timestampConverter", "/unix-timestamp-converter/"],
   ["jsonToCsv", "/json-to-csv-converter/"],
+  ["regexTester", "/regex-tester/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -174,6 +175,7 @@ function pageMeta(page, lang, blogPost) {
     case "uuidGenerator": return [seo.uuidGeneratorTitle || fb.uuidGeneratorTitle, seo.uuidGeneratorDesc || fb.uuidGeneratorDesc];
     case "timestampConverter": return [seo.timestampConverterTitle || fb.timestampConverterTitle, seo.timestampConverterDesc || fb.timestampConverterDesc];
     case "jsonToCsv": return [seo.jsonToCsvTitle || fb.jsonToCsvTitle, seo.jsonToCsvDesc || fb.jsonToCsvDesc];
+    case "regexTester": return [seo.regexTesterTitle || fb.regexTesterTitle, seo.regexTesterDesc || fb.regexTesterDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -226,7 +228,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -285,6 +287,32 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
         { "@type": "HowToStep", position: 1, name: "Paste or upload JSON", text: "Paste an array of objects or open a .json file. A single object converts as one row." },
         { "@type": "HowToStep", position: 2, name: "Check the preview and safety warning", text: "Review dot-path columns and '; '-joined lists in the preview table. Keep Safe export on when fields begin with =, +, - or @." },
         { "@type": "HowToStep", position: 3, name: "Choose a delimiter and download", text: "Pick comma, semicolon or tab, keep or remove the header row, then download the .csv or copy the CSV text." },
+      ],
+    });
+  }
+  if (page === "regexTester") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "Is this regex tester free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Write a pattern, toggle the g/i/m/s/u/y flags, and see highlighted matches, positions, captured groups and a replace preview. A small library of common patterns is included as starting points." } },
+        { "@type": "Question", name: "Which regex flavour does it use?", acceptedAnswer: { "@type": "Answer", text: "JavaScript (ECMAScript), the RegExp engine in your browser. Regex dialects differ — lookbehind, named groups, Unicode behaviour and even what \d matches can vary in Python, PHP, Java or PCRE. Treat a pass here as a strong draft and run the final check in the engine your code actually uses." } },
+        { "@type": "Question", name: "Why did matching stop, and why can a pattern be slow?", acceptedAnswer: { "@type": "Answer", text: "To keep the tab responsive there are printed caps: patterns up to 1,000 characters, test text up to 20,000 characters, and matching stops after 1,000 matches. Separately, nested quantifiers such as (a+)+ can cause catastrophic backtracking and make any regex engine grind; test risky patterns on a few lines first." } },
+        { "@type": "Question", name: "Can I use the built-in patterns as validators?", acceptedAnswer: { "@type": "Answer", text: "They are teaching examples and starting points, not guarantees. The IPv4 example accepts 999.1.1.1, and no email regex can replace the receiving server's own decision. For validation people depend on, add real checks behind the regex." } },
+        { "@type": "Question", name: "Is my pattern or text uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. Matching runs locally with the RegExp engine in your browser tab. Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to test a regular expression in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Write the pattern and set flags", text: "Type your regular expression and toggle g, i, m, s, u and y as needed. Each flag carries a one-line plain-language explanation." },
+        { "@type": "HowToStep", position: 2, name: "Paste test text and read the matches", text: "Paste text that resembles your real data, including a deliberate near-miss. Read the highlighted preview and the match list: position, matched text, numbered and named groups." },
+        { "@type": "HowToStep", position: 3, name: "Preview the replacement", text: "Type a replacement using $1 for numbered groups or $<name> for named groups, check the preview, and copy the result. Without the g flag only the first match is replaced." },
       ],
     });
   }

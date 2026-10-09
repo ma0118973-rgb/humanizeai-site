@@ -94,6 +94,7 @@ export type ActivePage =
   | "uuidGenerator"
   | "timestampConverter"
   | "jsonToCsv"
+  | "regexTester"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

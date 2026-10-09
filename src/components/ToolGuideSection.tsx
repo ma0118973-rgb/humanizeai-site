@@ -44,6 +44,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   uuidGenerator: "uuid-generator-urdu-guide",
   timestampConverter: "unix-timestamp-converter-urdu-guide",
   jsonToCsv: "json-to-csv-converter-urdu-guide",
+  regexTester: "regex-tester-urdu-guide",
   onlineTimer: "online-timer-urdu-guide",
   instagramLineBreak: "instagram-line-break-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
