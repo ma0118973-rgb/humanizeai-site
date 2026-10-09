@@ -26,6 +26,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   readingTime: "reading-time-calculator-urdu-guide",
   base64: "base64-encode-decode-urdu-guide",
   slugGenerator: "slug-generator-urdu-guide",
+  jsonFormatter: "json-formatter-urdu-guide",
   instagramLineBreak: "instagram-line-break-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
   pdfTools: "pdf-tools-urdu-guide",

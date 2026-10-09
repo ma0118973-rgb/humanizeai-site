@@ -78,6 +78,7 @@ const ROUTES = [
   ["readingTime", "/reading-time-calculator/"],
   ["base64", "/base64-encoder-decoder/"],
   ["slugGenerator", "/slug-generator/"],
+  ["jsonFormatter", "/json-formatter/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -136,6 +137,7 @@ function pageMeta(page, lang, blogPost) {
     case "readingTime": return [seo.readingTimeTitle || fb.readingTimeTitle, seo.readingTimeDesc || fb.readingTimeDesc];
     case "base64": return [seo.base64Title || fb.base64Title, seo.base64Desc || fb.base64Desc];
     case "slugGenerator": return [seo.slugGeneratorTitle || fb.slugGeneratorTitle, seo.slugGeneratorDesc || fb.slugGeneratorDesc];
+    case "jsonFormatter": return [seo.jsonFormatterTitle || fb.jsonFormatterTitle, seo.jsonFormatterDesc || fb.jsonFormatterDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -188,7 +190,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -967,6 +969,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Is my text uploaded anywhere?",
           acceptedAnswer: { "@type": "Answer", text: "No. The slug is built in your browser tab. Your titles are not uploaded, stored on a server or shared by this tool, and closing the tab forgets everything." },
+        },
+      ],
+    });
+  }
+  if (page === "jsonFormatter") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to format and validate JSON in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste or open your JSON", text: "Paste JSON into the input box or open a .json or .txt file. Nothing is uploaded; parsing happens in your browser." },
+        { "@type": "HowToStep", position: 2, name: "Choose Beautify, Minify or Validate", text: "Pick 2 spaces, 4 spaces or a tab, then Beautify to reindent, Minify to remove whitespace, or Validate to check that the document is legal JSON." },
+        { "@type": "HowToStep", position: 3, name: "Inspect, copy or download", text: "Walk the result as a collapsible tree, then copy the output or download it as a .json file." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is my JSON uploaded anywhere?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The document is parsed in your browser tab with JSON.parse. It is not uploaded, stored on a server, saved to an account or shared by this tool. Even so, never paste passwords, API keys or access tokens into any website tool." },
+        },
+        {
+          "@type": "Question",
+          name: "Does formatting change my data?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Beautifying and minifying change whitespace only. The tool does not sort keys, repair invalid JSON or change values." },
+        },
+        {
+          "@type": "Question",
+          name: "Why does the validator reject comments and trailing commas?",
+          acceptedAnswer: { "@type": "Answer", text: "Comments, trailing commas, single quotes and unquoted keys are JavaScript or JSON5 habits, not standard JSON. Remove them or convert the document first; this tool reports the parser error instead of guessing a repair." },
+        },
+        {
+          "@type": "Question",
+          name: "Why is there no exact error position for some mistakes?",
+          acceptedAnswer: { "@type": "Answer", text: "Browsers report positions differently. When the parser error includes a position, this tool converts it to line and column. When it does not, the tool shows the parser's own message and says the exact position is unavailable rather than inventing one." },
+        },
+        {
+          "@type": "Question",
+          name: "Can this tool check whether my API will accept the JSON?",
+          acceptedAnswer: { "@type": "Answer", text: "No. It validates syntax only. It does not check a JSON Schema, required fields, field types or business rules, so a syntactically valid document can still be rejected by an API." },
+        },
+        {
+          "@type": "Question",
+          name: "What happens with repeated keys and very large numbers?",
+          acceptedAnswer: { "@type": "Answer", text: "Standard JSON.parse keeps only the last value when a key repeats, and whole numbers beyond 2^53−1 can lose precision. Keep identifiers and large counters as strings when exact digits matter." },
         },
       ],
     });

@@ -37,6 +37,7 @@ const routes = [
   ["/video-tools/", "0.85", "weekly"],
   ["/seo-tools/", "0.85", "weekly"],
   ["/blog/", "0.80", "weekly"],
+  ["/json-formatter/", "0.85", "weekly"],
   ...blogSlugs.map((s) => [`/blog/${s}/`, "0.75", "monthly"]),
   ["/about/", "0.50", "monthly"],
   ["/privacy/", "0.50", "monthly"],

@@ -88,6 +88,9 @@ const Base64Workspace = lazy(() =>
 const SlugGeneratorWorkspace = lazy(() =>
   import("./components/SlugGeneratorWorkspace").then((m) => ({ default: m.SlugGeneratorWorkspace }))
 );
+const JsonFormatterWorkspace = lazy(() =>
+  import("./components/JsonFormatterWorkspace").then((m) => ({ default: m.JsonFormatterWorkspace }))
+);
 const InstagramLineBreakWorkspace = lazy(() =>
   import("./components/InstagramLineBreakWorkspace").then((m) => ({ default: m.InstagramLineBreakWorkspace }))
 );
@@ -229,6 +232,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "slug-generator" || primarySlug === "url-slug-generator" || primarySlug === "slug-maker" || primarySlug === "slugify" || primarySlug === "generate-slug" || primarySlug === "url-slug-maker") {
     return { page: "slugGenerator", lang, blogSlug: null };
+  }
+  if (primarySlug === "json-formatter" || primarySlug === "json-validator" || primarySlug === "json-beautifier" || primarySlug === "json-minifier" || primarySlug === "json-formatter-online" || primarySlug === "format-json") {
+    return { page: "jsonFormatter", lang, blogSlug: null };
   }
   if (primarySlug === "instagram-line-break-generator" || primarySlug === "ig-line-break" || primarySlug === "instagram-line-break" || primarySlug === "line-break-generator" || primarySlug === "instagram-caption-line-breaks" || primarySlug === "instagram-line-breaks") {
     return { page: "instagramLineBreak", lang, blogSlug: null };
@@ -483,6 +489,7 @@ export default function App() {
     activePage === "readingTime" ||
     activePage === "base64" ||
     activePage === "slugGenerator" ||
+    activePage === "jsonFormatter" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -807,6 +814,17 @@ export default function App() {
         {activePage === "slugGenerator" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <SlugGeneratorWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "jsonFormatter" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <JsonFormatterWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

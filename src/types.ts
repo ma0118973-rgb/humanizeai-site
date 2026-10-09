@@ -75,6 +75,7 @@ export type ActivePage =
   | "readingTime"
   | "base64"
   | "slugGenerator"
+  | "jsonFormatter"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"
