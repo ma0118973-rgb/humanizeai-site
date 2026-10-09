@@ -91,6 +91,9 @@ const SlugGeneratorWorkspace = lazy(() =>
 const JsonFormatterWorkspace = lazy(() =>
   import("./components/JsonFormatterWorkspace").then((m) => ({ default: m.JsonFormatterWorkspace }))
 );
+const LoremIpsumWorkspace = lazy(() =>
+  import("./components/LoremIpsumWorkspace").then((m) => ({ default: m.LoremIpsumWorkspace }))
+);
 const InstagramLineBreakWorkspace = lazy(() =>
   import("./components/InstagramLineBreakWorkspace").then((m) => ({ default: m.InstagramLineBreakWorkspace }))
 );
@@ -235,6 +238,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "json-formatter" || primarySlug === "json-validator" || primarySlug === "json-beautifier" || primarySlug === "json-minifier" || primarySlug === "json-formatter-online" || primarySlug === "format-json") {
     return { page: "jsonFormatter", lang, blogSlug: null };
+  }
+  if (primarySlug === "lorem-ipsum-generator" || primarySlug === "lorem-ipsum" || primarySlug === "lorem-generator" || primarySlug === "dummy-text-generator" || primarySlug === "placeholder-text-generator" || primarySlug === "lorem-ipsum-text") {
+    return { page: "loremIpsum", lang, blogSlug: null };
   }
   if (primarySlug === "instagram-line-break-generator" || primarySlug === "ig-line-break" || primarySlug === "instagram-line-break" || primarySlug === "line-break-generator" || primarySlug === "instagram-caption-line-breaks" || primarySlug === "instagram-line-breaks") {
     return { page: "instagramLineBreak", lang, blogSlug: null };
@@ -490,6 +496,7 @@ export default function App() {
     activePage === "base64" ||
     activePage === "slugGenerator" ||
     activePage === "jsonFormatter" ||
+    activePage === "loremIpsum" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -825,6 +832,17 @@ export default function App() {
         {activePage === "jsonFormatter" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <JsonFormatterWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "loremIpsum" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <LoremIpsumWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

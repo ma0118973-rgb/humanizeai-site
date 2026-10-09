@@ -27,6 +27,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   base64: "base64-encode-decode-urdu-guide",
   slugGenerator: "slug-generator-urdu-guide",
   jsonFormatter: "json-formatter-urdu-guide",
+  loremIpsum: "lorem-ipsum-generator-urdu-guide",
   instagramLineBreak: "instagram-line-break-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
   pdfTools: "pdf-tools-urdu-guide",

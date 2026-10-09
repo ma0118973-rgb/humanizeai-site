@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Sparkles, Search, Video, TrendingUp, BookMarked, Maximize2,
-  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer, Binary, Instagram, Link2, Braces,
+  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer, Binary, Instagram, Link2, Braces, AlignLeft,
 } from "lucide-react";
 import { ActivePage } from "../types";
 
@@ -32,6 +32,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "base64", label: "Base64", icon: Binary },
   { id: "slugGenerator", label: "Slug Maker", icon: Link2 },
   { id: "jsonFormatter", label: "JSON Format", icon: Braces },
+  { id: "loremIpsum", label: "Lorem Ipsum", icon: AlignLeft },
   { id: "instagramLineBreak", label: "IG Line Breaks", icon: Instagram },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },

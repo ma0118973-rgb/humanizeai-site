@@ -79,6 +79,7 @@ const ROUTES = [
   ["base64", "/base64-encoder-decoder/"],
   ["slugGenerator", "/slug-generator/"],
   ["jsonFormatter", "/json-formatter/"],
+  ["loremIpsum", "/lorem-ipsum-generator/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -138,6 +139,7 @@ function pageMeta(page, lang, blogPost) {
     case "base64": return [seo.base64Title || fb.base64Title, seo.base64Desc || fb.base64Desc];
     case "slugGenerator": return [seo.slugGeneratorTitle || fb.slugGeneratorTitle, seo.slugGeneratorDesc || fb.slugGeneratorDesc];
     case "jsonFormatter": return [seo.jsonFormatterTitle || fb.jsonFormatterTitle, seo.jsonFormatterDesc || fb.jsonFormatterDesc];
+    case "loremIpsum": return [seo.loremIpsumTitle || fb.loremIpsumTitle, seo.loremIpsumDesc || fb.loremIpsumDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -190,7 +192,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1020,6 +1022,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "What happens with repeated keys and very large numbers?",
           acceptedAnswer: { "@type": "Answer", text: "Standard JSON.parse keeps only the last value when a key repeats, and whole numbers beyond 2^53−1 can lose precision. Keep identifiers and large counters as strings when exact digits matter." },
+        },
+      ],
+    });
+  }
+  if (page === "loremIpsum") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to generate lorem ipsum placeholder text in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose a mode and amount", text: "Pick paragraphs, sentences or an exact word count, and set how many you need. Paragraphs suit page layouts, sentences suit cards and excerpts, and word counts suit tight slots." },
+        { "@type": "HowToStep", position: 2, name: "Pick an output format", text: "Choose plain text for design tools and documents, HTML <p> paragraphs for code, or an HTML list. Decide whether the text starts with the classic Lorem ipsum dolor sit amet opening." },
+        { "@type": "HowToStep", position: 3, name: "Copy or download", text: "Check the word and character counts, then copy the placeholder text or download it as a .txt file. Generate a fresh sample any time; every run differs, so download to keep a version." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is anything I generate uploaded anywhere?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The word bank lives in the page and the text is shuffled in your browser tab. Nothing is typed into the tool, uploaded, stored on a server, or shared by it." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I publish lorem ipsum on my live website?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Placeholder text has no meaning and no SEO value, and leftover filler makes a page look unfinished. Replace every block with real content before launch, and search your site for “lorem ipsum” to catch stragglers." },
+        },
+        {
+          "@type": "Question",
+          name: "Does lorem ipsum mean anything?",
+          acceptedAnswer: { "@type": "Answer", text: "No. It descends from a passage in Cicero's de Finibus (45 BC), but the words were scrambled centuries ago precisely so the result carries no message — readers judge the layout instead of the text." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I generate an exact number of characters?",
+          acceptedAnswer: { "@type": "Answer", text: "Not directly. Generate by words and watch the character counter, then raise or lower the word count until the total sits close to the limit you need." },
+        },
+        {
+          "@type": "Question",
+          name: "Why does every generation look different?",
+          acceptedAnswer: { "@type": "Answer", text: "The generator shuffles the traditional Latin word bank on every run, so each result is a fresh sample with different sentence shapes. That is a feature for testing, but it means you should download a version you want to keep." },
+        },
+        {
+          "@type": "Question",
+          name: "Which output format should I choose?",
+          acceptedAnswer: { "@type": "Answer", text: "Plain text for Figma, Canva, documents and slides; HTML <p> when pasting paragraphs into code; and the list format when you need ready-made <ul> items for menus, benefits or specifications." },
         },
       ],
     });

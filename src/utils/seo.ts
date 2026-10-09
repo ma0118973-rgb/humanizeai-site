@@ -196,6 +196,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "JSON Formatter",
   },
+  loremIpsum: {
+    title: "Free Lorem Ipsum Generator – Paragraphs, Sentences & Words",
+    description: "Free lorem ipsum generator. Make paragraphs, sentences or exact word counts as plain text, HTML paragraphs or a list, with the classic opening on or off. Placeholder text only, generated locally — nothing uploaded.",
+    canonicalPath: "/lorem-ipsum-generator/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Lorem Ipsum Generator",
+  },
   instagramLineBreak: {
     title: "Free Instagram Line Break Generator – Keep Caption Spacing",
     description: "Free Instagram line break generator. Write captions and bios with real blank lines, protect the spacing with an invisible character, preview and copy in one tap. Nothing is uploaded.",
@@ -396,6 +404,9 @@ export function applyPageSeo(
   } else if (page === "jsonFormatter") {
     title = (t.seo as any).jsonFormatterTitle || baseConfig.title;
     description = (t.seo as any).jsonFormatterDesc || baseConfig.description;
+  } else if (page === "loremIpsum") {
+    title = (t.seo as any).loremIpsumTitle || baseConfig.title;
+    description = (t.seo as any).loremIpsumDesc || baseConfig.description;
   } else if (page === "instagramLineBreak") {
     title = (t.seo as any).instagramLineBreakTitle || baseConfig.title;
     description = (t.seo as any).instagramLineBreakDesc || baseConfig.description;

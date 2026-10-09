@@ -76,6 +76,7 @@ export type ActivePage =
   | "base64"
   | "slugGenerator"
   | "jsonFormatter"
+  | "loremIpsum"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"
