@@ -308,6 +308,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Unix Timestamp Converter",
   },
+  jsonToCsv: {
+    title: "JSON to CSV Converter — Flatten Nested JSON, Safe Export, Free",
+    description: "Free JSON to CSV converter. Paste or upload JSON, flatten nested objects into dot-path columns with the rule shown, preview the table, choose comma, semicolon or tab, and download a spreadsheet-safe CSV. Formula-injection warning included. Fully local — nothing uploaded.",
+    canonicalPath: "/json-to-csv-converter/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "JSON to CSV Converter",
+  },
   unitConverter: {
     title: "Unit Converter — Length, Weight, Temperature, Volume & More, Free",
     description: "Free unit converter. Convert length, weight, temperature, volume, area, speed, time, data, pressure and energy with real factors, shown formulas and presets. No currency, no sign-up, nothing uploaded.",
@@ -574,6 +582,9 @@ export function applyPageSeo(
   } else if (page === "timestampConverter") {
     title = (t.seo as any).timestampConverterTitle || baseConfig.title;
     description = (t.seo as any).timestampConverterDesc || baseConfig.description;
+  } else if (page === "jsonToCsv") {
+    title = (t.seo as any).jsonToCsvTitle || baseConfig.title;
+    description = (t.seo as any).jsonToCsvDesc || baseConfig.description;
   } else if (page === "unitConverter") {
     title = (t.seo as any).unitConverterTitle || baseConfig.title;
     description = (t.seo as any).unitConverterDesc || baseConfig.description;
@@ -1006,6 +1017,32 @@ function updateJsonLd(
         { "@type": "HowToStep", position: 1, name: "Choose how many", text: "Set the bulk count from 1 to 100. Five is a handy default for tests and fixtures." },
         { "@type": "HowToStep", position: 2, name: "Pick the format", text: "Keep lowercase with hyphens (8-4-4-4-12) for the standard form, switch on UPPERCASE if your system expects it, or turn hyphens off for the compact 32-character form." },
         { "@type": "HowToStep", position: 3, name: "Copy one or copy all", text: "Use the copy button on a single row, or Copy all to take the whole list one per line. Press Generate whenever you need a fresh set." },
+      ],
+    });
+  }
+
+  // JSON to CSV Converter: FAQ + HowTo (flattening rule + formula-injection safety)
+  if (page === "jsonToCsv" && !blogPost) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", name: "Is this JSON to CSV converter free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Paste or upload JSON, preview the flattened table, choose comma, semicolon or tab, then download or copy the CSV." } },
+        { "@type": "Question", name: "How are nested objects and arrays flattened?", acceptedAnswer: { "@type": "Answer", text: "Nested objects become dot-path columns, so address.city is one column. A list of plain values is joined with '; ' inside one cell. A list that contains objects stays as compact JSON text in one cell, because one JSON record always stays one CSV row. There is no single correct flattening, so the rule is printed on the page." } },
+        { "@type": "Question", name: "Why do some fields start with an apostrophe in the CSV?", acceptedAnswer: { "@type": "Answer", text: "That is Safe export. A cell beginning with =, +, - or @ can be treated as a formula by Excel or Google Sheets (formula injection). Safe export prefixes such fields with an apostrophe so they open as plain text. Turn it off only if you truly want those fields to act as formulas." } },
+        { "@type": "Question", name: "What JSON shapes can it convert?", acceptedAnswer: { "@type": "Answer", text: "An array of objects converts best: one object becomes one row. A single object becomes one row. A list of plain values becomes one 'value' column. A single number, text value or true/false cannot become a table and returns a plain-language explanation instead." } },
+        { "@type": "Question", name: "Is my JSON uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. The JSON is parsed in your browser tab with JSON.parse and converted locally. Nothing is uploaded, stored on a server or shared, and closing the tab forgets it. Still, keep real passwords and API keys out of every web tool." } },
+      ],
+    });
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to convert JSON to CSV in 3 steps",
+      description: config.description,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste or upload your JSON", text: "Paste an array of objects or open a .json file. Read any plain-language shape note — a single object converts as one row." },
+        { "@type": "HowToStep", position: 2, name: "Check the flattening and safety warnings", text: "Review the preview table: nested objects are dot-path columns, lists of values are joined with '; '. If fields begin with =, +, - or @, keep Safe export on so a spreadsheet cannot run them as formulas." },
+        { "@type": "HowToStep", position: 3, name: "Choose a delimiter and download", text: "Pick comma, semicolon or tab for your target system, keep or remove the header row, then download the .csv or copy the CSV text." },
       ],
     });
   }

@@ -93,6 +93,7 @@ export type ActivePage =
   | "onlineTeleprompter"
   | "uuidGenerator"
   | "timestampConverter"
+  | "jsonToCsv"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

@@ -96,6 +96,7 @@ const ROUTES = [
   ["onlineTeleprompter", "/online-teleprompter/"],
   ["uuidGenerator", "/uuid-generator/"],
   ["timestampConverter", "/unix-timestamp-converter/"],
+  ["jsonToCsv", "/json-to-csv-converter/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -172,6 +173,7 @@ function pageMeta(page, lang, blogPost) {
     case "onlineTeleprompter": return [seo.onlineTeleprompterTitle || fb.onlineTeleprompterTitle, seo.onlineTeleprompterDesc || fb.onlineTeleprompterDesc];
     case "uuidGenerator": return [seo.uuidGeneratorTitle || fb.uuidGeneratorTitle, seo.uuidGeneratorDesc || fb.uuidGeneratorDesc];
     case "timestampConverter": return [seo.timestampConverterTitle || fb.timestampConverterTitle, seo.timestampConverterDesc || fb.timestampConverterDesc];
+    case "jsonToCsv": return [seo.jsonToCsvTitle || fb.jsonToCsvTitle, seo.jsonToCsvDesc || fb.jsonToCsvDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -224,7 +226,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -259,6 +261,30 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
         { "@type": "HowToStep", position: 1, name: "Paste the timestamp", text: "Paste your epoch value and check the displayed assumption: seconds or milliseconds." },
         { "@type": "HowToStep", position: 2, name: "Read UTC and local", text: "Compare the UTC and local lines and copy the ISO 8601 value when you need an unambiguous string." },
         { "@type": "HowToStep", position: 3, name: "Or pick a date", text: "Choose a date and time, select local or UTC meaning, and copy seconds or milliseconds." },
+      ],
+    });
+  }
+  if (page === "jsonToCsv") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "How are nested objects flattened?", acceptedAnswer: { "@type": "Answer", text: "Nested objects become dot-path columns (address.city). Lists of plain values are joined with '; ' in one cell; lists containing objects stay as compact JSON text in one cell so one record stays one row. The rule is printed on the page." } },
+        { "@type": "Question", name: "Why does Safe export add an apostrophe?", acceptedAnswer: { "@type": "Answer", text: "A cell beginning with =, +, - or @ can be treated as a formula by Excel or Google Sheets. Safe export prefixes such fields with an apostrophe so they open as plain text instead of running as formulas." } },
+        { "@type": "Question", name: "Is anything uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. JSON is parsed and converted in your browser tab. Nothing is uploaded, stored or shared." } },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to convert JSON to CSV in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste or upload JSON", text: "Paste an array of objects or open a .json file. A single object converts as one row." },
+        { "@type": "HowToStep", position: 2, name: "Check the preview and safety warning", text: "Review dot-path columns and '; '-joined lists in the preview table. Keep Safe export on when fields begin with =, +, - or @." },
+        { "@type": "HowToStep", position: 3, name: "Choose a delimiter and download", text: "Pick comma, semicolon or tab, keep or remove the header row, then download the .csv or copy the CSV text." },
       ],
     });
   }
