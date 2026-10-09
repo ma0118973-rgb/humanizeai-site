@@ -100,6 +100,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Text to Speech",
   },
+  typingTest: {
+    title: "Free Typing Speed Test – Check Your WPM & Accuracy Online",
+    description: "Free typing speed test. Timed 30s and 60s tests plus 25/50 word modes with live WPM, accuracy and character stats in 11 languages. No sign-up, nothing uploaded.",
+    canonicalPath: "/typing-test/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Typing Speed Test",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -256,6 +264,9 @@ export function applyPageSeo(
   } else if (page === "textToSpeech") {
     title = (t.seo as any).textToSpeechTitle || baseConfig.title;
     description = (t.seo as any).textToSpeechDesc || baseConfig.description;
+  } else if (page === "typingTest") {
+    title = (t.seo as any).typingTestTitle || baseConfig.title;
+    description = (t.seo as any).typingTestDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

@@ -55,6 +55,9 @@ const WordCounterWorkspace = lazy(() =>
 const TextToSpeechWorkspace = lazy(() =>
   import("./components/TextToSpeechWorkspace").then((m) => ({ default: m.TextToSpeechWorkspace }))
 );
+const TypingTestWorkspace = lazy(() =>
+  import("./components/TypingTestWorkspace").then((m) => ({ default: m.TypingTestWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -160,6 +163,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "text-to-speech" || primarySlug === "tts" || primarySlug === "read-aloud" || primarySlug === "text-to-speech-online") {
     return { page: "textToSpeech", lang, blogSlug: null };
+  }
+  if (primarySlug === "typing-test" || primarySlug === "typing-speed-test" || primarySlug === "typing" || primarySlug === "wpm-test" || primarySlug === "typing-practice") {
+    return { page: "typingTest", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -400,6 +406,7 @@ export default function App() {
     activePage === "cvBuilder" ||
     activePage === "wordCounter" ||
     activePage === "textToSpeech" ||
+    activePage === "typingTest" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
 
@@ -594,6 +601,19 @@ export default function App() {
             <TextToSpeechWorkspace
               selectedLanguage={selectedLanguage}
               onSendToHumanizer={handleSendToHumanizer}
+            />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "typingTest" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <TypingTestWorkspace
+              selectedLanguage={selectedLanguage}
             />
             <OtherToolsSection
               activePage={activePage}

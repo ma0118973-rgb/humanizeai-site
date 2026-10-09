@@ -67,6 +67,7 @@ const ROUTES = [
   ["cvBuilder", "/cv-builder/"],
   ["wordCounter", "/word-counter/"],
   ["textToSpeech", "/text-to-speech/"],
+  ["typingTest", "/typing-test/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -113,6 +114,7 @@ function pageMeta(page, lang, blogPost) {
     case "cvBuilder": return [seo.cvBuilderTitle || fb.cvBuilderTitle, seo.cvBuilderDesc || fb.cvBuilderDesc];
     case "wordCounter": return [seo.wordCounterTitle || fb.wordCounterTitle, seo.wordCounterDesc || fb.wordCounterDesc];
     case "textToSpeech": return [seo.textToSpeechTitle || fb.textToSpeechTitle, seo.textToSpeechDesc || fb.textToSpeechDesc];
+    case "typingTest": return [seo.typingTestTitle || fb.typingTestTitle, seo.typingTestDesc || fb.typingTestDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -164,7 +166,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -412,6 +414,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Why does the reading pause strangely, or restart instead of resuming?",
           acceptedAnswer: { "@type": "Answer", text: "Pause and resume behaviour is controlled by each browser and device, and they differ. Some browsers restart the current part instead of continuing mid-sentence. Stopping and pressing Play again always restarts cleanly." },
+        },
+      ],
+    });
+  }
+  if (page === "typingTest") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to take a typing speed test in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose a mode and practice text", text: "Pick 30 seconds, 60 seconds, 25 words or 50 words, and choose the passage language — original practice texts are available in 11 languages, including Roman Urdu." },
+        { "@type": "HowToStep", position: 2, name: "Start typing", text: "Click the typing box and type the passage. The clock starts with your first keystroke; backspace works, and the characters colour as you go." },
+        { "@type": "HowToStep", position: 3, name: "Read your honest result", text: "See net WPM, gross WPM, accuracy and correct/error character counts, then restart the same text or try a new one. Your best score stays only in this browser." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this typing speed test free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. All modes, passages and languages are free with no sign-up and no usage limit from us. Everything runs in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "How is WPM calculated?",
+          acceptedAnswer: { "@type": "Answer", text: "WPM = correct characters ÷ 5 ÷ minutes. One word counts as 5 characters including spaces, the standard convention. Gross WPM counts every character typed; net WPM counts only the correct ones, which is the honest figure." },
+        },
+        {
+          "@type": "Question",
+          name: "Is anything I type uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The passage, your typing and the scoring all happen in your browser tab. Nothing is sent to a server, and your best score is kept only in this browser on this device." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I compare my phone score with my computer score?",
+          acceptedAnswer: { "@type": "Answer", text: "Not fairly. Phone keyboards usually score far lower than physical keyboards, and different layouts and passages change results. Compare your own repeated scores on the same device and keyboard instead." },
+        },
+        {
+          "@type": "Question",
+          name: "Does this test give me a certificate for jobs?",
+          acceptedAnswer: { "@type": "Answer", text: "No. This is a practice score, not an official certificate, and no employer body recognizes it. Employers test typing with their own tools; this page helps you prepare honestly." },
+        },
+        {
+          "@type": "Question",
+          name: "How is Japanese typing scored?",
+          acceptedAnswer: { "@type": "Answer", text: "Japanese is not space-separated, so the test counts characters. Word modes use a fixed character count, and WPM applies the standard 5 characters = 1 word convention, with the character count shown as the main number." },
         },
       ],
     });

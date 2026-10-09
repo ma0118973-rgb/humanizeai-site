@@ -217,6 +217,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
   </url>
   <url>
+    <loc>https://toolvena.com/en/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
+  </url>
+  <url>
     <loc>https://toolvena.com/en/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -511,6 +529,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://toolvena.com/en/blog/typing-test-guide-wpm-accuracy/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://toolvena.com/es/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -725,6 +749,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
+  </url>
+  <url>
+    <loc>https://toolvena.com/es/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
   </url>
   <url>
     <loc>https://toolvena.com/es/image-compressor/</loc>
@@ -991,6 +1033,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://toolvena.com/es/blog/prueba-velocidad-teclado-guia/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://toolvena.com/ur/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1205,6 +1253,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
+  </url>
+  <url>
+    <loc>https://toolvena.com/ur/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
   </url>
   <url>
     <loc>https://toolvena.com/ur/image-compressor/</loc>
@@ -1471,6 +1537,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://toolvena.com/ur/blog/typing-test-urdu-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://toolvena.com/de/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1685,6 +1757,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
+  </url>
+  <url>
+    <loc>https://toolvena.com/de/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
   </url>
   <url>
     <loc>https://toolvena.com/de/image-compressor/</loc>
@@ -1945,6 +2035,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://toolvena.com/de/blog/tippgeschwindigkeit-test-anleitung/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://toolvena.com/fr/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -2159,6 +2255,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
+  </url>
+  <url>
+    <loc>https://toolvena.com/fr/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
   </url>
   <url>
     <loc>https://toolvena.com/fr/image-compressor/</loc>
@@ -2419,6 +2533,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://toolvena.com/fr/blog/test-vitesse-frappe-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://toolvena.com/pt/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -2633,6 +2753,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
+  </url>
+  <url>
+    <loc>https://toolvena.com/pt/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
   </url>
   <url>
     <loc>https://toolvena.com/pt/image-compressor/</loc>
@@ -2893,6 +3031,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://toolvena.com/pt/blog/teste-velocidade-digitacao-guia/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://toolvena.com/tr/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -3107,6 +3251,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
+  </url>
+  <url>
+    <loc>https://toolvena.com/tr/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
   </url>
   <url>
     <loc>https://toolvena.com/tr/image-compressor/</loc>
@@ -3367,6 +3529,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://toolvena.com/tr/blog/yazma-hizi-testi-rehberi/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://toolvena.com/ja/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -3581,6 +3749,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
+  </url>
+  <url>
+    <loc>https://toolvena.com/ja/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
   </url>
   <url>
     <loc>https://toolvena.com/ja/image-compressor/</loc>
@@ -3841,6 +4027,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://toolvena.com/ja/blog/typing-test-guide-ja/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://toolvena.com/no/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -4055,6 +4247,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
+  </url>
+  <url>
+    <loc>https://toolvena.com/no/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
   </url>
   <url>
     <loc>https://toolvena.com/no/image-compressor/</loc>
@@ -4315,6 +4525,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://toolvena.com/no/blog/skrivehastighet-test-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://toolvena.com/nl/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -4529,6 +4745,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
+  </url>
+  <url>
+    <loc>https://toolvena.com/nl/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
   </url>
   <url>
     <loc>https://toolvena.com/nl/image-compressor/</loc>
@@ -4789,6 +5023,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://toolvena.com/nl/blog/typesnelheid-test-gids/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://toolvena.com/it/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -5003,6 +5243,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/text-to-speech/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/text-to-speech/" />
+  </url>
+  <url>
+    <loc>https://toolvena.com/it/typing-test/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolvena.com/en/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolvena.com/es/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://toolvena.com/ur/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolvena.com/de/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolvena.com/fr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolvena.com/pt/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolvena.com/tr/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolvena.com/ja/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://toolvena.com/no/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolvena.com/nl/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolvena.com/it/typing-test/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolvena.com/en/typing-test/" />
   </url>
   <url>
     <loc>https://toolvena.com/it/image-compressor/</loc>
@@ -5258,6 +5516,12 @@
   </url>
   <url>
     <loc>https://toolvena.com/it/blog/contatore-parole-guida/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://toolvena.com/it/blog/test-velocita-digitazione-guida/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

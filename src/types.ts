@@ -64,6 +64,7 @@ export type ActivePage =
   | "cvBuilder"
   | "wordCounter"
   | "textToSpeech"
+  | "typingTest"
   | "imageCompressor"
   | "pdfTools"
   | "cleaner"
