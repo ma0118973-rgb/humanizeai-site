@@ -84,6 +84,7 @@ export function Base64Workspace({ selectedLanguage = "en" }: Base64WorkspaceProp
   const [copied, setCopied] = useState(false);
   const [fileMessage, setFileMessage] = useState("");
   const [fileError, setFileError] = useState("");
+  const [fileEncoded, setFileEncoded] = useState("");
   const fileRef = useRef<HTMLInputElement | null>(null);
 
   const conversion = useMemo(() => {
@@ -104,17 +105,20 @@ export function Base64Workspace({ selectedLanguage = "en" }: Base64WorkspaceProp
   const byteCount = useMemo(() => new TextEncoder().encode(input).length, [input]);
 
   const handleCopy = async () => {
-    if (!conversion.output) return;
+    const output = fileEncoded || conversion.output;
+    if (!output) return;
     try {
-      await navigator.clipboard.writeText(conversion.output);
+      await navigator.clipboard.writeText(output);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch { /* clipboard unavailable */ }
   };
 
   const handleSwap = () => {
-    if (!conversion.output) return;
-    setInput(conversion.output);
+    const output = fileEncoded || conversion.output;
+    if (!output) return;
+    setInput(output);
+    setFileEncoded("");
     setMode(mode === "encode" ? "decode" : "encode");
     setFileMessage("");
     setFileError("");
@@ -137,9 +141,6 @@ export function Base64Workspace({ selectedLanguage = "en" }: Base64WorkspaceProp
         setUrlSafe(false);
         setInput("");
         setFileMessage(`${file.name} · ${file.size.toLocaleString()} bytes → ${encoded.length.toLocaleString()} Base64 characters`);
-        // Store file output in the input-side state via the output panel using a one-off conversion state.
-        // We reuse the clipboard/download path by placing it in the input of decode mode if the user swaps;
-        // simplest honest UX: put the encoded text into the output by switching to a synthetic file result.
         setFileEncoded(encoded);
       } catch {
         setFileError(b.fileError || "That file could not be read locally. Please try a smaller file.");
@@ -149,7 +150,6 @@ export function Base64Workspace({ selectedLanguage = "en" }: Base64WorkspaceProp
     reader.readAsArrayBuffer(file);
   };
 
-  const [fileEncoded, setFileEncoded] = useState("");
   const visibleOutput = fileEncoded || conversion.output;
   const visibleError = fileEncoded ? "" : conversion.error;
 
@@ -247,7 +247,7 @@ export function Base64Workspace({ selectedLanguage = "en" }: Base64WorkspaceProp
           <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
             <label className="block text-[11px] font-bold text-stone-500 uppercase tracking-wide" htmlFor="base64-output">{b.outputLabel || "Result"}</label>
             <div className="flex gap-2">
-              <button onClick={async () => { if (!visibleOutput) return; try { await navigator.clipboard.writeText(visibleOutput); setCopied(true); setTimeout(() => setCopied(false), 1800); } catch {} }} disabled={!visibleOutput} className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-900 text-white text-xs font-bold hover:bg-stone-700 disabled:opacity-50 cursor-pointer">
+              <button onClick={handleCopy} disabled={!visibleOutput} className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-900 text-white text-xs font-bold hover:bg-stone-700 disabled:opacity-50 cursor-pointer">
                 {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />} {copied ? (b.copied || "Copied!") : (b.copyBtn || "Copy result")}
               </button>
               <button onClick={() => visibleOutput && downloadText(mode === "encode" ? "base64-output.txt" : "decoded-text.txt", visibleOutput)} disabled={!visibleOutput} className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 text-stone-700 text-xs font-bold hover:bg-stone-200 disabled:opacity-50 cursor-pointer">
