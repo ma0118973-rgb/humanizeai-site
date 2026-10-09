@@ -95,6 +95,7 @@ const ROUTES = [
   ["unitConverter", "/unit-converter/"],
   ["onlineTeleprompter", "/online-teleprompter/"],
   ["uuidGenerator", "/uuid-generator/"],
+  ["timestampConverter", "/unix-timestamp-converter/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -170,6 +171,7 @@ function pageMeta(page, lang, blogPost) {
     case "unitConverter": return [seo.unitConverterTitle || fb.unitConverterTitle, seo.unitConverterDesc || fb.unitConverterDesc];
     case "onlineTeleprompter": return [seo.onlineTeleprompterTitle || fb.onlineTeleprompterTitle, seo.onlineTeleprompterDesc || fb.onlineTeleprompterDesc];
     case "uuidGenerator": return [seo.uuidGeneratorTitle || fb.uuidGeneratorTitle, seo.uuidGeneratorDesc || fb.uuidGeneratorDesc];
+    case "timestampConverter": return [seo.timestampConverterTitle || fb.timestampConverterTitle, seo.timestampConverterDesc || fb.timestampConverterDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -222,7 +224,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -234,6 +236,30 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
       applicationCategory: "UtilitiesApplication",
       operatingSystem: "Any",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    });
+  }
+  if (page === "timestampConverter") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "How does it know seconds from milliseconds?", acceptedAnswer: { "@type": "Answer", text: "In Auto mode, values of 1,000,000,000,000 or more are treated as milliseconds and smaller values as seconds. The assumed unit is always displayed and can be overridden." } },
+        { "@type": "Question", name: "Why do UTC and local time differ?", acceptedAnswer: { "@type": "Answer", text: "A Unix timestamp is one instant in UTC. The local line renders the same instant in your device timezone, so the clock reading differs by your UTC offset. Both lines describe the same moment." } },
+        { "@type": "Question", name: "Is anything uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. All conversions run in your browser tab. Nothing is uploaded, stored or shared." } },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to convert a Unix timestamp in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste the timestamp", text: "Paste your epoch value and check the displayed assumption: seconds or milliseconds." },
+        { "@type": "HowToStep", position: 2, name: "Read UTC and local", text: "Compare the UTC and local lines and copy the ISO 8601 value when you need an unambiguous string." },
+        { "@type": "HowToStep", position: 3, name: "Or pick a date", text: "Choose a date and time, select local or UTC meaning, and copy seconds or milliseconds." },
+      ],
     });
   }
   if (page === "humanizer") {

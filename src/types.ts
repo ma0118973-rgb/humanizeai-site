@@ -92,6 +92,7 @@ export type ActivePage =
   | "unitConverter"
   | "onlineTeleprompter"
   | "uuidGenerator"
+  | "timestampConverter"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

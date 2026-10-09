@@ -20512,6 +20512,381 @@ export const BLOG_POSTS: BlogPost[] = [
     "L'ultimo limite è anche la virtù più grande: questa pagina non conserva nulla. Nessun account, nessuna cronologia, nessuna lista di valori generati che dorma su un server. Il valore nasce nella tua scheda e muore con lei; se domani ti serve lo stesso UUID, conservalo in un luogo sotto il tuo controllo. Questi valori vanno bene in produzione? Sono UUID v4 standard, da casualità crittografica, della stessa natura di quelli che conierebbe il tuo framework. Il codice di produzione dovrebbe però generarli nel proprio processo, non a mano da una pagina web — non perché i valori siano diversi, ma perché le pipeline battono gli appunti. Usa un UUID quando l'unicità deve sopravvivere a distribuzione, fusione o lavoro offline; mantieni minuscole con trattini, salvo che un sistema non chieda altro; e non spendere mai un UUID come fosse un segreto."
   ]
 }
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. The number that runs the internet, explained over chai",
+    "Pick up any API response, server log or database row and you will find a quiet integer doing the timekeeping: 1735689600, or its longer cousin 1735689600000. That is a Unix timestamp — the count of seconds since 1 January 1970, 00:00:00 UTC, a moment called the epoch. It sounds like trivia until the day a token expires too early, a log sorts itself backwards, or a chart insists your busiest hour happened while you were asleep. This page exists for exactly those days. It shows you the current epoch live, converts any pasted value into UTC and your own local time side by side, always says whether it treated your number as seconds or milliseconds, and turns any date you pick back into both units. Nothing you paste leaves this tab.",
+    "2. Seconds or milliseconds: the bug everyone ships once",
+    "Here is the whole trap in one line: JavaScript's Date.now() gives milliseconds, while most backends, JWT expiry claims and shell commands like date +%s speak seconds. Feed 1735689600 into new Date(...) and JavaScript, expecting milliseconds, lands you twenty days after the epoch in January 1970. Feed 1735689600000 into a seconds-based parser and you are tens of thousands of years in the future. The digit count is your first clue — ten digits is seconds in our era, thirteen is milliseconds — and this converter automates that clue honestly: values of 1,000,000,000,000 or more are read as milliseconds, smaller values as seconds, the banner tells you which assumption was made, and the selector lets you overrule it when your source is unusual. Never trust a converted date that looks absurd; absurd almost always means the unit was wrong, not the data.",
+    "3. How to use this converter, step by step",
+    "Work from the top. The live clock shows the current Unix time in seconds and milliseconds plus ISO 8601, copied with one tap when you need a fixture or a quick sanity check. In Timestamp to Date, paste your value and leave Auto-detect on unless you already know the unit; then read the UTC line and the local line together — they are the same instant wearing two clocks — and copy the ISO 8601 line when you need one unambiguous string for a log, ticket or database. In Date to Timestamp, pick a date and time and then make the decision the picker cannot make for you: As my local time or As UTC. Copy seconds for servers and tokens, milliseconds for JavaScript and browsers. If you paste letters, commas or a decimal point, the page says so plainly instead of guessing.",
+    "4. UTC versus local: one instant, two readings",
+    "A timestamp has no timezone. It does not know about Karachi, Berlin or daylight saving; it only counts. Timezones appear at the moment of display, which is why the two lines here can show different hours and different calendar dates for the very same number — late-evening UTC is already tomorrow in Tokyo and still yesterday afternoon in parts of the Americas. The healthy habit this page models is store in UTC, display in local: keep integers or UTC-anchored values in storage, do arithmetic there where no clock ever jumps, and convert to the reader's zone only at the edge. The classic failure is storing a local wall-clock time with no offset attached; when clocks go back in autumn, that lonely 01:30 happens twice and no one can later say which one you meant.",
+    "5. Worked examples worth recognising",
+    "Zero is the epoch itself, 1970-01-01 00:00:00 UTC, and in real data it usually means an unset field rather than a birthday. 1000000000 is 2001-09-09 01:46:40 UTC, the famous billennium second. 1735689600 is 2025-01-01 00:00:00 UTC, a clean fixture for tests. 2147483647 is 2038-01-19 03:14:07 UTC, the largest signed 32-bit timestamp and the edge of the Year 2038 problem for old systems. Negative values step before 1970 and are perfectly valid. Paste each of these and watch the assumed-unit banner, the UTC and local lines and the relative label change; five minutes of poking at known values teaches more than any table, because you see your own timezone shift every single reading.",
+    "6. Honest limits, stated before you rely on it",
+    "This tool converts; it does not certify. The live clock and the relative 'x ago' label follow your device clock, so a phone set wrong by ten minutes produces a confidently wrong 'now' here as it would anywhere. Relative wording is shown only within about ten years, because '4,000 years ago' helps nobody and invites misreading. Browser dates cover a wide but finite range, and absurd inputs are refused with a plain message rather than wrapped into a fake date. Leap seconds do not exist in Unix counting — every day is exactly 86,400 seconds by definition — which is normally what you want and occasionally worth remembering. And a timestamp is not a secret: never treat one as a token, password or proof of anything beyond the instant it names.",
+    "7. Quick answers and one habit to keep",
+    "Is it free? Yes, with no sign-up. Is my data uploaded? No — every calculation happens with the Date object in this tab. Ten digits or thirteen? Ten is seconds, thirteen is milliseconds for current-era values; the banner confirms it. Why are UTC and local different dates? Because one instant can fall on different calendar days in different zones. Which unit should I store? Seconds for most servers and tokens, milliseconds where JavaScript is the consumer — and write the unit in the field name, like created_at_ms, so the next person never has to guess. Keep that one habit, check the assumption banner before you trust any conversion, and timestamps will quietly stop being the bug in your week."
+  ],
+  "date": "October 2026",
+  "id": "unix-timestamp-converter-guide",
+  "keywords": [
+    "unix timestamp converter",
+    "epoch converter",
+    "seconds vs milliseconds",
+    "utc local time",
+    "iso 8601"
+  ],
+  "language": "en",
+  "readTime": "10 min read",
+  "slug": "unix-timestamp-converter-guide",
+  "summary": "How this free converter reads epoch values, why it always shows the assumed unit, how UTC and local lines describe one instant, and the honest limits of device clocks and relative labels.",
+  "title": "Unix Timestamp Converter Guide: Seconds, Milliseconds, UTC and Local Without the Guesswork"
+}
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. Woh number jo aadhi internet chalata hai — chai ke saath samjhen",
+    "Koi bhi API response, server log ya database row utha kar dekhen, wahan time ka hisaab ek khamosh integer rakh raha hota hai: 1735689600, ya is ka lamba rishtedaar 1735689600000. Yeh Unix timestamp hai — 1 January 1970, 00:00:00 UTC se guzre hue seconds ki ginti. Sunne mein yeh sirf maloomat lagti hai, lekin jis din token waqt se pehle expire ho jaye, log file ulta sort ho jaye, ya chart zor de ke aap ka sab se busy ghanta woh tha jab aap so rahe thay, us din yeh number achanak bohat ahem ho jata hai. Yeh page bilkul unhi dinon ke liye bana hai. Yeh aap ko current epoch live dikhata hai, pasted value ko UTC aur aap ke apne local time mein side by side badalta hai, hamesha wazeh batata hai ke number ko seconds samjha ya milliseconds, aur aap ki chuni hui date ko dono units mein wapas de deta hai. Aap jo paste karte hain woh is tab se bahar nahi jata. Ek baat pehle din se saaf kar dena behtar hai: timestamp ghalat nahi hota, ghalat aksar woh jagah hoti hai jahan hum use parhte hain. Unit ulta parh liya, timezone ulta samajh liya, ya local time ko baghair offset save kar liya — teenon ghaltiyan itni aam hain ke har developer zindagi mein kam az kam ek dafa zaroor karta hai. Is page ka kaam number badalna kam aur yeh teenon ghaltiyan namumkin banana zyada hai.",
+    "2. Seconds ya milliseconds: woh bug jo har koi ek dafa zaroor bhejta hai",
+    "Poora jaal ek line mein samajh lein: JavaScript ka Date.now() milliseconds deta hai, jabke zyada tar backends, token expiry aur kam date +%s jaisi commands seconds bolti hain. 1735689600 ko new Date(...) mein daal dein to JavaScript milliseconds samajh kar aap ko January 1970 mein, epoch ke sirf bees din baad, phenk deta hai. Aur 1735689600000 ko seconds wale parser mein daal dein to date hazaron saal aage nikal jati hai. Pehla clue hamesha digits ki tadaad hai — hamare zamane mein dus digits seconds hain, terah digits milliseconds. Yeh converter usi clue ko imaandari se automate karta hai: 1,000,000,000,000 ya us se bari value milliseconds samjhi jati hai, us se chhoti seconds, banner har dafa batata hai ke assumption kya thi, aur selector aap ko ikhtiyaar deta hai ke agar source unusual hai to khud faisla kar lein. Dostana usool yaad rakhen: converted date agar absurd lage — 1970, saal 56000, ya woh din jab aap paida bhi nahi hue thay — to data ghalat nahi hota, unit ghalat parhi gayi hoti hai. Pehle banner parhen, phir date par yaqeen karen. Yehi ek aadat aap ko aadhi raat ki debugging se bachati hai.",
+    "3. Is converter ko istemal kaise karen, qadam ba qadam",
+    "Upar se shuru karen. Live clock current Unix time seconds aur milliseconds mein, ISO 8601 ke saath, dikhata hai; fixture chahiye ho ya jaldi sanity check, ek tap mein copy ho jata hai. Timestamp to Date wale hisse mein apni value paste karen aur jab tak unit pakki maloom na ho Auto-detect rehne dein; phir UTC wali line aur local wali line ko saath parhen — yeh dono ek hi lamha hai, bas do ghariyon ke kapron mein — aur jab log, ticket ya database ke liye ek ghair-mubham string chahiye to ISO 8601 wali line copy kar lein. Date to Timestamp mein date aur time chunen aur phir woh faisla khud karen jo picker aap ke liye nahi kar sakta: mere local time ke tor par, ya UTC ke tor par. Servers aur tokens ke liye seconds copy karen, JavaScript ke liye milliseconds. Agar aap ghalti se huroof, commas ya decimal point paste kar dein to page saaf lafzon mein mana kar deta hai, andaza nahi lagata. Teen cheezon ka khaas khayal rakhen: paste karne ke baad banner par assumption zaroor parhen; dono lines mein se jo chahiye usi ka copy button dabayen; aur date picker mein local ya UTC ka faisla jaldi mein kabhi na karen, kyunke yehi woh jagah hai jahan sab se khoobsurat ghaltiyan hoti hain.",
+    "4. UTC banam local: ek lamha, do parhaiyan",
+    "Timestamp ke paas koi timezone nahi hoti. Yeh Karachi, Berlin ya daylight saving ko nahi janta; yeh sirf ginta hai. Timezone sirf us lamhe paida hoti hai jab number ko insaanon ke parhne ke liye sajaya jata hai — isi liye yahan ki dono lines ek hi number ke liye mukhtalif ghante aur kabhi kabhi mukhtalif calendar dates dikha sakti hain. UTC ki der raat Tokyo mein agla din hoti hai aur America ke kuch hisson mein abhi pichli dopahar. Is page ki sehatmand aadat bhi yehi hai: zakheera UTC mein, numaish local mein. Storage mein integer ya UTC-anchored value rakhen, hisaab wahan karen jahan koi ghari kabhi aage peeche nahi hoti, aur reader ke zone mein sirf aakhri kinare par badlen. Sab se purani nakami woh hai jahan local wall-clock time baghair offset ke save ho jaye; jab khareef mein ghariyan ek ghanta peeche hoti hain to woh akela 01:30 do dafa aata hai, aur baad mein koi nahi bata sakta ke matlab pehla wala tha ya dusra. Database design karte waqt ek chhota sa usool likh kar laga lein: har time column ke naam se pata chale ke woh UTC hai aur unit kya hai, masalan created_at_sec_utc. Naam mein chhupi hui yeh wazahat woh khamosh documentation hai jo aadhi raat ko kaam aati hai.",
+    "5. Asaaan misalein jinhein pehchanna aana chahiye",
+    "Sifar, yani 0, khud epoch hai: 1970-01-01 00:00:00 UTC, aur asal data mein is ka matlab aam tor par yeh hota hai ke field kabhi set hi nahi hui, kisi ki saalgirah nahi. 1000000000 mashhoor billennium second hai, 2001-09-09 01:46:40 UTC. 1735689600 bilkul saaf fixture hai, 2025-01-01 00:00:00 UTC, tests mein khoobsurat lagta hai. 2147483647 signed 32-bit ki aakhri hadd hai, 2038-01-19 03:14:07 UTC, jahan purane systems ke liye Year 2038 ka masla khara hota hai. Negative values 1970 se pehle jaati hain aur bilkul valid hain. In sab ko ek ek karke paste karen aur dekhen ke assumed-unit banner, UTC aur local lines aur relative label kaise badalte hain; jaane-pehchane numbers ke saath paanch minute ka khel kisi bhi table se zyada sikha deta hai, kyunke har reading mein aap ko apna timezone shift hota hua nazar aata hai. Aur ek chhoti si hidayat: jab bhi koi purana timestamp mila kare aur shak ho ke seconds hai ya milliseconds, dono tarah se badal kar dekhen — jo date aap ke data ki umar se milti julti lage, wohi durust parhai hai.",
+    "6. Imaandaar hudood, bharosa karne se pehle wazeh",
+    "Yeh tool badalta hai, tasdeeq nahi karta. Live clock aur x ago wala label aap ke device ki ghari ke peeche chalte hain, is liye agar phone das minute peeche hai to yahan ka now bhi itna hi peeche hoga — har jagah ki tarah yahan bhi. Relative wording sirf taqreeban dus saal ke andar dikhai jati hai, kyunke chaar hazaar saal pehle jaisi baat kisi ke kaam ki nahi aur ghalat parhi ja sakti hai. Browser ki dates ki wusat bohat bari magar mehdood hai, aur absurd input ko nakli date mein lapaitne ke bajaye saaf inkaar milta hai. Unix ginti mein leap seconds exist hi nahi karte — har din tanzeem ke tor par bilkul 86,400 seconds ka hota hai — jo aam tor par wohi hai jo aap chahte hain. Aur sab se ahem: timestamp koi raaz nahi hota; use token, password ya saboot na samjhen, yeh sirf ek lamhe ka naam hai is se zyada kuch nahi. Agar aap logs compare kar rahe hain to yeh bhi yaad rakhen ke do servers ki ghariyan aapas mein bhi chand seconds mukhtalif ho sakti hain, aur woh farq kisi converter ki ghalti nahi hoti.",
+    "7. Fori jawabat aur ek aadat jo hamesha kaam aayegi",
+    "Muft hai? Jee haan, baghair sign-up ke. Data upload hota hai? Bilkul nahi — har hisaab isi tab mein Date object se hota hai, tab band to sab khatam. Dus digits ya terah? Dus seconds hain, terah milliseconds, aur banner har dafa tasdeeq karta hai. UTC aur local ki dates mukhtalif kyun hain? Kyunke ek hi lamha mukhtalif zones mein mukhtalif calendar dinon par par sakta hai. Kaun si unit zakheera karun? Zyada tar servers aur tokens ke liye seconds, jahan JavaScript kha raha ho wahan milliseconds — aur unit ko field ke naam mein likh dein, masalan created_at_ms, taake agle bande ko andaza na lagana pare. Bas yehi ek aadat pakki kar lein, har conversion se pehle assumption banner parh lein, aur timestamps khamoshi se aap ke haftay ka bug banna band kar denge. Teacup khaali hai, ghari chal rahi hai, aur ab number aap ko nahi, aap number ko parhte hain."
+  ],
+  "date": "October 2026",
+  "id": "unix-timestamp-converter-urdu-guide",
+  "keywords": [
+    "unix timestamp converter",
+    "epoch converter urdu",
+    "seconds milliseconds farq",
+    "utc local time"
+  ],
+  "language": "ur",
+  "readTime": "12 min read",
+  "slug": "unix-timestamp-converter-urdu-guide",
+  "summary": "Is muft converter ka epoch parhna, assumed unit hamesha dikhana, UTC aur local ka ek lamha hona, aur device clock ki imaandaar hudood — chai ke saath tafseel se.",
+  "title": "Unix Timestamp Converter Guide: Seconds, Milliseconds, UTC aur Local Baghair Guess Ke"
+}
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. El número silencioso que ordena tus registros",
+    "Cada respuesta de API y cada fila de base de datos esconde el mismo contador: los segundos desde el 1 de enero de 1970, 00:00:00 UTC. Este conversor muestra ese reloj en vivo, convierte cualquier valor pegado a UTC y a tu hora local lado a lado, declara siempre si lo trató como segundos o milisegundos y convierte cualquier fecha de vuelta a ambas unidades, sin subir nada.",
+    "2. Segundos o milisegundos: el error clásico",
+    "Date.now() en JavaScript da milisegundos; la mayoría de servidores y tokens hablan segundos. Diez dígitos son segundos en nuestra época y trece son milisegundos. Aquí los valores de 1.000.000.000.000 o más se leen como milisegundos y el aviso lo dice en voz alta, con cambio manual cuando tu fuente es rara. Si una fecha convertida cae en 1970 o dentro de miles de años, casi seguro la unidad estaba mal, no el dato.",
+    "3. Cómo usarlo paso a paso",
+    "Copia el reloj en vivo si necesitas un valor de prueba. Pega tu timestamp y deja la detección automática salvo que conozcas la unidad; lee juntas la línea UTC y la local — son el mismo instante — y copia ISO 8601 cuando necesites un texto inequívoco. Al revés, elige fecha y hora y decide tú: como tu hora local o como UTC; esa elección es la que el selector no puede hacer por ti.",
+    "4. UTC y local: un instante, dos lecturas",
+    "El timestamp no tiene zona; la zona nace al mostrarlo. Por eso el mismo número puede ser hoy en UTC y mañana en Tokio. La costumbre sana es guardar en UTC y mostrar en local, con la aritmética lejos de los cambios de hora. Guardar una hora local sin desplazamiento es la receta del 01:30 que ocurre dos veces en otoño.",
+    "5. Valores que conviene reconocer",
+    "El 0 es el epoch mismo y en datos reales suele significar campo sin rellenar. 1000000000 es el famoso segundo billennium de 2001. 1735689600 abre 2025 en UTC y sirve de fixture limpia. 2147483647 marca el límite de 32 bits en 2038. Los negativos van antes de 1970 y son válidos. Pégalos todos y mira cómo cambian el aviso de unidad y tus dos líneas.",
+    "6. Límites honestos",
+    "El reloj en vivo y el “hace x” siguen el reloj de tu dispositivo: si va mal, aquí también. Lo relativo solo se muestra dentro de unos diez años. Los segundos intercalares no existen en el conteo Unix, cada día tiene exactamente 86.400 segundos por definición. Y un timestamp no es un secreto ni una prueba: es solo el nombre de un instante.",
+    "7. Respuestas rápidas",
+    "¿Gratis? Sí, sin cuenta. ¿Se sube algo? No, todo ocurre en esta pestaña. ¿Diez o trece dígitos? Diez segundos, trece milisegundos, y el aviso lo confirma. ¿Qué unidad guardar? Segundos para servidores y tokens, milisegundos donde manda JavaScript, y la unidad escrita en el nombre del campo para que nadie adivine después."
+  ],
+  "date": "October 2026",
+  "id": "convertidor-timestamp-unix-guia",
+  "keywords": [
+    "unix timestamp converter",
+    "convertidor epoch",
+    "segundos milisegundos",
+    "utc hora local"
+  ],
+  "language": "es",
+  "readTime": "8 min read",
+  "slug": "convertidor-timestamp-unix-guia",
+  "summary": "Cómo este conversor gratuito lee valores epoch, muestra siempre la unidad supuesta, pone UTC y tu hora local lado a lado y convierte fechas de vuelta con límites honestos.",
+  "title": "Convertidor Timestamp Unix: segundos, milisegundos, UTC y hora local sin adivinar"
+}
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. Die stille Zahl in jedem Log",
+    "Hinter API-Antworten und Datenbankzeilen zählt dieselbe Zahl: Sekunden seit dem 1. Januar 1970, 00:00:00 UTC. Dieser Konverter zeigt die Live-Uhr, rechnet jeden eingefügten Wert in UTC und Ihre Ortszeit nebeneinander um, sagt immer, ob er Sekunden oder Millisekunden angenommen hat, und macht aus jedem Datum wieder beide Einheiten — ganz ohne Upload.",
+    "2. Sekunden oder Millisekunden: der klassische Fehler",
+    "JavaScripts Date.now() liefert Millisekunden, die meisten Server und Tokens sprechen Sekunden. Zehn Stellen sind heute Sekunden, dreizehn Millisekunden. Ab 1.000.000.000.000 liest dieses Tool Millisekunden, zeigt die Annahme offen an und lässt sie manuell überschreiben. Landet ein Datum in 1970 oder in ferner Zukunft, war fast immer die Einheit falsch, nicht der Wert.",
+    "3. Schritt für Schritt",
+    "Kopieren Sie die Live-Uhr als Testwert. Fügen Sie Ihren Timestamp ein und lassen Sie die Automatik an, solange Sie die Einheit nicht sicher kennen; lesen Sie UTC- und Lokalzeile als zwei Lesarten desselben Moments und kopieren Sie ISO 8601 für Logs und Tickets. Umgekehrt wählen Sie Datum und Uhrzeit und entscheiden selbst: als Ortszeit oder als UTC.",
+    "4. UTC gegen lokal: ein Moment, zwei Anzeigen",
+    "Der Timestamp kennt keine Zone; die Zone entsteht erst beim Anzeigen. Darum kann dieselbe Zahl in UTC heute und in Tokio schon morgen sein. Gesund ist: speichern in UTC, anzeigen in lokal, rechnen fern jeder Zeitumstellung. Eine Ortszeit ohne Offset wird beim Zurückstellen der Uhren doppeldeutig — das berühmte doppelte 01:30.",
+    "5. Werte, die man wiedererkennt",
+    "Die 0 ist die Epoche selbst und bedeutet in echten Daten meist ein nie gesetztes Feld. 1000000000 ist die Billennium-Sekunde von 2001. 1735689600 eröffnet 2025 in UTC und taugt als sauberer Testwert. 2147483647 ist die 32-Bit-Grenze im Januar 2038. Negative Werte liegen vor 1970 und sind gültig. Fügen Sie sie der Reihe nach ein und beobachten Sie Annahme und Zeilen.",
+    "6. Ehrliche Grenzen",
+    "Live-Uhr und “vor x” folgen Ihrer Geräteuhr; geht sie falsch, irrt auch diese Seite ehrlich mit. Relative Angaben erscheinen nur innerhalb von etwa zehn Jahren. Schaltekunden kennt die Unix-Zählung nicht, jeder Tag hat definitionsgemäß 86.400 Sekunden. Und ein Timestamp ist kein Geheimnis und kein Beweis, nur der Name eines Zeitpunkts.",
+    "7. Kurze Antworten",
+    "Kostenlos? Ja, ohne Konto. Upload? Nein, alles bleibt in diesem Tab. Zehn oder dreizehn Stellen? Zehn Sekunden, dreizehn Millisekunden, die Anzeige bestätigt es. Welche Einheit speichern? Sekunden für Server und Tokens, Millisekunden für JavaScript — und die Einheit in den Feldnamen schreiben, etwa created_at_ms, damit niemand mehr raten muss."
+  ],
+  "date": "October 2026",
+  "id": "unix-timestamp-converter-anleitung",
+  "keywords": [
+    "unix timestamp converter",
+    "epoch konverter",
+    "sekunden millisekunden",
+    "utc ortszeit"
+  ],
+  "language": "de",
+  "readTime": "8 min read",
+  "slug": "unix-timestamp-converter-anleitung",
+  "summary": "Wie dieser kostenlose Konverter Epoch-Werte liest, die angenommene Einheit immer zeigt, UTC und Ortszeit nebeneinander stellt und Daten ehrlich zurückrechnet.",
+  "title": "Unix-Timestamp-Konverter: Sekunden, Millisekunden, UTC und Ortszeit ohne Raten"
+}
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. Le compteur discret de vos journaux",
+    "Derrière chaque réponse d’API sommeille le même nombre : les secondes depuis le 1er janvier 1970, 00:00:00 UTC. Ce convertisseur affiche l’horloge en direct, traduit toute valeur collée en UTC et en votre heure locale côte à côte, annonce toujours s’il l’a lue en secondes ou en millisecondes et transforme toute date dans les deux unités, sans rien envoyer.",
+    "2. Secondes ou millisecondes : la faute classique",
+    "Date.now() en JavaScript parle en millisecondes, la plupart des serveurs et jetons en secondes. Dix chiffres valent secondes à notre époque, treize millisecondes. Ici, à partir de 1 000 000 000 000, la lecture passe en millisecondes, l’hypothèse s’affiche et le sélecteur permet de la forcer. Une date en 1970 ou dans des millénaires signale presque toujours une unité fausse, pas une donnée fausse.",
+    "3. Pas à pas",
+    "Copiez l’horloge en direct comme valeur de test. Collez votre timestamp en laissant l’automatique, sauf unité certaine ; lisez ensemble les lignes UTC et locale, deux lectures d’un même instant, et copiez l’ISO 8601 pour un texte sans ambiguïté. Dans l’autre sens, choisissez date et heure puis tranchez vous-même : heure locale ou UTC.",
+    "4. UTC contre local : un instant, deux lectures",
+    "Le timestamp n’a pas de fuseau ; le fuseau naît à l’affichage. Le même nombre peut donc être aujourd’hui en UTC et déjà demain à Tokyo. La saine habitude : stocker en UTC, afficher en local, calculer loin des changements d’heure. Une heure locale sans décalage devient le fameux 01:30 qui arrive deux fois à l’automne.",
+    "5. Valeurs à reconnaître",
+    "0 est l’epoch elle-même et, dans les vraies données, signifie souvent un champ jamais rempli. 1000000000 est la seconde billennium de 2001. 1735689600 ouvre 2025 en UTC et sert de fixture propre. 2147483647 borne les 32 bits en janvier 2038. Les négatifs précèdent 1970 et sont valides. Collez-les tour à tour et regardez l’hypothèse et les deux lignes bouger.",
+    "6. Limites honnêtes",
+    "L’horloge et le “il y a x” suivent l’horloge de votre appareil : fausse là-bas, fausse ici. Le relatif ne s’affiche qu’à une dizaine d’années près. Les secondes intercalaires n’existent pas dans le compte Unix, chaque jour vaut exactement 86 400 secondes par définition. Et un timestamp n’est ni un secret ni une preuve, juste le nom d’un instant.",
+    "7. Réponses rapides",
+    "Gratuit ? Oui, sans compte. Envoi ? Non, tout reste dans cet onglet. Dix ou treize chiffres ? Dix secondes, treize millisecondes, l’avis le confirme. Quelle unité stocker ? Les secondes pour serveurs et jetons, les millisecondes côté JavaScript, et l’unité écrite dans le nom du champ pour que personne ne devine plus jamais."
+  ],
+  "date": "October 2026",
+  "id": "convertisseur-timestamp-unix-guide",
+  "keywords": [
+    "unix timestamp converter",
+    "convertisseur epoch",
+    "secondes millisecondes",
+    "utc heure locale"
+  ],
+  "language": "fr",
+  "readTime": "8 min read",
+  "slug": "convertisseur-timestamp-unix-guide",
+  "summary": "Comment ce convertisseur gratuit lit les valeurs epoch, affiche toujours l’unité supposée, place UTC et heure locale côte à côte et reconvertit les dates en toute honnêteté.",
+  "title": "Convertisseur Timestamp Unix : secondes, millisecondes, UTC et heure locale sans deviner"
+}
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. Kayıtlarınızdaki sessiz sayı",
+    "Her API yanıtının ve veritabanı satırının arkasında aynı sayaç var: 1 Ocak 1970, 00:00:00 UTC’den beri geçen saniye. Bu çevirici canlı saati gösterir, yapıştırılan her değeri UTC ve yerel saatinizle yan yana çevirir, saniye mi milisaniye mi saydığını her zaman söyler ve her tarihi iki birime de geri çevirir; hiçbir şey yüklenmez.",
+    "2. Saniye mi milisaniye mi: klasik hata",
+    "JavaScript’te Date.now() milisaniye verir; çoğu sunucu ve token saniye konuşur. Çağımızda on basamak saniye, on üç basamak milisaniyedir. Burada 1.000.000.000.000 ve üzeri milisaniye okunur, varsayım açıkça yazılır ve elle değiştirilebilir. Tarih 1970’e ya da binlerce yıl öteye düşüyorsa yanlış olan neredeyse hep birimdir, veri değil.",
+    "3. Adım adım kullanım",
+    "Canlı saati test değeri olarak kopyalayın. Zaman damganızı yapıştırıp birimi bilmiyorsanız otomatiği bırakın; UTC ve yerel satırları aynı anın iki okunuşu olarak birlikte okuyun ve net metin için ISO 8601’i kopyalayın. Ters yönde tarih ve saat seçip kararı kendiniz verin: yerel saat olarak mı, UTC olarak mı.",
+    "4. UTC ve yerel: bir an, iki okunuş",
+    "Zaman damgasının dilimi yoktur; dilim gösterimde doğar. Aynı sayı bu yüzden UTC’de bugün, Tokyo’da yarın olabilir. Sağlıklı alışkanlık UTC saklamak, yerelde göstermektir; hesabı saat değişimlerinden uzakta yapın. Kaydırmasız saklanan yerel saat, sonbaharda saatler geri alınınca iki kez gelen 01:30’a dönüşür.",
+    "5. Tanımaya değer değerler",
+    "0, epoch’un kendisidir ve gerçek veride çoğu kez hiç doldurulmamış alan demektir. 1000000000, 2001’in ünlü billennium saniyesidir. 1735689600, UTC’de 2025’i açar ve temiz bir test değeridir. 2147483647, Ocak 2038’deki 32 bit sınırıdır. Negatifler 1970 öncesidir ve geçerlidir. Hepsini tek tek yapıştırıp varsayımın ve satırların değişimini izleyin.",
+    "6. Dürüst sınırlar",
+    "Canlı saat ve “x önce” etiketi cihaz saatinizi izler; o yanlışsa burası da yanlış olur. Göreli ifade yalnızca yaklaşık on yıl içinde gösterilir. Unix sayımında artık saniye yoktur, her gün tanım gereği tam 86.400 saniyedir. Ve bir zaman damgası sır da değildir kanıt da; yalnızca bir anın adıdır.",
+    "7. Hızlı cevaplar",
+    "Ücretsiz mi? Evet, hesapsız. Yükleme var mı? Hayır, her şey bu sekmede olur. On mu on üç mü basamak? On saniye, on üç milisaniye; bildirim doğrular. Hangi birim saklanmalı? Sunucu ve token için saniye, JavaScript için milisaniye — ve birimi alan adına yazın ki kimse tahmin etmek zorunda kalmasın."
+  ],
+  "date": "October 2026",
+  "id": "unix-zaman-damgasi-donusturucu-rehberi",
+  "keywords": [
+    "unix timestamp converter",
+    "epoch cevirici",
+    "saniye milisaniye",
+    "utc yerel saat"
+  ],
+  "language": "tr",
+  "readTime": "8 min read",
+  "slug": "unix-zaman-damgasi-donusturucu-rehberi",
+  "summary": "Bu ücretsiz çeviricinin epoch değerlerini nasıl okuduğu, varsayılan birimi neden hep gösterdiği, UTC ile yerel saati nasıl yan yana koyduğu ve tarihleri dürüstçe nasıl geri çevirdiği.",
+  "title": "Unix Zaman Damgası Çevirici: saniye, milisaniye, UTC ve yerel saat tahmin etmeden"
+}
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. O contador discreto dos seus registos",
+    "Atrás de cada resposta de API está o mesmo número: os segundos desde 1 de janeiro de 1970, 00:00:00 UTC. Este conversor mostra o relógio ao vivo, traduz qualquer valor colado para UTC e para a sua hora local lado a lado, diz sempre se o leu em segundos ou milissegundos e transforma qualquer data nas duas unidades, sem enviar nada.",
+    "2. Segundos ou milissegundos: o erro clássico",
+    "O Date.now() do JavaScript fala em milissegundos; a maioria dos servidores e tokens fala em segundos. Dez dígitos são segundos na nossa época, treze são milissegundos. Aqui, de 1.000.000.000.000 para cima a leitura é em milissegundos, a suposição aparece escrita e pode ser forçada. Uma data em 1970 ou daqui a milénios indica quase sempre unidade errada, não dado errado.",
+    "3. Passo a passo",
+    "Copie o relógio ao vivo como valor de teste. Cole o timestamp e deixe o automático, salvo se souber a unidade; leia juntas as linhas UTC e local, duas leituras do mesmo instante, e copie o ISO 8601 para um texto sem ambiguidade. No sentido inverso, escolha data e hora e decida você: como hora local ou como UTC.",
+    "4. UTC e local: um instante, duas leituras",
+    "O timestamp não tem fuso; o fuso nasce na exibição. O mesmo número pode ser hoje em UTC e já amanhã em Tóquio. O hábito saudável é guardar em UTC e mostrar em local, calculando longe das mudanças de hora. Uma hora local sem deslocamento vira o famoso 01:30 que acontece duas vezes no outono.",
+    "5. Valores que vale reconhecer",
+    "0 é a própria epoch e, em dados reais, costuma significar campo nunca preenchido. 1000000000 é o famoso segundo billennium de 2001. 1735689600 abre 2025 em UTC e serve de fixture limpa. 2147483647 é o limite de 32 bits em janeiro de 2038. Os negativos são antes de 1970 e são válidos. Cole-os um a um e veja a suposição e as linhas mudarem.",
+    "6. Limites honestos",
+    "O relógio e o “há x” seguem o relógio do seu dispositivo: errado lá, errado aqui. O relativo só aparece dentro de cerca de dez anos. Segundos bissextos não existem na contagem Unix; cada dia tem exatamente 86.400 segundos por definição. E um timestamp não é segredo nem prova: é só o nome de um instante.",
+    "7. Respostas rápidas",
+    "Grátis? Sim, sem conta. Envia algo? Não, tudo fica neste separador. Dez ou treze dígitos? Dez segundos, treze milissegundos, e o aviso confirma. Que unidade guardar? Segundos para servidores e tokens, milissegundos para JavaScript — e a unidade escrita no nome do campo, para ninguém ter de adivinhar."
+  ],
+  "date": "October 2026",
+  "id": "conversor-timestamp-unix-guia",
+  "keywords": [
+    "conversor timestamp unix",
+    "conversor epoch",
+    "segundos milissegundos",
+    "utc hora local"
+  ],
+  "language": "pt",
+  "readTime": "8 min read",
+  "slug": "conversor-timestamp-unix-guia",
+  "summary": "Como este conversor gratuito lê valores epoch, mostra sempre a unidade assumida, coloca UTC e hora local lado a lado e converte datas de volta com honestidade.",
+  "title": "Conversor Timestamp Unix: segundos, milissegundos, UTC e hora local sem adivinhar"
+}
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. ログの中の静かなカウンタ",
+    "APIレスポンスやデータベース行の裏には同じ数がいます。1970年1月1日00:00:00 UTCからの秒数です。この変換はライブ時計を表示し、貼った値をUTCとあなたのローカル時刻で並べて変換し、秒として読んだかミリ秒として読んだかを常に明示し、日付を両単位に戻します。アップロードはありません。",
+    "2. 秒かミリ秒か：誰もが一度やるバグ",
+    "JavaScriptのDate.now()はミリ秒、多くのサーバーやトークンは秒で話します。現在の時代では10桁が秒、13桁がミリ秒。ここでは1,000,000,000,000以上をミリ秒として読み、前提を表示し、手動で上書きもできます。変換結果が1970年や数万年先になる場合、ほぼ間違いなくデータではなく単位が間違っています。",
+    "3. 使い方ステップ",
+    "ライブ時計をテスト値としてコピーできます。タイムスタンプを貼り、単位が確実でなければ自動判定のままにし、UTC行とローカル行を同じ瞬間の二つの読みとして一緒に読み、曖昧さのない文字列が必要ならISO 8601をコピーしてください。逆方向では日付と時刻を選び、ローカル時刻としてかUTCとしてかを自分で決めてください。",
+    "4. UTCとローカル：一つの瞬間、二つの読み",
+    "タイムスタンプにタイムゾーンはありません。ゾーンは表示の瞬間に生まれます。同じ数がUTCでは今日でも東京では明日になり得ます。健全な習慣は、保存はUTC、表示はローカル、計算は時計が飛ぶ場所から遠くで。一方、オフセットなしのローカル時刻は、秋に時計が戻る際の二度ある01:30になります。",
+    "5. 覚えておきたい値",
+    "0はエポックそのもので、実データでは未設定フィールドを意味することが多い値です。1000000000は2001年の有名な billennium 秒。1735689600はUTCで2025年を開く綺麗なフィクスチャ。2147483647は2038年1月の32ビット上限。負の値は1970年より前で有効です。順に貼って、前提と二行の変化を見てください。",
+    "6. 正直な限界",
+    "ライブ時計と相対表示はあなたの端末時計に従います。端末がずれればここもずれます。相対表現は約10年以内だけ表示。Unixの数え方にうるう秒はなく、毎日は定義上ちょうど86,400秒です。そしてタイムスタンプは秘密でも証拠でもなく、一瞬の名前でしかありません。",
+    "7. クイック回答",
+    "無料ですか？はい、アカウント不要です。アップロードしますか？いいえ、すべてこのタブ内です。10桁と13桁？10桁が秒、13桁がミリ秒で、バナーが確認します。保存する単位は？サーバーやトークンには秒、JavaScriptにはミリ秒を。そして単位をフィールド名に書いて、次に読む人が当てなくて済むようにしてください。"
+  ],
+  "date": "October 2026",
+  "id": "unix-timestamp-converter-guide-ja",
+  "keywords": [
+    "unixタイムスタンプ変換",
+    "エポック変換",
+    "秒 ミリ秒",
+    "utc ローカル時刻"
+  ],
+  "language": "ja",
+  "readTime": "8 min read",
+  "slug": "unix-timestamp-converter-guide-ja",
+  "summary": "この無料変換がエポック値をどう読み、想定単位を常に見せ、UTCとローカル時刻を並べ、日付を正直に戻すかを解説します。",
+  "title": "Unixタイムスタンプ変換ガイド：秒・ミリ秒・UTCとローカルを当てずに読む"
+}
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. Il contatore discreto dei tuoi log",
+    "Dietro ogni risposta API c’è lo stesso numero: i secondi dal 1° gennaio 1970, 00:00:00 UTC. Questo convertitore mostra l’orologio live, traduce ogni valore incollato in UTC e nella tua ora locale affiancate, dichiara sempre se l’ha letto in secondi o millisecondi e trasforma ogni data in entrambe le unità, senza caricare nulla.",
+    "2. Secondi o millisecondi: l’errore classico",
+    "Date.now() in JavaScript parla in millisecondi; la maggior parte di server e token in secondi. Dieci cifre sono secondi nella nostra epoca, tredici millisecondi. Qui da 1.000.000.000.000 in su la lettura è in millisecondi, il presupposto è scritto e forzabile. Una data nel 1970 o tra millenni indica quasi sempre l’unità sbagliata, non il dato sbagliato.",
+    "3. Passo passo",
+    "Copia l’orologio live come valore di prova. Incolla il timestamp lasciando l’automatico, salvo unità certa; leggi insieme le righe UTC e locale, due letture dello stesso istante, e copia l’ISO 8601 per un testo senza ambiguità. Al contrario, scegli data e ora e decidi tu: come ora locale o come UTC.",
+    "4. UTC e locale: un istante, due letture",
+    "Il timestamp non ha fuso; il fuso nasce alla visualizzazione. Lo stesso numero può essere oggi in UTC e già domani a Tokyo. L’abitudine sana è salvare in UTC e mostrare in locale, calcolando lontano dai cambi d’ora. Un’ora locale senza scostamento diventa il famoso 01:30 che in autunno capita due volte.",
+    "5. Valori da riconoscere",
+    "0 è l’epoch stessa e nei dati reali indica spesso un campo mai impostato. 1000000000 è il famoso secondo billennium del 2001. 1735689600 apre il 2025 in UTC e funge da fixture pulita. 2147483647 è il limite a 32 bit nel gennaio 2038. I negativi precedono il 1970 e sono validi. Incollali uno a uno e guarda presupposto e righe cambiare.",
+    "6. Limiti onesti",
+    "L’orologio e il “x fa” seguono l’orologio del tuo dispositivo: sbagliato lì, sbagliato qui. Il relativo appare solo entro una decina d’anni. I secondi intercalari non esistono nel conteggio Unix; ogni giorno vale esattamente 86.400 secondi per definizione. E un timestamp non è un segreto né una prova: è solo il nome di un istante.",
+    "7. Risposte rapide",
+    "Gratis? Sì, senza account. Carica qualcosa? No, tutto resta in questa scheda. Dieci o tredici cifre? Dieci secondi, tredici millisecondi, e l’avviso lo conferma. Quale unità salvare? Secondi per server e token, millisecondi per JavaScript — e l’unità scritta nel nome del campo, così nessuno deve più indovinare."
+  ],
+  "date": "October 2026",
+  "id": "convertitore-timestamp-unix-guida",
+  "keywords": [
+    "convertitore timestamp unix",
+    "convertitore epoch",
+    "secondi millisecondi",
+    "utc ora locale"
+  ],
+  "language": "it",
+  "readTime": "8 min read",
+  "slug": "convertitore-timestamp-unix-guida",
+  "summary": "Come questo convertitore gratuito legge i valori epoch, mostra sempre l’unità presunta, affianca UTC e ora locale e riconverte le date con onestà.",
+  "title": "Convertitore Timestamp Unix: secondi, millisecondi, UTC e ora locale senza indovinare"
+}
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. De stille teller in je logs",
+    "Achter elk API-antwoord zit hetzelfde getal: de seconden sinds 1 januari 1970, 00:00:00 UTC. Deze converter toont de live klok, vertaalt elke geplakte waarde naar UTC en je lokale tijd naast elkaar, zegt altijd of hij seconden of milliseconden heeft aangenomen en maakt van elke datum weer beide eenheden — zonder upload.",
+    "2. Seconden of milliseconden: de klassieke fout",
+    "Date.now() in JavaScript geeft milliseconden; de meeste servers en tokens spreken seconden. Tien cijfers zijn in onze tijd seconden, dertien milliseconden. Vanaf 1.000.000.000.000 leest deze tool milliseconden, toont de aanname openlijk en laat haar overschrijven. Valt een datum in 1970 of duizenden jaren verder, dan was bijna altijd de eenheid fout, niet de waarde.",
+    "3. Stap voor stap",
+    "Kopieer de live klok als testwaarde. Plak je timestamp en laat de automaat aan tenzij je de eenheid zeker weet; lees de UTC- en lokale regel als twee lezingen van hetzelfde moment en kopieer ISO 8601 voor een ondubbelzinnige tekst. Omgekeerd kies je datum en tijd en beslis je zelf: als lokale tijd of als UTC.",
+    "4. UTC tegenover lokaal: één moment, twee lezingen",
+    "De timestamp heeft geen zone; de zone ontstaat pas bij het tonen. Hetzelfde getal kan in UTC vandaag en in Tokio al morgen zijn. De gezonde gewoonte is opslaan in UTC en tonen in lokaal, rekenend ver van elke klokverschuiving. Een lokale tijd zonder offset wordt de beroemde dubbele 01:30 in de herfst.",
+    "5. Waarden om te herkennen",
+    "0 is de epoch zelf en betekent in echte data meestal een nooit gezet veld. 1000000000 is de beroemde billennium-seconde uit 2001. 1735689600 opent 2025 in UTC en dient als schone testwaarde. 2147483647 is de 32-bits grens in januari 2038. Negatieve waarden liggen vóór 1970 en zijn geldig. Plak ze één voor één en kijk hoe aanname en regels veranderen.",
+    "6. Eerlijke grenzen",
+    "De live klok en het “x geleden” volgen de klok van je apparaat; staat die fout, dan vergist ook deze pagina zich eerlijk mee. Relatieve tekst verschijnt alleen binnen ongeveer tien jaar. Schrikkelseconden kent de Unix-telling niet; elke dag telt per definitie exact 86.400 seconden. En een timestamp is geen geheim en geen bewijs, alleen de naam van een moment.",
+    "7. Snelle antwoorden",
+    "Gratis? Ja, zonder account. Upload? Nee, alles blijft in dit tabblad. Tien of dertien cijfers? Tien seconden, dertien milliseconden, en de melding bevestigt het. Welke eenheid opslaan? Seconden voor servers en tokens, milliseconden voor JavaScript — en schrijf de eenheid in de veldnaam, zodat niemand ooit nog hoeft te raden."
+  ],
+  "date": "October 2026",
+  "id": "unix-timestamp-converter-gids",
+  "keywords": [
+    "unix timestamp converter",
+    "epoch converter",
+    "seconden milliseconden",
+    "utc lokale tijd"
+  ],
+  "language": "nl",
+  "readTime": "8 min read",
+  "slug": "unix-timestamp-converter-gids",
+  "summary": "Hoe deze gratis converter epoch-waarden leest, de aangenomen eenheid altijd toont, UTC en lokale tijd naast elkaar zet en datums eerlijk terugrekent.",
+  "title": "Unix Timestamp Converter: seconden, milliseconden, UTC en lokale tijd zonder raden"
+}
+,
+{
+  "author": "HumanizeAI Editorial Team",
+  "category": "Developer Tools",
+  "content": [
+    "1. Den stille telleren i loggene dine",
+    "Bak hvert API-svar står samme tall: sekundene siden 1. januar 1970, 00:00:00 UTC. Denne omregneren viser live-klokken, oversetter enhver innlimt verdi til UTC og din lokale tid side om side, sier alltid om den antok sekunder eller millisekunder og gjør enhver dato om til begge enheter igjen — uten opplasting.",
+    "2. Sekunder eller millisekunder: den klassiske feilen",
+    "Date.now() i JavaScript gir millisekunder; de fleste servere og tokens snakker sekunder. Ti sifre er sekunder i vår tid, tretten er millisekunder. Fra 1 000 000 000 000 leser dette verktøyet millisekunder, viser antagelsen åpent og lar deg overstyre den. Havner en dato i 1970 eller tusenvis av år frem, var nesten alltid enheten feil, ikke verdien.",
+    "3. Steg for steg",
+    "Kopier live-klokken som testverdi. Lim inn tidsstempelet og la automatikken stå med mindre du kjenner enheten; les UTC- og lokallinjen som to lesninger av samme øyeblikk og kopier ISO 8601 for en entydig tekst. Motsatt vei velger du dato og klokkeslett og bestemmer selv: som lokal tid eller som UTC.",
+    "4. UTC mot lokal: ett øyeblikk, to lesninger",
+    "Tidsstempelet har ingen sone; sonen oppstår først ved visning. Samme tall kan derfor være i dag i UTC og allerede i morgen i Tokyo. Den sunne vanen er å lagre i UTC og vise lokalt, med regningen langt unna klokkehopp. En lokal tid uten forskyvning blir den berømte doble 01:30 om høsten.",
+    "5. Verdier verdt å kjenne igjen",
+    "0 er selve epoch-en og betyr i ekte data oftest et felt som aldri ble satt. 1000000000 er den berømte billennium-sekunden fra 2001. 1735689600 åpner 2025 i UTC og fungerer som ren testverdi. 2147483647 er 32-bit-grensen i januar 2038. Negative verdier er før 1970 og gyldige. Lim dem inn én etter én og se antagelse og linjer endre seg.",
+    "6. Ærlige grenser",
+    "Live-klokken og “for x siden” følger enhetsklokken din; er den feil, tar også denne siden ærlig feil med den. Relativ tekst vises bare innen omtrent ti år. Skuddsekunder finnes ikke i Unix-tellingen; hver dag har per definisjon nøyaktig 86 400 sekunder. Og et tidsstempel er verken hemmelighet eller bevis, bare navnet på et øyeblikk.",
+    "7. Raske svar",
+    "Gratis? Ja, uten konto. Opplasting? Nei, alt blir i denne fanen. Ti eller tretten sifre? Ti sekunder, tretten millisekunder, og meldingen bekrefter det. Hvilken enhet lagre? Sekunder for servere og tokens, millisekunder for JavaScript — og skriv enheten i feltnavnet, så ingen noen gang må gjette igjen."
+  ],
+  "date": "October 2026",
+  "id": "unix-timestamp-converter-guide-no",
+  "keywords": [
+    "unix tidsstempel omregner",
+    "epoch omregner",
+    "sekunder millisekunder",
+    "utc lokal tid"
+  ],
+  "language": "no",
+  "readTime": "8 min read",
+  "slug": "unix-timestamp-converter-guide-no",
+  "summary": "Hvordan denne gratis omregneren leser epoch-verdier, alltid viser antatt enhet, setter UTC og lokal tid side om side og regner datoer ærlig tilbake.",
+  "title": "Unix-tidsstempelomregner: sekunder, millisekunder, UTC og lokal tid uten gjetting"
+}
 ];
 
 export function findBlogPostBySlug(slug: string, lang?: string): BlogPost | undefined {

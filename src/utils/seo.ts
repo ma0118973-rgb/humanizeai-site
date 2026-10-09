@@ -300,6 +300,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "UUID Generator",
   },
+  timestampConverter: {
+    title: "Unix Timestamp Converter — Epoch to Date, UTC & Local, Free",
+    description: "Free Unix timestamp converter. Live epoch clock, auto-detect seconds vs milliseconds with the assumption shown, UTC and local time side by side, copyable ISO 8601, and date to timestamp in seconds and milliseconds. Fully local — nothing uploaded.",
+    canonicalPath: "/unix-timestamp-converter/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Unix Timestamp Converter",
+  },
   unitConverter: {
     title: "Unit Converter — Length, Weight, Temperature, Volume & More, Free",
     description: "Free unit converter. Convert length, weight, temperature, volume, area, speed, time, data, pressure and energy with real factors, shown formulas and presets. No currency, no sign-up, nothing uploaded.",
@@ -563,6 +571,9 @@ export function applyPageSeo(
   } else if (page === "uuidGenerator") {
     title = (t.seo as any).uuidGeneratorTitle || baseConfig.title;
     description = (t.seo as any).uuidGeneratorDesc || baseConfig.description;
+  } else if (page === "timestampConverter") {
+    title = (t.seo as any).timestampConverterTitle || baseConfig.title;
+    description = (t.seo as any).timestampConverterDesc || baseConfig.description;
   } else if (page === "unitConverter") {
     title = (t.seo as any).unitConverterTitle || baseConfig.title;
     description = (t.seo as any).unitConverterDesc || baseConfig.description;
@@ -872,6 +883,32 @@ function updateJsonLd(
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": faqEntities,
+    });
+  }
+
+  // Unix Timestamp Converter: FAQ + HowTo (unit assumption + UTC/local honesty)
+  if (page === "timestampConverter" && !blogPost) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", name: "Is this Unix timestamp converter free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. The live epoch clock, timestamp-to-date and date-to-timestamp conversions all run in your browser." } },
+        { "@type": "Question", name: "How does it know seconds from milliseconds?", acceptedAnswer: { "@type": "Answer", text: "In Auto mode, values of 1,000,000,000,000 or more are treated as milliseconds and smaller values as seconds — the rule most current-era timestamps follow. The assumed unit is always displayed, and you can override it with the Seconds / Milliseconds selector." } },
+        { "@type": "Question", name: "Why do UTC and my local time differ?", acceptedAnswer: { "@type": "Answer", text: "A Unix timestamp identifies one instant in UTC. Your local line renders that same instant in your device timezone, so the clock reading differs by your UTC offset (and daylight saving). Neither line is wrong; they are two readings of one instant." } },
+        { "@type": "Question", name: "What does the date picker assume?", acceptedAnswer: { "@type": "Answer", text: "A date-time picker value has no timezone, so you choose As my local time or As UTC. The outputs (seconds, milliseconds and ISO 8601) follow that choice; mixing the two up is the usual cause of results that are wrong by a few hours." } },
+        { "@type": "Question", name: "Is anything I paste uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. Every calculation happens in your browser tab with the JavaScript Date object. Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
+      ],
+    });
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to convert a Unix timestamp in 3 steps",
+      description: config.description,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste the timestamp", text: "Paste your epoch value. Keep Auto-detect on unless you know the unit; the page states whether it treated the value as seconds or milliseconds." },
+        { "@type": "HowToStep", position: 2, name: "Read UTC and local side by side", text: "Compare the UTC line with your local-time line and copy the ISO 8601 (UTC) value when you need an unambiguous string for logs, APIs or databases." },
+        { "@type": "HowToStep", position: 3, name: "Or go the other way", text: "Pick a date and time, choose As my local time or As UTC, and copy the resulting seconds or milliseconds." },
+      ],
     });
   }
 

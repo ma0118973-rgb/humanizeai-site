@@ -133,6 +133,9 @@ const UuidGeneratorWorkspace = lazy(() =>
 const UnitConverterWorkspace = lazy(() =>
   import("./components/UnitConverterWorkspace").then((m) => ({ default: m.UnitConverterWorkspace }))
 );
+const TimestampConverterWorkspace = lazy(() =>
+  import("./components/TimestampConverterWorkspace").then((m) => ({ default: m.TimestampConverterWorkspace }))
+);
 const ImageResizerWorkspace = lazy(() =>
   import("./components/ImageResizerWorkspace").then((m) => ({ default: m.ImageResizerWorkspace }))
 );
@@ -328,6 +331,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "uuid-generator" || primarySlug === "uuid-generator-online" || primarySlug === "generate-uuid" || primarySlug === "guid-generator" || primarySlug === "random-uuid-generator" || primarySlug === "bulk-uuid-generator" || primarySlug === "uuid") {
     return { page: "uuidGenerator", lang, blogSlug: null };
+  }
+  if (primarySlug === "unix-timestamp-converter" || primarySlug === "epoch-converter" || primarySlug === "timestamp-converter" || primarySlug === "unix-time-converter" || primarySlug === "epoch-time-converter") {
+    return { page: "timestampConverter", lang, blogSlug: null };
   }
   if (primarySlug === "unit-converter" || primarySlug === "unit-conversion" || primarySlug === "measurement-converter" || primarySlug === "convert-units" || primarySlug === "units-converter" || primarySlug === "unit-converter-online") {
     return { page: "unitConverter", lang, blogSlug: null };
@@ -602,6 +608,7 @@ export default function App() {
     activePage === "unitConverter" ||
     activePage === "onlineTeleprompter" ||
     activePage === "uuidGenerator" ||
+    activePage === "timestampConverter" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -1091,6 +1098,17 @@ export default function App() {
         {activePage === "uuidGenerator" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <UuidGeneratorWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "timestampConverter" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <TimestampConverterWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
