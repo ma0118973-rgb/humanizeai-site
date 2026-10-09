@@ -83,6 +83,7 @@ export type ActivePage =
   | "invoiceGenerator"
   | "imageResizer"
   | "imageConverter"
+  | "imageToText"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

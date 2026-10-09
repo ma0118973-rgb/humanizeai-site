@@ -106,6 +106,9 @@ const RandomNumberGeneratorWorkspace = lazy(() =>
 const ImageConverterWorkspace = lazy(() =>
   import("./components/ImageConverterWorkspace").then((m) => ({ default: m.ImageConverterWorkspace }))
 );
+const ImageToTextWorkspace = lazy(() =>
+  import("./components/ImageToTextWorkspace").then((m) => ({ default: m.ImageToTextWorkspace }))
+);
 const ImageResizerWorkspace = lazy(() =>
   import("./components/ImageResizerWorkspace").then((m) => ({ default: m.ImageResizerWorkspace }))
 );
@@ -277,6 +280,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "image-converter" || primarySlug === "jpg-to-png" || primarySlug === "png-to-jpg" || primarySlug === "png-to-webp" || primarySlug === "webp-to-jpg" || primarySlug === "webp-to-png" || primarySlug === "jpg-to-webp" || primarySlug === "convert-image" || primarySlug === "image-format-converter") {
     return { page: "imageConverter", lang, blogSlug: null };
+  }
+  if (primarySlug === "image-to-text" || primarySlug === "image-to-text-converter" || primarySlug === "ocr" || primarySlug === "extract-text-from-image" || primarySlug === "photo-to-text" || primarySlug === "image-ocr" || primarySlug === "text-from-image") {
+    return { page: "imageToText", lang, blogSlug: null };
   }
   if (primarySlug === "image-resizer" || primarySlug === "resize-image" || primarySlug === "image-cropper" || primarySlug === "crop-image" || primarySlug === "photo-resizer" || primarySlug === "image-resizer-cropper" || primarySlug === "resize-photo") {
     return { page: "imageResizer", lang, blogSlug: null };
@@ -539,6 +545,7 @@ export default function App() {
     activePage === "invoiceGenerator" ||
     activePage === "imageResizer" ||
     activePage === "imageConverter" ||
+    activePage === "imageToText" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -940,6 +947,17 @@ export default function App() {
         {activePage === "imageConverter" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <ImageConverterWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "imageToText" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <ImageToTextWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

@@ -236,6 +236,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Image Converter",
   },
+  imageToText: {
+    title: "Image to Text — Free OCR, Extract Text from JPG, PNG, WebP",
+    description: "Free image to text OCR. Extract editable text from JPG, PNG and WebP in your browser with Tesseract OCR. Your image never leaves your device; the language data downloads once from a CDN. No sign-up, no accuracy promises.",
+    canonicalPath: "/image-to-text/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Image to Text OCR",
+  },
   imageResizer: {
     title: "Image Resizer — Resize & Crop JPG, PNG, WebP to Exact Size",
     description: "Free image resizer and cropper. Resize by exact pixels or percentage, crop to a ratio, use social and A4 presets, and download JPG, PNG or WebP. Fully local — nothing is uploaded.",
@@ -467,6 +475,9 @@ export function applyPageSeo(
   } else if (page === "imageConverter") {
     title = (t.seo as any).imageConverterTitle || baseConfig.title;
     description = (t.seo as any).imageConverterDesc || baseConfig.description;
+  } else if (page === "imageToText") {
+    title = (t.seo as any).imageToTextTitle || baseConfig.title;
+    description = (t.seo as any).imageToTextDesc || baseConfig.description;
   } else if (page === "imageResizer") {
     title = (t.seo as any).imageResizerTitle || baseConfig.title;
     description = (t.seo as any).imageResizerDesc || baseConfig.description;

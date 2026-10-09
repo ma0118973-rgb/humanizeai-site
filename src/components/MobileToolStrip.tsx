@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Sparkles, Search, Video, TrendingUp, BookMarked, Maximize2,
-  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer, Binary, Instagram, Link2, Braces, AlignLeft, CalendarDays, Dices, Scaling,
+  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer, Binary, Instagram, Link2, Braces, AlignLeft, CalendarDays, Dices, Scaling, ScanText,
 } from "lucide-react";
 import { ActivePage } from "../types";
 
@@ -39,6 +39,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "invoiceGenerator", label: "Invoice", icon: FileText },
   { id: "imageResizer", label: "Resizer", icon: Scaling },
   { id: "imageConverter", label: "Converter", icon: Repeat },
+  { id: "imageToText", label: "Image to Text", icon: ScanText },
   { id: "instagramLineBreak", label: "IG Line Breaks", icon: Instagram },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },

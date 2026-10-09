@@ -86,6 +86,7 @@ const ROUTES = [
   ["invoiceGenerator", "/invoice-generator/"],
   ["imageResizer", "/image-resizer/"],
   ["imageConverter", "/image-converter/"],
+  ["imageToText", "/image-to-text/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -152,6 +153,7 @@ function pageMeta(page, lang, blogPost) {
     case "invoiceGenerator": return [seo.invoiceGeneratorTitle || fb.invoiceGeneratorTitle, seo.invoiceGeneratorDesc || fb.invoiceGeneratorDesc];
     case "imageResizer": return [seo.imageResizerTitle || fb.imageResizerTitle, seo.imageResizerDesc || fb.imageResizerDesc];
     case "imageConverter": return [seo.imageConverterTitle || fb.imageConverterTitle, seo.imageConverterDesc || fb.imageConverterDesc];
+    case "imageToText": return [seo.imageToTextTitle || fb.imageToTextTitle, seo.imageToTextDesc || fb.imageToTextDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -204,7 +206,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1381,6 +1383,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Can I convert many images at once?",
           acceptedAnswer: { "@type": "Answer", text: "Yes. Add a batch to the queue, choose one output format and quality, convert all, then download per file or use Download All, which saves each converted file one by one. Animated GIF or WebP converts as a still first frame, and camera EXIF metadata is not carried into the converted file." },
+        },
+      ],
+    });
+  }
+  if (page === "imageToText") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to extract text from an image in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Add one image and pick the language", text: "Drop one JPG, PNG or WebP image, click to browse, or paste it. Choose the language of the printed text in the picture — English, Spanish, German, French, Turkish, Portuguese, Italian, Dutch, Norwegian, Japanese or Urdu. On first use, the OCR engine and that language's data download from a CDN and are cached afterwards; your image itself never leaves your device." },
+        { "@type": "HowToStep", position: 2, name: "Extract the text", text: "Press Extract Text and watch the real progress: engine start, language download, then recognition. Clean printed text in good light reads far better than handwriting, which often fails; skewed, blurry or decorative-font images produce mistakes. No fixed accuracy percentage is promised." },
+        { "@type": "HowToStep", position: 3, name: "Proofread, copy or download", text: "Proofread the extracted text in the editable box — especially numbers, dates and names — then copy it or download it as a .txt file. Word and character counts update as you edit." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this image to text tool free? Is my image uploaded?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, free with no sign-up, and your image is never uploaded. Recognition runs in your browser tab with the open-source Tesseract OCR engine (WebAssembly). The engine and the language data you pick download from a CDN on first use and are cached by your browser afterwards, so the first run needs internet — but that download is data files, never your image." },
+        },
+        {
+          "@type": "Question",
+          name: "Which languages and image formats are supported?",
+          acceptedAnswer: { "@type": "Answer", text: "OCR languages with genuinely available Tesseract data: English, Spanish, German, French, Turkish, Portuguese, Italian, Dutch, Norwegian, Japanese and Urdu. One image at a time: JPG, PNG or WebP (and other images your browser can decode). PDFs are not images — export a page as JPG or PNG first. HEIC photos usually cannot be read in browsers; export them as JPG first." },
+        },
+        {
+          "@type": "Question",
+          name: "How accurate is the OCR? Does it read handwriting?",
+          acceptedAnswer: { "@type": "Answer", text: "No fixed accuracy percentage is promised, because results depend on the image. Clean printed text in good light reads far better than handwriting, which often fails. Skewed, blurry, low-resolution or decorative-font images produce mistakes, and Japanese and Urdu-script text are materially harder than clean Latin text. The result is editable so you can proofread and fix it." },
+        },
+        {
+          "@type": "Question",
+          name: "Why is Roman Urdu misread, and which language should I pick?",
+          acceptedAnswer: { "@type": "Answer", text: "Roman Urdu is Urdu written in Latin letters, so the engine's shape matcher treats it as English while its vocabulary is Urdu; no Tesseract pack is trained for it. Pick English, expect errors in names and local words, and proofread carefully. For Urdu in its own script, pick the Urdu (urd) pack." },
+        },
+        {
+          "@type": "Question",
+          name: "Does it work offline?",
+          acceptedAnswer: { "@type": "Answer", text: "Only after the first use. The engine and the chosen language data must download from a CDN once and are then cached by your browser; if you are offline on the very first use, the download fails and OCR cannot start. Your image is never part of any network request." },
         },
       ],
     });
