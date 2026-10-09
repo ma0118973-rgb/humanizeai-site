@@ -228,6 +228,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Invoice Generator",
   },
+  imageResizer: {
+    title: "Image Resizer — Resize & Crop JPG, PNG, WebP to Exact Size",
+    description: "Free image resizer and cropper. Resize by exact pixels or percentage, crop to a ratio, use social and A4 presets, and download JPG, PNG or WebP. Fully local — nothing is uploaded.",
+    canonicalPath: "/image-resizer/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Image Resizer & Cropper",
+  },
   onlineTimer: {
     title: "Online Timer & Stopwatch — Countdown, Laps & Big Digits",
     description: "Free online timer and stopwatch in one tool. Set a countdown with presets, run a stopwatch with laps and read big digits at a glance. Timestamp-based and fully local; keep the tab visible for the end signal.",
@@ -448,6 +456,9 @@ export function applyPageSeo(
   } else if (page === "invoiceGenerator") {
     title = (t.seo as any).invoiceGeneratorTitle || baseConfig.title;
     description = (t.seo as any).invoiceGeneratorDesc || baseConfig.description;
+  } else if (page === "imageResizer") {
+    title = (t.seo as any).imageResizerTitle || baseConfig.title;
+    description = (t.seo as any).imageResizerDesc || baseConfig.description;
   } else if (page === "onlineTimer") {
     title = (t.seo as any).onlineTimerTitle || baseConfig.title;
     description = (t.seo as any).onlineTimerDesc || baseConfig.description;

@@ -100,6 +100,100 @@ export async function compressImage(
   });
 }
 
+/** Decoded source image with EXIF orientation applied where the browser supports it. */
+export interface DecodedImage {
+  source: CanvasImageSource;
+  width: number;
+  height: number;
+  /** True when createImageBitmap honoured EXIF orientation ("from-image"). */
+  exifHonoured: boolean;
+  cleanup: () => void;
+}
+
+/**
+ * Decode an image file respecting EXIF orientation where supported.
+ * Prefers createImageBitmap(file, { imageOrientation: "from-image" }); falls back
+ * to a plain <img> decode (modern browsers auto-apply EXIF orientation to <img>,
+ * but we report exifHonoured=false so the UI can stay honest about the path taken).
+ */
+export async function decodeImage(file: File | Blob): Promise<DecodedImage> {
+  if (typeof createImageBitmap === "function") {
+    try {
+      const bmp = await createImageBitmap(file, { imageOrientation: "from-image" } as ImageBitmapOptions);
+      return {
+        source: bmp,
+        width: bmp.width,
+        height: bmp.height,
+        exifHonoured: true,
+        cleanup: () => { try { bmp.close(); } catch { /* already closed */ } },
+      };
+    } catch { /* fall through to <img> decode */ }
+  }
+  const objectUrl = URL.createObjectURL(file);
+  try {
+    const img = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const el = new Image();
+      el.onload = () => resolve(el);
+      el.onerror = () => reject(new Error("Failed to load image"));
+      el.src = objectUrl;
+    });
+    return {
+      source: img,
+      width: img.naturalWidth,
+      height: img.naturalHeight,
+      exifHonoured: false,
+      cleanup: () => URL.revokeObjectURL(objectUrl),
+    };
+  } catch (e) {
+    URL.revokeObjectURL(objectUrl);
+    throw e;
+  }
+}
+
+export interface CropRect { x: number; y: number; w: number; h: number; }
+export interface ProcessedImage { blob: Blob; dataUrl: string; width: number; height: number; size: number; format: string; }
+
+/**
+ * Render a (optionally cropped) region of a decoded image to outW×outH and encode it.
+ * Fully local Canvas work. PNG ignores quality; JPG gets a white matte for transparency.
+ */
+export async function renderResized(
+  decoded: DecodedImage,
+  crop: CropRect | null,
+  outW: number,
+  outH: number,
+  format: OutputFormat,
+  quality: number
+): Promise<ProcessedImage> {
+  const sx = crop ? crop.x : 0;
+  const sy = crop ? crop.y : 0;
+  const sw = crop ? crop.w : decoded.width;
+  const sh = crop ? crop.h : decoded.height;
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.max(1, Math.round(outW));
+  canvas.height = Math.max(1, Math.round(outH));
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Canvas not supported");
+  if (format === "jpeg") {
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = "high";
+  ctx.drawImage(decoded.source, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+  const blob = await new Promise<Blob | null>((resolve) =>
+    canvas.toBlob(resolve, `image/${format}`, format === "png" ? undefined : quality)
+  );
+  if (!blob) throw new Error("Encoding failed");
+  const dataUrl = await new Promise<string>((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result as string);
+    r.onerror = () => reject(new Error("Read failed"));
+    r.readAsDataURL(blob);
+  });
+  return { blob, dataUrl, width: canvas.width, height: canvas.height, size: blob.size, format: format.toUpperCase() };
+}
+
 export function downloadBlob(blob: Blob, filename: string): void {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");

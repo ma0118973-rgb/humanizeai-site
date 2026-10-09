@@ -84,6 +84,7 @@ const ROUTES = [
   ["randomNumber", "/random-number-generator/"],
   ["onlineTimer", "/online-timer/"],
   ["invoiceGenerator", "/invoice-generator/"],
+  ["imageResizer", "/image-resizer/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -148,6 +149,7 @@ function pageMeta(page, lang, blogPost) {
     case "randomNumber": return [seo.randomNumberTitle || fb.randomNumberTitle, seo.randomNumberDesc || fb.randomNumberDesc];
     case "onlineTimer": return [seo.onlineTimerTitle || fb.onlineTimerTitle, seo.onlineTimerDesc || fb.onlineTimerDesc];
     case "invoiceGenerator": return [seo.invoiceGeneratorTitle || fb.invoiceGeneratorTitle, seo.invoiceGeneratorDesc || fb.invoiceGeneratorDesc];
+    case "imageResizer": return [seo.imageResizerTitle || fb.imageResizerTitle, seo.imageResizerDesc || fb.imageResizerDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -200,7 +202,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1275,6 +1277,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Which currencies are supported and how are they formatted?",
           acceptedAnswer: { "@type": "Answer", text: "Sixteen currencies are listed, including USD, EUR, GBP, PKR, INR, AED, JPY and others. Amounts are formatted with the browser's Intl.NumberFormat for the chosen currency, so grouping, decimal separators and zero-decimal currencies follow that currency's conventions." },
+        },
+      ],
+    });
+  }
+  if (page === "imageResizer") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to resize and crop an image in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Add your image", text: "Drop a JPG, PNG or WebP image or click to browse. It is decoded locally in your browser — EXIF orientation is respected where the browser supports it — and its real dimensions and file size are shown. Nothing is uploaded." },
+        { "@type": "HowToStep", position: 2, name: "Set the size or crop", text: "Resize by exact pixels with the aspect-ratio lock, by percentage, or with a social/document preset (Instagram, YouTube thumbnail, X, profile, A4 pixels). Or open Crop, pick a ratio such as 1:1, 4:5 or 16:9, and drag the box over the part that matters, then size the crop." },
+        { "@type": "HowToStep", position: 3, name: "Choose format and download", text: "Pick JPG, PNG or WebP and set quality for JPG/WebP (PNG is always lossless). Compare Before/After dimensions and file size, then download. Shrinking discards detail; enlarging cannot add real detail." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this image resizer free? Is my image uploaded?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, free with no sign-up, and your image is never uploaded. Decoding, resizing, cropping and encoding all happen in your browser tab with the Canvas API; closing the tab leaves nothing behind." },
+        },
+        {
+          "@type": "Question",
+          name: "What is the difference between this Resizer and the Image Compressor?",
+          acceptedAnswer: { "@type": "Answer", text: "This Resizer changes pixel dimensions and crop — it makes an image 1080×1080 instead of 4000×3000, or cuts a square from a wide photo. The Image Compressor keeps the exact same dimensions and only re-encodes the file so it weighs less. Resize when the dimensions are wrong; compress when only the file is too heavy." },
+        },
+        {
+          "@type": "Question",
+          name: "Will resizing or enlarging lose quality?",
+          acceptedAnswer: { "@type": "Answer", text: "Shrinking blends neighbouring pixels together, so fine detail is discarded permanently — the way back is your original file. Enlarging invents in-between pixels by blending neighbours, so the result looks softer, never sharper: no resizer can add real detail the camera never captured. JPG and WebP additionally trade quality for file size at each re-encode, controlled by the quality slider; PNG stays exact but larger." },
+        },
+        {
+          "@type": "Question",
+          name: "Why did my phone photo appear sideways, and does this tool fix it?",
+          acceptedAnswer: { "@type": "Answer", text: "Phones often store the photo un-rotated and hide the upright instruction in EXIF metadata. This tool decodes with createImageBitmap and the from-image orientation flag where the browser supports it, so most phone photos land upright automatically. Where a browser takes the fallback path, the tool says so under the preview so you can rotate the photo in your photo app first." },
+        },
+        {
+          "@type": "Question",
+          name: "Which formats and sizes are supported?",
+          acceptedAnswer: { "@type": "Answer", text: "Input and output are JPG, PNG and WebP — the formats browsers can reliably decode and encode. Output is capped at 8000 pixels on a side, far above social, web and print-document needs. A HEIC photo from an iPhone must first be shared or exported as JPG, because browsers cannot decode HEIC." },
+        },
+        {
+          "@type": "Question",
+          name: "How do the social and A4 presets work? Are they guaranteed?",
+          acceptedAnswer: { "@type": "Answer", text: "Presets simply fill in widely used pixel sizes: Instagram post 1080×1080, story 1080×1920, YouTube thumbnail 1280×720, X post 1200×675, profile 800×800, and A4 expressed as pixels at 150 DPI (1240×1754) for screen documents and 300 DPI (2480×3508) for print. Platforms change their recommended sizes without notice, so treat presets as current best practice and trust the destination uploader's own preview." },
         },
       ],
     });

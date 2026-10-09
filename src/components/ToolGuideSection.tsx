@@ -31,6 +31,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   daysBetween: "days-between-dates-urdu-guide",
   randomNumber: "random-number-generator-urdu-guide",
   invoiceGenerator: "invoice-generator-urdu-guide",
+  imageResizer: "image-resizer-urdu-guide",
   onlineTimer: "online-timer-urdu-guide",
   instagramLineBreak: "instagram-line-break-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",

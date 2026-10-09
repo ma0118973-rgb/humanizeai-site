@@ -81,6 +81,7 @@ export type ActivePage =
   | "randomNumber"
   | "onlineTimer"
   | "invoiceGenerator"
+  | "imageResizer"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"
