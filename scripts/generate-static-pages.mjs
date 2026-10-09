@@ -100,6 +100,7 @@ const ROUTES = [
   ["regexTester", "/regex-tester/"],
   ["urlEncoder", "/url-encoder-decoder/"],
   ["utmLinkBuilder", "/utm-link-builder/"],
+  ["metaChecker", "/meta-title-description-checker/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -180,6 +181,7 @@ function pageMeta(page, lang, blogPost) {
     case "regexTester": return [seo.regexTesterTitle || fb.regexTesterTitle, seo.regexTesterDesc || fb.regexTesterDesc];
     case "urlEncoder": return [seo.urlEncoderTitle || fb.urlEncoderTitle, seo.urlEncoderDesc || fb.urlEncoderDesc];
     case "utmLinkBuilder": return [seo.utmLinkBuilderTitle || fb.utmLinkBuilderTitle, seo.utmLinkBuilderDesc || fb.utmLinkBuilderDesc];
+    case "metaChecker": return [seo.metaCheckerTitle || fb.metaCheckerTitle, seo.metaCheckerDesc || fb.metaCheckerDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -232,7 +234,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "metaChecker", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -368,6 +370,32 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
         { "@type": "HowToStep", position: 1, name: "Enter destination and core values", text: "Paste the full destination URL including https://, then enter source, medium and campaign in lowercase with one consistent spelling." },
         { "@type": "HowToStep", position: 2, name: "Add optional term and content", text: "Use utm_term for paid keywords and utm_content to tell apart versions in the same campaign, then check the live final-URL preview." },
         { "@type": "HowToStep", position: 3, name: "Copy, save a preset and click-test", text: "Copy the tagged link, save the naming as an on-device preset, and click the link once to confirm the parameters survive to the final page." },
+      ],
+    });
+  }
+  if (page === "metaChecker") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "Why show pixels as well as characters?", acceptedAnswer: { "@type": "Answer", text: "Letters have different widths (WWW is wider than iii), so the same character count can take up different space. Google truncates closer to display width than to a fixed character number. The pixel figure here is an approximation from canvas measurement and is labelled approximate." } },
+        { "@type": "Question", name: "What length is good, and does it help ranking?", acceptedAnswer: { "@type": "Answer", text: "Only display guidance can be given: about 30–60 characters for a title and 120–160 for a description on desktop, less on mobile. Fitting a band makes truncation less likely; it does not improve ranking, and Google sets no fixed limit." } },
+        { "@type": "Question", name: "Will Google show exactly what I typed?", acceptedAnswer: { "@type": "Answer", text: "Often not. Google frequently rewrites titles and replaces descriptions with a snippet from page content, varying by query and device. No checker can guarantee display or ranking. Put important words first and treat any preview as a writing aid." } },
+        { "@type": "Question", name: "Should I add meta keywords?", acceptedAnswer: { "@type": "Answer", text: "No. Google does not use the meta keywords tag for ranking. This checker deliberately ignores it." } },
+        { "@type": "Question", name: "Is anything uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. Counting and pixel measurement run in your browser tab. Nothing is uploaded, stored or shared." } },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to check a meta title and description in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Enter title and description", text: "Type the exact title and meta description you plan to use, plus site name and URL for a realistic preview." },
+        { "@type": "HowToStep", position: 2, name: "Read characters, approximate pixels and bands", text: "Compare live character counts and approximate pixel widths with the desktop and mobile guidance bands. Wide letters cut sooner at the same count." },
+        { "@type": "HowToStep", position: 3, name: "Front-load, compare previews and copy", text: "Put important words first, compare desktop and mobile previews, adjust until both read completely, then copy each field into your page or CMS." },
       ],
     });
   }

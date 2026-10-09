@@ -53,6 +53,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "regexTester", label: "Regex Tester", icon: Regex },
   { id: "urlEncoder", label: "URL Encoder", icon: Link2 },
   { id: "utmLinkBuilder", label: "UTM Builder", icon: Megaphone },
+  { id: "metaChecker", label: "Meta Checker", icon: Type },
   { id: "instagramLineBreak", label: "IG Line Breaks", icon: Instagram },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },

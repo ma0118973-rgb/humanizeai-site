@@ -47,6 +47,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   regexTester: "regex-tester-urdu-guide",
   urlEncoder: "url-encoder-decoder-urdu-guide",
   utmLinkBuilder: "utm-link-builder-urdu-guide",
+  metaChecker: "meta-title-description-checker-urdu-guide",
   onlineTimer: "online-timer-urdu-guide",
   instagramLineBreak: "instagram-line-break-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",

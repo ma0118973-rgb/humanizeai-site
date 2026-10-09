@@ -148,6 +148,9 @@ const UrlEncoderWorkspace = lazy(() =>
 const UtmLinkBuilderWorkspace = lazy(() =>
   import("./components/UtmLinkBuilderWorkspace").then((m) => ({ default: m.UtmLinkBuilderWorkspace }))
 );
+const MetaCheckerWorkspace = lazy(() =>
+  import("./components/MetaCheckerWorkspace").then((m) => ({ default: m.MetaCheckerWorkspace }))
+);
 const ImageResizerWorkspace = lazy(() =>
   import("./components/ImageResizerWorkspace").then((m) => ({ default: m.ImageResizerWorkspace }))
 );
@@ -358,6 +361,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "utm-link-builder" || primarySlug === "utm-builder" || primarySlug === "utm-generator" || primarySlug === "campaign-url-builder" || primarySlug === "utm-link-generator" || primarySlug === "utm-url-builder") {
     return { page: "utmLinkBuilder", lang, blogSlug: null };
+  }
+  if (primarySlug === "meta-title-description-checker" || primarySlug === "meta-description-length-checker" || primarySlug === "meta-title-length-checker" || primarySlug === "meta-tag-checker" || primarySlug === "title-tag-checker" || primarySlug === "meta-checker" || primarySlug === "serp-preview" || primarySlug === "meta-title-description-length-checker") {
+    return { page: "metaChecker", lang, blogSlug: null };
   }
   if (primarySlug === "unit-converter" || primarySlug === "unit-conversion" || primarySlug === "measurement-converter" || primarySlug === "convert-units" || primarySlug === "units-converter" || primarySlug === "unit-converter-online") {
     return { page: "unitConverter", lang, blogSlug: null };
@@ -637,6 +643,7 @@ export default function App() {
     activePage === "regexTester" ||
     activePage === "urlEncoder" ||
     activePage === "utmLinkBuilder" ||
+    activePage === "metaChecker" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -1181,6 +1188,17 @@ export default function App() {
         {activePage === "utmLinkBuilder" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <UtmLinkBuilderWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "metaChecker" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <MetaCheckerWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

@@ -332,6 +332,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "UTM Link Builder",
   },
+  metaChecker: {
+    title: "Meta Title & Description Length Checker — Characters, Approx. Pixels & SERP Preview, Free",
+    description: "Free meta title and description length checker. Live character counts, canvas-measured approximate pixel width, and desktop + mobile SERP previews. Google often rewrites titles and descriptions, so length is display guidance only — never a ranking guarantee. Fully local — nothing uploaded.",
+    canonicalPath: "/meta-title-description-checker/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Meta Title & Description Length Checker",
+  },
   urlEncoder: {
     title: "URL Encoder Decoder — Full URL or Single Value, Free",
     description: "Free URL encoder and decoder. Encode a full URL with encodeURI or a single query value with encodeURIComponent, decode either way with plain-language errors for invalid percent-sequences. UTF-8 safe, fully local — nothing uploaded. Encoding is not encryption.",
@@ -618,6 +626,9 @@ export function applyPageSeo(
   } else if (page === "utmLinkBuilder") {
     title = (t.seo as any).utmLinkBuilderTitle || baseConfig.title;
     description = (t.seo as any).utmLinkBuilderDesc || baseConfig.description;
+  } else if (page === "metaChecker") {
+    title = (t.seo as any).metaCheckerTitle || baseConfig.title;
+    description = (t.seo as any).metaCheckerDesc || baseConfig.description;
   } else if (page === "unitConverter") {
     title = (t.seo as any).unitConverterTitle || baseConfig.title;
     description = (t.seo as any).unitConverterDesc || baseConfig.description;
@@ -1129,6 +1140,33 @@ function updateJsonLd(
         { "@type": "HowToStep", position: 1, name: "Enter the destination and core values", text: "Paste the full destination URL including https://, then enter utm_source, utm_medium and utm_campaign in lowercase with one consistent spelling." },
         { "@type": "HowToStep", position: 2, name: "Add optional term and content", text: "Use utm_term for paid search keywords and utm_content to tell apart versions in the same campaign, then check the live final-URL preview." },
         { "@type": "HowToStep", position: 3, name: "Copy, save a preset and click-test", text: "Copy the tagged link, save the naming as an on-device preset for next time, and click the link once to confirm the parameters survive to the final page." },
+      ],
+    });
+  }
+
+  // Meta Title & Description Length Checker: FAQ + HowTo (display guidance only, Google rewrites, no ranking guarantee)
+  if (page === "metaChecker" && !blogPost) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", name: "Is this meta title and description length checker free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Type a title and a description and see live character counts, an approximate pixel-width estimate and desktop and mobile SERP previews. Everything runs in your browser tab." } },
+        { "@type": "Question", name: "Why show pixels as well as characters?", acceptedAnswer: { "@type": "Answer", text: "Letters are not the same width: WWW is far wider than iii, so two texts with the same character count can take up very different space in a search result. Google truncates closer to display width than to a universal character number, which is why this checker measures both. The pixel figure is an approximation, measured here with canvas text measurement at common SERP sizes, and is labelled approximate." } },
+        { "@type": "Question", name: "What length is \"good\"?", acceptedAnswer: { "@type": "Answer", text: "Only display guidance can be given. Common editing ranges are about 30–60 characters for a title and about 120–160 characters for a description on desktop, with less room on mobile. Staying inside a band makes truncation less likely; it does not improve ranking, and Google sets no fixed character limit." } },
+        { "@type": "Question", name: "Will Google show exactly what I typed?", acceptedAnswer: { "@type": "Answer", text: "Often not. Google frequently rewrites titles and replaces descriptions with a snippet taken from page content, depending on the query and device. No checker can guarantee how a result will display or rank. Write a clear title and description, put the important words first, and treat any preview as a writing aid." } },
+        { "@type": "Question", name: "Should I add meta keywords?", acceptedAnswer: { "@type": "Answer", text: "No. The old meta keywords tag is not used by Google for ranking and this checker deliberately does not ask for it. Focus on an accurate title, a helpful description and page content that matches them." } },
+        { "@type": "Question", name: "Is anything I type uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. Counting and pixel measurement happen in your browser tab. Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
+      ],
+    });
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to check a meta title and description in 3 steps",
+      description: config.description,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Enter your title and description", text: "Type or paste the exact title and meta description you plan to use, plus your site name and URL for a realistic preview." },
+        { "@type": "HowToStep", position: 2, name: "Read characters, approximate pixels and guidance bands", text: "Check the live character counts and the approximate pixel widths against the desktop and mobile guidance bands. Wide letters truncate sooner at the same character count." },
+        { "@type": "HowToStep", position: 3, name: "Front-load, compare previews and copy", text: "Put the important words first so they survive on mobile, compare the desktop and mobile previews, adjust until both read completely, then copy each field into your page or CMS." },
       ],
     });
   }

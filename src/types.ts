@@ -97,6 +97,7 @@ export type ActivePage =
   | "regexTester"
   | "urlEncoder"
   | "utmLinkBuilder"
+  | "metaChecker"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"
