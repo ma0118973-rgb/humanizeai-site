@@ -124,6 +124,9 @@ const VoiceRecorderWorkspace = lazy(() =>
 const OnlineNotepadWorkspace = lazy(() =>
   import("./components/OnlineNotepadWorkspace").then((m) => ({ default: m.OnlineNotepadWorkspace }))
 );
+const OnlineTeleprompterWorkspace = lazy(() =>
+  import("./components/OnlineTeleprompterWorkspace").then((m) => ({ default: m.OnlineTeleprompterWorkspace }))
+);
 const UnitConverterWorkspace = lazy(() =>
   import("./components/UnitConverterWorkspace").then((m) => ({ default: m.UnitConverterWorkspace }))
 );
@@ -316,6 +319,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "online-voice-recorder" || primarySlug === "voice-recorder" || primarySlug === "audio-recorder" || primarySlug === "online-audio-recorder" || primarySlug === "voice-memo" || primarySlug === "record-audio-online" || primarySlug === "voice-recorder-online") {
     return { page: "voiceRecorder", lang, blogSlug: null };
+  }
+  if (primarySlug === "online-teleprompter" || primarySlug === "teleprompter-online" || primarySlug === "teleprompter" || primarySlug === "free-teleprompter" || primarySlug === "online-teleprompter-free") {
+    return { page: "onlineTeleprompter", lang, blogSlug: null };
   }
   if (primarySlug === "unit-converter" || primarySlug === "unit-conversion" || primarySlug === "measurement-converter" || primarySlug === "convert-units" || primarySlug === "units-converter" || primarySlug === "unit-converter-online") {
     return { page: "unitConverter", lang, blogSlug: null };
@@ -588,6 +594,7 @@ export default function App() {
     activePage === "voiceRecorder" ||
     activePage === "onlineNotepad" ||
     activePage === "unitConverter" ||
+    activePage === "onlineTeleprompter" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -1055,6 +1062,17 @@ export default function App() {
         {activePage === "onlineNotepad" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <OnlineNotepadWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "onlineTeleprompter" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <OnlineTeleprompterWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

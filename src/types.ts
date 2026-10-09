@@ -90,6 +90,7 @@ export type ActivePage =
   | "voiceRecorder"
   | "onlineNotepad"
   | "unitConverter"
+  | "onlineTeleprompter"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

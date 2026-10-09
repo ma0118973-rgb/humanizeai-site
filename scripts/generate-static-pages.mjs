@@ -93,6 +93,7 @@ const ROUTES = [
   ["voiceRecorder", "/online-voice-recorder/"],
   ["onlineNotepad", "/online-notepad/"],
   ["unitConverter", "/unit-converter/"],
+  ["onlineTeleprompter", "/online-teleprompter/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -166,6 +167,7 @@ function pageMeta(page, lang, blogPost) {
     case "voiceRecorder": return [seo.voiceRecorderTitle || fb.voiceRecorderTitle, seo.voiceRecorderDesc || fb.voiceRecorderDesc];
     case "onlineNotepad": return [seo.onlineNotepadTitle || fb.onlineNotepadTitle, seo.onlineNotepadDesc || fb.onlineNotepadDesc];
     case "unitConverter": return [seo.unitConverterTitle || fb.unitConverterTitle, seo.unitConverterDesc || fb.unitConverterDesc];
+    case "onlineTeleprompter": return [seo.onlineTeleprompterTitle || fb.onlineTeleprompterTitle, seo.onlineTeleprompterDesc || fb.onlineTeleprompterDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -218,7 +220,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1769,6 +1771,32 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           name: "Is anything I type uploaded or stored?",
           acceptedAnswer: { "@type": "Answer", text: "No. Every calculation happens in your browser tab. Nothing is uploaded, stored on a server or shared by this tool." },
         },
+      ],
+    });
+  }
+  if (page === "onlineTeleprompter") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to read from an online teleprompter in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste your script", text: "Type or paste your script and check the word count and estimated speaking time below the box." },
+        { "@type": "HowToStep", position: 2, name: "Set speed, size and countdown", text: "Choose a scroll speed slightly slower than comfortable, set a font you can read at your distance, and keep the 3-2-1 countdown on if you want a breath before starting. Turn on mirror mode only for teleprompter glass." },
+        { "@type": "HowToStep", position: 3, name: "Go fullscreen and read", text: "Enter fullscreen, press Play (or the Spacebar), and read. Space pauses, arrow keys adjust speed, and Back to top resets for the next take." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "Is this online teleprompter free? Does it record me?", acceptedAnswer: { "@type": "Answer", text: "Free with no sign-up. It only scrolls text: it does not record video or audio, use your camera, or save your script anywhere. Record with a camera app you already trust while this page scrolls." } },
+        { "@type": "Question", name: "What is mirror mode for?", acceptedAnswer: { "@type": "Answer", text: "Mirror mode flips the text for physical teleprompter glass, so it reads correctly in the reflection. On a normal screen the flipped text looks reversed, which is expected; turn it off for direct reading." } },
+        { "@type": "Question", name: "How does the speaking-time estimate work?", acceptedAnswer: { "@type": "Answer", text: "Your word count is divided by a calm speaking pace of 150 words per minute, the same convention as this site's reading-time tools. Your real pace will differ, so rehearse once and adjust the scroll speed." } },
+        { "@type": "Question", name: "Can I pause the scrolling without the mouse?", acceptedAnswer: { "@type": "Answer", text: "Yes. Press the Spacebar outside the script box to play or pause, the arrow keys to change speed, and use fullscreen for a distraction-free stage." } },
+        { "@type": "Question", name: "Is my script uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. Your script is processed only in this browser tab and is gone when you close it." } },
       ],
     });
   }
