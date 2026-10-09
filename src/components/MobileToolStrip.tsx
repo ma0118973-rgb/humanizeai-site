@@ -51,6 +51,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "timestampConverter", label: "Timestamp", icon: Clock3 },
   { id: "jsonToCsv", label: "JSON to CSV", icon: Table2 },
   { id: "regexTester", label: "Regex Tester", icon: Regex },
+  { id: "urlEncoder", label: "URL Encoder", icon: Link2 },
   { id: "instagramLineBreak", label: "IG Line Breaks", icon: Instagram },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },

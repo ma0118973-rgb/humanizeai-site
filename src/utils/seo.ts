@@ -324,6 +324,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Regex Tester",
   },
+  urlEncoder: {
+    title: "URL Encoder Decoder — Full URL or Single Value, Free",
+    description: "Free URL encoder and decoder. Encode a full URL with encodeURI or a single query value with encodeURIComponent, decode either way with plain-language errors for invalid percent-sequences. UTF-8 safe, fully local — nothing uploaded. Encoding is not encryption.",
+    canonicalPath: "/url-encoder-decoder/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "URL Encoder / Decoder",
+  },
   unitConverter: {
     title: "Unit Converter — Length, Weight, Temperature, Volume & More, Free",
     description: "Free unit converter. Convert length, weight, temperature, volume, area, speed, time, data, pressure and energy with real factors, shown formulas and presets. No currency, no sign-up, nothing uploaded.",
@@ -596,6 +604,9 @@ export function applyPageSeo(
   } else if (page === "regexTester") {
     title = (t.seo as any).regexTesterTitle || baseConfig.title;
     description = (t.seo as any).regexTesterDesc || baseConfig.description;
+  } else if (page === "urlEncoder") {
+    title = (t.seo as any).urlEncoderTitle || baseConfig.title;
+    description = (t.seo as any).urlEncoderDesc || baseConfig.description;
   } else if (page === "unitConverter") {
     title = (t.seo as any).unitConverterTitle || baseConfig.title;
     description = (t.seo as any).unitConverterDesc || baseConfig.description;
@@ -1080,6 +1091,32 @@ function updateJsonLd(
         { "@type": "HowToStep", position: 1, name: "Write the pattern and set flags", text: "Type your regular expression and toggle g, i, m, s, u and y as needed. Each flag carries a one-line plain-language explanation." },
         { "@type": "HowToStep", position: 2, name: "Paste test text and read the matches", text: "Paste text that resembles your real data, including a deliberate near-miss. Read the highlighted preview and the match list: position, matched text, numbered and named groups." },
         { "@type": "HowToStep", position: 3, name: "Preview the replacement", text: "Type a replacement using $1 for numbered groups or $<name> for named groups, check the preview, and copy the result. Without the g flag only the first match is replaced." },
+      ],
+    });
+  }
+
+  // URL Encoder / Decoder: FAQ + HowTo (two modes, honest "not encryption" note, fully local)
+  if (page === "urlEncoder" && !blogPost) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", name: "Is this URL encoder and decoder free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Encode or decode a full URL or a single query value, copy the result or swap it back — all in your browser." } },
+        { "@type": "Question", name: "What is the difference between Full URL and Single value mode?", acceptedAnswer: { "@type": "Answer", text: "Full URL mode (encodeURI/decodeURI) keeps the link structure characters : / ? & = # working and only fixes unsafe characters, so a complete link stays a link. Single value mode (encodeURIComponent/decodeURIComponent) encodes those characters too (%26, %3D, %3F), which is what one query value needs so its own & or = cannot split the link into stray parameters." } },
+        { "@type": "Question", name: "Why did decoding say the percent-encoding is invalid?", acceptedAnswer: { "@type": "Answer", text: "Somewhere in the text there is a broken percent sign: a trailing %, a short sequence like %2, a non-hex sequence like %ZZ, or encoded bytes that do not form valid UTF-8 text. The tool stops and explains instead of guessing a half-decoded result; fix or remove that sequence and the decoded text appears." } },
+        { "@type": "Question", name: "Is URL encoding a way to hide or protect data?", acceptedAnswer: { "@type": "Answer", text: "No. Percent-encoding is formatting for transport: anyone can decode %26 back into & instantly, with this tool. It is not encryption and gives no security, so never place a password, API key, token or secret in a URL expecting encoding to protect it." } },
+        { "@type": "Question", name: "Is anything I paste uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. Conversion runs in your browser tab with the built-in encodeURI/encodeURIComponent functions. Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
+      ],
+    });
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to encode or decode a URL in 3 steps",
+      description: config.description,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose Full URL or Single value", text: "Pick Full URL mode for a complete link whose : / ? & = structure must keep working, or Single value mode for one query value, where & = ? must be encoded as %26 %3D %3F." },
+        { "@type": "HowToStep", position: 2, name: "Paste and check the live result", text: "Paste your link or value and choose Encode or Decode; the result updates as you type and the exact browser function being used is shown. An invalid percent-sequence produces a plain-language error instead of a silent blank." },
+        { "@type": "HowToStep", position: 3, name: "Copy, or swap and reverse", text: "Copy the result into your link or code, or use Swap & reverse to feed it back and flip direction as a round-trip check. Encode any value exactly once — encoding an encoded value double-encodes it." },
       ],
     });
   }

@@ -98,6 +98,7 @@ const ROUTES = [
   ["timestampConverter", "/unix-timestamp-converter/"],
   ["jsonToCsv", "/json-to-csv-converter/"],
   ["regexTester", "/regex-tester/"],
+  ["urlEncoder", "/url-encoder-decoder/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -176,6 +177,7 @@ function pageMeta(page, lang, blogPost) {
     case "timestampConverter": return [seo.timestampConverterTitle || fb.timestampConverterTitle, seo.timestampConverterDesc || fb.timestampConverterDesc];
     case "jsonToCsv": return [seo.jsonToCsvTitle || fb.jsonToCsvTitle, seo.jsonToCsvDesc || fb.jsonToCsvDesc];
     case "regexTester": return [seo.regexTesterTitle || fb.regexTesterTitle, seo.regexTesterDesc || fb.regexTesterDesc];
+    case "urlEncoder": return [seo.urlEncoderTitle || fb.urlEncoderTitle, seo.urlEncoderDesc || fb.urlEncoderDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -228,7 +230,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -313,6 +315,31 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
         { "@type": "HowToStep", position: 1, name: "Write the pattern and set flags", text: "Type your regular expression and toggle g, i, m, s, u and y as needed. Each flag carries a one-line plain-language explanation." },
         { "@type": "HowToStep", position: 2, name: "Paste test text and read the matches", text: "Paste text that resembles your real data, including a deliberate near-miss. Read the highlighted preview and the match list: position, matched text, numbered and named groups." },
         { "@type": "HowToStep", position: 3, name: "Preview the replacement", text: "Type a replacement using $1 for numbered groups or $<name> for named groups, check the preview, and copy the result. Without the g flag only the first match is replaced." },
+      ],
+    });
+  }
+  if (page === "urlEncoder") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "What is the difference between Full URL and Single value mode?", acceptedAnswer: { "@type": "Answer", text: "Full URL mode (encodeURI/decodeURI) keeps : / ? & = # working as link structure and only fixes unsafe characters. Single value mode (encodeURIComponent/decodeURIComponent) encodes those characters too (%26, %3D, %3F), which is what one query value needs so its own & or = cannot split the link." } },
+        { "@type": "Question", name: "Why did decoding say the percent-encoding is invalid?", acceptedAnswer: { "@type": "Answer", text: "There is a broken percent sign in the text: a trailing %, a short %2, a non-hex %ZZ, or bytes that are not valid UTF-8. The tool explains the problem instead of guessing a half-decoded result." } },
+        { "@type": "Question", name: "Is URL encoding encryption or security?", acceptedAnswer: { "@type": "Answer", text: "No. Percent-encoding is transport formatting that anyone can reverse instantly. It hides nothing, so never put a password, API key or token in a URL expecting encoding to protect it." } },
+        { "@type": "Question", name: "Is anything uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. Conversion runs in your browser tab with the built-in encodeURI/encodeURIComponent functions. Nothing is uploaded, stored or shared." } },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to encode or decode a URL in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose Full URL or Single value", text: "Full URL for a complete link whose structure must keep working; Single value for one query value, where & = ? are encoded as %26 %3D %3F." },
+        { "@type": "HowToStep", position: 2, name: "Paste and check the live result", text: "Paste your link or value, choose Encode or Decode, and read the live result with the exact function name shown. Invalid percent-sequences get a plain-language error." },
+        { "@type": "HowToStep", position: 3, name: "Copy or swap and reverse", text: "Copy the result, or swap it back and flip direction as a round-trip check. Encode each value exactly once to avoid double-encoding." },
       ],
     });
   }

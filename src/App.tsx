@@ -142,6 +142,9 @@ const JsonToCsvConverterWorkspace = lazy(() =>
 const RegexTesterWorkspace = lazy(() =>
   import("./components/RegexTesterWorkspace").then((m) => ({ default: m.RegexTesterWorkspace }))
 );
+const UrlEncoderWorkspace = lazy(() =>
+  import("./components/UrlEncoderWorkspace").then((m) => ({ default: m.UrlEncoderWorkspace }))
+);
 const ImageResizerWorkspace = lazy(() =>
   import("./components/ImageResizerWorkspace").then((m) => ({ default: m.ImageResizerWorkspace }))
 );
@@ -346,6 +349,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "regex-tester" || primarySlug === "regex-test" || primarySlug === "regex-checker" || primarySlug === "regular-expression-tester" || primarySlug === "regex-matcher" || primarySlug === "regex-online" || primarySlug === "regex") {
     return { page: "regexTester", lang, blogSlug: null };
+  }
+  if (primarySlug === "url-encoder-decoder" || primarySlug === "url-encode" || primarySlug === "url-decode" || primarySlug === "url-encoder" || primarySlug === "url-decoder" || primarySlug === "encode-url" || primarySlug === "decode-url" || primarySlug === "url-encode-decode") {
+    return { page: "urlEncoder", lang, blogSlug: null };
   }
   if (primarySlug === "unit-converter" || primarySlug === "unit-conversion" || primarySlug === "measurement-converter" || primarySlug === "convert-units" || primarySlug === "units-converter" || primarySlug === "unit-converter-online") {
     return { page: "unitConverter", lang, blogSlug: null };
@@ -621,6 +627,7 @@ export default function App() {
     activePage === "onlineTeleprompter" ||
     activePage === "uuidGenerator" ||
     activePage === "timestampConverter" ||
+    activePage === "urlEncoder" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -1143,6 +1150,17 @@ export default function App() {
         {activePage === "regexTester" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <RegexTesterWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "urlEncoder" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <UrlEncoderWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

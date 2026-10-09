@@ -95,6 +95,7 @@ export type ActivePage =
   | "timestampConverter"
   | "jsonToCsv"
   | "regexTester"
+  | "urlEncoder"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"
