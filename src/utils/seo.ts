@@ -284,6 +284,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Online Voice Recorder",
   },
+  unitConverter: {
+    title: "Unit Converter — Length, Weight, Temperature, Volume & More, Free",
+    description: "Free unit converter. Convert length, weight, temperature, volume, area, speed, time, data, pressure and energy with real factors, shown formulas and presets. No currency, no sign-up, nothing uploaded.",
+    canonicalPath: "/unit-converter/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Unit Converter",
+  },
   imageResizer: {
     title: "Image Resizer — Resize & Crop JPG, PNG, WebP to Exact Size",
     description: "Free image resizer and cropper. Resize by exact pixels or percentage, crop to a ratio, use social and A4 presets, and download JPG, PNG or WebP. Fully local — nothing is uploaded.",
@@ -533,6 +541,9 @@ export function applyPageSeo(
   } else if (page === "voiceRecorder") {
     title = (t.seo as any).voiceRecorderTitle || baseConfig.title;
     description = (t.seo as any).voiceRecorderDesc || baseConfig.description;
+  } else if (page === "unitConverter") {
+    title = (t.seo as any).unitConverterTitle || baseConfig.title;
+    description = (t.seo as any).unitConverterDesc || baseConfig.description;
   } else if (page === "imageResizer") {
     title = (t.seo as any).imageResizerTitle || baseConfig.title;
     description = (t.seo as any).imageResizerDesc || baseConfig.description;
@@ -839,6 +850,52 @@ function updateJsonLd(
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": faqEntities,
+    });
+  }
+
+  // Unit Converter: FAQ + HowTo (honest, no currency, safety note)
+  if (page === "unitConverter" && !blogPost) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this unit converter free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is free with no sign-up. Ten categories — length, weight, temperature, volume, area, speed, time, data storage, pressure and energy — convert instantly in your browser." },
+        },
+        {
+          "@type": "Question",
+          "name": "Why is there no currency converter?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Exchange rates change every day, so a money conversion without live rates would be a guess dressed up as an answer. This tool deliberately excludes currency; use your bank or a live-rate service for money." },
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate are the conversions?",
+          "acceptedAnswer": { "@type": "Answer", "text": "They use established SI and NIST factors — 1 inch is exactly 2.54 cm and 1 pound is exactly 0.45359237 kg — and the formula is shown with every result. Results are rounded to sensible significant figures for everyday use." },
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use these results for medical, engineering or aviation work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. These are everyday conversions for school, cooking, travel and shopping. For medical dosing, engineering sign-off, aviation or anything safety-critical, verify professionally with the proper instruments." },
+        },
+        {
+          "@type": "Question",
+          "name": "Is anything I type uploaded or stored?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Every calculation happens in your browser tab. Nothing is uploaded, stored on a server or shared by this tool." },
+        },
+      ],
+    });
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to convert units in 3 steps",
+      description: config.description,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Pick a category", text: "Choose length, weight, temperature, volume, area, speed, time, data storage, pressure or energy." },
+        { "@type": "HowToStep", position: 2, name: "Enter a value and units", text: "Type your value, choose the From and To units (or search the unit lists), and read the instant result with its formula." },
+        { "@type": "HowToStep", position: 3, name: "Swap or copy", text: "Use the swap button to reverse the conversion, or copy the result. Popular school, cooking and travel presets are one tap away." },
+      ],
     });
   }
 

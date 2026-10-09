@@ -124,6 +124,9 @@ const VoiceRecorderWorkspace = lazy(() =>
 const OnlineNotepadWorkspace = lazy(() =>
   import("./components/OnlineNotepadWorkspace").then((m) => ({ default: m.OnlineNotepadWorkspace }))
 );
+const UnitConverterWorkspace = lazy(() =>
+  import("./components/UnitConverterWorkspace").then((m) => ({ default: m.UnitConverterWorkspace }))
+);
 const ImageResizerWorkspace = lazy(() =>
   import("./components/ImageResizerWorkspace").then((m) => ({ default: m.ImageResizerWorkspace }))
 );
@@ -313,6 +316,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "online-voice-recorder" || primarySlug === "voice-recorder" || primarySlug === "audio-recorder" || primarySlug === "online-audio-recorder" || primarySlug === "voice-memo" || primarySlug === "record-audio-online" || primarySlug === "voice-recorder-online") {
     return { page: "voiceRecorder", lang, blogSlug: null };
+  }
+  if (primarySlug === "unit-converter" || primarySlug === "unit-conversion" || primarySlug === "measurement-converter" || primarySlug === "convert-units" || primarySlug === "units-converter" || primarySlug === "unit-converter-online") {
+    return { page: "unitConverter", lang, blogSlug: null };
   }
   if (primarySlug === "image-resizer" || primarySlug === "resize-image" || primarySlug === "image-cropper" || primarySlug === "crop-image" || primarySlug === "photo-resizer" || primarySlug === "image-resizer-cropper" || primarySlug === "resize-photo") {
     return { page: "imageResizer", lang, blogSlug: null };
@@ -581,6 +587,7 @@ export default function App() {
     activePage === "morseCodeTranslator" ||
     activePage === "voiceRecorder" ||
     activePage === "onlineNotepad" ||
+    activePage === "unitConverter" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -1048,6 +1055,17 @@ export default function App() {
         {activePage === "onlineNotepad" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <OnlineNotepadWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "unitConverter" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <UnitConverterWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

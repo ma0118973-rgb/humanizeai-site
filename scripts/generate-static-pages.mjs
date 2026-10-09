@@ -92,6 +92,7 @@ const ROUTES = [
   ["morseCodeTranslator", "/morse-code-translator/"],
   ["voiceRecorder", "/online-voice-recorder/"],
   ["onlineNotepad", "/online-notepad/"],
+  ["unitConverter", "/unit-converter/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -164,6 +165,7 @@ function pageMeta(page, lang, blogPost) {
     case "morseCodeTranslator": return [seo.morseCodeTranslatorTitle || fb.morseCodeTranslatorTitle, seo.morseCodeTranslatorDesc || fb.morseCodeTranslatorDesc];
     case "voiceRecorder": return [seo.voiceRecorderTitle || fb.voiceRecorderTitle, seo.voiceRecorderDesc || fb.voiceRecorderDesc];
     case "onlineNotepad": return [seo.onlineNotepadTitle || fb.onlineNotepadTitle, seo.onlineNotepadDesc || fb.onlineNotepadDesc];
+    case "unitConverter": return [seo.unitConverterTitle || fb.unitConverterTitle, seo.unitConverterDesc || fb.unitConverterDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -216,7 +218,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1720,6 +1722,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Does this work for bios and comments too?",
           acceptedAnswer: { "@type": "Answer", text: "The same trick works anywhere Instagram collapses blank lines: captions, bios and comments. Story text and some Reels fields behave differently, so test there first." },
+        },
+      ],
+    });
+  }
+  if (page === "unitConverter") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to convert units in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Pick a category", text: "Choose length, weight, temperature, volume, area, speed, time, data storage, pressure or energy." },
+        { "@type": "HowToStep", position: 2, name: "Enter a value and units", text: "Type your value, choose the From and To units (or search the unit lists), and read the instant result with its formula." },
+        { "@type": "HowToStep", position: 3, name: "Swap or copy", text: "Use the swap button to reverse the conversion, or copy the result. Popular school, cooking and travel presets are one tap away." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this unit converter free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Ten categories — length, weight, temperature, volume, area, speed, time, data storage, pressure and energy — convert instantly in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Why is there no currency converter?",
+          acceptedAnswer: { "@type": "Answer", text: "Exchange rates change every day, so a money conversion without live rates would be a guess dressed up as an answer. This tool deliberately excludes currency; use your bank or a live-rate service for money." },
+        },
+        {
+          "@type": "Question",
+          name: "How accurate are the conversions?",
+          acceptedAnswer: { "@type": "Answer", text: "They use established SI and NIST factors — 1 inch is exactly 2.54 cm and 1 pound is exactly 0.45359237 kg — and the formula is shown with every result. Results are rounded to sensible significant figures for everyday use." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I use these results for medical, engineering or aviation work?",
+          acceptedAnswer: { "@type": "Answer", text: "No. These are everyday conversions for school, cooking, travel and shopping. For medical dosing, engineering sign-off, aviation or anything safety-critical, verify professionally with the proper instruments." },
+        },
+        {
+          "@type": "Question",
+          name: "Is anything I type uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Every calculation happens in your browser tab. Nothing is uploaded, stored on a server or shared by this tool." },
         },
       ],
     });

@@ -89,6 +89,7 @@ export type ActivePage =
   | "morseCodeTranslator"
   | "voiceRecorder"
   | "onlineNotepad"
+  | "unitConverter"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

@@ -45,6 +45,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "morseCodeTranslator", label: "Morse Code", icon: Radio },
   { id: "voiceRecorder", label: "Voice Recorder", icon: Disc3 },
   { id: "onlineNotepad", label: "Notepad", icon: FileText },
+  { id: "unitConverter", label: "Unit Converter", icon: Scaling },
   { id: "instagramLineBreak", label: "IG Line Breaks", icon: Instagram },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },
