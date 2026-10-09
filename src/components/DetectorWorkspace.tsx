@@ -76,7 +76,7 @@ export function DetectorWorkspace({
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 overflow-hidden">
       <MobileToolHero toolId="detector" selectedLanguage={selectedLanguage} />
-      {/* Enterprise-grade Header Banner */}
+      {/* Header Banner */}
       <div className="bg-gradient-to-r from-amber-100 via-yellow-50 to-amber-100 rounded-3xl p-4 sm:p-8 text-stone-900 shadow-xl border border-amber-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 relative overflow-hidden w-full max-w-full">
         <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-3xl space-y-2">
@@ -113,13 +113,13 @@ export function DetectorWorkspace({
         </button>
       </div>
 
-      {/* Model Trust Badges */}
+      {/* What the Scanner Checks */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { name: "Turnitin 3.0", metric: "Sentence Perplexity", status: "Active Scanner" },
-          { name: "GPTZero v4", metric: "Burstiness Deviation", status: "Calibrated" },
-          { name: "Copyleaks Engine", metric: "Markov Clustering", status: "Institutional" },
-          { name: "Originality.ai", metric: "Paraphrase Detection", status: "Deep Scan" },
+          { name: "Sentence Length", metric: "Variation estimate", status: "Pattern check" },
+          { name: "Vocabulary", metric: "Repeated phrases", status: "Pattern check" },
+          { name: "Cliché Density", metric: "Common AI-style phrases", status: "Pattern check" },
+          { name: "Sentence Heatmap", metric: "Sentence-by-sentence view", status: "Estimate only" },
         ].map((badge, idx) => (
           <div key={idx} className="bg-white rounded-2xl border border-stone-200 p-3.5 shadow-2xs text-center space-y-0.5">
             <div className="text-[11px] font-bold text-stone-500 uppercase tracking-wider">{badge.name}</div>
@@ -203,7 +203,7 @@ export function DetectorWorkspace({
                 <Search className="w-6 h-6" />
               </div>
               <div className="space-y-1 max-w-sm">
-                <h3 className="font-semibold text-stone-800 text-sm">Deep AI Verification</h3>
+                <h3 className="font-semibold text-stone-800 text-sm">Text Pattern Estimate</h3>
                 <p className="text-xs text-stone-500">
                   Hit "Run Scan" to analyze your document. Our algorithm evaluates sentence length burstiness, vocabulary perplexity, and AI cliché density using heuristic pattern analysis.
                 </p>
@@ -217,7 +217,7 @@ export function DetectorWorkspace({
                 <Search className="w-6 h-6" />
               </div>
               <p className="text-sm font-semibold text-stone-800">
-                Evaluating Perplexity, Burstiness & Model Fingerprints...
+                Evaluating sentence length, repeated phrases and writing patterns...
               </p>
             </div>
           )}
@@ -242,7 +242,7 @@ export function DetectorWorkspace({
                       <AlertTriangle className="w-5 h-5 text-rose-600" />
                     )}
                     <span className="text-xs font-bold uppercase tracking-wider text-stone-600">
-                      Detection Verdict
+                      Pattern Estimate
                     </span>
                   </div>
                   <div className="flex items-center gap-2 justify-center sm:justify-start">
@@ -259,7 +259,7 @@ export function DetectorWorkspace({
                     </span>
                   </div>
                   <p className="text-xs text-stone-600 font-medium">
-                    Human Touch: <strong className="text-emerald-800 font-bold">{result.overallHumanProbability}%</strong> • AI Likelihood:{" "}
+                    Natural-pattern estimate: <strong className="text-emerald-800 font-bold">{result.overallHumanProbability}%</strong> • AI-like estimate:{" "}
                     <strong className={result.overallAiProbability <= 5 ? "text-emerald-800" : "text-rose-700"}>
                       {result.overallAiProbability}%
                     </strong>
@@ -281,7 +281,7 @@ export function DetectorWorkspace({
                     />
                   </div>
                   <span className="text-[11px] font-bold text-stone-700 mt-1.5 block">
-                    {result.overallAiProbability}% AI Score
+                    {result.overallAiProbability}% AI-like pattern estimate
                   </span>
                 </div>
               </div>
@@ -318,10 +318,10 @@ export function DetectorWorkspace({
                   </span>
                   <div className="flex items-center gap-3 text-[11px]">
                     <span className="flex items-center gap-1">
-                      <span className="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block" /> Flagged AI
+                      <span className="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block" /> AI-like pattern
                     </span>
                     <span className="flex items-center gap-1">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block" /> Natural Human
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block" /> Natural pattern
                     </span>
                   </div>
                 </div>
@@ -342,10 +342,10 @@ export function DetectorWorkspace({
                         }`}
                         title={
                           isAi
-                            ? "Likely AI generated sentence"
+                            ? "More AI-like pattern signals"
                             : isMixed
                             ? "Mixed signals sentence"
-                            : "Authentic human sentence"
+                            : "More natural-pattern signals"
                         }
                       >
                         {item.sentence}{" "}
@@ -374,19 +374,19 @@ export function DetectorWorkspace({
         </div>
       </div>
 
-      {/* Crawlable GEO & AI Search Explanatory Guide: How Institutional AI Detection Works */}
+      {/* How the Scanner Works */}
       <section className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="space-y-2 border-b border-stone-100 pb-4">
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-100 text-cyan-800">
-              Technical Documentation & Architecture
+              How It Works
             </span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-stone-900">
-            How the Multi-Model AI Detection & Heatmap Engine Works
+            How ToolVena's Text Pattern Scanner Works
           </h2>
           <p className="text-xs sm:text-sm text-stone-600 max-w-3xl leading-relaxed">
-            Our Enterprise AI Detector 4.0 does not merely count word frequencies. It models the probabilistic token predictions of LLMs (including GPT-4o, Claude 3.5 Sonnet, Gemini 2.0 Flash, and DeepSeek V3) to benchmark your text against institutional standards like Turnitin 3.0, GPTZero, Copyleaks, and Originality.ai.
+            ToolVena's scanner uses its own browser-based heuristics. It looks at sentence-length variation, repeated phrases and common AI-style wording, then highlights sentences with stronger AI-like or natural patterns. It does not run or reproduce Turnitin, GPTZero, Copyleaks or Originality.ai, and its estimate can be wrong.
           </p>
         </div>
 
@@ -395,9 +395,9 @@ export function DetectorWorkspace({
             <div className="w-8 h-8 rounded-xl bg-cyan-500/10 text-cyan-700 flex items-center justify-center font-bold text-sm">
               1
             </div>
-            <h3 className="font-bold text-stone-900 text-sm">Perplexity Scoring</h3>
+            <h3 className="font-bold text-stone-900 text-sm">Word Choice Patterns</h3>
             <p className="text-xs text-stone-600 leading-relaxed">
-              Perplexity measures how "surprising" or unpredictable words are in sequence. AI models typically select the most probable mathematical tokens, resulting in low perplexity. Human writers naturally incorporate idiomatic nuances, uncommon adjectives, and surprising word combinations.
+              Repeated or highly predictable word choices can make writing feel formulaic. The scanner treats these as one style signal, not proof of how a text was written.
             </p>
           </div>
 
@@ -405,9 +405,9 @@ export function DetectorWorkspace({
             <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center font-bold text-sm">
               2
             </div>
-            <h3 className="font-bold text-stone-900 text-sm">Burstiness Distribution</h3>
+            <h3 className="font-bold text-stone-900 text-sm">Sentence-Length Variation</h3>
             <p className="text-xs text-stone-600 leading-relaxed">
-              Burstiness evaluates the variation in sentence length and structural complexity. LLMs produce uniform, rhythmically monotone sentences (averaging 18-24 words). Human thought flows with high burstiness: punchy short clauses followed by elaborate compound explanations.
+              Very even sentence lengths can feel mechanical, while varied lengths often read more naturally. The scanner compares sentence lengths across the text; this is a style signal, not proof of authorship.
             </p>
           </div>
 
@@ -415,9 +415,9 @@ export function DetectorWorkspace({
             <div className="w-8 h-8 rounded-xl bg-purple-500/10 text-purple-700 flex items-center justify-center font-bold text-sm">
               3
             </div>
-            <h3 className="font-bold text-stone-900 text-sm">Sentence Risk Heatmap</h3>
+            <h3 className="font-bold text-stone-900 text-sm">Sentence Pattern Heatmap</h3>
             <p className="text-xs text-stone-600 leading-relaxed">
-              Every sentence receives an individual risk rating. Red highlighted text identifies rigid synthetic formulas or predictable transition phrases (e.g., "In conclusion", "It is crucial to note"). Green highlights confirm natural human rhythm and authentic tone variation.
+              Each sentence is coloured by the strength of the pattern signals found in it. Use the highlights to decide what to revise, then read the text yourself before relying on the estimate.
             </p>
           </div>
         </div>
@@ -428,7 +428,7 @@ export function DetectorWorkspace({
               Scanned An AI Flagged Essay or Article?
             </h4>
             <p className="text-xs text-stone-500">
-              Send flagged text to the Clever Humanizer engine to rewrite robotic passages into more natural prose.
+              Send highlighted text to the ToolVena AI Humanizer to revise passages that feel robotic.
             </p>
           </div>
           <button

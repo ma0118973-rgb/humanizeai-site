@@ -116,11 +116,11 @@ const ROUTES = [
 
 // English fallback meta for compliance pages (matches SEO_CONFIGS in seo.ts)
 const COMPLIANCE_META = {
-  privacy: ["Privacy Policy – Clever Humanizer", "Learn how Clever Humanizer protects user privacy with zero log storage and secure client-side document processing standards."],
-  terms: ["Terms of Service – Clever Humanizer", "Read the Terms of Service for using Clever Humanizer free web tools, content guidelines, and ethical usage standards."],
-  disclaimer: ["Disclaimer & Academic Integrity Policy – Clever Humanizer", "Our commitment to ethical AI use, research assistance, and academic integrity policies for educational environments."],
-  about: ["About Us – Clever Humanizer Project", "Our mission to provide free, privacy-first AI text humanization and content checking tools worldwide."],
-  contact: ["Contact & Support – Clever Humanizer", "Get in touch with the Clever Humanizer engineering and support team for feedback, enterprise inquiries, and support."],
+  privacy: ["Privacy Policy – ToolVena", "Learn how ToolVena handles the information used by its browser tools, optional AI features, analytics and ads."],
+  terms: ["Terms of Service – ToolVena", "Read the Terms of Service for using ToolVena's free web tools, content guidelines, and ethical usage standards."],
+  disclaimer: ["Disclaimer & Academic Integrity Policy – ToolVena", "ToolVena's limits for AI writing estimates, research assistance, and academic integrity in educational environments."],
+  about: ["About Us – ToolVena", "ToolVena provides free online tools for writing, text, images, PDFs and everyday tasks in 11 languages."],
+  contact: ["Contact & Support – ToolVena", "Send ToolVena feedback, support questions and guide requests."],
 };
 
 function esc(s) {
@@ -1998,14 +1998,14 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
       headline: post.title,
       description: post.summary || description,
       articleBody: (post.content || []).join("\n\n").slice(0, 15000),
-      author: { "@type": "Person", name: post.author || "HumanizeAI" },
-      datePublished: "2026-10-08",
+      author: { "@type": "Organization", name: post.author || "ToolVena Editorial Team" },
+      datePublished: post.date || undefined,
       inLanguage: post.language || "en",
       mainEntityOfPage: canonicalUrl,
     });
   }
   // id matches the runtime injector in src/utils/seo.ts so it replaces (not duplicates) this block
-  return `<script id="clever-schema-jsonld" type="application/ld+json">\n${JSON.stringify(data, null, 2)}\n    </script>`;
+  return `<script id="toolvena-schema-jsonld" type="application/ld+json">\n${JSON.stringify(data, null, 2)}\n    </script>`;
 }
 
 // ---- main ----
@@ -2019,7 +2019,7 @@ const template = fs.readFileSync(indexPath, "utf8");
 const canonMatch = template.match(/<link rel="canonical" href="([^"]+)" \/>/);
 const origin = canonMatch
   ? canonMatch[1].replace(/\/en\/ai-humanizer\/$/, "").replace(/\/$/, "")
-  : "https://humanize-a.netlify.app";
+  : "https://www.toolvena.com";
 console.log(`[static-seo] origin: ${origin}`);
 
 let count = 0;
@@ -2073,6 +2073,17 @@ function emitFile(lang, routePath, title, description, page, post = null) {
     `<meta property="og:url" content="${canonicalUrl}" />`
   );
   html = html.replace(
+    /<meta property="og:site_name" content="[^"]*" \/>/,
+    `<meta property="og:site_name" content="ToolVena" />`
+  );
+  if (!html.includes('property="og:site_name"')) {
+    html = html.replace(
+      /(<meta property="og:url" content="[^"]*" \/>)/,
+      `$1
+    <meta property="og:site_name" content="ToolVena" />`
+    );
+  }
+  html = html.replace(
     /<meta name="twitter:title" content="[^"]*" \/>/,
     `<meta name="twitter:title" content="${esc(title)}" />`
   );
@@ -2091,7 +2102,7 @@ function emitFile(lang, routePath, title, description, page, post = null) {
   const h2Text = esc(description);
   html = html.replace(
     /<div id="root">/,
-    `<div id="root"><h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">${h1Text}</h1><h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">${h2Text}</h2>`
+    `<div id="root"><h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">${h1Text}</h1>`
   );
 
   const outDir = path.join(dist, lang, routePath.replace(/^\/|\/$/g, ""));
@@ -2125,7 +2136,7 @@ const today = new Date().toISOString().slice(0, 10);
 let sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
 for (const u of emittedUrls) {
   const priority = u.page === "humanizer" ? "1.0" : u.page === "blog" ? "0.6" : "0.8";
-  sm += `  <url>\n    <loc>${u.url}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n`;
+  sm += `  <url>\n    <loc>${u.url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n`;
   if (u.page !== "blog") {
     for (const l of LANGUAGES) {
       sm += `    <xhtml:link rel="alternate" hreflang="${l}" href="${origin}/${l}${u.routePath}" />\n`;

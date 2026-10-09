@@ -80,7 +80,7 @@ export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerW
             </span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mt-1">
-            {s.mainTitle || "Viral SEO Engine, Meta Tags & Trending Hashtags"}
+            {s.mainTitle || "SEO Meta & Hashtag Generator"}
           </h2>
           <p className="text-sm text-stone-600 max-w-2xl mt-1">
             {s.desc || "Generate meta titles, descriptions, keyword ideas, and social hashtags as a starting point for your content. Always research and verify keywords with professional SEO tools before publishing."}
@@ -149,7 +149,7 @@ export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerW
               onChange={(e) => setRegion(e.target.value)}
               className="w-full text-sm bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-stone-800 outline-none focus:border-emerald-500"
             >
-              <option value="United States & Global">United States & Global (High CPC Traffic)</option>
+              <option value="United States & Global">United States & Global</option>
               <option value="North America (USA & Canada)">North America (USA & Canada)</option>
               <option value="United Kingdom & Europe">United Kingdom & Europe</option>
               <option value="Worldwide / Multi-lingual">Worldwide / Multi-lingual</option>
@@ -164,7 +164,7 @@ export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerW
 
           {/* Quick presets */}
           <div className="pt-2">
-            <span className="text-xs text-stone-500 block mb-2 font-medium">{s.quickNiches || "Quick Trending Niches:"}</span>
+            <span className="text-xs text-stone-500 block mb-2 font-medium">{s.quickNiches || "Quick Topic Ideas:"}</span>
             <div className="flex flex-wrap gap-1.5">
               {[
                 "AI Humanizer",
@@ -200,7 +200,7 @@ export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerW
             <div className="h-full min-h-[340px] flex flex-col items-center justify-center text-center p-8 space-y-3">
               <Sparkles className="w-8 h-8 text-emerald-600 animate-spin" />
               <p className="text-sm font-semibold text-stone-800">
-                {s.formulating || "Formulating High-Volume Keywords & Search Engine Snippets..."}
+                {s.formulating || "Preparing keyword ideas and search snippets..."}
               </p>
             </div>
           )}
@@ -249,7 +249,7 @@ export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerW
               {/* Primary & Long Tail Keywords */}
               <div className="space-y-2">
                 <span className="text-xs font-semibold text-stone-700 uppercase tracking-wider block">
-                  {s.keywordsTitle || "High-Intent Search Keywords"}
+                  {s.keywordsTitle || "Keyword Ideas"}
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {result.primaryKeywords.map((kw, i) => (
@@ -275,7 +275,7 @@ export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerW
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold text-stone-700 uppercase tracking-wider">
-                    {s.hashtagsTitle || "Viral Social Hashtags"}
+                    {s.hashtagsTitle || "Social Hashtag Ideas"}
                   </span>
                   <button
                     onClick={() => copyToClipboard(result.viralHashtags.join(" "), "hashtags")}

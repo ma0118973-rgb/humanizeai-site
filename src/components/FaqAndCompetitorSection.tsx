@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ChevronDown, ShieldCheck, Mail, Phone, ExternalLink, Globe } from "lucide-react";
-import { COMPETITOR_DATA } from "../data/samples";
 import { ActivePage } from "../types";
 import { AdSenseSlot } from "./AdSenseSlot";
 
@@ -16,12 +15,12 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
 
   const faqs = [
     {
-      q: "How does HumanizeAI make AI text sound more natural?",
-      a: "The tool adjusts sentence rhythm and vocabulary: it varies sentence lengths, replaces overused AI buzzwords (like 'delve', 'testament', 'tapestry') with plain alternatives, and adds natural contractions. Everything runs locally in your browser — no AI model is involved. Results vary by text and detector, and no tool can guarantee a specific detection score.",
+      q: "How does ToolVena make AI text sound more natural?",
+      a: "ToolVena varies sentence length and rhythm, replaces common AI-style clichés with plainer wording, and adds natural contractions where they fit. AI enhancement may be used when available; otherwise the built-in offline rules do the rewrite. Results vary by text, and no tool can guarantee a specific detector score.",
     },
     {
-      q: "Is this tool truly 100% free with no word limits?",
-      a: "Yes! Unlike competitors (Undetectable AI, StealthGPT, Walter Writes) who charge $15–$25/month or lock users after 250 words, HumanizeAI is completely free without limits or credit card requirements.",
+      q: "Is ToolVena free to use?",
+      a: "Yes. The humanizer is free and does not require sign-up. The editor accepts up to 3,000 words at a time, so split longer documents into sections.",
     },
     {
       q: "Will Google penalize humanized content for SEO?",
@@ -41,7 +40,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
     },
     {
       q: "Is my text saved or shared with third parties?",
-      a: "No. Everything is processed locally in your browser — your text is never sent to any server, never stored, and never used for training.",
+      a: "It depends on the feature. Built-in offline tools process text in your browser. If AI enhancement is used, the text you enter is sent to the configured AI service so it can return a result. Drafts saved by the humanizer stay in this browser's local storage until you clear them.",
     },
   ];
 
@@ -50,61 +49,40 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
       {/* Programmatic Responsive Leaderboard Ad Slot */}
       <AdSenseSlot type="leaderboard" />
 
-      {/* Competitor Comparison Table */}
+      {/* ToolVena Features */}
       <div className="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8 shadow-sm space-y-6 w-full max-w-full overflow-hidden">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-            Market Comparison
+            ToolVena AI Humanizer
           </span>
           <h3 className="text-2xl font-bold text-stone-900 tracking-tight">
-            Why Pay $25/Month When You Can Get It 100% Free?
+            Free writing help you can review before you use
           </h3>
           <p className="text-sm text-stone-600">
-            Compare our free platform against popular paid AI writing tools.
+            No sign-up is needed. Rewrite up to 3,000 words at a time, compare the changes, and download the result as a Word (.doc) or TXT file.
           </p>
         </div>
 
-        <div className="w-full max-w-full overflow-x-auto min-w-0 block rounded-xl border border-stone-200">
-          <div className="sm:hidden px-3 py-1.5 bg-stone-100/90 text-[10px] text-stone-500 font-medium text-right border-b border-stone-200">
-            ← Scroll table sideways to compare all 5 columns →
-          </div>
-          <table className="w-full min-w-[620px] text-left text-xs sm:text-sm">
-            <thead>
-              <tr className="border-b border-stone-200 bg-stone-50/80 text-stone-600 font-semibold">
-                <th className="p-3.5">Platform</th>
-                <th className="p-3.5">Monthly Cost</th>
-                <th className="p-3.5">Free Trial Limit</th>
-                <th className="p-3.5">Notes</th>
-                <th className="p-3.5">Key Advantage</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-stone-100">
-              {COMPETITOR_DATA.map((item, idx) => (
-                <tr key={idx} className="hover:bg-stone-50/60 transition-colors">
-                  <td className="p-3.5 font-medium text-stone-900">{item.name}</td>
-                  <td className="p-3.5 text-rose-600 font-semibold">{item.price}</td>
-                  <td className="p-3.5 text-stone-600">{item.freeLimit}</td>
-                  <td className="p-3.5 text-stone-600">{item.notes}</td>
-                  <td className="p-3.5 text-stone-500 text-xs">{item.ourAdvantage}</td>
-                </tr>
-              ))}
-              <tr className="bg-emerald-50/80 font-semibold text-stone-900 border-2 border-emerald-400">
-                <td className="p-3.5 text-emerald-900 font-bold">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>HumanizeAI (This App)</span>
-                  </div>
-                </td>
-                <td className="p-3.5 text-emerald-700 font-extrabold">Free</td>
-                <td className="p-3.5 text-emerald-800">No sign-up needed</td>
-                <td className="p-3.5 text-emerald-800">Runs in your browser</td>
-                <td className="p-3.5 text-emerald-900 text-xs">
-                  Zero Paywall • 100% Free • In-Browser Text Analysis
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {[
+            ["No sign-up", "Open the tool and start working right away."],
+            ["3,000-word editor limit", "Split longer documents into sections."],
+            ["Diff view", "See added and removed words before you copy the result."],
+            [".doc & TXT downloads", "Save a copy after you have reviewed the rewrite."],
+          ].map(([title, text]) => (
+            <div key={title} className="rounded-xl border border-stone-200 bg-stone-50 p-4 space-y-1.5">
+              <div className="flex items-center gap-1.5 font-bold text-stone-900 text-sm">
+                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>{title}</span>
+              </div>
+              <p className="text-xs text-stone-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
         </div>
+
+        <p className="text-xs text-stone-500 bg-amber-50 border border-amber-200 rounded-xl p-3">
+          Processing depends on the feature. Built-in offline tools run in your browser. If AI enhancement is used, the text you enter is sent to the configured AI service so it can generate the result.
+        </p>
       </div>
 
       {/* FAQ Accordion */}
@@ -145,19 +123,19 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
         </div>
       </div>
 
-      {/* Google AdSense Policy Compliant Footer */}
+      {/* Footer */}
       <footer className="pt-10 border-t border-stone-200 text-stone-600 space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-xs">
           {/* Col 1: About */}
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">
-                H
+                T
               </div>
-              <span className="font-bold text-stone-900 text-sm">HumanizeAI</span>
+              <span className="font-bold text-stone-900 text-sm">ToolVena</span>
             </div>
             <p className="text-stone-500 text-[11px] leading-relaxed">
-              A free AI text humanizer that helps writers polish robotic drafts into natural-sounding prose. Built for students, researchers, and creators who want clearer writing.
+              ToolVena offers free browser tools for writing, text, images, PDFs and everyday tasks in 11 languages.
             </p>
           </div>
 
@@ -180,7 +158,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
                   onClick={() => onNavigatePage("detector")}
                   className="hover:text-emerald-600 transition-colors"
                 >
-                  Live AI Detector Scanner
+                  AI Detector
                 </button>
               </li>
               <li>
@@ -246,7 +224,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
           {/* Col 4: Official Contact Information */}
           <div className="space-y-2">
             <h4 className="font-bold text-stone-900 uppercase text-[11px] tracking-wider">
-              Official Contact
+              Contact
             </h4>
             <div className="space-y-1.5 text-[12px]">
               <a
@@ -263,15 +241,13 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
                 <Phone className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>{contactPhone}</span>
               </a>
-              <p className="text-[11px] text-stone-600 pt-1">
-                Mon - Sun: 24/7 Global Response
-              </p>
+              <p className="text-[11px] text-stone-600 pt-1">Use the Contact page for support and feedback.</p>
             </div>
           </div>
         </div>
 
         <div className="pt-6 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-600 gap-2">
-          <p>© 2026 HumanizeAI Global Inc. All rights reserved. Strictly compliant with Google AdSense Program Policies.</p>
+          <p>© 2026 ToolVena. All rights reserved.</p>
           <div className="flex items-center gap-3">
             <button onClick={() => onNavigatePage("privacy")} className="hover:underline">
               Cookies

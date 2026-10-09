@@ -37,13 +37,13 @@ export function DiffCheckerWorkspace({
               <GitCompare className="w-3.5 h-3.5 text-blue-400" />
               Paraphrase & AI Similarity Diff Checker
             </span>
-            <span className="text-xs text-stone-400 font-mono">Turnitin Plagiarism Match Predictor</span>
+            <span className="text-xs text-stone-400 font-mono">Text Similarity & Diff Checker</span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
             Side-by-Side Text Similarity & Token Diff Comparison
           </h1>
           <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
-            Compare your original AI draft against rewritten human prose. Visually verify added words, purged robotic phrases, exact % similarity, and Turnitin risk score.
+            Compare two versions side by side. See added and removed words and estimate how much wording overlaps. This compares only your two texts; it does not predict Turnitin or any other service.
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export function DiffCheckerWorkspace({
             <div className="text-2xl font-black text-blue-400 font-mono">
               {diff.similarityRiskScore}%
             </div>
-            <div className="text-[10px] font-bold text-stone-600">Similarity Risk</div>
+            <div className="text-[10px] font-bold text-stone-600">Wording Still Similar</div>
           </div>
           <div className="bg-amber-50/90 border border-amber-200/80 rounded-2xl p-3 text-center min-w-[110px]">
             <div className="text-2xl font-black text-amber-400 font-mono">
@@ -78,10 +78,10 @@ export function DiffCheckerWorkspace({
           </div>
           <div className="space-y-1">
             <h2 className="text-sm font-bold text-emerald-950">
-              Quick Answer: How Turnitin Calculates Similarity Index Percentage
+              Quick Answer: What This Comparison Shows
             </h2>
             <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
-              <strong>Turnitin detects paraphrase attempts by matching 4-to-8 contiguous word strings (n-grams).</strong> When students simply swap a few synonyms, Turnitin's Similarity Report flags the sentence with red highlighting. A safe paraphrased document must maintain less than 15% string overlap while altering the grammatical agent, clause hierarchy, and sentence cadence.
+              This tool compares only the two texts you paste. It highlights words that were added or removed and estimates how much wording overlaps. It does not access Turnitin or predict a similarity report, and a low overlap score does not prove originality. Cite your sources and follow your institution's rules.
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export function DiffCheckerWorkspace({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-              <h3 className="text-sm font-bold text-stone-900">Original AI Draft (Before)</h3>
+              <h3 className="text-sm font-bold text-stone-900">Original Text (Before)</h3>
             </div>
             <span className="text-xs text-stone-500 font-mono">
               {origText.trim().split(/\s+/).filter(Boolean).length} words
@@ -105,7 +105,7 @@ export function DiffCheckerWorkspace({
             value={origText}
             onChange={(e) => setOrigText(e.target.value)}
             className="w-full h-44 bg-stone-50 border border-stone-200 rounded-2xl p-3.5 text-xs sm:text-sm text-stone-800 leading-relaxed outline-none focus:border-rose-400 resize-none font-sans"
-            placeholder="Paste original AI draft here..."
+            placeholder="Paste the original text here..."
           />
         </div>
 
@@ -114,7 +114,7 @@ export function DiffCheckerWorkspace({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              <h3 className="text-sm font-bold text-stone-900">Humanized Rewrite (After)</h3>
+              <h3 className="text-sm font-bold text-stone-900">Revised Text (After)</h3>
             </div>
             <span className="text-xs text-stone-500 font-mono">
               {humanText.trim().split(/\s+/).filter(Boolean).length} words
@@ -125,7 +125,7 @@ export function DiffCheckerWorkspace({
             value={humanText}
             onChange={(e) => setHumanText(e.target.value)}
             className="w-full h-44 bg-stone-50 border border-stone-200 rounded-2xl p-3.5 text-xs sm:text-sm text-stone-800 leading-relaxed outline-none focus:border-emerald-500 resize-none font-sans"
-            placeholder="Paste rewritten or humanized prose here to compare..."
+            placeholder="Paste the revised text here to compare..."
           />
         </div>
       </div>
@@ -139,10 +139,10 @@ export function DiffCheckerWorkspace({
           </h3>
           <div className="flex items-center gap-3 text-xs font-semibold">
             <span className="flex items-center gap-1.5 text-emerald-700">
-              <span className="w-2.5 h-2.5 bg-emerald-200 border border-emerald-400 rounded-sm" /> Added Human Words
+              <span className="w-2.5 h-2.5 bg-emerald-200 border border-emerald-400 rounded-sm" /> Added Words
             </span>
             <span className="flex items-center gap-1.5 text-rose-700">
-              <span className="w-2.5 h-2.5 bg-rose-200 border border-rose-400 rounded-sm" /> Removed Robotic Words
+              <span className="w-2.5 h-2.5 bg-rose-200 border border-rose-400 rounded-sm" /> Removed Words
             </span>
           </div>
         </div>
@@ -186,7 +186,7 @@ export function DiffCheckerWorkspace({
               onClick={() => onSendToHumanizer(humanText)}
               className="flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-white text-white hover:bg-amber-50 text-xs font-bold transition-all cursor-pointer"
             >
-              <span>Send Humanized Text to Humanizer Workspace</span>
+              <span>Send Revised Text to Humanizer Workspace</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           )}

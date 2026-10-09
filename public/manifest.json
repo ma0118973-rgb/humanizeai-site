@@ -1,8 +1,8 @@
 {
   "id": "/",
-  "name": "CleverHumanizer - Free AI Writing Tools",
-  "short_name": "Humanizer",
-  "description": "Transform AI text into natural writing. 11 free tools, writing guides, 11 languages. Free, no sign-up.",
+  "name": "ToolVena - Free Online Tools",
+  "short_name": "ToolVena",
+  "description": "50 free online tools for writing, text, images, PDFs and everyday tasks in 11 languages. No sign-up.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

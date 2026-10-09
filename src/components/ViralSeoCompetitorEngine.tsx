@@ -12,7 +12,6 @@ import {
   Eye,
   Hash,
   FileText,
-  Link,
   Upload,
   Zap,
   Target,
@@ -34,9 +33,8 @@ interface CompetitorSeoResult {
 
 export function ViralSeoCompetitorEngine() {
   const [platform, setPlatform] = useState<"YouTube Shorts" | "TikTok" | "Instagram Reels" | "Facebook Reels">("YouTube Shorts");
-  const [inputType, setInputType] = useState<"topic" | "link" | "upload">("topic");
+  const [inputType, setInputType] = useState<"topic" | "upload">("topic");
   const [topicName, setTopicName] = useState<string>("");
-  const [videoLink, setVideoLink] = useState<string>("");
   const [uploadedFileName, setUploadedFileName] = useState<string>("");
   
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -68,10 +66,6 @@ export function ViralSeoCompetitorEngine() {
       setFormError("Please enter a video topic or niche!");
       return;
     }
-    if (inputType === "link" && !videoLink.trim()) {
-      setFormError("Please enter a valid competitor or reference video link!");
-      return;
-    }
     if (inputType === "upload" && !uploadedFileName) {
       setFormError("Please upload or choose a video file first!");
       return;
@@ -84,7 +78,7 @@ export function ViralSeoCompetitorEngine() {
         platform,
         inputType,
         topicName,
-        videoLink,
+        "",
         uploadedFileName
       );
       setSeoResult(localResult);
@@ -139,7 +133,7 @@ export function ViralSeoCompetitorEngine() {
                 onClick={() => setPlatform(p.id as any)}
                 className={`py-3 px-3 rounded-2xl border text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-white text-white border-stone-900 shadow-md scale-[1.02]"
+                    ? "bg-stone-900 text-white border-stone-900 shadow-md scale-[1.02]"
                     : "bg-stone-50 hover:bg-stone-100 text-stone-700 border-stone-200"
                 }`}
               >
@@ -151,7 +145,7 @@ export function ViralSeoCompetitorEngine() {
         </div>
       </div>
 
-      {/* Input Mode Selector (3 Options: Topic Name, Video Link, Upload Video) */}
+      {/* Input Mode Selector (Topic Name or Video Filename) */}
       <div className="space-y-3 pt-2">
         <label className="text-xs font-bold uppercase tracking-wider text-stone-700 flex items-center gap-1.5">
           <Search className="w-3.5 h-3.5 text-rose-600" />
@@ -174,19 +168,6 @@ export function ViralSeoCompetitorEngine() {
 
           <button
             type="button"
-            onClick={() => setInputType("link")}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-              inputType === "link"
-                ? "bg-rose-600 text-white shadow-sm"
-                : "bg-stone-100 text-stone-700 hover:bg-stone-200"
-            }`}
-          >
-            <Link className="w-3.5 h-3.5" />
-            <span>Paste Competitor Video Link</span>
-          </button>
-
-          <button
-            type="button"
             onClick={() => setInputType("upload")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
               inputType === "upload"
@@ -195,7 +176,7 @@ export function ViralSeoCompetitorEngine() {
             }`}
           >
             <Upload className="w-3.5 h-3.5" />
-            <span>Upload Video File (MP4/MOV)</span>
+            <span>Use a Video Filename</span>
           </button>
         </div>
 
@@ -210,22 +191,7 @@ export function ViralSeoCompetitorEngine() {
               className="w-full px-4 py-3.5 rounded-2xl border border-stone-300 text-sm font-medium text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-500 bg-stone-50/50"
             />
             <p className="text-[11px] text-stone-500">
-              Tip: Describe your niche or topic in 4-8 words for ultra-precise competitor algorithmic matching.
-            </p>
-          </div>
-        )}
-
-        {inputType === "link" && (
-          <div className="space-y-1.5">
-            <input
-              type="url"
-              value={videoLink}
-              onChange={(e) => setVideoLink(e.target.value)}
-              placeholder="https://www.youtube.com/shorts/... or https://www.tiktok.com/@.../video/..."
-              className="w-full px-4 py-3.5 rounded-2xl border border-stone-300 text-sm font-medium text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-500 bg-stone-50/50"
-            />
-            <p className="text-[11px] text-stone-500">
-              Paste your competitor's viral short URL. Our model analyzes its retention hooks and keyword hierarchy.
+              Tip: Describe your niche or topic in 4–8 words for clearer title ideas.
             </p>
           </div>
         )}
@@ -242,9 +208,9 @@ export function ViralSeoCompetitorEngine() {
             <label htmlFor="viral-seo-video-upload" className="cursor-pointer space-y-2 block">
               <Upload className="w-8 h-8 text-rose-500 mx-auto" />
               <div className="text-xs font-bold text-stone-800">
-                {uploadedFileName ? `Attached: ${uploadedFileName}` : "Click to attach your short video for SEO scan"}
+                {uploadedFileName ? `Selected: ${uploadedFileName}` : "Click to choose a video file"}
               </div>
-              <p className="text-[11px] text-stone-500">MP4, MOV up to 100MB</p>
+              <p className="text-[11px] text-stone-500">The file is not uploaded or analyzed. Only its filename is used as a topic seed.</p>
             </label>
           </div>
         )}
@@ -277,7 +243,7 @@ export function ViralSeoCompetitorEngine() {
         )}
       </button>
 
-      {/* Real Competitor SEO Results Panel */}
+      {/* Video SEO Results Panel */}
       {seoResult && (
         <div className="mt-8 pt-6 border-t border-stone-200 space-y-6 animate-fadeIn">
           <div className="flex items-center justify-between">
@@ -289,11 +255,11 @@ export function ViralSeoCompetitorEngine() {
             </div>
             <span className="text-xs text-stone-500 font-mono flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-stone-400" />
-              Best Post Window: <strong className="text-stone-900">{seoResult.bestPostingTimeUS}</strong>
+              Posting time: <strong className="text-stone-900">Check your audience analytics</strong>
             </span>
           </div>
 
-          {/* Competitor Secret Analysis Breakdown */}
+          {/* Suggested Content Angle */}
           <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-rose-50 to-amber-50 border border-rose-200 space-y-2">
             <div className="flex items-center gap-2 text-rose-800 font-bold text-xs uppercase tracking-wider">
               <Eye className="w-4 h-4 text-rose-600" />
@@ -304,10 +270,10 @@ export function ViralSeoCompetitorEngine() {
             </p>
           </div>
 
-          {/* High CTR Viral Title */}
-          <div className="p-5 rounded-2xl bg-white text-white space-y-2 relative group">
+          {/* Primary Title Idea */}
+          <div className="p-5 rounded-2xl bg-stone-900 text-white space-y-2 relative group">
             <div className="flex items-center justify-between text-xs text-rose-400 font-bold uppercase tracking-wider">
-              <span>Primary High-CTR Viral Title (Under 60 Chars):</span>
+              <span>Primary Title Idea (Under 60 Characters):</span>
               <button
                 type="button"
                 onClick={() => copyToClipboard(seoResult.viralTitle, "title")}
@@ -362,14 +328,14 @@ export function ViralSeoCompetitorEngine() {
             </p>
           </div>
 
-          {/* Viral Hashtags & High RPM Keywords Grid */}
+          {/* Hashtag & Keyword Ideas Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Hashtags */}
             <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-2">
               <div className="flex items-center justify-between text-xs font-bold text-stone-800">
                 <span className="flex items-center gap-1.5">
                   <Hash className="w-3.5 h-3.5 text-rose-600" />
-                  <span>Trending Algorithm Hashtags ({platform}):</span>
+                  <span>Hashtag Ideas ({platform}):</span>
                 </span>
                 <button
                   type="button"
@@ -392,12 +358,12 @@ export function ViralSeoCompetitorEngine() {
               </div>
             </div>
 
-            {/* High RPM Search Keywords */}
+            {/* Keyword Ideas */}
             <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-2">
               <div className="flex items-center justify-between text-xs font-bold text-stone-800">
                 <span className="flex items-center gap-1.5">
                   <Search className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>High RPM US Search Index Keywords:</span>
+                  <span>Keyword Ideas:</span>
                 </span>
                 <button
                   type="button"
@@ -425,7 +391,7 @@ export function ViralSeoCompetitorEngine() {
             <div className="flex items-center justify-between text-xs font-bold text-stone-800">
               <span className="flex items-center gap-1.5">
                 <FileText className="w-3.5 h-3.5 text-stone-600" />
-                <span>Engaging Video Caption / Description (With Retention CTA):</span>
+                <span>Video Caption / Description Idea:</span>
               </span>
               <button
                 type="button"

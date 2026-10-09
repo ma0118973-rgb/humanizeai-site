@@ -55,7 +55,7 @@ export function PWAInstallModal({ isOpen, onClose }: PWAInstallModalProps) {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight">
+              <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 tracking-tight">
                 Install WebApp
               </h3>
               <span className="px-2 py-0.5 text-[10px] font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full">
@@ -63,7 +63,7 @@ export function PWAInstallModal({ isOpen, onClose }: PWAInstallModalProps) {
               </span>
             </div>
             <p className="text-xs text-stone-400">
-              Clever Humanizer for iPhone, iPad & Android
+              ToolVena for iPhone, iPad & Android
             </p>
           </div>
         </div>
@@ -108,7 +108,7 @@ export function PWAInstallModal({ isOpen, onClose }: PWAInstallModalProps) {
           </div>
           <div className="flex items-center gap-2">
             <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>100% Free & works offline</span>
+            <span>Free to use — no sign-up</span>
           </div>
         </div>
 

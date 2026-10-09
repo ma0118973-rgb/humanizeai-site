@@ -58,13 +58,13 @@ export function CitationWorkspace({ selectedLanguage = "en" }: CitationWorkspace
       });
     } else if (type === "website") {
       setInput({
-        title: "Turnitin 3.0 Detection Algorithms and Paraphrasing Benchmark Study",
-        author: "AI Verification Standards Lab",
+        title: "AI Detector Guide: What a Pattern Score Can and Cannot Tell You",
+        author: "ToolVena Editorial Team",
         year: "2026",
-        publisherOrJournal: "Clever Humanizer Research",
+        publisherOrJournal: "ToolVena",
         volumeOrIssue: "",
         pages: "",
-        urlOrDoi: "https://humanizeai.free/blog/turnitin-gptzero-bypass-guide-2026/",
+        urlOrDoi: "https://www.toolvena.com/en/blog/ai-detector-english-guide/",
         sourceType: "website",
       });
     } else {
@@ -92,13 +92,13 @@ export function CitationWorkspace({ selectedLanguage = "en" }: CitationWorkspace
               <BookMarked className="w-3.5 h-3.5 text-emerald-400" />
               Free APA 7, MLA 9 & Chicago Citation Engine
             </span>
-            <span className="text-xs text-stone-400 font-mono">Turnitin & Plagiarism Safe</span>
+            <span className="text-xs text-stone-400 font-mono">APA • MLA • Chicago • Harvard</span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
             Free Academic Citation & Bibliography Formatter
           </h1>
           <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
-            Generate authentic references for journal papers, books, websites, and theses. Formats references instantly in APA 7, MLA 9, Chicago 17, and Harvard styles without paywalls or ads.
+            Format references for journal papers, books, websites, and theses in APA 7, MLA 9, Chicago 17, and Harvard styles. Free, with no sign-up.
           </p>
         </div>
 
@@ -128,10 +128,10 @@ export function CitationWorkspace({ selectedLanguage = "en" }: CitationWorkspace
           </div>
           <div className="space-y-1">
             <h2 className="text-sm font-bold text-emerald-950">
-              Quick Answer: Why Accurate Citations Prevent Turnitin Plagiarism Flags
+              Quick Answer: What This Citation Tool Does
             </h2>
             <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
-              <strong>Turnitin 3.0 scans research papers against 90+ billion web pages and scholarly articles.</strong> When quotes or paraphrased AI sentences lack strict APA 7 or MLA 9 citation markup, Turnitin's similarity index flags them as unoriginal plagiarism. Using this automated citation generator produces verified bibliographic entries and in-text parenthetical citations that satisfy institutional review standards.
+              Enter the source details you know, choose APA 7, MLA 9, Chicago or Harvard, and copy the formatted reference and in-text citation. Always check names, dates, page numbers and DOI or URL against the original source and your institution's style guide.
             </p>
           </div>
         </div>

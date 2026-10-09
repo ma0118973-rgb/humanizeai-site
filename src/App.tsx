@@ -442,7 +442,7 @@ export default function App() {
     applyPageSeo(activePage, selectedLanguage, blogPost);
 
     if (activePage === "notfound") {
-      document.title = "Page not found – HumanizeAI";
+      document.title = "Page not found – ToolVena";
       document.querySelector('meta[name="robots"]')?.setAttribute("content", "noindex, follow");
       return;
     }

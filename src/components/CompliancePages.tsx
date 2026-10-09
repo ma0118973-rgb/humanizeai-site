@@ -7,26 +7,12 @@ interface CompliancePagesProps {
   onNavigateHome: () => void;
 }
 
-const ALL_TOOLS = [
-  "AI Humanizer",
-  "AI Detector",
-  "Citation Generator",
-  "Sentence Expander",
-  "Text Summarizer",
-  "Image Compressor",
-  "PDF Tools",
-  "Video Reels Studio",
-  "SEO Optimizer",
-  "Cliché Cleaner",
-  "Diff Checker",
-];
+const toolsList = "ToolVena's 50 free online tools for writing, text, images, PDFs and everyday tasks";
 
 export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const contactEmail = "yaretmyservin7@gmail.com";
   const contactPhone = "+1 2535006555";
-
-  const toolsList = ALL_TOOLS.join(", ");
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
@@ -53,9 +39,8 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
             </div>
 
             <p>
-              Hey there! Thanks for using HumanizeAI. We know privacy policies are usually boring walls of legal text,
-              so we'll keep this simple and honest. Here's exactly what happens with your data when you use our tools —
-              the {toolsList}.
+              Hey there! Thanks for using ToolVena. We know privacy policies are usually boring walls of legal text,
+              so we'll keep this simple and honest. Here's exactly what happens with your data when you use {toolsList}.
             </p>
 
             <section className="space-y-2">
@@ -67,10 +52,10 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
                 it's gone.
               </p>
               <p>
-                <strong>Optional AI features:</strong> some tools offer AI-powered buttons (like "Enhance with AI", "AI
-                Summary", or "AI Suggestions") and the AI Humanizer can use an AI mode. When you click one of these,
-                the text you entered is sent securely to our server, which forwards it to Google's Gemini AI service so
-                it can generate the result. Google processes that text under{" "}
+                <strong>Optional AI features:</strong> the AI Humanizer may try AI enhancement when it is available
+                and falls back to its built-in offline engine if it is not. Some other tools offer clearly labelled AI
+                buttons. When AI is used, the text you entered is sent to the configured service so it can generate
+                the result. Google processes that text under{" "}
                 <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer" className="text-emerald-600 underline">
                   Google's Privacy Policy
                 </a>. We don't store your text on our servers — it's forwarded, processed, and discarded. If you'd
@@ -135,8 +120,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
             </div>
 
             <p>
-              Welcome to HumanizeAI! By using our free tools — {toolsList} — you agree to these
-              terms. We've written them in normal human language, not lawyer-speak.
+              Welcome to ToolVena! By using {toolsList}, you agree to these terms. We've written them in normal human language, not lawyer-speak.
             </p>
 
             <section className="space-y-2">
@@ -153,7 +137,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
               <h2 className="text-base font-bold text-stone-900">What You Can't Do</h2>
               <p>
                 Please don't use our tools for anything harmful — no spam, no fraud, no harassing others, no trying to
-                break the site. Also, don't try to copy our entire website or resell our tools as your own. That's not cool.
+                break the site. Also, don't try to copy our entire website or resell our tools as your own. That's not cool. One more: our image and video tools may only be used on media you own or have permission to edit — please don't use them to remove watermarks, logos, or provenance (C2PA) data from other people's content.
               </p>
             </section>
 
@@ -161,7 +145,8 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
               <h2 className="text-base font-bold text-stone-900">Honest Expectations</h2>
               <p>
                 Our tools are genuinely useful, but they're not magic. The AI Detector gives heuristic estimates, not
-                official verdicts. The AI Humanizer rewrites text using smart rules, not a real AI model. The Citation
+                official verdicts. The AI Humanizer may use AI enhancement when available, or its built-in rewriting
+                rules when it is not. The Citation
                 Generator follows standard formats but you should double-check against official style guides for critical
                 work. We do our best to keep everything accurate and running, but we can't guarantee perfection.
               </p>
@@ -194,7 +179,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
             </div>
 
             <p>
-              We believe in honesty. Here's what you should know about our tools: the {toolsList}.
+              We believe in honesty. Here's what you should know about {toolsList}.
             </p>
 
             <section className="space-y-2">
@@ -209,8 +194,8 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
             <section className="space-y-2">
               <h2 className="text-base font-bold text-stone-900">How the AI Humanizer Works</h2>
               <p>
-                Our Humanizer offers two modes: an optional AI mode (powered by Google's Gemini, when you choose it)
-                and a built-in offline engine that rewrites text using linguistic rules. Neither mode makes text
+                Our Humanizer may use AI enhancement when it is available and falls back to a built-in offline engine
+                that rewrites text using linguistic rules. Neither mode makes text
                 "undetectable" or guarantees any specific outcome. Always review the output and add your own voice.
               </p>
             </section>
@@ -240,31 +225,26 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
           <div className="space-y-6 text-stone-700 text-sm leading-relaxed">
             <div className="border-b border-stone-100 pb-4">
               <span className="text-xs font-bold text-emerald-600 uppercase tracking-wider">Our Story</span>
-              <h1 className="text-2xl sm:text-3xl font-bold text-stone-900 mt-1">About HumanizeAI</h1>
+              <h1 className="text-2xl sm:text-3xl font-bold text-stone-900 mt-1">About ToolVena</h1>
               <p className="text-xs text-stone-500 mt-1">Free tools for better writing, in 11 languages</p>
             </div>
 
             <p>
-              Hi! We're the team behind HumanizeAI. We started this project with a simple frustration: good writing
+              Hi! We're the team behind ToolVena. We started this project with a simple frustration: good writing
               tools were either expensive, required signups, or uploaded your private documents to random servers.
               We thought — why not build tools that are <strong>free, private, and actually work in your browser</strong>?
             </p>
 
-            <p>So we built 11 tools that cover the full writing workflow:</p>
+            <p>So we built 50 tools across writing, text, media, files and everyday tasks:</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
-                ["AI Humanizer", "Makes robotic text sound natural and human"],
-                ["AI Detector", "Estimates whether text looks AI-generated"],
-                ["Citation Generator", "APA, MLA, Chicago references in seconds"],
-                ["Sentence Expander", "Turns short text into detailed writing"],
-                ["Text Summarizer", "Condenses long documents instantly"],
-                ["Image Compressor", "Shrinks photos without visible quality loss"],
-                ["PDF Tools", "Merge PDFs or create them from images"],
-                ["Video Reels Studio", "Filters and tools for viral short videos"],
-                ["SEO Optimizer", "Keywords, meta tags, and hashtags"],
-                ["Cliché Cleaner", "Removes overused AI phrases"],
-                ["Diff Checker", "Compares two texts side by side"],
+                ["AI Writing Tools", "Humanizer, detector, citation and editing helpers"],
+                ["Text Utilities", "Counters, converters, formatters and generators"],
+                ["Image Tools", "Compression, resizing, conversion, OCR and editing"],
+                ["PDF Tools", "Merge, split and create PDFs in your browser"],
+                ["Media & SEO Tools", "Video helpers, meta checks and hashtag ideas"],
+                ["Everyday Tools", "Calculators, timers, converters and generators"],
               ].map(([name, desc]) => (
                 <div key={name} className="p-3 bg-stone-50 rounded-xl border border-stone-200">
                   <div className="font-bold text-stone-900 text-xs">{name}</div>
@@ -276,7 +256,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="p-4 bg-emerald-50 rounded-2xl border border-emerald-200/60 text-center space-y-1">
                 <div className="text-2xl font-bold text-emerald-800">Free to Use</div>
-                <p className="text-xs text-emerald-700">No paywalls, no signups</p>
+                <p className="text-xs text-emerald-700">Free tools, no sign-up</p>
               </div>
               <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200 text-center space-y-1">
                 <div className="text-2xl font-bold text-stone-900">11 Languages</div>
@@ -284,7 +264,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
               </div>
               <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200 text-center space-y-1">
                 <div className="text-2xl font-bold text-stone-900">Private by Design</div>
-                <p className="text-xs text-stone-600">Offline engines keep your text on your device</p>
+                <p className="text-xs text-stone-600">Many tools run locally in your browser</p>
               </div>
             </div>
 
@@ -312,7 +292,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
             </div>
 
             <p>
-              Whether you need help with the {toolsList}, found a bug, have a feature
+              Whether you need help with any of {toolsList}, found a bug, have a feature
               suggestion, or want to talk about advertising — we're here. We actually read every message.
             </p>
 

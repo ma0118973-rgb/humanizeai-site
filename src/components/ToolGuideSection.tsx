@@ -6,7 +6,7 @@ import { findBlogPostBySlug } from "../data/blogArticles";
 // User asked: articles should be visible when scrolling below the tool
 
 const TOOL_TO_ARTICLE: Record<string, string> = {
-  humanizer: "ai-humanizer-urdu-guide",
+  humanizer: "ai-humanizer-guide",
   detector: "ai-detector-urdu-guide",
   citation: "citation-generator-urdu-guide",
   expander: "sentence-expander-urdu-guide",

@@ -49,13 +49,13 @@ export function ClicheCleanerWorkspace({
               <AlertOctagon className="w-3.5 h-3.5 text-rose-400" />
               AI Cliché & Buzzword Purger (De-AI Polish)
             </span>
-            <span className="text-xs text-stone-400 font-mono">Turnitin & GPTZero Flag Purger</span>
+            <span className="text-xs text-stone-400 font-mono">AI-Style Phrase Cleaner</span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
             Strip Dead-Giveaway AI Clichés & Buzzwords
           </h1>
           <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
-            Eliminates robotic hallmark vocabulary like <em>"delve", "tapestry", "testament", "pivotal role"</em> and formulaic transition phrases that instantly trigger AI detection filters.
+            Eliminates robotic hallmark vocabulary like <em>"delve", "tapestry", "testament", "pivotal role"</em> and formulaic transition phrases that make writing sound stiff and machine-made.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export function ClicheCleanerWorkspace({
               Quick Answer: Why Certain Words Immediately Trigger AI Detection
             </h2>
             <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
-              <strong>Large language models (ChatGPT, Gemini, Claude) are mathematically biased toward specific high-frequency transition tokens.</strong> Words like <em>"delve"</em> appear up to 400x more often in machine-generated writing than in human academic papers. AI detectors assign heavy probability penalties when encountering phrases like <em>"testament to", "rich tapestry", "in conclusion"</em>, and <em>"crucial role"</em>. Replacing them with direct, active human verbs immediately lowers AI probability scores.
+              <strong>Large language models (ChatGPT, Gemini, Claude) tend to reuse certain stock phrases.</strong> Words like <em>"delve"</em> and phrases like <em>"testament to", "rich tapestry", "in conclusion"</em> and <em>"crucial role"</em> appear again and again in AI-assisted drafts. No single phrase proves how a text was written, but replacing repeated clichés with direct, active verbs usually makes the writing clearer.
             </p>
           </div>
         </div>

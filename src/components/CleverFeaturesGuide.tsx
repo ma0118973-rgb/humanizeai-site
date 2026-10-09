@@ -17,65 +17,53 @@ export function CleverFeaturesGuide() {
     {
       step: "01",
       title: "Paste AI Content",
-      desc: "Paste raw text generated from ChatGPT (GPT-4o, o3-mini), Claude 3.7, Google Gemini, or DeepSeek into the input panel.",
+      desc: "Paste an AI-assisted draft or your own notes into the input panel.",
       icon: <FileText className="w-5 h-5 text-emerald-600" />,
     },
     {
       step: "02",
       title: "Select Writing Style",
-      desc: "Pick Casual, Academic, Simple Formal, or Creative to guide sentence burstiness, vocabulary entropy, and cadence.",
+      desc: "Pick Casual, Academic, Simple Formal, Creative, or Standard to guide vocabulary and sentence rhythm.",
       icon: <Sparkles className="w-5 h-5 text-emerald-600" />,
     },
     {
       step: "03",
-      title: "Get Natural Human-Like Text",
-      desc: "Click 'Humanize AI' to receive more natural-sounding writing with fewer robotic patterns. Results vary by text.",
+      title: "Review the Rewritten Text",
+      desc: "Click 'Humanize AI', compare the changes, and check facts and wording before you copy or download the result.",
       icon: <ShieldCheck className="w-5 h-5 text-emerald-600" />,
     },
   ];
 
   const comparisons = [
     {
-      feature: "Monthly Cost",
+      feature: "Cost",
       clever: "Free",
-      competitor: "$25.00 - $49.00 / mo",
-      winner: true,
+      note: "No sign-up required",
     },
     {
-      feature: "Word Allowance / Request",
-      clever: "Up to 3,000 Words / Req",
-      competitor: "250 - 500 Words (Paywall)",
-      winner: true,
+      feature: "Editor Limit",
+      clever: "Up to 3,000 words at a time",
+      note: "Split longer documents into sections",
     },
     {
-      feature: "AI Detection Patterns",
-      clever: "Natural, varied sentence flow",
-      competitor: "Often Fails or Mixed Scores",
-      winner: true,
+      feature: "Tone Choices",
+      clever: "5 tones",
+      note: "Casual, Academic, Simple Formal, Creative and Standard",
     },
     {
-      feature: "Diff View (Changed Words)",
-      clever: "Included Free",
-      competitor: "Paid Pro Addon",
-      winner: true,
+      feature: "Change Review",
+      clever: "Diff view included",
+      note: "Review added and removed words before copying",
     },
     {
-      feature: "Word (.doc) Document Export",
-      clever: "Included Free",
-      competitor: "Locked Behind Paywall",
-      winner: true,
+      feature: "Downloads",
+      clever: "Word (.doc) and TXT",
+      note: "Save a copy after reviewing the rewrite",
     },
     {
-      feature: "No Forced Registration",
-      clever: "Instant Access (No Credit Card)",
-      competitor: "Requires Email & Card Signup",
-      winner: true,
-    },
-    {
-      feature: "Browser Privacy & Security",
-      clever: "Zero Data Logging & Secure",
-      competitor: "Data Monitored & Stored",
-      winner: true,
+      feature: "Processing",
+      clever: "Offline fallback included",
+      note: "AI enhancement may be used when available",
     },
   ];
 
@@ -88,10 +76,10 @@ export function CleverFeaturesGuide() {
             Fast & Intuitive Process
           </span>
           <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
-            How Clever Humanizer Works in 3 Steps
+            How ToolVena's AI Humanizer Works in 3 Steps
           </h2>
           <p className="text-xs sm:text-sm text-stone-500">
-            Engineered to reconstruct synthetic AI patterns into authentic human perplexity in seconds.
+            Paste a draft, choose a tone, then review every change before you copy or download it.
           </p>
         </div>
 
@@ -116,17 +104,17 @@ export function CleverFeaturesGuide() {
         </div>
       </div>
 
-      {/* Comparison Matrix: Clever Humanizer vs Paid $25/mo Tools */}
+      {/* Included Features */}
       <div className="bg-white p-6 sm:p-8 rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 uppercase tracking-wider">
-            Transparent Comparison
+            What Is Included
           </span>
           <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
-            Clever Humanizer vs. $25/Month Paid Tools
+            What ToolVena Includes
           </h2>
           <p className="text-xs sm:text-sm text-stone-500">
-            See why thousands of students, researchers, and copywriters choose Clever Humanizer over expensive subscription tools like Undetectable AI, StealthGPT, and QuillBot Pro.
+            These are the features built into this page. Always review the rewritten text for meaning, facts and tone.
           </p>
         </div>
 
@@ -139,10 +127,10 @@ export function CleverFeaturesGuide() {
               <tr className="border-b border-stone-200 bg-stone-50/80">
                 <th className="py-3 px-4 font-semibold text-stone-700">Feature</th>
                 <th className="py-3 px-4 font-bold text-emerald-700 bg-emerald-50/60 border-x border-emerald-100">
-                  Clever Humanizer (Free)
+                  ToolVena AI Humanizer
                 </th>
                 <th className="py-3 px-4 font-semibold text-stone-500">
-                  Standard Paid Tools ($25+/mo)
+                  Good to Know
                 </th>
               </tr>
             </thead>
@@ -159,7 +147,7 @@ export function CleverFeaturesGuide() {
                   <td className="py-3.5 px-4 text-stone-500">
                     <div className="flex items-center gap-1.5">
                       <XCircle className="w-4 h-4 text-rose-400 shrink-0" />
-                      <span>{row.competitor}</span>
+                      <span>{row.note}</span>
                     </div>
                   </td>
                 </tr>

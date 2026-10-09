@@ -18,31 +18,31 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     canonicalPath: "/ai-humanizer/",
     ogType: "website",
     schemaType: "WebApplication",
-    toolName: "Clever AI Text Humanizer",
+    toolName: "ToolVena AI Text Humanizer",
   },
   detector: {
     title: "AI Content Detector – Text Pattern Scanner & Sentence Heatmap",
-    description: "Scan documents with simulated Turnitin, GPTZero, Copyleaks & Originality.ai models. Features sentence-by-sentence visual risk heatmaps. Heuristic estimates, not official verdicts.",
+    description: "Scan text with ToolVena's own heuristic pattern scanner and sentence-by-sentence heatmap. This is an estimate, not an official detector result.",
     canonicalPath: "/ai-detector/",
     ogType: "website",
     schemaType: "WebApplication",
     toolName: "AI Content Detector",
   },
   media: {
-    title: "AI Video & Media Studio – Watermark Remover & Reels Pacing",
-    description: "Clean corner watermarks and logos from CapCut, TikTok & AI video reels. Applies optical edge zoom, 35mm film grain, and authentic frame rates.",
+    title: "Video & Image Media Tools – Crop, Pacing & Metadata",
+    description: "Crop edge areas, adjust pacing and work with image metadata in your browser. Use only media you own or have permission to edit.",
     canonicalPath: "/video-tools/",
     ogType: "website",
     schemaType: "WebApplication",
-    toolName: "AI Video Reels & Watermark Studio",
+    toolName: "Video & Image Media Tools",
   },
   seo: {
-    title: "High-RPM SEO Optimizer – Viral Tags & Meta Engine",
-    description: "Generate high-CTR Google meta tags, search keywords, and viral social hashtags for YouTube Shorts, TikTok, and web publishers.",
+    title: "SEO Meta & Hashtag Generator – Title, Description & Tag Ideas",
+    description: "Generate title ideas, meta-description drafts, keyword ideas and hashtags for web pages and short videos. These are writing aids, not ranking guarantees.",
     canonicalPath: "/seo-tools/",
     ogType: "website",
     schemaType: "WebApplication",
-    toolName: "High-RPM Viral SEO Engine",
+    toolName: "SEO Meta & Hashtag Generator",
   },
   citation: {
     title: "Free Academic Citation Generator – APA 7, MLA 9, Chicago & Harvard Formatter",
@@ -54,7 +54,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   },
   expander: {
     title: "Academic Sentence Expander & Depth Enhancer – Free Writing Tool",
-    description: "Expand short, robotic sentences into rich academic prose with high perplexity, causal depth, and diverse sentence burstiness.",
+    description: "Expand short sentences into fuller paragraphs with added detail and varied sentence lengths. Review the result for facts and tone before use.",
     canonicalPath: "/sentence-expander/",
     ogType: "website",
     schemaType: "WebApplication",
@@ -397,65 +397,65 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     toolName: "PDF Tools",
   },
   cleaner: {
-    title: "AI Cliché & Buzzword Purger – De-AI Polish & Turnitin Hallmark Remover",
-    description: "Scan and purge dead-giveaway AI clichés like 'delve', 'tapestry', 'testament' and formulaic transitions with 1-click organic human replacements.",
+    title: "AI Cliché Checker – Find Repetitive AI-Style Phrases",
+    description: "Find common AI-style clichés like 'delve', 'tapestry' and 'testament', review each match in context, and rewrite them in your own words.",
     canonicalPath: "/cliche-cleaner/",
     ogType: "website",
     schemaType: "WebApplication",
-    toolName: "AI Cliché Purger & De-AI Polish",
+    toolName: "AI Cliché Checker",
   },
   diff: {
-    title: "Paraphrase Similarity & Text Diff Checker – Turnitin Match Predictor",
-    description: "Side-by-side comparison of original AI draft vs rewritten human text. Visual word-level diff, % similarity score, and Turnitin risk evaluation.",
+    title: "Text Similarity & Diff Checker – Word-by-Word Comparison",
+    description: "Compare two versions side by side with a colour-coded word diff and wording-overlap estimate. It does not predict Turnitin or any other service.",
     canonicalPath: "/diff-checker/",
     ogType: "website",
     schemaType: "WebApplication",
-    toolName: "Paraphrase Similarity Diff Checker",
+    toolName: "Text Similarity & Diff Checker",
   },
   blog: {
-    title: "AI Detection & Humanization Guides",
-    description: "In-depth benchmarks on Turnitin 3.0, perplexity, burstiness algorithms, and ethical AI humanization workflows for students and creators.",
+    title: "ToolVena Guides – Writing, Text and Online Tool Guides",
+    description: "Practical guides to ToolVena's writing, text, image, PDF and everyday online tools, with honest limits and step-by-step help.",
     canonicalPath: "/blog/",
     ogType: "article",
     schemaType: "Article",
   },
   privacy: {
-    title: "Privacy Policy – Clever Humanizer",
-    description: "Learn how Clever Humanizer protects user privacy with zero log storage and secure client-side document processing standards.",
+    title: "Privacy Policy – ToolVena",
+    description: "Learn how ToolVena handles the information used by its browser tools, optional AI features, analytics and ads.",
     canonicalPath: "/privacy/",
     ogType: "website",
     schemaType: "WebPage",
   },
   terms: {
-    title: "Terms of Service – Clever Humanizer",
-    description: "Read the Terms of Service for using Clever Humanizer free web tools, content guidelines, and ethical usage standards.",
+    title: "Terms of Service – ToolVena",
+    description: "Read the Terms of Service for using ToolVena's free web tools, content guidelines, and ethical usage standards.",
     canonicalPath: "/terms/",
     ogType: "website",
     schemaType: "WebPage",
   },
   disclaimer: {
-    title: "Disclaimer & Academic Integrity Policy – Clever Humanizer",
-    description: "Our commitment to ethical AI use, research assistance, and academic integrity policies for educational environments.",
+    title: "Disclaimer & Academic Integrity Policy – ToolVena",
+    description: "ToolVena's limits for AI writing estimates, research assistance, and academic integrity in educational environments.",
     canonicalPath: "/disclaimer/",
     ogType: "website",
     schemaType: "WebPage",
   },
   about: {
-    title: "About Us – Clever Humanizer Project",
-    description: "Our mission to provide free, privacy-first AI text humanization and content checking tools worldwide.",
+    title: "About Us – ToolVena",
+    description: "ToolVena provides free online tools for writing, text, images, PDFs and everyday tasks in 11 languages.",
     canonicalPath: "/about/",
     ogType: "website",
     schemaType: "WebPage",
   },
   contact: {
-    title: "Contact & Support – Clever Humanizer",
-    description: "Get in touch with the Clever Humanizer engineering and support team for feedback, enterprise inquiries, and support.",
+    title: "Contact & Support – ToolVena",
+    description: "Send ToolVena feedback, support questions and guide requests.",
     canonicalPath: "/contact/",
     ogType: "website",
     schemaType: "WebPage",
   },
   notfound: {
-    title: "Page not found – HumanizeAI",
+    title: "Page not found – ToolVena",
     description: "This page does not exist or has moved.",
     canonicalPath: "/ai-humanizer/",
     ogType: "website",
@@ -470,7 +470,7 @@ export function getSiteOrigin(): string {
   if (typeof window !== "undefined" && window.location && window.location.origin) {
     return window.location.origin.replace(/\/$/, "");
   }
-  return "https://humanizeai.free";
+  return "https://www.toolvena.com";
 }
 
 export const ALL_SUPPORTED_LANGUAGES: LanguageCode[] = [
@@ -696,14 +696,14 @@ export function applyPageSeo(
   setMeta("og:description", description, true);
   setMeta("og:url", canonicalUrl, true);
   setMeta("og:type", blogPost ? "article" : baseConfig.ogType, true);
-  setMeta("og:site_name", "Clever Humanizer", true);
-  setMeta("og:image", `${origin}/icon.svg`, true);
+  setMeta("og:site_name", "ToolVena", true);
+  setMeta("og:image", `${origin}/pwa-512x512.png`, true);
 
   // 6. Twitter / X Cards
   setMeta("twitter:card", "summary_large_image");
   setMeta("twitter:title", title);
   setMeta("twitter:description", description);
-  setMeta("twitter:image", `${origin}/icon.svg`);
+  setMeta("twitter:image", `${origin}/pwa-512x512.png`);
 
   // 7. Dynamic Self-Referencing Canonical Link
   let canonicalEl = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -750,40 +750,29 @@ function updateJsonLd(
   origin: string,
   blogPost?: BlogPost | null
 ) {
-  const existingScript = document.getElementById("clever-schema-jsonld");
+  const existingScript = document.getElementById("toolvena-schema-jsonld");
   if (existingScript) {
     existingScript.remove();
   }
 
   const script = document.createElement("script");
-  script.id = "clever-schema-jsonld";
+  script.id = "toolvena-schema-jsonld";
   script.type = "application/ld+json";
 
   const schemas: any[] = [
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Clever Humanizer",
+      "name": "ToolVena",
       "url": `${origin}/`,
-      "description": "Free AI Humanizer and AI Text Pattern Scanner.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": `${origin}/ai-humanizer/?q={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
+      "description": "Free online tools for writing, text, images, PDFs and everyday tasks.",
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Clever Humanizer",
+      "name": "ToolVena",
       "url": `${origin}/`,
       "logo": `${origin}/icon.svg`,
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "yaretmyservin7@gmail.com",
-        "telephone": "+1-253-500-6555",
-        "contactType": "customer service",
-      },
     },
     {
       "@context": "https://schema.org",
@@ -813,19 +802,19 @@ function updateJsonLd(
       "headline": blogPost.title,
       "description": blogPost.summary,
       "author": {
-        "@type": "Person",
+        "@type": blogPost.author && blogPost.author.includes("Editorial Team") ? "Organization" : "Person",
         "name": blogPost.author,
       },
       "publisher": {
         "@type": "Organization",
-        "name": "Clever Humanizer",
+        "name": "ToolVena",
         "logo": {
           "@type": "ImageObject",
           "url": `${origin}/icon.svg`,
         },
       },
-      "datePublished": "2026-03-01",
-      "dateModified": "2026-09-24",
+      "datePublished": (blogPost as any).date || undefined,
+      "dateModified": (blogPost as any).date || undefined,
       "mainEntityOfPage": canonicalUrl,
       "keywords": blogPost.keywords.join(", "),
     });
@@ -845,10 +834,8 @@ function updateJsonLd(
         "availability": "https://schema.org/InStock",
       },
       "featureList": [
-        "Free Usage",
-        "Sentence-by-sentence writing pattern analysis",
-        "Tone and readability customization",
-        "Instant Export to DOCX & TXT",
+        "Free online tool",
+        "No sign-up required",
       ],
     });
   }
@@ -864,18 +851,18 @@ function updateJsonLd(
   ) {    const faqEntities: any[] = [
       {
         "@type": "Question",
-        "name": "How does Clever Humanizer make AI text sound more natural?",
+        "name": "How does ToolVena make AI text sound more natural?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Clever Humanizer adjusts token perplexity and sentence burstiness. Instead of uniform robotic rhythm, it reconstructs paragraphs with authentic human cadences, natural idiom shifts, and varied sentence lengths. Results vary by text and detector, and no tool can guarantee a specific detection score.",
+          "text": "ToolVena varies sentence length and rhythm, replaces common AI-style clichés with plainer wording, and adds natural contractions where they fit. Results vary by text, and no tool can guarantee a specific detector score.",
         },
       },
       {
         "@type": "Question",
-        "name": "Is Clever Humanizer completely free to use without word limits?",
+        "name": "Is ToolVena free to use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The tools on Clever Humanizer are free to use, and no account sign-up is required.",
+          "text": "Yes. ToolVena's tools are free to use and no account sign-up is required. The humanizer editor accepts up to 3,000 words at a time, so split longer documents into sections.",
         },
       },
       {
@@ -917,10 +904,10 @@ function updateJsonLd(
     } else if (page === "cleaner") {
       faqEntities.push({
         "@type": "Question",
-        "name": "What AI clichés trigger Turnitin and GPTZero?",
+        "name": "Which phrases can make writing sound formulaic?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Overused tokens like 'delve', 'rich tapestry', 'testament to', 'pivotal role', and 'crucial' occur up to 400x more frequently in ChatGPT output than in human writing. Purging them eliminates mathematical markers used by neural classifiers.",
+          "text": "Repeated stock phrases such as 'delve', 'rich tapestry', 'testament to', 'pivotal role' and 'crucial' can make prose feel formulaic. Rewriting them in your own words can make the text clearer. No single phrase proves how a text was written.",
         },
       });
     } else if (page === "diff") {

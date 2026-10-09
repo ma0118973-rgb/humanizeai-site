@@ -743,7 +743,7 @@ export function runLocalSeoOptimization(topicOrText: string, targetAudience = "G
   const topicNoBest = topicLower.replace(/^(best|top)\s+/i, "");
 
   // Smart SEO title: avoid cutting mid-word
-  let seoTitle = `${topicTitle} – Complete Guide & Free Tools (2026)`;
+  let seoTitle = `${topicTitle} – Guide, Tips & Examples`;
   if (seoTitle.length > 60) {
     seoTitle = seoTitle.slice(0, 57).replace(/\s+\S*$/, "") + "...";
   }
@@ -757,10 +757,10 @@ export function runLocalSeoOptimization(topicOrText: string, targetAudience = "G
   // Sensible keyword variations based on the full topic (avoid "best best" duplication)
   const primaryKeywords = [
     topicLower,
-    startsWithBest ? `${topicLower} guide` : `best ${topicLower}`,
-    startsWithBest ? `${topicLower} 2026` : `${topicLower} guide`,
-    `${topicLower} 2026`,
-    `free ${topicNoBest || topicLower} tools`,
+    `${topicLower} guide`,
+    `${topicLower} tips`,
+    `${topicLower} examples`,
+    `${topicLower} for beginners`,
   ].filter((v, i, a) => a.indexOf(v) === i).slice(0, 5);
 
   const longTailKeywords = [
@@ -779,7 +779,7 @@ export function runLocalSeoOptimization(topicOrText: string, targetAudience = "G
     "#SEO",
     "#ContentMarketing",
     "#DigitalMarketing",
-    "#GrowOnline",
+    "#WritingTips",
   ];
 
   const openGraphTitle = seoTitle;
@@ -817,7 +817,7 @@ export function runLocalSeoOptimization(topicOrText: string, targetAudience = "G
 }
 
 // ==========================================
-// 4. DETERMINISTIC VIRAL VIDEO & SOCIAL COMPETITOR CLONE ENGINE
+// 4. DETERMINISTIC VIDEO TITLE & HASHTAG IDEA ENGINE
 // ==========================================
 
 export interface CompetitorSeoResult {
@@ -840,42 +840,42 @@ export function runLocalVideoViralSeo(
 ): CompetitorSeoResult {
   const subject = topicName.trim() || fileName.replace(/\.[^/.]+$/, "") || "Video Topic";
 
-  const viralTitle = `${subject.slice(0, 40)}: Honest Review & Practical Tips (2026)`.slice(0, 60);
+  const viralTitle = `${subject.slice(0, 35)}: Practical Tips for Beginners`.slice(0, 60);
   const secondaryTitles = [
     `${subject.slice(0, 35)} Explained Simply for Beginners`,
     `What I Learned About ${subject.slice(0, 30)} (2026 Update)`,
     `${subject.slice(0, 35)}: Common Mistakes to Avoid`,
   ];
 
-  const hookScript = `In the next few minutes, I'll share practical tips about ${subject} that actually work — no hype, just what I've learned from experience.`;
+  const hookScript = `In the next few minutes, here are practical tips about ${subject}, explained step by step.`;
 
   const competitorSecretBreakdown = `Successful videos in this niche tend to: hook viewers in the first few seconds with a clear promise, keep a brisk pace with frequent visual changes, deliver on the title's promise early, and end with a clear call to action. Focus on genuine value over tricks — audiences can tell the difference.`;
 
   const viralHashtags = [
     `#${subject.replace(/\s+/g, "")}`,
     platform.includes("Shorts") ? "#Shorts" : platform.includes("TikTok") ? "#FYP" : "#Reels",
-    "#ViralVideo",
-    "#CreatorHacks",
-    "#TechTrends2026",
-    "#LifeHacks",
-    "#AIHacks",
-    "#GrowOnSocial",
+    "#VideoTips",
+    "#CreatorTips",
+    "#TechTips2026",
+    "#HowTo",
+    "#BeginnerTips",
+    "#LearnOnline",
   ];
 
   const highRpmKeywords = [
-    `${subject} review 2026`,
-    `best free ${subject}`,
-    `viral ${platform} strategy`,
+    `${subject} guide`,
     `${subject} tutorial`,
-    `how to get views on ${platform}`,
-    `monetize ${platform} fast`,
-    `${subject} secret tool`,
-    `high retention video editing`,
+    `${subject} for beginners`,
+    `${subject} tips`,
+    `${subject} common mistakes`,
+    `${subject} checklist`,
+    `${subject} examples`,
+    `${subject} tools`,
   ];
 
   const viralDescription = `A practical guide to ${subject} in 2026. Timestamps and resources in the description. Let me know in the comments what you'd like covered next.`;
 
-  const bestPostingTimeUS = `12:30 PM - 2:00 PM EST / 5:30 PM - 7:30 PM EST (Peak smartphone lunch & commute traffic)`;
+  const bestPostingTimeUS = "Check your own platform analytics for the times your audience is active.";
 
   return {
     viralTitle,
@@ -1241,7 +1241,7 @@ export function calculateTextDiff(
     }
   }
 
-  // Turnitin risk rating inversely proportional to token churn
+  // Internal wording-overlap estimate based on how much wording changed
   const changeRatio = (addedCount + removedCount) / Math.max(1, origWords.length * 2);
   const similarityRiskScore = Math.max(0, Math.min(100, Math.round((1 - changeRatio) * 85)));
   const uniqueWords = new Set(humanWords.map((w) => w.toLowerCase())).size;

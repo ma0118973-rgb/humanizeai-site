@@ -91,7 +91,7 @@ export function Navbar({
             <div className="min-w-0">
               <div className="flex items-center gap-1 sm:gap-2">
                 <span className="text-base sm:text-xl font-extrabold tracking-tight text-stone-900 font-sans truncate">
-                  Clever<span className="text-amber-600">Humanizer</span>
+                  Tool<span className="text-amber-600">Vena</span>
                 </span>
                 <span className="hidden xs:inline-block px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-extrabold tracking-wide uppercase bg-amber-100 text-amber-700 border border-amber-300 rounded-full shrink-0">
                   Free
@@ -205,7 +205,7 @@ export function Navbar({
                     <Maximize2 className="w-4 h-4 text-violet-400 shrink-0" />
                     <div>
                       <div className="font-bold">Sentence Expander</div>
-                      <div className="text-[10px] text-stone-400">Scholarly Depth & Burstiness</div>
+                      <div className="text-[10px] text-stone-400">Expand short paragraphs</div>
                     </div>
                   </button>
 
@@ -221,7 +221,7 @@ export function Navbar({
                     <AlertOctagon className="w-4 h-4 text-rose-400 shrink-0" />
                     <div>
                       <div className="font-bold">AI Cliché Purger</div>
-                      <div className="text-[10px] text-stone-400">Strip Hallmark AI Words</div>
+                      <div className="text-[10px] text-stone-400">Find repeated AI-style phrases</div>
                     </div>
                   </button>
 
@@ -237,7 +237,7 @@ export function Navbar({
                     <GitCompare className="w-4 h-4 text-blue-400 shrink-0" />
                     <div>
                       <div className="font-bold">Similarity Diff Checker</div>
-                      <div className="text-[10px] text-stone-400">Turnitin Match Predictor</div>
+                      <div className="text-[10px] text-stone-400">Word-by-word comparison</div>
                     </div>
                   </button>
 
@@ -252,8 +252,8 @@ export function Navbar({
                   >
                     <TrendingUp className="w-4 h-4 text-amber-400 shrink-0" />
                     <div>
-                      <div className="font-bold">High-RPM SEO Optimizer</div>
-                      <div className="text-[10px] text-stone-400">Viral Tags & Keywords</div>
+                      <div className="font-bold">SEO Meta & Hashtag Generator</div>
+                      <div className="text-[10px] text-stone-400">Titles, descriptions & tag ideas</div>
                     </div>
                   </button>
 
@@ -941,7 +941,7 @@ export function Navbar({
                 id="nav-btn-install"
                 onClick={onOpenInstall}
                 className="flex items-center gap-1 px-2 py-1.5 sm:px-3 sm:py-2 rounded-xl text-xs font-extrabold bg-gradient-to-r from-emerald-500 to-teal-400 text-stone-950 shadow-md shadow-emerald-500/20 hover:brightness-110 active:scale-95 transition-all cursor-pointer shrink-0"
-                title="Install Clever Humanizer WebApp on iPhone or Android"
+                title="Install ToolVena on iPhone or Android"
               >
                 <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
                 <span className="hidden xs:inline">{t.nav.installBtn}</span>
@@ -966,12 +966,12 @@ export function Navbar({
               </button>
             )}
 
-            {/* Strategic 2026 Blueprint Button (hidden on mobile screens) */}
+            {/* Writing Guide Button (hidden on mobile screens) */}
             <button
               id="nav-btn-blueprint"
               onClick={onOpenBlueprint}
               className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 sm:py-2 rounded-xl text-xs font-semibold bg-amber-100 text-amber-700 border border-amber-300 hover:bg-amber-500/25 transition-all shrink-0"
-              title="View 2026 Real-Time Market Strategy & Competitor Clone Analysis"
+              title="Open the ToolVena writing guide"
             >
               <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
               <span>{t.nav.blueprintBtn}</span>

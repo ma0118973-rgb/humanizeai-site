@@ -681,6 +681,10 @@ export function HumanizerWorkspace({
               </div>
             )}
 
+            <p className="text-xs text-stone-500">
+              Note: when available, this tool first tries an online AI rewrite, which sends your text for processing. If that is unavailable, the built-in offline engine is used instead.
+            </p>
+
             {/* Action Button: Big, Vibrant, High-Converting */}
             <button
               id="btn-humanize-submit"
@@ -967,7 +971,7 @@ export function HumanizerWorkspace({
       {/* Programmatic AdSense In-Content Placement */}
       <AdSenseSlot type="in-content" />
 
-      {/* 3-Step "How Clever Humanizer Works" & Comparison Matrix */}
+      {/* 3-Step "How ToolVena's AI Humanizer Works" & Feature List */}
       <CleverFeaturesGuide />
 
       {/* Bonus Micro-Tool: Live AI Plagiarism & Readability Score Dashboard */}

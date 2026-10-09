@@ -7,7 +7,8 @@ export interface BlogPost {
   readTime: string;
   date: string;
   author: string;
-  category: "AI Detection" | "Academic Integrity" | "SEO & Content" | "Video & Visual AI" | "Developer Tools";
+  category: "AI Detection" | "Academic Integrity" | "SEO & Content" | "Video & Visual AI" | "Developer Tools" | "Writing Tools" | "Privacy & Security";
+  image?: string;
   summary: string;
   keywords: string[];
   content: string[];
@@ -15,7 +16,7 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Was Text zu Sprache wirklich tut – und was dieses Werkzeug ist",
@@ -67,7 +68,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Text zu Sprache kostenlos: Texte im Browser vorlesen lassen"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "What Text to Speech Really Does (And What This Tool Actually Is)",
@@ -108,7 +109,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Text to Speech: How to Make Your Device Read Any Text Out Loud for Free"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Qué hace realmente el texto a voz y qué es esta herramienta",
@@ -158,7 +159,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Texto a voz gratis: escucha tus textos leídos en voz alta"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Ce que fait vraiment la synthèse vocale, et ce qu'est cet outil",
@@ -213,7 +214,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Synthèse vocale gratuite : fais lire tes textes à voix haute"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Che Cosa Fa Davvero la Sintesi Vocale e Che Cos'è Questo Strumento",
@@ -263,7 +264,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Sintesi Vocale: Ripassare Ascoltando gli Appunti e Correggere i Testi con le Orecchie"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. テキスト読み上げとは何か — このツールの仕組み",
@@ -310,7 +311,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "テキスト読み上げ（Text to Speech）ガイド：文章を耳で確認する無料ツールの使い方"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Wat tekst naar spraak echt doet (en wat deze tool is)",
@@ -358,7 +359,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Tekst naar spraak: gratis voorlezen met de stemmen van je eigen apparaat"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Hva tekst til tale egentlig gjør (og hva dette verktøyet er)",
@@ -406,7 +407,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Tekst til tale: få teksten lest opp gratis med stemmene på enheten din"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "O Que a Conversão de Texto em Fala Realmente Faz e o Que É Esta Ferramenta",
@@ -456,7 +457,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Texto para Fala: Como Revisar Redações Ouvindo e Estudar com Áudio no Seu Aparelho"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Metinden Sese Gerçekte Ne Yapar ve Bu Araç Nedir?",
@@ -511,7 +512,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Metinden Sese: Ders Notlarını Dinleyerek Çalışmak ve Yazılarınızı Kulakla Düzeltmek"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Text to Speech Asal Mein Karta Kya Hai (Aur Yeh Tool Hai Kya)",
@@ -558,7 +559,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "AI Detection Explained: The Perplexity & Burstiness Guide to Natural Writing",
     readTime: "6 min read",
     date: "September 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Understand how modern AI detectors measure your writing. Learn how perplexity variance and burstiness frequency make writing read more naturally.",
@@ -577,7 +578,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Google's Core Algorithm & AI Content: Why Robotic Text Gets De-Indexed",
     readTime: "8 min read",
     date: "September 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Why mass-generated ChatGPT content loses rankings over time, and how adding a genuine human perspective helps articles stay useful and visible.",
@@ -595,7 +596,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Can YouTube Detect AI Reels & Shorts? Audio & Visual Watermark Demystified",
     readTime: "7 min read",
     date: "September 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "A deep dive into YouTube synthetic media labels, SynthID digital watermarking in Midjourney & Sora, and how creators humanize AI voiceovers and frame pacing to avoid shadowbans.",
@@ -604,7 +605,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "With YouTube's synthetic media disclosure policy and TikTok's automated C2PA credential scanning, content creators frequently ask: Can algorithms detect AI-generated 10-second and 30-second Shorts and Reels?",
       "The answer lies in two areas: (1) Synthesized voiceovers with monotonic pitch intervals, and (2) Frame cadence artifacts from generative video models. YouTube's Content ID and audio fingerprinting recognize popular text-to-speech voices that lack dynamic breathing pauses and micro-pitch imperfections.",
       "To safeguard your channel's monetization, top viral creators apply human voice modulation (adding natural pauses, subtle room acoustic ambiance, and dynamic pitch inflection) and edit AI video reels with genuine camera cuts, organic B-roll transitions, and human-crafted pacing.",
-      "Clever Humanizer's Visual & Media Studio provides the exact script humanization and audio-pacing protocols required to produce viral Shorts and TikToks that pass synthetic media scrutiny."
+      "ToolVena's Visual & Media Studio provides the exact script humanization and audio-pacing protocols required to produce viral Shorts and TikToks that pass synthetic media scrutiny."
     ],
   },
   {
@@ -614,16 +615,16 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Turnitin vs. Copyleaks vs. GPTZero: Which AI Detector is Most Accurate?",
     readTime: "5 min read",
     date: "September 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
-      "We tested 1,000 essays across the top 4 AI detectors. Discover which platforms produce false positives, how they detect paraphrasing tools, and how different rewriting approaches compare on identical samples.",
+      "How do AI detectors really judge a piece of writing? This guide explains false positives, how detectors react to paraphrasing tools, and how different rewriting approaches compare — honestly, without made-up lab numbers.",
     keywords: ["Turnitin false positive rate", "Copyleaks review 2026", "best free AI detector", "college essay AI scan"],
     content: [
-      "In our controlled experiment of 1,000 student submissions and scholarly abstracts, standard paraphrasers (like basic QuillBot) were detected with an 88% accuracy rate by modern AI detectors because simple synonym swapping does not alter underlying Markov chain predictability.",
-      "GPTZero demonstrated high sensitivity to technical prose, producing up to a 7% false positive rate on non-native English speakers due to their naturally concise vocabulary choices.",
-      "The only method that reliably passed all 4 detectors with less than 2% AI flags was multidimensional entropy injection—varying grammatical complexity, clause position, and discourse markers without distorting thesis logic.",
-      "Clever Humanizer was engineered specifically around these empirical benchmarks, providing users with a 100% free tool that matches or outperforms $25/month subscription services."
+      "In everyday use, standard paraphrasers (like basic QuillBot-style rewriters) are often easy for AI detectors to spot, because simple synonym swapping does not change the underlying predictability of the text.",
+      "Teachers and researchers have reported that detectors can misread natural human writing: concise, formal prose — common among non-native English speakers — is sometimes flagged as AI-generated even when a person wrote every word.",
+      "What tends to work better is varying real writing structure — grammatical complexity, clause position, and discourse markers — without distorting the argument of the text.",
+      "ToolVena's humanizer is built around these practical writing principles, and it is completely free to use right in your browser."
     ],
   },
   {
@@ -633,7 +634,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Best Free AI Humanizer: Natural-Sounding Rewrites, No Sign-Up",
     readTime: "9 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Looking for a free AI humanizer without tight word limits or credit card paywalls? Discover how natural sentence variety and human cadence improve robotic drafts.",
@@ -649,7 +650,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "For students, freelance researchers, and independent bloggers operating on tight budgets, paying recurring fees just to verify their own writing is unreasonable. Understanding how detectors calculate probability helps writers produce more natural text.",
       "Why Commercial Paraphrasers Fail Against Turnitin: Most basic rewriters only swap words with thesaurus synonyms. Turnitin's transformer model doesn't look at single words; it analyzes n-gram probability matrices. If your paragraph maintains the same uniform 16-word sentence rhythm with standard academic transition phrases ('Moreover', 'Furthermore', 'It is important to remember'), detectors are more likely to flag the paragraph.",
       "The 3-Step Formula to Humanize Text Completely Free:\n1. Dynamic Burstiness Injection: Mix short 3-to-6 word punchy observations with comprehensive 25-word analytical explanations. Human writers naturally vary breath and cadence.\n2. Purge AI Signature Hallmarks: Strip sterile tokens like 'delve', 'testament', 'tapestry', 'beacon', and 'crucial role'. Replace them with specific real-world references and pragmatic verbs.\n3. Organic Human Perspective: Introduce natural rhetorical markers, active voice constructions, and contextual reasoning that large language models are trained to avoid.",
-      "Clever Humanizer implements all three protocols directly inside your browser. With zero word limits, zero signup requirements, and institutional-grade output verification, you can humanize entire term papers and dissertations with complete confidence."
+      "ToolVena runs these rewriting steps directly inside your browser, with no signup. The tool does the heavy lifting — you stay in charge of the final edit."
     ],
   },
   {
@@ -659,7 +660,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "AI Text Ko Insani Banana: Qudrati Tehreer Ka Asan Tareeqa",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "Pakistani aur South Asian students aur content writers ke liye mukammal rahnuma guide: ChatGPT aur Gemini ke text ko zyada qudrati insani tehreer mein kaise badlein.",
@@ -674,7 +675,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Bohot se log QuillBot ya free spinners ka sahara lete hain, lekin aaj kal ke detectors itne smart ho chuke hain ke woh simple paraphrasing ko foran pehchan leta hai. Nateeja yeh nikalta hai ke assignments reject ho jati hain ya clients paise kaat lete hain.",
       "AI Text Ko Insani Banana Ka Asal Raaz Kya Hai?\nAI detectors dar-asl do cheezon ko check karte hain:\n1. Perplexity (Alfaz ki pesh-goi): AI hamesha predictable alfaz chunta hai jo mathematical model ke hisab se sab se aam hotay hain.\n2. Burstiness (Jumlon ki lambai): Robotic writing mein har jumla taqreeban aik jaisi lambai ka hota hai.",
       "Is ka hal yeh hai ke aap jumlon ke flow ko behtar banayein — robotic rhythm ko qudrati rhythm mein badlein. Chotay fikaray aur tafseeli jumlay aapas mein milayein. Machine ke banaye huwe bekaar lafz ('delve', 'moreover', 'testament', 'crucial') hata kar aam aur qudrati zuban istemal karein.",
-      "HumanizeAI ka yeh plateform muft hai. Aap baghair kisi credit card ya sign-up ke hazaron alfaz ka content yahan daal kar aik click par zyada qudrati bana sakte hain aur live red-green heatmap se check kar sakte hain."
+      "ToolVena ka yeh plateform muft hai. Aap baghair kisi credit card ya sign-up ke hazaron alfaz ka content yahan daal kar aik click par zyada qudrati bana sakte hain aur live red-green heatmap se check kar sakte hain."
     ],
   },
   {
@@ -684,7 +685,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Cómo Humanizar Texto de IA Gratis para la Universidad con Estilo Natural",
     readTime: "7 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "Guía completa para estudiantes universitarios en España y Latinoamérica: transforma ensayos de ChatGPT en escritura humana más natural sin pagar suscripciones.",
@@ -697,7 +698,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "En las universidades de España, México, Colombia, Argentina y toda Latinoamérica, los profesores utilizan cada vez más Turnitin y detectores neuronales para revisar tesis, ensayos y trabajos prácticos.",
       "El error más común de los estudiantes es confiar en reescritores tradicionales que solo cambian sinónimos. modern AI detectors no busca palabras individuales, sino la uniformidad estadística de la estructura oracional (perplejidad y variedad sintáctica).",
       "Pasos fundamentales para que tus trabajos académicos suenen más naturales:\n1. Romper la cadencia monótona: La IA redacta párrafos donde casi todas las frases tienen entre 15 y 20 palabras. Los autores humanos mezclan frases cortas y contundentes con oraciones subordinadas complejas.\n2. Eliminar clichés de ChatGPT: Frases como 'Es crucial destacar', 'En conclusión', 'un tapiz de posibilidades' o 'un testimonio de' alertan inmediatamente a los algoritmos.\n3. Incorporar citas reales y matices críticos que las redes generativas omiten.",
-      "Clever Humanizer ofrece un modo 'Académico' completamente gratuito, sin registrar tarjetas de crédito y procesando tus documentos de forma privada en tu propio navegador. Recuerda: ninguna herramienta puede garantizar un resultado de detector; úsala para mejorar tu redacción, no para ocultar su origen."
+      "ToolVena ofrece un modo 'Académico' completamente gratuito, sin registrar tarjetas de crédito y procesando tus documentos de forma privada en tu propio navegador. Recuerda: ninguna herramienta puede garantizar un resultado de detector; úsala para mejorar tu redacción, no para ocultar su origen."
     ],
   },
   {
@@ -707,7 +708,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "How to Make AI Text Sound Human Without Paying: Free Step-by-Step Guide",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Comprehensive walkthrough on how GPTZero and Copyleaks estimate token perplexity, and the exact grammatical adjustments needed to pass them 100% free.",
@@ -722,7 +723,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "GPTZero and Copyleaks have become the two most common web-accessible detectors used by HR recruiters, Google search evaluators, and college professors to scan submitted text.",
       "Unlike Turnitin which requires institutional single-sign-on, GPTZero allows anyone to paste a URL or paste text. Copyleaks uses a multi-layered classification engine that flags predictable sentence beginnings ('Additionally', 'In summary', 'It is worth noting').",
       "To make text read more naturally without purchasing costly third-party subscriptions, you can alter sentence beginnings, introduce varied punctuation (dashes, semicolons, rhetorical questions), and break up formulaic parallel lists.",
-      "Clever Humanizer's integrated Multi-Model AI Content Detector lets you preview your exact line-by-line heatmap before submitting, giving you a clearer picture of which sentences still read as robotic so you can revise them by hand."
+      "ToolVena's integrated Multi-Model AI Content Detector lets you preview your exact line-by-line heatmap before submitting, giving you a clearer picture of which sentences still read as robotic so you can revise them by hand."
     ],
   }
 ,
@@ -733,7 +734,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "How to Make ChatGPT Text Sound More Natural: A Practical Guide",
     readTime: "12 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Your AI draft sounds robotic? Here are 8 field-tested techniques — with real before-and-after examples — to make ChatGPT text read like a human wrote it, plus the honest limits no tool will tell you about.",
@@ -771,7 +772,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Cómo Hacer que un Texto de ChatGPT Suene Natural: Guía Práctica",
     readTime: "12 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "¿Tu borrador de IA suena robótico? 8 técnicas probadas — con ejemplos reales de antes y después — para que un texto de ChatGPT se lea como escrito por una persona, más los límites honestos que ninguna herramienta te cuenta.",
@@ -809,7 +810,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "ChatGPT Ki Tehreer Ko Qudrati Kaise Banayein: Mukammal Guide",
     readTime: "12 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "AI ka likha text robotic lagta hai? 8 aazmaye hue tareeqe — asal before/after examples ke saath — jin se ChatGPT ki tehreer insani lage, aur woh imaandaar hadood jo koi tool aap ko nahi batata.",
@@ -847,7 +848,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "ChatGPT-Texte natürlicher klingen lassen: Der Praxis-Guide",
     readTime: "12 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Klingt Ihr KI-Entwurf roboterhaft? 8 erprobte Techniken — mit echten Vorher-nachher-Beispielen — damit ChatGPT-Texte wie von Menschen geschrieben wirken, plus die ehrlichen Grenzen, die Ihnen kein Tool nennt.",
@@ -885,7 +886,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Comment Rendre un Texte ChatGPT Plus Naturel : Guide Pratique",
     readTime: "12 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Votre brouillon IA sonne robotique ? 8 techniques éprouvées — avec de vrais exemples avant/après — pour qu'un texte ChatGPT se lise comme écrit par un humain, plus les limites honnêtes qu'aucun outil ne vous avouera.",
@@ -923,7 +924,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "ChatGPT ile Yazılan Metni Doğallaştırma: Pratik Rehber",
     readTime: "12 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "YZ taslağınız robotik mi duruyor? Gerçek önce/sonra örnekleriyle ChatGPT metnini insan elinden çıkmış gibi göstermenin 8 denenmiş yolu ve hiçbir aracın size söylemediği dürüst sınırlar.",
@@ -961,7 +962,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Como Deixar um Texto do ChatGPT Mais Natural: Guia Prático",
     readTime: "12 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Seu rascunho de IA parece robótico? 8 técnicas testadas — com exemplos reais de antes e depois — para fazer um texto do ChatGPT parecer escrito por uma pessoa, mais os limites honestos que nenhuma ferramenta te conta.",
@@ -999,7 +1000,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "ChatGPTの文章を自然に直す方法：実践ガイド",
     readTime: "12 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "AIの下書きがロボットっぽい？実際のビフォーアフター例とともに、ChatGPTの文章を人間が書いたように読ませる8つの実証済みテクニックと、どのツールも教えてくれない正直な限界を解説。",
@@ -1037,7 +1038,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "AI Content Detector — Check If Your Text Looks AI-Generated",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Learn how our free AI content detector estimates whether text looks machine-written, what the score really means, and why no detector — including ours — can give you a certain verdict.",
@@ -1086,7 +1087,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Citation Generator — APA, MLA, and Chicago References in Seconds",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Generate formatted citations in APA 7th, MLA 9th, and Chicago styles instantly. Learn how the tool works, see real examples, and understand why you should always verify output against the official style guides.",
@@ -1136,7 +1137,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Sentence Expander — Make Short Text Longer and Richer",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Turn thin sentences into fuller, more detailed ones with our free sentence expander. Learn how it works, when expansion actually helps your writing, and how to avoid the formulaic output trap.",
@@ -1192,7 +1193,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Detector de IA — Comprueba si tu Texto Parece Generado por IA",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Descubre cómo nuestro detector gratuito de contenido IA estima si un texto parece escrito por una máquina, qué significa realmente la puntuación y por qué ningún detector —tampoco el nuestro— puede darte un veredicto definitivo.",
@@ -1241,7 +1242,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Generador de Citas — Referencias APA, MLA y Chicago en Segundos",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Genera referencias bibliográficas en formato APA, MLA y Chicago en segundos. Aprende a usar la herramienta, mira ejemplos reales de cada estilo y entiende por qué siempre conviene verificar el resultado con las guías oficiales.",
@@ -1288,7 +1289,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Expansor de Oraciones — Haz tu Texto Más Largo y Rico",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Convierte frases cortas en párrafos más desarrollados con nuestro expansor gratuito. Entiende cómo funciona su motor basado en reglas, cuándo conviene expandir y cuándo es mejor dejar el texto como está.",
@@ -1331,7 +1332,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Estudio de Video — Herramientas para Reels y Contenido Viral",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Prepara tus videos para Reels, TikTok y YouTube Shorts con filtros de ritmo, recorte de marcas de agua y ajustes de imagen. Todo se procesa en tu navegador: tus videos nunca se suben a ningún servidor.",
@@ -1372,7 +1373,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Optimizador SEO — Hashtags y Optimización para Google",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Mejora el SEO de tus textos con análisis de palabras clave, meta descripciones y hashtags para redes. Una guía honesta sobre lo que estas herramientas pueden y no pueden hacer por tu posicionamiento.",
@@ -1416,7 +1417,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Limpiador de Clichés — Elimina Frases Típicas de IA",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Detecta y elimina las frases hechas que delatan un texto generado por IA: «adentrarse en», «en el vertiginoso mundo actual» y compañía. Aprende a usarlo sin romper la gramática de tus frases.",
@@ -1458,7 +1459,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "KI-Detektor — Prüfen ob Text nach KI Klingt",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Erfahre, wie unser kostenloser KI-Detektor einschätzt, ob ein Text maschinell geschrieben wirkt, was die Prozentzahl wirklich bedeutet — und warum kein Detektor, auch unserer nicht, ein sicheres Urteil liefern kann.",
@@ -1507,7 +1508,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Zitat-Generator — APA, MLA, Chicago in Sekunden",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Erstelle korrekte Literaturverweise in APA, MLA und Chicago — schnell und ohne Anmeldung. Mit echten Formatbeispielen, Tipps für In-Text-Zitate und einer ehrlichen Einordnung, wo du unbedingt nachprüfen solltest.",
@@ -1562,7 +1563,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Satz-Erweiterer — Kurzen Text Länger Machen",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Aus einem dünnen Absatz einen vollen machen: Der Satz-Erweiterer verlängert kurze Texte mit regelbasierten Mustern. Mit ehrlicher Einordnung der Grenzen, einer Vorher-Nachher-Demo und Tipps für die besten Ergebnisse.",
@@ -1614,7 +1615,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Video-Studio — Tools für Reels und Virale Videos",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Filter, Zuschnitt und Wasserzeichen-Entfernung für Kurzvideos — direkt im Browser. Mit ehrlichen Grenzen, rechtlichen Hinweisen und einem typischen Reels-Workflow.",
@@ -1661,7 +1662,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "SEO-Optimierer — Hashtags und Google-Optimierung",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Keyword-Analyse, Meta-Beschreibungen und Hashtags — mit realistischen Erwartungen. Warum kein Tool Platz 1 versprechen kann, welche Grundlagen wirklich wirken und wie du SEO sinnvoll in deinen Workflow einbaust.",
@@ -1711,7 +1712,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Klischee-Reiniger — KI-Floskeln Entfernen",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Typische KI-Phrasen verraten maschinelle Texte sofort. Der Klischee-Reiniger findet und ersetzt sie — mit einer ehrlichen Warnung zu Grammatikfallen, Beispielen und Hinweisen, wann du besser nicht bereinigst.",
@@ -1763,7 +1764,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Diff-Checker — Zwei Texte Vergleichen",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Vorher gegen Nachher, Entwurf gegen Finale Version: Der Diff-Checker zeigt Wort für Wort, was sich zwischen zwei Texten geändert hat. Mit Anwendungsfällen, ehrlichen Grenzen und praktischen Tipps.",
@@ -1811,12 +1812,12 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Détecteur IA — Vérifiez si votre Texte Semble Généré par IA",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
-    summary: "Le détecteur IA de HumanizeAI analyse votre texte en quelques secondes et estime s'il présente les signaux typiques de la génération artificielle. Ce guide explique honnêtement comment fonctionne l'analyse heuristique, ce que le score signifie vraiment — et ce qu'il ne signifie pas. Vous y trouverez aussi un guide d'interprétation, les limites de l'outil face aux faux positifs, et des conseils concrets pour une écriture plus naturelle.",
+    summary: "Le détecteur IA de ToolVena analyse votre texte en quelques secondes et estime s'il présente les signaux typiques de la génération artificielle. Ce guide explique honnêtement comment fonctionne l'analyse heuristique, ce que le score signifie vraiment — et ce qu'il ne signifie pas. Vous y trouverez aussi un guide d'interprétation, les limites de l'outil face aux faux positifs, et des conseils concrets pour une écriture plus naturelle.",
     keywords: ["détecteur ia", "vérifier texte ia"],
     content: [
-      "Vous venez de rédiger un texte — un devoir, un article de blog, une lettre de motivation — et une question vous trotte dans la tête : est-ce que ça sonne comme un texte généré par intelligence artificielle ? Le détecteur IA de HumanizeAI a été conçu pour répondre à cette question en quelques secondes : collez votre texte, lancez l'analyse, et vous obtenez un score accompagné d'explications. Mais avant d'aller plus loin, mettons les choses au clair : aucun détecteur grand public ne peut prouver avec certitude l'origine d'un texte. Cet article vous explique honnêtement comment notre outil fonctionne, ce que son score signifie vraiment, où sont ses limites, et comment l'utiliser intelligemment sans tomber dans les pièges classiques des faux positifs.",
+      "Vous venez de rédiger un texte — un devoir, un article de blog, une lettre de motivation — et une question vous trotte dans la tête : est-ce que ça sonne comme un texte généré par intelligence artificielle ? Le détecteur IA de ToolVena a été conçu pour répondre à cette question en quelques secondes : collez votre texte, lancez l'analyse, et vous obtenez un score accompagné d'explications. Mais avant d'aller plus loin, mettons les choses au clair : aucun détecteur grand public ne peut prouver avec certitude l'origine d'un texte. Cet article vous explique honnêtement comment notre outil fonctionne, ce que son score signifie vraiment, où sont ses limites, et comment l'utiliser intelligemment sans tomber dans les pièges classiques des faux positifs.",
       "## Comment fonctionne le détecteur",
       "Notre détecteur est un outil heuristique, c'est-à-dire qu'il repère des indices plutôt qu'il ne tranche une vérité. Concrètement, il n'a accès ni à Turnitin, ni à GPTZero, ni à aucun service de détection professionnel : tout se passe dans votre navigateur, à partir de votre seul texte. L'analyse porte sur trois familles de signaux que l'on retrouve fréquemment dans les textes produits par les modèles de langage. D'abord, la prévisibilité du vocabulaire : une IA choisit très souvent le mot le plus probable dans un contexte donné, ce qui donne un texte correct mais sans surprise lexicale. Ensuite, la régularité des phrases : les textes générés alignent volontiers des phrases de longueur similaire, construites sur le même moule sujet-verbe-complément, reliées par des transitions mécaniques. Enfin, les clichés typiques : certaines tournures reviennent en boucle dans les productions des IA en français — « il est important de noter que », « dans le monde d'aujourd'hui », « en fin de compte », « il convient de souligner ». Le score final combine ces trois familles d'indices : plus votre texte en accumule, plus l'estimation de génération IA grimpe.",
       "## Ce que le score signifie vraiment",
@@ -1840,12 +1841,12 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Générateur de Citations — APA, MLA, Chicago en Secondes",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
-    summary: "Le générateur de citations de HumanizeAI formate vos références en APA 7e, MLA 9e et Chicago en quelques secondes. Ce guide vous montre comment l'utiliser pas à pas, avec des exemples réels pour chaque style et des conseils pour les citations dans le texte. Il précise aussi honnêtement les cas limites où il faut vérifier avec les guides officiels.",
+    summary: "Le générateur de citations de ToolVena formate vos références en APA 7e, MLA 9e et Chicago en quelques secondes. Ce guide vous montre comment l'utiliser pas à pas, avec des exemples réels pour chaque style et des conseils pour les citations dans le texte. Il précise aussi honnêtement les cas limites où il faut vérifier avec les guides officiels.",
     keywords: ["générateur citations", "citation APA MLA"],
     content: [
-      "Rédiger une bibliographie à la main, c'est long, fastidieux, et une virgule mal placée suffit à faire tiquer un correcteur. Le générateur de citations de HumanizeAI formate vos références en quelques secondes selon les trois styles les plus demandés dans l'enseignement supérieur francophone et international : APA (7e édition), MLA (9e édition) et Chicago. Entrez les informations de votre source — auteur, titre, date, éditeur — et l'outil produit une référence propre, prête à copier. Cet article vous montre comment l'utiliser pas à pas, vous donne des exemples réels pour chaque style, et vous explique les cas où il faut impérativement vérifier avec les guides officiels.",
+      "Rédiger une bibliographie à la main, c'est long, fastidieux, et une virgule mal placée suffit à faire tiquer un correcteur. Le générateur de citations de ToolVena formate vos références en quelques secondes selon les trois styles les plus demandés dans l'enseignement supérieur francophone et international : APA (7e édition), MLA (9e édition) et Chicago. Entrez les informations de votre source — auteur, titre, date, éditeur — et l'outil produit une référence propre, prête à copier. Cet article vous montre comment l'utiliser pas à pas, vous donne des exemples réels pour chaque style, et vous explique les cas où il faut impérativement vérifier avec les guides officiels.",
       "## Les trois styles pris en charge",
       "Un mot sur chaque style, pour choisir le bon. L'APA (American Psychological Association, 7e édition) domine en psychologie, sciences de l'éducation, sciences sociales et de plus en plus en sciences de gestion : il privilégie la date, placée juste après l'auteur, parce que l'actualité des sources compte dans ces disciplines. Le MLA (Modern Language Association, 9e édition) est la référence en lettres, langues et études culturelles : il met l'accent sur l'auteur et la page, avec un format « conteneur » pensé pour les sources numériques. Le Chicago (17e édition) règne en histoire et dans une partie des sciences humaines, avec ses deux systèmes — notes-bibliographie et auteur-date. Notre générateur couvre les trois, pour les types de sources les plus courants : livres, articles de revue, pages web et chapitres d'ouvrages collectifs.",
       "## Utilisation pas à pas",
@@ -1869,12 +1870,12 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Expanseur de Phrases — Rendez votre Texte Plus Long",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary: "L'expanseur de phrases allonge vos textes en quelques secondes grâce à des règles automatiques. Ce guide explique honnêtement comment il fonctionne, pourquoi sa production est formulaïque, et comment adopter le bon réflexe : expandir, puis retravailler. Avec un exemple concret avant/après et six conseils pratiques.",
     keywords: ["expanseur de phrases", "allonger un texte"],
     content: [
-      "Votre texte est trop court ? Un paragraphe qui fait trois lignes là où il en faudrait dix, une idée intéressante mais à peine esquissée ? L'expanseur de phrases de HumanizeAI allonge votre texte en ajoutant des précisions, des transitions et des reformulations. Mais soyons honnêtes d'emblée : l'outil fonctionne avec des règles automatiques, pas avec une véritable compréhension de votre sujet, et son résultat est par nature un peu formulaïque. Cet article vous explique comment il fonctionne, quand l'utiliser — et surtout comment retravailler sa production pour obtenir un texte final de qualité.",
+      "Votre texte est trop court ? Un paragraphe qui fait trois lignes là où il en faudrait dix, une idée intéressante mais à peine esquissée ? L'expanseur de phrases de ToolVena allonge votre texte en ajoutant des précisions, des transitions et des reformulations. Mais soyons honnêtes d'emblée : l'outil fonctionne avec des règles automatiques, pas avec une véritable compréhension de votre sujet, et son résultat est par nature un peu formulaïque. Cet article vous explique comment il fonctionne, quand l'utiliser — et surtout comment retravailler sa production pour obtenir un texte final de qualité.",
       "## Comment fonctionne l'expanseur",
       "L'expanseur est un outil à base de règles : il applique des transformations prédéfinies à vos phrases, sans comprendre ce que vous voulez dire. Concrètement, il repère les phrases courtes et y ajoute des éléments : des connecteurs logiques (« en effet », « par conséquent », « de surcroît »), des précisions génériques (« d'une manière générale », « dans la plupart des cas »), des reformulations qui répètent l'idée sous un autre angle, et parfois des exemples types. C'est efficace pour gagner rapidement en longueur, mais cela a une conséquence directe : le texte produit suit des schémas reconnaissables. Si vous publiez la sortie telle quelle, un lecteur attentif y verra une écriture mécanique. D'où la règle d'or de cet outil : expandir, puis réécrire.",
       "## La méthode recommandée : expandir puis retravailler",
@@ -1896,12 +1897,12 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Résumeur de Texte — Du Long au Court",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary: "Le résumeur de texte extrait les phrases essentielles de vos longs documents en quelques secondes. Ce guide explique le fonctionnement du résumé extractif, détaille les trois modes de longueur, et présente honnêtement les limites de l'outil — sans reformulation ni détection des nuances. Avec des conseils concrets et les meilleurs cas d'usage.",
     keywords: ["résumeur de texte", "résumer un article"],
     content: [
-      "Un article de vingt pages à digérer avant demain, un rapport de cinquante pages dont on ne veut que l'essentiel, des notes de cours à réviser la veille d'un examen : le résumeur de texte de HumanizeAI extrait les phrases les plus importantes d'un long document en quelques secondes. Mais attention à bien comprendre ce qu'il fait : c'est un résumeur extractif, c'est-à-dire qu'il sélectionne des phrases existantes au lieu d'en rédiger de nouvelles. Cet article explique son fonctionnement, ses trois modes de longueur, ses limites honnêtes, et comment en tirer le meilleur.",
+      "Un article de vingt pages à digérer avant demain, un rapport de cinquante pages dont on ne veut que l'essentiel, des notes de cours à réviser la veille d'un examen : le résumeur de texte de ToolVena extrait les phrases les plus importantes d'un long document en quelques secondes. Mais attention à bien comprendre ce qu'il fait : c'est un résumeur extractif, c'est-à-dire qu'il sélectionne des phrases existantes au lieu d'en rédiger de nouvelles. Cet article explique son fonctionnement, ses trois modes de longueur, ses limites honnêtes, et comment en tirer le meilleur.",
       "## Comment fonctionne le résumé extractif",
       "Plutôt que de « comprendre » puis de reformuler comme le ferait un modèle d'IA, notre résumeur note chaque phrase du texte selon plusieurs critères, puis conserve les mieux notées. Les signaux utilisés sont simples et transparents : la fréquence des mots importants (une phrase contenant des termes qui reviennent souvent dans le document a plus de chances d'être centrale), la position (la première et la dernière phrase d'un paragraphe portent souvent l'idée principale), la longueur (les phrases ni trop courtes ni interminables sont privilégiées) et la présence de termes clés du titre ou des intertitres. Le résultat est un collage des phrases les plus « lourdes » du texte original, dans leur ordre d'apparition. C'est rapide, fiable et fidèle — mais c'est un tri, pas une synthèse rédigée.",
       "## Les trois modes de longueur",
@@ -1923,12 +1924,12 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Compresseur d'Images — Réduisez sans Perdre",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary: "Le compresseur d'images réduit le poids de vos JPEG, PNG et WebP directement dans le navigateur, sans téléversement. Ce guide explique le fonctionnement, les limites techniques honnêtes de l'outil, quand la compression est utile, et comment trouver le bon équilibre entre qualité et taille — avec un flux de travail étape par étape.",
     keywords: ["compresseur d'images", "réduire taille image"],
     content: [
-      "Une photo de 8 Mo qui met dix secondes à s'afficher sur votre site, une pièce jointe refusée parce qu'elle dépasse la limite, un diaporama qui rame : les images trop lourdes sont un problème quotidien. Le compresseur d'images de HumanizeAI réduit leur poids directement dans votre navigateur, sans logiciel à installer et sans téléversement. Il prend en charge les trois formats du web — JPEG, PNG et WebP. Cet article vous explique comment l'utiliser, ce qu'il peut et ne peut pas faire techniquement, et comment trouver le bon équilibre entre qualité et taille.",
+      "Une photo de 8 Mo qui met dix secondes à s'afficher sur votre site, une pièce jointe refusée parce qu'elle dépasse la limite, un diaporama qui rame : les images trop lourdes sont un problème quotidien. Le compresseur d'images de ToolVena réduit leur poids directement dans votre navigateur, sans logiciel à installer et sans téléversement. Il prend en charge les trois formats du web — JPEG, PNG et WebP. Cet article vous explique comment l'utiliser, ce qu'il peut et ne peut pas faire techniquement, et comment trouver le bon équilibre entre qualité et taille.",
       "## Comment fonctionne la compression dans le navigateur",
       "Quand vous déposez une image dans l'outil, tout se passe localement : le navigateur lit le fichier, le ré-encode avec vos réglages, et vous propose le résultat à télécharger. Pour le JPEG, le curseur de qualité contrôle directement la compression — baisser la qualité réduit fortement le poids, au prix de détails qui se perdent. Le WebP, format moderne soutenu par tous les navigateurs récents, offre un excellent rapport qualité-poids et mérite d'être votre choix par défaut pour le web. Le PNG, lui, est un cas particulier : c'est un format sans perte, et le ré-encodage via le navigateur n'offre qu'une marge de manœuvre limitée — le curseur de qualité y a donc un effet réduit, et la principale économie vient du redimensionnement plutôt que de la compression elle-même. Comprendre ces différences vous évitera des déceptions : on ne compresse pas un PNG comme un JPEG.",
       "## Les limites techniques, en toute honnêteté",
@@ -1954,7 +1955,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Outils PDF — Fusionner et Créer en Toute Simplicité",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Apprenez à fusionner plusieurs fichiers PDF en un seul document et à créer des PDF à partir de photos ou de captures d'écran, sans rien installer. Ce guide explique aussi honnêtement ce que l'outil ne fait pas — et pourquoi vos fichiers ne quittent jamais votre appareil.",
@@ -1963,7 +1964,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Vous avez probablement déjà connu cette situation : une candidature demande un seul fichier PDF, mais vous avez votre CV d'un côté, votre lettre de motivation de l'autre et vos diplômes dans un troisième dossier. Ou encore : vous avez photographié un document avec votre téléphone et vous avez besoin d'en faire un PDF propre. Nos outils PDF répondent à ces deux besoins du quotidien : fusionner plusieurs PDF en un seul document, et créer un PDF à partir d'images. Tout se passe dans votre navigateur, sans inscription et sans envoyer vos fichiers sur un serveur.",
       "## Pourquoi la gestion des PDF tourne souvent mal",
       "Le format PDF est devenu la langue commune des documents officiels : candidatures, dossiers administratifs, copies d'examen, contrats. Pourtant, les outils gratuits disponibles en ligne posent souvent trois problèmes. D'abord, beaucoup exigent la création d'un compte avant de traiter quoi que ce soit. Ensuite, la plupart envoient vos fichiers sur leurs serveurs — problématique quand il s'agit d'un CV contenant votre adresse ou d'un relevé de notes. Enfin, les services « gratuits » imposent souvent des limites cachées : un nombre de fusions par jour, un filigrane ajouté au document, ou une compression imposée qui dégrade la qualité.",
-      "L'outil de HumanizeAI adopte une approche différente : tout le traitement est effectué localement, dans votre navigateur, grâce à une bibliothèque open source appelée pdf-lib. Vos fichiers ne sont ni téléversés ni conservés quelque part. L'inconvénient honnête de cette approche, c'est que certaines opérations lourdes — comme une véritable compression intelligente ou la reconnaissance de texte — ne sont pas disponibles. Mais pour fusionner et créer des PDF, le traitement local est largement suffisant.",
+      "L'outil de ToolVena adopte une approche différente : tout le traitement est effectué localement, dans votre navigateur, grâce à une bibliothèque open source appelée pdf-lib. Vos fichiers ne sont ni téléversés ni conservés quelque part. L'inconvénient honnête de cette approche, c'est que certaines opérations lourdes — comme une véritable compression intelligente ou la reconnaissance de texte — ne sont pas disponibles. Mais pour fusionner et créer des PDF, le traitement local est largement suffisant.",
       "## Fusionner plusieurs PDF, étape par étape",
       "La fusion de PDF est l'opération la plus demandée. Voici comment procéder avec l'outil. Premièrement, ouvrez la page des outils PDF et choisissez la fonction de fusion. Deuxièmement, sélectionnez vos fichiers PDF depuis votre appareil — vous pouvez en ajouter plusieurs d'un coup. Troisièmement, vérifiez l'ordre d'apparition des documents : la plupart des outils affichent une liste que vous pouvez réordonner par glisser-déposer. C'est une étape importante : dans une candidature, on s'attend généralement à voir la lettre de motivation en premier, puis le CV, puis les pièces jointes. Quatrièmement, cliquez sur le bouton de fusion et attendez quelques secondes. Enfin, téléchargez le fichier résultant et ouvrez-le pour vérifier que toutes les pages sont présentes et dans le bon ordre.",
       "Un conseil pratique : avant de fusionner, jetez un œil à chaque fichier pour repérer les pages blanches ou les doublons. Il est plus simple de nettoyer en amont que de refaire une fusion. Et si l'un de vos PDF est protégé par un mot de passe, il faudra d'abord le déverrouiller — l'outil ne peut pas traiter les fichiers chiffrés sans le mot de passe.",
@@ -1989,13 +1990,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Studio Vidéo — Outils pour Reels Viraux",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Donnez à vos vidéos courtes un rendu plus soigné avec des filtres d'ambiance et la suppression des petits filigranes de coin. Ce guide explique comment obtenir un bon résultat, quelles sont les limites honnêtes de l'outil, et pourquoi il faut n'utiliser que du contenu qui vous appartient.",
     keywords: ["filtres vidéo reels", "retirer filigrane vidéo"],
     content: [
-      "Les vidéos courtes — Reels, TikTok, Shorts — se jouent en quelques secondes : un rendu visuel soigné peut faire la différence entre une vidéo qu'on regarde jusqu'au bout et une qu'on fait défiler. Le Studio Vidéo de HumanizeAI propose des outils simples pour améliorer l'aspect de vos vidéos : des filtres d'ambiance qui règlent le grain, le contraste et la chaleur de l'image, et un outil pour effacer les petits filigranes placés dans les coins. Pas de courbe d'apprentissage, pas de logiciel à installer : vous importez votre vidéo, vous appliquez vos réglages, vous exportez.",
+      "Les vidéos courtes — Reels, TikTok, Shorts — se jouent en quelques secondes : un rendu visuel soigné peut faire la différence entre une vidéo qu'on regarde jusqu'au bout et une qu'on fait défiler. Le Studio Vidéo de ToolVena propose des outils simples pour améliorer l'aspect de vos vidéos : des filtres d'ambiance qui règlent le grain, le contraste et la chaleur de l'image, et un outil pour effacer les petits filigranes placés dans les coins. Pas de courbe d'apprentissage, pas de logiciel à installer : vous importez votre vidéo, vous appliquez vos réglages, vous exportez.",
       "## Les filtres d'ambiance : grain, contraste, chaleur",
       "Trois réglages composent l'essentiel de l'outil. Le grain de film ajoute une légère texture à l'image, ce qui donne un aspect plus cinématographique et masque partiellement les artefacts de compression — utile quand votre vidéo a été enregistrée dans de mauvaises conditions. Le contraste renforce la différence entre les zones claires et les zones sombres ; un léger boost suffit généralement à donner du relief à une image un peu terne. La chaleur déplace la balance des couleurs vers des tons plus chauds ou plus froids : des tons chauds conviennent bien aux scènes d'intérieur et aux portraits, des tons plus froids aux paysages et aux ambiances urbaines.",
       "Le conseil le plus important : la modération. Un filtre poussé à l'extrême attire l'attention sur lui-même au lieu de servir la vidéo. Commencez avec des valeurs faibles, regardez le résultat sur votre téléphone — pas seulement sur un grand écran d'ordinateur, car c'est sur mobile que votre public regardera — puis ajustez progressivement. Testez aussi le rendu sur plusieurs passages de la vidéo : un réglage qui convient à une scène ensoleillée peut écraser les détails d'une scène plus sombre.",
@@ -2025,13 +2026,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Optimiseur SEO — Hashtags et Référencement Google",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Comprenez ce que l'optimisation SEO peut réellement apporter à votre contenu : analyse de mots-clés, méta-descriptions, structure et hashtags. Ce guide pose des attentes honnêtes — aucun outil sérieux ne peut promettre une première place sur Google — et détaille les fondamentaux qui fonctionnent vraiment.",
     keywords: ["optimisation SEO", "hashtags référencement"],
     content: [
-      "Le référencement naturel — apparaître dans les résultats de Google sans payer de publicité — est l'un des sujets où circulent le plus de promesses douteuses. « Première place garantie », « méthode secrète », « résultats en 7 jours » : si vous avez déjà cherché des conseils SEO, vous avez vu ces accroches. L'Optimiseur SEO de HumanizeAI prend le parti inverse : vous aider à faire correctement les bases — analyse de mots-clés, méta-descriptions, structure du contenu, hashtags — sans jamais prétendre contrôler ce que Google décidera d'afficher.",
+      "Le référencement naturel — apparaître dans les résultats de Google sans payer de publicité — est l'un des sujets où circulent le plus de promesses douteuses. « Première place garantie », « méthode secrète », « résultats en 7 jours » : si vous avez déjà cherché des conseils SEO, vous avez vu ces accroches. L'Optimiseur SEO de ToolVena prend le parti inverse : vous aider à faire correctement les bases — analyse de mots-clés, méta-descriptions, structure du contenu, hashtags — sans jamais prétendre contrôler ce que Google décidera d'afficher.",
       "## Ce que fait vraiment l'optimiseur",
       "L'outil vous aide sur quatre aspects concrets. L'analyse de mots-clés vous aide à identifier les expressions que votre public utilise réellement pour chercher votre sujet — ce ne sont pas toujours les termes auxquels vous pensez en premier. Les méta-descriptions sont les petits textes qui apparaissent sous votre titre dans les résultats de recherche : bien rédigées, elles donnent envie de cliquer, ce qui influence indirectement votre trafic. La structure du contenu concerne l'organisation de votre page — titres, sous-titres, paragraphes aérés — qui aide à la fois les lecteurs et les moteurs de recherche à comprendre de quoi parle votre page. Enfin, les hashtags concernent surtout votre visibilité sur les réseaux sociaux, où ils servent à classer et à faire découvrir vos publications.",
       "Ce sont des tâches utiles, mais ce sont des tâches de préparation. Aucune d'elles ne déclenche à elle seule un bon classement.",
@@ -2061,7 +2062,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Nettoyeur de Clichés — Éliminez les Phrases Typiques de l'IA",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Certaines tournures trahissent immédiatement un texte généré par IA. Ce guide explique pourquoi ces clichés posent problème, comment les remplacer proprement, et pourquoi il faut toujours relire après un nettoyage automatique — les substitutions peuvent casser les accords grammaticaux.",
@@ -2096,7 +2097,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Comparateur Diff — Comparez Deux Textes",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Visualisez précisément ce qui a changé entre deux versions d'un texte, mot à mot. Ce guide explique le fonctionnement de la comparaison, ses usages les plus utiles — brouillons, relecture, suivi de versions — et ses limites : l'outil montre les différences de texte, pas les différences de sens.",
@@ -2132,7 +2133,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Yapay Zeka Dedektörü — Metniniz AI Gibi mi Görünüyor?",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Ücretsiz yapay zeka dedektörümüzün metninizin makine üretimi gibi görünüp görünmediğini nasıl tahmin ettiğini, skorun gerçekte ne anlama geldiğini ve hiçbir dedektörün — bizimki dahil — neden kesin hüküm veremeyeceğini öğrenin.",
@@ -2181,7 +2182,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Alıntı Oluşturucu — APA, MLA, Chicago Saniyeler İçinde",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "APA 7, MLA 9 ve Chicago stillerinde doğru kaynakça oluşturmayı öğrenin. Gerçek format örnekleri, metin içi alıntı kuralları ve çıktıyı resmi kılavuzlarla doğrulamanız gereken durumlar.",
@@ -2234,7 +2235,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Cümle Genişletici — Kısa Metni Uzatın",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Kısa ve cılız metinleri daha uzun, daha zengin hallerine dönüştürün. Aracın kural tabanlı motorunun nasıl çalıştığını, çıktının neden formüle dayalı olduğunu ve genişlet-sonra-düzenle yöntemiyle en iyi sonucu nasıl alacağınızı öğrenin.",
@@ -2294,7 +2295,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Metin Özetleyici — Uzundan Kısaya",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Uzun metinleri çıkarıcı özetleme ile kısaltın. Cümle puanlamanın nasıl çalıştığını, üç uzunluk modunu ve aracın dürüst sınırlarını öğrenin.",
@@ -2354,7 +2355,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Resim Sıkıştırıcı — Kalite Kaybetmeden Küçültün",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Fotoğraflarınızı tarayıcıda küçültün: JPEG, PNG ve WebP desteği, kalite kontrolü ve dürüst sınırlar. PNG kaydırıcısının neden etkisiz olduğunu ve hedef KB sıkıştırmanın neden mümkün olmadığını öğrenin.",
@@ -2414,7 +2415,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "PDF Araçları — Birleştir ve Oluştur",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Birden fazla PDF'i tek dosyada birleştirin veya fotoğraflarınızdan PDF oluşturun; hepsi tarayıcıda, yükleme yok. Gerçek PDF sıkıştırmanın neden desteklenmediğini öğrenin.",
@@ -2475,7 +2476,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Video Stüdyosu — Viral Reels Araçları",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Reels ve kısa videolar için filtreler, köşe filigran kırpma ve dışa aktarma ayarları. Dürüst sınırlar: yalnızca küçük köşe işaretleri, sihirli kalite artışı yok.",
@@ -2538,7 +2539,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "SEO Optimize Edici — Hashtag ve Google Optimizasyonu",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Anahtar kelime analizi, meta açıklamalar, içerik yapısı ve hashtagler. Dürüst beklentiler: sıralama garantisi yok, SEO aylar sürer; garantili birincilik vaat edenlere dikkat.",
@@ -2602,7 +2603,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Klişe Temizleyici — AI Kalıplarını Silin",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Yapay zekâ metnini ele veren klişe ifadeleri temizleyin. Yaygın klişeler ve alternatifleri, dürüst dilbilgisi uyarısı ve ne zaman temizlememeniz gerektiği.",
@@ -2665,7 +2666,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Fark Karşılaştırıcı — İki Metni Karşılaştırın",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "İki metin arasındaki kelime düzeyi farkları anında görün. Kullanım durumları, dürüst sınırlar ve Word değişiklik izlemeyle karşılaştırma.",
@@ -2729,7 +2730,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "AI検出ツール — 文章がAIっぽいかチェック",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "無料のAI検出ツールがどのように文章のAIらしさを推定するのか、スコアの正しい読み方、そしてどんな検出器にもある限界について正直に解説します。",
@@ -2778,7 +2779,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "引用ジェネレーター — APA・MLA・Chicagoを数秒で",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "APA第7版、MLA第9版、Chicago形式の引用を数秒で作成。使い方の手順、各形式の実例、そして公式ガイドで確認すべき注意点を正直に解説します。",
@@ -2822,7 +2823,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "文章拡張ツール — 短い文章を長く豊かに",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "短い文章をルールベースで拡張し、文字数稼ぎやアイデアの肉付けに。仕組みと正直な限界、拡張後に編集するワークフローを解説します。",
@@ -2866,7 +2867,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "要約ツール — 長文を短く",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "抽出型の要約エンジンで長い文章から重要文を抜き出す仕組み、3つの長さモード、要点抽出の使い方と正直な限界を解説します。",
@@ -2911,7 +2912,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "画像圧縮ツール — 画質を保って軽量化",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "ブラウザのCanvasでJPEG・PNG・WebPを圧縮する仕組み、形式ごとの使い分け、そして正直な限界（PNGの画質スライダーなど）を解説します。",
@@ -2954,7 +2955,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "PDFツール — 結合・作成",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "複数のPDFを結合したり、画像からPDFを作るブラウザ完結のツール。pdf-libの仕組みと、本物のPDF圧縮はできないという正直な限界を解説します。",
@@ -2998,7 +2999,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "動画スタジオ — バズるリール用ツール",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "リール動画向けのフィルターや透かし対策ツールの使い方。できることと正直な限界、著作権の注意点を解説します。",
@@ -3039,7 +3040,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "SEO最適化 — ハッシュタグとGoogle対策",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "キーワード分析やメタディスクリプション、ハッシュタグ生成の使い方。順位保証はできないという正直な前提と、効果的な基本を解説します。",
@@ -3084,7 +3085,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "クリシェ除去 — AIっぽい表現を削除",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "AI文章に典型的な決まり文句を検出・置換するツールの使い方。文法が崩れる可能性という正直な注意点と、除去すべきでない場面を解説します。",
@@ -3126,7 +3127,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "差分チェッカー — 二つの文章を比較",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "二つの文章の差分を単語レベルで可視化する仕組み、校正やバージョン管理での活用法、そして意味は理解しないという正直な限界を解説します。",
@@ -3172,7 +3173,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Rilevatore IA — Verifica se il tuo Testo Sembra Generato dall'IA",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Scopri come il nostro rilevatore IA gratuito stima se un testo sembra scritto da una macchina, cosa significa davvero il punteggio e perché nessun rilevatore — incluso il nostro — può darti un verdetto certo.",
@@ -3219,7 +3220,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Generatore di Citazioni — APA, MLA, Chicago in Secondi",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Crea riferimenti bibliografici in stile APA 7, MLA 9 e Chicago in pochi secondi. Guida pratica all'uso, esempi reali per ogni stile e i casi in cui conviene sempre verificare con le guide ufficiali.",
@@ -3264,7 +3265,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Espansore di Frasi — Rendi il tuo Testo più Lungo e Ricco",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Trasforma frasi brevi e scarne in paragrafi più lunghi e articolati. Come funziona l'espansore, quando è utile, i suoi limiti onesti e il metodo espandi-poi-rivedi per i migliori risultati.",
@@ -3309,7 +3310,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Riassuntore di Testo — Dal Lungo al Corto in Secondi",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Riassumi articoli lunghi, report e documenti in pochi secondi con la sintesi estrattiva. Come funziona, le tre modalità di lunghezza, i limiti onesti e quando leggerlo per intero resta indispensabile.",
@@ -3350,7 +3351,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Compressore di Immagini — Riduci il Peso senza Perdere Qualità",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Riduci le dimensioni di foto JPEG, PNG e WebP direttamente nel browser. Come funziona la compressione, i limiti onesti (il cursore qualità sui PNG non è efficace) e i trucchi per siti più veloci.",
@@ -3391,7 +3392,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Strumenti PDF — Unisci PDF e Crea PDF dalle Immagini",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Unisci più PDF in un unico file o trasforma foto in un PDF professionale, tutto nel browser. Come funziona, i limiti onesti e perché l'elaborazione locale è l'unica scelta sensata per documenti personali.",
@@ -3434,7 +3435,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Studio Video — Strumenti per Reel e Contenuti Virali",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Filtri, ritaglio watermark e ottimizzazione per Reel direttamente nel browser. Cosa lo strumento può fare davvero, i limiti onesti e l'avvertenza sul copyright: usa solo contenuti tuoi.",
@@ -3477,7 +3478,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Ottimizzatore SEO — Hashtag e Ottimizzazione per Google",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Analisi parole chiave, meta description, struttura e hashtag in un unico strumento. Le basi che funzionano davvero, aspettative oneste (la SEO richiede mesi) e come riconoscere i venditori di «primo posto garantito».",
@@ -3522,7 +3523,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Pulitore di Cliché — Rimuovi le Frasi Tipiche dell'IA",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Individua ed elimina le espressioni stereotipate tipiche dei testi generati dall'IA. Come funziona, l'avvertenza onesta sulla grammatica e quando invece è meglio non «pulire».",
@@ -3567,7 +3568,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Confronta Diff — Confronta Due Testi Parola per Parola",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Vedi esattamente cosa è cambiato tra due versioni di un testo, con evidenziazione parola per parola. Come funziona il diff, i casi d'uso e i limiti onesti (nessuna comprensione semantica).",
@@ -3610,7 +3611,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Umanizzatore di Testo — Rendi Naturale il Testo Generato dall'IA",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Trasforma testi dal tono robotico in una scrittura più naturale e umana. Come funziona il motore basato su regole, cosa può e non può fare, e il metodo giusto per risultati credibili.",
@@ -3655,7 +3656,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Detector de IA — Verifique se seu Texto Parece Gerado por IA",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Aprenda como nosso detector gratuito de conteúdo IA estima se um texto parece escrito por máquina, o que a pontuação realmente significa e por que nenhum detector — incluindo o nosso — pode dar um veredito definitivo.",
@@ -3704,7 +3705,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Gerador de Citações — APA, MLA, Chicago em Segundos",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Monte referências bibliográficas em APA 7ª edição, MLA 9ª edição e Chicago em segundos. Veja exemplos reais de cada estilo, aprenda a citar no corpo do texto e saiba quando conferir o manual oficial.",
@@ -3753,7 +3754,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Expansor de Frases — Deixe seu Texto Mais Longo",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Precisa atingir um número mínimo de palavras ou desenvolver melhor uma ideia? Veja como o Expansor de Frases alonga textos curtos, quando vale a pena usá-lo e por que o melhor resultado vem de expandir e depois revisar.",
@@ -3795,7 +3796,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Resumidor de Texto — Do Longo ao Curto",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Transforme textos longos em resumos claros em segundos. Entenda como a sumarização extrativa funciona, os três modos de tamanho e os limites honestos da ferramenta.",
@@ -3837,7 +3838,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Compressor de Imagens — Reduza sem Perder Qualidade",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Imagens pesadas deixam sites lentos e e-mails impossíveis de enviar. Veja como comprimir JPEG, PNG e WebP no navegador, os limites honestos da ferramenta e quando cada formato faz sentido.",
@@ -3881,7 +3882,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Ferramentas PDF — Unir e Criar",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Junte vários PDFs em um só arquivo ou transforme fotos em PDF profissional. Tudo no navegador, sem upload — entenda como funciona, os limites honestos e as melhores práticas.",
@@ -3924,7 +3925,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Estúdio de Vídeo — Ferramentas para Reels Virais",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Dê um acabamento profissional aos seus vídeos curtos: filtros, remoção de marca d'água de canto e fluxo de trabalho para Reels. Veja o que a ferramenta faz bem e onde estão os limites honestos.",
@@ -3966,7 +3967,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Otimizador SEO — Hashtags e Otimização Google",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Entenda o que nosso Otimizador SEO analisa — palavras-chave, meta descrições, estrutura e hashtags — e, com honestidade, o que nenhuma ferramenta pode prometer: posições garantidas no Google.",
@@ -4007,7 +4008,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Limpador de Clichês — Remova Frases Típicas de IA",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Frases batidas denunciam texto gerado por IA. Veja como o Limpador de Clichês identifica essas expressões, os limites honestos da substituição automática e quando não mexer no texto.",
@@ -4049,7 +4050,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Comparador Diff — Compare Dois Textos",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Compare duas versões de um texto palavra por palavra e veja exatamente o que mudou. Entenda como o diff funciona, os melhores casos de uso e seus limites honestos.",
@@ -4093,13 +4094,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "AI-Detektor — Sjekk om Teksten Din Ser AI-Generert Ut",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "AI-detektoren gir et gratis anslag på hvor maskinaktig teksten din virker. Denne guiden forklarer hvordan den fungerer, hvordan du tolker poengsummen ærlig, og hva verktøyet ikke kan gjøre.",
     keywords: ["AI detektor gratis", "sjekke KI tekst", "AI tekst analyse"],
     content: [
-      "Mange skriver i dag med en liten frykt i bakhodet: Hva om teksten min blir mistenkt for å være skrevet av KI? Enten du er student som vil levere noe som høres ut som deg selv, eller lærer som vil forstå hvordan automatiske detektorer tenker, kan AI-detektoren på HumanizeAI hjelpe. Den er gratis, analyserer teksten din på sekunder og kjører helt i nettleseren din. Men før du stoler på resultatet, må du forstå nøyaktig hva dette verktøyet er – og hva det ikke er.",
+      "Mange skriver i dag med en liten frykt i bakhodet: Hva om teksten min blir mistenkt for å være skrevet av KI? Enten du er student som vil levere noe som høres ut som deg selv, eller lærer som vil forstå hvordan automatiske detektorer tenker, kan AI-detektoren på ToolVena hjelpe. Den er gratis, analyserer teksten din på sekunder og kjører helt i nettleseren din. Men før du stoler på resultatet, må du forstå nøyaktig hva dette verktøyet er – og hva det ikke er.",
       "## Hva er AI-detektoren?",
       "AI-detektoren er en heuristisk estimator. Det betyr at den ikke vet hvem som skrev teksten din. Den ser etter språklige mønstre som ofte kjennetegner tekst produsert av språkmodeller, og regner ut hvor sterkt disse mønstrene er til stede. Tenk på den som en erfaren språklærer med et trent øye for KI-stil, ikke som en løgndetektor. Analysen skjer lokalt på din egen maskin: du limer inn teksten, nettleseren gjør jobben, og ingenting sendes til en server underveis. Det finnes ingen database over KI-tekster å sammenligne med, og ingen magisk fasit – bare mønstergjenkjenning.",
       "## Slik fungerer den under panseret",
@@ -4123,13 +4124,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Sitat-Generator — APA, MLA, Chicago på Sekunder",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Sitat-generatoren lager ferdig formaterte kildehenvisninger i APA 7, MLA 9 og Chicago. Guiden viser steg-for-steg-bruk med ekte eksempler for bok, artikkel og nettside – og hvor du fortsatt må sjekke selv.",
     keywords: ["APA generator", "kildehenvisning APA 7", "MLA generator norsk"],
     content: [
-      "Skal du skrive semesteroppgave, bacheloroppgave eller en fagartikkel, kommer du ikke utenom kildehenvisninger. Og kildehenvisninger har en irriterende egenskap: de må være nøyaktige ned til minste komma. Sitat-generatoren på HumanizeAI lager ferdig formaterte henvisninger i stilene APA 7, MLA 9 og Chicago på sekunder. Du fyller inn opplysningene om kilden, velger stil, og får en henvisning du kan lime rett inn i litteraturlisten. I denne guiden viser vi deg hvordan verktøyet brukes, med ekte eksempler for bok, artikkel og nettside – og hvor du fortsatt må tenke selv.",
+      "Skal du skrive semesteroppgave, bacheloroppgave eller en fagartikkel, kommer du ikke utenom kildehenvisninger. Og kildehenvisninger har en irriterende egenskap: de må være nøyaktige ned til minste komma. Sitat-generatoren på ToolVena lager ferdig formaterte henvisninger i stilene APA 7, MLA 9 og Chicago på sekunder. Du fyller inn opplysningene om kilden, velger stil, og får en henvisning du kan lime rett inn i litteraturlisten. I denne guiden viser vi deg hvordan verktøyet brukes, med ekte eksempler for bok, artikkel og nettside – og hvor du fortsatt må tenke selv.",
       "## Hvilke stiler støttes?",
       "Generatoren støtter tre av de mest brukte stilene i norsk høyere utdanning. APA 7 brukes mest i samfunnsfag, psykologi og pedagogikk, og kjennetegnes av forfatter og årstall i teksten. MLA 9 er standard i språkfag og litteraturvitenskap, med forfatter og sidetall i teksten. Chicago brukes mye i historie og enkelte humanistiske fag, og finnes i to varianter – generatoren bruker author-date-varianten, der henvisningen i teksten inneholder forfatter og år. Er du usikker på hvilken stil du skal bruke, spør foreleser eller veileder før du begynner. Å bytte stil midt i en oppgave er noe av det kjedeligste som finnes.",
       "## Slik bruker du generatoren – steg for steg",
@@ -4157,13 +4158,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Setnings-Utvider — Gjør Teksten Din Lengre",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Setnings-utvideren bygger ut tynne setninger med faste språklige regler. Guiden forklarer hvordan motoren fungerer, hvorfor du bør redigere etterpå, og når du heller bør skrive mer selv.",
     keywords: ["utvide setninger", "gjøre tekst lengre", "utvide avsnitt tekst"],
     content: [
-      "«Oppgaven må være på minst 1500 ord.» Kjenner du den kalde følelsen når telleren viser 1100? Setnings-utvideren på HumanizeAI hjelper deg å bygge ut tynne setninger og korte avsnitt med språklige regler – helt gratis og helt i nettleseren. Men la oss være ærlige fra første stund: verktøyet forstår ikke hva du skriver om. Det følger regler. I denne guiden forklarer vi hvordan motoren fungerer, når utvidelse er smart, når du heller bør skrive mer selv, og hvordan du får et resultat som faktisk blir bedre – ikke bare lengre.",
+      "«Oppgaven må være på minst 1500 ord.» Kjenner du den kalde følelsen når telleren viser 1100? Setnings-utvideren på ToolVena hjelper deg å bygge ut tynne setninger og korte avsnitt med språklige regler – helt gratis og helt i nettleseren. Men la oss være ærlige fra første stund: verktøyet forstår ikke hva du skriver om. Det følger regler. I denne guiden forklarer vi hvordan motoren fungerer, når utvidelse er smart, når du heller bør skrive mer selv, og hvordan du får et resultat som faktisk blir bedre – ikke bare lengre.",
       "## Slik fungerer motoren",
       "Setnings-utvideren er regelbasert, ikke KI-basert. Den analyserer setningene dine og bruker faste språklige grep for å bygge dem ut: den setter inn bindeord og overganger som «blant annet», «i tillegg» og «samtidig», den legger til presiserende adjektiv og adverb, den utdyper påstander med eksemplifiserende bisetninger, og den folder ut sammentrengte formuleringer til fulle setninger. Alt skjer etter mønstre som er programmert inn på forhånd. Fordelen er at resultatet alltid er grammatisk ryddig. Ulempen er at det også alltid er litt forutsigbart. Motoren kjenner også igjen enkle oppramsinger og gjør dem om til fulle setninger med overganger, slik at notatpreget forsvinner.",
       "## Ærlig sak: Resultatet er formelbasert",
@@ -4189,13 +4190,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Tekst-Sammendrag — Fra Langt til Kort",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Tekst-sammendraget plukker ut de viktigste setningene fra lange tekster. Guiden forklarer ekstraktiv oppsummering, de tre lengdemodusene og de ærlige begrensningene – inkludert når du bør lese hele teksten selv.",
     keywords: ["oppsummere tekst", "tekst sammendrag gratis", "sammendrag generator"],
     content: [
-      "Skal du gjennom en førti siders rapport før lunsj, eller repetere pensum kvelden før eksamen? Tekst-sammendraget på HumanizeAI koker lange tekster ned til det viktigste på sekunder – gratis og helt i nettleseren. Det skriver ikke sammendraget med egne ord slik et menneske ville gjort. Det plukker ut de viktigste setningene fra originalen. I denne guiden forklarer vi hvordan det fungerer, hva de tre lengdemodusene gjør, hvor grensene går, og når du faktisk bør lese hele teksten i stedet.",
+      "Skal du gjennom en førti siders rapport før lunsj, eller repetere pensum kvelden før eksamen? Tekst-sammendraget på ToolVena koker lange tekster ned til det viktigste på sekunder – gratis og helt i nettleseren. Det skriver ikke sammendraget med egne ord slik et menneske ville gjort. Det plukker ut de viktigste setningene fra originalen. I denne guiden forklarer vi hvordan det fungerer, hva de tre lengdemodusene gjør, hvor grensene går, og når du faktisk bør lese hele teksten i stedet.",
       "## Slik fungerer ekstraktiv oppsummering",
       "Metoden kalles ekstraktiv oppsummering, og den er ærlig på en fin måte: den later ikke som den forstår teksten. Først deles teksten inn i setninger. Deretter får hver setning poeng etter flere signaler. Ordfrekvens teller tungt: ord som går igjen mange ganger i teksten, antas å være sentrale, og setninger som inneholder mange slike ord, scorer høyt. Posisjon teller også: første og siste setning i et avsnitt inneholder ofte hovedpoengene, så de vektes tyngre. Veldig korte setninger og veldig lange, innfløkte setninger vektes ned. En egen stoppordliste filtrerer bort de vanligste småordene før poengberegningen, slik at ord som «og», «det» og «som» ikke skal telle som innhold. Til slutt plukkes setningene med høyest poeng ut og presenteres i original rekkefølge, slik at sammendraget beholder tekstens logiske gang.",
       "## De tre lengdemodusene",
@@ -4221,12 +4222,12 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Bilde-Kompressor — Reduser uten Kvalitetstap",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary: "Lær hvordan nettleserbasert bildekomprimering fungerer, når du bør velge JPEG, PNG eller WebP, og hvilke begrensninger du bør kjenne – blant annet at PNG-kvalitetsslideren ikke har noen effekt. En ærlig guide til mindre bildefiler uten overraskelser.",
     keywords: ["komprimere bilder", "redusere bildestørrelse", "JPEG PNG WebP"],
     content: [
-      "Store bildefiler er en av de vanligste grunnene til trege nettsider, e-poster som ikke kommer fram og telefoner som går tomme for plass. Samtidig er det sjelden nødvendig å sende et bilde på åtte megabyte når mottakeren bare skal se det på en skjerm. Bilde-Kompressoren på HumanizeAI hjelper deg å krympe bildene til en fornuftig størrelse – direkte i nettleseren, uten at du laster opp noe noe sted. I denne guiden forklarer vi hvordan det fungerer, hvilke valg du bør ta, og hvor grensene går.",
+      "Store bildefiler er en av de vanligste grunnene til trege nettsider, e-poster som ikke kommer fram og telefoner som går tomme for plass. Samtidig er det sjelden nødvendig å sende et bilde på åtte megabyte når mottakeren bare skal se det på en skjerm. Bilde-Kompressoren på ToolVena hjelper deg å krympe bildene til en fornuftig størrelse – direkte i nettleseren, uten at du laster opp noe noe sted. I denne guiden forklarer vi hvordan det fungerer, hvilke valg du bør ta, og hvor grensene går.",
       "## Hvordan komprimering i nettleseren fungerer",
       "Verktøyet bruker noe som heter Canvas – en innebygd funksjon i alle moderne nettlesere som kan lese, tegne om og lagre bilder. Når du velger et bilde, dekodes det til rå piksler i minnet på din egen maskin. Deretter lagres det på nytt med lavere kvalitet eller mindre dimensjoner, alt etter hva du har valgt. For JPEG betyr kvalitetsinnstillingen hvor aggressivt detaljene skal forenkles; for WebP skjer noe lignende med en mer moderne metode. Hele prosessen tar vanligvis under ett sekund per bilde, og ingenting sendes over nettet. Det er også derfor verktøyet fungerer selv om du mister nettforbindelsen midt i jobben – så lenge siden allerede er lastet.",
       "## JPEG, PNG eller WebP – hva bør du velge?",
@@ -4250,12 +4251,12 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "PDF-Verktøy — Slå Sammen og Lag",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary: "Slik slår du sammen PDF-filer og lager PDF av bilder – helt lokalt i nettleseren med pdf-lib. Guiden dekker også ærlige begrensninger, som at verktøyene ikke komprimerer PDF-er på ekte, og tips til ryddige søknadsdokumenter.",
     keywords: ["slå sammen PDF", "lage PDF av bilder", "PDF verktøy gratis"],
     content: [
-      "Å slå sammen flere PDF-filer til én, eller å lage en PDF av en bunke bilder, er noe de fleste trenger med jevne mellomrom – en jobbsøknad som skal sendes som ett dokument, kvitteringer som skal samles, eller notater som skal bli til én fil. PDF-Verktøyene på HumanizeAI gjør begge deler direkte i nettleseren, uten opplasting og uten konto. I denne guiden ser vi på hvordan sammenslåing fungerer, hva verktøyene faktisk kan og ikke kan, og hvordan du forbereder dokumenter som ser profesjonelle ut.",
+      "Å slå sammen flere PDF-filer til én, eller å lage en PDF av en bunke bilder, er noe de fleste trenger med jevne mellomrom – en jobbsøknad som skal sendes som ett dokument, kvitteringer som skal samles, eller notater som skal bli til én fil. PDF-Verktøyene på ToolVena gjør begge deler direkte i nettleseren, uten opplasting og uten konto. I denne guiden ser vi på hvordan sammenslåing fungerer, hva verktøyene faktisk kan og ikke kan, og hvordan du forbereder dokumenter som ser profesjonelle ut.",
       "## Slik fungerer sammenslåing i nettleseren",
       "Verktøyet bygger på et åpent bibliotek som heter pdf-lib, som kjører direkte i nettleseren din. Når du velger PDF-filer, leses hver fil inn lokalt, sidene kopieres over i et nytt dokument i den rekkefølgen du bestemmer, og resultatet lastes ned til din maskin. Ingen av filene forlater datamaskinen din underveis. Fordi alt skjer på din egen maskin, er det heller ingen begrensning på antall sider utover det minnet ditt tåler – vanlige dokumenter på noen titalls sider går raskt og problemfritt. Du kan også fjerne sider du ikke trenger før du slår sammen, slik at sluttresultatet blir akkurat det du vil sende videre. Filstørrelsen på resultatet avhenger av innholdet i originalfilene – tekstbaserte sider forblir små, mens sider med store bilder naturlig nok tar mer plass.",
       "## Fra bilder til PDF",
@@ -4279,12 +4280,12 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Video-Studio — Verktøy for Virale Reels",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary: "Video-Studio gir videoklippene dine et løft med filtre som filmkorn, kontrast og varme – og kan beskjære bort små hjørnemerker. En ærlig guide til hva verktøyet kan og ikke kan, med arbeidsflyt for Reels og påminnelse om opphavsrett.",
     keywords: ["videoredigering gratis", "redigere Reels", "videofilter nettleser"],
     content: [
-      "Korte videoer – Reels, TikTok og Shorts – belønner fart, tydelighet og stil. Men ikke alle har tid eller lyst til å lære et tungt redigeringsprogram for et klipp på tretti sekunder. Video-Studio på HumanizeAI er et lett verktøy som kjører i nettleseren: du kan gi videoen et visuelt uttrykk med filtre, fjerne små forstyrrende merker i hjørnene og klargjøre klipp for publisering. I denne guiden går vi gjennom hva verktøyet faktisk gjør, hvor grensene går, og hvordan du bygger en enkel arbeidsflyt for korte videoer.",
+      "Korte videoer – Reels, TikTok og Shorts – belønner fart, tydelighet og stil. Men ikke alle har tid eller lyst til å lære et tungt redigeringsprogram for et klipp på tretti sekunder. Video-Studio på ToolVena er et lett verktøy som kjører i nettleseren: du kan gi videoen et visuelt uttrykk med filtre, fjerne små forstyrrende merker i hjørnene og klargjøre klipp for publisering. I denne guiden går vi gjennom hva verktøyet faktisk gjør, hvor grensene går, og hvordan du bygger en enkel arbeidsflyt for korte videoer.",
       "## Hva Video-Studio faktisk gjør",
       "Video-Studio er ikke et fullverdig redigeringsprogram, og det er heller ikke meningen. Det gjør noen få ting, men gjør dem enkelt: du laster inn et videoklipp, velger et visuelt filter, beskjærer eventuelt bort små merker i hjørnene, og eksporterer resultatet. Alt skjer lokalt i nettleseren din – videoen lastes aldri opp noe sted. Det gjør verktøyet velegnet for raske justeringer før publisering: gi klippet et varmere uttrykk, legg til litt filmkorn for stemning, eller rydd bort et lite logo-merke fra hjørnet av et klipp du selv har laget.",
       "## Filtre: filmkorn, kontrast og varme",
@@ -4302,7 +4303,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "## Eksportinnstillinger som fungerer",
       "Når videoen er ferdig, gjelder det å eksportere den slik at plattformene viser den best mulig. Loddrett format – typisk 1080 × 1920 – er standard for Reels, TikTok og Shorts. Sørg for at viktige elementer ikke ligger helt i kantene, siden plattformene legger knapper og tekst over deler av bildet. Ikke eksporter i høyere oppløsning enn kildematerialet – det gjør bare filen større uten å bedre kvaliteten. Og behold alltid en kopi av den ferdige videoen på din egen maskin; plattformer kan komprimere på nytt ved opplasting, så originalen din er den beste versjonen du har.",
       "## Personvern: videoen forlater aldri enheten din",
-      "Som alle verktøyene på HumanizeAI kjører Video-Studio fullstendig i nettleseren din. Videoklippene dine lastes aldri opp til en server, lagres aldri hos oss og analyseres aldri av noen tredjepart. Det betyr at du kan redigere private opptak – familievideer, upubliserte prosjekter eller kundearbeid – uten å bekymre deg for hvor filene havner. Når du lukker fanen, er ingenting igjen på vår side."
+      "Som alle verktøyene på ToolVena kjører Video-Studio fullstendig i nettleseren din. Videoklippene dine lastes aldri opp til en server, lagres aldri hos oss og analyseres aldri av noen tredjepart. Det betyr at du kan redigere private opptak – familievideer, upubliserte prosjekter eller kundearbeid – uten å bekymre deg for hvor filene havner. Når du lukker fanen, er ingenting igjen på vår side."
     ]
   },
   {
@@ -4312,12 +4313,12 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "SEO-Optimalisering — Hashtags og Google-Optimalisering",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary: "En jordnær innføring i SEO: nøkkelordanalyse, titler, metabeskrivelser, struktur og hashtagger – med ærlige forventninger. Ingen kan love førsteplass på Google, men jevnt og ærlig arbeid over tid lønner seg.",
     keywords: ["SEO optimalisering", "søkemotoroptimalisering guide", "hashtagger Instagram"],
     content: [
-      "SEO – søkemotoroptimalisering – handler i bunn og grunn om én ting: å gjøre det enkelt for både mennesker og søkemotorer å forstå hva siden din tilbyr. Det finnes ingen snarveier, og ingen verktøy kan love deg førsteplassen på Google. Det SEO-verktøyene på HumanizeAI kan gjøre, er å hjelpe deg med håndverket: finne relevante søkeord, skrive bedre titler og beskrivelser, strukturere innholdet og lage hashtagger som gir mening. I denne guiden går vi gjennom det grunnleggende – med ærlige forventninger hele veien.",
+      "SEO – søkemotoroptimalisering – handler i bunn og grunn om én ting: å gjøre det enkelt for både mennesker og søkemotorer å forstå hva siden din tilbyr. Det finnes ingen snarveier, og ingen verktøy kan love deg førsteplassen på Google. Det SEO-verktøyene på ToolVena kan gjøre, er å hjelpe deg med håndverket: finne relevante søkeord, skrive bedre titler og beskrivelser, strukturere innholdet og lage hashtagger som gir mening. I denne guiden går vi gjennom det grunnleggende – med ærlige forventninger hele veien.",
       "## Hva SEO-verktøyene hjelper deg med",
       "Verktøyene våre dekker de praktiske delene av SEO-arbeidet. Nøkkelordanalyse hjelper deg å finne ordene folk faktisk søker etter, i stedet for ordene du tror de bruker. Tittel- og metabeskrivelsesverktøyet hjelper deg å formulere de korte tekstene som vises i søkeresultatene – ofte det første inntrykket en potensiell leser får. Strukturverktøy minner deg på å bruke overskrifter logisk, slik at både lesere og søkemotorer skjønner hva som er viktigst på siden. Og hashtag-generatoren foreslår relevante emneknagger for sosiale medier. Alt dette er håndverk du kan lære – verktøyene gjør det bare raskere og mer systematisk.",
       "## Nøkkelord: tenk som den som søker",
@@ -4347,7 +4348,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Klisjé-Fjerner — Fjern Typiske AI-Fraser",
     readTime: "7 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Lær hvordan du finner og fjerner de typiske frasene som røper AI-skrevet tekst. Denne guiden viser de vanligste klisjeene med naturlige norske alternativer, hvordan Klisjé-Fjerner-verktøyet fungerer, og hvorfor du alltid bør lese teksten høyt etterpå.",
@@ -4380,7 +4381,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Diff-Sammenligner — Sammenlign To Tekster",
     readTime: "6 min read",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Se nøyaktig hva som har endret seg mellom to versjoner av en tekst. Denne guiden forklarer hvordan ord-for-ord-sammenligning fungerer, hvordan du leser resultatet, og hvor verktøyet er nyttig — fra korrektur til oversettelseskontroll.",
@@ -4409,6 +4410,9 @@ export const BLOG_POSTS: BlogPost[] = [
     id: "tekst-humanizer-guide-norsk",
     slug: "tekst-humanizer-guide-norsk",
     language: "no",
+    date: "2026-10-08",
+    author: "ToolVena Editorial Team",
+    category: "Writing Tools",
     title: "Tekst-Humanizer — Gjør AI-Tekst Naturlig",
     readTime: "6 min read",
     summary:
@@ -4440,7 +4444,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "AI-Detector — Controleer of je Tekst AI-Gegenereerd Lijkt",
     readTime: "7 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Leer hoe onze gratis AI-detector inschat of tekst machinaal geschreven lijkt, wat de score werkelijk betekent en waarom geen enkele detector — ook de onze niet — een zeker oordeel kan geven.",
@@ -4489,7 +4493,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Citatie-Generator — APA, MLA, Chicago in Seconden",
     readTime: "6 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Maak correcte bronvermeldingen in APA 7, MLA 9 en Chicago-stijl. Leer hoe de generator werkt, bekijk echte voorbeelden per stijl en ontdek welke randgevallen je altijd handmatig moet controleren.",
@@ -4537,7 +4541,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Zin-Uitbreider — Maak je Tekst Langer en Rijker",
     readTime: "6 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Van een magere alinea naar een volwaardige paragraaf: leer hoe de Zin-Uitbreider werkt, wanneer uitbreiden helpt, en waarom je het resultaat altijd moet nabewerken met je eigen oordeel.",
@@ -4588,7 +4592,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Tekst-Samenvatter — Van Lang naar Kort",
     readTime: "6 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Vat lange teksten samen in seconden met extractieve samenvatting. Leer hoe zinscoring werkt, welke van de drie lengtemodi je wanneer kiest, en waarom je geciteerde bronnen altijd zelf moet lezen.",
@@ -4644,7 +4648,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Afbeelding-Compressor — Verklein zonder Kwaliteitsverlies",
     readTime: "6 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Verklein JPEG-, PNG- en WebP-afbeeldingen direct in je browser. Leer welk formaat je wanneer kiest, waarom de PNG-kwaliteitsschuif weinig doet, en hoe je foto's weboptimaal maakt zonder zichtbaar verlies.",
@@ -4696,7 +4700,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "PDF-Tools — Samenvoegen en Maken",
     readTime: "6 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Voeg meerdere PDF's samen tot één bestand of maak een PDF van je foto's — volledig in je browser. Leer hoe het werkt, wat de eerlijke beperkingen zijn, en hoe je sollicitatie- of uploaddocumenten professioneel voorbereidt.",
@@ -4748,7 +4752,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Video-Studio — Tools voor Virale Reels",
     readTime: "6 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Geef je reels een professionele look met filters, verwijder kleine hoekwatermerken en leer welke workflows echt werken. Eerlijk over de grenzen: geen volwaardige editor, wel snelle resultaten in je browser.",
@@ -4799,7 +4803,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "SEO-Optimalisatie — Hashtags en Google-Optimalisatie",
     readTime: "7 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Leer de basis van zoekmachineoptimalisatie: zoekwoorden, metatitels, structuur en hashtags. Met eerlijke verwachtingen — niemand kan posities garanderen — en een waarschuwing voor oplichters die dat wel beloven.",
@@ -4851,7 +4855,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Cliché-Verwijderaar — Verwijder Typische AI-Zinnen",
     readTime: "6 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "AI-tekst verraadt zich door clichés. Leer welke frasen detectoren triggeren, hoe de verwijderaar ze vervangt, en waarom je het resultaat altijd hardop moet nalezen — vervangingen kunnen de grammatica breken.",
@@ -4902,7 +4906,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Diff-Vergelijker — Vergelijk Twee Teksten",
     readTime: "6 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Writing Tools",
     summary:
       "Zie in één oogopslag wat er veranderde tussen twee tekstversies. Leer hoe woordniveau-diff werkt, waarvoor je hem gebruikt — van proeflezen tot vertaalcontrole — en wat de eerlijke grenzen zijn.",
@@ -4954,7 +4958,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Tekst-Humanizer — Maak AI-Tekst Natuurlijk",
     readTime: "7 min leestijd",
     date: "2026-10-08",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Verander robotachtige AI-tekst in natuurlijk klinkend proza met een regelgebaseerde lokale engine. Leer hoe herschrijven werkt, welke intensiteit je wanneer kiest, en waarom het resultaat altijd jouw redactie nodig heeft.",
@@ -5009,7 +5013,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "AI Detector Urdu Guide: AI Likhi Tehreer Kaise Pehchanein",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "AI detector kya hota hai, jumla ba jumla heatmap kaise kaam karti hai, aur kis suraton mein natija ghalat bhi ho sakta hai. Student ke liye seedhi seedhi rehnumai, bina kisi jhotay daway ke.",
@@ -5021,7 +5025,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Is guide mein hum sara mamla chai pe dost wali guftagu jaisay andaaz mein samjhayenge. Koi bara dawa nahi, koi magic number nahi. Bas ye ke detector kaise sochta hai, us ki report ko kaise parhna hai, aur kab us report ko sanjeedgi se lena chahiye aur kab nahi.",
       "Dusra Hissa: Ye Tool Kya Karta Hai",
       "AI detector aik aisa tool hai jo tehreer ke pattern ko parakhta hai. Words ko nahi, andaaz ko. Misaal ke tor par: kya sare jumle taqreeban barabar lambay hain, kya aik jaise alfaz baar baar aa rahe hain, kya jumlon ki shuruaat har dafa aik jaise qalib mein hai? Insaan likhta hai to us ke jumle kabhi chote, kabhi lambay, kabhi ultay seedhay hote hain. Machine aksar bohat 'hamwaar' tehreer deti hai.",
-      "HumanizeAI ka AI Detector jumla ba jumla heatmap dikhata hai. Yani poora paragraph aik rang mein lapaitne ke bajaye har jumla alag se check hota hai. Jis jumle mein machine jaisi harkatein zyada nazar aati hain, wo garam rang mein ubhar aata hai, aur jo jumla insani lehje ke qareeb lagta hai, wo thanda lagta hai. Is tarah aap ko pata chalta hai ke masla hissa kahan hai, pura mazmoon nahi.",
+      "ToolVena ka AI Detector jumla ba jumla heatmap dikhata hai. Yani poora paragraph aik rang mein lapaitne ke bajaye har jumla alag se check hota hai. Jis jumle mein machine jaisi harkatein zyada nazar aati hain, wo garam rang mein ubhar aata hai, aur jo jumla insani lehje ke qareeb lagta hai, wo thanda lagta hai. Is tarah aap ko pata chalta hai ke masla hissa kahan hai, pura mazmoon nahi.",
       "Ye samajhna zaroori hai ke ye tool koi 'khabardar police' nahi hai. Ye pattern-based isharay deta hai, faisla nahi sunata. Is ka kaam aap ki madad karna hai ke tehreer ki kamzorian samne aayen, taake aap khud usay behtar kar saken.",
       "Aik aur ishara jo aksar nazar andaaz ho jata hai, wo hai 'jazbaati tangi'. Aik hi jumle mein khushi, gussa, hairat ya mazaq ke rang milna insani lehja hai — hum jab excitement mein bolte hain to jumla pehle jazbaat, phir maloomat kar deta hai. Machine aksar pehle maloomat, baad mein ehtiyaat se thora sa summary. Ye chhoti si bay tarteebi hi asal mein tehreer ko jaan deti hai, aur is liye heatmap kisi garam jumle ko sirf 'ghalti' nahi, us ka tantaana samjhne ka ishara hoti hai.",
       "Teesra Hissa: Ye Kaam Kaise Karta Hai",
@@ -5056,7 +5060,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Citation Generator Urdu Guide: APA Aur MLA Hawala Jaat Asan",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "APA 7, MLA 9, Chicago aur Harvard formats mein hawala jaat banane ka sada aur imaandaar tareeqa. Teacher ke zaviye se woh baatain jo class mein aksar reh jati hain.",
@@ -5069,7 +5073,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Aur aik chhoti si baat jo class mein aksar reh jati hai: hawala sirf 'credit' ka sawal nahi hai, tehqiqat ki raah ka bhi sawal hai. Aik saaf hawala parhne wale ko wohi kitaab tak pohncha deta hai jis se aap ne madad li thi. Is liye hawala un ke liye bhi hota hai jo aap ki tehqiqat ko agay barhana chahte hain — yani hawala tehreer ki khidmat hai, sirf kaaghazi shakliat nahi.",
       "Dusra Hissa: Ye Tool Kya Karta Hai",
       "Citation generator aik khamosh munshi ki tarah hai. Aap usay kitaab, website ya journal article ki basic malomaat de dein, wo usay muntakhib format ke qalib mein dhaal kar saaf suthra hawala bana deta hai. Aap ko sirf ye check karna hai ke malomaat sahi likhi hain.",
-      "HumanizeAI ka Citation Generator chaar bade formats ko samajhta hai: APA 7, MLA 9, Chicago aur Harvard. Ye chaar wohi hain jo zyada tar universities aur journals istemal karte hain. Kitaab ho ya website ka mazmoon ya journal ki tehqiqat, teeno qisam ki entry daali ja sakti hai, aur har entry us format ke lehaz se banti hai.",
+      "ToolVena ka Citation Generator chaar bade formats ko samajhta hai: APA 7, MLA 9, Chicago aur Harvard. Ye chaar wohi hain jo zyada tar universities aur journals istemal karte hain. Kitaab ho ya website ka mazmoon ya journal ki tehqiqat, teeno qisam ki entry daali ja sakti hai, aur har entry us format ke lehaz se banti hai.",
       "Yahan aik baat imaandari se: koi bhi generator utna hi acha hota hai jitni sahi malomaat aap us mein daalte hain. Agar aap ne saal ghalat likha, to hawala bhi ghalat saal ke sath banega. Tool punctuation aur tartib ka khayal rakhta hai, haghaiq ki tasdeeq aap ko khud karni hoti hai.",
       "Teesra Hissa: Formats Mein Farq, Sada Lahoo Mein",
       "APA 7 zyada tanzeemi aur nafsiyati tehqiqat mein chalta hai. Is mein author ka surname pehle, phir saal gol brackets mein, phir title. Is ki khaas pehchan tehreer ke andar date par zor hai, yani (Ahmed, 2023) wala andaaz. Jab koi parhne wala'Kab' likha gaya', ye janna chahe to APA aasani deta hai.",
@@ -5103,7 +5107,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Cliche Cleaner Urdu Guide: Ghise Pitay Jumle Kaise Khatam Karein",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Blog likhte waqt wohi purane jumle baar baar aa jate hain aur tehreer sust par jati hai. Ye guide batati hai ke cliche kya hota hai, ye kyun nuqsan deta hai, aur kis tarah aap inhe dhoondh kar taaza lafzon se badal sakte hain.",
@@ -5117,7 +5121,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Cliche Cleaner aik saada sa editor-side helper hai jo aap ke English text ko scan karta hai aur un jumlon ko nishan-zada karta hai jo ghisay pittay ho chuke hain. Ye aap ki tehreer ko dobara nahi likhta, aap ko faisla nahi sunata, bas un jagahon ki taraf ishara karta hai jahan taazgi ki gunjaish hai.",
       "Ikhtilaf mein aik aur choti si misal le lein. Farz karein aap ne likha: In today's fast-paced world, every second counts. Ye jumla sunne mein bara lagta hai, magar asal mein kehta kuch khaas nahi. Is ki jagah seedhi baat, aj kal waqt sab ke paas kam hai, aap ke qari se foran jurti hai. Cliche aksar ishi liye nuqsan deta hai kyunki woh jagah to leta hai magar istada kuch nahi karta. Tool ka kaam aap ko wohi bhari jagahen dikhana hai jahan baat halki aur saaf ho sakti hai.",
       "Misal ke tor par aap likhtay hain, at the end of the day hard work matters. Tool is jumle ko high-light kar dega aur saath mein taaza alternatives bhi de dega, jaisay ultimately, in the end, when it comes down to it, ya phir jumle ko thora badal kar likhne ki tajweez. Aakhri faisla aap ka hota hai ke kaun si tabdeeli aap ke lehje se milti hai.",
-      "HumanizeAI par ye tool isi liye rakha gaya hai ke writer likhne ke baad aik dafa apni draft ko is nazar se check kar sakay. Ye koi jadu nahi hai, bas wo kaam jo aik acha editor karta hai, yani bore karnay walay hisson ko pakarna, ye usay tez aur asan bana deta hai.",
+      "ToolVena par ye tool isi liye rakha gaya hai ke writer likhne ke baad aik dafa apni draft ko is nazar se check kar sakay. Ye koi jadu nahi hai, bas wo kaam jo aik acha editor karta hai, yani bore karnay walay hisson ko pakarna, ye usay tez aur asan bana deta hai.",
       "Ye kaam kaise karta hai",
       "Is ke peechay koi bare daway nahi hain. Cliche Cleaner aik pehchanay huay English cliche jumlon ki list se aap ke text ko milata hai. Jab koi jana-pehchana ghisa pitta jumla nazar aata hai, woh usay rang se nishan-zada kar deta hai taake aap likhne ke flow ko torray baghair baad mein in par wapis aa saken.",
       "Har nishan-zada jumle ke saath kuch tajaveez bhi milti hain. Kuch tajaveez seedhi seedhi hain, jaise synergy ki jagah teamwork. Kuch jumlay ka rukh badal deti hain, taake aap waisa hi matlab waisay hi kalimat mein dobara na kahein, balkay naye andaz mein kahein. Ye farq ahem hai, kyunki sirf lafz badalna kaafi nahi hota, kabhi kabhi pora jumla dobara sochna parta hai.",
@@ -5149,7 +5153,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Diff Checker Urdu Guide: Do Texts Ka Farq Kaise Dekhein",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Assignment ke pehle aur final draft mein asal farq kitna hai, ye dekhna aksar mushkil hota hai. Ye guide batati hai ke do texts ko saath rakh kar tabdeeliyan kaise nazar aati hain aur revision ko asal mein behtar kaise banaya jata hai.",
@@ -5161,7 +5165,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Yehi woh jaga hai jahan do texts ko saath saath rakh kar dekhna kaam aata hai. Jab har tabdeeli rang se nazar aa rahi ho, to kaam andaza nahi rehta, saboot ban jata hai. Aap khud bhi dekh saktay hain ke waqai kya behtar hua aur kya waisa ka waisa reh gaya.",
       "Ye tool kya karta hai",
       "Diff Checker do texts ko aik saath muqabla karke dikhata hai. Aik taraf purani tehreer, doosri taraf nayi tehreer. Dono ke darmiyan jo alfaz juda hue, jo kat gaye, aur jo badal gaye, woh rangon se nishan-zada ho jate hain taake aap aik nazar mein pori kahani parh saken.",
-      "HumanizeAI ka ye tool saath mein similarity ka aik andaza bhi deta hai, yani dono drafts aik doosre se kitne milte jultay hain. Agar aap ne bohat zyada dawa kiya tha ke main ne pora revise kiya hai, magar dono texts bohat zyada milte jultay niklay, to ye aap ke liye wake-up call hai ke aur kaam baqi hai.",
+      "ToolVena ka ye tool saath mein similarity ka aik andaza bhi deta hai, yani dono drafts aik doosre se kitne milte jultay hain. Agar aap ne bohat zyada dawa kiya tha ke main ne pora revise kiya hai, magar dono texts bohat zyada milte jultay niklay, to ye aap ke liye wake-up call hai ke aur kaam baqi hai.",
       "Studenton ki aam aadat ye hoti hai ke pehle draft ko bhool jana pasand karte hain. Unhe lagta hai ke pehla draft bas kachra tha aur asal kaam final draft hai. Magar kisi bhi ache ustaad ko poochein, woh aap ko batay ga ke seekhna tabhi hota hai jab aap apni pehli koshish ko saamne rakh kar dekh sakte hain. Pehla draft aap ki soch ka naksha hota hai, aur final draft us nakshay par chalne ka record. Dono ko saath dekhne se aap ko ye bhi samajh aata hai ke kaun si tabdeeli waqai soch kar ki thi aur kaun si bas waqt ki majboori mein.",
       "Ye tool tehreer ki quality ka faisla nahi sunata. Ye sirf farq dikhata hai. Farq acha hai ya bura, ye faisla aap ka hai, kyunki aap ko apne topic aur teacher ki tauqaat ka sab se zyada ilm hai.",
       "Ye kaam kaise karta hai",
@@ -5195,7 +5199,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Image Compressor Urdu Guide: Tasveer Ka Size Kam Kaise Karein",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Bhaari tasaveer website ko sust kar deti hain aur parhne wala rukta nahi. Is guide mein seekhein ke Image Compressor se tasveer ka size kaise kam karein, quality slider ka sahi istemal kya hai, aur JPG, PNG aur WebP mein se konsa format kab chunna chahiye.",
@@ -5208,7 +5212,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "2. Ye tool kya karta hai",
       "Image Compressor aap ki tasveer ko aisi shakal deta hai jo file mein halki ho lekin dekhne mein wohi purani wali lage. Ye JPG, PNG aur WebP teeno aam formats par kaam karta hai, yani jo tasveer aam tor par phone ya camera se banti hai, takreeban wohi yahan chalegi.",
       "Is tool ki dosri khoobi ye hai ke ye aap ko pehle aur baad ka size saaf dikhata hai. Tasveer dalne se pehle woh kitni MB ya KB thi, aur dabane ke baad kitni reh gayi. Ye ankra dekhna zaroori hai kyun ke is se aap ko pata chalta hai ke dabana kaam kar bhi raha hai ya nahi, aur kitna faida hua.",
-      "HumanizeAI ka Image Compressor aap ko quality ka slider bhi deta hai. Is ka matlab hai ke dabane ki miqdaar aap ke haath mein hai. Chahen to halka sa dabayein taa ke quality takreeban wohi rahe, ya zyada dabayein jab size sab se zyada ahem ho. Aur sab se dilchasp baat, ye saara kaam aap ke browser ke andar hota hai, tasveer kahin upload nahi hoti.",
+      "ToolVena ka Image Compressor aap ko quality ka slider bhi deta hai. Is ka matlab hai ke dabane ki miqdaar aap ke haath mein hai. Chahen to halka sa dabayein taa ke quality takreeban wohi rahe, ya zyada dabayein jab size sab se zyada ahem ho. Aur sab se dilchasp baat, ye saara kaam aap ke browser ke andar hota hai, tasveer kahin upload nahi hoti.",
       "3. Ye kaam kaise karta hai",
       "Yahan woh baat jo aksar log nahi jante: tasveer ki file mein boht si woh malomat bhi chipi hoti hai jo dekhne wale ko kabhi nazar nahi aati. Camera ki tafseel, aise rang jo pas manzar mein ghule hue hain, aur choti choti woh bareekiyan jinhe mobile ki chhoti screen par pehchanna mumkin hi nahi. Compressor isi ghair zaroori wazan ko nikaalta hai.",
       "JPEG jaise formats mein ye kaam rangon ko hoshiyari se mila kar hota hai. Jahan rang takreeban aik jaise hon, wahan unhe aik kar diya jata hai, aur file halki ho jati hai. Aankh ko farq is liye nazar nahi aata kyun ke insan ki aankh rangon ki bareeki se zyada roshni aur shaklon par tawajjo deti hai. Yehi woh farq hai jis ka fayda uthaya jata hai.",
@@ -5238,7 +5242,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "PDF Tools Urdu Guide: PDF Jorna Aur Tasveer Se PDF Banana",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "Kai alag PDFs ko aik karna ho ya phone ki tasaveer ko saf PDF banana ho, aksar log apne kagzat anjaan website par upload kar dete hain. Ye guide batati hai ke PDF Tools browser ke andar kaise kaam karta hai, files device se bahar kyu nahi jatein, aur is ki asal hadood kya hain.",
@@ -5251,7 +5255,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "2. Ye tool kya karta hai",
       "PDF Tools do ahem kaam karta hai. Pehla ye ke ye kai alag PDF files ko aik hi PDF mein jod deta hai, usi tarteeb mein jis tarteeb mein aap ne rakhi hon. Doosra ye ke ye aap ki tasaveer ko PDF mein badal deta hai, yani phone se li gayi scan jaisi tasaveer aik saaf si dastavezi file ban jati hain.",
       "Dono kaam aik hi wajah se mufeed hain: bhejna asaan ho jata hai. Aik hi file attach karna, aik hi file share karna, aur samne wale ko aik hi file kholna. Na paanch alag attachments dhundne ki pareshani, na ye fikar ke konsi tasveer konsi file ke saath jayegi. Tarteeb bhi wahi rehti hai jo aap ne sochi thi.",
-      "HumanizeAI ke PDF Tools ki sab se khas baat ye hai ke ye kaam aap ke browser ke andar hi ho jata hai. Aap ki files aap ke device se bahar nahi jatein, kisi server par upload nahi hotien. Kaam mukammal hote hi aap nayi PDF download kar lete hain, aur asal files aap ke paas waise hi mehfooz rehti hain jaisi pehle theen.",
+      "ToolVena ke PDF Tools ki sab se khas baat ye hai ke ye kaam aap ke browser ke andar hi ho jata hai. Aap ki files aap ke device se bahar nahi jatein, kisi server par upload nahi hotien. Kaam mukammal hote hi aap nayi PDF download kar lete hain, aur asal files aap ke paas waise hi mehfooz rehti hain jaisi pehle theen.",
       "3. Ye kaam kaise karta hai",
       "Aam tor par jab aap kisi online service par file upload karte hain to file pehle un ke server tak jati hai, wahan kaam hota hai, phir wapas aati hai. Yahan tareeqa mukhtalif hai. Aap ka browser khud ye kaam karne ki salahiyat rakhta hai. File seedha aap ke device par khulti hai, us ke pages jode jate hain, aur nayi file aap ke device par hi ban jati hai.",
       "Is ka aik wazeh fayda to privacy hai jo upar bayan hua. Doosra fayda raftaar ka hai. Jab file kahin jati hi nahi to upload aur download ke intezaar ka woh hissa khatam ho jata hai jo sust internet par sab se zyada tang karta hai. Chhoti aur darmiyani files par ye kaam aam tor par foran ho jata hai.",
@@ -5282,7 +5286,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Sentence Expander Urdu Guide: Chote Jumle Ko Tafseeli Kaise Banayein",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "Chote jumle ko poora paragraph banana: sentence expander ka kaam, step by step istemal, aur freelancer ke liye woh imaandaar hadood jo client ke bharose ke liye zaroori hain.",
@@ -5294,7 +5298,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Is guide mein hum dekhenge ke sentence expander kaam kaise karta hai, use akele ya AI sahulat ke sath kaise istemal karna chahiye, aur kahan aap ko ruk kar khud likhna behtar hoga. Freelancer ki zindagi ka pressure bhi samjhaya hoga, aur us mehtnat ki had bhi jis ka zikr karna imaandari hai.",
       "Dusra Hissa: Ye Tool Kya Karta Hai",
       "Sentence expander chotay jumle ko bunyad bana kar us ke gird tafseel bunt hai. Aap aik seedha jumla de dein, 'Hum logo design karte hain', aur tool use itne zawiyon se kholta hai ke aap ke paas poora paragraph taiyar ho jata hai: kis ke liye, kis maslay ke liye, kis andaz mein, aur kis nateeje kesath.",
-      "HumanizeAI ka Sentence Expander yahi kaam karta hai. Aap apne mukhtasir notes ya aik do jumle dalte hain, aur jawabe mein aik bhara huwa paragraph milta hai jis mein wajah, tafseel aur misaal ki jhalak shamil hoti hai. Kuch jagah optional AI sahulat bhi mojud hai, jis se wohi paragraph aur zyada rawani se phool jata hai.",
+      "ToolVena ka Sentence Expander yahi kaam karta hai. Aap apne mukhtasir notes ya aik do jumle dalte hain, aur jawabe mein aik bhara huwa paragraph milta hai jis mein wajah, tafseel aur misaal ki jhalak shamil hoti hai. Kuch jagah optional AI sahulat bhi mojud hai, jis se wohi paragraph aur zyada rawani se phool jata hai.",
       "Isko apna draftsman samjhein, author nahi. Ye aap ko khaaka deta hai, us khaake mein rang bharna, client ka lehja aur apni asliyat shamil karna aap ka kaam hai. Jo freelancer yehi farq samajh jaye, use tool kabhi kharaab nahi karega.",
       "Aik kaam ki misaal se yehi baat aur wazeh karein: agar asal jumla hai 'Ye plan sasta hai', to expansion wahan 'kis ke hisaab se sasta, kis qisam ki keemat ke muqable mein, aur us saste plan mein woh kounsi do teen khasoosei khoobiyan hain' jaisay sawalon ko bulati hai. Isi sawal se jumla be wazan se wazani ho jata hai, or yehi fiverr ki proposal aur blog ke darmayn har jagah kaam karta hai.",
       "Teesra Hissa: Ye Kaam Kaise Karta Hai",
@@ -5329,7 +5333,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "SEO Tools Urdu Guide: Title, Meta Description Aur Keywords Behtar Banayein",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Website ban gayi lekin Google par nazar nahi aati? Ye guide chhote business walon ko batati hai ke SEO Optimizer se title, meta description aur keywords kaise behtar banaein, aur ye bhi ke tool kya nahi kar sakta.",
@@ -5342,7 +5346,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "2. Ye tool kya karta hai",
       "SEO Optimizer ek helper tool hai jo aap ke page ki text ko parh kar teen char cheezon mein mashwara deta hai. Pehla: title ke ideas, yani wo chhoti si line jo Google ke results mein sab se pehle nazar aati hai. Dusra: meta description ki suggestions, yani title ke neeche wali do linein jinhe parh kar banda click karne ka faisla karta hai. Teesra: keywords ke ideas, yani wo alfaz aur jumlay jo log asal mein search karte hain.",
       "Is ke ilawa tool aap ke page ki readability bhi check karta hai, yani text kitna asan hai, jumle zyada lambe to nahi, aur parhne wala bore to nahi hoga. Kuch jagah tool AI se mashwara lene ka option bhi deta hai, taake agar aap chahein to title ya description ke mazeed andaz dekh saken.",
-      "HumanizeAI ke SEO Optimizer ko khaas taur par un logon ke liye banaya gaya hai jo SEO ke expert nahi hain. Ye aap ko ye nahi kehta ke rank karo, ye aap ko ye dikhata hai ke aap ke page mein kya kami hai aur title ya description kaisi honi chahiye. Faisla har surat mein aap ka hota hai, kyunki apne business ko aap se behtar koi nahi janta.",
+      "ToolVena ke SEO Optimizer ko khaas taur par un logon ke liye banaya gaya hai jo SEO ke expert nahi hain. Ye aap ko ye nahi kehta ke rank karo, ye aap ko ye dikhata hai ke aap ke page mein kya kami hai aur title ya description kaisi honi chahiye. Faisla har surat mein aap ka hota hai, kyunki apne business ko aap se behtar koi nahi janta.",
       "3. Ye kaam kaise karta hai",
       "Tool kaam is tarah karta hai: aap apne page ka text ya apna maujooda title is mein dalte hain. Tool us text ko parh kar sab se zyada dohraye janay wale ahem alfaz nikalta hai, aur phir unhi alfaz ki bunyad par title aur description ki suggestions banata hai. Ye bilkul aisa hai jese koi banda aap ka page parh kar kahe ke mere khayal mein is page ka asal mauzu ye hai.",
       "Keyword ideas bhi isi tarah bante hain. Tool dekhta hai ke aap ke mauzu se kon kon se jumlay bante hain jinhe log search kar sakte hain. Misal ke tor par agar aap ki dukaan Lahore mein mobile repairing ki hai, to tool ko 'mobile repairing' ke sath jagah aur service wale jumlay samajhne mein asani hogi, aur wohi aap ko ideas dega.",
@@ -5378,7 +5382,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Text Summarizer Urdu Guide: Lambi Tehreer Ka Khulasa Kaise Nikalein",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "Lambi reports, articles aur lecture notes parhne ka waqt nahi milta to khulasa banana seekhein. Ye guide batati hai ke Text Summarizer kaise kaam karta hai, isay step by step kaise istemal karein, aur is ki asal hadood kya hain.",
@@ -5391,7 +5395,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "2. Ye tool kya karta hai",
       "Text Summarizer aik aisa tool hai jo aap ki di hui lambi tehreer ko parh kar us mein se sab se ahem jumlay chun leta hai aur unhe aik chhote khulase ki shakal mein jod deta hai. Is ke saath ye aap ko key points bhi alag se dikhata hai, yani woh chand baatein jo poori tehreer ka nichod hain.",
       "Yahan aik baat shuru mein hi saaf kar dun, kyun ke yahi is tool ki sab se bari imaandaari hai: is khulase ka har lafz aap ki apni tehreer se aata hai. Tool apni taraf se koi nayi baat nahi jodta, koi misaal nahi banata, koi rai nahi deta. Jo aap ne diya, usi mein se chuna gaya hai. Is liye is par bharosa karna asaan hai, aap har jumla asal tehreer mein ja kar check kar sakte hain.",
-      "HumanizeAI ka Text Summarizer teen lambai ke modes deta hai. Brief mode sab se chhota khulasa banata hai, sirf sab se ahem baat. Balanced mode darmiyan ka raasta hai, ahem baatein aur thodi si tafseel dono. Detailed mode lamba khulasa deta hai jisme zyada points shamil rehte hain. Aap apni zaroorat ke hisaab se chun sakte hain.",
+      "ToolVena ka Text Summarizer teen lambai ke modes deta hai. Brief mode sab se chhota khulasa banata hai, sirf sab se ahem baat. Balanced mode darmiyan ka raasta hai, ahem baatein aur thodi si tafseel dono. Detailed mode lamba khulasa deta hai jisme zyada points shamil rehte hain. Aap apni zaroorat ke hisaab se chun sakte hain.",
       "3. Ye kaam kaise karta hai",
       "Is tool ke peeche jo tareeqa hai use extractive summarization kehte hain. Matlab ye tehreer mein se asal jumlay nikaal kar khulasa banata hai, naye jumlay khud nahi gharta. Ab sawal ye hai ke tool ko kaise pata chalta hai ke kon sa jumla ahem hai aur kon sa aam.",
       "Tareeqa saada hai lekin socha samjha hai. Tool dekhta hai ke tehreer mein kon se alfaz baar baar aa rahe hain, kyun ke jo mozua baar baar aaye wahi asal mozua hota hai. Phir woh jumlay zyada ahem samjhe jate hain jin mein ye ahem alfaz zyada hain. Is ke ilawa tehreer ke shuru aur aakhir ke jumlay bhi aam tor par khaas hote hain, kyun ke likhne wala wahan apni asal baat rakhta hai.",
@@ -5421,7 +5425,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Video Tools Urdu Guide: Reels Aur Shorts Ke Liye Title, Caption Aur Hashtags",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Aap ne video to bana li, lekin title, caption aur hashtags likhne mein adha ghanta lag jata hai? Ye guide aap ko Video Reels Studio ka imaandaar istemal sikhati hai: watermark wali kinare kaatna, aur templates se title, hook aur caption banana.",
@@ -5469,7 +5473,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Bild Kompressor: Anleitung zum Verkleinern von Fotos",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Das Bewerbungsportal lehnt Ihr Foto wegen der Dateigröße ab? Diese Anleitung zeigt, wie ein Bild Kompressor JPG, PNG und WebP direkt im Browser verkleinert – ohne Upload, mit Qualitäts-Regler und ehrlichen Hinweisen zu den Grenzen.",
@@ -5480,7 +5484,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Ähnliche Situationen gibt es überall. Die Webseite lädt quälend langsam, weil die Produktfotos unbearbeitet aus der Kamera kommen. Die E-Mail mit den Urlaubsbildern an die Familie wird vom Postfach zurückgewiesen, weil der Anhang zu groß ist. Oder das Kundenportal nimmt die Bilder vom beschädigten Gerät nicht an, weil jede Datei eine Größengrenze überschreitet.",
       "In all diesen Fällen muss das Bild nicht neu aufgenommen, sondern nur verkleinert werden – und zwar so, dass es danach immer noch gut aussieht. Genau dafür gibt es einen Bild Kompressor. Diese Anleitung erklärt, wie er arbeitet, welche Einstellungen sinnvoll sind und wo die ehrlichen Grenzen des Verkleinerns liegen.",
       "Zweiter Teil: Was das Tool macht",
-      "Der Bild Kompressor von HumanizeAI verkleinert die Dateigröße von Fotos und Grafiken in den Formaten JPG, PNG und WebP. Sie ziehen ein Bild in den Browser, stellen die gewünschte Qualität ein und laden die kleinere Datei wieder herunter. Aus sechs Megabyte werden so oft wenige hundert Kilobyte, ohne dass das Bild auf dem Bildschirm sichtbar schlechter aussieht.",
+      "Der Bild Kompressor von ToolVena verkleinert die Dateigröße von Fotos und Grafiken in den Formaten JPG, PNG und WebP. Sie ziehen ein Bild in den Browser, stellen die gewünschte Qualität ein und laden die kleinere Datei wieder herunter. Aus sechs Megabyte werden so oft wenige hundert Kilobyte, ohne dass das Bild auf dem Bildschirm sichtbar schlechter aussieht.",
       "Das Besondere: Die Verarbeitung läuft vollständig in Ihrem Browser. Das Bild wird nicht auf einen Server hochgeladen, dort nicht gespeichert und auch nicht weitergegeben. Das ist bei Bewerbungsfotos, Ausweisbildern oder internen Firmenbildern ein echter Vorteil, denn solche Dateien haben auf fremden Servern nichts verloren.",
       "Ein Qualitäts-Regler gibt Ihnen die Kontrolle darüber, wie stark komprimiert wird. Sie sehen vorher und nachher im Vergleich und erkennen sofort, ob die gewählte Stufe für Ihren Zweck passt. Für ein Bewerbungsfoto wählt man eher eine hohe Qualität, für eine kleine Vorschau im Netz darf es deutlich stärker sein.",
       "Dritter Teil: Wie es funktioniert",
@@ -5517,7 +5521,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "PDF Tools: Anleitung zum Zusammenführen von PDFs und Bilder zu PDF",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "Behörde oder Firma verlangt alle Unterlagen als eine einzige PDF? Diese Anleitung zeigt, wie Sie PDFs zusammenführen und Bilder in ein PDF verwandeln – komplett im Browser, ohne Upload, mit praktischen Tipps zur richtigen Reihenfolge.",
@@ -5528,7 +5532,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Oder das Beispiel Bewerbung: Viele Firmenportale erlauben genau einen Upload für die gesamten Unterlagen. Wer Anschreiben, Lebenslauf und drei Zeugnisse einzeln schicken muss, verliert – oder muss sich erst ein teures Programm kaufen, das er danach nie wieder anfassen wird.",
       "Solche Aufgaben sind keine Seltenheit, sie sind Büroalltag. Dateien zusammenführen und Bilder in ein PDF verwandeln klingt banal, kostet aber ohne passendes Werkzeug jedes Mal Zeit und Nerven. Diese Anleitung zeigt, wie das direkt im Browser geht, Schritt für Schritt und ohne Installation.",
       "Zweiter Teil: Was das Tool macht",
-      "Die PDF Tools von HumanizeAI erfüllen zwei Aufgaben. Erstens: Mehrere PDF-Dateien werden zu einer einzigen zusammengeführt, in genau der Reihenfolge, die Sie festlegen. Zweitens: Bilder in den Formaten JPG und PNG werden in ein PDF umgewandelt, sodass Sie Fotos vom Handy oder Scans als ordentliche PDF-Seiten weitergeben können.",
+      "Die PDF Tools von ToolVena erfüllen zwei Aufgaben. Erstens: Mehrere PDF-Dateien werden zu einer einzigen zusammengeführt, in genau der Reihenfolge, die Sie festlegen. Zweitens: Bilder in den Formaten JPG und PNG werden in ein PDF umgewandelt, sodass Sie Fotos vom Handy oder Scans als ordentliche PDF-Seiten weitergeben können.",
       "Beide Aufgaben laufen komplett in Ihrem Browser. Ihre Dokumente werden nicht auf einen Server hochgeladen und dort nicht zwischengespeichert. Das ist bei Zeugnissen, Verträgen oder Ausweisbildern mehr als ein nettes Detail: Diese Dateien enthalten persönliche Angaben, die fremde Server nichts angehen.",
       "Dazu kommt ein praktischer Vorteil, den viele erst beim zweiten Blick bemerken: Sie müssen nichts installieren und kein Konto anlegen. Gerade auf dem Dienstrechner, auf dem man keine Programme installieren darf, oder am Rechner von Freunden und Familie ist das der Unterschied zwischen „mache ich später“ und „ist in zwei Minuten erledigt“.",
       "Das Ergebnis laden Sie anschließend einfach herunter. Für viele Alltagsaufgaben – Bewerbung, Antrag, Unterlagen für die Hausverwaltung oder die Krankenkasse – ist damit alles erledigt, ohne dass Sie ein Konto anlegen oder ein Programm installieren mussten.",
@@ -5568,7 +5572,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Text Zusammenfasser: Anleitung für Schnelle Zusammenfassungen",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "Zwölf Quellen für die Hausarbeit, aber nur ein Abend Zeit? Diese Anleitung zeigt, wie ein extraktiver Text Zusammenfasser die wichtigsten Sätze aus Ihrem eigenen Text auswählt, welche drei Längen-Modi es gibt und wo die ehrlichen Grenzen liegen.",
@@ -5579,7 +5583,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Im Berufsleben sieht es kaum besser aus. Ein langes Sitzungsprotokoll, ein ausführlicher Projektbericht, eine E-Mail-Kette mit dreißig Nachrichten: Alles müsste gelesen werden, aber die Zeit fehlt. Die gängige Abkürzung ist, nur Anfang und Ende zu lesen. Das geht oft gut, manchmal aber steht genau in der Mitte der eine Satz mit der Frist, der Bedingung oder der Zahl, auf die es ankommt.",
       "Genau an dieser Stelle hilft ein Text Zusammenfasser. Er nimmt Ihnen das Lesen nicht ab, aber er zeigt schnell, welche Sätze eines Textes die tragenden Informationen enthalten. In dieser Anleitung erklären wir in Ruhe, wie so ein Werkzeug arbeitet, wie Sie es Schritt für Schritt nutzen und wo seine Grenzen ehrlicherweise liegen.",
       "Zweiter Teil: Was das Tool macht",
-      "Der Text Zusammenfasser von HumanizeAI nimmt einen längeren Text entgegen und erstellt daraus eine deutlich kürzere Fassung. Das Ergebnis besteht aus zwei Teilen: einer zusammenhängenden Zusammenfassung und einer Liste mit den Kernpunkten des Textes. So sehen Sie den roten Faden und die einzelnen Kernaussagen auf einen Blick.",
+      "Der Text Zusammenfasser von ToolVena nimmt einen längeren Text entgegen und erstellt daraus eine deutlich kürzere Fassung. Das Ergebnis besteht aus zwei Teilen: einer zusammenhängenden Zusammenfassung und einer Liste mit den Kernpunkten des Textes. So sehen Sie den roten Faden und die einzelnen Kernaussagen auf einen Blick.",
       "Entscheidend ist dabei ein Punkt, der dieses Werkzeug von vielen anderen unterscheidet: Es erfindet nichts hinzu. Jeder Satz und jedes Wort in der Zusammenfassung stammt aus Ihrem eigenen Text. Dieses Verfahren heißt extraktive Zusammenfassung. Das Tool wählt vorhandene Sätze aus, statt neue zu formulieren. Dadurch kann es keine Behauptungen einbauen, die im Original gar nicht stehen.",
       "Dazu gibt es drei Längen-Modi: kurz, ausgewogen und ausführlich. Die kurze Fassung beantwortet nur die Frage, worum es überhaupt geht. Die ausgewogene gibt die Hauptargumente mit etwas Kontext wieder. Die ausführliche behält zusätzlich Belege, Beispiele und Einschränkungen bei – oft genau die Teile, die für eine Hausarbeit oder einen internen Bericht entscheidend sind.",
       "Dritter Teil: Wie es funktioniert",
@@ -5615,7 +5619,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Cliché Cleaner Guide: Cut Overused Phrases From Your Writing",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Every writer leans on worn-out phrases without noticing. A cliché cleaner flags the tired expressions in your draft and nudges you toward fresher, more specific wording — so your writing sounds like you again.",
@@ -5626,7 +5630,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Clichés sneak in because they are convenient. They are the first formulation your brain reaches for, they sound vaguely professional, and they let you finish a paragraph without deciding what you actually mean. A student pads an essay conclusion with them. A freelancer's proposal leans on them because 'synergy' feels safer than a concrete claim. The cost is real, though: writing full of stock phrases reads as generic, and generic writing is easy to forget and hard to trust.",
       "The fix is not to write fancier. It is to notice the autopilot phrases and replace them with something specific. That noticing is the hard part — your own clichés are nearly invisible to you, which is exactly where a tool earns its keep.",
       "What the tool does",
-      "The Cliché Cleaner on HumanizeAI scans your text and flags overused English phrases from a large built-in dictionary — expressions like 'at the end of the day', 'think outside the box', 'move the needle', 'low-hanging fruit' and dozens of their cousins from business, academic and everyday writing. Each flag shows you the phrase in context, so you can judge it where it sits rather than in isolation.",
+      "The Cliché Cleaner on ToolVena scans your text and flags overused English phrases from a large built-in dictionary — expressions like 'at the end of the day', 'think outside the box', 'move the needle', 'low-hanging fruit' and dozens of their cousins from business, academic and everyday writing. Each flag shows you the phrase in context, so you can judge it where it sits rather than in isolation.",
       "For flagged phrases, the tool offers fresher alternatives or a nudge to rewrite the thought plainly. Sometimes the suggestion is a direct swap; often the better move is to delete the phrase entirely, because a surprising share of clichés are filler that adds no information at all. 'At the end of the day, quality matters' says nothing that 'Quality matters' does not say with more confidence.",
       "It works on whatever you paste in — an essay draft, a product description, a cover letter, a blog post — and the point is not to sterilize your voice. It is to show you the spots where habit wrote the sentence instead of you.",
       "How it works",
@@ -5660,7 +5664,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Diff Checker Guide: Compare Two Texts Side by Side",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "Two drafts, a returned edit, a paraphrase you are unsure about — comparing texts by eye is slow and unreliable. A diff checker highlights exactly which words were added, removed or changed, and gives you a clear similarity view of the two versions.",
@@ -5671,7 +5675,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Reading two similar texts side by side and hunting for differences with your eyes is miserable work. The brain is built to read for meaning, so it helpfully smooths over the very changes you are looking for — the swapped adjective, the quietly deleted sentence, the claim that softened between Tuesday and Thursday. Whole paragraphs can change meaning while looking identical at a glance.",
       "Comparing texts is a mechanical job, and mechanical jobs are what computers are for. The only question is whether the differences are presented in a way a human can actually use.",
       "What the tool does",
-      "The Diff Checker on HumanizeAI compares two pieces of text and shows you precisely what changed between them. Paste the earlier version in one box and the newer version in the other, and the tool marks the words that were added, the words that were removed, and the passages that were altered, using clear colour highlighting you can scan in seconds. Nothing structural is hidden: additions and deletions sit next to each other so you can see the edit, not just sense that one occurred.",
+      "The Diff Checker on ToolVena compares two pieces of text and shows you precisely what changed between them. Paste the earlier version in one box and the newer version in the other, and the tool marks the words that were added, the words that were removed, and the passages that were altered, using clear colour highlighting you can scan in seconds. Nothing structural is hidden: additions and deletions sit next to each other so you can see the edit, not just sense that one occurred.",
       "Alongside the visual diff, you get a similarity view — an at-a-glance sense of how much of the text survived the revision. That number is a guide for your own judgment about how heavy an edit was, useful when a collaborator swears they 'only fixed typos' and you would like to verify that politely.",
       "It is equally handy in reverse. Writers keep a first draft and a final draft side by side to confirm that revision actually improved things rather than merely rearranging them. Students compare their paraphrase against the source to make sure it genuinely stands in their own words. Editors check that a requested change — and only that change — made it into the published version.",
       "How it works",
@@ -5705,7 +5709,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Image Compressor Guide: Reduce Photo Size Without Losing Quality",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Phone photos are huge, upload limits are small, and slow image-heavy pages lose visitors. This guide explains how browser-based image compression shrinks JPG, PNG and WebP files — privately, on your own device — and how to pick the right quality.",
@@ -5716,7 +5720,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "The traditional fixes all cost something. Desktop photo editors are powerful but heavy, subscription-based, and overkill for a resize-and-compress job. Emailing photos to yourself to shrink them destroys quality unpredictably. And uploading personal photos to a random server-based converter means sending your images to a machine you know nothing about, on a privacy policy you will never read.",
       "Image compression itself is not the hard part. The hard part is compressing quickly, keeping quality where it counts, and not handing your files to strangers in the process.",
       "What the tool does",
-      "The Image Compressor on HumanizeAI shrinks JPG, PNG and WebP images directly in your browser. You add one image or a batch, choose a quality level, and download the smaller files. The headline fact is the architecture: the compression happens on your own device, using your browser's built-in image processing. Your photos are never uploaded to a server.",
+      "The Image Compressor on ToolVena shrinks JPG, PNG and WebP images directly in your browser. You add one image or a batch, choose a quality level, and download the smaller files. The headline fact is the architecture: the compression happens on your own device, using your browser's built-in image processing. Your photos are never uploaded to a server.",
       "That in-browser approach changes the practical experience. There is no upload wait, no queue, and no size anxiety about sending a 15 MB original across a slow connection. It also works the same whether the image is a product photo, a scanned document or a screenshot of your cat — if the browser can open it, the tool can compress it.",
       "You see the original and compressed sizes side by side, so you always know what you saved and what it cost in quality before you commit to downloading.",
       "How it works",
@@ -5750,7 +5754,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "PDF Tools Guide: Merge PDFs and Turn Images into a PDF",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "'Please upload a single PDF' — while your documents sit in six files and a camera roll. This guide shows how to merge PDFs and turn images into one clean PDF entirely in your browser, with your files never leaving your device.",
@@ -5761,7 +5765,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "The workarounds are miserable. You email files to a desktop program you have not opened in a year, discover it wants a subscription, then try a random converter site that asks you to upload your passport scan to an unknown server and wait behind a queue of ads. Sensitive documents deserve better than that.",
       "Merging PDFs and converting images into a PDF are simple operations. They should take a minute, cost nothing, and never require handing your personal documents to a stranger's server.",
       "What the tool does",
-      "The PDF Tools on HumanizeAI do two jobs. First, merging: combine several PDF files into one document, in the order you choose. Second, conversion: turn images — scanned pages, photographed forms, screenshots — into a single PDF, with each image becoming a page.",
+      "The PDF Tools on ToolVena do two jobs. First, merging: combine several PDF files into one document, in the order you choose. Second, conversion: turn images — scanned pages, photographed forms, screenshots — into a single PDF, with each image becoming a page.",
       "Everything runs in your browser. Your files are read and assembled on your own device; nothing is uploaded. That makes the tool a sensible choice for exactly the documents people most often need to merge: certificates, contracts, bank statements, ID copies and application packs.",
       "The workflow is deliberately plain. Add files, arrange them, produce the PDF, download it. There is no account, no watermark stamped across your document, and no page-count riddle to solve before the download button appears.",
       "How it works",
@@ -5795,7 +5799,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "SEO Tools Guide: Better Titles, Meta Descriptions and Keywords",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     summary:
       "Plenty of good pages fail simply because their titles, descriptions and focus never tell Google — or searchers — what they are for. This guide explains keyword ideas, title and meta drafting, and readability checks, with honest words about what no tool can decide for you.",
@@ -5806,7 +5810,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "The symptoms are easy to recognize once you know them. Titles that read like diary entries ('Some thoughts on Tuesday'). Meta descriptions left blank, so Google pastes a random sentence fragment into the search result. Five pages on one site all chasing the same phrase, competing with each other instead of the outside world.",
       "SEO has an unfortunate reputation for trickery, but the basics are closer to good housekeeping: one clear topic per page, a title that states it plainly, a description that earns the click, and wording a real searcher would actually type.",
       "What the tool does",
-      "The SEO Tools on HumanizeAI help with that housekeeping. Give the tool your topic or draft text and it suggests keyword ideas related to it, drafts title and meta description options at sensible lengths, and runs readability checks that flag dense, exhausting passages. Some suggestions are produced with AI assistance; the straightforward checks and measurements are done instantly and locally.",
+      "The SEO Tools on ToolVena help with that housekeeping. Give the tool your topic or draft text and it suggests keyword ideas related to it, drafts title and meta description options at sensible lengths, and runs readability checks that flag dense, exhausting passages. Some suggestions are produced with AI assistance; the straightforward checks and measurements are done instantly and locally.",
       "Think of it as a drafting partner for the parts of SEO that happen before publishing: the wording of the snippet a searcher sees, and a sanity check that the page is aimed at one topic rather than five.",
       "What it deliberately does not do is equally important: it does not submit anything to Google, build links, or change your rankings by itself. It prepares the page; everything after that is publishing, patience and the quality of what visitors find.",
       "How it works",
@@ -5840,7 +5844,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Text Summarizer Guide: How to Summarize Long Text in Seconds",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "Long readings, dense reports and endless articles eat hours. A text summarizer pulls out the sentences that matter so you can decide what deserves a full read — here is how it works, and where it honestly stops.",
@@ -5851,7 +5855,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "The usual workaround is skimming, but skimming is unreliable. You jump from the first line of each paragraph to the next, miss the one sentence where the author states the actual conclusion, and walk away with a vague feeling instead of usable notes. Worse, when you skim something you later need to quote or cite, you end up re-reading the whole thing anyway.",
       "That is the gap a text summarizer fills. It does not read for you, and it does not think for you. It does the mechanical first pass — finding the sentences that carry the weight of the document — so your limited time goes on understanding, not hunting.",
       "What the tool does",
-      "The Text Summarizer on HumanizeAI takes a long piece of text and returns a shorter version built entirely from the original author's own sentences. Paste in an article, a chapter, an essay draft or a report, choose how short you want the result, and you get a condensed version plus a set of key points you can scan in seconds.",
+      "The Text Summarizer on ToolVena takes a long piece of text and returns a shorter version built entirely from the original author's own sentences. Paste in an article, a chapter, an essay draft or a report, choose how short you want the result, and you get a condensed version plus a set of key points you can scan in seconds.",
       "It offers three length modes. Brief strips the text down to its core claims — useful when you just need to know whether a source is relevant. Balanced keeps the main argument and its strongest supporting points, which suits revision notes and briefing documents. Detailed preserves more of the reasoning chain, so the summary still reads like a coherent mini-version of the original rather than a pile of fragments.",
       "Because the summary is built from real sentences in your document, names, figures and wording stay exactly as the author wrote them. Nothing is rephrased into something the source never said, which matters the moment accuracy matters.",
       "How it works",
@@ -5885,7 +5889,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Video Tools Guide: Titles, Captions and Hashtags for Shorts and Reels",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Good short videos die every day from weak titles, rushed captions and copied hashtag blocks. This guide explains how template-based titles, hooks, captions and hashtags — plus an edge-watermark crop — give creators a running start, without virality fairy tales.",
@@ -5896,7 +5900,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "The advice economy around this problem is loud and mostly unhelpful. Courses promise secret algorithms, gurus sell hashtag lists that were stale last year, and the honest truth — that titles, hooks and captions are a learnable craft with reusable patterns — gets buried under the hype.",
       "What a creator actually needs is less glamorous: a tidy way to clean up the frame, and a reliable starting structure for titles, hooks, captions and hashtags that can be adapted to the video in front of them.",
       "What the tool does",
-      "The Video Tools on HumanizeAI cover two practical jobs. The first is visual: a smart zoom-and-crop that pushes edge watermarks out of frame. If a watermark sits at the very edge of a video, zooming the frame slightly and re-centring can move it out of view while keeping the subject intact — useful for cleaning up your own exported clips or re-edits you have the rights to use.",
+      "The Video Tools on ToolVena cover two practical jobs. The first is visual: a smart zoom-and-crop that pushes edge watermarks out of frame. If a watermark sits at the very edge of a video, zooming the frame slightly and re-centring can move it out of view while keeping the subject intact — useful for cleaning up your own exported clips or re-edits you have the rights to use.",
       "The second job is the packaging kit. From your topic, the tool generates starting-point title ideas, opening hooks, caption drafts and hashtag sets for short-form platforms, built from proven structural templates — the question title, the number title, the mistake title, the before-and-after framing — rather than random word salad.",
       "The output is a first draft, not a finished post. You pick what fits your video, rewrite it in your own voice, and drop what does not work. That division of labour is deliberate.",
       "How it works",
@@ -5930,7 +5934,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Comparador de Textos: Guía para Ver las Diferencias entre Dos Textos",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "AI Detection",
     summary:
       "¿Qué cambió entre el borrador y la versión final? Aprende a comparar dos textos palabra por palabra: qué se añadió, qué se eliminó y qué tan grande fue la edición en realidad.",
@@ -5941,7 +5945,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "La situación se repite en las aulas de cualquier universidad de España o Latinoamérica: un profesor que recibe la segunda entrega de un trabajo y quiere verificar qué partes se reescribieron de verdad, o un estudiante que retocó su ensayo con ayuda de varias herramientas y ya no sabe qué versión entregó la semana pasada.",
       "La alternativa improvisada suele ser abrir dos ventanas y hacer scroll a ojo, o confiar en la memoria. Ninguna de las dos funciona bien con textos de más de unos pocos párrafos.",
       "Qué hace la herramienta: mostrar el cambio, palabra por palabra",
-      "El comparador de textos de HumanizeAI toma dos versiones de un texto y resalta exactamente qué palabras se añadieron, cuáles se eliminaron y cuáles se sustituyeron por otras. El resultado no es un veredicto misterioso, sino el cambio mismo, visible: lo nuevo aparece marcado como añadido, lo que desapareció como eliminado, y así puedes recorrer el documento diferencia a diferencia.",
+      "El comparador de textos de ToolVena toma dos versiones de un texto y resalta exactamente qué palabras se añadieron, cuáles se eliminaron y cuáles se sustituyeron por otras. El resultado no es un veredicto misterioso, sino el cambio mismo, visible: lo nuevo aparece marcado como añadido, lo que desapareció como eliminado, y así puedes recorrer el documento diferencia a diferencia.",
       "Además del resaltado, la herramienta ofrece una vista de similitud: una estimación de qué tan parecidos son ambos textos en conjunto. Es un dato orientativo para hacerte una idea rápida del tamaño de la edición, no una puntuación oficial de nada — y en la sección de límites explicamos por qué esa distinción importa.",
       "El uso más natural es comparar borradores. Pegás el texto original en un lado y la versión corregida en el otro, y en segundos ves si tu corrección fue cosmética (unas comas y dos sinónimos) o de fondo (párrafos enteros reescritos).",
       "Cómo funciona la comparación, sin fórmulas raras",
@@ -5961,7 +5965,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Tampoco detecta parafraseo profundo: si alguien reescribió cada idea con palabras completamente distintas, la comparación mostrará casi todo como texto nuevo, sin pronunciarse sobre si las ideas coinciden. Y al trabajar con textos pegados, el formato se pierde: tablas, notas al pie y encabezados pueden mezclarse con el cuerpo del texto y ensuciar un poco la comparación. Limpiar el texto antes de pegar ayuda bastante.",
       "Por último, la comparación es literal, no semántica. Cambiar «compró» por «adquirió» cuenta como cambio aunque el significado sea el mismo, y mantener las mismas palabras en otro orden puede parecer más parecido de lo que es en realidad. Úsala como un mapa preciso de cambios literales, que es exactamente lo que promete ser.",
       "Conclusión y preguntas frecuentes",
-      "Saber qué cambió entre dos versiones es una de esas tareas pequeñas que, hechas a ojo, roban horas y dejan dudas. Un comparador palabra por palabra convierte esa duda en una vista clara: esto se añadió, esto se quitó, esto se reescribió. El comparador de textos de HumanizeAI hace ese trabajo en tu navegador, sin que tengas que registrarte para una tarea tan puntual.",
+      "Saber qué cambió entre dos versiones es una de esas tareas pequeñas que, hechas a ojo, roban horas y dejan dudas. Un comparador palabra por palabra convierte esa duda en una vista clara: esto se añadió, esto se quitó, esto se reescribió. El comparador de textos de ToolVena hace ese trabajo en tu navegador, sin que tengas que registrarte para una tarea tan puntual.",
       "La próxima vez que alguien te devuelva un documento con «cambios menores», pégalo junto al original y deja que las diferencias hablen. A veces son dos comas; a veces, sorpresas.",
       "Pregunta frecuente: ¿la similitud que muestra es una puntuación de plagio? Respuesta: no. Es una estimación de cuánto texto comparten dos versiones, útil para medir el tamaño de una edición. No determina plagio ni autoría, y ninguna herramienta debería presentarla como tal.",
       "Pregunta frecuente: ¿puedo comparar textos en distintos idiomas? Respuesta: técnicamente puedes pegarlos, pero la comparación es literal palabra por palabra, así que una traducción aparecerá casi por completo como texto nuevo. Para comparar traducciones con el original, el resultado sirve solo como referencia visual del volumen de cambio.",
@@ -5975,7 +5979,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Compresor de Imágenes: Guía para Reducir el Tamaño de tus Fotos",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Video & Visual AI",
     summary:
       "Tus fotos no tienen por qué pesar varios megas. Aprende a comprimir imágenes JPG, PNG y WebP en tu navegador, sin subirlas a ningún servidor, con el equilibrio justo entre peso y calidad.",
@@ -5986,7 +5990,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "El problema se repite fuera de los blogs. Una tienda en línea de artesanías en Oaxaca que sube fotos de producto sin comprimir, un portafolio de fotografía en Buenos Aires que tarda en abrir, o un correo con adjuntos que el servidor rechaza por tamaño. En todos los casos, la imagen original es mucho más pesada de lo que la pantalla necesita.",
       "Muchas personas intentan resolverlo enviándose las fotos por mensajería para que «se hagan chicas solas». Funciona a medias: la calidad se degrada sin control, se pierden los nombres de archivo y, en algunos casos, las imágenes pasan por servidores de terceros sin que lo pienses dos veces.",
       "Qué hace la herramienta: comprimir sin subir nada",
-      "El compresor de imágenes de HumanizeAI reduce el peso de tus archivos JPG, PNG y WebP directamente en tu navegador. Esto es importante: la imagen no se sube a ningún servidor. El archivo se procesa en tu propio dispositivo y el resultado se descarga desde ahí, de modo que tus fotos no viajan por internet para ser comprimidas.",
+      "El compresor de imágenes de ToolVena reduce el peso de tus archivos JPG, PNG y WebP directamente en tu navegador. Esto es importante: la imagen no se sube a ningún servidor. El archivo se procesa en tu propio dispositivo y el resultado se descarga desde ahí, de modo que tus fotos no viajan por internet para ser comprimidas.",
       "La herramienta incluye un control de calidad que te permite decidir el equilibrio entre peso y nitidez. Calidad alta para un portafolio donde cada detalle importa; calidad media para un blog, donde una foto ligera y limpia gana por goleada a una pesadísima que nadie espera a ver.",
       "Antes de descargar, puedes comparar el tamaño original con el tamaño resultante y ver la imagen comprimida. Si el resultado no te convence — demasiado borrosa, o apenas más ligera — ajustas el control y vuelves a intentarlo en segundos, sin esperas de subida y bajada por un servidor lejano.",
       "Cómo funciona la compresión, explicado sin tecnicismos",
@@ -6008,7 +6012,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Tampoco conviene re-comprimir la misma imagen una y otra vez: cada guardado en JPG suma una pequeña pérdida, y después de varias rondas la foto se degrada visiblemente. Trabaja siempre desde el original. Y recuerda que si la imagen ya venía muy comprimida de otra aplicación, el margen de mejora será pequeño.",
       "Por último, una nota de privacidad sensata: que el procesamiento ocurra en tu navegador es una ventaja real, pero sigue siendo tu responsabilidad decidir qué imágenes compartes después y dónde las subes. La herramienta reduce archivos; no gestiona tu privacidad en el resto de internet.",
       "Conclusión y preguntas frecuentes",
-      "Si publicas en la web, comprimir imágenes es de esos hábitos pequeños con efecto desproporcionado: páginas que cargan al instante, lectores que no abandonan y archivos que dejan de rebotar en el correo. El compresor de imágenes de HumanizeAI lo hace sin registros y sin que tus archivos salgan de tu dispositivo, que es como debería funcionar siempre una tarea tan simple.",
+      "Si publicas en la web, comprimir imágenes es de esos hábitos pequeños con efecto desproporcionado: páginas que cargan al instante, lectores que no abandonan y archivos que dejan de rebotar en el correo. El compresor de imágenes de ToolVena lo hace sin registros y sin que tus archivos salgan de tu dispositivo, que es como debería funcionar siempre una tarea tan simple.",
       "El mejor momento para adoptarlo es antes de tu próxima publicación: comprime las fotos de ese artículo, compara los tiempos de carga y decide con tus propios ojos si el hábito se queda.",
       "Pregunta frecuente: ¿la compresión se nota en la calidad de mis fotos? Respuesta: con ajustes moderados, en una pantalla normal la diferencia es prácticamente invisible. Donde sí se nota es en impresiones grandes o al ampliar mucho la imagen, por eso conviene guardar siempre el original.",
       "Pregunta frecuente: ¿qué formato me conviene elegir? Respuesta: para fotos destinadas a la web, JPG o WebP suelen dar el mejor equilibrio entre peso y calidad. Reserva PNG para imágenes con transparencia o con texto y gráficos de bordes muy definidos.",
@@ -6022,7 +6026,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Herramientas PDF: Guía para Unir PDFs y Convertir Imágenes a PDF",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "«Suba un solo archivo PDF»: aprende a unir varios PDFs y convertir tus imágenes en un documento limpio, todo en tu navegador y sin subir documentos personales a ningún servidor.",
@@ -6033,7 +6037,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Las soluciones improvisadas son una pesadilla conocida: enviarse los archivos por correo para abrirlos en un programa que pide suscripción, o subir la foto de tu identificación a un convertidor desconocido que la procesa en un servidor quién sabe dónde, detrás de una fila de anuncios. Los documentos personales merecen un trato mejor que ese.",
       "Unir PDFs y convertir imágenes a PDF son operaciones sencillas. Deberían tomar un minuto y nunca exigir entregar tus documentos privados a un servidor ajeno.",
       "Qué hace la herramienta: dos tareas, cero subidas",
-      "Las herramientas PDF de HumanizeAI hacen dos trabajos concretos. El primero es unir: combinar varios archivos PDF en un solo documento, en el orden que tú elijas. El segundo es convertir: transformar imágenes — páginas escaneadas, formularios fotografiados, capturas de pantalla — en un PDF donde cada imagen se convierte en una página.",
+      "Las herramientas PDF de ToolVena hacen dos trabajos concretos. El primero es unir: combinar varios archivos PDF en un solo documento, en el orden que tú elijas. El segundo es convertir: transformar imágenes — páginas escaneadas, formularios fotografiados, capturas de pantalla — en un PDF donde cada imagen se convierte en una página.",
       "Todo el proceso ocurre en tu navegador. Tus archivos se leen y se ensamblan en tu propio dispositivo; no se sube nada a ningún servidor. Eso hace que la herramienta sea una opción sensata justamente para los documentos que más se suelen unir: constancias, contratos, identificaciones y paquetes de solicitud completos.",
       "El flujo es deliberadamente sencillo: agregas los archivos, los ordenas, generas el PDF y lo descargas. Sin cuentas, sin marcas de agua sobre tu documento y sin acertijos de «páginas gratuitas restantes» antes de poder bajar el resultado.",
       "Cómo funciona, explicado de forma sencilla",
@@ -6055,7 +6059,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Los PDF protegidos con contraseña o con restricciones pueden negarse a ser leídos o unidos: es la protección haciendo su trabajo. Desbloquea primero tus propios documentos en la aplicación que los creó. Además, los archivos muy pesados pueden exigir demasiado a la memoria de un teléfono; si la unión se detiene, prueba con menos archivos por vez o usa una computadora.",
       "Y la regla de oro de siempre: calidad que entra, calidad que sale. Una foto oscura y con sombras producirá una página oscura y con sombras. Dedicar treinta segundos a repetir la foto con buena luz mejora el resultado más que cualquier ajuste de la herramienta.",
       "Conclusión y preguntas frecuentes",
-      "Un solo PDF ordenado, armado con tus archivos, en tu dispositivo y en aproximadamente un minuto: esa es toda la promesa, y para la temporada de admisiones, el papeleo de un negocio o los trámites de la vida diaria, es exactamente la promesa que importa. Las herramientas PDF de HumanizeAI están pensadas para ese momento concreto.",
+      "Un solo PDF ordenado, armado con tus archivos, en tu dispositivo y en aproximadamente un minuto: esa es toda la promesa, y para la temporada de admisiones, el papeleo de un negocio o los trámites de la vida diaria, es exactamente la promesa que importa. Las herramientas PDF de ToolVena están pensadas para ese momento concreto.",
       "Si tienes una solicitud en puerta esta semana, junta tus archivos, ordénalos con números y prueba el flujo completo antes del día límite. Descubrir a las once de la noche que todo funciona es mucho mejor que descubrir lo contrario.",
       "Pregunta frecuente: ¿mis documentos se suben a algún servidor? Respuesta: no. La unión y la conversión ocurren dentro de tu navegador, así que tus archivos permanecen en tu dispositivo de principio a fin.",
       "Pregunta frecuente: ¿puedo cambiar el orden de las páginas? Respuesta: controlas el orden de los archivos que agregas y el PDF final sigue ese orden. Abre el resultado y verifica la secuencia antes de enviarlo.",
@@ -6069,7 +6073,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Resumidor de Texto: Guía para Resumir Textos Largos en Segundos",
     readTime: "8 min read",
     date: "October 2026",
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "Academic Integrity",
     summary:
       "Aprende a convertir capítulos, artículos e informes extensos en resúmenes claros con un resumidor de texto extractivo: tres modos de longitud, puntos clave y ninguna palabra inventada.",
@@ -6080,7 +6084,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "El problema no es solo de estudiantes. En oficinas de Bogotá, Lima o Santiago pasa lo mismo con informes trimestrales, contratos extensos y actas de reuniones que nadie tiene tiempo de repasar completas antes de una presentación importante.",
       "La respuesta instintiva suele ser copiar el texto en un chat de inteligencia artificial y pedir «resúmelo». El resultado a veces sirve, pero otras veces mezcla datos, suaviza cifras o directamente inventa conclusiones que el documento original nunca dijo. Y cuando el resumen se usa para estudiar o para decidir algo importante, ese riesgo pesa mucho.",
       "Qué hace la herramienta: resumir sin inventar",
-      "El resumidor de texto de HumanizeAI trabaja de una manera distinta y más conservadora: es un resumidor extractivo. Eso significa que no escribe frases nuevas, sino que selecciona las oraciones más importantes de tu propio texto y las ordena para formar el resumen. Cada palabra del resultado salió de tu documento, tal cual la escribió el autor original.",
+      "El resumidor de texto de ToolVena trabaja de una manera distinta y más conservadora: es un resumidor extractivo. Eso significa que no escribe frases nuevas, sino que selecciona las oraciones más importantes de tu propio texto y las ordena para formar el resumen. Cada palabra del resultado salió de tu documento, tal cual la escribió el autor original.",
       "La herramienta ofrece tres modos de longitud. El modo breve deja solo la esencia, ideal para decidir en un minuto si un artículo merece tu atención. El modo equilibrado conserva el contexto principal y los datos clave. El modo detallado mantiene más desarrollo, útil cuando el resumen va a sustituir una segunda lectura completa.",
       "Además del texto resumido, genera una lista de puntos clave: las ideas que el propio documento repite, desarrolla o coloca en lugares destacados. Para un estudiante, esa lista funciona como una guía rápida de repaso antes de entrar al aula.",
       "Cómo funciona por dentro, sin magia",
@@ -6103,7 +6107,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Por último, la calidad del resultado depende de la calidad del texto pegado. Si copias desde un PDF con saltos de línea raros o encabezados mezclados entre oraciones, la puntuación de frases puede confundirse. Dedicar un minuto a limpiar el texto antes de resumir mejora mucho el resultado.",
       "Conclusión y preguntas frecuentes",
       "Un buen resumidor no lee por ti: te ayuda a decidir dónde vale la pena leer con calma. Si lo usas como mapa antes de la lectura profunda, o como material de repaso después de ella, puede ahorrarte horas reales cada semana sin meter palabras en boca de tus fuentes, porque trabaja solo con las frases que ya existen en tu documento.",
-      "Si quieres probarlo con tu próxima lectura, el resumidor de texto de HumanizeAI está pensado justo para ese flujo: pegas el texto, eliges la longitud y obtienes el resumen con sus puntos clave, todo sin salir del navegador.",
+      "Si quieres probarlo con tu próxima lectura, el resumidor de texto de ToolVena está pensado justo para ese flujo: pegas el texto, eliges la longitud y obtienes el resumen con sus puntos clave, todo sin salir del navegador.",
       "Pregunta frecuente: ¿el resumen reemplaza la lectura del documento completo? Respuesta: no. Sirve para orientarte, repasar y priorizar. Para citar, argumentar o examinarte, la lectura del original sigue siendo necesaria.",
       "Pregunta frecuente: ¿puedo resumir textos en otros idiomas además del español? Respuesta: el resumidor trabaja con la estructura y la frecuencia de las oraciones, así que también funciona con textos en inglés y otros idiomas, aunque la calidad varía según lo bien redactado que esté el material.",
       "Pregunta frecuente: ¿mis textos se guardan en algún servidor? Respuesta: el procesamiento se realiza en tu propio navegador, así que el texto no viaja a un servidor externo para ser resumido. Aun así, evita pegar información confidencial en cualquier herramienta en línea por precaución general."
@@ -6116,7 +6120,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Voice Typing Guide: How to Turn Your Speech into Text for Free",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Voice typing lets you write by speaking instead of using a keyboard. This guide explains how it works, who it helps, how to use our free tool step by step, and how to get cleaner, more accurate text from your voice.",
     "keywords": [
@@ -6164,7 +6168,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Dictado por voz: guía para escribir hablando con voz a texto gratis",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Con el dictado por voz escribes hablando en vez de teclear. En esta guía te explicamos qué es, a quién le ayuda, cómo usar nuestra herramienta gratuita paso a paso y qué límites y trucos conviene conocer para conseguir un texto limpio y preciso.",
     "keywords": [
@@ -6212,7 +6216,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Voice Typing Guide: Bol Kar Likhna Seekhein, Muft Speech to Text Tool",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Voice typing mein aap bol kar likhte hain, keyboard ki zaroorat nahi parti. Is guide mein aaram se samjhaya gaya hai ke ye tool kaise kaam karta hai, kin logon ke kaam aata hai, step by step istemal kaise karein, aur kin baton ka khayal rakhein taake text saaf aur durust bane.",
     "keywords": [
@@ -6263,7 +6267,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Spracheingabe online kostenlos: Text diktieren statt tippen",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Mit der kostenlosen Spracheingabe im Browser schreiben Sie Texte, indem Sie einfach sprechen. Diese Anleitung zeigt Schritt für Schritt, wie das Diktieren funktioniert, was Ihr Browser dabei im Hintergrund tut und wo die ehrlichen Grenzen der Technik liegen.",
     "keywords": [
@@ -6312,7 +6316,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Saisie vocale en ligne gratuite : dicter son texte au lieu de taper",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Grâce à la saisie vocale gratuite dans votre navigateur, vous écrivez vos textes simplement en parlant. Ce guide vous montre pas à pas comment dicter, ce que fait votre navigateur en coulisses, et quelles sont les limites honnêtes de cette technologie.",
     "keywords": [
@@ -6361,7 +6365,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Sesli Yazma Ücretsiz: Konuşarak Metin Yazma Rehberi",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Ücretsiz sesli yazma sayesinde tarayıcınızda yalnızca konuşarak metin yazabilirsiniz. Bu rehber, dikte işlemini adım adım anlatıyor, tarayıcınızın arka planda ne yaptığını gösteriyor ve teknolojinin dürüst sınırlarını açıklıyor.",
     "keywords": [
@@ -6410,7 +6414,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Digitação por Voz: Guia Completo para Escrever Falando",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Aprenda como funciona a digitação por voz, quem mais se beneficia dessa tecnologia e como usá-la passo a passo no navegador, sem instalar nada e sem pagar nada.",
     "keywords": [
@@ -6463,7 +6467,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "音声入力の完全ガイド：話すだけで文章が書ける方法",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "音声入力の仕組みから、向いている人、ブラウザで無料ツールを実際に使う手順、精度の限界とプライバシーの注意点までを正直に解説します。",
     "keywords": [
@@ -6516,7 +6520,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Dettatura Vocale: La Guida Completa per Scrivere Parlando",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Scopri come funziona la dettatura vocale, chi può trarne vantaggio e come usarla passo dopo passo nel browser, senza installare nulla e senza spendere nulla.",
     "keywords": [
@@ -6570,7 +6574,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Spraaktypen: De Complete Gids om te Schrijven door te Praten",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Ontdek hoe spraaktypen werkt, wie er het meest aan heeft en hoe je het stap voor stap in je browser gebruikt — zonder iets te installeren en zonder te betalen.",
     "keywords": [
@@ -6624,7 +6628,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Stemmeskriving: Den komplette guiden til å skrive med stemmen",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Lær hvordan stemmeskriving fungerer, hvem som har mest nytte av det, og hvordan du bruker det steg for steg i nettleseren — helt uten installasjon og helt gratis.",
     "keywords": [
@@ -6678,7 +6682,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Lebenslauf erstellen: kostenlos online, ohne Anmeldung – die komplette Anleitung",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Ein guter Lebenslauf entsteht nicht durch ein hübsches Design, sondern durch klare Inhalte und eine saubere Struktur. Diese Anleitung zeigt, was in einen Lebenslauf gehört, wie Sie ihn Schritt für Schritt mit unserem kostenlosen CV Builder erstellen und welche Fehler Sie vermeiden sollten.",
     "keywords": [
@@ -6733,7 +6737,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "CV Builder Guide: How to Make a Clean, Honest Resume That Gets Read",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "A plain-language guide to building a CV that employers can actually read: what each section must contain, how to use the free builder step by step, why your data never leaves your browser, and the honest limits of any template tool.",
     "keywords": [
@@ -6783,7 +6787,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Cómo Hacer un Currículum Limpio y Honesto Que Sí Se Lea: Guía del Creador de CV",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Una guía en lenguaje claro para crear un currículum que las empresas puedan leer de verdad: qué debe llevar cada apartado, cómo usar el creador gratuito paso a paso, por qué tus datos nunca salen del navegador y qué límites tiene, honestamente, cualquier plantilla.",
     "keywords": [
@@ -6833,7 +6837,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Créer un CV gratuit en ligne : le guide complet, étape par étape",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Un bon CV ne se résume pas à un joli modèle : c'est un contenu clair, honnête et adapté au poste, présenté proprement. Ce guide explique ce qu'un CV doit contenir, comment le créer pas à pas avec notre générateur gratuit, et quelles erreurs éviter.",
     "keywords": [
@@ -6888,7 +6892,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Come Creare un Curriculum Gratis: Guida Completa Passo Dopo Passo",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Scopri cosa deve contenere un buon curriculum, come costruirlo passo dopo passo con uno strumento gratuito nel browser e quali errori evitare. Con i consigli su foto e autorizzazione privacy all’italiana.",
     "keywords": [
@@ -6939,7 +6943,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "英文履歴書（CV）の作り方ガイド｜日本の履歴書との違いから正直に解説",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "外資系や海外の求人に応募するための欧米式CV（英文履歴書）の作り方を、日本語で一から解説します。日本の履歴書との違い、書くべき内容、ツールの使い方、写真の扱いまで正直にまとめました。",
     "keywords": [
@@ -6989,7 +6993,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Gratis CV Maken: Complete Gids Stap Voor Stap Uitlegd",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Leer wat er op een goed cv hoort, hoe je het stap voor stap opbouwt met een gratis hulpmiddel in je browser en welke fouten je moet vermijden. Inclusief eerlijk advies over de foto op je cv in Nederland.",
     "keywords": [
@@ -7040,7 +7044,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Como Criar um Currículo Profissional Grátis: Guia Completo Passo a Passo",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Aprenda o que um bom currículo precisa ter, como montar o seu passo a passo com uma ferramenta gratuita no navegador e quais erros evitar. Sem cadastro, sem enviar seus dados para nenhum servidor.",
     "keywords": [
@@ -7091,7 +7095,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Ücretsiz CV Oluşturma: Adım Adım Online CV Hazırlama Rehberi",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "İyi bir CV, şık bir şablondan çok; net, dürüst ve başvurulan işe göre şekillendirilmiş bir içerikle hazırlanır. Bu rehber, CV'de nelerin olması gerektiğini, ücretsiz aracımızla adım adım nasıl CV oluşturacağınızı ve kaçınmanız gereken hataları anlatıyor.",
     "keywords": [
@@ -7146,7 +7150,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Muft CV Kaise Banayein — Apni CV Khud Ghar Baithe Banana Seekhein",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Chai ke cup ke saath aaram se samajhein ke achi CV mein kya hota hai, muft tool se qadam ba qadam apni CV kaise banayein, aur kyun aap ki maloomat aap ke apne browser se bahir nahi jati. Pakistan mein dukaanon par paisay de kar CV banwane ke bajaye ab ye kaam khud, muft mein karein.",
     "keywords": [
@@ -7197,7 +7201,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Lage CV Gratis: Komplett Guide Steg For Steg",
     "readTime": "8 min read",
     "date": "October 2026",
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Academic Integrity",
     "summary": "Lær hva en god CV må inneholde, hvordan du bygger den steg for steg med et gratis verktøy i nettleseren, og hvilke feil du bør unngå. Med ærlige råd om bilde på CV-en i Norge.",
     "keywords": [
@@ -7248,7 +7252,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Wortzähler online kostenlos: Wörter, Zeichen und Sätze zählen",
   "readTime": "9 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Der kostenlose Wortzähler in Ihrem Browser zählt Wörter, Zeichen, Sätze und mehr – ohne Anmeldung und ohne Upload. Diese Anleitung erklärt alle Kennzahlen, die Eigenheiten deutscher Texte und fünf praktische Beispiele von der Hausarbeit bis zum Behördenbrief.",
   "keywords": [
@@ -7295,7 +7299,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Word Counter Guide: Get Accurate Counts for Essays, Grants, Newsletters, and Speeches",
   "readTime": "9 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "A practical guide to what a word counter really measures, why limits matter, and how to use local, private counting to polish essays, grant applications, newsletters, and speeches without guesswork.",
   "keywords": [
@@ -7338,7 +7342,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Contador de Palabras: Guía Completa para Contar Bien y Cumplir Cada Límite",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Guía en español para usar bien un contador de palabras: qué significa cada estadística, cómo cumplir los límites de la universidad, las oposiciones, la carta de presentación, el boletín y el guion, y por qué dos contadores pueden dar cifras distintas con el mismo texto.",
   "keywords": [
@@ -7403,7 +7407,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Compteur de mots en ligne gratuit : compter mots et caractères sans se tromper",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Dissertation, lettre de motivation ou discours : ce guide explique comment compter mots, caractères et phrases avec notre outil gratuit, sans inscription, et comment éviter les pièges propres au français comme les apostrophes, les accents et les abréviations.",
   "keywords": [
@@ -7451,7 +7455,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Contatore di Parole Online: Guida Pratica per Scrivere in Italiano",
   "readTime": "9 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Guida pratica al contatore di parole gratuito nel browser: parole, caratteri con e senza spazi, frasi, tempi di lettura e regole italiane per apostrofi, accenti e concorsi pubblici.",
   "keywords": [
@@ -7513,7 +7517,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "文字数カウンターの使い方ガイド｜日本語は原稿用紙と文字数で考える",
   "readTime": "7 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "日本語の文章はスペース区切りの単語数ではなく、文字数と原稿用紙で考えるのが基本です。大学レポート、エントリーシート、卒業論文、プレゼン原稿に役立つ文字数カウンターの正直な使い方を解説します。",
   "keywords": [
@@ -7556,7 +7560,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Woorden Tellen: Complete Gids voor de Gratis Woordenteller",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Plak, typ of laad een .txt-bestand en zie meteen woorden, tekens, zinnen, unieke woorden en lees- en spreektijd. Met uitleg over Nederlandse samenstellingen, apostrofs, afkortingen en decimale komma's, plus voorbeelden voor profielwerkstuk, sollicitatiebrief, nieuwsbrief, scriptie en spreekbeurt. Gratis, zonder account en volledig lokaal in je browser.",
   "keywords": [
@@ -7612,7 +7616,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Ordteller: Den komplette guiden til å telle ord og tegn på norsk",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "En praktisk guide til ordtelling på norsk: Slik teller du ord, tegn, setninger og lesetid gratis i nettleseren, med norske særtrekk som sammensatte ord, æ ø å og desimalkomma, og eksempler fra særemne, masteroppgave, jobbsøknad, nyhetsbrev og tale.",
   "keywords": [
@@ -7665,7 +7669,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Contador de Palavras Online Grátis: Guia Completo em Português",
   "readTime": "9 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Guia completo em português para contar palavras, caracteres, frases e tempo de leitura online, grátis e sem cadastro. Entenda hífens, acentos, abreviações e vírgula decimal, com exemplos do ENEM, TCC, cartas e boletins. Tudo local, no seu navegador.",
   "keywords": [
@@ -7721,7 +7725,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Kelime Sayacı Ücretsiz: Kelime ve Karakter Sayma Rehberi",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Ücretsiz kelime sayacı ile metninizin kelime, karakter, cümle ve paragraf sayılarını, okuma ve konuşma süresini anında öğrenin. Bu rehber aracın adım adım kullanımını, Türkçe'ye özgü sayım durumlarını ve günlük hayattan örnekleri dürüstçe anlatıyor.",
   "keywords": [
@@ -7775,7 +7779,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Word Counter Ka Istemal: Alfaaz Ginna Ab Bachon Ka Khel Hai",
   "readTime": "9 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Roman Urdu mein dostana rehnumai: muft Word Counter se lafz, character, jumlay, reading time aur goal progress kaise ginein, bilkul beghair sign-up ke aur text upload kiye baghair.",
   "keywords": [
@@ -7815,7 +7819,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Was dieser Tippgeschwindigkeitstest wirklich ist – und was nicht",
@@ -7862,7 +7866,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Tippgeschwindigkeit testen: ehrliche Anleitung zu WPM, Genauigkeit und Training"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "What this typing test really is — and what it is not",
@@ -7909,7 +7913,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Typing Speed Test Guide: WPM, Accuracy and Honest Practice"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Qué es (y qué no es) esta prueba de velocidad de tecleo",
@@ -7956,7 +7960,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Prueba de velocidad de tecleo: guía honesta para medir y mejorar tus PPM"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ce qu'est vraiment ce test de vitesse de frappe, et ce qu'il n'est pas",
@@ -8003,7 +8007,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Test de vitesse de frappe: guide honnête pour mesurer et améliorer vos MPM"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Che cos’è davvero questo test di velocità (e che cosa non è)",
@@ -8043,7 +8047,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Test di Velocità di Digitazione: Guida Completa a WPM, Precisione e Pratica"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "このタイピングテストは、本当は何を測るものなのか",
@@ -8085,7 +8089,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "タイピング速度テスト正直ガイド：WPMの計算と日本語の文字数の見方"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Wat deze typetest echt is, en wat hij nadrukkelijk niet is",
@@ -8127,7 +8131,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Typesnelheid testen zonder poespas: een eerlijke gids over WPM en nauwkeurigheid"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Hva denne skrivetesten faktisk er, og hva den ikke er",
@@ -8169,7 +8173,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Test skrivehastigheten ærlig: en guide til ord per minutt og treffsikkerhet"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "O que este teste de digitação realmente é — e o que ele não é",
@@ -8209,7 +8213,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Teste de Velocidade de Digitação: Guia Completo para Medir e Melhorar o WPM"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Yazma Hızı Testi Aslında Ne İşe Yarar, Ne İşe Yaramaz?",
@@ -8249,7 +8253,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Yazma Hızı Testi Rehberi: WPM Nedir, Nasıl Ölçülür, Nasıl Geliştirilir?"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Yeh typing test asal mein hai kya — aur kya nahi hai",
@@ -8296,7 +8300,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Typing Speed Test: Roman Urdu Guide WPM Aur Accuracy Ke Liye"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "What a case converter actually does — and what it does not",
@@ -8344,7 +8348,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Case Converter Guide: Uppercase, Sentence Case and Title Case Explained"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Qué hace realmente un convertidor de mayúsculas y minúsculas, y qué no hace",
@@ -8392,7 +8396,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Convertidor de Mayúsculas: Guía de MAYÚSCULAS, Minúsculas y Formato Título"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Case converter asal mein karta kya hai — aur kya nahi karta",
@@ -8440,7 +8444,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Case Converter Guide: Roman Urdu Mein Uppercase, Lowercase Aur Title Case Samjhaya Gaya"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Was ein Case-Converter ist – und was er ausdrücklich nicht ist",
@@ -8487,7 +8491,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Groß- und Kleinschreibung ändern: Der ehrliche Converter-Ratgeber"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ce que fait vraiment un convertisseur de casse – et ce qu'il ne fera jamais",
@@ -8534,7 +8538,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Convertisseur de casse : le guide français honnête et complet"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Büyük–Küçük Harf Dönüştürücü Gerçekte Nedir, Ne Değildir?",
@@ -8581,7 +8585,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Büyük–Küçük Harf Dönüştürücü: Türkçe İçin Dürüst Rehber"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "O que este conversor de caixa faz — e o que ele não faz",
@@ -8628,7 +8632,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Conversor de Maiúsculas e Minúsculas: Guia Prático para Acertar a Caixa do Texto"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "この大文字・小文字変換ツールでできること、できないこと",
@@ -8674,7 +8678,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "大文字・小文字変換ガイド：日本語の中で英字を整えるために"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Hva denne bokstavkonverteren gjør, og hva den ikke gjør",
@@ -8722,7 +8726,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Store og små bokstaver uten styr: en ærlig guide til bokstavkonverteren"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Wat deze hoofdletterconverter wel doet, en wat hij nadrukkelijk niet doet",
@@ -8770,7 +8774,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Hoofdletter converter zonder poespas: van HOOFDLETTERS naar nette tekst"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Che cosa fa questo convertitore di maiuscole e minuscole — e che cosa non fa",
@@ -8817,7 +8821,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Convertitore Maiuscole e Minuscole: Guida Pratica per Sistemare il Testo"
 },,
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "What a password generator actually does — and what it does not",
@@ -8865,7 +8869,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Password Generator Guide: Strong Random Passwords, Passphrases and Honest Limits"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "Qué hace realmente un generador de contraseñas y qué no hace",
@@ -8913,7 +8917,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Generador de Contraseñas: Guía de Contraseñas Aleatorias Seguras y Límites Honestos"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "Password generator asal mein karta kya hai — aur kya nahi karta",
@@ -8961,7 +8965,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Password Generator Guide: Mazboot Random Password, Passphrase Aur Imandar Hudood Roman Urdu Mein"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "Was ein Passwort-Generator wirklich tut – und was nicht",
@@ -9009,7 +9013,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Passwort Generator Anleitung: Starke Passwörter erzeugen, speichern und richtig nutzen"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "Ce que fait vraiment un générateur de mot de passe – et ce qu'il ne fait pas",
@@ -9057,7 +9061,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Générateur de mot de passe: créer, conserver et utiliser des mots de passe solides"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "Şifre oluşturucu gerçekte ne yapar – ve ne yapmaz",
@@ -9105,7 +9109,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Şifre Oluşturucu Rehberi: Güçlü şifre üretmek, saklamak ve doğru kullanmak"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "O que um gerador de senhas faz de verdade — e o que ele não faz",
@@ -9153,7 +9157,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Gerador de Senhas: Como Criar Senhas Fortes e Guardá-las do Jeito Certo"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "パスワード生成ツールとは何をするものか、そして何をしないものか",
@@ -9201,7 +9205,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "パスワード生成ガイド：推測されにくい文字列と保管のコツ"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "Hva en passordgenerator faktisk gjør — og hva den ikke gjør",
@@ -9249,7 +9253,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Passordgenerator-guide: Sterke, Unike Passord uten Gjenbruk"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "Wat een wachtwoordgenerator werkelijk doet — en wat hij niet doet",
@@ -9297,7 +9301,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Wachtwoordgenerator Gids: Sterke, Unieke Wachtwoorden zonder Hergebruik"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "Privacy & Security",
     "content": [
       "Che cosa fa davvero un generatore di password — e che cosa non fa",
@@ -9345,7 +9349,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Generatore di Password: Come Creare Password Forti e Conservarle Bene"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "What duplicate lines are and why they keep piling up",
@@ -9386,7 +9390,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Remove Duplicate Lines Guide: Clean Lists, the Four Options and Honest Limits"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Qué son las líneas duplicadas y por qué se acumulan",
@@ -9427,7 +9431,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Eliminar Líneas Duplicadas: Guía para Limpiar Listas, las Cuatro Opciones y Límites Honestos"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Duplicate lines kya hoti hain aur ye jama kyun hoti rehti hain",
@@ -9468,7 +9472,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Remove Duplicate Lines Guide: Saaf List, Chaar Options Aur Imandar Hudood Roman Urdu Mein"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Was doppelte Zeilen sind und warum sie sich ansammeln",
@@ -9509,7 +9513,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Doppelte Zeilen entfernen: Anleitung für saubere Listen ohne Handarbeit"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Ce que sont les lignes en double et pourquoi elles s'accumulent",
@@ -9550,7 +9554,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Supprimer les lignes en double : guide pratique pour des listes propres"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Yinelenen satırlar nedir ve neden birikir",
@@ -9591,7 +9595,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Yinelenen Satırları Kaldırma: Temiz Listeler İçin Pratik Rehber"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "O que são linhas duplicadas e por que elas aparecem o tempo todo",
@@ -9632,7 +9636,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Remover Linhas Duplicadas: Guia Prático para Limpar Listas, E-mails e Planilhas"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "重複する行とは何か、なぜいつの間にか増えてしまうのか",
@@ -9673,7 +9677,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "重複する行を削除する：リストをすっきり整える実用ガイド"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Del 1: Hva dupliserte linjer er, og hvorfor de hoper seg opp",
@@ -9714,7 +9718,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Fjerne Dupliserte Linjer: Komplett Guide til Ryddige Lister"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Deel 1: Wat dubbele regels zijn en waarom ze zich opstapelen",
@@ -9755,7 +9759,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Dubbele Regels Verwijderen: Complete Gids voor Schone Lijsten"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Che cosa sono le righe duplicate e perché si accumulano così in fretta",
@@ -9796,7 +9800,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Rimuovere le Linee Duplicate: Guida Pratica per Ripulire Elenchi e Fogli di Calcolo"
   },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "What invisible and blank characters actually are",
@@ -9841,7 +9845,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Invisible Character and Blank Text: What They Are and How to Use Them Safely"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Invisible character asal mein hota kya hai",
@@ -9886,7 +9890,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Invisible Character aur Blank Text: Yeh Kya Hain aur Mehfooz Istemal Kaise Karein"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Qué son realmente los caracteres invisibles y en blanco",
@@ -9931,7 +9935,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Carácter invisible y texto en blanco: qué son y cómo usarlos de forma segura"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Was unsichtbare Zeichen überhaupt sind – und warum sie gar nicht leer sind",
@@ -9972,7 +9976,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Unsichtbare Zeichen richtig nutzen: Leerzeichen, Braille Blank und Hangul-Füller erklärt"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Un caractère invisible, ce n’est pas du vide : c’est du texte que vos yeux ne voient pas",
@@ -10013,7 +10017,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Caractères invisibles : copier un texte blanc sans mauvaises surprises"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Görünmez karakter boşluk değildir: ekranda çizilmeyen ama metinde yaşayan işaretler",
@@ -10054,7 +10058,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Görünmez Karakter Rehberi: Boş Metin Kopyalama, Braille Boşluğu ve Hangul Dolgusu"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Você já tentou mandar uma mensagem em branco no grupo da família, deixar a bio do Instagram com um vão bonito entre uma linha e outra ou escrever um apelido que parece vazio num jogo e o aplicativo simplesmente apagou o espaço? Isso acontece porque o espaço comum que você digita no teclado não foi feito para ficar sozinho. É aí que entra o caractere invisível: um símbolo de verdade, reconhecido pelo sistema, mas que não desenha tinta na tela. Ele ocupa um lugar no texto sem aparecer, e por isso serve para formatar, separar e testar como cada aplicativo trata texto. Este guia explica, com exemplos bem brasileiros, quais tipos existem, qual escolher e onde ele para de funcionar — sem promessa de que vai ser aceito em todo lugar.",
@@ -10096,7 +10100,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Caractere Invisível: Como Copiar, Gerar e Usar Texto em Branco com Segurança"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "見えない文字とは何か",
@@ -10137,7 +10141,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "見えない文字・空白テキスト完全ガイド：コピーと使い方"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ti è mai capitato di voler mandare un messaggio che sembra vuoto nel gruppo di famiglia, lasciare uno spazio pulito tra una riga e l’altra nella bio di Instagram o provare un soprannome che pare in bianco in un gioco, e vedere l’app cancellare tutto appena salvi? Succede perché la barra spaziatrice non è fatta per restare da sola. Qui entra in gioco il carattere invisibile: un simbolo vero, che il sistema registra come testo, ma que lo schermo mostra come vuoto. Occupa un posto senza disegnare inchiostro, e per questo serve a formattare, separare e capire come ogni piattaforma tratta il testo. In questa guida, con esempi italiani di tutti i giorni, scopri quali tipi esistono, quale scegliere e perché a volte scompare — senza prometterti che verrà accettato ovunque.",
@@ -10179,7 +10183,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Carattere Invisibile: Come Copiare e Usare il Testo Vuoto in Modo Sicuro"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Je kent het vast: je wilt een bericht sturen dat leeg lijkt in de familie-appgroep, een nette witruimte zetten tussen twee regels in je Instagram-bio of een bijna lege bijnaam proberen in een spel, en zodra je opslaat is alles weer weg. Dat komt doordat de gewone spatiebalk niet is gemaakt om alleen te blijven staan. Daar komt het onzichtbare teken om de hoek kijken: een echt symbool dat je telefoon of computer als tekst opslaat, maar dat op het scherm als leegte wordt getoond. Het neemt een plek in zonder inkt te tekenen, en daardoor kun je ermee formatteren, scheiden en testen hoe een app met tekst omgaat. In deze gids, met herkenbare Nederlandse voorbeelden, lees je welke soorten er zijn, welke je kiest en waarom het soms verdwijnt — zonder belofte dat het overal wordt geaccepteerd.",
@@ -10221,7 +10225,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Onzichtbaar Teken: Lege Tekst Kopiëren en Veilig Gebruiken"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Hva er et usynlig tegn?",
@@ -10262,7 +10266,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Usynlig tegn og blank tekst: komplett guide til kopiering og bruk"
 },
 {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "What a text repeater is, and why anyone repeats text on purpose",
@@ -10303,7 +10307,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Text Repeater Guide: Repeat Text Honestly — Counts, Separators, Caps and Fair Use"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Text repeater hota kya hai, aur koi text ko repeat karta hi kyun hai",
@@ -10344,7 +10348,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Text Repeater Guide: Text Ko Imaandari Se Repeat Karein — Count, Separator, Limit Aur Sahi Istemal"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Qué es un repetidor de texto y por qué alguien repite texto a propósito",
@@ -10385,7 +10389,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Repetidor de Texto: Guía Honesta de Conteos, Separadores, Topes y Uso Justo"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Was ein Text-Wiederholer ist — und warum man Text absichtlich wiederholt",
@@ -10426,7 +10430,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Text-Wiederholer: Ehrliche Anleitung zu Anzahl, Trennzeichen, Grenzen und fairem Gebrauch"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Ce qu'est un répéteur de texte, et pourquoi on répète du texte exprès",
@@ -10467,7 +10471,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Répéteur de Texte : Guide Honnête des Nombres, Séparateurs, Plafonds et Bon Usage"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Metin tekrarlayıcı nedir ve insan metni neden bilerek tekrarlar",
@@ -10508,7 +10512,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Metin Tekrarlayıcı: Sayılar, Ayırıcılar, Sınırlar ve Adil Kullanım İçin Dürüst Rehber"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "O que é um repetidor de texto e por que alguém repete texto de propósito",
@@ -10549,7 +10553,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Repetidor de Texto: Guia Honesto de Contagens, Separadores, Limites e Uso Justo"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "テキストリピーターとは何か、そして人はなぜわざわざテキストを繰り返すのか",
@@ -10590,7 +10594,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "テキストリピーター：回数・区切り・上限と公正な使い方の正直ガイド"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Wat een tekstherhaler is — en waarom iemand tekst bewust herhaalt",
@@ -10631,7 +10635,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Tekstherhaler: Eerlijke Gids over Aantallen, Scheidingstekens, Limieten og Fair Gebruik"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Hva en tekstgjentaker er — og hvorfor noen gjentar tekst med vilje",
@@ -10672,7 +10676,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Tekstgjentaker: Ærlig Guide til Antall, Skilletegn, Grenser og Rettferdig Bruk"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Che cos'è un ripetitore di testo, e perché qualcuno ripete un testo apposta",
@@ -10713,7 +10717,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Ripetitore di Testo: Guida Onesta a Conteggi, Separatori, Tetti e Uso Corretto"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "What a character counter is, and why “a character” is not one simple thing",
@@ -10754,7 +10758,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Character Counter Guide: Exact Characters, Platform Limits and the SMS Trap"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Character counter hota kya hai, aur “character” ek seedhi si cheez kyun nahi",
@@ -10795,7 +10799,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Character Counter Guide: Saheeh Characters, Platform Limits Aur SMS Wala Chakkar"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Qué es un contador de caracteres y por qué «un carácter» no es tan simple",
@@ -10836,7 +10840,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Contador de Caracteres: Caracteres Exactos, Límites de Plataforma y la Trampa del SMS"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Was ein Zeichenzähler ist — und warum „ein Zeichen“ keine einfache Sache ist",
@@ -10877,7 +10881,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Zeichenzähler-Anleitung: Genaue Zeichen, Plattform-Limits und die SMS-Falle"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Ce qu’est un compteur de caractères, et pourquoi « un caractère » n’est pas si simple",
@@ -10918,7 +10922,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Compteur de Caractères : Caractères Exacts, Limites des Plateformes et le Piège du SMS"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Karakter sayacı nedir ve “bir karakter” neden basit bir şey değildir",
@@ -10959,7 +10963,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Karakter Sayacı Rehberi: Birebir Karakterler, Platform Sınırları ve SMS Tuzağı"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "O que é um contador de caracteres e por que «um caractere» não é tão simples",
@@ -11000,7 +11004,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Contador de Caracteres: Caracteres Exatos, Limites das Plataformas e a Armadilha do SMS"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Che cos’è un contatore caratteri e perché «un carattere» non è così semplice",
@@ -11041,7 +11045,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Contatore Caratteri: Caratteri Esatti, Limiti delle Piattaforme e la Trappola degli SMS"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Wat een karakterteller is, en waarom «één karakter» niet zo simpel is",
@@ -11082,7 +11086,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Karakters Tellen: Exacte Karakters, Platformlimieten en de Sms-val"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Hva en tegnteller er, og hvorfor «ett tegn» ikke er så enkelt",
@@ -11123,7 +11127,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Tegnteller-guide: Nøyaktige Tegn, Plattformgrenser og SMS-fellen"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "文字カウンターとは何か — そして「1文字」が単純ではない理由",
@@ -11164,7 +11168,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "文字カウンターガイド：正確な文字数、プラットフォームの制限とSMSの落とし穴"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Was ein Worthäufigkeitszähler wirklich zählt",
@@ -11205,7 +11209,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Worthäufigkeitszähler: Was er zählt, wie Sie die Tabelle lesen und wofür er wirklich hilft"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "What a word frequency counter really counts",
@@ -11246,7 +11250,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Word Frequency Counter Guide: Count Words and Phrases, Read the Table Honestly"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Qué cuenta realmente un contador de frecuencia de palabras",
@@ -11287,7 +11291,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Contador de frecuencia de palabras: qué cuenta, cómo leer la tabla y para qué sirve de verdad"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Ce que compte vraiment un compteur de fréquence de mots",
@@ -11328,7 +11332,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Compteur de fréquence de mots : ce qu’il compte, comment lire le tableau et à quoi il sert vraiment"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Che cosa conta davvero un contatore di frequenza delle parole",
@@ -11369,7 +11373,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Contatore di Frequenza delle Parole: Guida Pratica alle Ripetizioni"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "単語頻度カウンターは実際には何を数えているのか",
@@ -11410,7 +11414,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "単語頻度カウンターの使い方:繰り返しを見つけて文章を整える"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Wat een woordfrequentieteller echt telt",
@@ -11451,7 +11455,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Woordfrequentieteller: zie welke woorden je echt herhaalt"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Hva en ordfrekvensteller faktisk teller",
@@ -11492,7 +11496,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Ordfrekvensteller: se hvilke ord du faktisk gjentar"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "O que um contador de frequência de palavras realmente conta",
@@ -11533,7 +11537,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Contador de Frequência de Palavras: Guia Prático para Ler Repetições sem Ilusões"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Kelime Sıklığı Sayacı Gerçekte Neyi Sayar",
@@ -11574,7 +11578,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Kelime Sıklığı Sayacı Rehberi: Tekrarı Görmek, Yoğunluğu Doğru Okumak"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Word frequency counter asal mein ginta kya hai",
@@ -11621,7 +11625,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Reading & Speaking Time Calculator: An Honest Guide to Timing Your Words",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Learn how a reading and speaking time calculator works, what the WPM averages really mean, and how to time blog posts, speeches, lessons and scripts without uploading your text anywhere.",
   "keywords": [
@@ -11669,7 +11673,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Calculadora de tiempo de lectura y locución: guía honesta para medir tus palabras",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Descubre cómo funciona una calculadora de tiempo de lectura y de palabra hablada, qué significan de verdad los promedios de palabras por minuto y cómo medir artículos, discursos, clases y guiones sin subir tu texto a ningún servidor.",
   "keywords": [
@@ -11717,7 +11721,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Reading Time Calculator Urdu Guide: Alfaz Ko Minuteon Mein Kaise Badlein",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Chai ke doston wale andaz mein samjhein ke reading aur speaking time calculator kaise kaam karta hai, WPM ka sach kya hai, aur apni speech ya article ka waqt bina text upload kiye kaise naapein.",
   "keywords": [
@@ -11765,7 +11769,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Lesezeit-Rechner Anleitung: Sprechzeit ehrlich aus der Wortzahl schätzen",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Erfahren Sie, wie ein Lese- und Sprechzeit-Rechner arbeitet, was die WpM-Durchschnittswerte wirklich bedeuten und wie Sie Artikel, Reden, Unterricht und Skripte messen, ohne Ihren Text irgendwo hochzuladen.",
   "keywords": [
@@ -11807,7 +11811,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ce que fait vraiment un calculateur de temps de lecture",
@@ -11848,7 +11852,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Calculateur de temps de lecture et de parole : estimer vos minutes sans deviner"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Okuma ve konuşma süresi hesaplayıcı aslında ne yapar",
@@ -11889,7 +11893,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Okuma ve Konuşma Süresi Hesaplayıcı: Metniniz Kaç Dakika Sürer?"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "O que uma calculadora de tempo de leitura realmente faz",
@@ -11930,7 +11934,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Calculadora de Tempo de Leitura e de Fala: Quanto Tempo Dura o Seu Texto?"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "読む時間・話す時間の計算ツールは、何をして、何ができないのか",
@@ -11977,7 +11981,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Lesetidkalkulator: Hvor Lang Tid Tar Teksten Din å Lese eller Framføre",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Praktisk guide til lesetid- og taletidkalkulatoren: slik fungerer anslaget i minutter og sekunder, hvilke gjennomsnitt for ord i minuttet som brukes, og hvordan du bruker det til blogg, taler, skole, video og podkast.",
   "keywords": [
@@ -12022,7 +12026,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Leestijd Calculator: Hoe Lang Duurt Je Tekst Echt om te Lezen of voor te Dragen",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Praktische gids voor de leestijd- en spreektijdcalculator: hoe de schatting in minuten en seconden werkt, welke gemiddelden voor woorden per minuut worden gebruikt en hoe je ze toepast op blogs, speeches, les, video en podcasts.",
   "keywords": [
@@ -12067,7 +12071,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Calcolatore del Tempo di Lettura e di Discorso: Quanto Dura Davvero il Tuo Testo",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "summary": "Guida pratica al calcolatore del tempo di lettura e di parlato: come funziona la stima in minuti e secondi, quali medie di parole al minuto usa e come usarla per blog, discorsi, scuola e video senza scambiarla per una promessa.",
   "keywords": [
@@ -12112,7 +12116,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Base64 kodieren und dekodieren: Sorgfältige Anleitung mit UTF-8 und Umlauten",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "summary": "Base64 korrekt kodieren und dekodieren: UTF-8 mit Umlauten und ß, URL-sichere Variante, Padding-Fehler und 33 % Zuwachs – plus die ehrliche Grenze: Kodierung ist keine Verschlüsselung.",
   "keywords": [
@@ -12153,7 +12157,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Base64 Encode and Decode: A Clear, Honest Guide for Daily Work",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "summary": "Learn how Base64 encoding and decoding really work, why UTF-8 matters for emoji and Urdu, when to use URL-safe mode, and why Base64 is never encryption.",
   "keywords": [
@@ -12194,7 +12198,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Codificar y decodificar Base64: guía práctica y honesta para desarrolladores",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "summary": "Aprende a codificar y decodificar Base64 en UTF-8 sin romper acentos ni eñes: variante URL-safe, errores de padding, límite del 33 % y la verdad clave: Base64 no es cifrado ni seguridad.",
   "keywords": [
@@ -12235,7 +12239,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Encoder et décoder en Base64 : le guide pratique et honnête pour vos projets web",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "summary": "Encodez et décodez en Base64 sans casser vos accents : UTF-8, variante URL-safe, erreurs de padding, +33 % de taille et la vérité essentielle : Base64 n’est pas un chiffrement.",
   "keywords": [
@@ -12270,7 +12274,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Che cos'è Base64 e perché non è crittografia",
@@ -12311,7 +12315,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guida a Codifica e Decodifica Base64: UTF-8, URL-Safe e Limiti Veri"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Base64とは何か、暗号化ではない大切な前提",
@@ -12352,7 +12356,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Base64エンコード・デコード完全ガイド：日本語と絵文字を壊さない使い方"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Wat Base64 wel is, en wat het nadrukkelijk niet is",
@@ -12393,7 +12397,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Base64 Coderen en Decoderen: Eerlijke Gids voor Tekst, API’s en Kleine Bestanden"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Hva Base64 er, og hva det absolutt ikke er",
@@ -12434,7 +12438,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Base64 Koding og Dekoding: Ærlig Guide for Norsk Tekst og Små Filer"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. O que é Base64 e por que ele não é criptografia?",
@@ -12475,7 +12479,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guia de Codificação e Decodificação Base64: UTF-8, URL-Safe e Sem Erros"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Base64 Nedir ve Neden Şifreleme Değildir?",
@@ -12522,7 +12526,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Base64 Encode Decode Guide Roman Urdu Mein: Asaan Aur Saaf Samjhaya Gaya",
   "readTime": "10 min read",
   "date": "October 2026",
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "summary": "Roman Urdu mein samjhein ke Base64 encode decode kaise kaam karta hai, Urdu aur emoji kyun UTF-8 se sahi chalte hain, aur Base64 encryption kyun nahi hai.",
   "keywords": [
@@ -12558,7 +12562,7 @@ export const BLOG_POSTS: BlogPost[] = [
 },
 
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Warum Instagram Ihre Leerzeilen entfernt",
@@ -12599,7 +12603,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Zeilenumbrüche auf Instagram: Absätze erhalten, die auch nach dem Posten bleiben"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Why Instagram Collapses Blank Lines",
@@ -12640,7 +12644,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Instagram Line Breaks: How to Keep Clean Spacing in Captions and Bios"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Por qué Instagram junta tus párrafos",
@@ -12681,7 +12685,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Saltos de línea en Instagram: guía práctica para que tus textos se lean bien"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Pourquoi Instagram supprime vos lignes vides",
@@ -12722,7 +12726,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Sauts de ligne sur Instagram: gardez des paragraphes qui restent en place"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Perché Instagram elimina le righe vuote",
@@ -12763,7 +12767,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Instagramで空行が消えてしまう理由",
@@ -12804,7 +12808,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Instagramで空行を残す方法:見えない文字で段落を保つガイド"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Waarom Instagram je lege regels laat verdwijnen",
@@ -12845,7 +12849,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Lege regels in Instagram behouden: zo verdeel je je bijschrift in alinea's"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Hvorfor Instagram fjerner de tomme linjene dine",
@@ -12886,7 +12890,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Slik beholder du tomme linjer på Instagram: avsnitt som faktisk blir stående"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Por que o Instagram apaga as linhas em branco",
@@ -12927,7 +12931,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Instagram Boş Satırları Neden Kaldırıyor?",
@@ -12968,7 +12972,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Instagram Khaali Lines Kyun Khatam Kar Deta Hai",
@@ -13009,7 +13013,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Instagram Line Breaks: Captions Aur Bio Mein Saaf Spacing Ka Asaan Tareeqa"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "What a Slug Really Is (And What This Tool Does)",
@@ -13049,7 +13053,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Slug Generator Guide: Clean URLs Without the Guesswork"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Slug asal mein hota kya hai — aur ye tool kya karta hai",
@@ -13089,7 +13093,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Slug Generator Guide: Baghair Andaze Ke Saaf URLs"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Qué es un slug y qué hace esta herramienta",
@@ -13124,7 +13128,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Generador de Slugs: URL Limpias Sin Adivinar"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Was ein Slug ist – und was dieses Werkzeug tut",
@@ -13159,7 +13163,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Slug-Generator: Saubere URLs Ohne Rätselraten"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Ce qu'est un slug, et ce que fait cet outil",
@@ -13194,7 +13198,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Générateur de Slug : Des URL Propres Sans Deviner"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Slug nedir ve bu araç ne yapar",
@@ -13229,7 +13233,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Slug Oluşturucu: Tahmin Etmeden Temiz URL'ler"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "O que é um slug e o que esta ferramenta faz",
@@ -13264,7 +13268,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Gerador de Slug: URLs Limpas Sem Adivinhar"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "スラッグとは何か、このツールは何をするのか",
@@ -13300,7 +13304,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "スラッグ生成ガイド：推測なしできれいなURLを"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Hva er en slug, og hva gjør dette verktøyet?",
@@ -13335,7 +13339,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Slug-generator: Rene URL-er Uten Gjetting"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Wat een slug is en wat deze tool doet",
@@ -13370,7 +13374,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Slug Generator: Schone URL's Zonder Gissen"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "Cos'è uno slug e cosa fa questo strumento",
@@ -13405,7 +13409,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Generatore di Slug: URL Pulite Senza Indovinare"
   },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "O que a formatação e a validação de JSON fazem de verdade",
@@ -13452,7 +13456,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Formatador JSON: como embelezar, validar e corrigir seu JSON com segurança"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Qué hace de verdad un formateador y validador JSON",
@@ -13499,7 +13503,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guía del formateador JSON: embellecer, minificar y validar sin dolores de cabeza"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Ce que fait vraiment un formateur JSON",
@@ -13546,7 +13550,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Formateur JSON : embellir, valider et corriger votre JSON en toute sécurité"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Che cosa fa davvero un formattatore JSON",
@@ -13593,7 +13597,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Formattatore JSON: guida completa per formattare e validare JSON"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "JSON biçimlendirme ve doğrulama gerçekte ne yapar",
@@ -13640,7 +13644,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON Biçimlendirici: JSON'u Güvenle Güzelleştirme, Doğrulama ve Düzeltme Rehberi"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Was ein JSON-Formatierer und -Validator wirklich tut",
@@ -13687,7 +13691,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON-Formatierer Anleitung: JSON verschönern, minifizieren und prüfen ohne Rätselraten"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Wat een JSON-formatter en -validator nu echt doet",
@@ -13734,7 +13738,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON Formatter Gids: JSON mooi maken, valideren en begrijpen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "JSONの整形と検証は、実際に何をしているのか",
@@ -13781,7 +13785,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSONフォーマッタ入門：整形・検証・エラーの読み方をやさしく解説"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Hva en JSON-formatter og validator faktisk gjør",
@@ -13828,7 +13832,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON Formatter Guide: slik formaterer og validerer du JSON riktig"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "What JSON Formatting and Validation Really Do",
@@ -13875,7 +13879,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON Formatter Guide: Beautify, Minify and Validate JSON Without the Guesswork"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "JSON Formatter Asal Mein Karta Kya Hai, Chalo Seedha Samjho",
@@ -13919,7 +13923,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON Formatter Guide: JSON Ko Saaf Karna, Check Karna Aur Samajhna Seekhein"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "What lorem ipsum actually is",
@@ -13969,7 +13973,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Lorem Ipsum Generator Guide: Placeholder Text Without the Embarrassment"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Lorem ipsum asal mein hai kya",
@@ -14017,7 +14021,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Lorem Ipsum Generator Guide: Chai Ke Sath Asaan Samjhaya Hua Placeholder Text"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Qué es realmente el lorem ipsum",
@@ -14067,7 +14071,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guía del generador de lorem ipsum: relleno útil, nunca publicable"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Was Lorem Ipsum wirklich ist",
@@ -14119,7 +14123,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Lorem Ipsum Generator Anleitung: Blindtext richtig nutzen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Qu'est-ce que le lorem ipsum, vraiment ?",
@@ -14173,7 +14177,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Le guide complet du générateur de lorem ipsum : du faux latin de Cicéron à vos maquettes"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Lorem ipsum aslında nedir?",
@@ -14227,7 +14231,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Lorem Ipsum Oluşturucu Rehberi: Cicero'nun Sahte Latincesinden Taslaklarınıza"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "O que o lorem ipsum realmente é",
@@ -14281,7 +14285,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guia do Gerador de Lorem Ipsum: do Latim Falso de Cícero aos Seus Layouts"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "ロレム・イプサムとは何か",
@@ -14330,7 +14334,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "ロレム・イプサム生成ツールの使い方ガイド"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Che cos'è davvero il lorem ipsum",
@@ -14384,7 +14388,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guida al Generatore di Lorem Ipsum: dal Falso Latino di Cicerone ai Tuoi Layout"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Wat lorem ipsum eigenlijk is",
@@ -14431,7 +14435,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Lorem Ipsum Generator: complete gids voor ontwerpers en bouwers"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "Hva lorem ipsum egentlig er",
@@ -14478,7 +14482,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Lorem Ipsum Generator: komplett veiledning for designere og utviklere"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "What this calculator really does",
@@ -14532,7 +14536,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Days Between Dates Calculator Guide: Count Days the Right Way"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Qué hace realmente esta calculadora",
@@ -14585,7 +14589,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Calculadora de días entre fechas: guía para contar bien cada plazo"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ye calculator asal mein karta kya hai",
@@ -14638,7 +14642,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Days Between Dates Calculator Guide: Tareekhon Ke Darmiyan Din Ginna Seekhein"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Was dieser Rechner wirklich tut",
@@ -14691,7 +14695,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Tage zwischen Daten berechnen: Anleitung zum Datumsrechner ohne Zählfehler"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ce que fait vraiment ce calculateur de jours entre deux dates",
@@ -14738,7 +14742,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Calculateur de jours entre deux dates : le guide complet sans se tromper d'un jour"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Bu tarihler arası gün hesaplayıcı tam olarak ne yapıyor?",
@@ -14788,7 +14792,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Tarihler Arası Gün Hesaplama Rehberi: Bir Gün Bile Şaşırmadan Sayın"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "O que esta calculadora de dias entre datas realmente faz",
@@ -14835,7 +14839,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Calculadora de Dias Entre Datas: O Guia Completo Para Não Errar Nem Um Dia"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "この「日付と日付の間の日数計算ツール」は何をするものか",
@@ -14882,7 +14886,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "日付と日付の間の日数計算ガイド：1日も間違えないための完全解説"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Che cosa fa davvero il calcolatore di giorni tra due date",
@@ -14924,7 +14928,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Giorni tra due date: guida pratica al calcolatore con esempi italiani"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Wat deze calculator voor dagen tussen datums precies doet",
@@ -14966,7 +14970,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Dagen tussen datums berekenen: praktische gids met Nederlandse voorbeelden"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Hva kalkulatoren for dager mellom datoer faktisk gjør",
@@ -15008,7 +15012,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Dager mellom datoer: praktisk guide til kalkulatoren med norske eksempler"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "What this generator really does",
@@ -15058,7 +15062,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Random Number Generator Guide: Fair Draws, Coin Flips and Dice"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Qué hace realmente este generador",
@@ -15107,7 +15111,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Generador de Números Aleatorios: Guía de sorteos justos, moneda y dados"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ye generator asal mein karta kya hai",
@@ -15156,7 +15160,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Random Number Generator Guide: Fair Numbers, Coin Flip aur Dice"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Was dieser Generator wirklich tut",
@@ -15206,7 +15210,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Zufallszahlengenerator: Anleitung für faire Zahlen, Münzwurf und Würfel"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ce que ce générateur fait vraiment",
@@ -15261,7 +15265,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Générateur de Nombres Aléatoires : Guide Complet du Tirage Équitable"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Bu üreteç gerçekte ne işe yarar",
@@ -15316,7 +15320,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Rastgele Sayı Üreteci: Sınıf ve Oyun İçin Adil Çekiliş Rehberi"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "O que este gerador realmente faz",
@@ -15371,7 +15375,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Gerador de Números Aleatórios: Guia Prático para Sorteios Justos"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "この乱数ジェネレーターが本当にすること",
@@ -15420,7 +15424,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "乱数ジェネレーター使い方ガイド：席替え・くじ引き・グループ分けを公平に"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Hva denne tilfeldige tallgeneratoren faktisk gjør",
@@ -15469,7 +15473,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Tilfeldig tallgenerator: ærlig guide til loddtrekning i klasserommet og hverdagen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Wat deze willekeurige getallengenerator echt doet",
@@ -15518,7 +15522,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Willekeurige getallen trekken: eerlijke gids voor lootjes, groepen en alledaagse lotingen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Che cosa fa davvero questo generatore",
@@ -15573,7 +15577,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Generatore di Numeri Casuali: Guida Pratica alle Estrazioni Eque"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Two clocks, two different questions",
@@ -15614,7 +15618,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online Timer & Stopwatch Guide: Countdowns, Laps and Honest Browser Limits"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Dos relojes que responden a preguntas opuestas",
@@ -15654,7 +15658,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guía del temporizador online y cronómetro: cuentas atrás, vueltas y límites reales"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Do ghariyan, do mukhtalif sawal",
@@ -15697,7 +15701,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online Timer aur Stopwatch Guide: Countdown, Laps aur Browser ki Asli Haddain"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Zwei Uhren, zwei entgegengesetzte Fragen",
@@ -15737,7 +15741,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online-Timer & Stoppuhr Anleitung: Countdowns, Runden und ehrliche Browser-Grenzen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Deux horloges, deux questions contraires",
@@ -15777,7 +15781,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guide du minuteur en ligne et chronomètre : comptes à rebours, tours et limites franches"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Zıt sorulara cevap veren iki saat",
@@ -15817,7 +15821,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Çevrimiçi Zamanlayıcı ve Kronometre Rehberi: Geri sayımlar, turlar ve dürüst sınırlar"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Dois relógios, duas perguntas opostas",
@@ -15857,7 +15861,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guia do Temporizador Online e Cronômetro: contagens, voltas e limites francos"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "2つの時計、逆向きの2つの問い",
@@ -15897,7 +15901,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "オンラインタイマー＆ストップウォッチ ガイド｜カウントダウン・ラップ・正直な限界"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "To klokker, to motsatte spørsmål",
@@ -15937,7 +15941,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Veiledning for nettbasert tidtaker og stoppeklokke: nedtellinger, runder og ærlige grenser"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Twee klokken, twee tegengestelde vragen",
@@ -15977,7 +15981,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Gids voor online timer en stopwatch: aftellingen, ronden en eerlijke grenzen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Due orologi, due domande opposte",
@@ -16017,7 +16021,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guida a Timer Online e Cronometro: conti alla rovescia, giri e limiti onesti"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "What an invoice actually is — and what this generator does",
@@ -16070,7 +16074,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Invoice Generator Guide: Make, Check and Print a Clean Invoice"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Qué es una factura y qué hace este generador",
@@ -16122,7 +16126,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Generador de Facturas: Crea, Revisa e Imprime una Factura Clara"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Invoice asal mein kya hota hai — aur ye generator kya karta hai",
@@ -16174,7 +16178,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Invoice Generator Guide: Saaf Invoice Banana, Check Karna aur Print Karna Roman Urdu Mein"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Was eine Rechnung ist und was dieser Generator tut",
@@ -16224,7 +16228,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Rechnung Generator Anleitung: Rechnung erstellen, prüfen und als PDF drucken"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ce qu'est une facture et ce que fait ce générateur",
@@ -16273,7 +16277,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Générateur de Factures : Créer, Vérifier et Imprimer une Facture Nette"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Fatura nedir ve bu oluşturucu ne yapar",
@@ -16322,7 +16326,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Fatura Oluşturucu Rehberi: Temiz Fatura Hazırlama, Kontrol ve PDF"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "O que é uma fatura e o que este gerador faz",
@@ -16371,7 +16375,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Gerador de Faturas: Criar, Revisar e Salvar Sua Fatura em PDF"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "請求書とは何か、このジェネレーターは何をするか",
@@ -16420,7 +16424,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "請求書ジェネレーターの使い方：きれいな請求書を作り、確認してPDFにする方法"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Hva en faktura er og hva denne generatoren gjør",
@@ -16469,7 +16473,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Fakturagenerator: Lag, Sjekk og Lagre Fakturaen som PDF"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Wat een factuur is en wat deze generator doet",
@@ -16518,7 +16522,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Factuurgenerator: Nette Factuur Maken, Controleren en als PDF Bewaren"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Cos'è una fattura e cosa fa questo generatore",
@@ -16567,7 +16571,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Generatore di Fatture: Crea, Controlla e Salva la Fattura in PDF"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Resize, crop, compress — three different jobs people keep mixing up",
@@ -16602,7 +16606,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Image Resizer Guide: Get the Exact Pixel Size Without Wasting an Evening"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Tres trabajos que todo el mundo confunde antes de empezar",
@@ -16637,7 +16641,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guía para Redimensionar Imágenes: el Tamaño Exacto Sin Perder la Tarde"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Pehle ye samajh lo: resize, crop aur compress teen alag naukriyan hain",
@@ -16674,7 +16678,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Image Resizer Guide: Tasveer Ko Saheeh Size Par Resize Aur Crop Karna Roman Urdu Mein"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Drei Werkzeuge, drei Aufträge — erst benennen, dann klicken",
@@ -16709,7 +16713,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Bildgröße Ändern Anleitung: Pixel, Zuschnitt und A4 ohne Rätselraten"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Redimensionner, recadrer, compresser : trois gestes, trois résultats",
@@ -16744,7 +16748,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Redimensionner une Image : le Guide pour la Bonne Taille du Premier Coup"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Üç işi karıştırmak: boyutlandırma, kırpma, sıkıştırma",
@@ -16779,7 +16783,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Resim Boyutlandırma Rehberi: Form, Profil ve Ürün Fotoğrafını Tam Oturtmak"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Três trabalhos com nomes parecidos e resultados opostos",
@@ -16814,7 +16818,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guia de Redimensionamento: Foto de Produto e Perfil no Tamanho Exato"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "リサイズ・切り抜き・圧縮は別々の仕事です",
@@ -16849,7 +16853,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "画像リサイズガイド：提出・証明・サムネイルを正確なサイズで作る"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Tre jobber folk blander før de i det hele tatt klikker",
@@ -16884,7 +16888,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Endre Bildestørrelse: Profil, Annonse og Skjema på Første Forsøk"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Drie klussen die iedereen door elkaar haalt",
@@ -16919,7 +16923,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Afbeelding Formaat Wijzigen: Productfoto en Profiel in Één Keer Goed"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Tre lavori che tutti confondono prima ancora di cliccare",
@@ -16954,7 +16958,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Ridimensionare Immagini: Annunci, Profili e Documenti Giusti al Primo Colpo"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Three formats, three different promises",
@@ -16992,7 +16996,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Image Converter Guide: JPG, PNG or WebP — Pick the Right Format Without Guessing"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "El error de las tres palabras: convertir no es redimensionar",
@@ -17024,7 +17028,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Convertidor de Imágenes: Cuándo Pasar a JPG, PNG o WebP Sin Perder el Tiempo"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Pehli baat chai ke cup ke saath: format badalna, size badalna, aur file halki karna — teen alag kaam hain",
@@ -17065,7 +17069,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Image Converter Guide: JPG, PNG Ya WebP — Konsa Format Kab, Chai Ke Saath Samjhen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Konvertieren, skalieren, komprimieren: drei Jobs, drei Werkzeuge",
@@ -17097,7 +17101,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Bilder Konvertieren: JPG, PNG oder WebP — Das Richtige Format Ohne Rätselraten"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Convertir, redimensionner, compresser : trois métiers différents",
@@ -17129,7 +17133,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Convertisseur d'Images : JPG, PNG ou WebP — Choisir Sans Se Tromper"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Dönüştürmek, boyutlandırmak, sıkıştırmak: üç ayrı iş",
@@ -17161,7 +17165,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Resim Dönüştürücü Rehberi: JPG mi, PNG mi, WebP mi — Tahminsiz Seçim"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Converter, redimensionar, comprimir: três trabalhos, três ferramentas",
@@ -17193,7 +17197,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Conversor de Imagem: JPG, PNG ou WebP — Escolha Certa Sem Adivinhar"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "変換・リサイズ・圧縮は別の作業です",
@@ -17225,7 +17229,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "画像変換ガイド：JPG・PNG・WebPを迷わず選ぶための実用手引き"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Konvertere, endre størrelse, komprimere: tre jobber, tre verktøy",
@@ -17257,7 +17261,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Bildekonverter: JPG, PNG eller WebP — Velg Riktig Uten Å Gjette"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Converteren, formaat wijzigen, comprimeren: drie klussen, drie tools",
@@ -17289,7 +17293,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Afbeelding Converter: JPG, PNG of WebP — Goed Kiezen Zonder Gokken"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Convertire, ridimensionare, comprimere: tre lavori, tre strumenti",
@@ -17321,7 +17325,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Convertitore Immagini: JPG, PNG o WebP — Scegliere Bene Senza Indovinare"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "What OCR actually does to your photo",
@@ -17355,7 +17359,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Image to Text Guide: How Browser OCR Works, When It Shines and When It Fails"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Qué le hace el OCR a tu foto",
@@ -17388,7 +17392,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Imagen a Texto: Cómo Funciona el OCR, Cuándo Brilla y Cuándo Falla"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "OCR asal mein karta kya hai — tasveer se harf tak ka safar",
@@ -17422,7 +17426,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Image to Text Guide: Tasveer Se Text Kaise Nikalta Hai, Kab Kaam Aata Hai Aur Kab Nahi"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Was OCR mit Ihrem Foto wirklich tut",
@@ -17455,7 +17459,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Bild zu Text: Wie OCR Wirklich Funktioniert — Stärken und Ehrliche Grenzen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ce que l'OCR fait vraiment à votre photo",
@@ -17488,7 +17492,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Image vers Texte : Comment l'OCR Fonctionne Vraiment, Ses Forces et Ses Limites"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "OCR fotoğrafınıza gerçekte ne yapar",
@@ -17521,7 +17525,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Resimden Metne: OCR Gerçekte Nasıl Çalışır, Güçlü Yanları ve Dürüst Sınırları"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "O que o OCR realmente faz com a sua foto",
@@ -17554,7 +17558,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Imagem para Texto: Como o OCR Funciona de Verdade, Forças e Limites Honestos"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "OCRが写真に実際に行うこと",
@@ -17587,7 +17591,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "画像からテキスト：OCRの仕組み、強みと正直な限界"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Hva OCR faktisk gjør med bildet ditt",
@@ -17620,7 +17624,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Bilde til Tekst: Hvordan OCR Egentlig Fungerer — Styrker og Ærlige Grenser"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Wat OCR echt met je foto doet",
@@ -17653,7 +17657,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Afbeelding naar Tekst: Hoe OCR Echt Werkt — Sterke Punten en Eerlijke Grenzen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Cosa fa davvero l'OCR alla tua foto",
@@ -17686,7 +17690,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Immagine a Testo: Come Funziona Davvero l'OCR — Punti di Forza e Limiti Onesti"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "What Splitting a PDF Really Means",
@@ -17723,7 +17727,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "How to Split a PDF and Extract Pages — Without Uploading Your File"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Qué significa dividir un PDF en realidad",
@@ -17758,7 +17762,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Cómo dividir un PDF y extraer solo las páginas que necesitas"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "PDF Ko Split Karna Asal Mein Hai Kya Cheez",
@@ -17794,7 +17798,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "PDF Ko Split Karo Aur Pages Nikalo — Bina File Upload Kiye"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Was das Teilen einer PDF im Kern wirklich ist",
@@ -17829,7 +17833,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "PDF teilen und nur die Seiten behalten, die du brauchst"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ce que diviser un PDF veut vraiment dire",
@@ -17864,7 +17868,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Diviser un PDF et ne garder que les pages utiles"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "PDF Bölmek Gerçekte Ne Yapar?",
@@ -17899,7 +17903,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "PDF Bölme Rehberi: Sayfaları Ayıklamak, Aralık Yazmak ve Doğru Çıktıyı Seçmek"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "O que dividir um PDF realmente faz",
@@ -17933,7 +17937,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guia de Divisão de PDF: Extrair Páginas, Escrever Intervalos e Escolher a Saída Certa"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "PDF分割とは実際に何をしているのか",
@@ -17967,7 +17971,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "PDF分割ガイド：ページの取り出し方、範囲の書き方、正しい出力の選び方"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Hva skjer egentlig når du deler en PDF?",
@@ -18002,7 +18006,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Del PDF riktig: hent ut nøyaktig sidene du trenger"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Wat er echt gebeurt als je een PDF splitst",
@@ -18037,7 +18041,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "PDF splitsen zonder gedoe: haal er precies de pagina's uit die je nodig hebt"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Cosa succede davvero quando dividi un PDF",
@@ -18072,7 +18076,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Dividere un PDF bene: estrai solo le pagine che ti servono davvero"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "What a Username Generator Can and Cannot Do",
@@ -18105,7 +18109,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Username Generator Guide: How to Pick a Name That Actually Fits You"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Qué puede y qué no puede hacer un generador de nombres de usuario",
@@ -18138,7 +18142,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guía del generador de nombres de usuario: elige un nombre que encaje contigo"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Username Generator Kya Kar Sakta Hai Aur Kya Nahi",
@@ -18171,7 +18175,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Username Generator Guide: Apne Liye Sahi Naam Kaise Chunein"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Was ein Benutzername-Generator wirklich leistet – und was nicht",
@@ -18204,7 +18208,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Benutzername Generator Anleitung: Gute Namen finden, prüfen und sicher nutzen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ce qu'un générateur de pseudo peut faire, et ce qu'il ne fait jamais",
@@ -18237,7 +18241,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Générateur de pseudo : trouver, tester et sécuriser un bon nom"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Kullanıcı adı oluşturucu ne yapar, ne yapmaz",
@@ -18270,7 +18274,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Kullanıcı Adı Oluşturucu Rehberi: İyi Bir Ad Bulma, Test Etme ve Güvenle Kullanma"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "O que um gerador faz — e o que ele não faz",
@@ -18303,7 +18307,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Gerador de Nomes de Usuário: crie um nome claro, seguro e fácil de lembrar"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "ユーザー名ジェネレーターにできること、できないこと",
@@ -18336,7 +18340,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "ユーザー名ジェネレーター：覚えやすく安全な名前の作り方"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Hva en generator kan – og ikke kan – gjøre",
@@ -18369,7 +18373,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Brukernavngenerator: Finn et tydelig, trygt og minneverdig navn"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Wat een gebruikersnaam-generator wel en niet kan",
@@ -18402,7 +18406,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Gebruikersnaam Generator: Zo Kies Je een Sterke Naam"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Che cosa può e non può fare un generatore di username Bewaar je definitieve keuze samen met je wachtwoord in een wachtwoordbeheerder, zodat je niet later moet raden welke spelling je ook alweer had gekozen. Verander je later toch van naam, controleer dan opnieuw de hele lijst: een nieuwe naam verdient dezelfde zorg als de eerste. Met deze aanpak kost het kiezen hooguit een paar minuten, maar zit je daarna jaren met een naam die klopt, veilig voelt en overal netjes werkt.",
@@ -18435,7 +18439,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Generatore di Username: Come Scegliere un Nome Efficace"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. What Morse Code Actually Is — and What This Translator Does",
@@ -18470,7 +18474,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Morse Code Translator: Convert, Listen and Learn Step by Step"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Qué es el código Morse y qué hace este traductor",
@@ -18505,7 +18509,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Traductor de código Morse: convierte, escucha y aprende paso a paso"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Morse code asal mein hai kya, aur ye translator karta kya hai",
@@ -18540,7 +18544,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Morse Code Translator Guide: Text Ko Morse Mein Badlo, Suno Aur Seekho"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Was Morsecode ist – und was dieser Übersetzer kann (und was nicht)",
@@ -18575,7 +18579,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Morsecode-Übersetzer: Anleitung zum Umwandeln, Anhören und Lernen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Ce qu'est le code Morse – et ce que ce traducteur fait (et ne fait pas)",
@@ -18610,7 +18614,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Traducteur de code Morse : guide pour convertir, écouter et apprendre"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Mors kodu nedir, bu çevirici ne yapar (ve ne yapmaz)",
@@ -18645,7 +18649,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Mors Kodu Çevirici: Çevirme, Dinleme ve Öğrenme Rehberi"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "O que é o código Morse e o que este tradutor faz",
@@ -18679,7 +18683,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Tradutor de Código Morse: guia prático para converter, ouvir e decodificar"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "モールス信号とは何か、この翻訳ツールでできること・できないこと",
@@ -18713,7 +18717,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "モールス信号翻訳ツールの使い方ガイド：変換・再生・解読の基本"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Hva morsekode er, og hva denne oversetteren gjør (og ikke gjør)",
@@ -18747,7 +18751,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Morsekode-oversetter: praktisk guide til å konvertere, lytte og dekode"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Wat morsecode is en wat deze vertaler wel en niet doet",
@@ -18781,7 +18785,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Morsecode Vertaler: praktische gids om om te zetten, te beluisteren en te decoderen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "Cos'è il codice Morse e cosa fa (e non fa) questo traduttore",
@@ -18815,7 +18819,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Traduttore Codice Morse: guida pratica per convertire, ascoltare e decodificare"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. What This Voice Recorder Is and What It Does",
@@ -18850,7 +18854,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online Voice Recorder: Record, Play Back and Download in Your Browser"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Qué es esta grabadora de voz y qué hace",
@@ -18885,7 +18889,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Grabadora de Voz Online: graba, escucha y descarga desde tu navegador"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Ye Voice Recorder Hai Kya, Aur Karta Kya Hai — Pehle Ye Samajh Lo",
@@ -18920,7 +18924,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online Voice Recorder: Browser Mein Awaz Record Karna, Sunna Aur Download Karna"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Was dieser Sprachrekorder ist und was er macht",
@@ -18955,7 +18959,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online-Sprachrekorder: Im Browser aufnehmen, anhören und herunterladen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Ce qu'est cet enregistreur vocal et ce qu'il fait",
@@ -18990,7 +18994,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Enregistreur Vocal en Ligne : enregistrer, écouter et télécharger dans votre navigateur"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Bu ses kaydedici nedir ve ne yapar",
@@ -19025,7 +19029,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online Ses Kaydedici: Tarayıcıda Ses Kaydetme Rehberi"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. O que é este gravador de voz e o que ele faz",
@@ -19060,7 +19064,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Gravador de Voz Online: Como Gravar Áudio no Navegador"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. この音声レコーダーとは何か、何ができるのか",
@@ -19095,7 +19099,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "オンライン音声レコーダー：ブラウザで音声を録音する方法"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Hva denne taleopptakeren er og hva den gjør",
@@ -19130,7 +19134,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Taleopptaker på nett: Slik tar du opp lyd i nettleseren"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Wat deze spraakrecorder is en wat hij doet",
@@ -19165,7 +19169,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online Spraakrecorder: Geluid Opnemen in Je Browser"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Che cos'è questo registratore vocale e che cosa fa",
@@ -19200,7 +19204,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Registratore Vocale Online: Come Registrare l'Audio nel Browser"
 },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "online-notepad-guide",
@@ -19235,7 +19239,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "bloc-de-notas-online-guia",
@@ -19270,7 +19274,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "online-notepad-urdu-guide",
@@ -19305,7 +19309,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "online-notizblock-anleitung",
@@ -19340,7 +19344,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "bloc-notes-en-ligne-guide",
@@ -19375,7 +19379,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "online-not-defteri-rehberi",
@@ -19410,7 +19414,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "bloco-de-notas-online-guia",
@@ -19445,7 +19449,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "online-notepad-guide-ja",
@@ -19480,7 +19484,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "nettbasert-notatblokk-guide",
@@ -19515,7 +19519,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "online-kladblok-gids",
@@ -19550,7 +19554,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
   {
-    author: "HumanizeAI Editorial Team",
+    author: "ToolVena Editorial Team",
     category: "SEO & Content",
     date: "October 2026",
     id: "blocco-note-online-guida",
@@ -19585,7 +19589,7 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },,
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "unit-converter-guide",
@@ -19598,7 +19602,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. What a unit converter is really doing, in plain words", "A unit converter takes a number measured in one unit and restates it in another unit of the same kind. Five kilometres becomes about 3.11 miles. Seventy kilograms becomes about 154 pounds. Nothing about the real thing changes — the road is the same road, the person is the same person — only the language of the measurement changes. That sounds trivial until you remember how often the language changes on you. A recipe from another country weighs flour in grams while your scale thinks in ounces. A weather app reports Fahrenheit while your head works in Celsius. A hard drive advertises gigabytes while your phone quietly counts in gibibytes. Every one of those moments is a small translation problem, and a converter is the dictionary. This page is that dictionary with a calculator attached: ten everyday categories, real conversion factors, the formula printed next to every answer, and one deliberate absence — currency — explained honestly below.", "2. The ten categories, and why these ten", "Length, weight and mass, temperature, volume, area, speed, time, data storage, pressure and energy: that is the whole list, and the list is the point. These are the categories ordinary life actually uses. Length is school, DIY and travel distances. Weight is people, parcels and shopping. Temperature is weather and ovens. Volume is cooking and fuel. Area is rooms, plots of land and tiles. Speed is the sign at the side of the road in a country that counts differently from yours. Time is recipes, rentals and study plans. Data storage is the file that will not fit. Pressure is tyres and weather maps. Energy is food labels and electricity bills. Missing on purpose: currency, because money is not a measurement — it is a price that moves every day, and converting it without live rates would be inventing a number. Also missing are the engineering-only corners (radiation dose, magnetomotive force and friends). A focused tool that does the everyday ten well beats a maze of two hundred links where the simple job gets lost.", "3. How to use it: value, from, to, answer", "The whole job takes seconds. First pick the category, because a converter should never let you turn kilograms into kilometres by accident — the unit lists only ever show units that belong together. Then type your value, choose what you are converting from and what you are converting to, and the result appears instantly as you type. Under it, the formula used is written out in plain form: 1 km = 1000 m, or °F = °C × 9/5 + 32 for temperature, which has no single factor and needs its own rules. The swap button reverses the direction and carries the result into the input, so you can chain conversions or check the way back. If a category has more units than you want to scroll, the search box filters the lists by name. A row of popular presets — 5 km to miles, 70 kg to pounds, 250 mL to cups, 100 km/h to mph and more — loads common school, cooking and travel conversions in one tap, which is handy because most of us convert the same handful of things again and again.", "4. Where the factors come from, and the famous definitions", "A converter is only as honest as its factors, so here they are in the open. The inch is defined as exactly 2.54 centimetres. The pound is defined as exactly 0.45359237 kilograms. The US gallon is exactly 3.785411784 litres, while the UK gallon is a different, larger 4.54609 litres — one reason the page labels them US and UK instead of pretending gallons are the same everywhere. A nautical knot is one nautical mile (1,852 metres) per hour. The thermochemical calorie is 4.184 joules. Temperature is not a factor at all but two shifts and a stretch: Celsius to Fahrenheit multiplies by 9/5 and adds 32, and kelvin simply sits 273.15 above Celsius. Data storage gets both honest systems side by side: the decimal kilobyte of 1,000 bytes that drive makers advertise, and the binary kibibyte of 1,024 bytes that your operating system quietly uses — which is why a 500 GB drive looks smaller the day you plug it in. A year in the time category is the Julian year of 365.25 days, stated openly rather than pretending every year is identical. Results are rounded to sensible significant figures: enough digits to be useful, never the fake authority of fifteen decimal places.", "5. Worked examples from real life", "Say your luggage limit is 23 kilograms and your bathroom scale says 51 pounds. Convert pounds to kilograms: 51 × 0.45359237 gives about 23.1 kg, which means you are right at the line and the heavy shoes should probably travel on your feet. A cake recipe wants 350 °F and your oven dial is Celsius: (350 − 32) × 5/9 is about 177 °C, the familiar gas-mark-4 neighbourhood. Driving abroad, the sign says 90 and your dashboard counts miles: 90 km/h is about 56 mph, not the 90 your instincts want to see. A 250 mL measure of milk is almost exactly one US cup, which is why that preset lives at the top of the volume list. Each of these took one tap here, and each shows its formula, so when the number looks surprising you can see why it is what it is instead of trusting a black box.", "6. Honest limits: what this tool will not do", "Three limits are written on the tool itself, not buried. First, no currency: exchange rates move daily, and a converter that guesses them would be inventing numbers with a straight face. Use a bank or a live-rate service for money. Second, everyday accuracy is not professional accuracy. These results are right for homework, cooking, travel and shopping, but medical dosing, engineering sign-off, aviation, construction tolerances and anything else safety-critical deserves professional verification with proper instruments — a web page must never be the last word there, and this one refuses to pretend otherwise. Third, some units are genuinely ambiguous in the wild. A cup differs between the US, the UK and Japan; a ton can be metric, American or British; ounces weigh things and also measure volume, in two sizes. The page labels the exact variant it uses — US cup, US gallon, UK gallon — so you can match it to your recipe, label or manual instead of converting bravely into the wrong answer.", "7. Quick answers and a closing habit", "The questions everyone asks, in one breath. Is it free and does anything get uploaded? Free, no sign-up, and no: every calculation happens in your browser tab, and closing it forgets everything. Why did my result change when I swapped direction? It should: converting back with the shown formula is the correct inverse, and small rounding at the last digit is normal. Which gallon, cup or ton should I choose? The one your source uses — American recipes and fuel gauges mean US, British ones mean UK, and this page labels both. Can I trust the big numbers, like acres to square metres? The factors are definitional, so yes for everyday purposes; for a legal boundary or a building tolerance, that is professional territory again. Close with the habit that makes any converter trustworthy: check the formula line once, sanity-check the size of the answer against something you know (a litre is roughly a quart, a kilogram is roughly two pounds), and let the tool carry the arithmetic while you carry the judgement."]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "unit-converter-urdu-guide",
@@ -19611,7 +19615,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. Unit converter asal mein hai kya, chai ki mehfil wali zuban mein samjho", "Dost, baat bilkul seedhi hai, chai ka cup haath mein lo aur aaram se samjho. Unit converter ka kaam sirf itna hai ke aik unit mein naapi hui cheez ko dusri unit ki zuban mein keh de. Paanch kilometre waisi ki waisi sarrak hai, bas mile mein keh do to takreeban 3.11 miles ban jati hai. Sattar kilo ka banda wazan mein waisa hi hai, pound mein keh do to takreeban 154 pounds ho jata hai. Na sarrak badalti hai na banda, sirf naap ki zuban badal jati hai. Ab ye baat sunne mein bohat aasan lagti hai lekin zindagi mein ye zuban har dusre din badal jati hai. Bahar ke mulk ki recipe gram mein aata maangti hai aur aap ke tarazu ounce mein sochta hai. Mausam wali app Fahrenheit batati hai aur aap ka dimagh Celsius mein chalta hai. Mobile ki memory gigabyte mein ishtehaar hoti hai lekin phone andar se kuch aur hi gin raha hota hai. Har jagah aik chhoti si tarjume wali pareshani khari ho jati hai. Bas ye page usi pareshani ka hal hai, aik aisi jagah jahan das rozmarra categories, asli conversion factors, har jawab ke saath saaf likha hua formula, aur aik jaan bujh kar ghayb cheez, currency, ki imaandaar wajah bhi sath di gayi hai. Pehle din se sach jaan kar istemal karo, yehi is page ka usool hai.", "2. Das categories, aur yehi das kyun chuni gayin", "Ab ye suno ke categories kon kon si hain aur inhi das ko kyun rakha gaya hai. Lambai, wazan, temperature, volume yaani hajam, raqba, raftaar, waqt, data storage, pressure aur energy, ye poori list hai aur yehi list asal baat hai. Ye wohi cheezein hain jo aam zindagi mein roz istemal hoti hain. Lambai school ke sawalon, ghar ke kaamo aur safar ke faslon mein kaam aati hai. Wazan insaanon, parcelon aur kharidari mein. Temperature mausam aur oven mein. Volume khana pakane aur petrol mein. Raqba kamron, ploton aur tiles ke hisaab mein. Raftaar us mulk ki sarrak par jahan ginti aap ki adat se alag ho. Waqt recipes, kiraye aur parhai ke plan mein. Data storage us file mein jo mobile mein sama hi nahi rahi. Pressure gaari ke tyre aur mausam ke naqshon mein. Aur energy khane ke label aur bijli ke bill mein. Ab jo cheez jaan bujh kar nahi rakhi wo currency hai, kyunke paisa koi naap nahi hai, wo aik qeemat hai jo roz harkat karti hai, aur baghair live rate ke use badalna number banana hoga, badalna nahi. Engineering walay ajeeb konay, radiation dose jaisi cheezein, wo bhi nahi rakhin. Das rozmarra cheezon ko theek se karna, do sau linkon ke bhanwar se behtar hai jahan aasan kaam hi gum ho jata hai.", "3. Istemal ka tareeqa: value, from, to, aur foran jawab", "Ab tareeqa suno, ye dus second ka kaam hai. Pehle category chuno, is ki wajah ye hai ke converter ko ye kabhi nahi karne dena chahiye ke aap galti se kilogram ko kilometre mein badal baithe, list hamesha sirf unhi units ko dikhati hai jo aik dusre ke sath jorti hain. Phir apni value likho, ye chuno ke kis unit se badal rahe ho aur kis unit mein badalna hai, aur jawab likhte hi sath sath samne aata rahe ga. Us ke neeche formula bhi saaf alfaz mein likha hota hai, 1 km = 1000 m, ya temperature ke liye °F = °C × 9/5 + 32, kyunke temperature ka koi aik factor nahi hota, us ke apne qawaid hain. Swap wala button simat ko palat deta hai aur jawab ko wapas input mein daal deta hai, taake aap wapas ka hisaab bhi wahi kar lo ya aik aur conversion usi par jor lo. Agar kisi category ki units zyada hon to search wala dabba naam likhne par list ko chhanta deta hai. Neeche mashhoor presets bhi diye hain, 5 km se miles, 70 kg se pounds, 250 mL se cups, 100 km/h se mph waghera, aik tap mein bhar jate hain. Imaandaari ki baat ye hai ke hum sab aksar wohi chaar paanch conversions bar bar karte hain, to un ka shortcut wahi par hona chahiye jahan haath jata hai.", "4. Factors aate kahan se hain, aur chand mashhoor tareefain", "Ab wo hissa gaur se suno jo is tool ko imaandaar banata hai. Converter utna hi sachha hota hai jitne us ke factors sachhe hon, to factors khule rakhe hain. Inch ki tareef bilkul 2.54 centimetre hai, ye koi andaza nahi hai. Pound ki tareef 0.45359237 kilogram hai, bilkul tay shuda. US gallon 3.785411784 litre ka hota hai jabke UK gallon us se bara, 4.54609 litre ka, isiliye page dono ko US aur UK likh kar alag rakhta hai, ye nahi kehta ke gallon har jagah aik hi hota hai. Samundari knot aik nautical mile, yaani 1852 metre, per ghanta hai. Calorie 4.184 joules ki hoti hai. Temperature mein multiply wala scene hi nahi hai, wahan do tabdeeliyan lagti hain, Celsius se Fahrenheit ke liye 9/5 se zarb aur 32 jama, aur Kelvin Celsius se bas 273.15 upar betha hai. Data storage mein dono asli nizam sath sath diye hain, decimal kilobyte jo 1000 bytes ka hota hai aur jo hard disk walay ishtehaar mein likhte hain, aur binary kibibyte jo 1024 bytes ka hota hai aur jo aap ka phone ya computer andar se ginta hai. Yehi wajah hai ke 500 GB ki drive lagte hi chhoti lagne lagti hai, drive kharab nahi hai, ginti ke do tareeqe takra rahe hain. Waqt wali category mein saal Julian year, 365.25 din ka liya gaya hai, aur ye baat saaf likhi hai taake koi ye na samjhe ke har saal bilkul aik jaisa hota hai. Jawab sensible significant figures tak round hota hai, kaam ke digit saare milte hain, pandra decimal wali jhooti authority nahi milti.", "5. Asal zindagi ki misalein, number ke sath", "Ab misalon se samjho taake baat dimagh mein baith jaye. Farz karo flight mein samaan ki hadh 23 kilo hai aur ghar ke tarazu ne 51 pounds bataya. Pounds ko kilo mein badlo, 51 ko 0.45359237 se zarb do to takreeban 23.1 kilo banta hai, matlab aap bilkul line par khare ho, behtar hai bhaari jootay pairon mein pehen lo, bag mein nahi. Cake ki recipe 350 °F maangti hai aur aap ke oven ki ginti Celsius mein hai. 350 mein se 32 ghatao, 5/9 se zarb do, takreeban 177 °C banta hai, wohi purana darmiyana aanch wala hissa jo har ghar ke oven mein hota hai. Bahar ke mulk mein gaari chala rahe ho, board par 90 likha hai lekin aap ki aadat miles ki hai. 90 km/h takreeban 56 mph hota hai, 90 nahi jis par dil behak sakta hai. Doodh ka 250 mL wala naap takreeban aik US cup ke barabar hai, isiliye ye preset volume ki list mein sab se upar rakha hai. Ye saari misalein yahan aik tap ki hain, aur har aik ke sath formula dikhta hai, taake jawab agar ajeeb lage to aap dekh sako ke ye aaya kahan se hai, andhe bharose wala scene nahi hai.", "6. Imaandaar haddein: ye tool kya nahi kare ga", "Ab wo baatein jo aksar pages aakhir mein chhote harfon mein chhupa deti hain, hum yahan baray harfon se keh rahe hain. Pehli hadh, currency nahi hai. Exchange rate roz badalta hai, aur jo converter us ka andaza lagaye ga wo seedha number gharr raha hoga. Paisay ke liye bank ya live rate wali service hi durust hai. Dusri hadh, rozmarra ki durusti aur professional durusti mein farq hai. Ye jawab school ke kaam, khana pakane, safar aur kharidari ke liye durust hain, lekin medical dosing, engineering ki manzoori, jahaz urane, building ki tolerances ya kisi bhi safety wale kaam mein professional tasdeeq aur durust alaat ke baghair in par aakhri bharosa na karna. Web page wahan aakhri lafz kabhi nahi hona chahiye, aur ye page ye dawa bhi nahi karta. Teesri hadh ye ke kuch units duniya mein asal mein uljhe hue hain. Cup America, Britain aur Japan mein alag alag hota hai. Ton metric bhi hai, American bhi, British bhi. Ounce wazan bhi hai aur volume bhi, wo bhi do sizeon mein. Isiliye page har variant par saaf label lagata hai, US cup, US gallon, UK gallon, taake aap apni recipe, label ya manual se mila kar chuno, andazay se galat jawab mein na convert kar baithe.", "7. Aam sawalon ke jawab aur aakhri naseehat", "Ab aam sawalon ke jawab aik hi saans mein sun lo. Kya ye muft hai aur kya kuch upload hota hai. Ji haan muft hai, koi sign up nahi, aur nahi, har hisaab aap ke browser ke tab ke andar hota hai, tab band to sab bhool gaya. Swap karne par jawab kyun badal gaya. Badalna hi chahiye, wapas ki conversion usi formula ka ulta hai, aur aakhri digit par halki si rounding aam baat hai. Konsa gallon, cup ya ton chunoon. Wohi jo aap ke source ka hai, American recipe aur petrol pump US wala, British wala UK, aur page dono par label lagata hai. Kya barre number, jaise acre se square metre, par bharosa karun. Factors tareef wale hain to rozmarra ke liye ji haan, lekin zameen ki qanooni hadd ya building ki tolerance ho to wo professional kaam hai, wahan ye page nahi chalega. Aakhri naseehat dostana si hai, formula wali line aik dafa dekh liya karo, jawab ke size ko kisi jaani pehchani cheez se mila kar parkh liya karo, litre takreeban quart ke barabar, kilo takreeban do pound se thora zyada. Hisaab tool par choro, faisla apne paas rakho. Chai khatam karo aur pehli conversion kar ke dekho, 37 degree ko Fahrenheit mein badlo ge to khud samajh aa jaye gi ke bukhar wala number 98.6 kyun kehlata hai."]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "conversor-de-unidades-guia",
@@ -19624,7 +19628,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. Qué hace de verdad un conversor de unidades", "Un conversor de unidades toma un número medido en una unidad y lo expresa en otra unidad del mismo tipo. Cinco kilómetros pasan a ser unas 3,11 millas. Setenta kilos, unas 154 libras. La carretera no cambia y la persona tampoco; solo cambia el idioma de la medida. Parece una tontería hasta que recuerdas cuántas veces te cambia el idioma a ti: la receta de otro país pide harina en gramos y tu báscula piensa en onzas, la app del tiempo habla en Fahrenheit mientras tu cabeza cuenta en Celsius, el disco duro se anuncia en gigabytes mientras el teléfono cuenta en gibibytes. Cada uno de esos momentos es un pequeño problema de traducción, y el conversor es el diccionario. Esta página es ese diccionario con calculadora: diez categorías cotidianas, factores reales, la fórmula impresa junto a cada respuesta y una ausencia deliberada —la moneda— explicada con honestidad más abajo.", "2. Las diez categorías, y por qué justo estas", "Longitud, peso y masa, temperatura, volumen, superficie, velocidad, tiempo, datos, presión y energía: esa es la lista completa, y la lista es la idea. Son las categorías que la vida normal usa de verdad. La longitud es la escuela, el bricolaje y las distancias de viaje. El peso, las personas, los paquetes y la compra. La temperatura, el tiempo y el horno. El volumen, la cocina y el combustible. La superficie, las habitaciones, los terrenos y las baldosas. La velocidad, la señal de la carretera en un país que cuenta distinto. El tiempo, las recetas, los alquileres y los planes de estudio. Los datos, ese archivo que no cabe. La presión, los neumáticos y los mapas del tiempo. La energía, las etiquetas de los alimentos y la factura de la luz. Falta a propósito la moneda, porque el dinero no es una medida: es un precio que se mueve cada día, y convertirlo sin tipos en vivo sería inventarse el número. También faltan los rincones de ingeniería pura. Una herramienta centrada en las diez cotidianas vale más que un laberinto de doscientos enlaces donde el trabajo sencillo se pierde.", "3. Cómo se usa: valor, origen, destino, respuesta", "Todo el trabajo dura segundos. Primero eliges la categoría, porque un conversor nunca debería dejarte convertir kilos en kilómetros por error: las listas solo muestran unidades que van juntas. Luego escribes el valor, eliges de qué unidad partes y a cuál quieres llegar, y el resultado aparece al instante mientras escribes. Debajo va la fórmula en forma sencilla: 1 km = 1000 m, o °F = °C × 9/5 + 32 para la temperatura, que no tiene un único factor y sigue sus propias reglas. El botón de intercambio invierte la dirección y lleva el resultado a la entrada, para encadenar conversiones o comprobar el camino de vuelta. Si una categoría tiene más unidades de las que quieres recorrer, el buscador filtra las listas por nombre. Una fila de preajustes populares —5 km a millas, 70 kg a libras, 250 mL a tazas, 100 km/h a mph— carga con un toque las conversiones de escuela, cocina y viaje, porque casi todos convertimos las mismas cuatro o cinco cosas una y otra vez.", "4. De dónde salen los factores y las definiciones famosas", "Un conversor vale lo que valen sus factores, así que aquí están a la vista. La pulgada se define como exactamente 2,54 centímetros. La libra, como exactamente 0,45359237 kilos. El galón estadounidense es exactamente 3,785411784 litros, mientras que el británico es otro, más grande: 4,54609 litros. Por eso la página los etiqueta US y UK en vez de fingir que un galón es igual en todas partes. El nudo es una milla náutica (1.852 metros) por hora. La caloría termoquímica vale 4,184 julios. La temperatura no es un factor sino un desplazamiento con estiramiento: de Celsius a Fahrenheit se multiplica por 9/5 y se suman 32, y el kelvin vive 273,15 por encima del Celsius. En datos conviven los dos sistemas honestos: el kilobyte decimal de 1.000 bytes que anuncian los fabricantes y el kibibyte binario de 1.024 bytes que usa tu sistema operativo, que es por lo que un disco de 500 GB parece encoger el día que lo conectas. El año de la categoría tiempo es el año juliano de 365,25 días, dicho abiertamente. Los resultados se redondean a cifras significativas razonables: dígitos útiles, nunca la falsa autoridad de quince decimales.", "5. Ejemplos trabajados de la vida real", "Tu límite de equipaje es de 23 kilos y la báscula del baño marca 51 libras. Convierte: 51 × 0,45359237 da unos 23,1 kg, así que estás justo en la línea y los zapatos pesados mejor en los pies que en la maleta. Una receta pide 350 °F y el dial de tu horno va en Celsius: (350 − 32) × 5/9 son unos 177 °C, el territorio familiar del horno medio. Conduciendo fuera, la señal dice 90 y tu salpicadero cuenta en millas: 90 km/h son unas 56 mph, no los 90 que tu instinto quiere ver. Y 250 mL de leche son casi exactamente una taza estadounidense, por eso ese preajuste vive arriba en la lista de volumen. Cada ejemplo costó un toque aquí, y cada uno muestra su fórmula, para que cuando el número sorprenda veas por qué es el que es en vez de fiarte de una caja negra.", "6. Límites honestos: lo que esta herramienta no hará", "Tres límites están escritos en la propia herramienta, no enterrados. Primero, nada de moneda: los tipos de cambio se mueven cada día, y un conversor que los adivinara estaría inventando números con cara seria. Para dinero, el banco o un servicio con tasas en vivo. Segundo, la exactitud cotidiana no es exactitud profesional. Estos resultados sirven para los deberes, la cocina, los viajes y la compra, pero una dosis médica, una aprobación de ingeniería, la aviación, las tolerancias de obra o cualquier cosa crítica para la seguridad merece verificación profesional con los instrumentos adecuados; una página web nunca debe ser la última palabra ahí, y esta se niega a fingir lo contrario. Tercero, algunas unidades son ambiguas de verdad en el mundo real: la taza cambia entre Estados Unidos, Reino Unido y Japón; la tonelada puede ser métrica, americana o británica; la onza pesa y también mide volumen, en dos tamaños. La página etiqueta la variante exacta que usa —taza US, galón US, galón UK— para que la emparejes con tu receta, etiqueta o manual en vez de convertir valientemente hacia la respuesta equivocada.", "7. Respuestas rápidas y una costumbre para cerrar", "Las preguntas de siempre, en un solo respiro. ¿Es gratis y se sube algo? Gratis, sin registro, y no: cada cálculo ocurre en la pestaña de tu navegador, y al cerrarla todo se olvida. ¿Por qué cambió mi resultado al invertir la dirección? Porque debe: convertir de vuelta con la fórmula mostrada es el inverso correcto, y un pequeño redondeo en el último dígito es normal. ¿Qué galón, taza o tonelada elijo? La que use tu fuente: recetas y surtidores americanos, US; británicos, UK; y esta página etiqueta ambos. ¿Puedo fiarme de los números grandes, como acres a metros cuadrados? Los factores son definicionales, así que sí para el uso diario; para un lindero legal o una tolerancia de obra, eso vuelve a ser territorio profesional. Cierra con la costumbre que hace fiable a cualquier conversor: mira la línea de la fórmula una vez, contrasta el tamaño de la respuesta con algo que conozcas (un litro es más o menos un cuarto, un kilo es más o menos dos libras) y deja que la herramienta cargue con la aritmética mientras tú cargas con el criterio."]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "einheitenrechner-anleitung",
@@ -19637,7 +19641,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. Was ein Einheitenrechner wirklich tut, einfach gesagt", "Ein Einheitenrechner nimmt eine Zahl in einer Einheit und sagt sie in einer anderen Einheit derselben Art noch einmal. Fünf Kilometer werden zu etwa 3,11 Meilen. Siebzig Kilogramm werden zu etwa 154 Pfund. Die Straße bleibt dieselbe Straße und der Mensch derselbe Mensch — nur die Sprache der Messung wechselt. Das klingt banal, bis man sich erinnert, wie oft einem diese Sprache im Alltag wechselt. Ein Rezept aus einem anderen Land wiegt Mehl in Gramm, während Ihre Waage in Unzen denkt. Eine Wetter-App meldet Fahrenheit, während Ihr Kopf in Celsius rechnet. Eine Festplatte wirbt mit Gigabyte, während Ihr Telefon still in Gibibyte zählt. Jeder dieser Momente ist ein kleines Übersetzungsproblem, und ein Rechner ist das Wörterbuch dazu. Diese Seite ist genau dieses Wörterbuch mit Rechner: zehn Alltagskategorien, echte Umrechnungsfaktoren, die Formel bei jedem Ergebnis und eine bewusste Lücke — die Währung —, die weiter unten ehrlich erklärt wird.", "2. Die zehn Kategorien, und warum gerade diese", "Länge, Gewicht und Masse, Temperatur, Volumen, Fläche, Geschwindigkeit, Zeit, Datenmenge, Druck und Energie: Das ist die ganze Liste, und die Liste ist der Punkt. Es sind die Kategorien, die das normale Leben wirklich benutzt. Länge ist Schule, Heimwerken und Reisedistanzen. Gewicht sind Menschen, Pakete und Einkäufe. Temperatur ist Wetter und Backofen. Volumen ist Kochen und Kraftstoff. Fläche sind Zimmer, Grundstücke und Fliesen. Geschwindigkeit ist das Schild am Straßenrand in einem Land, das anders zählt als Ihres. Zeit sind Rezepte, Mieten und Lernpläne. Daten sind die Datei, die nicht mehr passt. Druck sind Reifen und Wetterkarten. Energie sind Lebensmitteletiketten und Stromrechnungen. Bewusst fehlt die Währung, denn Geld ist keine Messung, sondern ein Preis, der sich täglich bewegt; ihn ohne Live-Kurse umzurechnen hieße, eine Zahl zu erfinden. Auch die reinen Ingenieursecken fehlen. Ein Werkzeug, das die zehn Alltagskategorien gut macht, schlägt ein Labyrinth aus zweihundert Links, in dem die einfache Aufgabe untergeht.", "3. So geht es: Wert, Von, Nach, Ergebnis", "Die ganze Aufgabe dauert Sekunden. Zuerst wählen Sie die Kategorie, denn ein Rechner sollte Sie niemals aus Versehen Kilogramm in Kilometer verwandeln lassen — die Listen zeigen nur Einheiten, die zusammengehören. Dann tippen Sie Ihren Wert ein, wählen die Ausgangs- und die Zieleinheit, und das Ergebnis erscheint sofort beim Tippen. Darunter steht die verwendete Formel in einfacher Form: 1 km = 1000 m oder °F = °C × 9/5 + 32 für die Temperatur, die keinen einzigen Faktor hat und eigenen Regeln folgt. Die Tauschtaste kehrt die Richtung um und übernimmt das Ergebnis in die Eingabe, damit Sie Umrechnungen verketten oder den Rückweg prüfen können. Hat eine Kategorie mehr Einheiten, als Sie durchsuchen möchten, filtert das Suchfeld die Listen nach Namen. Eine Reihe beliebter Voreinstellungen — 5 km in Meilen, 70 kg in Pfund, 250 mL in Tassen, 100 km/h in mph — lädt die gängigen Umrechnungen für Schule, Küche und Reise mit einem Tippen, weil die meisten von uns dieselben vier, fünf Dinge immer wieder umrechnen.", "4. Woher die Faktoren kommen und die berühmten Definitionen", "Ein Rechner ist nur so ehrlich wie seine Faktoren, also stehen sie hier offen. Der Zoll ist als exakt 2,54 Zentimeter definiert. Das Pfund als exakt 0,45359237 Kilogramm. Die US-Gallone ist exakt 3,785411784 Liter, während die britische Gallone eine andere, größere ist: 4,54609 Liter. Darum beschriftet die Seite sie mit US und UK, statt so zu tun, als wäre eine Gallone überall gleich. Ein Knoten ist eine Seemeile (1.852 Meter) pro Stunde. Die thermochemische Kalorie sind 4,184 Joule. Temperatur ist überhaupt kein Faktor, sondern eine Verschiebung mit Streckung: Celsius zu Fahrenheit multipliziert mit 9/5 und addiert 32, und Kelvin sitzt 273,15 über Celsius. Bei Daten stehen beide ehrlichen Systeme nebeneinander: das dezimale Kilobyte zu 1.000 Byte, mit dem Laufwerkhersteller werben, und das binäre Kibibyte zu 1.024 Byte, das Ihr Betriebssystem still verwendet — der Grund, warum eine 500-GB-Platte am Anschlusstag kleiner aussieht. Ein Jahr in der Zeitkategorie ist das Julianische Jahr mit 365,25 Tagen, offen gesagt statt so zu tun, als sei jedes Jahr gleich. Ergebnisse werden auf sinnvolle signifikante Stellen gerundet: genug Ziffern zum Nutzen, nie die falsche Autorität von fünfzehn Dezimalstellen.", "5. Durchgerechnete Beispiele aus dem echten Leben", "Ihre Gepäckgrenze liegt bei 23 Kilogramm, und die Badwaage zeigt 51 Pfund. Umgerechnet: 51 × 0,45359237 ergibt etwa 23,1 kg — Sie stehen genau auf der Linie, und die schweren Schuhe gehören eher an die Füße als in den Koffer. Ein Kuchenrezept verlangt 350 °F, und Ihr Ofen zählt in Celsius: (350 − 32) × 5/9 sind etwa 177 °C, die vertraute mittlere Hitze. Im Ausland steht auf dem Schild 90, und Ihr Tacho denkt in Meilen: 90 km/h sind etwa 56 mph, nicht die 90, die Ihr Gefühl sehen will. Und 250 mL Milch sind fast genau eine US-Tasse, weshalb diese Voreinstellung oben in der Volumenliste steht. Jedes dieser Beispiele kostete hier einen Tippen, und jedes zeigt seine Formel, damit Sie bei einer überraschenden Zahl sehen, warum sie so ist, statt einer Blackbox zu vertrauen.", "6. Ehrliche Grenzen: Was dieses Werkzeug nicht tut", "Drei Grenzen stehen im Werkzeug selbst, nicht versteckt. Erstens: keine Währung. Wechselkurse bewegen sich täglich, und ein Rechner, der sie rät, würde Zahlen mit ernster Miene erfinden. Für Geld nehmen Sie Ihre Bank oder einen Dienst mit Live-Kursen. Zweitens: Alltagsgenauigkeit ist keine Berufsgenauigkeit. Diese Ergebnisse stimmen für Hausaufgaben, Kochen, Reisen und Einkaufen, aber medizinische Dosierung, technische Abnahme, Luftfahrt, Bautoleranzen und alles andere Sicherheitskritische verdient fachliche Prüfung mit geeigneten Instrumenten — eine Webseite darf dort nie das letzte Wort sein, und diese hier weigert sich, das Gegenteil vorzutäuschen. Drittens: Manche Einheiten sind draußen wirklich mehrdeutig. Eine Tasse unterscheidet sich zwischen den USA, Großbritannien und Japan; eine Tonne kann metrisch, amerikanisch oder britisch sein; Unzen wiegen Dinge und messen auch Volumen, in zwei Größen. Die Seite beschriftet die genaue Variante, die sie benutzt — US-Tasse, US-Gallone, UK-Gallone — damit Sie sie zu Ihrem Rezept, Etikett oder Handbuch passen lassen, statt mutig ins falsche Ergebnis umzurechnen.", "7. Schnelle Antworten und eine Schlussgewohnheit", "Die Fragen, die alle stellen, in einem Atemzug. Ist es kostenlos, und wird etwas hochgeladen? Kostenlos, ohne Anmeldung, und nein: Jede Berechnung geschieht in Ihrem Browser-Tab, und beim Schließen ist alles vergessen. Warum änderte sich mein Ergebnis beim Richtungswechsel? Weil es soll: Zurückrechnen mit der gezeigten Formel ist die korrekte Umkehrung, und eine kleine Rundung an der letzten Stelle ist normal. Welche Gallone, Tasse oder Tonne soll ich wählen? Die, die Ihre Quelle benutzt — amerikanische Rezepte und Zapfsäulen meinen US, britische meinen UK, und diese Seite beschriftet beide. Kann ich den großen Zahlen trauen, etwa Acre in Quadratmeter? Die Faktoren sind definitionsgemäß, also ja für den Alltag; für eine rechtliche Grenze oder eine Bautoleranz ist das wieder Berufsgelände. Schließen Sie mit der Gewohnheit, die jeden Rechner vertrauenswürdig macht: Schauen Sie einmal auf die Formelzeile, prüfen Sie die Größe der Antwort an etwas Bekanntem (ein Liter ist ungefähr ein Quart, ein Kilogramm ungefähr zwei Pfund), und lassen Sie das Werkzeug die Rechnerei tragen, während Sie das Urteil tragen."]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "convertisseur-unites-guide",
@@ -19650,7 +19654,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. Ce que fait vraiment un convertisseur d'unités", "Un convertisseur d'unités prend un nombre mesuré dans une unité et le redit dans une autre unité du même type. Cinq kilomètres deviennent environ 3,11 miles. Soixante-dix kilos deviennent environ 154 livres. La route ne change pas, la personne non plus ; seule la langue de la mesure change. Cela paraît dérisoire jusqu'au moment où cette langue vous change, à vous : la recette d'un autre pays pèse la farine en grammes pendant que votre balance pense en onces, l'application météo parle en Fahrenheit pendant que votre tête compte en Celsius, le disque dur s'annonce en gigaoctets pendant que le téléphone compte en gibioctets. Chacun de ces moments est un petit problème de traduction, et le convertisseur est le dictionnaire. Cette page est ce dictionnaire avec une calculatrice : dix catégories du quotidien, de vrais facteurs, la formule imprimée près de chaque réponse, et une absence délibérée — la monnaie — expliquée honnêtement plus bas.", "2. Les dix catégories, et pourquoi celles-là", "Longueur, poids et masse, température, volume, surface, vitesse, temps, données, pression et énergie : c'est toute la liste, et la liste est l'idée. Ce sont les catégories que la vie normale utilise vraiment. La longueur, c'est l'école, le bricolage et les distances de voyage. Le poids, les personnes, les colis et les courses. La température, le temps qu'il fait et le four. Le volume, la cuisine et le carburant. La surface, les pièces, les terrains et le carrelage. La vitesse, le panneau au bord d'une route dans un pays qui compte autrement. Le temps, les recettes, les locations et les plans d'étude. Les données, ce fichier qui ne rentre plus. La pression, les pneus et les cartes météo. L'énergie, les étiquettes des aliments et la facture d'électricité. La monnaie manque à dessein : l'argent n'est pas une mesure, c'est un prix qui bouge chaque jour, et le convertir sans taux en direct reviendrait à inventer le nombre. Les coins réservés aux ingénieurs manquent aussi. Un outil centré sur les dix catégories du quotidien vaut mieux qu'un labyrinthe de deux cents liens où le travail simple se perd.", "3. Comment s'en servir : valeur, départ, arrivée, réponse", "Tout le travail prend quelques secondes. Choisissez d'abord la catégorie, parce qu'un convertisseur ne devrait jamais vous laisser transformer des kilos en kilomètres par erreur : les listes ne montrent que des unités qui vont ensemble. Tapez ensuite votre valeur, choisissez l'unité de départ et celle d'arrivée, et le résultat apparaît instantanément pendant la frappe. En dessous, la formule utilisée est écrite simplement : 1 km = 1000 m, ou °F = °C × 9/5 + 32 pour la température, qui n'a pas de facteur unique et suit ses propres règles. Le bouton d'inversion retourne le sens et ramène le résultat dans le champ, pour enchaîner les conversions ou vérifier le retour. Si une catégorie compte plus d'unités que vous n'avez envie de faire défiler, la recherche filtre les listes par nom. Une rangée de préréglages populaires — 5 km en miles, 70 kg en livres, 250 mL en tasses, 100 km/h en mph — charge en un toucher les conversions d'école, de cuisine et de voyage, parce que nous convertissons presque tous les mêmes quatre ou cinq choses, encore et encore.", "4. D'où viennent les facteurs, et les définitions célèbres", "Un convertisseur vaut ce que valent ses facteurs, alors les voici au grand jour. Le pouce est défini comme exactement 2,54 centimètres. La livre comme exactement 0,45359237 kilogramme. Le gallon américain vaut exactement 3,785411784 litres, tandis que le gallon britannique est un autre, plus grand : 4,54609 litres. C'est pourquoi la page les étiquette US et UK au lieu de prétendre qu'un gallon vaut partout pareil. Le nœud est un mille marin (1 852 mètres) par heure. La calorie thermochimique vaut 4,184 joules. La température n'est pas un facteur mais un décalage avec étirement : de Celsius à Fahrenheit, on multiplie par 9/5 puis on ajoute 32, et le kelvin vit 273,15 au-dessus du Celsius. Pour les données, les deux systèmes honnêtes cohabitent : le kilooctet décimal de 1 000 octets qu'annoncent les fabricants, et le kibioctet binaire de 1 024 octets qu'utilise votre système — voilà pourquoi un disque de 500 Go semble rétrécir le jour où on le branche. L'année de la catégorie temps est l'année julienne de 365,25 jours, dite ouvertement. Les résultats sont arrondis à des chiffres significatifs raisonnables : assez de chiffres pour être utile, jamais la fausse autorité de quinze décimales.", "5. Exemples travaillés de la vraie vie", "Votre limite de bagage est de 23 kilos et la balance de la salle de bain annonce 51 livres. Convertissez : 51 × 0,45359237 donne environ 23,1 kg ; vous êtes donc exactement sur la ligne, et les chaussures lourdes iront plutôt aux pieds que dans la valise. Une recette demande 350 °F et le cadran de votre four va en Celsius : (350 − 32) × 5/9 font environ 177 °C, le territoire familier du four moyen. En conduisant à l'étranger, le panneau dit 90 et votre compteur raisonne en miles : 90 km/h font environ 56 mph, pas les 90 que votre instinct voudrait voir. Et 250 mL de lait font presque exactement une tasse américaine, raison pour laquelle ce préréglage vit en haut de la liste des volumes. Chaque exemple a coûté un toucher ici, et chacun montre sa formule, pour que le jour où un nombre surprend, vous voyiez pourquoi il est ce qu'il est au lieu de faire confiance à une boîte noire.", "6. Limites honnêtes : ce que cet outil ne fera pas", "Trois limites sont écrites dans l'outil même, pas enterrées. D'abord, pas de monnaie : les taux de change bougent chaque jour, et un convertisseur qui les devinerait inventerait des nombres avec un visage sérieux. Pour l'argent, la banque ou un service à taux en direct. Ensuite, l'exactitude du quotidien n'est pas l'exactitude professionnelle. Ces résultats conviennent aux devoirs, à la cuisine, aux voyages et aux courses, mais un dosage médical, une validation d'ingénierie, l'aviation, des tolérances de chantier ou quoi que ce soit de critique pour la sécurité méritent une vérification professionnelle avec les bons instruments ; une page web ne doit jamais y être le dernier mot, et celle-ci refuse de prétendre le contraire. Enfin, certaines unités sont réellement ambiguës dans le monde : la tasse change entre les États-Unis, le Royaume-Uni et le Japon ; la tonne peut être métrique, américaine ou britannique ; les onces pèsent et mesurent aussi des volumes, en deux tailles. La page étiquette la variante exacte qu'elle emploie — tasse US, gallon US, gallon UK — pour que vous l'accordiez à votre recette, votre étiquette ou votre manuel, au lieu de convertir courageusement vers la mauvaise réponse.", "7. Réponses rapides et une habitude pour finir", "Les questions de tout le monde, en un souffle. C'est gratuit, et quelque chose part-il quelque part ? Gratuit, sans inscription, et non : chaque calcul a lieu dans l'onglet de votre navigateur, et le fermer fait tout oublier. Pourquoi mon résultat a-t-il changé quand j'ai inversé le sens ? Parce qu'il le doit : reconvertir avec la formule affichée est l'inverse correct, et un petit arrondi au dernier chiffre est normal. Quel gallon, quelle tasse, quelle tonne choisir ? Celle qu'emploie votre source : recettes et pompes américaines, US ; britanniques, UK ; et cette page étiquette les deux. Puis-je me fier aux grands nombres, comme les acres en mètres carrés ? Les facteurs sont définitionnels, donc oui pour le quotidien ; pour une limite légale de terrain ou une tolérance de chantier, c'est de nouveau le territoire des professionnels. Terminez avec l'habitude qui rend tout convertisseur fiable : regardez la ligne de formule une fois, comparez la taille de la réponse à quelque chose de connu (un litre vaut à peu près un quart, un kilo à peu près deux livres), et laissez l'outil porter l'arithmétique pendant que vous portez le jugement."]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "birim-donusturucu-rehberi",
@@ -19663,7 +19667,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. Birim dönüştürücü gerçekte ne yapar", "Birim dönüştürücü, bir birimle ölçülmüş bir sayıyı aynı türden başka bir birimle yeniden söyler. Beş kilometre yaklaşık 3,11 mil olur. Yetmiş kilo yaklaşık 154 pound olur. Yol aynı yoldur, insan aynı insandır; değişen yalnızca ölçünün dilidir. Bu, dilin size kaç kez değiştiğini hatırlayana kadar önemsiz görünür: başka ülkenin tarifi unu gramla tartar, sizin teraziniz onsla düşünür; hava durumu uygulaması Fahrenheit söyler, kafanız Santigrat sayar; sabit disk gigabayt diye tanıtılır, telefonunuz sessizce gibibayt sayar. Bu anların her biri küçük bir çeviri problemidir ve dönüştürücü o çevirinin sözlüğüdür. Bu sayfa, hesap makineli o sözlüktür: on günlük kategori, gerçek dönüşüm faktörleri, her yanıtın yanında yazılı formül ve bilinçli bir eksik —para birimi— aşağıda dürüstçe açıklanıyor.", "2. On kategori ve neden bunlar", "Uzunluk, ağırlık ve kütle, sıcaklık, hacim, alan, hız, zaman, veri depolama, basınç ve enerji: listenin tamamı bu ve listenin kendisi asıl fikir. Normal hayatın gerçekten kullandığı kategoriler bunlar. Uzunluk; okul, ev işleri ve yol mesafeleridir. Ağırlık; insanlar, kargolar ve alışveriştir. Sıcaklık; hava ve fırındır. Hacim; yemek ve yakıttır. Alan; odalar, arsalar ve fayanslardır. Hız; sizinkinden farklı sayan bir ülkede yol kenarındaki tabeladır. Zaman; tarifler, kiralar ve çalışma planlarıdır. Veri; sığmayan dosyadır. Basınç; lastikler ve hava haritalarıdır. Enerji; gıda etiketleri ve elektrik faturalarıdır. Para birimi bilerek yok, çünkü para bir ölçü değil, her gün hareket eden bir fiyattır; canlı kur olmadan çevirmek, sayıyı uydurmak olurdu. Mühendislik köşeleri de yok. On günlük kategoriyi iyi yapan bir araç, basit işin kaybolduğu iki yüz bağlantılık labirentten iyidir.", "3. Nasıl kullanılır: değer, kaynak, hedef, yanıt", "Bütün iş saniyeler sürer. Önce kategoriyi seçin, çünkü bir dönüştürücü sizi yanlışlıkla kiloyu kilometreye çevirmeye asla bırakmamalı; listeler yalnızca birbirine uyan birimleri gösterir. Sonra değerinizi yazın, hangi birimden hangi birime çevirdiğinizi seçin; sonuç siz yazarken anında belirir. Altında kullanılan formül sade biçimiyle yazılıdır: 1 km = 1000 m, ya da tek bir faktörü olmayan ve kendi kurallarını izleyen sıcaklık için °F = °C × 9/5 + 32. Değiştir düğmesi yönü tersine çevirir ve sonucu girişe taşır; böylece dönüşümleri zincirleyebilir ya da geri dönüşü kontrol edebilirsiniz. Bir kategoride kaydırmak istediğinizden çok birim varsa, arama kutusu listeleri isme göre süzer. Popüler hazır ayarlar satırı —5 km'den mile, 70 kg'dan pounda, 250 mL'den su bardağına, 100 km/saatten mph'ye— okul, mutfak ve seyahat dönüşümlerini tek dokunuşla yükler, çünkü çoğumuz aynı dört beş şeyi tekrar tekrar çeviririz.", "4. Faktörler nereden geliyor ve ünlü tanımlar", "Bir dönüştürücü, faktörleri kadar dürüsttür; işte hepsi açıkta. İnç, tam olarak 2,54 santimetre olarak tanımlanır. Pound, tam olarak 0,45359237 kilogramdır. ABD galonu tam 3,785411784 litre, Britanya galonu ise daha büyük, 4,54609 litredir. Sayfa bu yüzden onları US ve UK diye etiketler; galon her yerde aynıymış gibi yapmaz. Deniz mili hızı olan knot, saatte bir deniz milidir (1.852 metre). Termokimyasal kalori 4,184 jouledür. Sıcaklık bir faktör değil, uzatmalı bir kaydırmadır: Santigrattan Fahrenheita 9/5 ile çarpıp 32 eklersiniz, Kelvin Santigratın 273,15 üstünde oturur. Veride iki dürüst sistem yan yanadır: üreticilerin tanıttığı 1.000 baytlık ondalık kilobayt ile işletim sisteminizin sessizce kullandığı 1.024 baytlık ikili kibibayt; 500 GB diskin taktığınız gün küçük görünmesinin nedeni budur. Zaman kategorisindeki yıl, 365,25 günlük Julian yılıdır ve açıkça söylenir. Sonuçlar mantıklı anlamlı basamaklara yuvarlanır: işe yarayacak kadar basamak, asla on beş ondalık basamağın sahte otoritesi yok.", "5. Gerçek hayattan çözümlü örnekler", "Bagaj sınırınız 23 kilo, banyo teraziniz 51 pound gösteriyor. Çevirin: 51 × 0,45359237 yaklaşık 23,1 kg eder; yani tam çizgidesiniz ve ağır ayakkabılar valizde değil ayakta gitmeli. Bir kek tarifi 350 °F istiyor, fırınınızın kadranı Santigrat: (350 − 32) × 5/9 yaklaşık 177 °C'dir, o bildik orta ateş bölgesi. Yurt dışında araç kullanıyorsunuz, tabela 90 diyor, göstergeniz mille sayıyor: 90 km/saat yaklaşık 56 mph'dir, içgüdünüzün görmek istediği 90 değil. Ve 250 mL süt neredeyse tam bir ABD su bardağıdır; bu hazır ayar hacim listesinin üstünde bu yüzden durur. Bu örneklerin her biri burada tek dokunuş sürdü ve her biri formülünü gösteriyor; böylece bir sayı şaşırtıcı geldiğinde kara kutuya güvenmek yerine neden öyle olduğunu görürsünüz.", "6. Dürüst sınırlar: bu aracın yapmayacakları", "Üç sınır aracın kendisinde yazılı, gömülü değil. Birincisi, para birimi yok: kurlar her gün hareket eder ve onları tahmin eden bir dönüştürücü, ciddi bir yüzle sayı uyduruyor olurdu. Para için bankanızı ya da canlı kur servisini kullanın. İkincisi, günlük doğruluk profesyonel doğruluk değildir. Bu sonuçlar ödev, yemek, seyahat ve alışveriş için doğrudur; ama tıbbi doz, mühendislik onayı, havacılık, inşaat toleransları ya da güvenlik açısından kritik herhangi bir şey, uygun aletlerle profesyonel doğrulamayı hak eder —bir web sayfası orada asla son söz olmamalı ve bu sayfa aksini yapıyormuş gibi davranmayı reddediyor. Üçüncüsü, bazı birimler dünyada gerçekten belirsizdir. Su bardağı ABD, Britanya ve Japonya arasında değişir; ton metrik, Amerikan ya da Britanya olabilir; ons hem tartar hem hacim ölçer, iki boyda. Sayfa kullandığı tam varyantı etiketler —US bardağı, US galonu, UK galonu— böylece cesurca yanlış yanıta çevirmek yerine onu tarifinizle, etiketinizle ya da kılavuzunuzla eşleştirirsiniz.", "7. Hızlı yanıtlar ve kapatış alışkanlığı", "Herkesin sorduğu sorular, tek nefeste. Ücretsiz mi ve bir şey yükleniyor mu? Ücretsiz, kayıt yok ve hayır: her hesap tarayıcı sekmesinde olur, sekmeyi kapatınca her şey unutulur. Yönü değiştirince sonucum neden değişti? Değişmeli: gösterilen formülle geri çevirmek doğru terstir ve son basamaktaki küçük yuvarlama normaldir. Hangi galonu, bardağı ya da tonu seçmeliyim? Kaynağınızın kullandığını: Amerikan tarifleri ve benzinlikleri US, Britanyalılar UK demektir; bu sayfa ikisini de etiketler. Acre'den metrekareye gibi büyük sayılara güvenebilir miyim? Faktörler tanımsaldır, günlük kullanımda evet; hukuki bir sınır ya da inşaat toleransı için o yine profesyonel alandır. Her dönüştürücüyü güvenilir yapan alışkanlıkla kapatın: formül satırına bir kez bakın, yanıtın büyüklüğünü bildiğiniz bir şeyle tartın (bir litre kabaca bir quart, bir kilo kabaca iki pound) ve aritmetiği araca, yargıyı kendinize bırakın."]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "conversor-de-unidades-guia",
@@ -19676,7 +19680,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. O que um conversor de unidades realmente faz", "Um conversor de unidades pega um número medido numa unidade e o diz de novo noutra unidade do mesmo tipo. Cinco quilômetros viram cerca de 3,11 milhas. Setenta quilos viram cerca de 154 libras. A estrada continua a mesma estrada e a pessoa a mesma pessoa; só muda a língua da medida. Parece bobagem até lembrar quantas vezes essa língua muda para você: a receita de outro país pesa a farinha em gramas enquanto sua balança pensa em onças, o app do tempo fala em Fahrenheit enquanto sua cabeça conta em Celsius, o disco rígido se anuncia em gigabytes enquanto o celular conta calado em gibibytes. Cada um desses momentos é um probleminha de tradução, e o conversor é o dicionário. Esta página é esse dicionário com calculadora: dez categorias do dia a dia, fatores reais, a fórmula impressa junto de cada resposta e uma ausência deliberada — a moeda — explicada honestamente abaixo.", "2. As dez categorias, e por que justo essas", "Comprimento, peso e massa, temperatura, volume, área, velocidade, tempo, dados, pressão e energia: essa é a lista inteira, e a lista é a ideia. São as categorias que a vida normal realmente usa. Comprimento é escola, bricolagem e distâncias de viagem. Peso são pessoas, encomendas e compras. Temperatura é o tempo e o forno. Volume é cozinha e combustível. Área são quartos, terrenos e azulejos. Velocidade é a placa na beira da estrada num país que conta diferente do seu. Tempo são receitas, aluguéis e planos de estudo. Dados são aquele arquivo que não cabe. Pressão são pneus e mapas do tempo. Energia são os rótulos dos alimentos e a conta de luz. A moeda falta de propósito, porque dinheiro não é medida: é um preço que se move todo dia, e convertê-lo sem taxas ao vivo seria inventar o número. Os cantos só de engenharia também faltam. Uma ferramenta centrada nas dez do dia a dia vale mais que um labirinto de duzentos links onde o trabalho simples se perde.", "3. Como usar: valor, de, para, resposta", "O trabalho todo leva segundos. Primeiro escolha a categoria, porque um conversor nunca deveria deixar você transformar quilos em quilômetros por engano: as listas só mostram unidades que combinam. Depois digite o valor, escolha de qual unidade parte e para qual quer chegar, e o resultado aparece na hora enquanto você digita. Embaixo vai a fórmula usada, em forma simples: 1 km = 1000 m, ou °F = °C × 9/5 + 32 para a temperatura, que não tem um fator único e segue as próprias regras. O botão de troca inverte a direção e leva o resultado para a entrada, para encadear conversões ou conferir o caminho de volta. Se uma categoria tiver mais unidades do que você quer percorrer, a busca filtra as listas pelo nome. Uma fileira de predefinições populares — 5 km para milhas, 70 kg para libras, 250 mL para xícaras, 100 km/h para mph — carrega com um toque as conversões de escola, cozinha e viagem, porque quase todos convertemos as mesmas quatro ou cinco coisas repetidamente.", "4. De onde vêm os fatores e as definições famosas", "Um conversor vale o que valem seus fatores, então aqui estão eles à vista. A polegada é definida como exatamente 2,54 centímetros. A libra, como exatamente 0,45359237 quilos. O galão americano é exatamente 3,785411784 litros, enquanto o britânico é outro, maior: 4,54609 litros. É por isso que a página os rotula US e UK, em vez de fingir que um galão vale o mesmo em todo lugar. O nó é uma milha náutica (1.852 metros) por hora. A caloria termoquímica vale 4,184 joules. A temperatura não é um fator, mas um deslocamento com esticada: de Celsius para Fahrenheit multiplica-se por 9/5 e somam-se 32, e o kelvin mora 273,15 acima do Celsius. Nos dados, os dois sistemas honestos convivem: o kilobyte decimal de 1.000 bytes que os fabricantes anunciam e o kibibyte binário de 1.024 bytes que o sistema operacional usa calado — é por isso que um disco de 500 GB parece encolher no dia em que você o liga. O ano da categoria tempo é o ano juliano de 365,25 dias, dito abertamente. Os resultados são arredondados para algarismos significativos sensatos: dígitos suficientes para servir, nunca a falsa autoridade de quinze casas decimais.", "5. Exemplos resolvidos da vida real", "Seu limite de bagagem é 23 quilos e a balança do banheiro marca 51 libras. Converta: 51 × 0,45359237 dá cerca de 23,1 kg, ou seja, você está exatamente na linha e os sapatos pesados vão melhor nos pés do que na mala. Uma receita pede 350 °F e o botão do seu forno vai em Celsius: (350 − 32) × 5/9 são cerca de 177 °C, aquele território familiar do forno médio. Dirigindo fora, a placa diz 90 e o painel conta em milhas: 90 km/h são cerca de 56 mph, não os 90 que seu instinto quer ver. E 250 mL de leite são quase exatamente uma xícara americana, razão pela qual essa predefinição mora no topo da lista de volume. Cada exemplo custou um toque aqui, e cada um mostra sua fórmula, para que, quando um número surpreender, você veja por que ele é o que é em vez de confiar numa caixa-preta.", "6. Limites honestos: o que esta ferramenta não fará", "Três limites estão escritos na própria ferramenta, não enterrados. Primeiro, nada de moeda: as taxas de câmbio se movem todo dia, e um conversor que as adivinhasse estaria inventando números com cara séria. Para dinheiro, o banco ou um serviço com taxas ao vivo. Segundo, exatidão do dia a dia não é exatidão profissional. Estes resultados servem para lição de casa, cozinha, viagens e compras, mas dosagem médica, aprovação de engenharia, aviação, tolerâncias de obra ou qualquer coisa crítica de segurança merece verificação profissional com os instrumentos certos — uma página web nunca deve ser a última palavra ali, e esta se recusa a fingir o contrário. Terceiro, algumas unidades são genuinamente ambíguas no mundo: a xícara muda entre Estados Unidos, Reino Unido e Japão; a tonelada pode ser métrica, americana ou britânica; a onça pesa e também mede volume, em dois tamanhos. A página rotula a variante exata que usa — xícara US, galão US, galão UK — para você combiná-la com sua receita, rótulo ou manual, em vez de converter corajosamente para a resposta errada.", "7. Respostas rápidas e um hábito para fechar", "As perguntas de todo mundo, num só fôlego. É grátis e algo é enviado? Grátis, sem cadastro, e não: cada cálculo acontece na guia do seu navegador, e fechá-la faz esquecer tudo. Por que meu resultado mudou quando inverti a direção? Porque deve: converter de volta com a fórmula mostrada é o inverso correto, e um pequeno arredondamento no último dígito é normal. Qual galão, xícara ou tonelada escolho? A que sua fonte usa: receitas e bombas americanas, US; britânicas, UK; e esta página rotula os dois. Posso confiar nos números grandes, como acres para metros quadrados? Os fatores são definicionais, então sim para o uso diário; para um limite legal de terreno ou uma tolerância de obra, isso volta a ser território profissional. Feche com o hábito que torna qualquer conversor confiável: olhe a linha da fórmula uma vez, confira o tamanho da resposta contra algo conhecido (um litro é mais ou menos um quart, um quilo é mais ou menos duas libras) e deixe a ferramenta carregar a aritmética enquanto você carrega o julgamento."]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "unit-converter-guide-ja",
@@ -19689,7 +19693,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. 単位変換ツールが本当にしていること", "単位変換ツールは、ある単位で測られた数値を、同じ種類の別の単位で言い直します。5キロメートルは約3.11マイルに、70キログラムは約154ポンドになります。道そのものが変わるわけでも、人が変わるわけでもありません。変わるのは測定の「言語」だけです。些細に聞こえますが、その言語は日常で何度も切り替わります。外国のレシピは小麦粉をグラムで量り、手元の秤はオンスで考え、天気が華氏で流れ、頭は摂氏で数え、ハードディスクはギガバイトをうたい、スマートフォンは静かにギビバイトで数えます。その一つひとつが小さな翻訳の問題であり、変換ツールはその辞書です。このページは計算機の付いた辞書として、日常の10カテゴリ、本物の換算係数、すべての答えに添える計算式、そして意図的な欠如である通貨変換について、下で正直に説明します。", "2. 10のカテゴリと、その顔ぶれの理由", "長さ、重さと質量、温度、体積、面積、速さ、時間、データ容量、圧力、エネルギー。これが全リストであり、リストそのものが狙いです。ふだんの生活が本当に使うカテゴリが並びます。長さは学校、工作、旅行の距離。重さは人、荷物、買い物。温度は天気とオーブン。体積は料理と燃料。面積は部屋、土地、タイル。速さは数え方の違う国での道路標識。時間はレシピ、賃貸、学習計画。データ容量は入りきらないファイル。圧力はタイヤと天気図。エネルギーは食品表示と電気料金です。通貨は意図的に外しています。お金は測定ではなく、日々動く価格であり、リアルタイムレートなしの換算は数値をでっち上げることになるためです。工学専用の隅も外しました。日常の10カテゴリをきちんとこなす道具は、単純な用事が埋もれる200リンクの迷路より価値があります。", "3. 使い方：値、変換元、変換先、答え", "作業は数秒で終わります。まずカテゴリを選んでください。変換ツールがキログラムをキロメートルに化けさせるようなことは決してさせるべきではなく、一覧には釣り合う単位しか出ません。次に値を入力し、変換元と変換先を選ぶと、入力しながら結果が即座に現れます。その下には使った計算式が簡潔に書かれます。1 km = 1000 m、あるいは単一の係数を持たず独自の規則に従う温度についての °F = °C × 9/5 + 32 のように。入れ替えボタンは向きを反転し、結果を入力欄へ運ぶため、換算をつなげたり、逆向きを確認したりできます。カテゴリの単位が多すぎてスクロールしたくない場合は、検索欄で名前により一覧を絞れます。人気のプリセット列（5 km→マイル、70 kg→ポンド、250 mL→カップ、100 km/h→mph）が学校・料理・旅行の換算をワンタップで読み込みます。ほとんどの人が同じ4〜5種の換算を繰り返すからです。", "4. 係数の出典と、有名な定義", "変換ツールは係数の正直さで決まります。ここに公開します。インチは正確に2.54センチメートルと定義されます。ポンドは正確に0.45359237キログラムです。米ガロンは正確に3.785411784リットルであり、英ガロンは別のより大きい4.54609リットルです。だからこのページはUSとUKのラベルを付け、ガロンがどこでも同じだとは装いません。ノットは1海里（1,852メートル）毎時です。熱化学カロリーは4.184ジュール。温度は係数ではなく、引き伸ばしを伴う平行移動です。摂氏から華氏へは9/5倍して32を足し、ケルビンは摂氏の273.15上にあります。データ容量では、メーカーがうたう1,000バイトの10進キロバイトと、OSが静かに使う1,024バイトの2進キビバイトという、両方の正直な体系を並べます。500 GBのドライブが接続した日に小さく見える理由がこれです。時間カテゴリの1年は365.25日のユリウス年であり、明記します。結果は常識的な有効数字に丸めます。役立つ桁は十分に、15桁の小数による偽の権威は決して示しません。", "5. 実生活の計算例", "荷物の上限は23キログラムで、浴室の体重計は51ポンドを示します。51 × 0.45359237 で約23.1 kgとなり、ちょうど線の上です。重い靴はスーツケースでなく足に履いていくのがよいでしょう。ケーキのレシピは350 °Fを求め、オーブンのダイヤルは摂氏です。(350 − 32) × 5/9 で約177 °C、なじみの中火の領域です。海外で運転し、標識は90、メーターはマイルで数えます。90 km/hは約56 mphであり、感覚が見たがる90ではありません。そして牛乳250 mLはほぼ正確に米カップ1杯であり、そのプリセットが体積リストの上位に住む理由です。どの例もここではワンタップで済み、すべて計算式を示します。数値に驚いたとき、ブラックボックスを信じるのでなく理由が見えるためです。", "6. 正直な限界：このツールがしないこと", "三つの限界は、埋もれさせずツール自体に書いてあります。第一に、通貨変換はありません。為替レートは毎日動き、それを推測する変換ツールは真顔で数値をでっち上げることになるためです。お金は銀行かライブレートのサービスで。第二に、日常の正確さは専門的な正確さではありません。結果は宿題、料理、旅行、買い物には正しいものですが、医療の用量、工学の承認、航空、建築公差など安全に関わる用途では、適切な計器による専門家の確認が必要です。ウェブページがそこで最後の言葉になってはならず、このページはそう装うことを拒みます。第三に、現実には本当に曖昧な単位があります。カップは米国、英国、日本で異なり、トンはメートル法、米国式、英国式があり得て、オンスは重さを量ると同時に二つの大きさで体積も量ります。このページは使う正確な変種（USカップ、USガロン、UKガロン）にラベルを付けます。勇敢に誤った答えへ変換するのでなく、レシピ、表示、マニュアルと照合できるためです。", "7. よくある質問と、締めの習慣", "誰もが尋ねる質問を一息に。無料ですか、何か送信されますか。無料、登録不要、そして送信はされません。すべての計算はブラウザのタブ内で行われ、閉じればすべて忘れ去られます。向きを入れ替えると結果が変わるのはなぜですか。変わるべきだからです。示された計算式で逆変換することが正しい逆操作であり、末尾の桁の小さな丸めは通常です。どのガロン、カップ、トンを選ぶべきですか。出典が使うもの：米国のレシピとガソリンスタンドならUS、英国のものならUKであり、このページは両方にラベルを付けます。エーカーから平方メートルのような大きな数値は信頼できますか。係数は定義に基づくため、日常用途では信頼できます。法的な土地の境界や建築公差については、再び専門家の領域です。あらゆる変換ツールを信頼できるものにする習慣で締めましょう。計算式の行を一度眺め、答えの大きさを知っている何かと比べ（1リットルはおよそ1クォート、1キログラムはおよそ2ポンド）、計算はツールに、判断は自分に担わせることです。"]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "convertitore-unita-guida",
@@ -19702,7 +19706,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. Cosa fa davvero un convertitore di unità", "Un convertitore di unità prende un numero misurato in un'unità e lo ridice in un'altra unità dello stesso tipo. Cinque chilometri diventano circa 3,11 miglia. Settanta chili diventano circa 154 libbre. La strada resta la stessa strada e la persona la stessa persona; cambia solo la lingua della misura. Sembra una sciocchezza finché non ricordi quante volte quella lingua cambia a te: la ricetta di un altro paese pesa la farina in grammi mentre la tua bilancia pensa in once, l'app del meteo parla in Fahrenheit mentre la tua testa conta in Celsius, il disco rigido si annuncia in gigabyte mentre il telefono conta in silenzio in gibibyte. Ognuno di quei momenti è un piccolo problema di traduzione, e il convertitore è il dizionario. Questa pagina è quel dizionario con la calcolatrice: dieci categorie quotidiane, fattori veri, la formula stampata accanto a ogni risposta e un'assenza deliberata — la valuta — spiegata onestamente più sotto.", "2. Le dieci categorie, e perché proprio queste", "Lunghezza, peso e massa, temperatura, volume, superficie, velocità, tempo, dati, pressione ed energia: ecco tutta la lista, e la lista è l'idea. Sono le categorie che la vita normale usa davvero. La lunghezza è la scuola, il fai da te e le distanze di viaggio. Il peso sono le persone, i pacchi e la spesa. La temperatura è il meteo e il forno. Il volume è la cucina e il carburante. La superficie sono le stanze, i terreni e le piastrelle. La velocità è il cartello sul ciglio della strada in un paese che conta in modo diverso dal tuo. Il tempo sono le ricette, gli affitti e i piani di studio. I dati sono quel file che non ci sta. La pressione sono gli pneumatici e le carte del meteo. L'energia sono le etichette degli alimenti e la bolletta della luce. La valuta manca di proposito, perché il denaro non è una misura: è un prezzo che si muove ogni giorno, e convertirlo senza tassi in tempo reale significherebbe inventare il numero. Mancano anche gli angoli da soli ingegneri. Uno strumento centrato sulle dieci categorie quotidiane vale più di un labirinto di duecento collegamenti dove il lavoro semplice si perde.", "3. Come si usa: valore, partenza, arrivo, risposta", "Tutto il lavoro dura pochi secondi. Prima scegli la categoria, perché un convertitore non dovrebbe mai lasciarti trasformare chili in chilometri per errore: gli elenchi mostrano solo unità che stanno insieme. Poi digiti il valore, scegli l'unità di partenza e quella di arrivo, e il risultato appare all'istante mentre scrivi. Sotto va la formula usata, in forma semplice: 1 km = 1000 m, oppure °F = °C × 9/5 + 32 per la temperatura, che non ha un fattore unico e segue le sue regole. Il pulsante di scambio inverte la direzione e porta il risultato nel campo, per incatenare conversioni o controllare il ritorno. Se una categoria ha più unità di quante tu voglia scorrere, la ricerca filtra gli elenchi per nome. Una riga di preimpostazioni popolari — 5 km in miglia, 70 kg in libbre, 250 mL in tazze, 100 km/h in mph — carica con un tocco le conversioni di scuola, cucina e viaggio, perché quasi tutti convertiamo le stesse quattro o cinque cose, di continuo.", "4. Da dove vengono i fattori e le definizioni famose", "Un convertitore vale quanto valgono i suoi fattori, quindi eccoli alla luce. Il pollice è definito come esattamente 2,54 centimetri. La libbra come esattamente 0,45359237 chilogrammi. Il gallone americano è esattamente 3,785411784 litri, mentre quello britannico è un altro, più grande: 4,54609 litri. Ecco perché la pagina li etichetta US e UK invece di fingere che un gallone valga uguale ovunque. Il nodo è un miglio nautico (1.852 metri) all'ora. La caloria termochimica vale 4,184 joule. La temperatura non è un fattore ma uno spostamento con stiramento: da Celsius a Fahrenheit si moltiplica per 9/5 e si aggiungono 32, e il kelvin vive 273,15 sopra il Celsius. Per i dati convivono i due sistemi onesti: il kilobyte decimale da 1.000 byte annunciato dai produttori e il kibibyte binario da 1.024 byte che il tuo sistema operativo usa in silenzio — ed è per questo che un disco da 500 GB sembra restringersi il giorno in cui lo colleghi. L'anno della categoria tempo è l'anno giuliano di 365,25 giorni, detto apertamente. I risultati sono arrotondati a cifre significative sensate: cifre bastanti per servire, mai la falsa autorità di quindici decimali.", "5. Esempi risolti della vita vera", "Il tuo limite bagagli è 23 chili e la bilancia del bagno segna 51 libbre. Converti: 51 × 0,45359237 fa circa 23,1 kg, quindi sei esattamente sulla linea e le scarpe pesanti stanno meglio ai piedi che in valigia. Una ricetta chiede 350 °F e la manopola del tuo forno va in Celsius: (350 − 32) × 5/9 sono circa 177 °C, il familiare territorio del forno medio. Guidando all'estero, il cartello dice 90 e il cruscotto ragiona in miglia: 90 km/h sono circa 56 mph, non i 90 che il tuo istinto vorrebbe vedere. E 250 mL di latte sono quasi esattamente una tazza americana, motivo per cui quella preimpostazione vive in cima alla lista dei volumi. Ogni esempio è costato un tocco qui, e ognuno mostra la sua formula, così quando un numero sorprende vedi perché è quello che è invece di fidarti di una scatola nera.", "6. Limiti onesti: cosa questo strumento non farà", "Tre limiti sono scritti nello strumento stesso, non sepolti. Primo, niente valuta: i tassi di cambio si muovono ogni giorno, e un convertitore che li indovinasse inventerebbe numeri con la faccia seria. Per il denaro, la banca o un servizio con tassi in tempo reale. Secondo, l'esattezza quotidiana non è esattezza professionale. Questi risultati vanno bene per i compiti, la cucina, i viaggi e la spesa, ma un dosaggio medico, un'approvazione ingegneristica, l'aviazione, le tolleranze di cantiere o qualsiasi cosa critica per la sicurezza meritano una verifica professionale con gli strumenti giusti; una pagina web non deve mai essere l'ultima parola lì, e questa si rifiuta di fingere il contrario. Terzo, alcune unità sono davvero ambigue nel mondo: la tazza cambia tra Stati Uniti, Regno Unito e Giappone; la tonnellata può essere metrica, americana o britannica; l'oncia pesa e misura anche volumi, in due misure. La pagina etichetta la variante esatta che usa — tazza US, gallone US, gallone UK — perché tu la abbini alla tua ricetta, etichetta o manuale invece di convertire coraggiosamente verso la risposta sbagliata.", "7. Risposte rapide e un'abitudine per chiudere", "Le domande di tutti, in un fiato solo. È gratis e qualcosa viene caricato? Gratis, senza registrazione, e no: ogni calcolo avviene nella scheda del tuo browser, e chiuderla fa dimenticare tutto. Perché il mio risultato è cambiato quando ho invertito la direzione? Perché deve: riconvertire con la formula mostrata è l'inverso corretto, e un piccolo arrotondamento all'ultima cifra è normale. Quale gallone, tazza o tonnellata scelgo? Quella che usa la tua fonte: ricette e pompe americane, US; britanniche, UK; e questa pagina le etichetta entrambe. Posso fidarmi dei numeri grandi, come gli acri in metri quadrati? I fattori sono definizionali, quindi sì per l'uso quotidiano; per un confine legale o una tolleranza di cantiere, quello torna a essere territorio professionale. Chiudi con l'abitudine che rende affidabile qualsiasi convertitore: guarda una volta la riga della formula, confronta la grandezza della risposta con qualcosa che conosci (un litro è più o meno un quarto, un chilo più o meno due libbre) e lascia che lo strumento porti l'aritmetica mentre tu porti il giudizio."]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "eenheden-omrekenen-gids",
@@ -19715,7 +19719,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. Wat een eenhedenomrekener echt doet", "Een eenhedenomrekener neemt een getal dat in de ene eenheid is gemeten en zegt het opnieuw in een andere eenheid van dezelfde soort. Vijf kilometer wordt ongeveer 3,11 mijl. Zeventig kilogram wordt ongeveer 154 pond. De weg blijft dezelfde weg en de mens dezelfde mens — alleen de taal van de meting verandert. Dat klinkt als een kleinigheid totdat je je herinnert hoe vaak die taal voor jou verandert: een recept uit een ander land weegt meel in grammen terwijl je weegschaal in ons denkt, een weerapp meldt Fahrenheit terwijl je hoofd in Celsius telt, een harde schijf adverteert met gigabytes terwijl je telefoon stil in gibibytes rekent. Elk van die momenten is een klein vertaalprobleem, en de omrekener is het woordenboek. Deze pagina is dat woordenboek met een rekenmachine: tien alledaagse categorieën, echte omrekenfactoren, de formule bij elk antwoord afgedrukt en één bewuste afwezigheid — valuta — die hieronder eerlijk wordt uitgelegd.", "2. De tien categorieën, en waarom juist deze", "Lengte, gewicht en massa, temperatuur, volume, oppervlakte, snelheid, tijd, gegevens, druk en energie: dat is de hele lijst, en de lijst is het punt. Het zijn de categorieën die het normale leven echt gebruikt. Lengte is school, doe-het-zelf en reisafstanden. Gewicht zijn mensen, pakketten en boodschappen. Temperatuur is het weer en de oven. Volume is koken en brandstof. Oppervlakte zijn kamers, percelen en tegels. Snelheid is het bord langs de weg in een land dat anders telt dan het uwe. Tijd zijn recepten, huren en studieplannen. Gegevens zijn dat bestand dat niet past. Druk zijn banden en weerkaarten. Energie zijn voedseletiketten en de elektriciteitsrekening. Valuta ontbreekt bewust, want geld is geen meting — het is een prijs die elke dag beweegt, en het zonder actuele koersen omrekenen zou een getal verzinnen zijn. Ook de zuivere ingenieurshoeken ontbreken. Een hulpmiddel dat de tien alledaagse categorieën goed doet, verslaat een doolhof van tweehonderd links waarin het eenvoudige werk verloren gaat.", "3. Zo werkt het: waarde, van, naar, antwoord", "Het hele werk duurt seconden. Kies eerst de categorie, want een omrekener mag u nooit per ongeluk kilogrammen in kilometers laten veranderen — de lijsten tonen alleen eenheden die bij elkaar horen. Typ dan uw waarde, kies de eenheid vanwaar u rekent en waarheen, en het resultaat verschijnt meteen terwijl u typt. Daaronder staat de gebruikte formule in eenvoudige vorm: 1 km = 1000 m, of °F = °C × 9/5 + 32 voor temperatuur, die geen enkele factor heeft en haar eigen regels volgt. De omwisselknop keert de richting om en neemt het resultaat mee naar de invoer, zodat u omrekeningen kunt ketenen of de terugweg kunt controleren. Heeft een categorie meer eenheden dan u wilt doorbladeren, dan filtert het zoekveld de lijsten op naam. Een rij populaire presets — 5 km naar mijl, 70 kg naar pond, 250 mL naar kopjes, 100 km/h naar mph — laadt met één tik de gebruikelijke omrekeningen voor school, koken en reizen, omdat de meesten van ons dezelfde vier, vijf dingen telkens opnieuw omrekenen.", "4. Waar de factoren vandaan komen en de beroemde definities", "Een omrekener is slechts zo eerlijk als zijn factoren, dus staan ze hier open en bloot. De inch is gedefinieerd als exact 2,54 centimeter. Het pond als exact 0,45359237 kilogram. De Amerikaanse gallon is exact 3,785411784 liter, terwijl de Britse gallon een andere, grotere is: 4,54609 liter. Daarom labelt de pagina ze als US en UK, in plaats van te doen alsof een gallon overal hetzelfde is. Een knoop is één zeemijl (1.852 meter) per uur. De thermochemische calorie is 4,184 joule. Temperatuur is helemaal geen factor, maar een verschuiving met uitrekking: Celsius naar Fahrenheit vermenigvuldigt met 9/5 en telt er 32 bij, en kelvin zit 273,15 boven Celsius. Bij gegevens staan beide eerlijke systemen naast elkaar: de decimale kilobyte van 1.000 bytes waarmee fabrikanten adverteren, en de binaire kibibyte van 1.024 bytes die uw besturingssysteem stil gebruikt — de reden dat een 500 GB-schijf op de aansluitdag kleiner lijkt. Een jaar in de tijdcategorie is het Juliaanse jaar van 365,25 dagen, openlijk gezegd. Resultaten worden afgerond op verstandige significante cijfers: genoeg cijfers om te gebruiken, nooit de valse autoriteit van vijftien decimalen.", "5. Doorgerekende voorbeelden uit het echte leven", "Uw bagagelimiet is 23 kilogram en de badkamerweegschaal zegt 51 pond. Reken om: 51 × 0,45359237 geeft ongeveer 23,1 kg — u staat precies op de lijn, en de zware schoenen horen eerder aan uw voeten dan in de koffer. Een cakerecept vraagt 350 °F en uw oven telt in Celsius: (350 − 32) × 5/9 is ongeveer 177 °C, het vertrouwde gebied van de matige oven. In het buitenland staat op het bord 90 en uw dashboard denkt in mijlen: 90 km/h is ongeveer 56 mph, niet de 90 die uw gevoel wil zien. En 250 mL melk is bijna exact één Amerikaanse kop, waarom die preset boven aan de volumelijst staat. Elk van deze voorbeelden kostte hier één tik, en elk toont zijn formule, zodat u bij een verrassend getal ziet waarom het is wat het is, in plaats van een zwarte doos te vertrouwen.", "6. Eerlijke grenzen: wat dit hulpmiddel niet doet", "Drie grenzen staan in het hulpmiddel zelf, niet begraven. Ten eerste: geen valuta. Wisselkoersen bewegen elke dag, en een omrekener die ze raadt, zou met een ernstig gezicht getallen verzinnen. Neem voor geld uw bank of een dienst met actuele koersen. Ten tweede: alledaagse nauwkeurigheid is geen beroepsnauwkeurigheid. Deze resultaten kloppen voor huiswerk, koken, reizen en winkelen, maar medische dosering, technische goedkeuring, luchtvaart, bouwtoleranties en al het andere veiligheidskritische verdient vakcontrole met geschikte instrumenten — een webpagina mag daar nooit het laatste woord zijn, en deze hier weigert het tegendeel voor te wenden. Ten derde: sommige eenheden zijn buiten echt dubbelzinnig. Een kop verschilt tussen de VS, het VK en Japan; een ton kan metrisch, Amerikaans of Brits zijn; oncen wegen dingen en meten ook volume, in twee maten. De pagina labelt de exacte variant die zij gebruikt — US-kop, US-gallon, UK-gallon — zodat u haar aan uw recept, etiket of handleiding kunt passen, in plaats van moedig naar het verkeerde antwoord om te rekenen.", "7. Snelle antwoorden en een slotgewoonte", "De vragen die iedereen stelt, in één adem. Is het gratis en wordt er iets geüpload? Gratis, zonder registratie, en nee: elke berekening gebeurt in uw browsertabblad, en bij het sluiten is alles vergeten. Waarom veranderde mijn resultaat toen ik de richting omkeerde? Omdat het hoort: terugrekenen met de getoonde formule is de correcte omkering, en een kleine afronding op het laatste cijfer is normaal. Welke gallon, kop of ton moet ik kiezen? Die welke uw bron gebruikt — Amerikaanse recepten en tankstations bedoelen US, Britse UK, en deze pagina labelt beide. Kan ik de grote getallen vertrouwen, zoals acres naar vierkante meters? De factoren zijn per definitie vastgelegd, dus ja voor alledaags gebruik; voor een wettelijke grens of een bouwtolerantie is dat weer beroepsgrond. Sluit af met de gewoonte die elke omrekener betrouwbaar maakt: kijk één keer naar de formuleregel, toets de grootte van het antwoord aan iets bekends (een liter is ongeveer een quart, een kilogram ongeveer twee pond), en laat het hulpmiddel de rekenarij dragen terwijl u het oordeel draagt."]
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "date": "October 2026",
     "id": "enhetsomregner-guide",
@@ -19728,7 +19732,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "content": ["1. Hva en enhetsomregner egentlig gjør", "En enhetsomregner tar et tall målt i én enhet og sier det på nytt i en annen enhet av samme slag. Fem kilometer blir omtrent 3,11 mil (miles). Sytti kilo blir omtrent 154 pund. Veien er den samme veien og personen den samme personen — bare målingens språk skifter. Det høres ubetydelig ut helt til du husker hvor ofte det språket skifter for deg: en oppskrift fra et annet land veier mel i gram mens vekten din tenker i unser, en værapp melder Fahrenheit mens hodet ditt teller i Celsius, en harddisk reklameres i gigabyte mens telefonen stille teller i gibibyte. Hvert av disse øyeblikkene er et lite oversettelsesproblem, og omregneren er ordboken. Denne siden er den ordboken med kalkulator: ti hverdagskategorier, ekte omregningsfaktorer, formelen trykt ved hvert svar, og ett bevisst fravær — valuta — forklart ærlig nedenfor.", "2. De ti kategoriene, og hvorfor nettopp disse", "Lengde, vekt og masse, temperatur, volum, areal, fart, tid, datalagring, trykk og energi: Det er hele listen, og listen er poenget. Det er kategoriene vanlig liv faktisk bruker. Lengde er skole, hobbyarbeid og reiseavstander. Vekt er mennesker, pakker og handling. Temperatur er vær og ovn. Volum er matlaging og drivstoff. Areal er rom, tomter og fliser. Fart er skiltet i veikanten i et land som teller annerledes enn ditt. Tid er oppskrifter, leieforhold og studiemål. Data er den filen som ikke får plass. Trykk er dekk og værkart. Energi er matetiketter og strømregninger. Valuta mangler med vilje, for penger er ikke en måling — det er en pris som beveger seg hver dag, og å regne det om uten ferske kurser ville være å finne opp tallet. De rene ingeniørhjørnene mangler også. Et verktøy som gjør de ti hverdagskategoriene godt, slår en labyrint av to hundre lenker der den enkle jobben blir borte.", "3. Slik bruker du den: verdi, fra, til, svar", "Hele jobben tar sekunder. Velg først kategorien, for en omregner skal aldri la deg forvandle kilo til kilometer ved et uhell — listene viser bare enheter som hører sammen. Skriv så inn verdien, velg enheten du regner fra og enheten du regner til, og resultatet dukker opp med en gang mens du skriver. Under står formelen som er brukt, i enkel form: 1 km = 1000 m, eller °F = °C × 9/5 + 32 for temperatur, som ikke har én enkelt faktor og følger sine egne regler. Bytteknappen snur retningen og tar resultatet med inn i inntastingen, så du kan lenke omregninger eller kontrollere tilbakeveien. Har en kategori flere enheter enn du vil bla gjennom, filtrerer søkefeltet listene på navn. En rad med populære forvalg — 5 km til mil, 70 kg til pund, 250 mL til kopper, 100 km/h til mph — laster de vanlige omregningene for skole, matlaging og reise med ett trykk, fordi de fleste av oss regner om de samme fire–fem tingene igjen og igjen.", "4. Hvor faktorene kommer fra og de berømte definisjonene", "En omregner er bare så ærlig som faktorene sine, så her står de åpent. Tommen er definert som nøyaktig 2,54 centimeter. Pundet som nøyaktig 0,45359237 kilogram. Den amerikanske gallonen er nøyaktig 3,785411784 liter, mens den britiske gallonen er en annen, større: 4,54609 liter. Derfor merker siden dem US og UK i stedet for å late som om en gallon er lik overalt. En knop er en nautisk mil (1 852 meter) i timen. Den termokjemiske kalorien er 4,184 joule. Temperatur er ingen faktor i det hele tatt, men en forskyvning med strekk: Celsius til Fahrenheit ganger med 9/5 og legger til 32, og kelvin sitter 273,15 over Celsius. For data står begge de ærlige systemene side om side: den desimale kilobyten på 1 000 byte som produsentene reklamerer med, og den binære kibibyten på 1 024 byte som operativsystemet ditt stille bruker — grunnen til at en 500 GB-disk ser mindre ut den dagen du kobler den til. Et år i tidskategorien er det julianske året på 365,25 dager, sagt åpent. Resultatene avrundes til fornuftige signifikante siffer: nok siffer til å være nyttig, aldri den falske autoriteten til femten desimaler.", "5. Gjennomregnede eksempler fra virkeligheten", "Bagasjegrensen din er 23 kilo, og baderomsvekten viser 51 pund. Regn om: 51 × 0,45359237 gir omtrent 23,1 kg — du står nøyaktig på streken, og de tunge skoene hører heller hjemme på føttene enn i kofferten. En kakeoppskrift krever 350 °F, og ovnen din teller i Celsius: (350 − 32) × 5/9 er omtrent 177 °C, det kjente området for middels varme. I utlandet står det 90 på skiltet, og dashboardet tenker i mil: 90 km/h er omtrent 56 mph, ikke de 90 instinktet ditt vil se. Og 250 mL melk er nesten nøyaktig én amerikansk kopp, derfor bor det forvalget øverst på volumlisten. Hvert av disse eksemplene kostet ett trykk her, og hvert viser formelen sin, så når et tall overrasker, ser du hvorfor det er som det er i stedet for å stole på en svart boks.", "6. Ærlige grenser: hva dette verktøyet ikke gjør", "Tre grenser står i selve verktøyet, ikke begravd. For det første: ingen valuta. Valutakurser beveger seg hver dag, og en omregner som gjettet dem, ville funnet opp tall med alvorlig mine. Bruk banken din eller en tjeneste med ferske kurser til penger. For det andre: hverdagsnøyaktighet er ikke faglig nøyaktighet. Disse resultatene stemmer for lekser, matlaging, reise og handling, men medisinsk dosering, ingeniørgodkjenning, luftfart, byggtoleranser og alt annet sikkerhetskritisk fortjener faglig kontroll med egnede instrumenter — en nettside skal aldri være siste ord der, og denne nekter å late som noe annet. For det tredje: noen enheter er virkelig flertydige ute i verden. En kopp skiller seg mellom USA, Storbritannia og Japan; et tonn kan være metrisk, amerikansk eller britisk; unser veier ting og måler også volum, i to størrelser. Siden merker den nøyaktige varianten den bruker — US-kopp, US-gallon, UK-gallon — så du kan matche den med oppskriften, etiketten eller håndboken din i stedet for å regne modig om til feil svar.", "7. Raske svar og en avslutningsvane", "Spørsmålene alle stiller, i ett åndedrag. Er det gratis, og lastes noe opp? Gratis, uten registrering, og nei: hver beregning skjer i nettleserfanen din, og å lukke den får alt til å bli glemt. Hvorfor endret resultatet seg da jeg snudde retningen? Fordi det skal: å regne tilbake med den viste formelen er den riktige inverse operasjonen, og en liten avrunding på siste siffer er normalt. Hvilken gallon, kopp eller tonn skal jeg velge? Den kilden din bruker — amerikanske oppskrifter og bensinstasjoner mener US, britiske UK, og denne siden merker begge. Kan jeg stole på de store tallene, som acre til kvadratmeter? Faktorene er definisjonsbestemte, så ja til hverdagsbruk; for en juridisk grense eller en byggtoleranse er det faglig terreng igjen. Avslutt med vanen som gjør enhver omregner pålitelig: se på formellinjen én gang, prøv størrelsen på svaret mot noe kjent (en liter er omtrent en quart, et kilo omtrent to pund), og la verktøyet bære regningen mens du bærer dømmekraften."]
   },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. What a teleprompter actually solves",
@@ -19768,7 +19772,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online Teleprompter Guide: Reading on Camera Without Memorizing a Word"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. O que um teleprompter resolve de verdade",
@@ -19802,7 +19806,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Teleprompter online: ler na câmera sem decorar uma palavra"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Teleprompter asal mein masla hal kya karta hai, chai ki mehfil wali zuban mein samjho",
@@ -19844,7 +19848,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online Teleprompter Guide: Script Yaad Kiye Baghair Camera Par Parhna"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Welches Problem ein Teleprompter wirklich löst",
@@ -19878,7 +19882,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online Teleprompter: Auf Kamera lesen, ohne ein Wort auswendig zu lernen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Ce qu'un téléprompteur résout vraiment",
@@ -19912,7 +19916,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Téléprompteur en ligne : lire face caméra sans rien apprendre par cœur"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Teleprompter gerçekte hangi sorunu çözer",
@@ -19946,7 +19950,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online Teleprompter: Tek Kelime Ezberlemeden Kamerada Okumak"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. テレプロンプターが本当に解く問題",
@@ -19980,7 +19984,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "オンラインテレプロンプター：一語も暗記せずカメラで読む"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Hva en teleprompter faktisk løser",
@@ -20014,7 +20018,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Teleprompter på nett: Les på kamera uten å pugge et ord"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Welk probleem een teleprompter echt oplost",
@@ -20048,7 +20052,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Online teleprompter: Op camera lezen zonder een woord uit je hoofd"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Che cosa risolve davvero un teleprompter",
@@ -20082,7 +20086,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Teleprompter online: leggere in camera senza imparare nulla a memoria"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Qué resuelve de verdad un teleprompter",
@@ -20116,7 +20120,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Teleprompter online: leer en cámara sin memorizar ni una palabra"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "uuid-generator-guide",
@@ -20157,7 +20161,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "uuid-generator-urdu-guide",
@@ -20198,7 +20202,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "generador-uuid-guia",
@@ -20233,7 +20237,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "uuid-generator-anleitung",
@@ -20268,7 +20272,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "generateur-uuid-guide",
@@ -20303,7 +20307,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "uuid-olusturucu-rehberi",
@@ -20338,7 +20342,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "gerador-uuid-guia",
@@ -20373,7 +20377,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "uuid-generator-guide-ja",
@@ -20408,7 +20412,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "uuid-generator-guide-no",
@@ -20443,7 +20447,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "uuid-generator-gids",
@@ -20478,7 +20482,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ]
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "date": "October 2026",
   "id": "generatore-uuid-guida",
@@ -20514,7 +20518,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. The number that runs the internet, explained over chai",
@@ -20549,7 +20553,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Woh number jo aadhi internet chalata hai — chai ke saath samjhen",
@@ -20583,7 +20587,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. El número silencioso que ordena tus registros",
@@ -20617,7 +20621,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Die stille Zahl in jedem Log",
@@ -20651,7 +20655,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Le compteur discret de vos journaux",
@@ -20685,7 +20689,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Kayıtlarınızdaki sessiz sayı",
@@ -20719,7 +20723,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. O contador discreto dos seus registos",
@@ -20753,7 +20757,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. ログの中の静かなカウンタ",
@@ -20787,7 +20791,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Il contatore discreto dei tuoi log",
@@ -20821,7 +20825,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. De stille teller in je logs",
@@ -20855,7 +20859,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Den stille telleren i loggene dine",
@@ -20888,7 +20892,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Unix-tidsstempelomregner: sekunder, millisekunder, UTC og lokal tid uten gjetting"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Uma árvore precisa virar tabela",
@@ -20920,7 +20924,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Conversor JSON para CSV: tabelas planas sem surpresas silenciosas"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Dos formatos, dos trabajos",
@@ -20952,7 +20956,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Convertidor JSON a CSV: guía para tablas planas sin sorpresas silenciosas"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Un arbre doit devenir un tableau",
@@ -20984,7 +20988,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Convertisseur JSON en CSV : des tableaux plats sans surprises silencieuses"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Un albero deve diventare una tabella",
@@ -21016,7 +21020,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Convertitore JSON in CSV: tabelle piatte senza sorprese silenziose"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Bir ağaç tabloya dönüşmek zorunda",
@@ -21048,7 +21052,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON-CSV Dönüştürücü Rehberi: Sessiz Sürprizsiz Düz Tablolar"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Een boom moet een tabel worden",
@@ -21080,7 +21084,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON naar CSV-converter: platte tabellen zonder stille verrassingen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Et tre må bli en tabell",
@@ -21112,7 +21116,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON til CSV-omformer: flate tabeller uten stille overraskelser"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. 木を表にしなければならない理由",
@@ -21144,7 +21148,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON CSV変換ガイド：静かな驚きのない平らな表"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Why JSON and CSV keep meeting each other",
@@ -21185,7 +21189,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON to CSV Converter Guide: Flat Tables Without Silent Surprises"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. JSON aur CSV akhir milte hi kyun hain — chai ki meiz wali baat",
@@ -21226,7 +21230,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON to CSV Converter Guide: Table Bina Kisi Chhupe Surprise Ke"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Warum ein Baum eine Tabelle werden muss",
@@ -21258,7 +21262,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "JSON-zu-CSV-Konverter: flache Tabellen ohne stille Überraschungen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. What a regex tester actually does",
@@ -21299,7 +21303,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Regex Tester Guide: Read Your Matches Before Your Code Does"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Qué hace un probador de regex",
@@ -21340,7 +21344,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guía del Probador de Regex: Lee Tus Coincidencias Antes que Tu Código"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Regex tester akhir hai kya — chai ki meiz par samjhen",
@@ -21381,7 +21385,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Regex Tester Guide: Pattern Ko Code Se Pehle Parhna Seekhen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Was ein Regex-Tester wirklich tut",
@@ -21422,7 +21426,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Regex-Tester-Anleitung: Treffer lesen, bevor Ihr Code es tut"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Ce que fait un testeur de regex",
@@ -21463,7 +21467,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guide du Testeur Regex : Lisez Vos Correspondances Avant Votre Code"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Regex test aracı aslında ne yapar",
@@ -21504,7 +21508,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Regex Test Aracı Rehberi: Eşleşmeleri Kodunuzdan Önce Okuyun"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. O que um testador de regex realmente faz",
@@ -21545,7 +21549,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guia do Testador de Regex: Leia as Correspondências Antes do Seu Código"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. 正規表現テスターは何をするのか",
@@ -21586,7 +21590,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "正規表現テスターガイド：コードの前にマッチを読む"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Hva en regex-tester faktisk gjør",
@@ -21627,7 +21631,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Regex-tester-guide: Les Treffene Dine Før Koden Din Gjør Det"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Wat een regex tester werkelijk doet",
@@ -21668,7 +21672,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Regex Tester Gids: Lees Je Matches Voordat Je Code Het Doet"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Cosa fa davvero un tester regex",
@@ -21709,7 +21713,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guida al Tester Regex: Leggi le Corrispondenze Prima del Tuo Codice"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. What URL encoding actually is",
@@ -21751,7 +21755,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "URL Encoder Decoder Guide: Full Link or Single Value, Without Breaking Either"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. URL encoding hota kya hai — chai ki misaal se samajhiye",
@@ -21793,7 +21797,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "URL Encoder Decoder Guide: Poora Link Ya Ek Value — Baghair Toray"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Lo que la codificación de URL realmente es",
@@ -21835,7 +21839,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guía del Codificador de URL: Enlace Completo o Valor Suelto, Sin Romper Ninguno"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Was URL-Kodierung wirklich ist",
@@ -21876,7 +21880,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "URL-Kodierer-Anleitung: Ganzer Link oder Einzelwert, Ohne Beides zu Brechen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Ce qu'est vraiment l'encodage d'URL",
@@ -21918,7 +21922,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guide de l'Encodeur d'URL : Lien Entier ou Valeur Seule, Sans Casser Ni l'Un Ni l'Autre"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. URL kodlama aslında nedir",
@@ -21959,7 +21963,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "URL Kodlayıcı Rehberi: Tam Bağlantı ya da Tek Değer, İkisini de Bozmadan"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. O que a codificação de URL realmente é",
@@ -22001,7 +22005,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guia do Codificador de URL: Link Completo ou Valor Único, Sem Quebrar Nenhum dos Dois"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. URLエンコードとは何か",
@@ -22042,7 +22046,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "URLエンコーダーガイド：URL全体か値1つか、どちらも壊さない変換"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Hva URL-koding egentlig er",
@@ -22083,7 +22087,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "URL-koder-guide: Hel Lenke eller Enkelverdi, Uten å Ødelegge Noen av Dem"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Wat URL-codering echt is",
@@ -22124,7 +22128,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "URL-encoder Gids: Hele Link of Losse Waarde, Zonder Een van Beide te Breken"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "Developer Tools",
   "content": [
     "1. Che cos'è davvero la codifica URL",
@@ -22166,7 +22170,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guida al Codificatore URL: Link Intero o Valore Singolo, Senza Rompere Nessuno dei Due"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. The click you cannot explain",
@@ -22214,7 +22218,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "UTM Link Builder Guide: Tag Every Campaign Link So Reports Stay Honest"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Woh customer kahan se aaya tha — chai par baith kar wohi purana masla",
@@ -22260,7 +22264,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "UTM Link Builder Guide: Har Campaign Link Par Sahi Label Lagayen"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. El clic que nadie sabe explicar",
@@ -22308,7 +22312,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guía del Constructor UTM: Etiqueta Cada Enlace de Campaña y Conserva Informes Honestos"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Der Klick, den niemand erklären kann",
@@ -22356,7 +22360,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "UTM Link Builder Anleitung: Jeder Kampagnenlink richtig markieren"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Le clic que personne ne sait expliquer",
@@ -22404,7 +22408,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guide du Générateur UTM : Étiquetez Chaque Lien de Campagne, Gardez des Rapports Honnêtes"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Kimsenin açıklayamadığı tıklama",
@@ -22452,7 +22456,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "UTM Bağlantı Oluşturucu Rehberi: Her Kampanya Bağlantısını Doğru Etiketleyin"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. O clique que ninguém sabe explicar",
@@ -22500,7 +22504,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guia do Construtor UTM: Marque Cada Link de Campanha e Mantenha Relatórios Honestos"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. 誰にも説明できないクリック",
@@ -22548,7 +22552,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "UTMリンクビルダーガイド：すべてのキャンペーンリンクに正しくタグを付ける"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Il clic che nessuno sa spiegare",
@@ -22596,7 +22600,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "Guida al Generatore UTM: Etichetta Ogni Link di Campagna e Tieni i Rapporti Onesti"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. De klik die niemand kan verklaren",
@@ -22644,7 +22648,7 @@ export const BLOG_POSTS: BlogPost[] = [
   "title": "UTM-linkbouwer Gids: Tag Elke Campagnelink Zodat Rapporten Eerlijk Blijven"
 },
 {
-  "author": "HumanizeAI Editorial Team",
+  "author": "ToolVena Editorial Team",
   "category": "SEO & Content",
   "content": [
     "1. Klikket ingen kan forklare",
@@ -22693,7 +22697,7 @@ export const BLOG_POSTS: BlogPost[] = [
 }
 ,
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. The result that looked perfect until a phone cut it in half",
@@ -22732,7 +22736,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Meta Title & Description Length Checker Guide: Width, Preview and Honest Limits"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Woh dukaan jo mobile par aadhi dikhti thi",
@@ -22772,7 +22776,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Meta Title Aur Description Length Checker Guide: Lambai, Pixel Aur Imaandaar Hudood"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. La tienda que se veía bien en el portátil y mal en el móvil",
@@ -22811,7 +22815,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Guía del Comprobador Meta: Caracteres, Píxeles y Vista Previa Honesta"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Der Honig, der auf dem Laptop ganz war und auf dem Handy fehlte",
@@ -22850,7 +22854,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Meta-Titel & Beschreibung: Längen-Guide mit Pixelmaß und ehrlichen Grenzen"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Le miel complet sur l'ordinateur, coupé sur le téléphone",
@@ -22889,7 +22893,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Guide Titre & Description Meta : Caractères, Pixels et Limites Honnêtes"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Dizüstünde tam, telefonda yarım kalan bal sayfası",
@@ -22928,7 +22932,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Meta Başlık ve Açıklama Rehberi: Karakter, Piksel ve Dürüst Sınırlar"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. O mel completo no notebook e cortado no celular",
@@ -22967,7 +22971,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Guia de Título e Descrição Meta: Caracteres, Pixels e Limites Honestos"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. ノートパソコンでは完全だったのに、スマホで切れた蜂蜜のページ",
@@ -23006,7 +23010,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "メタタイトル＆説明ガイド：文字数・ピクセル・正直な限界"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Honningen som var hel på laptopen og borte på mobilen",
@@ -23045,7 +23049,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Meta Tittel og Beskrivelse: Guide til Lengde, Piksler og Ærlige Grenser"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. De honing die op de laptop compleet was en op de telefoon ontbrak",
@@ -23084,7 +23088,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "title": "Meta Titel & Beschrijving Gids: Tekens, Pixels en Eerlijke Grenzen"
   },
   {
-    "author": "HumanizeAI Editorial Team",
+    "author": "ToolVena Editorial Team",
     "category": "SEO & Content",
     "content": [
       "1. Il miele intero sul portatile e tagliato sul telefono",

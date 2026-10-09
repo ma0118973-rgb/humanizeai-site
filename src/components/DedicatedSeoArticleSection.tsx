@@ -30,7 +30,7 @@ export function DedicatedSeoArticleSection({ toolId }: DedicatedSeoArticleSectio
               {article.badge}
             </span>
             <span className="text-xs text-stone-500 font-mono break-all">
-              Canonical URL: <strong>{getSiteOrigin()}/{article.metaTags.canonicalSlug}/</strong>
+              Canonical URL: <strong>{getSiteOrigin()}/en/{article.metaTags.canonicalSlug}/</strong>
             </span>
           </div>
 
@@ -45,13 +45,13 @@ export function DedicatedSeoArticleSection({ toolId }: DedicatedSeoArticleSectio
           {/* Quick Meta Tags Inspector */}
           <div className="p-3 sm:p-3.5 bg-stone-50 rounded-2xl border border-stone-200 text-xs text-stone-600 space-y-1.5 break-words">
             <div>
-              <strong className="text-stone-800">Meta Title:</strong> {article.metaTitle}
+              <strong className="text-stone-800">Suggested Meta Title:</strong> {article.metaTitle}
             </div>
             <div>
-              <strong className="text-stone-800">Meta Description:</strong> {article.metaTags.description}
+              <strong className="text-stone-800">Suggested Meta Description:</strong> {article.metaTags.description}
             </div>
             <div className="flex items-center gap-1.5 flex-wrap pt-1">
-              <strong className="text-stone-800">Focus SEO Keywords:</strong>
+              <strong className="text-stone-800">Suggested Focus Keywords:</strong>
               {article.metaTags.focusKeywords.map((kw, i) => (
                 <span key={i} className="px-2 py-0.5 bg-stone-200/70 text-stone-800 rounded font-medium text-[11px]">
                   {kw}
@@ -61,13 +61,13 @@ export function DedicatedSeoArticleSection({ toolId }: DedicatedSeoArticleSectio
           </div>
         </div>
 
-        {/* Viral Hashtags Cloud (with 1-click copy) */}
+        {/* Suggested Hashtags (with 1-click copy) */}
         <div className="p-4 sm:p-5 bg-gradient-to-r from-emerald-50 via-stone-50 to-emerald-50 rounded-2xl border border-emerald-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-1.5">
             <div className="flex items-center gap-2">
               <Hash className="w-4 h-4 text-emerald-700" />
               <span className="text-xs font-bold uppercase tracking-wider text-emerald-900">
-                Viral SEO Hashtags:
+                Suggested Hashtags:
               </span>
             </div>
             <div className="flex items-center gap-1.5 flex-wrap">
@@ -105,7 +105,7 @@ export function DedicatedSeoArticleSection({ toolId }: DedicatedSeoArticleSectio
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-emerald-400" />
             <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400">
-              Key Strategic Takeaways
+              Key Takeaways
             </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">

@@ -339,19 +339,23 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
           <div className="flex items-center gap-2 flex-wrap">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 border border-rose-300 flex items-center gap-1.5">
               <Flame className="w-3.5 h-3.5 text-rose-400" />
-              {m.badge || "Creator Studio: Watermark Crop & Video SEO Kit"}
+              {m.badge || "Creator Media Tools"}
             </span>
             <span className="text-xs text-stone-600 font-mono">
               YouTube Shorts • TikTok • Instagram Reels • Facebook Reels
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
-            {m.title || "Crop Out Watermarks & Build Your Video SEO Kit"}
+            {m.title || "Video & Image Editing Tools"}
           </h1>
           <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-            {m.subtitle || "Crop edge watermarks out of frame with smart zoom, then generate title ideas, hooks, captions, and hashtag sets from proven templates."}
+            {m.subtitle || "Crop edge areas, adjust pacing, and generate title ideas, hooks, captions, and hashtag sets from templates."}
           </p>
         </div>
+      </div>
+
+      <div className="rounded-2xl border border-amber-300 bg-amber-50 p-4 text-xs sm:text-sm text-amber-900 leading-relaxed">
+        <strong>Use only media you own or have permission to edit.</strong> Removing a watermark, logo or provenance metadata can violate copyright, licence terms or platform rules, and must not be used to hide a work's source or ownership. Follow the disclosure rules for AI-generated or altered content on the platform where you publish.
       </div>
 
       {/* Sub-tab Navigation */}
@@ -366,7 +370,7 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
           }`}
         >
           <Flame className="w-4 h-4 text-white" />
-          <span>{m.tabSeo || "Competitor Viral SEO & Hashtag Clone"}</span>
+          <span>{m.tabSeo || "Video SEO Ideas"}</span>
           <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-white/20 text-white">
             {m.popular || "POPULAR"}
           </span>
@@ -377,12 +381,12 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
           onClick={() => setActiveSubTab("video")}
           className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0 ${
             activeSubTab === "video"
-              ? "bg-white text-white shadow-md scale-[1.01]"
+              ? "bg-stone-900 text-white shadow-md scale-[1.01]"
               : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200"
           }`}
         >
           <Video className="w-4 h-4 text-rose-500" />
-          <span>{m.tabVideo || "Video Watermark & Logo Stripper"}</span>
+          <span>{m.tabVideo || "Video Watermark & Pacing"}</span>
         </button>
 
         <button
@@ -390,19 +394,19 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
           onClick={() => setActiveSubTab("image")}
           className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0 ${
             activeSubTab === "image"
-              ? "bg-white text-white shadow-md scale-[1.01]"
+              ? "bg-stone-900 text-white shadow-md scale-[1.01]"
               : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200"
           }`}
         >
           <ImageIcon className="w-4 h-4 text-emerald-500" />
-          <span>{m.tabImage || "AI Image Watermark Stripper"}</span>
+          <span>{m.tabImage || "Image Watermark & Metadata"}</span>
         </button>
       </div>
 
-      {/* Sub-tab 1: Competitor Viral SEO Engine */}
+      {/* Sub-tab 1: Video SEO Idea Generator */}
       {activeSubTab === "seo" && <ViralSeoCompetitorEngine />}
 
-      {/* Sub-tab 2: Video Watermark & Logo Stripper */}
+      {/* Sub-tab 2: Video Watermark & Pacing Tools */}
       {activeSubTab === "video" && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Video Controls */}
@@ -728,7 +732,7 @@ export function MediaHumanizerWorkspace({ selectedLanguage = "en" }: MediaHumani
         </div>
       )}
 
-      {/* Sub-tab 3: Image Watermark Stripper */}
+      {/* Sub-tab 3: Image Watermark & Metadata Tools */}
       {activeSubTab === "image" && (
         <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-sm space-y-6">
           <div className="max-w-2xl space-y-2">
