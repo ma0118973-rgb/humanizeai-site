@@ -35,6 +35,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "loremIpsum", label: "Lorem Ipsum", icon: AlignLeft },
   { id: "daysBetween", label: "Days Between", icon: CalendarDays },
   { id: "randomNumber", label: "Random Number", icon: Dices },
+  { id: "onlineTimer", label: "Timer", icon: Timer },
   { id: "instagramLineBreak", label: "IG Line Breaks", icon: Instagram },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },

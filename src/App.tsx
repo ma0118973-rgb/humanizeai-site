@@ -103,6 +103,9 @@ const DaysBetweenDatesWorkspace = lazy(() =>
 const RandomNumberGeneratorWorkspace = lazy(() =>
   import("./components/RandomNumberGeneratorWorkspace").then((m) => ({ default: m.RandomNumberGeneratorWorkspace }))
 );
+const OnlineTimerWorkspace = lazy(() =>
+  import("./components/OnlineTimerWorkspace").then((m) => ({ default: m.OnlineTimerWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -256,6 +259,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "random-number-generator" || primarySlug === "number-generator" || primarySlug === "random-number" || primarySlug === "random-numbers" || primarySlug === "random-picker") {
     return { page: "randomNumber", lang, blogSlug: null };
+  }
+  if (primarySlug === "online-timer" || primarySlug === "online-stopwatch" || primarySlug === "stopwatch" || primarySlug === "countdown-timer" || primarySlug === "timer" || primarySlug === "online-timer-stopwatch") {
+    return { page: "onlineTimer", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -511,6 +517,7 @@ export default function App() {
     activePage === "loremIpsum" ||
     activePage === "daysBetween" ||
     activePage === "randomNumber" ||
+    activePage === "onlineTimer" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -879,6 +886,17 @@ export default function App() {
         {activePage === "randomNumber" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <RandomNumberGeneratorWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "onlineTimer" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <OnlineTimerWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

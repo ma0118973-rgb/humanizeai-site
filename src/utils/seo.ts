@@ -220,6 +220,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Random Number Generator",
   },
+  onlineTimer: {
+    title: "Online Timer & Stopwatch — Countdown, Laps & Big Digits",
+    description: "Free online timer and stopwatch in one tool. Set a countdown with presets, run a stopwatch with laps and read big digits at a glance. Timestamp-based and fully local; keep the tab visible for the end signal.",
+    canonicalPath: "/online-timer/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Online Timer & Stopwatch",
+  },
   instagramLineBreak: {
     title: "Free Instagram Line Break Generator – Keep Caption Spacing",
     description: "Free Instagram line break generator. Write captions and bios with real blank lines, protect the spacing with an invisible character, preview and copy in one tap. Nothing is uploaded.",
@@ -429,6 +437,9 @@ export function applyPageSeo(
   } else if (page === "randomNumber") {
     title = (t.seo as any).randomNumberTitle || baseConfig.title;
     description = (t.seo as any).randomNumberDesc || baseConfig.description;
+  } else if (page === "onlineTimer") {
+    title = (t.seo as any).onlineTimerTitle || baseConfig.title;
+    description = (t.seo as any).onlineTimerDesc || baseConfig.description;
   } else if (page === "instagramLineBreak") {
     title = (t.seo as any).instagramLineBreakTitle || baseConfig.title;
     description = (t.seo as any).instagramLineBreakDesc || baseConfig.description;

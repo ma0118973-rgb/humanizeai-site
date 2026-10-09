@@ -82,6 +82,7 @@ const ROUTES = [
   ["loremIpsum", "/lorem-ipsum-generator/"],
   ["daysBetween", "/days-between-dates/"],
   ["randomNumber", "/random-number-generator/"],
+  ["onlineTimer", "/online-timer/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -144,6 +145,7 @@ function pageMeta(page, lang, blogPost) {
     case "loremIpsum": return [seo.loremIpsumTitle || fb.loremIpsumTitle, seo.loremIpsumDesc || fb.loremIpsumDesc];
     case "daysBetween": return [seo.daysBetweenTitle || fb.daysBetweenTitle, seo.daysBetweenDesc || fb.daysBetweenDesc];
     case "randomNumber": return [seo.randomNumberTitle || fb.randomNumberTitle, seo.randomNumberDesc || fb.randomNumberDesc];
+    case "onlineTimer": return [seo.onlineTimerTitle || fb.onlineTimerTitle, seo.onlineTimerDesc || fb.onlineTimerDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -196,7 +198,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1174,6 +1176,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Why are the coin flip and dice roller in the same tool?",
           acceptedAnswer: { "@type": "Answer", text: "Because they are the same everyday job — a fair, quick random pick — and switching modes here is faster than opening separate coin-flip and dice-roller pages. The coin mode keeps heads/tails counts for classroom experiments, and the dice mode rolls 1 to 6 dice with the total." },
+        },
+      ],
+    });
+  }
+  if (page === "onlineTimer") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to run a countdown or stopwatch with laps in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose Timer or Stopwatch", text: "Pick Countdown Timer for a fixed length, or Stopwatch to measure how long something takes. For the countdown, type hours, minutes and seconds or tap a preset such as 5, 15 or 25 minutes." },
+        { "@type": "HowToStep", position: 2, name: "Start with one tap", text: "Press Start. That tap also unlocks the finish sound, because browsers only allow audio after you interact with the page. Use Pause and Resume freely — timing is recomputed from timestamps, not counted ticks." },
+        { "@type": "HowToStep", position: 3, name: "Use laps, fullscreen and copy", text: "On the stopwatch, press Lap at each checkpoint to record lap and total times, then copy the lap table. Use Fullscreen for big digits and Keep screen on where the browser supports wake lock." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Does this online timer keep working if I switch tabs?",
+          acceptedAnswer: { "@type": "Answer", text: "The reading is recomputed from real timestamps (performance.now deadlines), so when you return to the tab it snaps to approximately the correct remaining or elapsed time instead of resuming from a frozen display. Browsers still throttle hidden tabs, so the finish beep can be delayed and the display only updates when the browser allows it. Keep the tab visible when the exact end moment matters." },
+        },
+        {
+          "@type": "Question",
+          name: "Why did my countdown finish without a sound?",
+          acceptedAnswer: { "@type": "Answer", text: "The usual causes are a muted device, the sound toggle being off, or the browser blocking audio. Browsers only allow sound after you have interacted with the page, so starting the timer with a tap normally unlocks the beep. The tool also flashes its finish state on screen, and vibration is not used. Check the device volume and keep the tab visible for the final minute when the beep matters." },
+        },
+        {
+          "@type": "Question",
+          name: "What is the difference between lap time and total time?",
+          acceptedAnswer: { "@type": "Answer", text: "Lap time is how long that single lap took, measured from the previous lap press. Total time is the full elapsed time from the very start at that same moment. Four laps with lap times of about one minute each produce totals of roughly one, two, three and four minutes." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I use this timer for Pomodoro focus sessions?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. The 25-minute and 5-minute presets are the classic Pomodoro focus and break lengths. Alternate them manually: 25 minutes of focused work, then a 5-minute break. Presets are conveniences only and make no productivity or health promise." },
+        },
+        {
+          "@type": "Question",
+          name: "Is it safe to use this timer for medical or emergency timing?",
+          acceptedAnswer: { "@type": "Answer", text: "No. A browser timer is not a certified instrument: background tabs are throttled, devices sleep, and audio can be blocked or delayed. Never rely on it for medication doses, safety cut-offs, laboratory timing or emergencies — use a dedicated physical timer or medical device for anything where a late signal could cause harm." },
+        },
+        {
+          "@type": "Question",
+          name: "Are my times and laps uploaded or stored anywhere?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The countdown deadline, stopwatch state and lap list live only in this browser tab's memory. Nothing is uploaded, saved to an account or shared, and closing the tab clears everything. If you need a record, use Copy laps before closing." },
         },
       ],
     });

@@ -79,6 +79,7 @@ export type ActivePage =
   | "loremIpsum"
   | "daysBetween"
   | "randomNumber"
+  | "onlineTimer"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"
