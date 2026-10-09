@@ -559,7 +559,7 @@ export function OtherToolsSection({ activePage, onSelectPage, selectedLanguage =
     textRepeater: "text-repeater-guide-ja",
     invisibleCharacter: "invisible-character-guide-ja",
     wordFrequency: "word-frequency-counter-guide-ja",
-    readingTime: "reading-time-guide-ja",
+    readingTime: "reading-time-calculator-guide-ja",
     imageCompressor: "gazo-asshuku-guide",
     pdfTools: "pdf-tool-guide",
     media: "doga-studio-guide",
