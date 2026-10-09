@@ -268,6 +268,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Morse Code Translator",
   },
+  onlineNotepad: {
+    title: "Online Notepad — Free Notepad with Autosave, Word Count & .txt Download",
+    description: "Free online notepad. Open and type instantly with autosave in your browser, titled notes, live word and character counts, copy and .txt download. Notes stay on this device only — nothing is uploaded.",
+    canonicalPath: "/online-notepad/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Online Notepad",
+  },
   voiceRecorder: {
     title: "Online Voice Recorder — Record, Pause & Download Free, No Upload",
     description: "Free online voice recorder. Record, pause, play back and download your voice right in the browser. Nothing is uploaded — recordings stay on your device. The saved file uses your browser's real format (WebM or MP4), never a fake MP3 promise.",
@@ -519,6 +527,9 @@ export function applyPageSeo(
   } else if (page === "morseCodeTranslator") {
     title = (t.seo as any).morseCodeTranslatorTitle || baseConfig.title;
     description = (t.seo as any).morseCodeTranslatorDesc || baseConfig.description;
+  } else if (page === "onlineNotepad") {
+    title = (t.seo as any).onlineNotepadTitle || baseConfig.title;
+    description = (t.seo as any).onlineNotepadDesc || baseConfig.description;
   } else if (page === "voiceRecorder") {
     title = (t.seo as any).voiceRecorderTitle || baseConfig.title;
     description = (t.seo as any).voiceRecorderDesc || baseConfig.description;

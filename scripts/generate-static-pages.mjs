@@ -91,6 +91,7 @@ const ROUTES = [
   ["usernameGenerator", "/username-generator/"],
   ["morseCodeTranslator", "/morse-code-translator/"],
   ["voiceRecorder", "/online-voice-recorder/"],
+  ["onlineNotepad", "/online-notepad/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -162,6 +163,7 @@ function pageMeta(page, lang, blogPost) {
     case "usernameGenerator": return [seo.usernameGeneratorTitle || fb.usernameGeneratorTitle, seo.usernameGeneratorDesc || fb.usernameGeneratorDesc];
     case "morseCodeTranslator": return [seo.morseCodeTranslatorTitle || fb.morseCodeTranslatorTitle, seo.morseCodeTranslatorDesc || fb.morseCodeTranslatorDesc];
     case "voiceRecorder": return [seo.voiceRecorderTitle || fb.voiceRecorderTitle, seo.voiceRecorderDesc || fb.voiceRecorderDesc];
+    case "onlineNotepad": return [seo.onlineNotepadTitle || fb.onlineNotepadTitle, seo.onlineNotepadDesc || fb.onlineNotepadDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -214,7 +216,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1621,6 +1623,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "May I record other people with this tool?",
           acceptedAnswer: { "@type": "Answer", text: "Only with their permission. Recording laws differ by place, and recording a conversation without consent can be illegal. Record yourself freely; for anyone else, ask first." },
+        },
+      ],
+    });
+  }
+  if (page === "onlineNotepad") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to use the online notepad in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Open and type", text: "Open the notepad and start typing in the large box. Every change is saved automatically to this browser, and live word, character and line counts update as you write." },
+        { "@type": "HowToStep", position: 2, name: "Organise with titled notes", text: "Give the note a title, or press New note to keep several notes side by side in this browser. Switch between them in the note list; delete one note, or clear all notes, only after the confirmation prompt." },
+        { "@type": "HowToStep", position: 3, name: "Copy or download a text file", text: "Copy the note with one button, or download it as a .txt file to keep or share. Download anything important: browser notes are not a cloud backup." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this online notepad free? Is my text uploaded?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, free with no sign-up. Notes are saved only in this browser's local storage on this device and are never uploaded, stored on a server or shared by this tool." },
+        },
+        {
+          "@type": "Question",
+          name: "Will my notes still be here when I come back?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, on the same browser and device, until you delete them or clear browser site data. They do not sync to another browser, phone or computer, and private browsing leaves nothing behind when the window closes." },
+        },
+        {
+          "@type": "Question",
+          name: "How many notes can I keep, and can I download them?",
+          acceptedAnswer: { "@type": "Answer", text: "You can keep several titled notes in the note list and switch between them. Any note can be copied or downloaded as a plain .txt file; download important notes because browser storage is not a backup." },
+        },
+        {
+          "@type": "Question",
+          name: "What happens when I clear all notes?",
+          acceptedAnswer: { "@type": "Answer", text: "Clearing asks for confirmation first, then deletes every note saved in this browser and starts one fresh empty note. Deleted notes cannot be recovered from the browser, so download anything you need beforehand." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I store passwords or important secrets in the notepad?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Anyone who can open this browser on this device can read saved notes, and browser storage is not a password manager. Never keep passwords, recovery codes, bank or card details, or other secrets here." },
         },
       ],
     });

@@ -88,6 +88,7 @@ export type ActivePage =
   | "usernameGenerator"
   | "morseCodeTranslator"
   | "voiceRecorder"
+  | "onlineNotepad"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

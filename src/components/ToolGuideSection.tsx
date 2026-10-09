@@ -38,6 +38,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   usernameGenerator: "username-generator-urdu-guide",
   morseCodeTranslator: "morse-code-translator-urdu-guide",
   voiceRecorder: "online-voice-recorder-urdu-guide",
+  onlineNotepad: "online-notepad-urdu-guide",
   onlineTimer: "online-timer-urdu-guide",
   instagramLineBreak: "instagram-line-break-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
