@@ -180,6 +180,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Base64 Encoder & Decoder",
   },
+  slugGenerator: {
+    title: "Free Slug Generator – Turn Titles into Clean URL Slugs",
+    description: "Free slug generator. Paste a title and get a lowercase URL slug with hyphen or underscore separators, English stop-word removal, accent handling and batch mode. Local in your browser, nothing uploaded.",
+    canonicalPath: "/slug-generator/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Slug Generator",
+  },
   instagramLineBreak: {
     title: "Free Instagram Line Break Generator – Keep Caption Spacing",
     description: "Free Instagram line break generator. Write captions and bios with real blank lines, protect the spacing with an invisible character, preview and copy in one tap. Nothing is uploaded.",
@@ -374,6 +382,9 @@ export function applyPageSeo(
   } else if (page === "base64") {
     title = (t.seo as any).base64Title || baseConfig.title;
     description = (t.seo as any).base64Desc || baseConfig.description;
+  } else if (page === "slugGenerator") {
+    title = (t.seo as any).slugGeneratorTitle || baseConfig.title;
+    description = (t.seo as any).slugGeneratorDesc || baseConfig.description;
   } else if (page === "instagramLineBreak") {
     title = (t.seo as any).instagramLineBreakTitle || baseConfig.title;
     description = (t.seo as any).instagramLineBreakDesc || baseConfig.description;

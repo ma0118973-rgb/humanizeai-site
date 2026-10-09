@@ -85,6 +85,9 @@ const ReadingTimeWorkspace = lazy(() =>
 const Base64Workspace = lazy(() =>
   import("./components/Base64Workspace").then((m) => ({ default: m.Base64Workspace }))
 );
+const SlugGeneratorWorkspace = lazy(() =>
+  import("./components/SlugGeneratorWorkspace").then((m) => ({ default: m.SlugGeneratorWorkspace }))
+);
 const InstagramLineBreakWorkspace = lazy(() =>
   import("./components/InstagramLineBreakWorkspace").then((m) => ({ default: m.InstagramLineBreakWorkspace }))
 );
@@ -223,6 +226,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "base64-encoder-decoder" || primarySlug === "base64-encode-decode" || primarySlug === "base64" || primarySlug === "base64-encoder" || primarySlug === "base64-decoder" || primarySlug === "encode-base64" || primarySlug === "decode-base64") {
     return { page: "base64", lang, blogSlug: null };
+  }
+  if (primarySlug === "slug-generator" || primarySlug === "url-slug-generator" || primarySlug === "slug-maker" || primarySlug === "slugify" || primarySlug === "generate-slug" || primarySlug === "url-slug-maker") {
+    return { page: "slugGenerator", lang, blogSlug: null };
   }
   if (primarySlug === "instagram-line-break-generator" || primarySlug === "ig-line-break" || primarySlug === "instagram-line-break" || primarySlug === "line-break-generator" || primarySlug === "instagram-caption-line-breaks" || primarySlug === "instagram-line-breaks") {
     return { page: "instagramLineBreak", lang, blogSlug: null };
@@ -476,6 +482,7 @@ export default function App() {
     activePage === "wordFrequency" ||
     activePage === "readingTime" ||
     activePage === "base64" ||
+    activePage === "slugGenerator" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -789,6 +796,17 @@ export default function App() {
             <ReadingTimeWorkspace
               selectedLanguage={selectedLanguage}
             />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "slugGenerator" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <SlugGeneratorWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

@@ -77,6 +77,7 @@ const ROUTES = [
   ["wordFrequency", "/word-frequency-counter/"],
   ["readingTime", "/reading-time-calculator/"],
   ["base64", "/base64-encoder-decoder/"],
+  ["slugGenerator", "/slug-generator/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -134,6 +135,7 @@ function pageMeta(page, lang, blogPost) {
     case "wordFrequency": return [seo.wordFrequencyTitle || fb.wordFrequencyTitle, seo.wordFrequencyDesc || fb.wordFrequencyDesc];
     case "readingTime": return [seo.readingTimeTitle || fb.readingTimeTitle, seo.readingTimeDesc || fb.readingTimeDesc];
     case "base64": return [seo.base64Title || fb.base64Title, seo.base64Desc || fb.base64Desc];
+    case "slugGenerator": return [seo.slugGeneratorTitle || fb.slugGeneratorTitle, seo.slugGeneratorDesc || fb.slugGeneratorDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -186,7 +188,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -914,6 +916,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Can I encode a file to Base64 here?",
           acceptedAnswer: { "@type": "Answer", text: "Yes, for small files under 2 MB. Base64 output is about one-third larger than the original file, and very large files can slow or freeze a browser tab, so this feature is deliberately limited." },
+        },
+      ],
+    });
+  }
+  if (page === "slugGenerator") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to turn a title into a URL slug in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste your title", text: "Type or paste the page title, product name or heading. Add one title per line to convert a whole list at once." },
+        { "@type": "HowToStep", position: 2, name: "Choose your options", text: "Pick a hyphen or underscore separator, decide whether English stop words are removed, whether accented Latin letters become plain letters, and set a maximum length if you need one." },
+        { "@type": "HowToStep", position: 3, name: "Copy the slug", text: "Copy the lowercase slug (or all slugs in batch mode) and paste it into your CMS, then check it once before publishing — changing a live URL later needs a redirect." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is a URL slug?",
+          acceptedAnswer: { "@type": "Answer", text: "The slug is the readable last part of a web address that names one page, such as the 'slug-generator' in example.com/slug-generator. It is usually lowercase words joined by hyphens." },
+        },
+        {
+          "@type": "Question",
+          name: "Does a clean slug guarantee better Google ranking?",
+          acceptedAnswer: { "@type": "Answer", text: "No. A short, descriptive slug helps people read, type and share a URL, and it describes the page honestly. Ranking and indexing depend on the page content, links and the site as a whole — no slug can guarantee them." },
+        },
+        {
+          "@type": "Question",
+          name: "Should I use hyphens or underscores in a slug?",
+          acceptedAnswer: { "@type": "Answer", text: "Hyphens are the common choice for web URLs because search engines read them as word separators, while an underscore can read as one joined word. Underscores are still handy for file names, so this tool offers both." },
+        },
+        {
+          "@type": "Question",
+          name: "What happens to accented and non-Latin letters?",
+          acceptedAnswer: { "@type": "Answer", text: "Accented Latin letters become plain ones (é becomes e) when that option is on, or are removed when it is off. This tool does not transliterate Japanese or Urdu-script text: those characters are removed, so type the romanized form (romaji or Roman Urdu) yourself and check the result." },
+        },
+        {
+          "@type": "Question",
+          name: "Which stop words are removed?",
+          acceptedAnswer: { "@type": "Answer", text: "Only common English words such as a, an, the, and, or and of. Small words in other languages are left untouched, and the option can be switched off whenever a small word carries meaning in your title." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my text uploaded anywhere?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The slug is built in your browser tab. Your titles are not uploaded, stored on a server or shared by this tool, and closing the tab forgets everything." },
         },
       ],
     });
