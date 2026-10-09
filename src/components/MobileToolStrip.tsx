@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Sparkles, Search, Video, TrendingUp, BookMarked, Maximize2,
-  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer, Binary, Instagram, Link2, Braces, AlignLeft, CalendarDays, Dices, Scaling, ScanText, AtSign, Radio,
+  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer, Binary, Instagram, Link2, Braces, AlignLeft, CalendarDays, Dices, Scaling, ScanText, AtSign, Radio, Disc3,
 } from "lucide-react";
 import { ActivePage } from "../types";
 
@@ -43,6 +43,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "pdfSplitter", label: "PDF Splitter", icon: Scissors },
   { id: "usernameGenerator", label: "Usernames", icon: AtSign },
   { id: "morseCodeTranslator", label: "Morse Code", icon: Radio },
+  { id: "voiceRecorder", label: "Voice Recorder", icon: Disc3 },
   { id: "instagramLineBreak", label: "IG Line Breaks", icon: Instagram },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },

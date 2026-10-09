@@ -87,6 +87,7 @@ export type ActivePage =
   | "pdfSplitter"
   | "usernameGenerator"
   | "morseCodeTranslator"
+  | "voiceRecorder"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

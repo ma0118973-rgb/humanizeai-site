@@ -268,6 +268,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Morse Code Translator",
   },
+  voiceRecorder: {
+    title: "Online Voice Recorder — Record, Pause & Download Free, No Upload",
+    description: "Free online voice recorder. Record, pause, play back and download your voice right in the browser. Nothing is uploaded — recordings stay on your device. The saved file uses your browser's real format (WebM or MP4), never a fake MP3 promise.",
+    canonicalPath: "/online-voice-recorder/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Online Voice Recorder",
+  },
   imageResizer: {
     title: "Image Resizer — Resize & Crop JPG, PNG, WebP to Exact Size",
     description: "Free image resizer and cropper. Resize by exact pixels or percentage, crop to a ratio, use social and A4 presets, and download JPG, PNG or WebP. Fully local — nothing is uploaded.",
@@ -511,6 +519,9 @@ export function applyPageSeo(
   } else if (page === "morseCodeTranslator") {
     title = (t.seo as any).morseCodeTranslatorTitle || baseConfig.title;
     description = (t.seo as any).morseCodeTranslatorDesc || baseConfig.description;
+  } else if (page === "voiceRecorder") {
+    title = (t.seo as any).voiceRecorderTitle || baseConfig.title;
+    description = (t.seo as any).voiceRecorderDesc || baseConfig.description;
   } else if (page === "imageResizer") {
     title = (t.seo as any).imageResizerTitle || baseConfig.title;
     description = (t.seo as any).imageResizerDesc || baseConfig.description;

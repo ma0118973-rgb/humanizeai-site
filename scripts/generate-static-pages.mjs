@@ -90,6 +90,7 @@ const ROUTES = [
   ["pdfSplitter", "/pdf-splitter/"],
   ["usernameGenerator", "/username-generator/"],
   ["morseCodeTranslator", "/morse-code-translator/"],
+  ["voiceRecorder", "/online-voice-recorder/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -160,6 +161,7 @@ function pageMeta(page, lang, blogPost) {
     case "pdfSplitter": return [seo.pdfSplitterTitle || fb.pdfSplitterTitle, seo.pdfSplitterDesc || fb.pdfSplitterDesc];
     case "usernameGenerator": return [seo.usernameGeneratorTitle || fb.usernameGeneratorTitle, seo.usernameGeneratorDesc || fb.usernameGeneratorDesc];
     case "morseCodeTranslator": return [seo.morseCodeTranslatorTitle || fb.morseCodeTranslatorTitle, seo.morseCodeTranslatorDesc || fb.morseCodeTranslatorDesc];
+    case "voiceRecorder": return [seo.voiceRecorderTitle || fb.voiceRecorderTitle, seo.voiceRecorderDesc || fb.voiceRecorderDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -212,7 +214,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1573,6 +1575,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "What does the WPM speed mean, and is the flash safe?",
           acceptedAnswer: { "@type": "Answer", text: "WPM is words per minute using the standard PARIS timing: one dot lasts 1200 ÷ WPM milliseconds, a dash is 3 dots, and the gaps are 1, 3 and 7 dots. The flash lamp simply follows that timing and never strobes faster; if flashing lights bother you or you have photosensitive epilepsy, leave the flash off and use sound only." },
+        },
+      ],
+    });
+  }
+  if (page === "voiceRecorder") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to record your voice online in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Allow the microphone and record", text: "Press Record and allow microphone access when the browser asks. Speak, and use Pause whenever you need a break, then Resume to keep going on the same take." },
+        { "@type": "HowToStep", position: 2, name: "Stop and play the take back", text: "Press Stop and listen to the recording on the page. The tool shows the real saved format (WebM or MP4), the file size and the length — nothing is converted or uploaded behind your back." },
+        { "@type": "HowToStep", position: 3, name: "Download it or re-record", text: "Press Download recording to save the file to your device, or Discard & re-record to throw the take away and start again. Recordings only exist on your device until you save them." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this voice recorder free, and is my voice uploaded?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, free with no sign-up. Recording runs entirely in your browser with the MediaRecorder API — your voice is never uploaded, stored on a server or shared by this tool. It stays in this tab until you download it." },
+        },
+        {
+          "@type": "Question",
+          name: "Why is my download a WebM or MP4 file, not MP3?",
+          acceptedAnswer: { "@type": "Answer", text: "The browser itself chooses the recording format: Chrome and Firefox usually save WebM, Safari saves MP4. We label and save that real format instead of promising an MP3 the browser never made. If you need another format, you can convert the downloaded file with a tool you trust." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I pause a recording and continue on the same take?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. Pause stops the clock and the microphone feed for that section, and Resume continues the same recording, so a lecture, song or voice note can be captured in one file with breaks in the middle." },
+        },
+        {
+          "@type": "Question",
+          name: "Why did the recorder say the microphone was blocked?",
+          acceptedAnswer: { "@type": "Answer", text: "The browser only hands the microphone to a page after you allow it. If you denied the prompt, or blocked it earlier, allow microphone access in the browser's site settings and try again — nothing was recorded while access was blocked." },
+        },
+        {
+          "@type": "Question",
+          name: "May I record other people with this tool?",
+          acceptedAnswer: { "@type": "Answer", text: "Only with their permission. Recording laws differ by place, and recording a conversation without consent can be illegal. Record yourself freely; for anyone else, ask first." },
         },
       ],
     });
