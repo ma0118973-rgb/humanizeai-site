@@ -324,7 +324,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
                 <div>
                   <span className="text-xs font-bold text-stone-500 uppercase tracking-wider block">Email Us</span>
                   <span className="text-sm font-semibold text-stone-900 group-hover:text-emerald-700 break-all">{contactEmail}</span>
-                  <p className="text-[11px] text-stone-500 mt-0.5">We reply within 12–24 hours</p>
+                  <p className="text-[11px] text-stone-500 mt-0.5">We read every message</p>
                 </div>
               </a>
 
@@ -335,7 +335,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
                 <div>
                   <span className="text-xs font-bold text-stone-500 uppercase tracking-wider block">Call / WhatsApp</span>
                   <span className="text-sm font-semibold text-stone-900 group-hover:text-emerald-700">{contactPhone}</span>
-                  <p className="text-[11px] text-stone-500 mt-0.5">Mon–Sat, 9am–6pm PKT</p>
+                  <p className="text-[11px] text-stone-500 mt-0.5">Leave a message any time</p>
                 </div>
               </a>
             </div>
@@ -351,11 +351,11 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
             </div>
 
             {!isSubmitted ? (
-              <form onSubmit={(e) => { e.preventDefault(); setIsSubmitted(true); }} className="space-y-4 p-5 bg-stone-50 rounded-2xl border border-stone-200">
+              <form onSubmit={(e) => { e.preventDefault(); const fd = new FormData(e.currentTarget); const name = String(fd.get("cf-name") || ""); const from = String(fd.get("cf-email") || ""); const msg = String(fd.get("cf-message") || ""); const subject = encodeURIComponent("ToolVena contact from " + name); const body = encodeURIComponent(msg + "\n\n— " + name + " (" + from + ")"); window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`; setIsSubmitted(true); }} className="space-y-4 p-5 bg-stone-50 rounded-2xl border border-stone-200">
                 <h3 className="font-bold text-stone-900">Send Us a Message</h3>
-                <input type="text" placeholder="Your name" required className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
-                <input type="email" placeholder="Your email" required className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
-                <textarea placeholder="What's on your mind?" rows={4} required className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                <input name="cf-name" type="text" placeholder="Your name" required className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                <input name="cf-email" type="email" placeholder="Your email" required className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                <textarea name="cf-message" placeholder="What's on your mind?" rows={4} required className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
                 <button type="submit" className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition-colors">
                   Send Message
                 </button>
@@ -365,7 +365,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
               <div className="p-6 bg-emerald-50 rounded-2xl border border-emerald-200 text-center">
                 <div className="text-3xl mb-2">✓</div>
                 <h3 className="font-bold text-emerald-900">Thanks for reaching out!</h3>
-                <p className="text-sm text-stone-600 mt-1">We'll get back to you within 24 hours.</p>
+                <p className="text-sm text-stone-600 mt-1">Your email app should have opened with your message ready — just press Send there.</p>
               </div>
             )}
           </div>
