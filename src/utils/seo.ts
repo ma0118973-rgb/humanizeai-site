@@ -180,6 +180,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Base64 Encoder & Decoder",
   },
+  instagramLineBreak: {
+    title: "Free Instagram Line Break Generator – Keep Caption Spacing",
+    description: "Free Instagram line break generator. Write captions and bios with real blank lines, protect the spacing with an invisible character, preview and copy in one tap. Nothing is uploaded.",
+    canonicalPath: "/instagram-line-break-generator/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Instagram Line Break Generator",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -366,6 +374,9 @@ export function applyPageSeo(
   } else if (page === "base64") {
     title = (t.seo as any).base64Title || baseConfig.title;
     description = (t.seo as any).base64Desc || baseConfig.description;
+  } else if (page === "instagramLineBreak") {
+    title = (t.seo as any).instagramLineBreakTitle || baseConfig.title;
+    description = (t.seo as any).instagramLineBreakDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

@@ -74,6 +74,7 @@ export type ActivePage =
   | "wordFrequency"
   | "readingTime"
   | "base64"
+  | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"
   | "cleaner"

@@ -77,6 +77,7 @@ const ROUTES = [
   ["wordFrequency", "/word-frequency-counter/"],
   ["readingTime", "/reading-time-calculator/"],
   ["base64", "/base64-encoder-decoder/"],
+  ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -133,6 +134,7 @@ function pageMeta(page, lang, blogPost) {
     case "wordFrequency": return [seo.wordFrequencyTitle || fb.wordFrequencyTitle, seo.wordFrequencyDesc || fb.wordFrequencyDesc];
     case "readingTime": return [seo.readingTimeTitle || fb.readingTimeTitle, seo.readingTimeDesc || fb.readingTimeDesc];
     case "base64": return [seo.base64Title || fb.base64Title, seo.base64Desc || fb.base64Desc];
+    case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -184,7 +186,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -912,6 +914,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Can I encode a file to Base64 here?",
           acceptedAnswer: { "@type": "Answer", text: "Yes, for small files under 2 MB. Base64 output is about one-third larger than the original file, and very large files can slow or freeze a browser tab, so this feature is deliberately limited." },
+        },
+      ],
+    });
+  }
+  if (page === "instagramLineBreak") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to keep line breaks in an Instagram caption in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Write with blank lines", text: "Type or paste your caption, bio or comment and press Enter twice wherever you want a blank line between paragraphs." },
+        { "@type": "HowToStep", position: 2, name: "Check the live preview", text: "Pick the invisible blank or a visible dot divider, keep trailing-space trim on, and check the caption preview and character counts (2,200 for captions, 150 for bios)." },
+        { "@type": "HowToStep", position: 3, name: "Copy and paste into Instagram", text: "Press Copy with line breaks and paste straight into Instagram. Each blank line carries an invisible Braille blank (U+2800), so the spacing is kept instead of collapsing." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Why does Instagram remove my blank lines?",
+          acceptedAnswer: { "@type": "Answer", text: "Instagram's composer strips empty lines and trailing spaces when text is published, so paragraphs typed with blank lines between them collapse into one block. A line that contains an invisible character is not empty, so it survives." },
+        },
+        {
+          "@type": "Question",
+          name: "What character does this tool put on blank lines?",
+          acceptedAnswer: { "@type": "Answer", text: "By default the Braille Pattern Blank U+2800, a real character that renders as blank space in fonts that support it. You can instead choose a visible dot divider (·) if you prefer a separator readers can see." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my caption uploaded anywhere?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The conversion happens in your browser tab. Your text is not uploaded, stored on a server or shared by this tool, and closing the tab forgets everything." },
+        },
+        {
+          "@type": "Question",
+          name: "Will the line breaks always survive on Instagram?",
+          acceptedAnswer: { "@type": "Answer", text: "No tool can promise that. Instagram can change how it treats these characters at any time, a few fonts show a box instead of a blank, and screen readers may read the blank character aloud. Check the preview after pasting before you publish." },
+        },
+        {
+          "@type": "Question",
+          name: "Do the invisible characters count toward Instagram's limits?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. Instagram commonly limits captions to 2,200 characters and bios to 150, and spacer characters count toward those numbers. The tool shows the copied length so you can check before pasting." },
+        },
+        {
+          "@type": "Question",
+          name: "Does this work for bios and comments too?",
+          acceptedAnswer: { "@type": "Answer", text: "The same trick works anywhere Instagram collapses blank lines: captions, bios and comments. Story text and some Reels fields behave differently, so test there first." },
         },
       ],
     });

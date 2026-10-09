@@ -85,6 +85,9 @@ const ReadingTimeWorkspace = lazy(() =>
 const Base64Workspace = lazy(() =>
   import("./components/Base64Workspace").then((m) => ({ default: m.Base64Workspace }))
 );
+const InstagramLineBreakWorkspace = lazy(() =>
+  import("./components/InstagramLineBreakWorkspace").then((m) => ({ default: m.InstagramLineBreakWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -220,6 +223,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "base64-encoder-decoder" || primarySlug === "base64-encode-decode" || primarySlug === "base64" || primarySlug === "base64-encoder" || primarySlug === "base64-decoder" || primarySlug === "encode-base64" || primarySlug === "decode-base64") {
     return { page: "base64", lang, blogSlug: null };
+  }
+  if (primarySlug === "instagram-line-break-generator" || primarySlug === "ig-line-break" || primarySlug === "instagram-line-break" || primarySlug === "line-break-generator" || primarySlug === "instagram-caption-line-breaks" || primarySlug === "instagram-line-breaks") {
+    return { page: "instagramLineBreak", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -470,6 +476,7 @@ export default function App() {
     activePage === "wordFrequency" ||
     activePage === "readingTime" ||
     activePage === "base64" ||
+    activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
 
@@ -782,6 +789,17 @@ export default function App() {
             <ReadingTimeWorkspace
               selectedLanguage={selectedLanguage}
             />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "instagramLineBreak" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <InstagramLineBreakWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
