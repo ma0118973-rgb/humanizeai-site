@@ -71,6 +71,7 @@ export type ActivePage =
   | "duplicateLines"
   | "textRepeater"
   | "invisibleCharacter"
+  | "wordFrequency"
   | "imageCompressor"
   | "pdfTools"
   | "cleaner"

@@ -76,6 +76,9 @@ const TextRepeaterWorkspace = lazy(() =>
 const InvisibleCharacterWorkspace = lazy(() =>
   import("./components/InvisibleCharacterWorkspace").then((m) => ({ default: m.InvisibleCharacterWorkspace }))
 );
+const WordFrequencyWorkspace = lazy(() =>
+  import("./components/WordFrequencyWorkspace").then((m) => ({ default: m.WordFrequencyWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -202,6 +205,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "invisible-character" || primarySlug === "blank-text" || primarySlug === "invisible-text" || primarySlug === "blank-text-generator" || primarySlug === "invisible-character-generator" || primarySlug === "empty-character") {
     return { page: "invisibleCharacter", lang, blogSlug: null };
+  }
+  if (primarySlug === "word-frequency-counter" || primarySlug === "word-frequency" || primarySlug === "frequency-counter" || primarySlug === "word-frequency-count" || primarySlug === "phrase-frequency-counter") {
+    return { page: "wordFrequency", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -449,6 +455,7 @@ export default function App() {
     activePage === "duplicateLines" ||
     activePage === "textRepeater" ||
     activePage === "invisibleCharacter" ||
+    activePage === "wordFrequency" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
 
@@ -733,6 +740,19 @@ export default function App() {
         {activePage === "invisibleCharacter" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <InvisibleCharacterWorkspace
+              selectedLanguage={selectedLanguage}
+            />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "wordFrequency" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <WordFrequencyWorkspace
               selectedLanguage={selectedLanguage}
             />
             <OtherToolsSection

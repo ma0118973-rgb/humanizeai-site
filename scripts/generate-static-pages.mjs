@@ -74,6 +74,7 @@ const ROUTES = [
   ["duplicateLines", "/remove-duplicate-lines/"],
   ["textRepeater", "/text-repeater/"],
   ["invisibleCharacter", "/invisible-character/"],
+  ["wordFrequency", "/word-frequency-counter/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -127,6 +128,7 @@ function pageMeta(page, lang, blogPost) {
     case "duplicateLines": return [seo.dedupLinesTitle || fb.dedupLinesTitle, seo.dedupLinesDesc || fb.dedupLinesDesc];
     case "textRepeater": return [seo.textRepeaterTitle || fb.textRepeaterTitle, seo.textRepeaterDesc || fb.textRepeaterDesc];
     case "invisibleCharacter": return [seo.invisibleCharacterTitle || fb.invisibleCharacterTitle, seo.invisibleCharacterDesc || fb.invisibleCharacterDesc];
+    case "wordFrequency": return [seo.wordFrequencyTitle || fb.wordFrequencyTitle, seo.wordFrequencyDesc || fb.wordFrequencyDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -178,7 +180,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -758,6 +760,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Why is U+FE0F not offered as a blank character?",
           acceptedAnswer: { "@type": "Answer", text: "U+FE0F is Variation Selector-16. It modifies the character or emoji before it and is not blank text by itself, so this tool does not pretend it is a standalone invisible character. The tester will still label it when it appears in pasted text." },
+        },
+      ],
+    });
+  }
+  if (page === "wordFrequency") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to count word frequency in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste, type or open text", text: "Paste or type your text into the box, or open a plain-text file from your device. The file is read locally in your browser." },
+        { "@type": "HowToStep", position: 2, name: "Choose the counting rules", text: "Turn case sensitivity on or off, set a minimum word length and count, choose whether to ignore common stop words, and pick 1-, 2- or 3-word phrases. The ranked table updates live." },
+        { "@type": "HowToStep", position: 3, name: "Read, copy or export the table", text: "Click any word or phrase to highlight its matches in the source preview, copy the table, or download it as CSV. Percentages use the analyzed total shown by the tool." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this word frequency counter free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Paste, type or open a text file and the ranked frequency table updates live in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my text uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The counting happens locally in your browser tab, including when you open a text file. This tool does not upload your text or save it on a server." },
+        },
+        {
+          "@type": "Question",
+          name: "How is the percentage calculated?",
+          acceptedAnswer: { "@type": "Answer", text: "Percentage = count divided by the analyzed total, times 100. The analyzed total is the count after the minimum length and stop-word rules you selected, and for 2- or 3-word phrases it is the number of analyzed phrase windows." },
+        },
+        {
+          "@type": "Question",
+          name: "Does a high keyword frequency improve Google ranking?",
+          acceptedAnswer: { "@type": "Answer", text: "Not by itself, and there is no perfect percentage. Frequency is a diagnostic that can reveal repeated wording, missing variety or an overused phrase. Search engines also judge relevance, quality, clarity and natural language, so write for readers first." },
+        },
+        {
+          "@type": "Question",
+          name: "Why can two frequency counters give different results?",
+          acceptedAnswer: { "@type": "Answer", text: "Counters differ on case handling, punctuation, contractions, numbers, minimum length, stop words and phrase boundaries. This tool shows its counting rules beside the table so you can compare like with like." },
+        },
+        {
+          "@type": "Question",
+          name: "How should Japanese text be counted?",
+          acceptedAnswer: { "@type": "Answer", text: "Japanese does not normally separate words with spaces, so the browser's segmentation is a guide rather than an exact word count. For submissions with strict limits, check the character count as well." },
         },
       ],
     });

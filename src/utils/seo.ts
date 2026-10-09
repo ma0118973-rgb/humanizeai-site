@@ -156,6 +156,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Invisible Character",
   },
+  wordFrequency: {
+    title: "Free Word Frequency Counter – Count Repeated Words & Phrases",
+    description: "Free word frequency counter. Rank repeated words and 1–3 word phrases with counts, percentages, filters, copy and CSV export. Nothing is uploaded.",
+    canonicalPath: "/word-frequency-counter/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Word Frequency Counter",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -333,6 +341,9 @@ export function applyPageSeo(
   } else if (page === "invisibleCharacter") {
     title = (t.seo as any).invisibleCharacterTitle || baseConfig.title;
     description = (t.seo as any).invisibleCharacterDesc || baseConfig.description;
+  } else if (page === "wordFrequency") {
+    title = (t.seo as any).wordFrequencyTitle || baseConfig.title;
+    description = (t.seo as any).wordFrequencyDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

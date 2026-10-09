@@ -343,6 +343,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/en/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/en/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -674,6 +692,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/en/blog/character-counter-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/en/blog/word-frequency-counter-guide/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1021,6 +1045,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/es/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/es/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1322,6 +1364,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/es/blog/contador-caracteres-guia/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/es/blog/contador-frecuencia-palabras-guia/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1669,6 +1717,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/ur/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/ur/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1970,6 +2036,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/ur/blog/character-counter-urdu-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/ur/blog/word-frequency-counter-urdu-guide/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -2317,6 +2389,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/de/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/de/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -2612,6 +2702,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/de/blog/zeichenzaehler-anleitung/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/de/blog/worthaufigkeit-zaehler-anleitung/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -2959,6 +3055,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/fr/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/fr/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -3254,6 +3368,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/fr/blog/compteur-caracteres-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/fr/blog/compteur-frequence-mots-guide/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -3601,6 +3721,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/pt/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/pt/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -3896,6 +4034,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/pt/blog/contador-de-caracteres-guia/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/pt/blog/contador-frequencia-palavras-guia/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -4243,6 +4387,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/tr/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/tr/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -4538,6 +4700,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/tr/blog/karakter-sayaci-rehberi/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/tr/blog/kelime-sikligi-sayaci-rehberi/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -4885,6 +5053,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/ja/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/ja/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -5180,6 +5366,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/ja/blog/character-counter-guide-ja/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/ja/blog/word-frequency-counter-guide-ja/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -5527,6 +5719,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/no/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/no/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -5822,6 +6032,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/no/blog/tegnteller-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/no/blog/ordfrekvens-teller-guide/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -6169,6 +6385,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/nl/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/nl/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -6464,6 +6698,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/nl/blog/karakters-tellen-gids/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/nl/blog/woordfrequentie-teller-gids/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -6811,6 +7051,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/invisible-character/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/it/word-frequency-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-frequency-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-frequency-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/it/image-compressor/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -7106,6 +7364,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/it/blog/contatore-caratteri-guida/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/it/blog/contatore-frequenza-parole-guida/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
