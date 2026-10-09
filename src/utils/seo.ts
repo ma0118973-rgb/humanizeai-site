@@ -108,6 +108,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Typing Speed Test",
   },
+  caseConverter: {
+    title: "Free Case Converter – Change UPPERCASE, lowercase & Title Case",
+    description: "Free case converter. Change text to UPPERCASE, lowercase, Sentence case, Capitalized Case, Title Case, alternating or inverse case instantly in your browser. No sign-up, nothing uploaded.",
+    canonicalPath: "/case-converter/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Case Converter",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -267,6 +275,9 @@ export function applyPageSeo(
   } else if (page === "typingTest") {
     title = (t.seo as any).typingTestTitle || baseConfig.title;
     description = (t.seo as any).typingTestDesc || baseConfig.description;
+  } else if (page === "caseConverter") {
+    title = (t.seo as any).caseConverterTitle || baseConfig.title;
+    description = (t.seo as any).caseConverterDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

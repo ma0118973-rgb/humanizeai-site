@@ -68,6 +68,7 @@ const ROUTES = [
   ["wordCounter", "/word-counter/"],
   ["textToSpeech", "/text-to-speech/"],
   ["typingTest", "/typing-test/"],
+  ["caseConverter", "/case-converter/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -115,6 +116,7 @@ function pageMeta(page, lang, blogPost) {
     case "wordCounter": return [seo.wordCounterTitle || fb.wordCounterTitle, seo.wordCounterDesc || fb.wordCounterDesc];
     case "textToSpeech": return [seo.textToSpeechTitle || fb.textToSpeechTitle, seo.textToSpeechDesc || fb.textToSpeechDesc];
     case "typingTest": return [seo.typingTestTitle || fb.typingTestTitle, seo.typingTestDesc || fb.typingTestDesc];
+    case "caseConverter": return [seo.caseConverterTitle || fb.caseConverterTitle, seo.caseConverterDesc || fb.caseConverterDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -166,7 +168,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -465,6 +467,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "How is Japanese typing scored?",
           acceptedAnswer: { "@type": "Answer", text: "Japanese is not space-separated, so the test counts characters. Word modes use a fixed character count, and WPM applies the standard 5 characters = 1 word convention, with the character count shown as the main number." },
+        },
+      ],
+    });
+  }
+  if (page === "caseConverter") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to convert text case in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste or type your text", text: "Paste or type the text into the editor. The character, word and line counts update as you write." },
+        { "@type": "HowToStep", position: 2, name: "Choose a case", text: "Pick UPPERCASE, lowercase, Sentence case, Capitalized Case, Title Case, alternating case or inverse case. You can preview every result before applying it." },
+        { "@type": "HowToStep", position: 3, name: "Copy or download", text: "Copy the converted text or download it as a .txt file. Check names, acronyms and brand capitalization once before publishing." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this case converter free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up, and every conversion happens in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my text uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The conversion and counting happen in this browser tab. Your text is not uploaded, stored on a server or shared by this tool." },
+        },
+        {
+          "@type": "Question",
+          name: "Does Sentence case fix grammar?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Sentence case is a capitalization transform, not grammar correction. It can flatten intentional capitals in names, acronyms and brands, so review the result before using it." },
+        },
+        {
+          "@type": "Question",
+          name: "Why can Title Case look different in different places?",
+          acceptedAnswer: { "@type": "Answer", text: "Title Case rules vary by language and editorial style guide, especially for short words. This tool applies one consistent heading pattern; check your publisher's own rules when they matter." },
+        },
+        {
+          "@type": "Question",
+          name: "Does it handle Turkish, German and Japanese text correctly?",
+          acceptedAnswer: { "@type": "Answer", text: "Case changes follow the language selected on the page: Turkish i becomes İ and dotless ı becomes I, German ß becomes SS in UPPERCASE, and scripts without letter case, such as Japanese kana and kanji, are left unchanged." },
         },
       ],
     });

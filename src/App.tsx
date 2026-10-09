@@ -58,6 +58,9 @@ const TextToSpeechWorkspace = lazy(() =>
 const TypingTestWorkspace = lazy(() =>
   import("./components/TypingTestWorkspace").then((m) => ({ default: m.TypingTestWorkspace }))
 );
+const CaseConverterWorkspace = lazy(() =>
+  import("./components/CaseConverterWorkspace").then((m) => ({ default: m.CaseConverterWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -166,6 +169,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "typing-test" || primarySlug === "typing-speed-test" || primarySlug === "typing" || primarySlug === "wpm-test" || primarySlug === "typing-practice") {
     return { page: "typingTest", lang, blogSlug: null };
+  }
+  if (primarySlug === "case-converter" || primarySlug === "text-case-converter" || primarySlug === "change-case" || primarySlug === "uppercase-lowercase-converter") {
+    return { page: "caseConverter", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -407,6 +413,7 @@ export default function App() {
     activePage === "wordCounter" ||
     activePage === "textToSpeech" ||
     activePage === "typingTest" ||
+    activePage === "caseConverter" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
 
@@ -613,6 +620,19 @@ export default function App() {
         {activePage === "typingTest" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <TypingTestWorkspace
+              selectedLanguage={selectedLanguage}
+            />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "caseConverter" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <CaseConverterWorkspace
               selectedLanguage={selectedLanguage}
             />
             <OtherToolsSection
