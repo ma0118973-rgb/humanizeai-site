@@ -228,6 +228,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Invoice Generator",
   },
+  imageConverter: {
+    title: "Image Converter — JPG to PNG, PNG to JPG, WebP Online Free",
+    description: "Free image converter. Convert JPG, PNG and WebP at the same dimensions, batch convert, pick quality and a JPG background colour. Fully local — nothing is uploaded; HEIC usually cannot be read in browsers.",
+    canonicalPath: "/image-converter/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Image Converter",
+  },
   imageResizer: {
     title: "Image Resizer — Resize & Crop JPG, PNG, WebP to Exact Size",
     description: "Free image resizer and cropper. Resize by exact pixels or percentage, crop to a ratio, use social and A4 presets, and download JPG, PNG or WebP. Fully local — nothing is uploaded.",
@@ -456,6 +464,9 @@ export function applyPageSeo(
   } else if (page === "invoiceGenerator") {
     title = (t.seo as any).invoiceGeneratorTitle || baseConfig.title;
     description = (t.seo as any).invoiceGeneratorDesc || baseConfig.description;
+  } else if (page === "imageConverter") {
+    title = (t.seo as any).imageConverterTitle || baseConfig.title;
+    description = (t.seo as any).imageConverterDesc || baseConfig.description;
   } else if (page === "imageResizer") {
     title = (t.seo as any).imageResizerTitle || baseConfig.title;
     description = (t.seo as any).imageResizerDesc || baseConfig.description;

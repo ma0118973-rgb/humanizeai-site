@@ -185,7 +185,7 @@ export function ImageResizerWorkspace({ selectedLanguage = "en" }: ImageResizerW
           </span>
           <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-stone-900 leading-tight">{rs.pageTitle || "Resize and Crop an Image to the Exact Size You Need"}</h1>
           <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">{rs.subtitle || "Drop one photo, set exact pixels or a percentage, crop with a preset ratio if you need it, then download as JPG, PNG or WebP. Everything happens in your browser — nothing is uploaded."}</p>
-          <p className="text-xs text-stone-500">{rs.vsCompressor || "Need the same dimensions but a smaller file? Use the Image Compressor instead — this tool changes dimensions and crop; the Compressor changes file weight."}</p>
+          <p className="text-xs text-stone-500">{rs.vsCompressor || "Need the same dimensions but a smaller file? Use the Image Compressor instead — this tool changes dimensions and crop; the Compressor changes file weight."} <a className="font-bold text-teal-700 underline" href={`/${selectedLanguage}/image-converter/`}>Image Converter</a></p>
         </div>
       </div>
 

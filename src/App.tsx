@@ -103,6 +103,9 @@ const DaysBetweenDatesWorkspace = lazy(() =>
 const RandomNumberGeneratorWorkspace = lazy(() =>
   import("./components/RandomNumberGeneratorWorkspace").then((m) => ({ default: m.RandomNumberGeneratorWorkspace }))
 );
+const ImageConverterWorkspace = lazy(() =>
+  import("./components/ImageConverterWorkspace").then((m) => ({ default: m.ImageConverterWorkspace }))
+);
 const ImageResizerWorkspace = lazy(() =>
   import("./components/ImageResizerWorkspace").then((m) => ({ default: m.ImageResizerWorkspace }))
 );
@@ -271,6 +274,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "invoice-generator" || primarySlug === "invoice-maker" || primarySlug === "free-invoice-generator" || primarySlug === "invoice-generator-free" || primarySlug === "make-invoice" || primarySlug === "create-invoice") {
     return { page: "invoiceGenerator", lang, blogSlug: null };
+  }
+  if (primarySlug === "image-converter" || primarySlug === "jpg-to-png" || primarySlug === "png-to-jpg" || primarySlug === "png-to-webp" || primarySlug === "webp-to-jpg" || primarySlug === "webp-to-png" || primarySlug === "jpg-to-webp" || primarySlug === "convert-image" || primarySlug === "image-format-converter") {
+    return { page: "imageConverter", lang, blogSlug: null };
   }
   if (primarySlug === "image-resizer" || primarySlug === "resize-image" || primarySlug === "image-cropper" || primarySlug === "crop-image" || primarySlug === "photo-resizer" || primarySlug === "image-resizer-cropper" || primarySlug === "resize-photo") {
     return { page: "imageResizer", lang, blogSlug: null };
@@ -532,6 +538,7 @@ export default function App() {
     activePage === "onlineTimer" ||
     activePage === "invoiceGenerator" ||
     activePage === "imageResizer" ||
+    activePage === "imageConverter" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -922,6 +929,17 @@ export default function App() {
         {activePage === "invoiceGenerator" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <InvoiceGeneratorWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "imageConverter" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <ImageConverterWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

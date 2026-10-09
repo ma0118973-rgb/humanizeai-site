@@ -85,6 +85,7 @@ const ROUTES = [
   ["onlineTimer", "/online-timer/"],
   ["invoiceGenerator", "/invoice-generator/"],
   ["imageResizer", "/image-resizer/"],
+  ["imageConverter", "/image-converter/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -150,6 +151,7 @@ function pageMeta(page, lang, blogPost) {
     case "onlineTimer": return [seo.onlineTimerTitle || fb.onlineTimerTitle, seo.onlineTimerDesc || fb.onlineTimerDesc];
     case "invoiceGenerator": return [seo.invoiceGeneratorTitle || fb.invoiceGeneratorTitle, seo.invoiceGeneratorDesc || fb.invoiceGeneratorDesc];
     case "imageResizer": return [seo.imageResizerTitle || fb.imageResizerTitle, seo.imageResizerDesc || fb.imageResizerDesc];
+    case "imageConverter": return [seo.imageConverterTitle || fb.imageConverterTitle, seo.imageConverterDesc || fb.imageConverterDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -202,7 +204,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1328,6 +1330,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "How do the social and A4 presets work? Are they guaranteed?",
           acceptedAnswer: { "@type": "Answer", text: "Presets simply fill in widely used pixel sizes: Instagram post 1080×1080, story 1080×1920, YouTube thumbnail 1280×720, X post 1200×675, profile 800×800, and A4 expressed as pixels at 150 DPI (1240×1754) for screen documents and 300 DPI (2480×3508) for print. Platforms change their recommended sizes without notice, so treat presets as current best practice and trust the destination uploader's own preview." },
+        },
+      ],
+    });
+  }
+  if (page === "imageConverter") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to convert an image format in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Add your images", text: "Drop one image or a whole batch, or click to browse. Each file's detected format, dimensions and size are shown after a real decode check in your browser — nothing is uploaded. Files this browser cannot decode, such as most HEIC photos, are marked unreadable with the reason." },
+        { "@type": "HowToStep", position: 2, name: "Choose format, quality and background", text: "Pick PNG, JPG or WebP. Set quality for JPG/WebP (PNG is always lossless). If you choose JPG and the image has transparency, pick the background colour that will fill it — white by default — because JPG cannot store transparency." },
+        { "@type": "HowToStep", position: 3, name: "Convert and download", text: "Convert the batch, compare Before/After file sizes per file and in total, then download files one by one or all in turn. Dimensions never change — use the Image Resizer for size, the Image Compressor for file weight at the same size." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this image converter free? Are my images uploaded?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, free with no sign-up, and your images are never uploaded. Decoding and re-encoding happen in your browser tab with the Canvas API; closing the tab leaves nothing behind." },
+        },
+        {
+          "@type": "Question",
+          name: "Which formats can I convert, and why not HEIC or AVIF output?",
+          acceptedAnswer: { "@type": "Answer", text: "Output is PNG, JPG or WebP — the formats browsers can reliably encode with Canvas. Input is whatever this browser can decode, normally JPG, PNG, WebP, GIF, BMP and SVG stills. HEIC/HEIF photos from iPhones usually cannot be decoded in browsers, so export them as JPG first; AVIF decoding varies by browser and AVIF encoding is not reliably available, so neither is promised." },
+        },
+        {
+          "@type": "Question",
+          name: "What happens to transparency when I convert to JPG?",
+          acceptedAnswer: { "@type": "Answer", text: "JPG has no transparency, so transparent pixels must be painted over a background. This converter warns you and lets you choose that background — white by default, black, or any custom colour — before anything is flattened. To keep transparency, convert to PNG or WebP instead, and always keep your transparent original." },
+        },
+        {
+          "@type": "Question",
+          name: "Does converting JPG to PNG improve quality? Does converting change dimensions?",
+          acceptedAnswer: { "@type": "Answer", text: "No to both. Converting never changes width or height, and JPG to PNG cannot restore detail JPG already discarded — it only makes a larger file that looks the same. JPG or WebP at lower quality does trade sharpness for a smaller file, so convert from your original, keep the original, and compare the Before/After sizes shown for every file." },
+        },
+        {
+          "@type": "Question",
+          name: "What is the difference between Converter, Resizer and Compressor?",
+          acceptedAnswer: { "@type": "Answer", text: "The Converter changes the file format at the same dimensions. The Image Resizer changes pixel dimensions and crop. The Image Compressor keeps dimensions and only re-encodes so the file weighs less. Convert when the format is wrong, resize when the dimensions are wrong, compress when only the file is too heavy." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I convert many images at once?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. Add a batch to the queue, choose one output format and quality, convert all, then download per file or use Download All, which saves each converted file one by one. Animated GIF or WebP converts as a still first frame, and camera EXIF metadata is not carried into the converted file." },
         },
       ],
     });

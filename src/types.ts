@@ -82,6 +82,7 @@ export type ActivePage =
   | "onlineTimer"
   | "invoiceGenerator"
   | "imageResizer"
+  | "imageConverter"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

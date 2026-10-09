@@ -194,6 +194,66 @@ export async function renderResized(
   return { blob, dataUrl, width: canvas.width, height: canvas.height, size: blob.size, format: format.toUpperCase() };
 }
 
+/** Best-effort label for an input file's format (MIME type first, extension fallback). */
+export function detectInputFormat(file: File): string {
+  const mime = (file.type || "").toLowerCase();
+  const map: Record<string, string> = {
+    "image/jpeg": "JPG", "image/png": "PNG", "image/webp": "WebP",
+    "image/gif": "GIF", "image/bmp": "BMP", "image/x-ms-bmp": "BMP",
+    "image/avif": "AVIF", "image/heic": "HEIC", "image/heif": "HEIF",
+    "image/svg+xml": "SVG", "image/tiff": "TIFF",
+  };
+  if (map[mime]) return map[mime];
+  const ext = file.name.split(".").pop()?.toLowerCase() || "";
+  const byExt: Record<string, string> = {
+    jpg: "JPG", jpeg: "JPG", png: "PNG", webp: "WebP", gif: "GIF",
+    bmp: "BMP", avif: "AVIF", heic: "HEIC", heif: "HEIF", svg: "SVG",
+    tif: "TIFF", tiff: "TIFF",
+  };
+  return byExt[ext] || "Image";
+}
+
+export const OUTPUT_EXT: Record<OutputFormat, string> = { jpeg: "jpg", png: "png", webp: "webp" };
+
+/**
+ * Convert one image file to png/jpeg/webp at its ORIGINAL dimensions.
+ * Fully local Canvas work. For JPEG, `bgColor` mattes transparency (JPG has none).
+ * Throws when the browser cannot decode the file (e.g. HEIC in most browsers).
+ */
+export async function convertImageFormat(
+  file: File,
+  format: OutputFormat,
+  quality: number,
+  bgColor: string
+): Promise<ProcessedImage> {
+  const dec = await decodeImage(file);
+  try {
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, dec.width);
+    canvas.height = Math.max(1, dec.height);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("Canvas not supported");
+    if (format === "jpeg") {
+      ctx.fillStyle = bgColor || "#FFFFFF";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    ctx.drawImage(dec.source, 0, 0);
+    const blob = await new Promise<Blob | null>((resolve) =>
+      canvas.toBlob(resolve, `image/${format}`, format === "png" ? undefined : quality)
+    );
+    if (!blob) throw new Error("Encoding failed");
+    const dataUrl = await new Promise<string>((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(r.result as string);
+      r.onerror = () => reject(new Error("Read failed"));
+      r.readAsDataURL(blob);
+    });
+    return { blob, dataUrl, width: canvas.width, height: canvas.height, size: blob.size, format: format.toUpperCase() };
+  } finally {
+    dec.cleanup();
+  }
+}
+
 export function downloadBlob(blob: Blob, filename: string): void {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
