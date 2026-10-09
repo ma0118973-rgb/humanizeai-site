@@ -52,6 +52,9 @@ const CvBuilderWorkspace = lazy(() =>
 const WordCounterWorkspace = lazy(() =>
   import("./components/WordCounterWorkspace").then((m) => ({ default: m.WordCounterWorkspace }))
 );
+const TextToSpeechWorkspace = lazy(() =>
+  import("./components/TextToSpeechWorkspace").then((m) => ({ default: m.TextToSpeechWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -154,6 +157,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "word-counter" || primarySlug === "word-count" || primarySlug === "character-counter" || primarySlug === "count-words") {
     return { page: "wordCounter", lang, blogSlug: null };
+  }
+  if (primarySlug === "text-to-speech" || primarySlug === "tts" || primarySlug === "read-aloud" || primarySlug === "text-to-speech-online") {
+    return { page: "textToSpeech", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -393,6 +399,7 @@ export default function App() {
     activePage === "voiceTyping" ||
     activePage === "cvBuilder" ||
     activePage === "wordCounter" ||
+    activePage === "textToSpeech" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
 
@@ -571,6 +578,20 @@ export default function App() {
         {activePage === "wordCounter" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <WordCounterWorkspace
+              selectedLanguage={selectedLanguage}
+              onSendToHumanizer={handleSendToHumanizer}
+            />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "textToSpeech" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <TextToSpeechWorkspace
               selectedLanguage={selectedLanguage}
               onSendToHumanizer={handleSendToHumanizer}
             />

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://humanizeai-f2e.pages.dev/sitemap.xml
+Sitemap: https://toolvena.com/sitemap.xml

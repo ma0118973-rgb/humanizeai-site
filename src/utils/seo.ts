@@ -92,6 +92,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Word Counter",
   },
+  textToSpeech: {
+    title: "Free Text to Speech – Hear Your Text Read Aloud Online",
+    description: "Free text to speech. Paste text and hear it read aloud with your device's own voices, right in your browser. No sign-up, nothing uploaded.",
+    canonicalPath: "/text-to-speech/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Text to Speech",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -245,6 +253,9 @@ export function applyPageSeo(
   } else if (page === "wordCounter") {
     title = (t.seo as any).wordCounterTitle || baseConfig.title;
     description = (t.seo as any).wordCounterDesc || baseConfig.description;
+  } else if (page === "textToSpeech") {
+    title = (t.seo as any).textToSpeechTitle || baseConfig.title;
+    description = (t.seo as any).textToSpeechDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

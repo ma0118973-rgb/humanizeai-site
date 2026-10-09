@@ -66,6 +66,7 @@ const ROUTES = [
   ["voiceTyping", "/voice-typing/"],
   ["cvBuilder", "/cv-builder/"],
   ["wordCounter", "/word-counter/"],
+  ["textToSpeech", "/text-to-speech/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -111,6 +112,7 @@ function pageMeta(page, lang, blogPost) {
     case "voiceTyping": return [seo.voiceTypingTitle || fb.voiceTypingTitle, seo.voiceTypingDesc || fb.voiceTypingDesc];
     case "cvBuilder": return [seo.cvBuilderTitle || fb.cvBuilderTitle, seo.cvBuilderDesc || fb.cvBuilderDesc];
     case "wordCounter": return [seo.wordCounterTitle || fb.wordCounterTitle, seo.wordCounterDesc || fb.wordCounterDesc];
+    case "textToSpeech": return [seo.textToSpeechTitle || fb.textToSpeechTitle, seo.textToSpeechDesc || fb.textToSpeechDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -162,7 +164,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -364,6 +366,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "How should Japanese text be counted?",
           acceptedAnswer: { "@type": "Answer", text: "Japanese usually does not separate words with spaces, so the character count is the reliable main figure. A spaces-based word count is best treated as a rough guide for space-separated or mixed text." },
+        },
+      ],
+    });
+  }
+  if (page === "textToSpeech") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to hear your text read aloud in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste your text", text: "Paste or type the text you want to hear — an essay, study notes, an article — or try the sample." },
+        { "@type": "HowToStep", position: 2, name: "Choose a voice from your device", text: "Pick one of the voices installed on your phone or computer, grouped by language, then set the speed and pitch." },
+        { "@type": "HowToStep", position: 3, name: "Press Play", text: "Listen part by part with pause, resume and stop. Long texts are split into sentence-sized parts automatically so playback does not cut out." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this text to speech tool free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up, and there is no character limit from us: long texts are split into sentence-sized parts and read in sequence in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my text uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The reading happens locally in your browser tab using your device's own voice. Your text is never sent to a server." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I download the reading as an MP3?",
+          acceptedAnswer: { "@type": "Answer", text: "No, and this page says so honestly: browser voices play live and a web page cannot save them as an audio file. Sites that generate MP3 files do it on their own servers, which means uploading your text to them." },
+        },
+        {
+          "@type": "Question",
+          name: "Why does my language have no voice, or a different voice than my friend's phone?",
+          acceptedAnswer: { "@type": "Answer", text: "The voices come from your own device and browser — websites cannot install them. If a language is missing, add its voice in your system settings (Android: Accessibility → Text-to-speech output; Windows: Time & language → Speech), then reload. Chrome often includes extra voices." },
+        },
+        {
+          "@type": "Question",
+          name: "Why does the reading pause strangely, or restart instead of resuming?",
+          acceptedAnswer: { "@type": "Answer", text: "Pause and resume behaviour is controlled by each browser and device, and they differ. Some browsers restart the current part instead of continuing mid-sentence. Stopping and pressing Play again always restarts cleanly." },
         },
       ],
     });
