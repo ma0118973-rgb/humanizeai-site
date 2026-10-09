@@ -66,6 +66,7 @@ export type ActivePage =
   | "textToSpeech"
   | "typingTest"
   | "caseConverter"
+  | "passwordGenerator"
   | "imageCompressor"
   | "pdfTools"
   | "cleaner"

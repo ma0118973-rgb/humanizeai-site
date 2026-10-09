@@ -17,6 +17,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   textToSpeech: "text-to-speech-urdu-guide",
   typingTest: "typing-test-urdu-guide",
   caseConverter: "case-converter-urdu-guide",
+  passwordGenerator: "password-generator-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
   pdfTools: "pdf-tools-urdu-guide",
   media: "video-tools-urdu-guide",

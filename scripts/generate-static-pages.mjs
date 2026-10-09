@@ -69,6 +69,7 @@ const ROUTES = [
   ["textToSpeech", "/text-to-speech/"],
   ["typingTest", "/typing-test/"],
   ["caseConverter", "/case-converter/"],
+  ["passwordGenerator", "/password-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -117,6 +118,7 @@ function pageMeta(page, lang, blogPost) {
     case "textToSpeech": return [seo.textToSpeechTitle || fb.textToSpeechTitle, seo.textToSpeechDesc || fb.textToSpeechDesc];
     case "typingTest": return [seo.typingTestTitle || fb.typingTestTitle, seo.typingTestDesc || fb.typingTestDesc];
     case "caseConverter": return [seo.caseConverterTitle || fb.caseConverterTitle, seo.caseConverterDesc || fb.caseConverterDesc];
+    case "passwordGenerator": return [seo.passwordGeneratorTitle || fb.passwordGeneratorTitle, seo.passwordGeneratorDesc || fb.passwordGeneratorDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -168,7 +170,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -513,6 +515,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Does it handle Turkish, German and Japanese text correctly?",
           acceptedAnswer: { "@type": "Answer", text: "Case changes follow the language selected on the page: Turkish i becomes İ and dotless ı becomes I, German ß becomes SS in UPPERCASE, and scripts without letter case, such as Japanese kana and kanji, are left unchanged." },
+        },
+      ],
+    });
+  }
+  if (page === "passwordGenerator") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to create a strong password in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose length and characters", text: "Set the length (16 or more is a good default) and tick uppercase, lowercase, numbers and symbols. Turn on exclude look-alike characters if you will type the password by hand." },
+        { "@type": "HowToStep", position: 2, name: "Generate several and pick one", text: "The tool creates a batch of passwords right on your device using cryptographic randomness. Pick any one of them — they are equally random." },
+        { "@type": "HowToStep", position: 3, name: "Copy it into the account and a password manager", text: "Paste the password into the sign-up form and save it in a reputable password manager. Then turn on two-factor authentication for that account." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this password generator free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up and no account. Everything runs in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Are my passwords uploaded, stored or logged?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Passwords are generated locally in your browser tab with the Web Crypto API and never leave your device. There is no history: closing the tab forgets everything." },
+        },
+        {
+          "@type": "Question",
+          name: "How does the strength estimate work?",
+          acceptedAnswer: { "@type": "Answer", text: "It estimates entropy as password length times log2 of the character pool size. It is a rough estimate of guessing difficulty, not a promise — no password is unhackable, and a unique password plus two-factor authentication matters more than any label." },
+        },
+        {
+          "@type": "Question",
+          name: "Why exclude look-alike characters?",
+          acceptedAnswer: { "@type": "Answer", text: "Characters like I, l, 1, O and 0 are easy to confuse when reading or retyping a password. Excluding them trades a little pool size for far fewer typing mistakes." },
+        },
+        {
+          "@type": "Question",
+          name: "Where should I keep the password I generate?",
+          acceptedAnswer: { "@type": "Answer", text: "In a reputable password manager, protected by a strong master password you can remember — a long passphrase works well for that. Do not keep passwords in notes apps, chats or email, and use a different password for every account." },
         },
       ],
     });

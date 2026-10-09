@@ -61,6 +61,9 @@ const TypingTestWorkspace = lazy(() =>
 const CaseConverterWorkspace = lazy(() =>
   import("./components/CaseConverterWorkspace").then((m) => ({ default: m.CaseConverterWorkspace }))
 );
+const PasswordGeneratorWorkspace = lazy(() =>
+  import("./components/PasswordGeneratorWorkspace").then((m) => ({ default: m.PasswordGeneratorWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -172,6 +175,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "case-converter" || primarySlug === "text-case-converter" || primarySlug === "change-case" || primarySlug === "uppercase-lowercase-converter") {
     return { page: "caseConverter", lang, blogSlug: null };
+  }
+  if (primarySlug === "password-generator" || primarySlug === "random-password-generator" || primarySlug === "strong-password-generator" || primarySlug === "password-maker" || primarySlug === "generate-password") {
+    return { page: "passwordGenerator", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -414,6 +420,7 @@ export default function App() {
     activePage === "textToSpeech" ||
     activePage === "typingTest" ||
     activePage === "caseConverter" ||
+    activePage === "passwordGenerator" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
 
@@ -633,6 +640,19 @@ export default function App() {
         {activePage === "caseConverter" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <CaseConverterWorkspace
+              selectedLanguage={selectedLanguage}
+            />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "passwordGenerator" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <PasswordGeneratorWorkspace
               selectedLanguage={selectedLanguage}
             />
             <OtherToolsSection

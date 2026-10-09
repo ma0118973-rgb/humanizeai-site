@@ -116,6 +116,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Case Converter",
   },
+  passwordGenerator: {
+    title: "Free Password Generator – Strong Random Passwords in Your Browser",
+    description: "Free password generator. Create strong random passwords with length and character controls, generated on your own device. No sign-up, nothing uploaded or stored.",
+    canonicalPath: "/password-generator/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Password Generator",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -278,6 +286,9 @@ export function applyPageSeo(
   } else if (page === "caseConverter") {
     title = (t.seo as any).caseConverterTitle || baseConfig.title;
     description = (t.seo as any).caseConverterDesc || baseConfig.description;
+  } else if (page === "passwordGenerator") {
+    title = (t.seo as any).passwordGeneratorTitle || baseConfig.title;
+    description = (t.seo as any).passwordGeneratorDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;
