@@ -213,14 +213,14 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: "HumanizeAI",
+      name: "ToolVena",
       url: `${origin}/`,
-      description: "Free AI text humanizer and writing pattern checker.",
+      description: "Free online tools for writing, text, images, PDFs and everyday tasks.",
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "HumanizeAI",
+      name: "ToolVena",
       url: `${origin}/`,
       logo: `${origin}/icon.svg`,
     },
