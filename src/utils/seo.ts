@@ -132,6 +132,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Remove Duplicate Lines",
   },
+  invisibleCharacter: {
+    title: "Free Invisible Character – Copy Blank Text & Test Hidden Text",
+    description: "Free invisible character tool. Copy zero-width and blank characters, generate blank text, and reveal hidden Unicode in pasted text. Nothing is uploaded.",
+    canonicalPath: "/invisible-character/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Invisible Character",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -300,6 +308,9 @@ export function applyPageSeo(
   } else if (page === "duplicateLines") {
     title = (t.seo as any).dedupLinesTitle || baseConfig.title;
     description = (t.seo as any).dedupLinesDesc || baseConfig.description;
+  } else if (page === "invisibleCharacter") {
+    title = (t.seo as any).invisibleCharacterTitle || baseConfig.title;
+    description = (t.seo as any).invisibleCharacterDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

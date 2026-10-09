@@ -71,6 +71,7 @@ const ROUTES = [
   ["caseConverter", "/case-converter/"],
   ["passwordGenerator", "/password-generator/"],
   ["duplicateLines", "/remove-duplicate-lines/"],
+  ["invisibleCharacter", "/invisible-character/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -121,6 +122,7 @@ function pageMeta(page, lang, blogPost) {
     case "caseConverter": return [seo.caseConverterTitle || fb.caseConverterTitle, seo.caseConverterDesc || fb.caseConverterDesc];
     case "passwordGenerator": return [seo.passwordGeneratorTitle || fb.passwordGeneratorTitle, seo.passwordGeneratorDesc || fb.passwordGeneratorDesc];
     case "duplicateLines": return [seo.dedupLinesTitle || fb.dedupLinesTitle, seo.dedupLinesDesc || fb.dedupLinesDesc];
+    case "invisibleCharacter": return [seo.invisibleCharacterTitle || fb.invisibleCharacterTitle, seo.invisibleCharacterDesc || fb.invisibleCharacterDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -172,7 +174,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "invisibleCharacter", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -609,6 +611,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Does it merge lines that are almost the same?",
           acceptedAnswer: { "@type": "Answer", text: "No. It compares whole lines exactly under the options you choose. Near matches such as 'seo tool' and 'seo tools', or different spellings, stay as separate lines." },
+        },
+      ],
+    });
+  }
+  if (page === "invisibleCharacter") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to copy an invisible character in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose the right character", text: "Pick a zero-width character for no visible width, or a blank-width character such as Braille Pattern Blank when you need a visible-sized empty gap. The code point is shown before copying." },
+        { "@type": "HowToStep", position: 2, name: "Copy one or generate blank text", text: "Copy a single character, or choose a character and repeat count and copy the generated blank text. The preview uses labelled tiles so an empty result is not taken on trust." },
+        { "@type": "HowToStep", position: 3, name: "Test in the destination and tester", text: "Paste into the target app and, if unsure, paste into the tester. Hidden or blank-width characters appear as code-point labels with counts. Platforms may strip or block them, so there is no guarantee." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this invisible character tool free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Copy one character, generate up to 1,000 repeated characters, and inspect pasted text in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Which characters are really invisible?",
+          acceptedAnswer: { "@type": "Answer", text: "Zero Width Space U+200B, Zero Width Non-Joiner U+200C, Zero Width Joiner U+200D and Word Joiner U+2060 have no visible glyph or width by themselves, although joiners can affect neighbouring letters and emoji. Braille Pattern Blank U+2800 and Hangul Filler U+3164 render as blank space with width in fonts that support them." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my text uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Generated text and text pasted into the tester are processed in your browser tab. This tool does not upload, store or share them." },
+        },
+        {
+          "@type": "Question",
+          name: "Will invisible text work in every game or social app?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Platforms can strip, block, normalize, reject or change how they handle these Unicode characters at any time, and some fonts or screen readers behave differently. Test in the destination and follow that platform's rules." },
+        },
+        {
+          "@type": "Question",
+          name: "Why is U+FE0F not offered as a blank character?",
+          acceptedAnswer: { "@type": "Answer", text: "U+FE0F is Variation Selector-16. It modifies the character or emoji before it and is not blank text by itself, so this tool does not pretend it is a standalone invisible character. The tester will still label it when it appears in pasted text." },
         },
       ],
     });

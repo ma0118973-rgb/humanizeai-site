@@ -67,6 +67,9 @@ const PasswordGeneratorWorkspace = lazy(() =>
 const RemoveDuplicateLinesWorkspace = lazy(() =>
   import("./components/RemoveDuplicateLinesWorkspace").then((m) => ({ default: m.RemoveDuplicateLinesWorkspace }))
 );
+const InvisibleCharacterWorkspace = lazy(() =>
+  import("./components/InvisibleCharacterWorkspace").then((m) => ({ default: m.InvisibleCharacterWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -184,6 +187,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "remove-duplicate-lines" || primarySlug === "duplicate-line-remover" || primarySlug === "remove-duplicates" || primarySlug === "dedupe-lines" || primarySlug === "remove-repeated-lines") {
     return { page: "duplicateLines", lang, blogSlug: null };
+  }
+  if (primarySlug === "invisible-character" || primarySlug === "blank-text" || primarySlug === "invisible-text" || primarySlug === "blank-text-generator" || primarySlug === "invisible-character-generator" || primarySlug === "empty-character") {
+    return { page: "invisibleCharacter", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -427,6 +433,8 @@ export default function App() {
     activePage === "typingTest" ||
     activePage === "caseConverter" ||
     activePage === "passwordGenerator" ||
+    activePage === "duplicateLines" ||
+    activePage === "invisibleCharacter" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
 
@@ -672,6 +680,19 @@ export default function App() {
         {activePage === "duplicateLines" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <RemoveDuplicateLinesWorkspace
+              selectedLanguage={selectedLanguage}
+            />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "invisibleCharacter" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <InvisibleCharacterWorkspace
               selectedLanguage={selectedLanguage}
             />
             <OtherToolsSection
