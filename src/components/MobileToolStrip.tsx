@@ -40,6 +40,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "imageResizer", label: "Resizer", icon: Scaling },
   { id: "imageConverter", label: "Converter", icon: Repeat },
   { id: "imageToText", label: "Image to Text", icon: ScanText },
+  { id: "pdfSplitter", label: "PDF Splitter", icon: Scissors },
   { id: "instagramLineBreak", label: "IG Line Breaks", icon: Instagram },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },

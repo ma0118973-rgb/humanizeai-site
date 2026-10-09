@@ -241,6 +241,19 @@ export function PdfToolsWorkspace({ selectedLanguage = "en" }: PdfToolsWorkspace
         </div>
       )}
 
+      {/* Cross-link: splitting lives on its own focused page */}
+      <a
+        href={`/${selectedLanguage}/pdf-splitter/`}
+        className="flex items-center gap-3 bg-white border border-stone-200 rounded-2xl p-4 hover:border-orange-300 hover:bg-orange-50/40 transition-all"
+      >
+        <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shrink-0">
+          <FileText className="w-5 h-5 text-white" />
+        </span>
+        <span className="text-sm text-stone-700">
+          <strong className="text-stone-900">PDF Splitter:</strong> extract pages or split ranges (1-3, 5, 8-10) into new PDFs — also fully in your browser.
+        </span>
+      </a>
+
       {/* AEO */}
       <div className="bg-red-50/70 border border-red-200/80 rounded-2xl p-4 sm:p-6">
         <div className="flex items-start gap-3">

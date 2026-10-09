@@ -109,6 +109,9 @@ const ImageConverterWorkspace = lazy(() =>
 const ImageToTextWorkspace = lazy(() =>
   import("./components/ImageToTextWorkspace").then((m) => ({ default: m.ImageToTextWorkspace }))
 );
+const PdfSplitterWorkspace = lazy(() =>
+  import("./components/PdfSplitterWorkspace").then((m) => ({ default: m.PdfSplitterWorkspace }))
+);
 const ImageResizerWorkspace = lazy(() =>
   import("./components/ImageResizerWorkspace").then((m) => ({ default: m.ImageResizerWorkspace }))
 );
@@ -283,6 +286,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "image-to-text" || primarySlug === "image-to-text-converter" || primarySlug === "ocr" || primarySlug === "extract-text-from-image" || primarySlug === "photo-to-text" || primarySlug === "image-ocr" || primarySlug === "text-from-image") {
     return { page: "imageToText", lang, blogSlug: null };
+  }
+  if (primarySlug === "pdf-splitter" || primarySlug === "split-pdf" || primarySlug === "pdf-split" || primarySlug === "separate-pdf-pages" || primarySlug === "extract-pdf-pages" || primarySlug === "pdf-page-extractor") {
+    return { page: "pdfSplitter", lang, blogSlug: null };
   }
   if (primarySlug === "image-resizer" || primarySlug === "resize-image" || primarySlug === "image-cropper" || primarySlug === "crop-image" || primarySlug === "photo-resizer" || primarySlug === "image-resizer-cropper" || primarySlug === "resize-photo") {
     return { page: "imageResizer", lang, blogSlug: null };
@@ -546,6 +552,7 @@ export default function App() {
     activePage === "imageResizer" ||
     activePage === "imageConverter" ||
     activePage === "imageToText" ||
+    activePage === "pdfSplitter" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -958,6 +965,17 @@ export default function App() {
         {activePage === "imageToText" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <ImageToTextWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "pdfSplitter" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <PdfSplitterWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

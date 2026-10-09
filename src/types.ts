@@ -84,6 +84,7 @@ export type ActivePage =
   | "imageResizer"
   | "imageConverter"
   | "imageToText"
+  | "pdfSplitter"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

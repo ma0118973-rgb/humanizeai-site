@@ -244,6 +244,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Image to Text OCR",
   },
+  pdfSplitter: {
+    title: "PDF Splitter — Split PDF & Extract Pages Online Free",
+    description: "Free PDF splitter. Extract a page range into one PDF or split into separate PDFs per range, entirely in your browser with pdf-lib — your file is never uploaded. Password-protected or damaged PDFs fail with a clear message. No sign-up.",
+    canonicalPath: "/pdf-splitter/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "PDF Splitter",
+  },
   imageResizer: {
     title: "Image Resizer — Resize & Crop JPG, PNG, WebP to Exact Size",
     description: "Free image resizer and cropper. Resize by exact pixels or percentage, crop to a ratio, use social and A4 presets, and download JPG, PNG or WebP. Fully local — nothing is uploaded.",
@@ -478,6 +486,9 @@ export function applyPageSeo(
   } else if (page === "imageToText") {
     title = (t.seo as any).imageToTextTitle || baseConfig.title;
     description = (t.seo as any).imageToTextDesc || baseConfig.description;
+  } else if (page === "pdfSplitter") {
+    title = (t.seo as any).pdfSplitterTitle || baseConfig.title;
+    description = (t.seo as any).pdfSplitterDesc || baseConfig.description;
   } else if (page === "imageResizer") {
     title = (t.seo as any).imageResizerTitle || baseConfig.title;
     description = (t.seo as any).imageResizerDesc || baseConfig.description;

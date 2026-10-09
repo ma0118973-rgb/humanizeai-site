@@ -87,6 +87,7 @@ const ROUTES = [
   ["imageResizer", "/image-resizer/"],
   ["imageConverter", "/image-converter/"],
   ["imageToText", "/image-to-text/"],
+  ["pdfSplitter", "/pdf-splitter/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -154,6 +155,7 @@ function pageMeta(page, lang, blogPost) {
     case "imageResizer": return [seo.imageResizerTitle || fb.imageResizerTitle, seo.imageResizerDesc || fb.imageResizerDesc];
     case "imageConverter": return [seo.imageConverterTitle || fb.imageConverterTitle, seo.imageConverterDesc || fb.imageConverterDesc];
     case "imageToText": return [seo.imageToTextTitle || fb.imageToTextTitle, seo.imageToTextDesc || fb.imageToTextDesc];
+    case "pdfSplitter": return [seo.pdfSplitterTitle || fb.pdfSplitterTitle, seo.pdfSplitterDesc || fb.pdfSplitterDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -206,7 +208,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1429,6 +1431,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Does it work offline?",
           acceptedAnswer: { "@type": "Answer", text: "Only after the first use. The engine and the chosen language data must download from a CDN once and are then cached by your browser; if you are offline on the very first use, the download fails and OCR cannot start. Your image is never part of any network request." },
+        },
+      ],
+    });
+  }
+  if (page === "pdfSplitter") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to split a PDF and extract pages in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Add one PDF and check its page count", text: "Drop one PDF or click to browse. The file is read locally with the open-source pdf-lib library and its real page count is shown — the file itself is never uploaded. Very large PDFs may be slow in a browser; password-protected files cannot be opened." },
+        { "@type": "HowToStep", position: 2, name: "Type the pages and choose the output", text: "Write the pages you need with commas and hyphens, like 1-3, 5, 8-10. Choose One PDF to combine all selected pages into a single file in the order written, or Separate PDFs to get one file per group." },
+        { "@type": "HowToStep", position: 3, name: "Download and verify", text: "Download each new PDF (or use Download all) and check its real page count and size, which are shown next to every file. Splitting copies pages exactly — it does not edit text, compress, or OCR scanned pages." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this PDF splitter free? Is my file uploaded?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, free with no sign-up, and your file is never uploaded. Splitting runs entirely in your browser tab with the open-source pdf-lib library, so you can split private documents without sending them to a server." },
+        },
+        {
+          "@type": "Question",
+          name: "How do I extract only some pages from a PDF?",
+          acceptedAnswer: { "@type": "Answer", text: "Add the PDF, note its real page count, then type the pages like 1-3, 5, 8-10: commas separate groups and a hyphen means a range. Pick One PDF for a single combined file, or Separate PDFs for one file per group, then download." },
+        },
+        {
+          "@type": "Question",
+          name: "Why did my PDF fail to open?",
+          acceptedAnswer: { "@type": "Answer", text: "Password-protected PDFs cannot be opened by browser PDF libraries — remove the password in a desktop PDF app first. Damaged files, unusual formats, and very large PDFs that exceed the browser's memory can also fail; try smaller ranges or a desktop tool." },
+        },
+        {
+          "@type": "Question",
+          name: "Does splitting a PDF compress it or make scanned text editable?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Splitting copies pages exactly as they are: file sizes stay roughly proportional to the pages kept, text is not edited, and a scanned page stays a picture of text — there is no OCR. For readable text from a scan, use the Image to Text tool on an exported page image." },
+        },
+        {
+          "@type": "Question",
+          name: "What is the difference between splitting and merging?",
+          acceptedAnswer: { "@type": "Answer", text: "Splitting takes one PDF apart: selected pages become new, smaller PDFs. Merging does the opposite — several PDFs become one. Use this PDF Splitter to extract pages, and the PDF Tools page (Merge) to combine files." },
         },
       ],
     });
