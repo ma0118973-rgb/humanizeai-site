@@ -81,6 +81,7 @@ const ROUTES = [
   ["jsonFormatter", "/json-formatter/"],
   ["loremIpsum", "/lorem-ipsum-generator/"],
   ["daysBetween", "/days-between-dates/"],
+  ["randomNumber", "/random-number-generator/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -142,6 +143,7 @@ function pageMeta(page, lang, blogPost) {
     case "jsonFormatter": return [seo.jsonFormatterTitle || fb.jsonFormatterTitle, seo.jsonFormatterDesc || fb.jsonFormatterDesc];
     case "loremIpsum": return [seo.loremIpsumTitle || fb.loremIpsumTitle, seo.loremIpsumDesc || fb.loremIpsumDesc];
     case "daysBetween": return [seo.daysBetweenTitle || fb.daysBetweenTitle, seo.daysBetweenDesc || fb.daysBetweenDesc];
+    case "randomNumber": return [seo.randomNumberTitle || fb.randomNumberTitle, seo.randomNumberDesc || fb.randomNumberDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -194,7 +196,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1126,6 +1128,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Are my dates uploaded or stored anywhere?",
           acceptedAnswer: { "@type": "Answer", text: "No. The calculation runs entirely in your browser tab using your device's date functions. Nothing is uploaded, stored on a server, saved to an account or shared, and closing the tab forgets the dates." },
+        },
+      ],
+    });
+  }
+  if (page === "randomNumber") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to draw random numbers, flip a coin or roll dice in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Pick a mode and your settings", text: "Choose Numbers, Coin Flip or Dice Roll. For numbers, set the minimum, maximum and how many numbers to draw, and decide whether repeats are allowed and whether the result should be sorted." },
+        { "@type": "HowToStep", position: 2, name: "Generate with one tap", text: "Press Generate, Flip or Roll. The draw uses your browser's cryptographic random source (crypto.getRandomValues), so it is unpredictable and fair for everyday use." },
+        { "@type": "HowToStep", position: 3, name: "Copy or check the history", text: "Copy the drawn numbers with one tap, or scroll to the in-tab history to reuse an earlier draw. The history lives only in this tab and disappears when you close it." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What does 'allow repeats off' mean?",
+          acceptedAnswer: { "@type": "Answer", text: "With repeats on, the same number can be drawn more than once in a set, like rolling the same die face twice. With repeats off, every number in the set is unique, like drawing numbered tickets out of a hat without putting them back. You cannot draw more unique numbers than the range contains." },
+        },
+        {
+          "@type": "Question",
+          name: "Is this 'true random' like atmospheric noise?",
+          acceptedAnswer: { "@type": "Answer", text: "No. This tool uses your browser's cryptographic random source — the same kind of randomness browsers and operating systems use for security. It is strong and unpredictable for games, classrooms and giveaways, but it is not randomness harvested from a physical source such as atmospheric noise, and it is not certified for regulated gambling, official lotteries or legal prize draws." },
+        },
+        {
+          "@type": "Question",
+          name: "Can this tool improve my lottery chances or predict numbers?",
+          acceptedAnswer: { "@type": "Answer", text: "No tool can. Every draw is independent and unpredictable, which is exactly what makes it random. Never pay for 'predicted' lottery numbers, and never gamble money you cannot afford to lose." },
+        },
+        {
+          "@type": "Question",
+          name: "Are my ranges and results uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The drawing happens entirely in your browser tab with its built-in cryptographic random function. The short history is kept only in this tab's memory, is never sent anywhere, and is gone when you close the tab." },
+        },
+        {
+          "@type": "Question",
+          name: "Why are the coin flip and dice roller in the same tool?",
+          acceptedAnswer: { "@type": "Answer", text: "Because they are the same everyday job — a fair, quick random pick — and switching modes here is faster than opening separate coin-flip and dice-roller pages. The coin mode keeps heads/tails counts for classroom experiments, and the dice mode rolls 1 to 6 dice with the total." },
         },
       ],
     });

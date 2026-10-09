@@ -100,6 +100,9 @@ const InstagramLineBreakWorkspace = lazy(() =>
 const DaysBetweenDatesWorkspace = lazy(() =>
   import("./components/DaysBetweenDatesWorkspace").then((m) => ({ default: m.DaysBetweenDatesWorkspace }))
 );
+const RandomNumberGeneratorWorkspace = lazy(() =>
+  import("./components/RandomNumberGeneratorWorkspace").then((m) => ({ default: m.RandomNumberGeneratorWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -250,6 +253,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "days-between-dates" || primarySlug === "date-calculator" || primarySlug === "date-difference-calculator" || primarySlug === "days-between" || primarySlug === "business-days-calculator" || primarySlug === "date-duration-calculator") {
     return { page: "daysBetween", lang, blogSlug: null };
+  }
+  if (primarySlug === "random-number-generator" || primarySlug === "number-generator" || primarySlug === "random-number" || primarySlug === "random-numbers" || primarySlug === "random-picker") {
+    return { page: "randomNumber", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -504,6 +510,7 @@ export default function App() {
     activePage === "jsonFormatter" ||
     activePage === "loremIpsum" ||
     activePage === "daysBetween" ||
+    activePage === "randomNumber" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -861,6 +868,17 @@ export default function App() {
         {activePage === "daysBetween" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <DaysBetweenDatesWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "randomNumber" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <RandomNumberGeneratorWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

@@ -212,6 +212,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Days Between Dates Calculator",
   },
+  randomNumber: {
+    title: "Free Random Number Generator – Numbers, Coin Flip & Dice",
+    description: "Free random number generator. Draw numbers in any range with repeats on or off, sorted or unsorted, plus a coin flip and dice roller in the same tool. Uses your browser's cryptographic randomness — nothing is uploaded.",
+    canonicalPath: "/random-number-generator/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Random Number Generator",
+  },
   instagramLineBreak: {
     title: "Free Instagram Line Break Generator – Keep Caption Spacing",
     description: "Free Instagram line break generator. Write captions and bios with real blank lines, protect the spacing with an invisible character, preview and copy in one tap. Nothing is uploaded.",
@@ -418,6 +426,9 @@ export function applyPageSeo(
   } else if (page === "daysBetween") {
     title = (t.seo as any).daysBetweenTitle || baseConfig.title;
     description = (t.seo as any).daysBetweenDesc || baseConfig.description;
+  } else if (page === "randomNumber") {
+    title = (t.seo as any).randomNumberTitle || baseConfig.title;
+    description = (t.seo as any).randomNumberDesc || baseConfig.description;
   } else if (page === "instagramLineBreak") {
     title = (t.seo as any).instagramLineBreakTitle || baseConfig.title;
     description = (t.seo as any).instagramLineBreakDesc || baseConfig.description;

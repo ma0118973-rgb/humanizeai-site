@@ -78,6 +78,7 @@ export type ActivePage =
   | "jsonFormatter"
   | "loremIpsum"
   | "daysBetween"
+  | "randomNumber"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"
