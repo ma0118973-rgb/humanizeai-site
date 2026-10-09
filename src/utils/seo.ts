@@ -204,6 +204,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Lorem Ipsum Generator",
   },
+  daysBetween: {
+    title: "Free Days Between Dates Calculator – Count Days & Business Days",
+    description: "Free days between dates calculator. Count the total days between two dates — inclusive or exclusive — with weeks, approximate months/years and Monday–Friday business days (public holidays are not subtracted). Add or subtract days from any date. Runs locally, nothing uploaded.",
+    canonicalPath: "/days-between-dates/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Days Between Dates Calculator",
+  },
   instagramLineBreak: {
     title: "Free Instagram Line Break Generator – Keep Caption Spacing",
     description: "Free Instagram line break generator. Write captions and bios with real blank lines, protect the spacing with an invisible character, preview and copy in one tap. Nothing is uploaded.",
@@ -407,6 +415,9 @@ export function applyPageSeo(
   } else if (page === "loremIpsum") {
     title = (t.seo as any).loremIpsumTitle || baseConfig.title;
     description = (t.seo as any).loremIpsumDesc || baseConfig.description;
+  } else if (page === "daysBetween") {
+    title = (t.seo as any).daysBetweenTitle || baseConfig.title;
+    description = (t.seo as any).daysBetweenDesc || baseConfig.description;
   } else if (page === "instagramLineBreak") {
     title = (t.seo as any).instagramLineBreakTitle || baseConfig.title;
     description = (t.seo as any).instagramLineBreakDesc || baseConfig.description;

@@ -77,6 +77,7 @@ export type ActivePage =
   | "slugGenerator"
   | "jsonFormatter"
   | "loremIpsum"
+  | "daysBetween"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

@@ -80,6 +80,7 @@ const ROUTES = [
   ["slugGenerator", "/slug-generator/"],
   ["jsonFormatter", "/json-formatter/"],
   ["loremIpsum", "/lorem-ipsum-generator/"],
+  ["daysBetween", "/days-between-dates/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -140,6 +141,7 @@ function pageMeta(page, lang, blogPost) {
     case "slugGenerator": return [seo.slugGeneratorTitle || fb.slugGeneratorTitle, seo.slugGeneratorDesc || fb.slugGeneratorDesc];
     case "jsonFormatter": return [seo.jsonFormatterTitle || fb.jsonFormatterTitle, seo.jsonFormatterDesc || fb.jsonFormatterDesc];
     case "loremIpsum": return [seo.loremIpsumTitle || fb.loremIpsumTitle, seo.loremIpsumDesc || fb.loremIpsumDesc];
+    case "daysBetween": return [seo.daysBetweenTitle || fb.daysBetweenTitle, seo.daysBetweenDesc || fb.daysBetweenDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -192,7 +194,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1073,6 +1075,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Which output format should I choose?",
           acceptedAnswer: { "@type": "Answer", text: "Plain text for Figma, Canva, documents and slides; HTML <p> when pasting paragraphs into code; and the list format when you need ready-made <ul> items for menus, benefits or specifications." },
+        },
+      ],
+    });
+  }
+  if (page === "daysBetween") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to count the days between two dates in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Pick the start and end dates", text: "Choose a start date and an end date in the date pickers, or use the quick buttons to set either date to today. Swap the dates with one button if the end comes first." },
+        { "@type": "HowToStep", position: 2, name: "Choose inclusive or exclusive counting", text: "Exclusive counting measures the gap between the dates (May 1 to May 2 = 1 day). Inclusive counting counts both the first and the last day (May 1 to May 2 = 2 days). The result updates instantly." },
+        { "@type": "HowToStep", position: 3, name: "Read the breakdown — or add/subtract days", text: "See total days, Monday–Friday business days, weekend days, whole weeks plus leftover days, and approximate months/years. Or switch to Add / subtract days mode to find the date N days before or after any date." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How does this calculator count the days between two dates?",
+          acceptedAnswer: { "@type": "Answer", text: "It subtracts the two calendar dates using UTC date math: May 1 to May 2 is 1 day. Because the dates have no time of day, daylight-saving changes and time zones cannot shift the answer, and February 29 in leap years is counted automatically." },
+        },
+        {
+          "@type": "Question",
+          name: "What is the difference between inclusive and exclusive counting?",
+          acceptedAnswer: { "@type": "Answer", text: "Exclusive counting is the plain gap between the dates: May 1 to May 2 = 1 day. Inclusive counting adds the start day, so both the first and the last day count: May 1 to May 2 = 2 days. Use inclusive when both dates belong to the period, such as the first and last day of a booking." },
+        },
+        {
+          "@type": "Question",
+          name: "Does the business-day count subtract public holidays?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Business days here mean Monday to Friday only. This calculator has no country holiday calendar, so public holidays are never subtracted. For legal, payroll or court deadlines, always check the result against the official calendar for your country or region." },
+        },
+        {
+          "@type": "Question",
+          name: "Why are months and years labelled approximate?",
+          acceptedAnswer: { "@type": "Answer", text: "Real months have 28, 29, 30 or 31 days, so a fixed day count cannot equal an exact number of calendar months. The tool shows months and years as approximate equivalents using an average month of about 30.44 days. The exact, reliable figure is always the total day count." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I find the date N days from today?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. Switch to Add / subtract days mode, set the base date (today is filled in by default), enter the number of days, choose Add or Subtract, and the resulting calendar date is shown with its weekday." },
+        },
+        {
+          "@type": "Question",
+          name: "Are my dates uploaded or stored anywhere?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The calculation runs entirely in your browser tab using your device's date functions. Nothing is uploaded, stored on a server, saved to an account or shared, and closing the tab forgets the dates." },
         },
       ],
     });

@@ -97,6 +97,9 @@ const LoremIpsumWorkspace = lazy(() =>
 const InstagramLineBreakWorkspace = lazy(() =>
   import("./components/InstagramLineBreakWorkspace").then((m) => ({ default: m.InstagramLineBreakWorkspace }))
 );
+const DaysBetweenDatesWorkspace = lazy(() =>
+  import("./components/DaysBetweenDatesWorkspace").then((m) => ({ default: m.DaysBetweenDatesWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -244,6 +247,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "instagram-line-break-generator" || primarySlug === "ig-line-break" || primarySlug === "instagram-line-break" || primarySlug === "line-break-generator" || primarySlug === "instagram-caption-line-breaks" || primarySlug === "instagram-line-breaks") {
     return { page: "instagramLineBreak", lang, blogSlug: null };
+  }
+  if (primarySlug === "days-between-dates" || primarySlug === "date-calculator" || primarySlug === "date-difference-calculator" || primarySlug === "days-between" || primarySlug === "business-days-calculator" || primarySlug === "date-duration-calculator") {
+    return { page: "daysBetween", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -497,6 +503,7 @@ export default function App() {
     activePage === "slugGenerator" ||
     activePage === "jsonFormatter" ||
     activePage === "loremIpsum" ||
+    activePage === "daysBetween" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -843,6 +850,17 @@ export default function App() {
         {activePage === "loremIpsum" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <LoremIpsumWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "daysBetween" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <DaysBetweenDatesWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}
