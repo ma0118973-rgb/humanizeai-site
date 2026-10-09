@@ -5,7 +5,7 @@ import {
   Download, FileImage, Info, Repeat, ShieldCheck, Sparkles, Trash2, Upload, X,
 } from "lucide-react";
 import {
-  convertImageFormat, detectInputFormat, downloadBlob, formatFileSize, OUTPUT_EXT, OutputFormat, ProcessedImage,
+  convertImageFormat, detectInputFormat, downloadBlob, formatFileSize, OutputFormat, ProcessedImage,
 } from "../utils/imageEngine";
 import { LanguageCode } from "../types";
 import { TRANSLATIONS } from "../data/translations";
@@ -107,7 +107,8 @@ export function ImageConverterWorkspace({ selectedLanguage = "en" }: ImageConver
   const downloadOne = (it: QueueItem) => {
     if (!it.result) return;
     const base = it.file.name.replace(/\.[^.]+$/, "") || "image";
-    downloadBlob(it.result.blob, `${base}-converted.${OUTPUT_EXT[format]}`);
+    const ext = it.result.format === "JPG" ? "jpg" : it.result.format.toLowerCase();
+    downloadBlob(it.result.blob, `${base}-converted.${ext}`);
   };
   const downloadAll = async () => {
     for (const it of items) {
