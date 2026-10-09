@@ -132,6 +132,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Remove Duplicate Lines",
   },
+  textRepeater: {
+    title: "Free Text Repeater – Repeat Text Up to 1,000 Times Online",
+    description: "Free text repeater. Repeat any word, sentence or emoji up to 1,000 times with space, new-line, comma or custom separators. Copy or download the result. Nothing is uploaded.",
+    canonicalPath: "/text-repeater/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Text Repeater",
+  },
   invisibleCharacter: {
     title: "Free Invisible Character – Copy Blank Text & Test Hidden Text",
     description: "Free invisible character tool. Copy zero-width and blank characters, generate blank text, and reveal hidden Unicode in pasted text. Nothing is uploaded.",
@@ -308,6 +316,9 @@ export function applyPageSeo(
   } else if (page === "duplicateLines") {
     title = (t.seo as any).dedupLinesTitle || baseConfig.title;
     description = (t.seo as any).dedupLinesDesc || baseConfig.description;
+  } else if (page === "textRepeater") {
+    title = (t.seo as any).textRepeaterTitle || baseConfig.title;
+    description = (t.seo as any).textRepeaterDesc || baseConfig.description;
   } else if (page === "invisibleCharacter") {
     title = (t.seo as any).invisibleCharacterTitle || baseConfig.title;
     description = (t.seo as any).invisibleCharacterDesc || baseConfig.description;

@@ -71,6 +71,7 @@ const ROUTES = [
   ["caseConverter", "/case-converter/"],
   ["passwordGenerator", "/password-generator/"],
   ["duplicateLines", "/remove-duplicate-lines/"],
+  ["textRepeater", "/text-repeater/"],
   ["invisibleCharacter", "/invisible-character/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -122,6 +123,7 @@ function pageMeta(page, lang, blogPost) {
     case "caseConverter": return [seo.caseConverterTitle || fb.caseConverterTitle, seo.caseConverterDesc || fb.caseConverterDesc];
     case "passwordGenerator": return [seo.passwordGeneratorTitle || fb.passwordGeneratorTitle, seo.passwordGeneratorDesc || fb.passwordGeneratorDesc];
     case "duplicateLines": return [seo.dedupLinesTitle || fb.dedupLinesTitle, seo.dedupLinesDesc || fb.dedupLinesDesc];
+    case "textRepeater": return [seo.textRepeaterTitle || fb.textRepeaterTitle, seo.textRepeaterDesc || fb.textRepeaterDesc];
     case "invisibleCharacter": return [seo.invisibleCharacterTitle || fb.invisibleCharacterTitle, seo.invisibleCharacterDesc || fb.invisibleCharacterDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -174,7 +176,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "invisibleCharacter", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -611,6 +613,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Does it merge lines that are almost the same?",
           acceptedAnswer: { "@type": "Answer", text: "No. It compares whole lines exactly under the options you choose. Near matches such as 'seo tool' and 'seo tools', or different spellings, stay as separate lines." },
+        },
+      ],
+    });
+  }
+  if (page === "textRepeater") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to repeat text online in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Type or paste your text", text: "Enter a word, sentence, emoji or short paragraph. You can repeat the whole text or repeat every word one by one." },
+        { "@type": "HowToStep", position: 2, name: "Set the count and separator", text: "Choose 1 to 1,000 copies and what goes between them: nothing, a space, a new line, a comma or your own separator. Optionally add the separator after the last copy too." },
+        { "@type": "HowToStep", position: 3, name: "Copy or download the result", text: "Check the live copy, character, word and line counts, then copy the result or download it as a .txt file. Nothing is uploaded." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this text repeater free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Repeat text up to 1,000 times and copy or download the result from your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Why is there a limit of 1,000 repeats and 200,000 characters?",
+          acceptedAnswer: { "@type": "Answer", text: "Rendering millions of characters in a browser tab would freeze the page, especially on phones. The tool produces as many complete copies as fit in 200,000 characters and tells you when the result was shortened, instead of locking up." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my text uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. Your text and the repeated result are created in your browser tab. This tool does not upload, store or share them, and closing the tab forgets everything." },
+        },
+        {
+          "@type": "Question",
+          name: "What is the difference between whole-text and each-word mode?",
+          acceptedAnswer: { "@type": "Answer", text: "Whole-text mode repeats your full text as one block, copy after copy. Each-word mode repeats every word one by one, so 'go team' at 3 repeats becomes 'go go go team team team'." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I use repeated text to flood chats or comments?",
+          acceptedAnswer: { "@type": "Answer", text: "Please don't. This tool is for formatting, placeholders, test data, patterns and practice. Messaging and social platforms limit message length and can restrict accounts that paste huge repeated blocks; flooding can also get you muted or banned." },
         },
       ],
     });

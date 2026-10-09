@@ -68,6 +68,7 @@ export type ActivePage =
   | "caseConverter"
   | "passwordGenerator"
   | "duplicateLines"
+  | "textRepeater"
   | "invisibleCharacter"
   | "imageCompressor"
   | "pdfTools"

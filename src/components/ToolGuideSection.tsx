@@ -19,6 +19,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   caseConverter: "case-converter-urdu-guide",
   passwordGenerator: "password-generator-urdu-guide",
   duplicateLines: "remove-duplicate-lines-urdu-guide",
+  textRepeater: "text-repeater-urdu-guide",
   invisibleCharacter: "invisible-character-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
   pdfTools: "pdf-tools-urdu-guide",
