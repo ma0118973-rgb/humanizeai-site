@@ -92,6 +92,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Word Counter",
   },
+  characterCounter: {
+    title: "Free Character Counter – Count Characters & Check Limits Online",
+    description: "Free character counter. Characters with and without spaces, Unicode code points, UTF-16 units and UTF-8 bytes, plus live platform-limit checks and an SMS segment reality check. No sign-up, nothing uploaded.",
+    canonicalPath: "/character-counter/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Character Counter",
+  },
   textToSpeech: {
     title: "Free Text to Speech – Hear Your Text Read Aloud Online",
     description: "Free text to speech. Paste text and hear it read aloud with your device's own voices, right in your browser. No sign-up, nothing uploaded.",
@@ -301,6 +309,9 @@ export function applyPageSeo(
   } else if (page === "wordCounter") {
     title = (t.seo as any).wordCounterTitle || baseConfig.title;
     description = (t.seo as any).wordCounterDesc || baseConfig.description;
+  } else if (page === "characterCounter") {
+    title = (t.seo as any).characterCounterTitle || baseConfig.title;
+    description = (t.seo as any).characterCounterDesc || baseConfig.description;
   } else if (page === "textToSpeech") {
     title = (t.seo as any).textToSpeechTitle || baseConfig.title;
     description = (t.seo as any).textToSpeechDesc || baseConfig.description;

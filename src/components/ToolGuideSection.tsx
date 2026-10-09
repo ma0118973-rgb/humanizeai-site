@@ -14,6 +14,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   voiceTyping: "voice-typing-urdu-guide",
   cvBuilder: "cv-builder-urdu-guide",
   wordCounter: "word-counter-urdu-guide",
+  characterCounter: "character-counter-urdu-guide",
   textToSpeech: "text-to-speech-urdu-guide",
   typingTest: "typing-test-urdu-guide",
   caseConverter: "case-converter-urdu-guide",

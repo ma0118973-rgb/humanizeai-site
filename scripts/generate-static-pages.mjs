@@ -66,6 +66,7 @@ const ROUTES = [
   ["voiceTyping", "/voice-typing/"],
   ["cvBuilder", "/cv-builder/"],
   ["wordCounter", "/word-counter/"],
+  ["characterCounter", "/character-counter/"],
   ["textToSpeech", "/text-to-speech/"],
   ["typingTest", "/typing-test/"],
   ["caseConverter", "/case-converter/"],
@@ -118,6 +119,7 @@ function pageMeta(page, lang, blogPost) {
     case "voiceTyping": return [seo.voiceTypingTitle || fb.voiceTypingTitle, seo.voiceTypingDesc || fb.voiceTypingDesc];
     case "cvBuilder": return [seo.cvBuilderTitle || fb.cvBuilderTitle, seo.cvBuilderDesc || fb.cvBuilderDesc];
     case "wordCounter": return [seo.wordCounterTitle || fb.wordCounterTitle, seo.wordCounterDesc || fb.wordCounterDesc];
+    case "characterCounter": return [seo.characterCounterTitle || fb.characterCounterTitle, seo.characterCounterDesc || fb.characterCounterDesc];
     case "textToSpeech": return [seo.textToSpeechTitle || fb.textToSpeechTitle, seo.textToSpeechDesc || fb.textToSpeechDesc];
     case "typingTest": return [seo.typingTestTitle || fb.typingTestTitle, seo.typingTestDesc || fb.typingTestDesc];
     case "caseConverter": return [seo.caseConverterTitle || fb.caseConverterTitle, seo.caseConverterDesc || fb.caseConverterDesc];
@@ -176,7 +178,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -378,6 +380,57 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "How should Japanese text be counted?",
           acceptedAnswer: { "@type": "Answer", text: "Japanese usually does not separate words with spaces, so the character count is the reliable main figure. A spaces-based word count is best treated as a rough guide for space-separated or mixed text." },
+        },
+      ],
+    });
+  }
+  if (page === "characterCounter") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to count characters and check a limit in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste, type or open a text file", text: "Paste or type your text into the editor, open a .txt file, or select part of the text to count just that selection. The counts update live." },
+        { "@type": "HowToStep", position: 2, name: "Read the four counting methods", text: "Compare characters (grapheme clusters), characters without spaces, Unicode code points, UTF-16 code units and UTF-8 bytes — each labelled with its method, so emoji and joined characters are never a surprise." },
+        { "@type": "HowToStep", position: 3, name: "Check it against the limit", text: "Pick a platform preset such as X, Instagram, LinkedIn, a meta title or SMS, or set your own limit, and see how much room is left. SMS shows the GSM-7 versus Unicode segment count too." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this character counter free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Paste, type or open a text file and the character counts update live in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my text uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The counting happens locally in your browser tab. This tool does not upload your text or save it on a server." },
+        },
+        {
+          "@type": "Question",
+          name: "Why do character counters disagree about emoji?",
+          acceptedAnswer: { "@type": "Answer", text: "Because a character can be counted four ways: as one grapheme cluster (what a reader sees), as Unicode code points, as UTF-16 code units (the browser/JavaScript length), or as UTF-8 bytes. One emoji can be 1, 2 or more code points, 2 UTF-16 units and 4 or more bytes. This tool shows all four counts and names the method behind each." },
+        },
+        {
+          "@type": "Question",
+          name: "Are the platform limits guaranteed?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The presets are the commonly published limits at the time of writing — such as 280 characters for an X post, 2,200 for an Instagram caption, 3,000 for a LinkedIn post and 160 for an SMS — and platforms change them without notice and count emoji, links and line breaks their own way. Treat the presets as planning guidance and trust the counter inside the app you post to for the final word." },
+        },
+        {
+          "@type": "Question",
+          name: "Why does an SMS shrink from 160 to 70 characters?",
+          acceptedAnswer: { "@type": "Answer", text: "A plain SMS uses the GSM-7 alphabet at 160 characters per segment. Add any character outside that set — Urdu or Arabic script, many emoji — and the whole message is encoded as Unicode (UCS-2) at 70 characters per segment, so it splits into more segments sooner than the headline number suggests." },
+        },
+        {
+          "@type": "Question",
+          name: "What is the difference between the Character Counter and the Word Counter?",
+          acceptedAnswer: { "@type": "Answer", text: "The Word Counter answers how much you wrote: words, sentences, paragraphs, reading time and your most repeated words. This Character Counter answers whether it fits and how it is counted: exact characters by four methods and live checks against platform limits. Each page links to the other." },
         },
       ],
     });

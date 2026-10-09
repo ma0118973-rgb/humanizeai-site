@@ -199,6 +199,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
   </url>
   <url>
+    <loc>https://www.toolvena.com/en/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
+  </url>
+  <url>
     <loc>https://www.toolvena.com/en/text-to-speech/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -655,6 +673,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.toolvena.com/en/blog/character-counter-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.toolvena.com/es/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -851,6 +875,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-counter/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-counter/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/es/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/es/text-to-speech/</loc>
@@ -1279,6 +1321,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.toolvena.com/es/blog/contador-caracteres-guia/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.toolvena.com/ur/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1475,6 +1523,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-counter/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-counter/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/ur/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/ur/text-to-speech/</loc>
@@ -1903,6 +1969,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.toolvena.com/ur/blog/character-counter-urdu-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.toolvena.com/de/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -2099,6 +2171,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-counter/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-counter/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/de/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/de/text-to-speech/</loc>
@@ -2521,6 +2611,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.toolvena.com/de/blog/zeichenzaehler-anleitung/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.toolvena.com/fr/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -2717,6 +2813,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-counter/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-counter/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/fr/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/fr/text-to-speech/</loc>
@@ -3139,6 +3253,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.toolvena.com/fr/blog/compteur-caracteres-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.toolvena.com/pt/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -3335,6 +3455,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-counter/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-counter/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/pt/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/pt/text-to-speech/</loc>
@@ -3757,6 +3895,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.toolvena.com/pt/blog/contador-de-caracteres-guia/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.toolvena.com/tr/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -3953,6 +4097,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-counter/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-counter/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/tr/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/tr/text-to-speech/</loc>
@@ -4375,6 +4537,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.toolvena.com/tr/blog/karakter-sayaci-rehberi/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.toolvena.com/ja/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -4571,6 +4739,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-counter/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-counter/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/ja/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/ja/text-to-speech/</loc>
@@ -4993,6 +5179,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.toolvena.com/ja/blog/character-counter-guide-ja/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.toolvena.com/no/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -5189,6 +5381,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-counter/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-counter/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/no/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/no/text-to-speech/</loc>
@@ -5611,6 +5821,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.toolvena.com/no/blog/tegnteller-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.toolvena.com/nl/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -5807,6 +6023,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-counter/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-counter/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/nl/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/nl/text-to-speech/</loc>
@@ -6229,6 +6463,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.toolvena.com/nl/blog/karakters-tellen-gids/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.toolvena.com/it/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -6425,6 +6665,24 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/word-counter/" />
     <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/word-counter/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/word-counter/" />
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/it/character-counter/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.toolvena.com/en/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.toolvena.com/ur/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.toolvena.com/de/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.toolvena.com/fr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.toolvena.com/tr/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.toolvena.com/ja/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://www.toolvena.com/no/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://www.toolvena.com/nl/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.toolvena.com/it/character-counter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.toolvena.com/en/character-counter/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/it/text-to-speech/</loc>
@@ -6842,6 +7100,12 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/it/blog/ripetitore-testo-guida/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/it/blog/contatore-caratteri-guida/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

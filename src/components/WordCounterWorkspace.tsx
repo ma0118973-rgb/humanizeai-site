@@ -336,6 +336,9 @@ export function WordCounterWorkspace({ selectedLanguage = "en", onSendToHumanize
               {wc.sendHumanizer || "Polish this text in the Humanizer"}
             </button>
           )}
+          <a href={`/${selectedLanguage}/character-counter/`} className="block text-xs font-bold text-lime-700 hover:text-lime-900 underline underline-offset-2">
+            {wc.charCounterLink || "Need exact characters and platform limits? Open the Character Counter →"}
+          </a>
         </div>
 
         <div className="space-y-5">

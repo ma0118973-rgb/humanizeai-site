@@ -63,6 +63,7 @@ export type ActivePage =
   | "voiceTyping"
   | "cvBuilder"
   | "wordCounter"
+  | "characterCounter"
   | "textToSpeech"
   | "typingTest"
   | "caseConverter"

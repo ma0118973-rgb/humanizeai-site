@@ -52,6 +52,9 @@ const CvBuilderWorkspace = lazy(() =>
 const WordCounterWorkspace = lazy(() =>
   import("./components/WordCounterWorkspace").then((m) => ({ default: m.WordCounterWorkspace }))
 );
+const CharacterCounterWorkspace = lazy(() =>
+  import("./components/CharacterCounterWorkspace").then((m) => ({ default: m.CharacterCounterWorkspace }))
+);
 const TextToSpeechWorkspace = lazy(() =>
   import("./components/TextToSpeechWorkspace").then((m) => ({ default: m.TextToSpeechWorkspace }))
 );
@@ -173,8 +176,11 @@ function parseCurrentRoute(): ParsedRoute {
   if (primarySlug === "cv-builder" || primarySlug === "resume-builder" || primarySlug === "cv-maker") {
     return { page: "cvBuilder", lang, blogSlug: null };
   }
-  if (primarySlug === "word-counter" || primarySlug === "word-count" || primarySlug === "character-counter" || primarySlug === "count-words") {
+  if (primarySlug === "word-counter" || primarySlug === "word-count" || primarySlug === "count-words") {
     return { page: "wordCounter", lang, blogSlug: null };
+  }
+  if (primarySlug === "character-counter" || primarySlug === "char-counter" || primarySlug === "letter-counter" || primarySlug === "character-count") {
+    return { page: "characterCounter", lang, blogSlug: null };
   }
   if (primarySlug === "text-to-speech" || primarySlug === "tts" || primarySlug === "read-aloud" || primarySlug === "text-to-speech-online") {
     return { page: "textToSpeech", lang, blogSlug: null };
@@ -435,6 +441,7 @@ export default function App() {
     activePage === "voiceTyping" ||
     activePage === "cvBuilder" ||
     activePage === "wordCounter" ||
+    activePage === "characterCounter" ||
     activePage === "textToSpeech" ||
     activePage === "typingTest" ||
     activePage === "caseConverter" ||
@@ -622,6 +629,19 @@ export default function App() {
             <WordCounterWorkspace
               selectedLanguage={selectedLanguage}
               onSendToHumanizer={handleSendToHumanizer}
+            />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "characterCounter" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <CharacterCounterWorkspace
+              selectedLanguage={selectedLanguage}
             />
             <OtherToolsSection
               activePage={activePage}

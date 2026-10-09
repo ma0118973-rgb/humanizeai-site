@@ -26,6 +26,7 @@ import {
   ListChecks,
   Ghost,
   Repeat,
+  LetterText,
 } from "lucide-react";
 import { ActivePage, LanguageCode } from "../types";
 import { SUPPORTED_LANGUAGES, TRANSLATIONS } from "../data/translations";
@@ -141,7 +142,7 @@ export function Navbar({
                 id="nav-tab-more-tools"
                 onClick={() => setIsToolsDropdownOpen(!isToolsDropdownOpen)}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "imageCompressor", "pdfTools"].includes(activePage)
+                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "imageCompressor", "pdfTools"].includes(activePage)
                     ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold shadow-md shadow-emerald-500/20"
                     : "text-stone-600 hover:text-amber-700 hover:bg-amber-100/60"
                 }`}
@@ -296,6 +297,22 @@ export function Navbar({
                     <div>
                       <div className="font-bold">Word Counter</div>
                       <div className="text-[10px] text-stone-400">Words, characters & reading time</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("characterCounter");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "characterCounter" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
+                    }`}
+                  >
+                    <LetterText className="w-4 h-4 text-sky-500 shrink-0" />
+                    <div>
+                      <div className="font-bold">Character Counter</div>
+                      <div className="text-[10px] text-stone-400">Exact characters & platform limits</div>
                     </div>
                   </button>
 
