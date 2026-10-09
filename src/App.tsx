@@ -115,6 +115,9 @@ const PdfSplitterWorkspace = lazy(() =>
 const UsernameGeneratorWorkspace = lazy(() =>
   import("./components/UsernameGeneratorWorkspace").then((m) => ({ default: m.UsernameGeneratorWorkspace }))
 );
+const MorseCodeTranslatorWorkspace = lazy(() =>
+  import("./components/MorseCodeTranslatorWorkspace").then((m) => ({ default: m.MorseCodeTranslatorWorkspace }))
+);
 const ImageResizerWorkspace = lazy(() =>
   import("./components/ImageResizerWorkspace").then((m) => ({ default: m.ImageResizerWorkspace }))
 );
@@ -295,6 +298,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "username-generator" || primarySlug === "username-ideas" || primarySlug === "username-maker" || primarySlug === "generate-username" || primarySlug === "random-username-generator" || primarySlug === "gamertag-generator") {
     return { page: "usernameGenerator", lang, blogSlug: null };
+  }
+  if (primarySlug === "morse-code-translator" || primarySlug === "morse-code" || primarySlug === "morse-translator" || primarySlug === "morse-decoder" || primarySlug === "morse-code-decoder" || primarySlug === "text-to-morse" || primarySlug === "morse-to-text" || primarySlug === "morse-code-converter") {
+    return { page: "morseCodeTranslator", lang, blogSlug: null };
   }
   if (primarySlug === "image-resizer" || primarySlug === "resize-image" || primarySlug === "image-cropper" || primarySlug === "crop-image" || primarySlug === "photo-resizer" || primarySlug === "image-resizer-cropper" || primarySlug === "resize-photo") {
     return { page: "imageResizer", lang, blogSlug: null };
@@ -560,6 +566,7 @@ export default function App() {
     activePage === "imageToText" ||
     activePage === "pdfSplitter" ||
     activePage === "usernameGenerator" ||
+    activePage === "morseCodeTranslator" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -994,6 +1001,17 @@ export default function App() {
         {activePage === "usernameGenerator" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <UsernameGeneratorWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "morseCodeTranslator" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <MorseCodeTranslatorWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

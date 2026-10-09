@@ -89,6 +89,7 @@ const ROUTES = [
   ["imageToText", "/image-to-text/"],
   ["pdfSplitter", "/pdf-splitter/"],
   ["usernameGenerator", "/username-generator/"],
+  ["morseCodeTranslator", "/morse-code-translator/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -158,6 +159,7 @@ function pageMeta(page, lang, blogPost) {
     case "imageToText": return [seo.imageToTextTitle || fb.imageToTextTitle, seo.imageToTextDesc || fb.imageToTextDesc];
     case "pdfSplitter": return [seo.pdfSplitterTitle || fb.pdfSplitterTitle, seo.pdfSplitterDesc || fb.pdfSplitterDesc];
     case "usernameGenerator": return [seo.usernameGeneratorTitle || fb.usernameGeneratorTitle, seo.usernameGeneratorDesc || fb.usernameGeneratorDesc];
+    case "morseCodeTranslator": return [seo.morseCodeTranslatorTitle || fb.morseCodeTranslatorTitle, seo.morseCodeTranslatorDesc || fb.morseCodeTranslatorDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -210,7 +212,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1525,6 +1527,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Why does every name show a character count?",
           acceptedAnswer: { "@type": "Answer", text: "Platforms have different and changing limits for total length, dots, underscores and repeated separators. The character count makes shortlisting easier, but it is not a claim that a name passes any particular platform's rules." },
+        },
+      ],
+    });
+  }
+  if (page === "morseCodeTranslator") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to translate Morse code in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Pick a direction and type", text: "Choose Text → Morse and type or paste your message, or choose Morse → Text and paste dots and dashes with one space between letters and / between words. The result appears live as you type." },
+        { "@type": "HowToStep", position: 2, name: "Check the result and the chart", text: "Copy the Morse code or the decoded text. Characters outside A–Z, 0–9 and common punctuation are listed instead of being silently changed, and unknown Morse groups decode as ?. Use the full chart on the page to look up any letter, digit or mark." },
+        { "@type": "HowToStep", position: 3, name: "Play it as sound or light", text: "Press Play sound to hear the beeps at 5–40 WPM, or turn on the flash lamp to see them. Read the flashing-light caution first if flashing lights bother you, and press Stop at any time." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this Morse code translator free? Is my text uploaded?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, free with no sign-up. Conversion, sound and flash all run in your browser tab with the Web Audio API — nothing you type is uploaded, stored or logged by this tool." },
+        },
+        {
+          "@type": "Question",
+          name: "How do I write Morse code so it decodes correctly?",
+          acceptedAnswer: { "@type": "Answer", text: "Use a dot (.) for a short signal and a dash (-) for a long one. Put one space between letters of the same word and a slash with spaces ( / ) between words, for example ... --- ... for SOS. Morse is case-insensitive; decoded text is shown in capitals." },
+        },
+        {
+          "@type": "Question",
+          name: "What do the ? marks in my decoded text mean?",
+          acceptedAnswer: { "@type": "Answer", text: "A ? means that dot-dash group matches no letter, digit or punctuation mark in International Morse — usually a merged or split letter. Check the spacing around that group against the chart on the page and try again." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I convert Urdu, Arabic or Japanese text into Morse code?",
+          acceptedAnswer: { "@type": "Answer", text: "Not directly. Standard International Morse carries Latin letters, digits and common punctuation only. Write the words in Latin letters first (transliteration) and convert that. Japanese kana Morse (Wabun) is a separate system and is not used here." },
+        },
+        {
+          "@type": "Question",
+          name: "What does the WPM speed mean, and is the flash safe?",
+          acceptedAnswer: { "@type": "Answer", text: "WPM is words per minute using the standard PARIS timing: one dot lasts 1200 ÷ WPM milliseconds, a dash is 3 dots, and the gaps are 1, 3 and 7 dots. The flash lamp simply follows that timing and never strobes faster; if flashing lights bother you or you have photosensitive epilepsy, leave the flash off and use sound only." },
         },
       ],
     });

@@ -36,6 +36,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   imageToText: "image-to-text-urdu-guide",
   pdfSplitter: "pdf-splitter-urdu-guide",
   usernameGenerator: "username-generator-urdu-guide",
+  morseCodeTranslator: "morse-code-translator-urdu-guide",
   onlineTimer: "online-timer-urdu-guide",
   instagramLineBreak: "instagram-line-break-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",

@@ -86,6 +86,7 @@ export type ActivePage =
   | "imageToText"
   | "pdfSplitter"
   | "usernameGenerator"
+  | "morseCodeTranslator"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

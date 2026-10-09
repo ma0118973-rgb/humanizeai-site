@@ -260,6 +260,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Username Generator",
   },
+  morseCodeTranslator: {
+    title: "Morse Code Translator — Text to Morse & Morse to Text, Free",
+    description: "Free Morse code translator. Convert text to Morse and Morse back to text instantly, play it as beeps at your own speed, watch the flash, and use the full A–Z and 0–9 chart. Runs 100% in your browser — nothing is uploaded.",
+    canonicalPath: "/morse-code-translator/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Morse Code Translator",
+  },
   imageResizer: {
     title: "Image Resizer — Resize & Crop JPG, PNG, WebP to Exact Size",
     description: "Free image resizer and cropper. Resize by exact pixels or percentage, crop to a ratio, use social and A4 presets, and download JPG, PNG or WebP. Fully local — nothing is uploaded.",
@@ -500,6 +508,9 @@ export function applyPageSeo(
   } else if (page === "usernameGenerator") {
     title = (t.seo as any).usernameGeneratorTitle || baseConfig.title;
     description = (t.seo as any).usernameGeneratorDesc || baseConfig.description;
+  } else if (page === "morseCodeTranslator") {
+    title = (t.seo as any).morseCodeTranslatorTitle || baseConfig.title;
+    description = (t.seo as any).morseCodeTranslatorDesc || baseConfig.description;
   } else if (page === "imageResizer") {
     title = (t.seo as any).imageResizerTitle || baseConfig.title;
     description = (t.seo as any).imageResizerDesc || baseConfig.description;
