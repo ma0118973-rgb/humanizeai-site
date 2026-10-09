@@ -106,6 +106,9 @@ const RandomNumberGeneratorWorkspace = lazy(() =>
 const OnlineTimerWorkspace = lazy(() =>
   import("./components/OnlineTimerWorkspace").then((m) => ({ default: m.OnlineTimerWorkspace }))
 );
+const InvoiceGeneratorWorkspace = lazy(() =>
+  import("./components/InvoiceGeneratorWorkspace").then((m) => ({ default: m.InvoiceGeneratorWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -262,6 +265,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "online-timer" || primarySlug === "online-stopwatch" || primarySlug === "stopwatch" || primarySlug === "countdown-timer" || primarySlug === "timer" || primarySlug === "online-timer-stopwatch") {
     return { page: "onlineTimer", lang, blogSlug: null };
+  }
+  if (primarySlug === "invoice-generator" || primarySlug === "invoice-maker" || primarySlug === "free-invoice-generator" || primarySlug === "invoice-generator-free" || primarySlug === "make-invoice" || primarySlug === "create-invoice") {
+    return { page: "invoiceGenerator", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -518,6 +524,7 @@ export default function App() {
     activePage === "daysBetween" ||
     activePage === "randomNumber" ||
     activePage === "onlineTimer" ||
+    activePage === "invoiceGenerator" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -897,6 +904,17 @@ export default function App() {
         {activePage === "onlineTimer" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <OnlineTimerWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "invoiceGenerator" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <InvoiceGeneratorWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

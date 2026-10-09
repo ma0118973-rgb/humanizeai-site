@@ -220,6 +220,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Random Number Generator",
   },
+  invoiceGenerator: {
+    title: "Invoice Generator — Free Invoice Maker, Print or PDF",
+    description: "Free invoice generator. Add your details, line items, discount and tax, see totals live in your currency, then print or save as PDF. No sign-up, nothing uploaded.",
+    canonicalPath: "/invoice-generator/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Invoice Generator",
+  },
   onlineTimer: {
     title: "Online Timer & Stopwatch — Countdown, Laps & Big Digits",
     description: "Free online timer and stopwatch in one tool. Set a countdown with presets, run a stopwatch with laps and read big digits at a glance. Timestamp-based and fully local; keep the tab visible for the end signal.",
@@ -437,6 +445,9 @@ export function applyPageSeo(
   } else if (page === "randomNumber") {
     title = (t.seo as any).randomNumberTitle || baseConfig.title;
     description = (t.seo as any).randomNumberDesc || baseConfig.description;
+  } else if (page === "invoiceGenerator") {
+    title = (t.seo as any).invoiceGeneratorTitle || baseConfig.title;
+    description = (t.seo as any).invoiceGeneratorDesc || baseConfig.description;
   } else if (page === "onlineTimer") {
     title = (t.seo as any).onlineTimerTitle || baseConfig.title;
     description = (t.seo as any).onlineTimerDesc || baseConfig.description;

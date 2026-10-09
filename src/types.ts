@@ -80,6 +80,7 @@ export type ActivePage =
   | "daysBetween"
   | "randomNumber"
   | "onlineTimer"
+  | "invoiceGenerator"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

@@ -83,6 +83,7 @@ const ROUTES = [
   ["daysBetween", "/days-between-dates/"],
   ["randomNumber", "/random-number-generator/"],
   ["onlineTimer", "/online-timer/"],
+  ["invoiceGenerator", "/invoice-generator/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -146,6 +147,7 @@ function pageMeta(page, lang, blogPost) {
     case "daysBetween": return [seo.daysBetweenTitle || fb.daysBetweenTitle, seo.daysBetweenDesc || fb.daysBetweenDesc];
     case "randomNumber": return [seo.randomNumberTitle || fb.randomNumberTitle, seo.randomNumberDesc || fb.randomNumberDesc];
     case "onlineTimer": return [seo.onlineTimerTitle || fb.onlineTimerTitle, seo.onlineTimerDesc || fb.onlineTimerDesc];
+    case "invoiceGenerator": return [seo.invoiceGeneratorTitle || fb.invoiceGeneratorTitle, seo.invoiceGeneratorDesc || fb.invoiceGeneratorDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -198,7 +200,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1227,6 +1229,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Are my times and laps uploaded or stored anywhere?",
           acceptedAnswer: { "@type": "Answer", text: "No. The countdown deadline, stopwatch state and lap list live only in this browser tab's memory. Nothing is uploaded, saved to an account or shared, and closing the tab clears everything. If you need a record, use Copy laps before closing." },
+        },
+      ],
+    });
+  }
+  if (page === "invoiceGenerator") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to make an invoice in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Add your and your client's details", text: "Fill in From with your business name, address and contact details, and Bill To with your client's details. Add a tax or registration number only if you are registered for it in your country." },
+        { "@type": "HowToStep", position: 2, name: "Add line items and check the totals", text: "Describe each service or product with quantity and rate. Set discount % and tax % and watch subtotal, discount on the subtotal, tax on the discounted amount and total update step by step in your chosen currency (Intl.NumberFormat)." },
+        { "@type": "HowToStep", position: 3, name: "Print or save as PDF and send", text: "Press Print / Save as PDF. Only the invoice prints. Save the PDF as your own record and send it the same day. Your draft stays only in this browser — nothing is uploaded." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this invoice generator free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Build the invoice, check the live totals and print or save as PDF from your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "How are discount and tax calculated?",
+          acceptedAnswer: { "@type": "Answer", text: "Subtotal is quantity times rate for each line, added together. The discount percentage comes off the subtotal first. Tax is then charged on the amount after discount, and the total is that discounted amount plus its tax. Every intermediate figure is shown so you can verify it." },
+        },
+        {
+          "@type": "Question",
+          name: "Is this accounting or tax advice? Will my invoice be legally compliant?",
+          acceptedAnswer: { "@type": "Answer", text: "No. This is a document generator that does the arithmetic, not accounting, tax or legal advice. Whether you must charge tax, which rate applies, which registration number to show and how invoices must be numbered depend on your country and status. Verify them with your tax authority or an accountant before sending." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my invoice uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No upload happens. The invoice is built in your browser and printed with your browser's own print function. The draft is saved only in this browser on this device so you can return to it, and Clear All removes it. Save the PDF yourself — there is no server copy." },
+        },
+        {
+          "@type": "Question",
+          name: "Which currencies are supported and how are they formatted?",
+          acceptedAnswer: { "@type": "Answer", text: "Sixteen currencies are listed, including USD, EUR, GBP, PKR, INR, AED, JPY and others. Amounts are formatted with the browser's Intl.NumberFormat for the chosen currency, so grouping, decimal separators and zero-decimal currencies follow that currency's conventions." },
         },
       ],
     });

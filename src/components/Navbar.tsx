@@ -36,6 +36,7 @@ import {
   AlignLeft,
   CalendarDays,
   Dices,
+  FileText,
 } from "lucide-react";
 import { ActivePage, LanguageCode } from "../types";
 import { SUPPORTED_LANGUAGES, TRANSLATIONS } from "../data/translations";
@@ -151,7 +152,7 @@ export function Navbar({
                 id="nav-tab-more-tools"
                 onClick={() => setIsToolsDropdownOpen(!isToolsDropdownOpen)}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "instagramLineBreak", "imageCompressor", "pdfTools"].includes(activePage)
+                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "instagramLineBreak", "imageCompressor", "pdfTools"].includes(activePage)
                     ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold shadow-md shadow-emerald-500/20"
                     : "text-stone-600 hover:text-amber-700 hover:bg-amber-100/60"
                 }`}
@@ -578,6 +579,22 @@ export function Navbar({
                     <div>
                       <div className="font-bold">Online Timer & Stopwatch</div>
                       <div className="text-[10px] text-stone-400">Countdown, laps & big digits</div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("invoiceGenerator");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "invoiceGenerator" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
+                    }`}
+                  >
+                    <FileText className="w-4 h-4 text-teal-700 shrink-0" />
+                    <div>
+                      <div className="font-bold">Invoice Generator</div>
+                      <div className="text-[10px] text-stone-400">Items, tax &amp; PDF print</div>
                     </div>
                   </button>
 
