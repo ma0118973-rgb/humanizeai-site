@@ -70,6 +70,7 @@ const ROUTES = [
   ["typingTest", "/typing-test/"],
   ["caseConverter", "/case-converter/"],
   ["passwordGenerator", "/password-generator/"],
+  ["duplicateLines", "/remove-duplicate-lines/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
   ["cleaner", "/cliche-cleaner/"],
@@ -119,6 +120,7 @@ function pageMeta(page, lang, blogPost) {
     case "typingTest": return [seo.typingTestTitle || fb.typingTestTitle, seo.typingTestDesc || fb.typingTestDesc];
     case "caseConverter": return [seo.caseConverterTitle || fb.caseConverterTitle, seo.caseConverterDesc || fb.caseConverterDesc];
     case "passwordGenerator": return [seo.passwordGeneratorTitle || fb.passwordGeneratorTitle, seo.passwordGeneratorDesc || fb.passwordGeneratorDesc];
+    case "duplicateLines": return [seo.dedupLinesTitle || fb.dedupLinesTitle, seo.dedupLinesDesc || fb.dedupLinesDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
@@ -170,7 +172,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -561,6 +563,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "Where should I keep the password I generate?",
           acceptedAnswer: { "@type": "Answer", text: "In a reputable password manager, protected by a strong master password you can remember — a long passphrase works well for that. Do not keep passwords in notes apps, chats or email, and use a different password for every account." },
+        },
+      ],
+    });
+  }
+  if (page === "duplicateLines") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to remove duplicate lines in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Paste your list or open a .txt file", text: "Paste one item per line, or open a plain .txt file from your device. The file is read locally in your browser." },
+        { "@type": "HowToStep", position: 2, name: "Choose how lines are matched", text: "Decide whether capital letters matter, whether spaces at the edges are trimmed, whether blank lines are ignored, and whether the cleaned list should be sorted A to Z." },
+        { "@type": "HowToStep", position: 3, name: "Check the counts and copy", text: "Compare total lines, unique lines and duplicates removed, then copy the result or download it as a .txt file." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this remove duplicate lines tool free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Paste a list or open a .txt file and the cleaned result updates live in your browser." },
+        },
+        {
+          "@type": "Question",
+          name: "Which copy of a repeated line is kept?",
+          acceptedAnswer: { "@type": "Answer", text: "The first occurrence. Later lines that match under your chosen case, space and blank-line options are removed." },
+        },
+        {
+          "@type": "Question",
+          name: "Is my list uploaded or stored?",
+          acceptedAnswer: { "@type": "Answer", text: "No. The list is processed in your browser tab, and a .txt file you open is read on your device. This tool does not upload or store your text on a server." },
+        },
+        {
+          "@type": "Question",
+          name: "What do the matching options change?",
+          acceptedAnswer: { "@type": "Answer", text: "Case-sensitive decides whether Apple and apple are different. Trim spaces removes spaces at the edges before comparing. Ignore blank lines leaves blanks out of the result. Sort A-Z orders the unique lines after cleaning." },
+        },
+        {
+          "@type": "Question",
+          name: "Does it merge lines that are almost the same?",
+          acceptedAnswer: { "@type": "Answer", text: "No. It compares whole lines exactly under the options you choose. Near matches such as 'seo tool' and 'seo tools', or different spellings, stay as separate lines." },
         },
       ],
     });

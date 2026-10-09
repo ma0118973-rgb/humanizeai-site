@@ -124,6 +124,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Password Generator",
   },
+  duplicateLines: {
+    title: "Free Remove Duplicate Lines – Dedupe Any List Online",
+    description: "Free remove duplicate lines tool. Paste a list or open a .txt file, keep the first occurrence, and control case, spaces, blank lines and A–Z sorting. Nothing is uploaded.",
+    canonicalPath: "/remove-duplicate-lines/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Remove Duplicate Lines",
+  },
   imageCompressor: {
     title: "Free Image Compressor Online – Compress JPG, PNG, WebP",
     description: "Free image compressor. Compress JPG, PNG & WebP right in your browser. No upload, no signup.",
@@ -289,6 +297,9 @@ export function applyPageSeo(
   } else if (page === "passwordGenerator") {
     title = (t.seo as any).passwordGeneratorTitle || baseConfig.title;
     description = (t.seo as any).passwordGeneratorDesc || baseConfig.description;
+  } else if (page === "duplicateLines") {
+    title = (t.seo as any).dedupLinesTitle || baseConfig.title;
+    description = (t.seo as any).dedupLinesDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

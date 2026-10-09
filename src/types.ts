@@ -67,6 +67,7 @@ export type ActivePage =
   | "typingTest"
   | "caseConverter"
   | "passwordGenerator"
+  | "duplicateLines"
   | "imageCompressor"
   | "pdfTools"
   | "cleaner"

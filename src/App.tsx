@@ -64,6 +64,9 @@ const CaseConverterWorkspace = lazy(() =>
 const PasswordGeneratorWorkspace = lazy(() =>
   import("./components/PasswordGeneratorWorkspace").then((m) => ({ default: m.PasswordGeneratorWorkspace }))
 );
+const RemoveDuplicateLinesWorkspace = lazy(() =>
+  import("./components/RemoveDuplicateLinesWorkspace").then((m) => ({ default: m.RemoveDuplicateLinesWorkspace }))
+);
 const ImageCompressorWorkspace = lazy(() =>
   import("./components/ImageCompressorWorkspace").then((m) => ({ default: m.ImageCompressorWorkspace }))
 );
@@ -178,6 +181,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "password-generator" || primarySlug === "random-password-generator" || primarySlug === "strong-password-generator" || primarySlug === "password-maker" || primarySlug === "generate-password") {
     return { page: "passwordGenerator", lang, blogSlug: null };
+  }
+  if (primarySlug === "remove-duplicate-lines" || primarySlug === "duplicate-line-remover" || primarySlug === "remove-duplicates" || primarySlug === "dedupe-lines" || primarySlug === "remove-repeated-lines") {
+    return { page: "duplicateLines", lang, blogSlug: null };
   }
   if (primarySlug === "image-compressor" || primarySlug === "compress-image" || primarySlug === "imageCompressor") {
     return { page: "imageCompressor", lang, blogSlug: null };
@@ -653,6 +659,19 @@ export default function App() {
         {activePage === "passwordGenerator" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <PasswordGeneratorWorkspace
+              selectedLanguage={selectedLanguage}
+            />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "duplicateLines" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <RemoveDuplicateLinesWorkspace
               selectedLanguage={selectedLanguage}
             />
             <OtherToolsSection
