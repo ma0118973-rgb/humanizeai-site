@@ -99,6 +99,7 @@ const ROUTES = [
   ["jsonToCsv", "/json-to-csv-converter/"],
   ["regexTester", "/regex-tester/"],
   ["urlEncoder", "/url-encoder-decoder/"],
+  ["utmLinkBuilder", "/utm-link-builder/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -178,6 +179,7 @@ function pageMeta(page, lang, blogPost) {
     case "jsonToCsv": return [seo.jsonToCsvTitle || fb.jsonToCsvTitle, seo.jsonToCsvDesc || fb.jsonToCsvDesc];
     case "regexTester": return [seo.regexTesterTitle || fb.regexTesterTitle, seo.regexTesterDesc || fb.regexTesterDesc];
     case "urlEncoder": return [seo.urlEncoderTitle || fb.urlEncoderTitle, seo.urlEncoderDesc || fb.urlEncoderDesc];
+    case "utmLinkBuilder": return [seo.utmLinkBuilderTitle || fb.utmLinkBuilderTitle, seo.utmLinkBuilderDesc || fb.utmLinkBuilderDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -230,7 +232,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -340,6 +342,32 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
         { "@type": "HowToStep", position: 1, name: "Choose Full URL or Single value", text: "Full URL for a complete link whose structure must keep working; Single value for one query value, where & = ? are encoded as %26 %3D %3F." },
         { "@type": "HowToStep", position: 2, name: "Paste and check the live result", text: "Paste your link or value, choose Encode or Decode, and read the live result with the exact function name shown. Invalid percent-sequences get a plain-language error." },
         { "@type": "HowToStep", position: 3, name: "Copy or swap and reverse", text: "Copy the result, or swap it back and flip direction as a round-trip check. Encode each value exactly once to avoid double-encoding." },
+      ],
+    });
+  }
+  if (page === "utmLinkBuilder") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "Which UTM parameters should every link have?", acceptedAnswer: { "@type": "Answer", text: "At minimum utm_source, utm_medium and utm_campaign. utm_term is mainly for paid search keywords and utm_content separates versions that share one campaign." } },
+        { "@type": "Question", name: "Why lowercase and consistent UTM values?", acceptedAnswer: { "@type": "Answer", text: "Most analytics tools are case-sensitive, so Facebook and facebook count as two sources, and one channel written three ways becomes three report rows. Use lowercase, hyphens or underscores instead of spaces, and the exact same spelling every time." } },
+        { "@type": "Question", name: "Can I put personal data in UTM values?", acceptedAnswer: { "@type": "Answer", text: "Never put names, email addresses or other personal data in UTM values. Links are forwarded, logged and pasted into chats, so anything inside a URL travels. Label the campaign, never the person." } },
+        { "@type": "Question", name: "Does a correct UTM link guarantee correct reporting?", acceptedAnswer: { "@type": "Answer", text: "No. Analytics must be installed on the landing page; consent mode or blockers can prevent recording; redirects can drop the query string; and some platforms strip parameters when a link is shared onward. Tag external links only." } },
+        { "@type": "Question", name: "Is anything uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. The link is built in your browser tab with encodeURIComponent, and saved presets stay on this device. Nothing is uploaded, stored on a server or shared." } },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to build a UTM campaign link in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Enter destination and core values", text: "Paste the full destination URL including https://, then enter source, medium and campaign in lowercase with one consistent spelling." },
+        { "@type": "HowToStep", position: 2, name: "Add optional term and content", text: "Use utm_term for paid keywords and utm_content to tell apart versions in the same campaign, then check the live final-URL preview." },
+        { "@type": "HowToStep", position: 3, name: "Copy, save a preset and click-test", text: "Copy the tagged link, save the naming as an on-device preset, and click the link once to confirm the parameters survive to the final page." },
       ],
     });
   }

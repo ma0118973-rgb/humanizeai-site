@@ -96,6 +96,7 @@ export type ActivePage =
   | "jsonToCsv"
   | "regexTester"
   | "urlEncoder"
+  | "utmLinkBuilder"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

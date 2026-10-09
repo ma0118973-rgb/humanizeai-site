@@ -324,6 +324,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Regex Tester",
   },
+  utmLinkBuilder: {
+    title: "UTM Link Builder — Build Campaign URLs with Source, Medium & Campaign, Free",
+    description: "Free UTM link builder. Add utm_source, utm_medium, utm_campaign, utm_term and utm_content with live preview, correct encoding, copy button and on-device presets. UTMs do not guarantee attribution. Fully local — nothing uploaded.",
+    canonicalPath: "/utm-link-builder/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "UTM Link Builder",
+  },
   urlEncoder: {
     title: "URL Encoder Decoder — Full URL or Single Value, Free",
     description: "Free URL encoder and decoder. Encode a full URL with encodeURI or a single query value with encodeURIComponent, decode either way with plain-language errors for invalid percent-sequences. UTF-8 safe, fully local — nothing uploaded. Encoding is not encryption.",
@@ -607,6 +615,9 @@ export function applyPageSeo(
   } else if (page === "urlEncoder") {
     title = (t.seo as any).urlEncoderTitle || baseConfig.title;
     description = (t.seo as any).urlEncoderDesc || baseConfig.description;
+  } else if (page === "utmLinkBuilder") {
+    title = (t.seo as any).utmLinkBuilderTitle || baseConfig.title;
+    description = (t.seo as any).utmLinkBuilderDesc || baseConfig.description;
   } else if (page === "unitConverter") {
     title = (t.seo as any).unitConverterTitle || baseConfig.title;
     description = (t.seo as any).unitConverterDesc || baseConfig.description;
@@ -1091,6 +1102,33 @@ function updateJsonLd(
         { "@type": "HowToStep", position: 1, name: "Write the pattern and set flags", text: "Type your regular expression and toggle g, i, m, s, u and y as needed. Each flag carries a one-line plain-language explanation." },
         { "@type": "HowToStep", position: 2, name: "Paste test text and read the matches", text: "Paste text that resembles your real data, including a deliberate near-miss. Read the highlighted preview and the match list: position, matched text, numbered and named groups." },
         { "@type": "HowToStep", position: 3, name: "Preview the replacement", text: "Type a replacement using $1 for numbered groups or $<name> for named groups, check the preview, and copy the result. Without the g flag only the first match is replaced." },
+      ],
+    });
+  }
+
+  // UTM Link Builder: FAQ + HowTo (naming consistency, personal-data warning, no attribution guarantee)
+  if (page === "utmLinkBuilder" && !blogPost) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", name: "Is this UTM link builder free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Build a tagged campaign URL with source, medium, campaign and optional term and content, preview it live and copy it in one click. Presets are saved only on your device." } },
+        { "@type": "Question", name: "Which UTM parameters should every link have?", acceptedAnswer: { "@type": "Answer", text: "At minimum utm_source (where the traffic comes from), utm_medium (the kind of channel) and utm_campaign (the specific campaign). utm_term is mainly for paid search keywords and utm_content separates versions that share one campaign, such as two buttons in one email." } },
+        { "@type": "Question", name: "Why must UTM values be lowercase and consistent?", acceptedAnswer: { "@type": "Answer", text: "Most analytics tools are case-sensitive, so Facebook and facebook are counted as two different sources, and one channel written three ways becomes three separate report rows. Pick lowercase spellings once, use hyphens or underscores instead of spaces, and reuse the exact same values — presets on this page exist for that habit." } },
+        { "@type": "Question", name: "Can I put a name or email address in a UTM value?", acceptedAnswer: { "@type": "Answer", text: "Never. Links are forwarded, screenshotted, logged and pasted into chats, so personal data inside a URL travels with it. Label the campaign, never the person." } },
+        { "@type": "Question", name: "Does a correct UTM link guarantee my analytics will show the campaign?", acceptedAnswer: { "@type": "Answer", text: "No. Analytics must be installed on the landing page, consent mode or blockers can prevent recording, a redirect can drop the query string, and some platforms strip parameters when a link is shared onward. UTMs also belong only on external links; tagging links inside your own site overwrites the visitor's real source." } },
+        { "@type": "Question", name: "Is anything I type uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. The link is built in your browser tab and values are encoded with encodeURIComponent. Saved presets stay in this browser on this device and are never uploaded or shared." } },
+      ],
+    });
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to build a UTM campaign link in 3 steps",
+      description: config.description,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Enter the destination and core values", text: "Paste the full destination URL including https://, then enter utm_source, utm_medium and utm_campaign in lowercase with one consistent spelling." },
+        { "@type": "HowToStep", position: 2, name: "Add optional term and content", text: "Use utm_term for paid search keywords and utm_content to tell apart versions in the same campaign, then check the live final-URL preview." },
+        { "@type": "HowToStep", position: 3, name: "Copy, save a preset and click-test", text: "Copy the tagged link, save the naming as an on-device preset for next time, and click the link once to confirm the parameters survive to the final page." },
       ],
     });
   }

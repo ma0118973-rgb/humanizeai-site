@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Sparkles, Search, Video, TrendingUp, BookMarked, Maximize2,
-  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer, Binary, Instagram, Clock3, Link2, Braces, AlignLeft, CalendarDays, Dices, Scaling, ScanText, AtSign, Radio, Disc3, Fingerprint, Table2, Regex,
+  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer, Binary, Instagram, Clock3, Link2, Braces, AlignLeft, CalendarDays, Dices, Scaling, ScanText, AtSign, Radio, Disc3, Fingerprint, Table2, Regex, Megaphone,
 } from "lucide-react";
 import { ActivePage } from "../types";
 
@@ -52,6 +52,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "jsonToCsv", label: "JSON to CSV", icon: Table2 },
   { id: "regexTester", label: "Regex Tester", icon: Regex },
   { id: "urlEncoder", label: "URL Encoder", icon: Link2 },
+  { id: "utmLinkBuilder", label: "UTM Builder", icon: Megaphone },
   { id: "instagramLineBreak", label: "IG Line Breaks", icon: Instagram },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },
