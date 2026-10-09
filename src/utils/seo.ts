@@ -252,6 +252,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "PDF Splitter",
   },
+  usernameGenerator: {
+    title: "Username Generator — Free Username Ideas for Games, Creators & Brands",
+    description: "Free username generator. Pick a theme, add an optional seed word, choose numbers, separators and length, then copy favourites. Availability is not checked — verify the name on your platform and check trademarks before use. Fully local, no sign-up.",
+    canonicalPath: "/username-generator/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Username Generator",
+  },
   imageResizer: {
     title: "Image Resizer — Resize & Crop JPG, PNG, WebP to Exact Size",
     description: "Free image resizer and cropper. Resize by exact pixels or percentage, crop to a ratio, use social and A4 presets, and download JPG, PNG or WebP. Fully local — nothing is uploaded.",
@@ -489,6 +497,9 @@ export function applyPageSeo(
   } else if (page === "pdfSplitter") {
     title = (t.seo as any).pdfSplitterTitle || baseConfig.title;
     description = (t.seo as any).pdfSplitterDesc || baseConfig.description;
+  } else if (page === "usernameGenerator") {
+    title = (t.seo as any).usernameGeneratorTitle || baseConfig.title;
+    description = (t.seo as any).usernameGeneratorDesc || baseConfig.description;
   } else if (page === "imageResizer") {
     title = (t.seo as any).imageResizerTitle || baseConfig.title;
     description = (t.seo as any).imageResizerDesc || baseConfig.description;

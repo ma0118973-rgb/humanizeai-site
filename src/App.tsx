@@ -112,6 +112,9 @@ const ImageToTextWorkspace = lazy(() =>
 const PdfSplitterWorkspace = lazy(() =>
   import("./components/PdfSplitterWorkspace").then((m) => ({ default: m.PdfSplitterWorkspace }))
 );
+const UsernameGeneratorWorkspace = lazy(() =>
+  import("./components/UsernameGeneratorWorkspace").then((m) => ({ default: m.UsernameGeneratorWorkspace }))
+);
 const ImageResizerWorkspace = lazy(() =>
   import("./components/ImageResizerWorkspace").then((m) => ({ default: m.ImageResizerWorkspace }))
 );
@@ -289,6 +292,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "pdf-splitter" || primarySlug === "split-pdf" || primarySlug === "pdf-split" || primarySlug === "separate-pdf-pages" || primarySlug === "extract-pdf-pages" || primarySlug === "pdf-page-extractor") {
     return { page: "pdfSplitter", lang, blogSlug: null };
+  }
+  if (primarySlug === "username-generator" || primarySlug === "username-ideas" || primarySlug === "username-maker" || primarySlug === "generate-username" || primarySlug === "random-username-generator" || primarySlug === "gamertag-generator") {
+    return { page: "usernameGenerator", lang, blogSlug: null };
   }
   if (primarySlug === "image-resizer" || primarySlug === "resize-image" || primarySlug === "image-cropper" || primarySlug === "crop-image" || primarySlug === "photo-resizer" || primarySlug === "image-resizer-cropper" || primarySlug === "resize-photo") {
     return { page: "imageResizer", lang, blogSlug: null };
@@ -553,6 +559,7 @@ export default function App() {
     activePage === "imageConverter" ||
     activePage === "imageToText" ||
     activePage === "pdfSplitter" ||
+    activePage === "usernameGenerator" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -976,6 +983,17 @@ export default function App() {
         {activePage === "pdfSplitter" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <PdfSplitterWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "usernameGenerator" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <UsernameGeneratorWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

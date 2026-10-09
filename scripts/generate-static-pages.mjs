@@ -88,6 +88,7 @@ const ROUTES = [
   ["imageConverter", "/image-converter/"],
   ["imageToText", "/image-to-text/"],
   ["pdfSplitter", "/pdf-splitter/"],
+  ["usernameGenerator", "/username-generator/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -156,6 +157,7 @@ function pageMeta(page, lang, blogPost) {
     case "imageConverter": return [seo.imageConverterTitle || fb.imageConverterTitle, seo.imageConverterDesc || fb.imageConverterDesc];
     case "imageToText": return [seo.imageToTextTitle || fb.imageToTextTitle, seo.imageToTextDesc || fb.imageToTextDesc];
     case "pdfSplitter": return [seo.pdfSplitterTitle || fb.pdfSplitterTitle, seo.pdfSplitterDesc || fb.pdfSplitterDesc];
+    case "usernameGenerator": return [seo.usernameGeneratorTitle || fb.usernameGeneratorTitle, seo.usernameGeneratorDesc || fb.usernameGeneratorDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -208,7 +210,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1477,6 +1479,52 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
           "@type": "Question",
           name: "What is the difference between splitting and merging?",
           acceptedAnswer: { "@type": "Answer", text: "Splitting takes one PDF apart: selected pages become new, smaller PDFs. Merging does the opposite — several PDFs become one. Use this PDF Splitter to extract pages, and the PDF Tools page (Merge) to combine files." },
+        },
+      ],
+    });
+  }
+  if (page === "usernameGenerator") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to generate and shortlist username ideas in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Pick a theme and seed word", text: "Choose gaming, creator, study, business, aesthetic or funny. Add one optional seed word that matters to you, or leave it blank. The word is cleaned to lowercase letters and numbers inside your browser." },
+        { "@type": "HowToStep", position: 2, name: "Set numbers, separator and length", text: "Turn on a short number suffix for some results, choose no separator, a dot or an underscore, and pick any, short, medium or long length. Generate a batch of 20 ideas, with the character count shown on every name. Duplicates are removed within the batch only." },
+        { "@type": "HowToStep", position: 3, name: "Copy, favourite, then check where it counts", text: "Click a name or Copy button to copy it, tap the heart to keep finalists in this tab, and use Copy all favourites or Clear favourites. Availability is not checked here: verify the exact name, username rules and trademarks on your chosen platform and relevant trademark sources before registering." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is this username generator free? Is anything uploaded?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes, free with no sign-up. Generation uses local word banks in your browser tab. Your seed word and favourites are not uploaded to a server or written to permanent storage by this tool; favourites stay only in the open tab until you clear them or close it." },
+        },
+        {
+          "@type": "Question",
+          name: "Are the generated usernames available on YouTube, TikTok, Instagram or other platforms?",
+          acceptedAnswer: { "@type": "Answer", text: "Availability is not checked. A name shown here may already be taken, reserved, suspended or disallowed. Check the exact name on the platform itself and follow that platform's current username rules before you rely on it." },
+        },
+        {
+          "@type": "Question",
+          name: "How does the seed word and theme change the results?",
+          acceptedAnswer: { "@type": "Answer", text: "Themes load different clean adjective and noun banks for gaming, creator, study, business, aesthetic or funny names. A seed word becomes part of patterns such as seed-plus-noun or adjective-plus-seed, while the numbers, separator and length controls reshape the batch." },
+        },
+        {
+          "@type": "Question",
+          name: "Can I use a generated username for a business or channel?",
+          acceptedAnswer: { "@type": "Answer", text: "Treat it as a brainstorming candidate, not legal clearance. Avoid names that copy real brands, celebrities, teams in an impersonating way, or official/support accounts. Check the platform, search the exact phrase, and check relevant trademark sources or professional advice before investing in branding." },
+        },
+        {
+          "@type": "Question",
+          name: "Why does every name show a character count?",
+          acceptedAnswer: { "@type": "Answer", text: "Platforms have different and changing limits for total length, dots, underscores and repeated separators. The character count makes shortlisting easier, but it is not a claim that a name passes any particular platform's rules." },
         },
       ],
     });
