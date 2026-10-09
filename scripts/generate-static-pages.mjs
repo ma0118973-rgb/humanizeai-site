@@ -94,6 +94,7 @@ const ROUTES = [
   ["onlineNotepad", "/online-notepad/"],
   ["unitConverter", "/unit-converter/"],
   ["onlineTeleprompter", "/online-teleprompter/"],
+  ["uuidGenerator", "/uuid-generator/"],
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
@@ -168,6 +169,7 @@ function pageMeta(page, lang, blogPost) {
     case "onlineNotepad": return [seo.onlineNotepadTitle || fb.onlineNotepadTitle, seo.onlineNotepadDesc || fb.onlineNotepadDesc];
     case "unitConverter": return [seo.unitConverterTitle || fb.unitConverterTitle, seo.unitConverterDesc || fb.unitConverterDesc];
     case "onlineTeleprompter": return [seo.onlineTeleprompterTitle || fb.onlineTeleprompterTitle, seo.onlineTeleprompterDesc || fb.onlineTeleprompterDesc];
+    case "uuidGenerator": return [seo.uuidGeneratorTitle || fb.uuidGeneratorTitle, seo.uuidGeneratorDesc || fb.uuidGeneratorDesc];
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
@@ -220,7 +222,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -1797,6 +1799,32 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
         { "@type": "Question", name: "How does the speaking-time estimate work?", acceptedAnswer: { "@type": "Answer", text: "Your word count is divided by a calm speaking pace of 150 words per minute, the same convention as this site's reading-time tools. Your real pace will differ, so rehearse once and adjust the scroll speed." } },
         { "@type": "Question", name: "Can I pause the scrolling without the mouse?", acceptedAnswer: { "@type": "Answer", text: "Yes. Press the Spacebar outside the script box to play or pause, the arrow keys to change speed, and use fullscreen for a distraction-free stage." } },
         { "@type": "Question", name: "Is my script uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. Your script is processed only in this browser tab and is gone when you close it." } },
+      ],
+    });
+  }
+  if (page === "uuidGenerator") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to generate a UUID v4 in 3 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose how many", text: "Set the bulk count from 1 to 100. Five is a handy default for tests and fixtures." },
+        { "@type": "HowToStep", position: 2, name: "Pick the format", text: "Keep lowercase with hyphens (8-4-4-4-12) for the standard form, switch on UPPERCASE if your system expects it, or turn hyphens off for the compact 32-character form." },
+        { "@type": "HowToStep", position: 3, name: "Copy one or copy all", text: "Use the copy button on a single row, or Copy all to take the whole list one per line. Press Generate whenever you need a fresh set." },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "Is this UUID generator free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Generate one UUID v4 or a bulk list of up to 100, with uppercase and hyphen options, and copy one or copy all." } },
+        { "@type": "Question", name: "Can two generated UUIDs ever be the same?", acceptedAnswer: { "@type": "Answer", text: "A version 4 UUID carries 122 random bits, so a duplicate is astronomically unlikely — you would need to generate an enormous number before a collision became plausible. It is not mathematically impossible, and this page does not promise otherwise." } },
+        { "@type": "Question", name: "Why only version 4? What about version 1?", acceptedAnswer: { "@type": "Answer", text: "Version 4 is purely random, which is what most databases, APIs and tests need. Version 1 embeds time and machine-style identifiers that can leak information, so this tool deliberately does not generate it." } },
+        { "@type": "Question", name: "Are my UUIDs uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. UUIDs are generated on your device with the Web Crypto API (crypto.randomUUID, with a crypto.getRandomValues fallback). Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
+        { "@type": "Question", name: "Can I use a UUID as a password or secret token?", acceptedAnswer: { "@type": "Answer", text: "No. A UUID is an identifier, not a secret. Use a password generator and a reputable password manager for credentials, and proper token systems for security-sensitive values." } },
       ],
     });
   }

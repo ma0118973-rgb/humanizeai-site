@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Sparkles, Search, Video, TrendingUp, BookMarked, Maximize2,
-  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer, Binary, Instagram, Link2, Braces, AlignLeft, CalendarDays, Dices, Scaling, ScanText, AtSign, Radio, Disc3,
+  FileText, Download, AlertOctagon, GitCompare, Scissors, Mic, Briefcase, Hash, Volume2, Keyboard, Type, KeyRound, ListChecks, Ghost, Repeat, LetterText, BarChart3, Timer, Binary, Instagram, Link2, Braces, AlignLeft, CalendarDays, Dices, Scaling, ScanText, AtSign, Radio, Disc3, Fingerprint,
 } from "lucide-react";
 import { ActivePage } from "../types";
 
@@ -47,6 +47,7 @@ const TOOLS: { id: ActivePage; label: string; icon: React.ElementType }[] = [
   { id: "onlineNotepad", label: "Notepad", icon: FileText },
   { id: "unitConverter", label: "Unit Converter", icon: Scaling },
   { id: "onlineTeleprompter", label: "Teleprompter", icon: Video },
+  { id: "uuidGenerator", label: "UUID Gen", icon: Fingerprint },
   { id: "instagramLineBreak", label: "IG Line Breaks", icon: Instagram },
   { id: "imageCompressor", label: "Compressor", icon: Download },
   { id: "pdfTools", label: "PDF Tools", icon: FileText },

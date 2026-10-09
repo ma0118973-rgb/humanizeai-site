@@ -91,6 +91,7 @@ export type ActivePage =
   | "onlineNotepad"
   | "unitConverter"
   | "onlineTeleprompter"
+  | "uuidGenerator"
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"

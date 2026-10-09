@@ -127,6 +127,9 @@ const OnlineNotepadWorkspace = lazy(() =>
 const OnlineTeleprompterWorkspace = lazy(() =>
   import("./components/OnlineTeleprompterWorkspace").then((m) => ({ default: m.OnlineTeleprompterWorkspace }))
 );
+const UuidGeneratorWorkspace = lazy(() =>
+  import("./components/UuidGeneratorWorkspace").then((m) => ({ default: m.UuidGeneratorWorkspace }))
+);
 const UnitConverterWorkspace = lazy(() =>
   import("./components/UnitConverterWorkspace").then((m) => ({ default: m.UnitConverterWorkspace }))
 );
@@ -322,6 +325,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "online-teleprompter" || primarySlug === "teleprompter-online" || primarySlug === "teleprompter" || primarySlug === "free-teleprompter" || primarySlug === "online-teleprompter-free") {
     return { page: "onlineTeleprompter", lang, blogSlug: null };
+  }
+  if (primarySlug === "uuid-generator" || primarySlug === "uuid-generator-online" || primarySlug === "generate-uuid" || primarySlug === "guid-generator" || primarySlug === "random-uuid-generator" || primarySlug === "bulk-uuid-generator" || primarySlug === "uuid") {
+    return { page: "uuidGenerator", lang, blogSlug: null };
   }
   if (primarySlug === "unit-converter" || primarySlug === "unit-conversion" || primarySlug === "measurement-converter" || primarySlug === "convert-units" || primarySlug === "units-converter" || primarySlug === "unit-converter-online") {
     return { page: "unitConverter", lang, blogSlug: null };
@@ -595,6 +601,7 @@ export default function App() {
     activePage === "onlineNotepad" ||
     activePage === "unitConverter" ||
     activePage === "onlineTeleprompter" ||
+    activePage === "uuidGenerator" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "pdfTools";
@@ -1073,6 +1080,17 @@ export default function App() {
         {activePage === "onlineTeleprompter" && (
           <Suspense fallback={<ToolLoadingSkeleton />}>
             <OnlineTeleprompterWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "uuidGenerator" && (
+          <Suspense fallback={<ToolLoadingSkeleton />}>
+            <UuidGeneratorWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

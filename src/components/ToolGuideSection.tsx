@@ -41,6 +41,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   onlineNotepad: "online-notepad-urdu-guide",
   unitConverter: "unit-converter-urdu-guide",
   onlineTeleprompter: "online-teleprompter-urdu-guide",
+  uuidGenerator: "uuid-generator-urdu-guide",
   onlineTimer: "online-timer-urdu-guide",
   instagramLineBreak: "instagram-line-break-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",

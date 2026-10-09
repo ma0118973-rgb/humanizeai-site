@@ -292,6 +292,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Online Teleprompter",
   },
+  uuidGenerator: {
+    title: "UUID Generator — Free UUID v4, Bulk Generate & Copy",
+    description: "Free UUID generator. Create UUID v4 in bulk (up to 100) with uppercase and hyphen options, copy one or copy all. 100% local with Web Crypto — nothing uploaded, no sign-up.",
+    canonicalPath: "/uuid-generator/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "UUID Generator",
+  },
   unitConverter: {
     title: "Unit Converter — Length, Weight, Temperature, Volume & More, Free",
     description: "Free unit converter. Convert length, weight, temperature, volume, area, speed, time, data, pressure and energy with real factors, shown formulas and presets. No currency, no sign-up, nothing uploaded.",
@@ -552,6 +560,9 @@ export function applyPageSeo(
   } else if (page === "onlineTeleprompter") {
     title = (t.seo as any).onlineTeleprompterTitle || baseConfig.title;
     description = (t.seo as any).onlineTeleprompterDesc || baseConfig.description;
+  } else if (page === "uuidGenerator") {
+    title = (t.seo as any).uuidGeneratorTitle || baseConfig.title;
+    description = (t.seo as any).uuidGeneratorDesc || baseConfig.description;
   } else if (page === "unitConverter") {
     title = (t.seo as any).unitConverterTitle || baseConfig.title;
     description = (t.seo as any).unitConverterDesc || baseConfig.description;
@@ -932,6 +943,32 @@ function updateJsonLd(
         { "@type": "HowToStep", position: 1, name: "Paste your script", text: "Type or paste your script and check the word count and estimated speaking time below the box." },
         { "@type": "HowToStep", position: 2, name: "Set speed, size and countdown", text: "Choose a scroll speed slightly slower than comfortable, set a font you can read at your distance, and keep the 3-2-1 countdown on if you want a breath before starting. Turn on mirror mode only for teleprompter glass." },
         { "@type": "HowToStep", position: 3, name: "Go fullscreen and read", text: "Enter fullscreen, press Play (or the Spacebar), and read. Space pauses, arrow keys adjust speed, and Back to top resets for the next take." },
+      ],
+    });
+  }
+
+  // UUID Generator: FAQ + HowTo (v4 only, honest collision note, fully local)
+  if (page === "uuidGenerator" && !blogPost) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", name: "Is this UUID generator free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Generate one UUID v4 or a bulk list of up to 100, with uppercase and hyphen options, and copy one or copy all." } },
+        { "@type": "Question", name: "Can two generated UUIDs ever be the same?", acceptedAnswer: { "@type": "Answer", text: "A version 4 UUID carries 122 random bits, so a duplicate is astronomically unlikely — you would need to generate an enormous number before a collision became plausible. It is not mathematically impossible, and this page does not promise otherwise." } },
+        { "@type": "Question", name: "Why only version 4? What about version 1?", acceptedAnswer: { "@type": "Answer", text: "Version 4 is purely random, which is what most databases, APIs and tests need. Version 1 embeds time and machine-style identifiers that can leak information, so this tool deliberately does not generate it." } },
+        { "@type": "Question", name: "Are my UUIDs uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. UUIDs are generated on your device with the Web Crypto API (crypto.randomUUID, with a crypto.getRandomValues fallback). Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
+        { "@type": "Question", name: "Can I use a UUID as a password or secret token?", acceptedAnswer: { "@type": "Answer", text: "No. A UUID is an identifier, not a secret. Use a password generator and a reputable password manager for credentials, and proper token systems for security-sensitive values." } },
+      ],
+    });
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to generate a UUID v4 in 3 steps",
+      description: config.description,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose how many", text: "Set the bulk count from 1 to 100. Five is a handy default for tests and fixtures." },
+        { "@type": "HowToStep", position: 2, name: "Pick the format", text: "Keep lowercase with hyphens (8-4-4-4-12) for the standard form, switch on UPPERCASE if your system expects it, or turn hyphens off for the compact 32-character form." },
+        { "@type": "HowToStep", position: 3, name: "Copy one or copy all", text: "Use the copy button on a single row, or Copy all to take the whole list one per line. Press Generate whenever you need a fresh set." },
       ],
     });
   }
