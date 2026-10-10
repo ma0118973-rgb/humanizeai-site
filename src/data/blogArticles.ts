@@ -12296,7 +12296,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "id": "hi-unit-rahnuma",
     "slug": "unit-converter-hindi-rahnuma",
     "language": "hi",
-    "title": "यूनिट कन्वर्टर: लंबाई, वज़न, तापमान समेत 10 श्रेणियों में माप बदलने की मुकम्मल रहनुमाई",
+    "title": "यूनिट कन्वर्टर: लंबाई, वज़न, तापमान, करेंसी समेत 11 श्रेणियों में माप बदलने की मुकम्मल रहनुमाई",
     "readTime": "10 मिनट पठन",
     "date": "October 2026",
     "author": "ToolVena Editorial Team",
