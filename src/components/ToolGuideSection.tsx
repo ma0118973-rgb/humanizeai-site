@@ -76,6 +76,7 @@ const SECTION_TITLE: Record<LanguageCode, string> = {
   it: "📖 Impara a Usare Questo Strumento",
   ru: "📖 Как пользоваться этим инструментом",
   "ur-pk": "📖 یہ ٹول استعمال کرنا سیکھیں",
+  hi: "📖 यह टूल इस्तेमाल करना सीखें",
 };
 
 const READ_FULL: Record<LanguageCode, string> = {
@@ -92,6 +93,7 @@ const READ_FULL: Record<LanguageCode, string> = {
   it: "Leggi la Guida Completa",
   ru: "Читать полное руководство",
   "ur-pk": "مکمل رہنما پڑھیں",
+  hi: "पूरी गाइड पढ़ें",
 };
 
 interface Props {
@@ -101,6 +103,10 @@ interface Props {
 }
 
 export function ToolGuideSection({ toolId, selectedLanguage = "en", onNavigateToBlog }: Props) {
+  // Hindi guides are written in a later phase — until then, do not show this
+  // section on /hi/ pages (the slug map below points at Urdu-script articles,
+  // which must not be linked from the Hindi locale).
+  if (selectedLanguage === "hi") return null;
   const articleSlug = TOOL_TO_ARTICLE[toolId];
   if (!articleSlug) return null;
 

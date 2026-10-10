@@ -2,7 +2,7 @@ export type ToneType = "balanced" | "academic" | "conversational" | "professiona
 
 export type BypassLevel = "standard" | "stealth" | "ultra-stealth";
 
-export type LanguageCode = "en" | "es" | "tr" | "de" | "fr" | "pt" | "ja" | "ur" | "no" | "nl" | "it" | "ru" | "ur-pk";
+export type LanguageCode = "en" | "es" | "tr" | "de" | "fr" | "pt" | "ja" | "ur" | "no" | "nl" | "it" | "ru" | "ur-pk" | "hi";
 
 export interface HumanizeResult {
   humanizedText: string;

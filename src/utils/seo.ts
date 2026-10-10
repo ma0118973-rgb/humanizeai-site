@@ -528,6 +528,7 @@ export const ALL_SUPPORTED_LANGUAGES: LanguageCode[] = [
   "it",
   "ru",
   "ur-pk",
+  "hi",
 ];
 
 // Urdu script locale (ur-PK): as of phase 2 (2026-10-10) the homepage and
@@ -535,6 +536,70 @@ export const ALL_SUPPORTED_LANGUAGES: LanguageCode[] = [
 // ur-PK on exactly those pages (reciprocal-only rule stays in force:
 // no ur-PK alternate is emitted for any page not listed here).
 export const URPK_PAGES: ReadonlySet<string> = new Set([
+  "home",
+  "humanizer",
+  "detector",
+  "media",
+  "seo",
+  "citation",
+  "expander",
+  "summarizer",
+  "voiceTyping",
+  "cvBuilder",
+  "wordCounter",
+  "characterCounter",
+  "textToSpeech",
+  "typingTest",
+  "caseConverter",
+  "passwordGenerator",
+  "duplicateLines",
+  "textRepeater",
+  "invisibleCharacter",
+  "wordFrequency",
+  "readingTime",
+  "base64",
+  "slugGenerator",
+  "jsonFormatter",
+  "loremIpsum",
+  "daysBetween",
+  "randomNumber",
+  "onlineTimer",
+  "invoiceGenerator",
+  "imageResizer",
+  "imageConverter",
+  "imageToText",
+  "pdfSplitter",
+  "usernameGenerator",
+  "morseCodeTranslator",
+  "voiceRecorder",
+  "onlineNotepad",
+  "unitConverter",
+  "onlineTeleprompter",
+  "uuidGenerator",
+  "timestampConverter",
+  "jsonToCsv",
+  "regexTester",
+  "urlEncoder",
+  "utmLinkBuilder",
+  "metaChecker",
+  "instagramLineBreak",
+  "imageCompressor",
+  "pdfTools",
+  "audioToText",
+  "backgroundRemover",
+  "voiceCloner",
+  "museAiHub",
+  "cleaner",
+  "diff",
+]);
+
+// Hindi (hi) partial locale (phase 1, 2026-10-10): the homepage and all 53
+// tool pages have real /hi/ versions — the same page set as ur-pk — so
+// hreflang may advertise "hi" on exactly those pages (reciprocal-only rule
+// stays in force: no hi alternate is emitted for any page not listed here).
+// NOTE: keep in sync with URPK_PAGES and with HI_ROUTE_PATHS in
+// scripts/generate-static-pages.mjs.
+export const HI_PAGES: ReadonlySet<string> = new Set([
   "home",
   "humanizer",
   "detector",
@@ -868,10 +933,11 @@ function updateHreflangTags(origin: string, pathWithoutLang: string, page?: stri
     return;
   }
 
-  // Generate hreflang for all real supported languages. ur-PK is a partial
-  // locale (phase 1): only advertise it on pages that truly exist in ur-pk.
+  // Generate hreflang for all real supported languages. ur-PK and hi are
+  // partial locales: only advertise them on pages that truly exist there.
   ALL_SUPPORTED_LANGUAGES.forEach((l) => {
     if (l === "ur-pk" && !(page && URPK_PAGES.has(page))) return;
+    if (l === "hi" && !(page && HI_PAGES.has(page))) return;
     const link = document.createElement("link");
     link.setAttribute("rel", "alternate");
     link.setAttribute("hreflang", l);

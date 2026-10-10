@@ -32,7 +32,7 @@ const RECOGNITION_LANGS: { value: string; label: string }[] = [
 
 const DEFAULT_RECOGNITION: Record<LanguageCode, string> = {
   en: "en-US", ur: "ur-PK", "ur-pk": "ur-PK", es: "es-ES", de: "de-DE", fr: "fr-FR",
-  tr: "tr-TR", pt: "pt-BR", ja: "ja-JP", it: "it-IT", nl: "nl-NL", no: "nb-NO", ru: "ru-RU",
+  tr: "tr-TR", pt: "pt-BR", ja: "ja-JP", it: "it-IT", nl: "nl-NL", no: "nb-NO", ru: "ru-RU", hi: "hi-IN",
 };
 
 type RecogState = "idle" | "listening" | "error" | "unsupported";

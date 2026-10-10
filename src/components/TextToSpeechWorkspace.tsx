@@ -15,7 +15,7 @@ interface TextToSpeechWorkspaceProps {
 
 const LOCALES: Record<LanguageCode, string> = {
   en: "en", es: "es", ur: "ur", "ur-pk": "ur-PK", de: "de", fr: "fr", tr: "tr",
-  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru",
+  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru", hi: "hi",
 };
 
 const SAMPLES: Record<LanguageCode, string> = {
@@ -31,6 +31,7 @@ const SAMPLES: Record<LanguageCode, string> = {
   nl: "Je eigen woorden hardop horen is de snelste manier om fouten te vinden. Zinnen die er op het scherm goed uitzagen, laten plotseling hun zwakke plekken horen. Druk op afspelen, luister goed en merk hoe het ritme van je tekst alles verandert.",
   no: "Å høre dine egne ord høyt er den raskeste måten å finne feil på. Setninger som så fine ut på skjermen, viser plutselig svakhetene sine når du hører dem. Trykk på spill av, lytt nøye, og legg merke til hvordan rytmen i teksten din føles.",
   ru: "Короткий текст долетает далеко. Заголовок, пара слов о себе и одно честное предложение скажут больше, чем длинный абзац, который никто не дочитывает до конца.",
+  hi: "छोटा टेक्स्ट दूर तक जाता है। एक हेडलाइन, एक बायो और एक ईमानदार वाक्य उस लंबे पैराग्राफ़ से ज़्यादा कह जाता है जिसे कोई पूरा नहीं पढ़ता।",
 };
 
 function splitIntoChunks(text: string, maxLen = 200): string[] {

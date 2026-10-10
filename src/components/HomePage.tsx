@@ -256,6 +256,7 @@ const LANGUAGE_NAMES: Record<string, string> = {
   nl: "Nederlands",
   ru: "Русский",
   "ur-pk": "اردو (رسم الخط)",
+  hi: "हिन्दी",
 };
 
 const POPULAR_PAGES: ActivePage[] = [

@@ -14,7 +14,7 @@ interface TextRepeaterWorkspaceProps {
 
 const LOCALES: Record<LanguageCode, string> = {
   en: "en", es: "es", ur: "ur", "ur-pk": "ur-PK", de: "de", fr: "fr", tr: "tr",
-  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru",
+  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru", hi: "hi",
 };
 
 const MAX_REPEATS = 1000;

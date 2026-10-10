@@ -823,7 +823,7 @@ const HERO_DATA: Record<string, Partial<Record<LanguageCode, ToolHeroInfo>>> = {
 const FREE_BADGE: Record<LanguageCode, string> = {
   en: "Free", es: "Gratis", ur: "Muft", de: "Kostenlos",
   fr: "Gratuit", tr: "Ücretsiz", pt: "Grátis", ja: "無料",
-  no: "Gratis", nl: "Gratis", it: "Gratis", ru: "Бесплатно", "ur-pk": "مفت",
+  no: "Gratis", nl: "Gratis", it: "Gratis", ru: "Бесплатно", "ur-pk": "مفت", hi: "मुफ़्त",
 };
 
 // Map tool to its guide article slug (Urdu guides exist for all)
@@ -887,13 +887,13 @@ const GUIDE_TEXT: Record<LanguageCode, string> = {
   en: "📖 Read Guide", es: "📖 Leer Guía", ur: "📖 Guide Parhen",
   de: "📖 Anleitung", fr: "📖 Lire le Guide", tr: "📖 Rehberi Oku",
   pt: "📖 Ler Guia", ja: "📖 ガイドを読む", no: "📖 Les Guide",
-  nl: "📖 Lees Gids", it: "📖 Leggi Guida", ru: "📖 Читать руководство", "ur-pk": "📖 رہنما پڑھیں",
+  nl: "📖 Lees Gids", it: "📖 Leggi Guida", ru: "📖 Читать руководство", "ur-pk": "📖 رہنما پڑھیں", hi: "📖 गाइड पढ़ें",
 };
 
 const PRIVATE_BADGE: Record<LanguageCode, string> = {
   en: "Private", es: "Privado", ur: "Mehfooz", de: "Privat",
   fr: "Privé", tr: "Gizli", pt: "Privado", ja: "プライベート",
-  no: "Privat", nl: "Privé", it: "Privato", ru: "Приватно", "ur-pk": "محفوظ",
+  no: "Privat", nl: "Privé", it: "Privato", ru: "Приватно", "ur-pk": "محفوظ", hi: "प्राइवेट",
 };
 
 interface Props {

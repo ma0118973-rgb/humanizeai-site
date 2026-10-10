@@ -26,13 +26,14 @@ interface CharStats {
 
 const LOCALES: Record<LanguageCode, string> = {
   en: "en", es: "es", ur: "ur", "ur-pk": "ur-PK", de: "de", fr: "fr", tr: "tr",
-  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru",
+  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru", hi: "hi",
 };
 
 const SAMPLES: Record<LanguageCode, string> = {
   en: "Short text carries far. A headline, a bio and one honest sentence can say more than a long paragraph that nobody finishes reading.",
   es: "El texto breve llega lejos. Un titular, una bio y una frase honesta dicen más que un párrafo largo que nadie termina de leer.",
   ur: "Chhota text door tak jata hai. Ek headline, ek bio aur ek sachcha jumla us lambi tehreer se zyada keh jata hai jo koi mukammal nahi parhta.", "ur-pk": "چھوٹا متن دور تک جاتا ہے۔ ایک سرخی، ایک بائیو اور ایک سچا جملہ اس لمبی تحریر سے زیادہ کہہ جاتا ہے جو کوئی مکمل نہیں پڑھتا۔",
+  hi: "छोटा टेक्स्ट दूर तक जाता है। एक हेडलाइन, एक बायो और एक सच्चा वाक्य उस लंबी तहरीर से ज़्यादा कह जाता है जिसे कोई मुकम्मल नहीं पढ़ता।",
   de: "Kurzer Text trägt weit. Eine Schlagzeile, eine kurze Bio und ein ehrlicher Satz sagen mehr als ein langer Absatz, den niemand zu Ende liest.",
   fr: "Un texte court va loin. Un titre, une bio et une phrase honnête en disent plus qu’un long paragraphe que personne ne finit.",
   tr: "Kısa metin uzağa gider. Bir başlık, bir biyografi ve dürüst bir cümle, kimsenin sonuna kadar okumadığı uzun bir paragraftan daha çok şey söyler.",

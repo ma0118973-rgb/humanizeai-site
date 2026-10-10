@@ -414,6 +414,7 @@ export const SUPPORTED_LANGUAGES: {
   { code: "it", label: "Italiano", flag: "🇮🇹", region: "Italia" },
   { code: "ru", label: "Русский", flag: "🇷🇺", region: "Россия и СНГ" },
   { code: "ur-pk", label: "اردو (نستعلیق)", flag: "🇵🇰", region: "Pakistan — اردو رسم الخط" },
+  { code: "hi", label: "हिन्दी", flag: "🇮🇳", region: "भारत" },
 ];
 
 // F5 (2026-10-10): per-language dictionaries live in ./i18n/<lang>.ts and are
@@ -444,6 +445,7 @@ const DICT_LOADERS: Partial<
   "it": () => import("./i18n/it"),
   "ru": () => import("./i18n/ru"),
   "ur-pk": () => import("./i18n/ur-pk"),
+  "hi": () => import("./i18n/hi"),
 };
 
 /** Load a language dictionary chunk into the registry (no-op when present). */

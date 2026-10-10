@@ -31,13 +31,14 @@ interface TextStats {
 
 const LOCALES: Record<LanguageCode, string> = {
   en: "en", es: "es", ur: "ur", "ur-pk": "ur-PK", de: "de", fr: "fr", tr: "tr",
-  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru",
+  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru", hi: "hi",
 };
 
 const SAMPLES: Record<LanguageCode, string> = {
   en: "A clear plan saves time. When writers know the length of a draft, they can cut repetition, keep the useful details, and finish before the deadline.",
   es: "Un plan claro ahorra tiempo. Cuando sabes cuánto ocupa un texto, puedes cortar repeticiones, conservar los datos útiles y terminar antes de la fecha límite.",
   ur: "Ek saaf plan waqt bachata hai. Jab likhne wale ko apni tehreer ki lambai pata ho, wo takrar kaat sakta hai, kaam ki baatein rakh sakta hai aur deadline se pehle kaam mukammal kar sakta hai.", "ur-pk": "ایک صاف منصوبہ وقت بچاتا ہے۔ جب لکھنے والے کو اپنی تحریر کی لمبائی پتہ ہو، وہ تکرار کاٹ سکتا ہے، کام کی باتیں رکھ سکتا ہے اور آخری تاریخ سے پہلے کام مکمل کر سکتا ہے۔",
+  hi: "एक साफ़ योजना समय बचाती है। जब लेखक को अपने ड्राफ़्ट की लंबाई पता होती है, तो वह दोहराव हटा सकता है, काम की बातें रख सकता है और डेडलाइन से पहले काम पूरा कर सकता है।",
   de: "Ein klarer Plan spart Zeit. Wer die Länge eines Entwurfs kennt, kann Wiederholungen streichen, wichtige Details behalten und vor der Frist fertig werden.",
   fr: "Un plan clair fait gagner du temps. Quand on connaît la longueur d’un brouillon, on peut couper les répétitions, garder les détails utiles et finir avant la date limite.",
   tr: "Net bir plan zaman kazandırır. Bir taslağın uzunluğunu bilen kişi tekrarları keser, yararlı ayrıntıları korur ve son tarihten önce bitirir.",

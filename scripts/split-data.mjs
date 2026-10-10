@@ -34,7 +34,7 @@ function loadConst(tsPath, constName) {
   return new Function(`return (${extractBalanced(raw, i)})`)();
 }
 
-const I18N_LANGS = ["en", "es", "ur", "de", "fr", "pt", "tr", "ja", "no", "nl", "it", "ru", "ur-pk"];
+const I18N_LANGS = ["en", "es", "ur", "de", "fr", "pt", "tr", "ja", "no", "nl", "it", "ru", "ur-pk", "hi"];
 const BLOG_LANGS = ["en", "es", "ur", "de", "fr", "pt", "tr", "ja", "no", "nl", "it", "ur-pk"];
 
 // ---------- translations ----------

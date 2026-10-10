@@ -86,14 +86,16 @@ const HOME_COPY = loadConst(path.join(root, "src/data/homeCopy.ts"), "HOME_COPY"
 // Same placeholder fill the homepage applies at runtime ({n} tools,
 // {langs} languages, {q}/{cat} empty on first render). ROUTES/LANGUAGES
 // resolve at call time (emitFile runs after all top-level consts exist).
-function fillHomeCopy(s) {
+// `langCount` overrides the language figure: ur-pk shows 13, hi shows 14
+// (the generator's LANGUAGES list excludes the two partial locales).
+function fillHomeCopy(s, langCount = LANGUAGES.length + 1) {
   // Mirror HomePage's runtime catalog exactly: TOOLS minus the two entries
   // its canonicalPath filter drops (base64, museAiHub) = 52.
   const nonTools = new Set(["home", "blog", "about", "privacy", "terms", "disclaimer", "contact", "notfound", "base64", "museAiHub"]);
   const toolCount = ROUTES.filter(([p]) => !nonTools.has(p)).length;
   return String(s || "")
     .replaceAll("{n}", String(toolCount))
-    .replaceAll("{langs}", String(LANGUAGES.length + 1))
+    .replaceAll("{langs}", String(langCount))
     .replaceAll("{q}", "")
     .replaceAll("{cat}", "");
 }
@@ -129,6 +131,15 @@ const LANGUAGES = ["en", "es", "ur", "de", "fr", "pt", "tr", "ja", "no", "nl", "
 const URPK_LANG = "ur-pk";
 const URPK_HREFLANG = "ur-PK";
 const URPK_ROUTE_PATHS = new Set(["/", "/ai-humanizer/", "/ai-detector/", "/video-tools/", "/seo-tools/", "/citation-generator/", "/sentence-expander/", "/text-summarizer/", "/voice-typing/", "/cv-builder/", "/word-counter/", "/character-counter/", "/text-to-speech/", "/typing-test/", "/case-converter/", "/password-generator/", "/remove-duplicate-lines/", "/text-repeater/", "/invisible-character/", "/word-frequency-counter/", "/reading-time-calculator/", "/base64-encoder-decoder/", "/slug-generator/", "/json-formatter/", "/lorem-ipsum-generator/", "/days-between-dates/", "/random-number-generator/", "/online-timer/", "/invoice-generator/", "/image-resizer/", "/image-converter/", "/image-to-text/", "/pdf-splitter/", "/username-generator/", "/morse-code-translator/", "/online-voice-recorder/", "/online-notepad/", "/unit-converter/", "/online-teleprompter/", "/uuid-generator/", "/unix-timestamp-converter/", "/json-to-csv-converter/", "/regex-tester/", "/url-encoder-decoder/", "/utm-link-builder/", "/meta-title-description-checker/", "/instagram-line-break-generator/", "/image-compressor/", "/pdf-tools/", "/audio-to-text-converter/", "/background-remover/", "/voice-cloner/", "/muse-ai-availability-checker/", "/cliche-cleaner/", "/diff-checker/"]);
+
+// Hindi locale: lives at /hi/ (hreflang "hi"). Phase 1 (2026-10-10) covers
+// the homepage and all 53 tool routes below — the same route set as ur-pk.
+// Like ur-pk it must NOT join LANGUAGES above: blog articles and compliance
+// pages have no hi versions yet, so those routes must not generate or
+// advertise hi alternates (reciprocal rule).
+const HI_LANG = "hi";
+const HI_HREFLANG = "hi";
+const HI_ROUTE_PATHS = new Set(["/", "/ai-humanizer/", "/ai-detector/", "/video-tools/", "/seo-tools/", "/citation-generator/", "/sentence-expander/", "/text-summarizer/", "/voice-typing/", "/cv-builder/", "/word-counter/", "/character-counter/", "/text-to-speech/", "/typing-test/", "/case-converter/", "/password-generator/", "/remove-duplicate-lines/", "/text-repeater/", "/invisible-character/", "/word-frequency-counter/", "/reading-time-calculator/", "/base64-encoder-decoder/", "/slug-generator/", "/json-formatter/", "/lorem-ipsum-generator/", "/days-between-dates/", "/random-number-generator/", "/online-timer/", "/invoice-generator/", "/image-resizer/", "/image-converter/", "/image-to-text/", "/pdf-splitter/", "/username-generator/", "/morse-code-translator/", "/online-voice-recorder/", "/online-notepad/", "/unit-converter/", "/online-teleprompter/", "/uuid-generator/", "/unix-timestamp-converter/", "/json-to-csv-converter/", "/regex-tester/", "/url-encoder-decoder/", "/utm-link-builder/", "/meta-title-description-checker/", "/instagram-line-break-generator/", "/image-compressor/", "/pdf-tools/", "/audio-to-text-converter/", "/background-remover/", "/voice-cloner/", "/muse-ai-availability-checker/", "/cliche-cleaner/", "/diff-checker/"]);
 
 // [pageId, canonicalPath] — canonicalPath mirrors SEO_CONFIGS in src/utils/seo.ts
 const ROUTES = [
@@ -309,6 +320,9 @@ function hreflangLinks(origin, pathWithoutLang) {
   if (URPK_ROUTE_PATHS.has(pathWithoutLang)) {
     s += `    <link rel="alternate" hreflang="${URPK_HREFLANG}" href="${origin}/${URPK_LANG}${pathWithoutLang}" />\n`;
   }
+  if (HI_ROUTE_PATHS.has(pathWithoutLang)) {
+    s += `    <link rel="alternate" hreflang="${HI_HREFLANG}" href="${origin}/${HI_LANG}${pathWithoutLang}" />\n`;
+  }
   s += `    <link rel="alternate" hreflang="x-default" href="${origin}/en${pathWithoutLang}" />`;
   return s;
 }
@@ -317,9 +331,10 @@ function hreflangLinks(origin, pathWithoutLang) {
 // equivalents). The SPA renders the same navigation after hydration and
 // replaces this node, so no-JS crawlers still see real internal links.
 function staticNavHtml(lang) {
+  const routeSet = lang === URPK_LANG ? URPK_ROUTE_PATHS : lang === HI_LANG ? HI_ROUTE_PATHS : null;
   const routes =
-    lang === URPK_LANG
-      ? ROUTES.filter(([, p]) => URPK_ROUTE_PATHS.has(p) || p === "/blog/")
+    routeSet
+      ? ROUTES.filter(([, p]) => routeSet.has(p) || p === "/blog/")
       : ROUTES;
   const items = [[`/${lang}/`, pageMeta("home", lang, null)[0]]];
   for (const [pg, p] of routes) items.push([`/${lang}${p}`, pageMeta(pg, lang, null)[0]]);
@@ -2552,8 +2567,11 @@ function emitFile(lang, routePath, title, description, page, post = null) {
     if (page === "home") {
       const hc = HOME_COPY[lang] || HOME_COPY.en;
       if (!hc || !hc.heroH1A) return "";
-      const h1 = fillHomeCopy(`${hc.heroH1A} ${hc.heroH1B || ""}`.trim());
-      const intro = hc.heroIntro ? fillHomeCopy(hc.heroIntro) : "";
+      // ur-pk and hi are partial locales the LANGUAGES list excludes;
+      // pass the real language figure for the {langs} placeholder.
+      const langCount = lang === HI_LANG ? LANGUAGES.length + 2 : LANGUAGES.length + 1;
+      const h1 = fillHomeCopy(`${hc.heroH1A} ${hc.heroH1B || ""}`.trim(), langCount);
+      const intro = hc.heroIntro ? fillHomeCopy(hc.heroIntro, langCount) : "";
       return wrap(
         `<h1 style="${h1Style}">${esc(h1)}</h1>` +
           (intro ? `<p style="${pStyle}">${esc(intro)}</p>` : "")
@@ -2627,6 +2645,23 @@ for (const lang of LANGUAGES) {
   }
 }
 
+// Hindi locale (hi): phase 1 — homepage + all 53 tool routes.
+// TRANSLATIONS["hi"] carries the localised strings for every one.
+// Articles join in a later phase: the /hi/blog/ listing shell is emitted
+// (empty for now, exactly like ur-pk was at its phase-2 start) but no
+// Hindi article pages are generated yet.
+{
+  const [homeTitle, homeDesc] = pageMeta("home", HI_LANG, null);
+  emitFile(HI_LANG, "/", homeTitle, homeDesc, "home");
+  for (const [page, routePath] of ROUTES) {
+    if (!HI_ROUTE_PATHS.has(routePath)) continue;
+    const [title, desc] = pageMeta(page, HI_LANG, null);
+    emitFile(HI_LANG, routePath, title, desc, page);
+  }
+  const [blogTitle, blogDesc] = pageMeta("blog", HI_LANG, null);
+  emitFile(HI_LANG, "/blog/", blogTitle, blogDesc, "blog");
+}
+
 console.log(`[static-seo] ${count} static SEO pages written to dist/`);
 
 // ---- sitemap.xml (auto-generated so new articles are always included) ----
@@ -2641,6 +2676,9 @@ for (const u of emittedUrls) {
     }
     if (URPK_ROUTE_PATHS.has(u.routePath)) {
       sm += `    <xhtml:link rel="alternate" hreflang="${URPK_HREFLANG}" href="${origin}/${URPK_LANG}${u.routePath}" />\n`;
+    }
+    if (HI_ROUTE_PATHS.has(u.routePath)) {
+      sm += `    <xhtml:link rel="alternate" hreflang="${HI_HREFLANG}" href="${origin}/${HI_LANG}${u.routePath}" />\n`;
     }
     sm += `    <xhtml:link rel="alternate" hreflang="x-default" href="${origin}/en${u.routePath}" />\n`;
   } else if (u.postSlug) {

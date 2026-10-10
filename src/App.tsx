@@ -13,7 +13,7 @@ import { FaqAndCompetitorSection } from "./components/FaqAndCompetitorSection";
 import { ToolFaqSection } from "./components/ToolFaqSection";
 import { HistoryDrawer } from "./components/HistoryDrawer";
 import { ActivePage, LanguageCode, SavedDraft } from "./types";
-import { applyPageSeo, SEO_CONFIGS, ALL_SUPPORTED_LANGUAGES, URPK_PAGES } from "./utils/seo";
+import { applyPageSeo, SEO_CONFIGS, ALL_SUPPORTED_LANGUAGES, URPK_PAGES, HI_PAGES } from "./utils/seo";
 import { findBlogPostBySlug, BlogPost } from "./data/blogArticles";
 import { TRANSLATIONS, ensureTranslations } from "./data/translations";
 import { DiagnosticBoundary } from "./components/DiagnosticBoundary";
@@ -645,14 +645,16 @@ export default function App() {
       } catch {
         // Storage blocked — the switcher still works this visit.
       }
-      // Urdu script (ur-pk) is a partial locale: pages outside URPK_PAGES do
-      // not exist there. Switching to it from any other page lands on the
-      // ur-pk homepage instead of a URL that would 404 on reload.
-      if (newLang === "ur-pk" && !URPK_PAGES.has(activePage)) {
+      // Urdu script (ur-pk) and Hindi (hi) are partial locales: pages outside
+      // their page sets do not exist there. Switching to either from any
+      // other page lands on that locale's homepage instead of a URL that
+      // would 404 on reload.
+      const localePages = newLang === "hi" ? HI_PAGES : newLang === "ur-pk" ? URPK_PAGES : null;
+      if (localePages && !localePages.has(activePage)) {
         setActivePage("home");
         setActiveBlogSlug(null);
         try {
-          window.history.pushState({ page: "home", lang: newLang, blogSlug: null }, "", "/ur-pk/");
+          window.history.pushState({ page: "home", lang: newLang, blogSlug: null }, "", `/${newLang}/`);
         } catch {
           // Fallback
         }
