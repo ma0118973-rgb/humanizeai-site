@@ -834,16 +834,38 @@ export function applyPageSeo(
   canonicalEl.setAttribute("href", canonicalUrl);
 
   // 8. Dynamic hreflang alternates for all supported languages
-  updateHreflangTags(origin, pathWithoutLang, page);
+  updateHreflangTags(origin, pathWithoutLang, page, blogPost);
 
   // 9. Dynamic JSON-LD Structured Data
   updateJsonLd(page, baseConfig, canonicalUrl, origin, blogPost, lang);
 }
 
-function updateHreflangTags(origin: string, pathWithoutLang: string, page?: string) {
+function updateHreflangTags(origin: string, pathWithoutLang: string, page?: string, blogPost?: BlogPost | null) {
   // Remove existing hreflang tags
   const existing = document.querySelectorAll('link[rel="alternate"][hreflang]');
   existing.forEach((el) => el.remove());
+
+  // Blog articles are single-language originals: each exists only in its own
+  // language under its own localized slug, so advertising the same slug in
+  // every language would point at URLs that do not exist. Emit only true
+  // alternates: verified translation twins (same article id in another
+  // language, each with its own slug), plus the self-reference. No
+  // x-default — there is no default-language version to point at.
+  if (page === "blog" && blogPost) {
+    const selfLink = document.createElement("link");
+    selfLink.setAttribute("rel", "alternate");
+    selfLink.setAttribute("hreflang", blogPost.language);
+    selfLink.setAttribute("href", `${origin}/${blogPost.language}/blog/${blogPost.slug}/`);
+    document.head.appendChild(selfLink);
+    BLOG_POSTS.filter((p) => p.id === blogPost.id && p.language !== blogPost.language).forEach((twin) => {
+      const link = document.createElement("link");
+      link.setAttribute("rel", "alternate");
+      link.setAttribute("hreflang", twin.language);
+      link.setAttribute("href", `${origin}/${twin.language}/blog/${twin.slug}/`);
+      document.head.appendChild(link);
+    });
+    return;
+  }
 
   // Generate hreflang for all real supported languages. ur-PK is a partial
   // locale (phase 1): only advertise it on pages that truly exist in ur-pk.
