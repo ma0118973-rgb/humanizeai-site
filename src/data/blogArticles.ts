@@ -23683,7 +23683,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Domanda: posso creare sottotitoli per un video? Risposta: Sì. Trascrivi il file video (l'MP4 funziona) e scarica l'esportazione .srt o .vtt, che porta i riferimenti temporali come righe di sottotitolo. Se modifichi il testo dopo, esporta di nuovo perché il file corrisponda alle tue parole.",
       "Domanda: chi non dovrebbe affidarsi solo a questo strumento? Risposta: Chiunque maneggi una trascrizione con peso legale, medico o di sicurezza dovrebbe trattarla come una prima bozza e verificare ogni parola decisiva contro la registrazione. Per lezioni, interviste, appunti e bozze quotidiane, è pensato per farti risparmiare tempo vero: onestamente, in privato e gratis."
     ]
-  }
+   }
+
 ] as BlogPost[];
 
 export function findBlogPostBySlug(slug: string, lang?: string): BlogPost | undefined {

@@ -1,3 +1,5 @@
+**Copyright (c) 2026 ToolVena. All rights reserved. No part of this codebase may be used, copied, modified or distributed without prior written permission. See [LICENSE](LICENSE).**
+
 # HumanizeAI
 
 100% client-side React + Vite app. No API keys, no backend, no paid services.
