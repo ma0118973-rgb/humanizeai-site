@@ -12348,6 +12348,101 @@ export const BLOG_POSTS: BlogPost[] = [
       "url encoder"
     ],
     "content": []
+  },
+  {
+    "id": "hi-json-csv-rahnuma",
+    "slug": "json-ko-csv-mein-badlein-hindi-rahnuma",
+    "language": "hi",
+    "title": "JSON को CSV में बदलें: नेस्टेड डेटा को साफ़ टेबल बनाने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Developer Tools",
+    "summary": "JSON को CSV में बदलते समय नेस्टेड डेटा का क्या होता है? address.city जैसे डॉट-पाथ कॉलम का नियम, सुरक्षित एक्सपोर्ट, डिलिमिटर का चुनाव और गुप्त डेटा वाली चेतावनी इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "JSON को CSV में बदलें",
+      "JSON to CSV",
+      "नेस्टेड JSON टेबल",
+      "CSV एक्सपोर्ट टूल",
+      "json converter"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-slug-rahnuma",
+    "slug": "slug-banayein-hindi-rahnuma",
+    "language": "hi",
+    "title": "URL स्लग बनाएं: साफ़, छोटे और पढ़ने-योग्य लिंक बनाने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Developer Tools",
+    "summary": "स्लग जनरेटर शीर्षक को साफ़ लिंक में कैसे बदलता है? हिंदी शीर्षक वाली ईमानदार सीमा, stop words का सच, लंबाई की समझदार कटौती और सेपरेटर का चुनाव इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "URL स्लग बनाएं",
+      "स्लग जनरेटर",
+      "SEO फ्रेंडली URL",
+      "लिंक स्लग टूल",
+      "slug generator"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-utm-rahnuma",
+    "slug": "utm-link-banayein-hindi-rahnuma",
+    "language": "hi",
+    "title": "UTM लिंक बनाएं: कैंपेन ट्रैक करने वाले लिंक की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Marketing Tools",
+    "summary": "UTM टैग से कैंपेन ट्रैक कैसे करें? पांच पैरामीटर का साफ़ मतलब, नामों की एकरूपता, \"टैग बिक्री नहीं लाते\" की ईमानदार सच्चाई और प्रीसेट की सुविधा इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "UTM लिंक बनाएं",
+      "UTM बिल्डर",
+      "कैंपेन ट्रैकिंग",
+      "utm_source माध्यम",
+      "utm builder"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-uuid-rahnuma",
+    "slug": "uuid-generator-hindi-rahnuma",
+    "language": "hi",
+    "title": "UUID जनरेटर: यूनिक आईडी सुरक्षित तरीके से बनाने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Developer Tools",
+    "summary": "UUID v4 यूनिक ID कैसे बनाता है? Web Crypto की ईमानदार रैंडमनेस, टकराव की असली संभावना, \"ID गुप्त टोकन नहीं\" की चेतावनी और फ़ॉर्मैट विकल्प इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "UUID जनरेटर",
+      "यूनिक आईडी बनाएं",
+      "UUID v4",
+      "रैंडम ID टूल",
+      "uuid generator"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-timestamp-rahnuma",
+    "slug": "unix-timestamp-hindi-rahnuma",
+    "language": "hi",
+    "title": "यूनिक्स टाइमस्टैम्प कन्वर्ट करें: Epoch सेकंड और तारीख़ के बीच की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Developer Tools",
+    "summary": "यूनिक्स टाइमस्टैम्प को तारीख़ में कैसे बदलें? सेकंड बनाम मिलीसेकंड की पहचान का नियम, टाइमज़ोन की सच्चाई, तारीख़ से संख्या की उल्टी दिशा और आम ग़लतियां इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "यूनिक्स टाइमस्टैम्प",
+      "Epoch कन्वर्टर",
+      "टाइमस्टैम्प से तारीख़",
+      "सेकंड मिलीसेकंड",
+      "timestamp converter"
+    ],
+    "content": []
   }
 ] as BlogPost[];
 

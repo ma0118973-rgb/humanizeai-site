@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "routePath": "/api/gemini",
+      "mountPath": "/api",
+      "method": "",
+      "module": [
+        "api/gemini.ts:onRequest"
+      ]
+    }
+  ],
+  "baseURL": "/"
+}
