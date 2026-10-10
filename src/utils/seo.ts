@@ -555,6 +555,7 @@ export const URPK_PAGES: ReadonlySet<string> = new Set([
   "invisibleCharacter",
   "wordFrequency",
   "readingTime",
+  "base64",
   "slugGenerator",
   "jsonFormatter",
   "loremIpsum",
