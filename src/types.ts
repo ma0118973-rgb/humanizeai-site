@@ -102,6 +102,7 @@ export type ActivePage =
   | "imageCompressor"
   | "pdfTools"
   | "audioToText"
+  | "backgroundRemover"
   | "cleaner"
   | "diff"
   | "privacy"

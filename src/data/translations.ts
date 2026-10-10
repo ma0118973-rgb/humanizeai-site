@@ -40,6 +40,8 @@ export interface TranslationDict {
     wordCounterDesc?: string;
     audioToTextTitle?: string;
     audioToTextDesc?: string;
+    backgroundRemoverTitle?: string;
+    backgroundRemoverDesc?: string;
     textToSpeechTitle?: string;
     textToSpeechDesc?: string;
     typingTestTitle?: string;
@@ -1512,6 +1514,8 @@ timestampConverter: {
       wordCounterTitle: "Free Word Counter – Count Words & Characters Online",
       wordCounterDesc: "Free word counter. Count words, characters, sentences, paragraphs and reading time live in your browser. No sign-up, nothing uploaded.",
       audioToTextTitle: "Audio to Text Converter – Transcribe MP3, WAV & M4A Free, On Your Device",
+      backgroundRemoverTitle: "Free AI Background Remover",
+      backgroundRemoverDesc: "Remove image backgrounds directly in your browser with AI. 100% private, full resolution, free transparent PNG downloads.",
       audioToTextDesc: "Free audio to text converter. Transcribe MP3, WAV, M4A and MP4 audio into text with a speech model that runs in your browser — your file never leaves your device, no sign-up and no per-minute charge. One small model download on first use, then it works offline. Short, clear clips work best.",
       textToSpeechTitle: "Free Text to Speech – Hear Your Text Read Aloud Online",
       textToSpeechDesc: "Free text to speech. Paste text and hear it read aloud with your device's own voices, right in your browser. No sign-up, nothing uploaded.",
@@ -3518,6 +3522,8 @@ timestampConverter: {
       wordCounterTitle: "Contador de Palabras Gratis – Cuenta Palabras y Caracteres",
       wordCounterDesc: "Contador de palabras gratuito. Cuenta palabras, caracteres, frases, párrafos y tiempo de lectura en tu navegador. Sin registro y sin subir tu texto.",
       audioToTextTitle: "Convertidor de Audio a Texto – Transcribe MP3, WAV y M4A Gratis en tu Dispositivo",
+      backgroundRemoverTitle: "Eliminador de Fondos con IA Gratis",
+      backgroundRemoverDesc: "Elimina fondos de imágenes directamente en tu navegador con IA. 100% privado, alta resolución y descargas PNG transparentes gratis.",
       audioToTextDesc: "Convertidor de audio a texto gratuito. Transcribe MP3, WAV, M4A y MP4 a texto con un modelo de voz que funciona en tu navegador: tu archivo nunca sale de tu dispositivo, sin registro ni pago por minuto. Descarga única de un modelo pequeño la primera vez; después funciona sin conexión. Los clips cortos y claros dan mejores resultados.",
       textToSpeechTitle: "Texto a Voz Gratis – Escucha tu Texto en Voz Alta",
       textToSpeechDesc: "Texto a voz gratuito. Pega tu texto y escúchalo con las voces de tu dispositivo, en tu navegador. Sin registro y sin subir tu texto.",
@@ -5522,6 +5528,8 @@ timestampConverter: {
       wordCounterTitle: "Muft Word Counter – Alfaz aur Characters Ginain",
       wordCounterDesc: "Muft word counter. Alfaz, characters, jumlay, paragraphs aur parhne ka waqt browser mein live ginain. Koi sign-up nahi, text upload nahi hota.",
       audioToTextTitle: "Audio to Text Converter – MP3, WAV aur M4A ko Muft Text Mein Badlen, Apne Device Par",
+      backgroundRemoverTitle: "Muft AI Background Remover",
+      backgroundRemoverDesc: "Apne browser mein AI ki madad se tasweeron ka background foran hatayein. 100% private, full resolution, free transparent PNG download.",
       audioToTextDesc: "Muft audio to text converter. MP3, WAV, M4A aur MP4 awaz ko text mein badlen — speech model aap ke browser mein chalta hai, file device se bahar nahi jati, na sign-up na minute ki fees. Pehli dafa chhota sa model download hoga, phir offline chalega. Chhoti aur saaf awaz sab se behtareen result deti hai.",
       textToSpeechTitle: "Muft Text to Speech – Text Bol Kar Sunain",
       textToSpeechDesc: "Muft text to speech. Apna text paste karein aur apne device ki awazon ke saath browser mein hi sunain. Koi sign-up nahi, text upload nahi hota.",
@@ -7528,6 +7536,8 @@ timestampConverter: {
       wordCounterTitle: "Kostenloser Wortzähler – Wörter & Zeichen Zählen",
       wordCounterDesc: "Kostenloser Wortzähler. Zählen Sie Wörter, Zeichen, Sätze, Absätze und Lesezeit live im Browser. Ohne Anmeldung, ohne Upload.",
       audioToTextTitle: "Audio zu Text Konverter – MP3, WAV & M4A kostenlos auf Ihrem Gerät transkribieren",
+      backgroundRemoverTitle: "Kostenloser KI-Hintergrundentferner",
+      backgroundRemoverDesc: "Entfernen Sie Bildhintergründe direkt in Ihrem Browser mit KI. 100% privat, volle Auflösung, kostenlose transparente PNG-Downloads.",
       audioToTextDesc: "Kostenloser Audio-zu-Text-Konverter. Wandeln Sie MP3, WAV, M4A und MP4 in Text um – das Sprachmodell läuft in Ihrem Browser, Ihre Datei verlässt Ihr Gerät nie. Keine Anmeldung, keine Minutenpreise. Beim ersten Mal wird ein kleines Modell geladen, danach geht es offline. Kurze, klare Aufnahmen funktionieren am besten.",
       textToSpeechTitle: "Kostenloser Text zu Sprache – Text laut Vorlesen Lassen",
       textToSpeechDesc: "Kostenloser Text-zu-Sprache-Vorleser. Text einfügen und mit den Stimmen Ihres Geräts direkt im Browser anhören. Ohne Anmeldung, ohne Upload.",
@@ -9532,6 +9542,8 @@ timestampConverter: {
       wordCounterTitle: "Compteur de Mots Gratuit – Compter Mots et Caractères",
       wordCounterDesc: "Compteur de mots gratuit. Comptez mots, caractères, phrases, paragraphes et temps de lecture dans votre navigateur. Sans inscription, sans envoi.",
       audioToTextTitle: "Convertisseur Audio en Texte – Transcrivez MP3, WAV et M4A gratuitement sur votre appareil",
+      backgroundRemoverTitle: "Supprimeur de Fond IA Gratuit",
+      backgroundRemoverDesc: "Supprimez les arrière-plans d’images directement dans votre navigateur avec l’IA. 100% privé, haute résolution, téléchargements PNG transparents gratuits.",
       audioToTextDesc: "Convertisseur audio en texte gratuit. Transcrivez des MP3, WAV, M4A et MP4 en texte grâce à un modèle vocal qui tourne dans votre navigateur : votre fichier ne quitte jamais votre appareil, sans inscription ni tarif à la minute. Un petit modèle se télécharge au premier usage, puis tout fonctionne hors ligne. Les extraits courts et nets donnent les meilleurs résultats.",
       textToSpeechTitle: "Synthèse Vocale Gratuite – Faites Lire vos Textes à Voix Haute",
       textToSpeechDesc: "Synthèse vocale gratuite. Collez votre texte et écoutez-le avec les voix de votre appareil, dans votre navigateur. Sans inscription, sans envoi.",

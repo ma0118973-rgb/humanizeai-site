@@ -169,6 +169,9 @@ const PdfToolsWorkspace = lazy(() =>
 const AudioToTextWorkspace = lazy(() =>
   import("./components/AudioToTextWorkspace").then((m) => ({ default: m.AudioToTextWorkspace }))
 );
+const BackgroundRemoverWorkspace = lazy(() =>
+  import("./components/BackgroundRemoverWorkspace").then((m) => ({ default: m.BackgroundRemoverWorkspace }))
+);
 const CompliancePages = lazy(() =>
   import("./components/CompliancePages").then((m) => ({ default: m.CompliancePages }))
 );
@@ -382,6 +385,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "audio-to-text-converter" || primarySlug === "audio-to-text" || primarySlug === "transcribe-audio" || primarySlug === "mp3-to-text" || primarySlug === "speech-to-text-converter" || primarySlug === "audio-transcription") {
     return { page: "audioToText", lang, blogSlug: null };
+  }
+  if (primarySlug === "background-remover" || primarySlug === "remove-background" || primarySlug === "remove-bg" || primarySlug === "bg-remover") {
+    return { page: "backgroundRemover", lang, blogSlug: null };
   }
   if (primarySlug === "cliche-cleaner" || primarySlug === "cleaner" || primarySlug === "ai-cliche-cleaner") {
     return { page: "cleaner", lang, blogSlug: null };
@@ -653,6 +659,7 @@ export default function App() {
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
     activePage === "audioToText" ||
+    activePage === "backgroundRemover" ||
     activePage === "pdfTools";
 
   return (
@@ -1272,6 +1279,17 @@ export default function App() {
         {activePage === "pdfTools" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <PdfToolsWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "backgroundRemover" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <BackgroundRemoverWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

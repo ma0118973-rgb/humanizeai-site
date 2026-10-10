@@ -53,6 +53,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   imageCompressor: "image-compressor-urdu-guide",
   pdfTools: "pdf-tools-urdu-guide",
   audioToText: "audio-to-text-converter-urdu-guide",
+  backgroundRemover: "background-remover-guide",
   media: "video-tools-urdu-guide",
   seo: "seo-tools-urdu-guide",
   cleaner: "cliche-cleaner-urdu-guide",

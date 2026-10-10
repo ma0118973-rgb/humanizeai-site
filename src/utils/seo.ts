@@ -404,6 +404,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Audio to Text Converter",
   },
+  backgroundRemover: {
+    title: "Free AI Background Remover",
+    description: "Remove photo backgrounds instantly with AI. Get clean transparent PNG cutouts directly in your browser — no uploads, no sign-up. Your images are processed 100% locally on your device for total privacy.",
+    canonicalPath: "/background-remover/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Background Remover",
+  },
   cleaner: {
     title: "AI Cliché Checker – Find Repetitive AI-Style Phrases",
     description: "Find common AI-style clichés like 'delve', 'tapestry' and 'testament', review each match in context, and rewrite them in your own words.",
@@ -652,6 +660,9 @@ export function applyPageSeo(
   } else if (page === "audioToText") {
     title = (t.seo as any).audioToTextTitle || baseConfig.title;
     description = (t.seo as any).audioToTextDesc || baseConfig.description;
+  } else if (page === "backgroundRemover") {
+    title = (t.seo as any).backgroundRemoverTitle || baseConfig.title;
+    description = (t.seo as any).backgroundRemoverDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;
