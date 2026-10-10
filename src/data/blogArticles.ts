@@ -11968,6 +11968,101 @@ export const BLOG_POSTS: BlogPost[] = [
       "मुफ़्त ऑनलाइन टूल्स हिंदी में"
     ],
     "content": []
+  },
+  {
+    "id": "hi-image-to-text-rahnuma",
+    "slug": "image-se-hindi-text-nikalein-hindi-rahnuma",
+    "language": "hi",
+    "title": "इमेज से हिंदी टेक्स्ट निकालें: फोटो, स्क्रीनशॉट और स्कैन से साफ़ टेक्स्ट की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Image Tools",
+    "summary": "फ़ोटो, स्क्रीनशॉट या स्कैन से इमेज से हिंदी टेक्स्ट निकालें कैसे छपे टेक्स्ट को एडिट करने-योग्य टेक्स्ट में बदलता है? चरण, बेहतर नतीजे की आदतें, गोपनीयता और ईमानदार सीमाएं इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "इमेज से हिंदी टेक्स्ट निकालें",
+      "फोटो से हिंदी टेक्स्ट कॉपी",
+      "स्क्रीनशॉट टेक्स्ट निकालें",
+      "Tesseract OCR हिंदी",
+      "इमेज टू टेक्स्ट हिंदी"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-background-remover-rahnuma",
+    "slug": "photo-ka-background-hatayein-hindi-rahnuma",
+    "language": "hi",
+    "title": "फोटो का बैकग्राउंड हटाएं: बिना ऐप, ब्राउज़र में ही PNG फोटो की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Image Tools",
+    "summary": "बिना ऐप, बिना अपलोड फोटो का बैकग्राउंड हटाएं कैसे काम करता है? ONNX मॉडल, पारदर्शी PNG, सफ़ेद/रंग/धुंधला बैकग्राउंड, बेहतर नतीजे की आदतें और ईमानदार सीमाएं इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "फोटो का बैकग्राउंड हटाएं",
+      "बैकग्राउंड रिमूवर ऑनलाइन",
+      "पारदर्शी PNG बनाएं",
+      "बिना ऐप बैकग्राउंड हटाएं",
+      "प्रोडक्ट फोटो बैकग्राउंड"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-pdf-splitter-rahnuma",
+    "slug": "pdf-page-alag-karein-hindi-rahnuma",
+    "language": "hi",
+    "title": "PDF पेज अलग करें: चुने हुए पेज निकालकर नई PDF बनाने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "File Tools",
+    "summary": "PDF के चुने हुए पेज अलग करें कैसे काम करता है? पेज-रेंज लिखने के असली उदाहरण, एक या अलग-अलग PDF, और वह ईमानदार हद कि स्प्लिट कंप्रेस या OCR नहीं करता — इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "PDF पेज अलग करें",
+      "PDF स्प्लिटर ऑनलाइन",
+      "PDF से पेज निकालें",
+      "चुने पेज नई PDF",
+      "PDF रेंज"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-image-compressor-rahnuma",
+    "slug": "image-ka-size-kam-karein-hindi-rahnuma",
+    "language": "hi",
+    "title": "इमेज का साइज़ कम करें: क्वालिटी चुनकर फ़ॉर्म और वेबसाइट के लिए छोटी इमेज की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Image Tools",
+    "summary": "फ़ॉर्म, वेबसाइट या भेजने के लिए इमेज का साइज़ कम करें कैसे काम करता है? क्वालिटी चुनने की समझदारी, तीन असली हिसाब, और ईमानदार सीमाएं इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "इमेज का साइज़ कम करें",
+      "फोटो कंप्रेस ऑनलाइन",
+      "JPEG WebP क्वालिटी",
+      "फॉर्म के लिए फोटो छोटी",
+      "इमेज कंप्रेसर हिंदी"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-text-summarizer-rahnuma",
+    "slug": "text-ka-saransh-banayein-hindi-rahnuma",
+    "language": "hi",
+    "title": "टेक्स्ट का सारांश बनाएं: लंबे लेख से नोट्स-योग्य सारांश की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Writing Tools",
+    "summary": "लंबे लेख से टेक्स्ट का सारांश बनाएं कैसे सबसे अहम वाक्य चुनता है? एक्सट्रैक्टिव तरीका, लंबाई के विकल्प, मुख्य बिंदु, और ईमानदार सीमाएं इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "टेक्स्ट का सारांश बनाएं",
+      "लेख का सारांश ऑनलाइन",
+      "एक्सट्रैक्टिव समराइज़र",
+      "नोट्स के लिए सारांश",
+      "लंबे टेक्स्ट मुख्य बातें"
+    ],
+    "content": []
   }
 ] as BlogPost[];
 
