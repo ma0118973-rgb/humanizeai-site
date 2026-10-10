@@ -11873,6 +11873,101 @@ export const BLOG_POSTS: BlogPost[] = [
     "slug": "video-tools-urdu-rahnuma",
     "summary": "ویڈیو کے عنوان اور ہیش ٹیگ بنائیں جب Shorts، TikTok یا Reels کے لیے عنوان، افتتاحی ہُک، کیپشن اور ہیش ٹیگ کے خیالات چاہییں۔ چار پلیٹ فارم، موضوع یا فائل سے کٹ، کاپی بٹن، اور یہ ایمان دار حد کہ یہ ٹیمپلیٹ دیتا ہے وائرل ہونے کی ضمانت نہیں — سب کچھ اس رہنمائی میں درج ہے۔",
     "title": "ویڈیو کے عنوان اور ہیش ٹیگ بنائیں: Shorts، TikTok اور Reels کے لیے خیالات کی مکمل رہنمائی"
+  },
+  {
+    "id": "hi-audio-to-text-rahnuma",
+    "slug": "audio-ko-text-mein-badlein-hindi-rahnuma",
+    "language": "hi",
+    "title": "ऑडियो को टेक्स्ट में बदलें: WhatsApp वॉइस नोट, लेक्चर और इंटरव्यू से साफ टेक्स्ट की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Writing Tools",
+    "summary": "WhatsApp वॉइस नोट, लेक्चर रिकॉर्डिंग या इंटरव्यू को ऑडियो को टेक्स्ट में बदलें कैसे एक खोजने-योग्य, एडिट करने-योग्य टेक्स्ट में बदलता है? चरण, बेहतर रिकॉर्डिंग की आदतें, गोपनीयता और ईमानदार सीमाएं इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "ऑडियो को टेक्स्ट में बदलें",
+      "वॉइस नोट ट्रांसक्राइब",
+      "लेक्चर रिकॉर्डिंग टेक्स्ट",
+      "Whisper ब्राउज़र टूल",
+      "ऑडियो ट्रांसक्रिप्शन हिंदी"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-voice-typing-rahnuma",
+    "slug": "awaz-se-typing-hindi-rahnuma",
+    "language": "hi",
+    "title": "आवाज़ से टाइपिंग: बोलकर हिंदी निबंध, ईमेल और नोट्स लिखने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Writing Tools",
+    "summary": "बोलकर हिंदी निबंध कैसे लिखें? माइक की इजाज़त, भाषा का चुनाव, साफ़ डिक्टेशन की आदतें, गोपनीयता की सच्चाई और ईमानदार सीमाएं — आवाज़ से टाइपिंग की इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "आवाज़ से टाइपिंग",
+      "बोलकर हिंदी लिखें",
+      "वॉइस टाइपिंग हिंदी",
+      "डिक्टेशन टूल",
+      "हिंदी निबंध बोलकर"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-ai-humanizer-rahnuma",
+    "slug": "ai-text-insaan-jaisa-hindi-rahnuma",
+    "language": "hi",
+    "title": "AI टेक्स्ट को इंसान जैसा बनाएं: ChatGPT के रूखे ड्राफ़्ट को स्वाभाविक भाषा में लिखने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Writing Tools",
+    "summary": "ChatGPT के टेक्स्ट को स्वाभाविक और आसान भाषा में कैसे लिखें? रीराइट के दो स्तर, इंसानी लिखावट की पहचान, अकादमिक ईमानदारी और वह ईमानदार हद जो कोई बायपास-वादा नहीं करती — इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "AI टेक्स्ट को इंसान जैसा बनाएं",
+      "ChatGPT टेक्स्ट स्वाभाविक",
+      "AI ड्राफ़्ट रीराइट",
+      "ह्यूमनाइज़र हिंदी",
+      "स्वाभाविक भाषा टूल"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-ai-detector-rahnuma",
+    "slug": "ai-text-detector-hindi-rahnuma",
+    "language": "hi",
+    "title": "AI टेक्स्ट डिटेक्टर: कैसे पता करें कि टेक्स्ट AI ने लिखा है — अंदाज़े की ईमानदार रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "AI Detection",
+    "summary": "कैसे पता करें कि टेक्स्ट AI ने लिखा है? पैटर्न-आधारित स्कैन, वाक्य-दर-वाक्य हीटमैप, AI-जैसी लिखावट की पहचान और वह ईमानदार हद कि अंदाज़ा सबूत नहीं — इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "AI टेक्स्ट डिटेक्टर",
+      "कैसे पता करें AI ने लिखा",
+      "AI पैटर्न स्कैन",
+      "टेक्स्ट हीटमैप",
+      "AI डिटेक्शन हिंदी"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-word-counter-rahnuma",
+    "slug": "hindi-shabd-ginein-hindi-rahnuma",
+    "language": "hi",
+    "title": "हिंदी शब्द गिनें: निबंध की शब्द-सीमा जांचने और लिखावट सुधारने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Study Tools",
+    "summary": "निबंध की शब्द-सीमा कैसे जांचें? लाइव गिनती, शब्द-लक्ष्य, गिनने का ईमानदार तरीका, आंकड़ों से लिखावट सुधारना और गोपनीयता — हिंदी वर्ड काउंटर की इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "हिंदी शब्द गिनें",
+      "निबंध शब्द सीमा",
+      "वर्ड काउंटर हिंदी",
+      "शब्द गिनने वाला टूल",
+      "मुफ़्त ऑनलाइन टूल्स हिंदी में"
+    ],
+    "content": []
   }
 ] as BlogPost[];
 
@@ -11921,6 +12016,7 @@ const BLOG_CONTENT_LOADERS: Record<
   "nl": () => import("./blogContent/nl"),
   "it": () => import("./blogContent/it"),
   "ur-pk": () => import("./blogContent/ur-pk"),
+  "hi": () => import("./blogContent/hi"),
 };
 
 export async function loadBlogContent(

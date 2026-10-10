@@ -2660,6 +2660,12 @@ for (const lang of LANGUAGES) {
   }
   const [blogTitle, blogDesc] = pageMeta("blog", HI_LANG, null);
   emitFile(HI_LANG, "/blog/", blogTitle, blogDesc, "blog");
+  // hi blog: listing shell + only the articles actually written in Hindi.
+  // No other-language copies are emitted under /hi/blog/.
+  for (const post of BLOG_POSTS.filter((p) => p.language === HI_LANG)) {
+    const [title, desc] = pageMeta("blog", HI_LANG, post);
+    emitFile(HI_LANG, `/blog/${post.slug}/`, title, desc, "blog", post);
+  }
 }
 
 console.log(`[static-seo] ${count} static SEO pages written to dist/`);
