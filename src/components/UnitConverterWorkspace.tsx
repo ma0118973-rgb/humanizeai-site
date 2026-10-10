@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { MobileToolHero } from "./MobileToolHero";
 import { ToolGuideSection } from "./ToolGuideSection";
 import {
@@ -22,6 +22,8 @@ interface CategoryDef {
   id: string;
   baseUnit: string;
   units: UnitDef[];
+  /** Live-rate category: factors come from a rates feed, never hardcoded. */
+  liveRates?: boolean;
 }
 
 const CATEGORIES: CategoryDef[] = [
@@ -70,6 +72,13 @@ const CATEGORIES: CategoryDef[] = [
     { id: "J", factor: 1 }, { id: "kJ", factor: 1000 }, { id: "cal", factor: 4.184 },
     { id: "kcal", factor: 4184 }, { id: "Wh", factor: 3600 }, { id: "kWh", factor: 3600000 },
     { id: "BTU", factor: 1055.05585262 },
+  ]},
+  // Currency uses LIVE rates (never hardcoded): fetched in the visitor's
+  // browser from a free daily feed. Keyless, no signup, no server quota.
+  { id: "currency", baseUnit: "USD", liveRates: true, units: [
+    { id: "USD" }, { id: "EUR" }, { id: "GBP" }, { id: "PKR" }, { id: "INR" },
+    { id: "AED" }, { id: "SAR" }, { id: "CNY" }, { id: "JPY" }, { id: "AUD" },
+    { id: "CAD" }, { id: "CHF" }, { id: "TRY" }, { id: "SGD" },
   ]},
 ];
 
@@ -136,8 +145,35 @@ function formatResult(n: number): string {
   return String(rounded);
 }
 
-export function UnitConverterWorkspace({ selectedLanguage = "en" }: UnitConverterWorkspaceProps) {
-  const t = TRANSLATIONS[selectedLanguage] || TRANSLATIONS.en;
+// ---------------------------------------------------------------------------
+// Live currency rates. Free daily feed (fawazahmed0/currency-api via the
+// jsDelivr CDN): keyless, no signup, CORS-open, updated every day. The fetch
+// runs in the VISITOR's browser, so there is no server quota and no key to
+// protect. Cached per calendar day; on any failure the currency UI shows an
+// honest "unavailable" note instead of a guessed number.
+// ---------------------------------------------------------------------------
+const RATES_URL =
+  "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json";
+
+let ratesCache: { day: string; date: string; rates: Record<string, number> } | null = null;
+
+async function loadRates(): Promise<{ date: string; rates: Record<string, number> }> {
+  const day = new Date().toISOString().slice(0, 10);
+  if (ratesCache && ratesCache.day === day) return ratesCache;
+  const res = await fetch(RATES_URL);
+  if (!res.ok) throw new Error("rates HTTP " + res.status);
+  const data = await res.json();
+  const raw = data && data.usd;
+  if (!raw || typeof raw.usd !== "number") throw new Error("rates shape");
+  const rates: Record<string, number> = {};
+  for (const k of Object.keys(raw)) {
+    if (typeof raw[k] === "number" && raw[k] > 0) rates[k.toUpperCase()] = raw[k];
+  }
+  ratesCache = { day, date: String(data.date || day), rates };
+  return ratesCache;
+}
+
+export function UnitConverterWorkspace({ selectedLanguage = "en" }: UnitConverterWorkspaceProps) {  const t = TRANSLATIONS[selectedLanguage] || TRANSLATIONS.en;
   const uc = (t as any).unitConverter || {};
   const units = (t as any).unitConverterUnits || {};
 
@@ -151,22 +187,65 @@ export function UnitConverterWorkspace({ selectedLanguage = "en" }: UnitConverte
   const [copied, setCopied] = useState(false);
   const [unitSearch, setUnitSearch] = useState("");
 
+  // Live currency rates state. idle → loading → ok | failed.
+  const [rates, setRates] = useState<Record<string, number> | null>(null);
+  const [ratesDate, setRatesDate] = useState("");
+  const [ratesStatus, setRatesStatus] = useState<"idle" | "loading" | "ok" | "failed">("idle");
+
+  const fetchRates = () => {
+    setRatesStatus("loading");
+    loadRates()
+      .then((r) => {
+        setRates(r.rates);
+        setRatesDate(r.date);
+        setRatesStatus("ok");
+      })
+      .catch(() => {
+        setRates(null);
+        setRatesStatus("failed");
+      });
+  };
+
+  useEffect(() => {
+    if (catId === "currency" && ratesStatus === "idle") fetchRates();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [catId]);
+
   const parsed = input.trim() === "" ? NaN : Number(input.replace(",", "."));
   const valid = Number.isFinite(parsed);
 
   const result = useMemo(() => {
     if (!valid) return null;
+    if (cat.id === "currency") {
+      if (!rates) return null;
+      const rf = rates[fromId];
+      const rt = rates[toId];
+      if (!rf || !rt) return null;
+      return parsed * (rt / rf);
+    }
     return convert(cat, fromId, toId, parsed);
-  }, [cat, fromId, toId, parsed, valid]);
+  }, [cat, fromId, toId, parsed, valid, rates]);
 
   const resultText = result === null ? "" : formatResult(result);
-  const formula = formulaFor(cat, fromId, toId, unitName);
+  const formula =
+    cat.id === "currency"
+      ? rates && rates[fromId] && rates[toId]
+        ? `1 ${fromId} = ${formatResult(rates[toId] / rates[fromId])} ${toId}`
+        : ratesStatus === "failed"
+          ? uc.ratesFailedTitle || "Live rates unavailable"
+          : uc.ratesLoading || "Fetching today's rates…"
+      : formulaFor(cat, fromId, toId, unitName);
 
   const pickCategory = (id: string) => {
     const next = CATEGORIES.find((c) => c.id === id) || CATEGORIES[0];
     setCatId(id);
-    setFromId(next.units[2]?.id || next.units[0].id);
-    setToId(next.units[next.units.length > 3 ? 3 : 1]?.id || next.units[0].id);
+    if (next.id === "currency") {
+      setFromId("USD");
+      setToId("PKR");
+    } else {
+      setFromId(next.units[2]?.id || next.units[0].id);
+      setToId(next.units[next.units.length > 3 ? 3 : 1]?.id || next.units[0].id);
+    }
     setUnitSearch("");
   };
 
@@ -322,7 +401,17 @@ export function UnitConverterWorkspace({ selectedLanguage = "en" }: UnitConverte
           <div className="space-y-2">
             <span className="block text-sm font-extrabold text-stone-900">{uc.resultLabel || "Result"}</span>
             <div className="w-full rounded-xl border-2 border-sky-300 bg-sky-50 px-4 py-3 text-base font-extrabold text-stone-900 min-h-[50px] flex items-center break-all">
-              {valid ? `${resultText} ${unitName(toId)}` : <span className="text-stone-400 text-sm font-semibold">{uc.invalidHint || "Type a number to see the result"}</span>}
+              {catId === "currency" && ratesStatus !== "ok" ? (
+                <span className="text-stone-400 text-sm font-semibold">
+                  {ratesStatus === "failed"
+                    ? uc.ratesFailedTitle || "Live rates unavailable"
+                    : uc.ratesLoading || "Fetching today's rates…"}
+                </span>
+              ) : valid ? (
+                `${resultText} ${unitName(toId)}`
+              ) : (
+                <span className="text-stone-400 text-sm font-semibold">{uc.invalidHint || "Type a number to see the result"}</span>
+              )}
             </div>
             <label className="block text-xs font-bold text-stone-500" htmlFor="uc-to">
               {uc.toLabel || "To"}
@@ -345,6 +434,9 @@ export function UnitConverterWorkspace({ selectedLanguage = "en" }: UnitConverte
         <div className="rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-1.5">
           <p className="text-xs font-bold text-stone-500 uppercase tracking-wide">{uc.formulaLabel || "Formula used"}</p>
           <p className="text-sm sm:text-base font-extrabold text-stone-900 font-mono">{formula}</p>
+          {catId === "currency" && ratesStatus === "ok" && (
+            <p className="text-[11px] text-stone-500">{uc.ratesSource || "Source: free daily currency feed (fawazahmed0/currency-api via jsDelivr CDN)"}</p>
+          )}
           {valid && (
             <p className="text-xs text-stone-600">
               {parsed} {unitName(fromId)} = <strong className="text-stone-900">{resultText} {unitName(toId)}</strong>
@@ -410,9 +502,33 @@ export function UnitConverterWorkspace({ selectedLanguage = "en" }: UnitConverte
           <p className="text-xs sm:text-sm text-amber-900/80 leading-relaxed mt-1">
             {uc.safetyText || "These results are for everyday use: schoolwork, cooking, travel and shopping. Do not rely on them for medical dosing, engineering sign-off, aviation, construction tolerances or anything safety-critical without professional verification and the proper instruments."}
           </p>
-          <p className="text-xs sm:text-sm text-amber-900/80 leading-relaxed mt-1">
-            {uc.noCurrencyText || "There is no currency converter here on purpose: exchange rates change every day, and a money conversion without live rates would be a guess dressed up as an answer. Use your bank or a live-rate service for money."}
-          </p>
+          {catId === "currency" && (
+            <div className="mt-2">
+              {ratesStatus === "ok" && (
+                <p className="text-xs sm:text-sm text-emerald-900 leading-relaxed font-semibold">
+                  {uc.liveRatesTitle || "Live currency rates"} · {uc.ratesAsOf || "Rates as of"} {ratesDate}.{" "}
+                  <span className="font-normal text-emerald-800/80">{uc.liveRatesNote || "Currency rates are fetched live in your browser from a free daily rates feed. Nothing you type is uploaded — only the rate table is downloaded."}</span>
+                </p>
+              )}
+              {ratesStatus === "loading" && (
+                <p className="text-xs sm:text-sm text-amber-900/80 leading-relaxed">{uc.ratesLoading || "Fetching today's rates…"}</p>
+              )}
+              {ratesStatus === "failed" && (
+                <div className="mt-1">
+                  <p className="text-xs sm:text-sm text-red-900 font-bold">{uc.ratesFailedTitle || "Live rates unavailable"}</p>
+                  <p className="text-xs sm:text-sm text-amber-900/80 leading-relaxed mt-1">
+                    {uc.ratesFailedText || "Today's exchange rates could not be loaded (no connection or the rates service is down), so currency conversion is paused rather than guessing. All other categories keep working. For money decisions, check your bank."}
+                  </p>
+                  <button
+                    onClick={fetchRates}
+                    className="mt-2 px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold transition-all cursor-pointer"
+                  >
+                    {uc.ratesRetry || "Try again"}
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
