@@ -12253,6 +12253,101 @@ export const BLOG_POSTS: BlogPost[] = [
       "lorem ipsum"
     ],
     "content": []
+  },
+  {
+    "id": "hi-base64-rahnuma",
+    "slug": "base64-encode-decode-hindi-rahnuma",
+    "language": "hi",
+    "title": "Base64 एनकोड डिकोड: टेक्स्ट और फ़ाइल को सादे अक्षरों में बदलने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Developer Tools",
+    "summary": "Base64 एनकोड-डिकोड टेक्स्ट और फ़ाइल को 64 सादे अक्षरों में कैसे बदलता है? URL-safe मोड का फ़र्क़, एनकोडिंग बनाम एन्क्रिप्शन की ईमानदार सच्चाई, और रोज़ के तीन काम इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "Base64 एनकोड डिकोड",
+      "बेस64 कन्वर्टर",
+      "URL सेफ बेस64",
+      "टेक्स्ट एनकोड टूल",
+      "base64"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-json-rahnuma",
+    "slug": "json-format-karein-hindi-rahnuma",
+    "language": "hi",
+    "title": "JSON फॉर्मेट करें: उलझी JSON फ़ाइल को पढ़ने लायक बनाने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Developer Tools",
+    "summary": "JSON फॉर्मेटर उलझी फ़ाइल को वैलिडेट, ब्यूटिफ़ाई और मिनिफ़ाई कैसे करता है? लाइन-कॉलम वाली ईमानदार जांच, \\\"रिपेयर क्यों नहीं\\\" की वजह, और गुप्त डेटा वाली चेतावनी इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "JSON फॉर्मेट करें",
+      "ऑनलाइन JSON वैलिडेटर",
+      "JSON ब्यूटिफ़ाई",
+      "JSON मिनिफ़ाई",
+      "JSON टूल"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-unit-rahnuma",
+    "slug": "unit-converter-hindi-rahnuma",
+    "language": "hi",
+    "title": "यूनिट कन्वर्टर: लंबाई, वज़न, तापमान समेत 10 श्रेणियों में माप बदलने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Everyday Tools",
+    "summary": "यूनिट कन्वर्टर 10 श्रेणियों में माप कैसे बदलता है? तापमान का ख़ास हिसाब, परीक्षा में काम आने वाली समझदारी, रोज़मर्रा के पांच काम, और मरला-कनाल वाली ईमानदार सीमा इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "यूनिट कन्वर्टर",
+      "इकाई बदलने वाला टूल",
+      "माप कन्वर्टर",
+      "लंबाई वज़न बदलें",
+      "unit converter"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-password-rahnuma",
+    "slug": "majboot-password-banayein-hindi-rahnuma",
+    "language": "hi",
+    "title": "मज़बूत पासवर्ड बनाएं: हर खाते के लिए अलग, अंदाज़े से परे पासवर्ड की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Everyday Tools",
+    "summary": "पासवर्ड जनरेटर क्रिप्टोग्राफ़िक रैंडमनेस से मज़बूत पासवर्ड कैसे बनाता है? लंबाई बनाम जटिलता, एंट्रॉपी के अंदाज़े की ईमानदार सच्चाई, फ़िशिंग से बचाव और 2FA इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "मज़बूत पासवर्ड बनाएं",
+      "पासवर्ड जनरेटर",
+      "सुरक्षित पासवर्ड",
+      "मुफ़्त पासवर्ड टूल",
+      "password generator"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-url-rahnuma",
+    "slug": "url-encode-decode-hindi-rahnuma",
+    "language": "hi",
+    "title": "URL एनकोड डिकोड: लिंक में %20 जैसे कोड समझने और ठीक करने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Developer Tools",
+    "summary": "URL एनकोडर लिंक के प्रतिशत-कोड कैसे बनाता और खोलता है? \\\"पूरा URL\\\" बनाम \\\"हिस्सा\\\" मोड का फ़र्क़, टूटे लिंक की तीन आम वजहें, और एनकोडिंग बनाम सुरक्षा की ईमानदार सच्चाई इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "URL एनकोड डिकोड",
+      "URL एनकोडर",
+      "परसेंट एनकोडिंग",
+      "लिंक एनकोड टूल",
+      "url encoder"
+    ],
+    "content": []
   }
 ] as BlogPost[];
 

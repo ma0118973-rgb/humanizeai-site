@@ -19868,4 +19868,29 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://www.toolvena.com/hi/blog/base64-encode-decode-hindi-rahnuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/hi/blog/json-format-karein-hindi-rahnuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/hi/blog/unit-converter-hindi-rahnuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/hi/blog/majboot-password-banayein-hindi-rahnuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/hi/blog/url-encode-decode-hindi-rahnuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
