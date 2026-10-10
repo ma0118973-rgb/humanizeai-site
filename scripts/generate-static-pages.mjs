@@ -49,8 +49,75 @@ function loadConst(tsPath, constName) {
   return new Function(`return (${literal});`)();
 }
 
-const TRANSLATIONS = loadConst(path.join(root, "src/data/translations.ts"), "TRANSLATIONS");
+// F5 note (2026-10-10): per-language dictionaries now live in
+// src/data/i18n/<lang>.ts ("the static generator reads this file directly").
+// Assemble TRANSLATIONS from those pure-literal DICT exports.
+const TRANSLATIONS = (() => {
+  const dir = path.join(root, "src/data/i18n");
+  const out = {};
+  for (const f of fs.readdirSync(dir).sort()) {
+    if (!f.endsWith(".ts")) continue;
+    out[f.slice(0, -3)] = loadConst(path.join(dir, f), "DICT");
+  }
+  return out;
+})();
 const BLOG_POSTS = loadConst(path.join(root, "src/data/blogArticles.ts"), "BLOG_POSTS");
+
+// F5: BLOG_POSTS is metadata-only now; article bodies live in
+// src/data/blogContent/<lang>.ts (post id -> paragraphs). Merge them back
+// so JSON-LD articleBody and the F6 prerender see the full, real text.
+{
+  const dir = path.join(root, "src/data/blogContent");
+  const byLang = new Map();
+  for (const f of fs.readdirSync(dir).sort()) {
+    if (!f.endsWith(".ts")) continue;
+    byLang.set(f.slice(0, -3), loadConst(path.join(dir, f), "BLOG_CONTENT"));
+  }
+  for (const p of BLOG_POSTS) {
+    if (!p) continue;
+    const m = byLang.get(p.language);
+    if (m && Array.isArray(m[p.id])) p.content = m[p.id];
+  }
+}
+
+// Homepage hero strings the app itself renders (verbatim — see F6 note).
+const HOME_COPY = loadConst(path.join(root, "src/data/homeCopy.ts"), "HOME_COPY");
+
+// Same placeholder fill the homepage applies at runtime ({n} tools,
+// {langs} languages, {q}/{cat} empty on first render). ROUTES/LANGUAGES
+// resolve at call time (emitFile runs after all top-level consts exist).
+function fillHomeCopy(s) {
+  // Mirror HomePage's runtime catalog exactly: TOOLS minus the two entries
+  // its canonicalPath filter drops (base64, museAiHub) = 52.
+  const nonTools = new Set(["home", "blog", "about", "privacy", "terms", "disclaimer", "contact", "notfound", "base64", "museAiHub"]);
+  const toolCount = ROUTES.filter(([p]) => !nonTools.has(p)).length;
+  return String(s || "")
+    .replaceAll("{n}", String(toolCount))
+    .replaceAll("{langs}", String(LANGUAGES.length + 1))
+    .replaceAll("{q}", "")
+    .replaceAll("{cat}", "");
+}
+
+// Blog articles are single-language originals — each post exists only in its
+// own language under its own localized slug, so there is normally nothing to
+// cross-link. The one exception: verified translation twins — same article
+// `id` published in another language. Map "lang|slug" -> sibling posts so
+// emitFile/sitemap can give those few pages a true reciprocal hreflang set.
+const BLOG_TWIN_CLUSTERS = (() => {
+  const byId = new Map();
+  for (const p of BLOG_POSTS) {
+    if (!p || !p.id || !p.language || !p.slug) continue;
+    if (!byId.has(p.id)) byId.set(p.id, []);
+    byId.get(p.id).push(p);
+  }
+  const map = new Map();
+  for (const group of byId.values()) {
+    if (group.length > 1 && new Set(group.map((p) => p.language)).size > 1) {
+      for (const p of group) map.set(`${p.language}|${p.slug}`, group);
+    }
+  }
+  return map;
+})();
 
 const LANGUAGES = ["en", "es", "ur", "de", "fr", "pt", "tr", "ja", "no", "nl", "it", "ru"];
 
@@ -244,6 +311,20 @@ function hreflangLinks(origin, pathWithoutLang) {
   }
   s += `    <link rel="alternate" hreflang="x-default" href="${origin}/en${pathWithoutLang}" />`;
   return s;
+}
+
+// Crawlable internal links, baked into every static shell (menu/footer
+// equivalents). The SPA renders the same navigation after hydration and
+// replaces this node, so no-JS crawlers still see real internal links.
+function staticNavHtml(lang) {
+  const routes =
+    lang === URPK_LANG
+      ? ROUTES.filter(([, p]) => URPK_ROUTE_PATHS.has(p) || p === "/blog/")
+      : ROUTES;
+  const items = [[`/${lang}/`, pageMeta("home", lang, null)[0]]];
+  for (const [pg, p] of routes) items.push([`/${lang}${p}`, pageMeta(pg, lang, null)[0]]);
+  const links = items.map(([u, n]) => `<a href="${u}">${esc(n)}</a>`).join("");
+  return `<nav aria-label="ToolVena" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">${links}</nav>`;
 }
 
 function jsonLd(origin, canonicalUrl, title, description, page, post = null, lang = "en") {
@@ -2122,17 +2203,199 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
       ],
     });
   }
+  if (page === "humanizer") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "How does ToolVena make AI text sound more natural?", acceptedAnswer: { "@type": "Answer", text: "ToolVena varies sentence length and rhythm, replaces common AI-style clichés with plainer wording, and adds natural contractions where they fit. The built-in rewriting runs in your browser; an optional AI enhancement is labelled on the page when it is used. Results vary by text, and no tool can guarantee a specific detector score." } },
+        { "@type": "Question", name: "Is the AI humanizer free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. The editor accepts up to 3,000 words at a time, so split longer documents into sections." } },
+        { "@type": "Question", name: "Will this guarantee a detector result?", acceptedAnswer: { "@type": "Answer", text: "No. This is an editing aid that helps writing read more naturally; it cannot guarantee any detector score or outcome. Always review the rewritten text for accuracy and follow your school, employer or platform rules on AI assistance." } },
+        { "@type": "Question", name: "Is my text uploaded?", acceptedAnswer: { "@type": "Answer", text: "The built-in rewriting runs locally in your browser. If you switch on the optional AI enhancement, the text you enter is sent to the configured AI service so it can return a result — the page says so before you use it." } },
+        { "@type": "Question", name: "Why did it say no rewrite was needed?", acceptedAnswer: { "@type": "Answer", text: "The local engine found nothing it would honestly change — your text already reads naturally, so the result matches your input. That is an honest outcome, not a fake rewrite." } },
+      ],
+    });
+  }
+  if (page === "detector") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "What does the AI content detector check?", acceptedAnswer: { "@type": "Answer", text: "It is ToolVena's own heuristic scanner: it compares sentence-length variety, repeated stock phrases and common AI-style wording, then shows a sentence-by-sentence pattern heatmap. Concise or formulaic writing can score as AI-like even when a person wrote it." } },
+        { "@type": "Question", name: "Is this an official Turnitin or GPTZero result?", acceptedAnswer: { "@type": "Answer", text: "No. It is ToolVena's independent estimate only. It does not run or reproduce Turnitin, GPTZero, Copyleaks or Originality.ai, and its score is not evidence of how a text was written." } },
+        { "@type": "Question", name: "Can it prove a text was written by AI?", acceptedAnswer: { "@type": "Answer", text: "No detector can prove authorship from style alone. Use the highlights as editing prompts — stiff, repetitive sentences are worth revising whoever wrote them — and make your own judgement." } },
+        { "@type": "Question", name: "Is the detector free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up, and the scan runs in your browser." } },
+        { "@type": "Question", name: "Is my text uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "The scanner analyses your text in this browser tab. Your text is not uploaded to our server by this tool; closing the tab clears it." } },
+      ],
+    });
+  }
+  if (page === "media") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "What can I do in the Video & Image Media Tools?", acceptedAnswer: { "@type": "Answer", text: "You can trim edge areas of your own videos, adjust pacing and pull still frames for Shorts and TikTok, and clean C2PA metadata from images. Everything is processed in your browser." } },
+        { "@type": "Question", name: "Whose videos and images may I edit?", acceptedAnswer: { "@type": "Answer", text: "Only media you own or have permission to edit. Do not use these tools to repost other people's content or to remove ownership or credit information." } },
+        { "@type": "Question", name: "Is my media uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. Trimming, pacing, frame capture and metadata cleaning run locally in your browser tab; your files are not sent to our server." } },
+        { "@type": "Question", name: "Is it free?", acceptedAnswer: { "@type": "Answer", text: "Yes. The media tools are free with no sign-up." } },
+        { "@type": "Question", name: "Any limits?", acceptedAnswer: { "@type": "Answer", text: "Very large video files depend on your device's memory and browser. If a file struggles, try a shorter clip or a lower-resolution copy." } },
+      ],
+    });
+  }
+  if (page === "seo") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "What does the SEO Meta & Hashtag Generator do?", acceptedAnswer: { "@type": "Answer", text: "You enter a topic or draft, and it suggests title ideas, meta-description drafts, keyword ideas and hashtags for pages and short videos. These are writing aids to plan content, not an analysis of a live page." } },
+        { "@type": "Question", name: "Will this guarantee a Google ranking?", acceptedAnswer: { "@type": "Answer", text: "No tool can guarantee rankings. Search results depend on content quality, links and the rest of your site. Treat the ideas as a starting point and verify them against real search data." } },
+        { "@type": "Question", name: "Does it analyse my video or website automatically?", acceptedAnswer: { "@type": "Answer", text: "No. It works from the topic or text you type in. It does not fetch, watch or grade your actual video or page." } },
+        { "@type": "Question", name: "Is it free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up and runs in your browser." } },
+      ],
+    });
+  }
+  if (page === "citation") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "Which citation styles are supported?", acceptedAnswer: { "@type": "Answer", text: "APA 7th, MLA 9th, Chicago 17th and Harvard. Enter the source details and the generator formats the reference and in-text citation for the style you pick." } },
+        { "@type": "Question", name: "How do I use generated citations safely?", acceptedAnswer: { "@type": "Answer", text: "Verify each generated reference against the official style manual and your institution's requirements before submitting. Check author names, years, titles and page numbers character by character." } },
+        { "@type": "Question", name: "Does it find sources for me?", acceptedAnswer: { "@type": "Answer", text: "No. It formats the details you enter; it does not search for or invent sources. Only cite works you have actually read and can locate." } },
+        { "@type": "Question", name: "Is the citation generator free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up and runs in your browser; nothing you type is uploaded by this tool." } },
+      ],
+    });
+  }
+  if (page === "expander") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "What does the sentence expander do?", acceptedAnswer: { "@type": "Answer", text: "It takes short, compressed sentences and expands them into fuller paragraphs with added connective detail and varied sentence lengths, so an idea reads as developed prose instead of a note." } },
+        { "@type": "Question", name: "Will expansion change my meaning?", acceptedAnswer: { "@type": "Answer", text: "It can shift wording and emphasis, so compare the result with your original and check every fact, name and number before using it. It is a drafting aid, not a substitute for your own judgement." } },
+        { "@type": "Question", name: "Does it guarantee a readability or detector result?", acceptedAnswer: { "@type": "Answer", text: "No. Longer, more varied sentences often read better, but no tool can guarantee a readability grade or any detector outcome." } },
+        { "@type": "Question", name: "Is it free? Is my text uploaded?", acceptedAnswer: { "@type": "Answer", text: "Yes, it is free with no sign-up. The built-in expansion runs in your browser; if an optional AI option is offered and used, the page labels it before anything is sent." } },
+      ],
+    });
+  }
+  if (page === "cleaner") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "What does the Cliché Cleaner do?", acceptedAnswer: { "@type": "Answer", text: "It scans your text for repeated stock phrases that can make writing feel formulaic — phrases like 'delve', 'rich tapestry', 'testament to' or 'pivotal role' — and suggests plainer wording in your own voice." } },
+        { "@type": "Question", name: "Does a flagged phrase prove AI wrote my text?", acceptedAnswer: { "@type": "Answer", text: "No. People use these phrases too. A flag only means the phrase is overused; whether to change it is an editing decision, not a verdict on authorship." } },
+        { "@type": "Question", name: "Is it free? Is my text uploaded?", acceptedAnswer: { "@type": "Answer", text: "Yes, it is free with no sign-up and runs in your browser; your text is not uploaded by this tool." } },
+      ],
+    });
+  }
+  if (page === "diff") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "What does the diff checker's similarity score mean?", acceptedAnswer: { "@type": "Answer", text: "It calculates word-level similarity between two texts you provide and highlights exactly which words were added, removed or kept. A lower similarity score means more of the wording was altered. It is a comparison aid, not a prediction of any detector's verdict." } },
+        { "@type": "Question", name: "Is this a plagiarism checker?", acceptedAnswer: { "@type": "Answer", text: "No. It compares two texts you paste against each other; it does not search the web or any database, and it cannot say where a text came from." } },
+        { "@type": "Question", name: "Is it free? Is my text uploaded?", acceptedAnswer: { "@type": "Answer", text: "Yes, it is free with no sign-up and the comparison runs in your browser." } },
+      ],
+    });
+  }
+  if (page === "imageCompressor") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "How does the image compressor work?", acceptedAnswer: { "@type": "Answer", text: "It re-encodes JPG, PNG and WebP images in your browser at the quality you choose and shows the size before and after, so you can balance file size against how the image looks." } },
+        { "@type": "Question", name: "Is my image uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. Compression happens locally in your browser tab with canvas; your image is not sent to our server." } },
+        { "@type": "Question", name: "Why did the compressed file come out larger?", acceptedAnswer: { "@type": "Answer", text: "If the original was already very small, re-encoding can make it bigger. The tool tells you honestly when that happens — keep your original in that case, or try a lower quality setting." } },
+        { "@type": "Question", name: "Is it free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up and no watermark." } },
+      ],
+    });
+  }
+  if (page === "pdfTools") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "What can the PDF Tools do?", acceptedAnswer: { "@type": "Answer", text: "Two jobs: merge several PDF files into one, and convert JPG or PNG images into a single PDF. Pick your files, arrange the order, and download the result." } },
+        { "@type": "Question", name: "Are my PDFs uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. Merging and conversion run entirely in your browser; your documents never leave your device." } },
+        { "@type": "Question", name: "Is it free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up and no watermark." } },
+        { "@type": "Question", name: "Any limits?", acceptedAnswer: { "@type": "Answer", text: "Very large files are limited by your device's memory. This tool merges and converts; it does not edit PDF text or run OCR — for text from a scanned page, use the Image to Text tool." } },
+      ],
+    });
+  }
+  if (page === "backgroundRemover") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "How does the background remover work?", acceptedAnswer: { "@type": "Answer", text: "An AI model runs directly in your browser (ONNX). The first use downloads the model once — a few tens of megabytes — and your browser caches it; after that, images are processed on your own device." } },
+        { "@type": "Question", name: "Is my photo uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. After the one-time model download, your photo is processed on your device and is not sent to our server." } },
+        { "@type": "Question", name: "What do I get?", acceptedAnswer: { "@type": "Answer", text: "A transparent-background PNG at full resolution, free with no watermark and no sign-up." } },
+        { "@type": "Question", name: "Any limits?", acceptedAnswer: { "@type": "Answer", text: "Fine hair, glass and busy edges can come out imperfect, and very large photos may be slow on low-end phones. A plain, well-lit background gives the cleanest result." } },
+      ],
+    });
+  }
+  if (page === "voiceCloner") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "What works right now on the AI Voice Cloner page?", acceptedAnswer: { "@type": "Answer", text: "Free, natural-sounding text-to-speech voices that run in your browser: type text, pick a voice, and listen or save the audio. The first use downloads a compact voice model (about 90 MB) and caches it on your device." } },
+        { "@type": "Question", name: "Can it clone my own voice today?", acceptedAnswer: { "@type": "Answer", text: "Not yet — honestly. Cloning your own voice needs a server GPU, and that part is still being connected; the page says 'server not connected' instead of pretending. Free voices work now; cloning arrives only when it can be done properly." } },
+        { "@type": "Question", name: "Is it free?", acceptedAnswer: { "@type": "Answer", text: "The built-in voices are free with no sign-up. When voice cloning launches it will be a paid extra (a server costs money to run), and the free voices will stay free." } },
+        { "@type": "Question", name: "Which languages do the free voices speak?", acceptedAnswer: { "@type": "Answer", text: "The free voices are English voices. We do not claim Urdu or other-language cloning that the underlying technology does not officially support." } },
+        { "@type": "Question", name: "Is my text or voice uploaded?", acceptedAnswer: { "@type": "Answer", text: "The free voices generate speech on your device; your text is not uploaded for them. Nothing about cloning is collected while that feature is paused." } },
+      ],
+    });
+  }
   if (page === "blog" && post) {
     data.push({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       headline: post.title,
       description: post.summary || description,
+      image: post.image ? `${origin}${post.image}` : undefined,
       articleBody: (post.content || []).join("\n\n").slice(0, 15000),
       author: { "@type": "Organization", name: post.author || "ToolVena Editorial Team" },
       datePublished: post.date || undefined,
       inLanguage: post.language || "en",
       mainEntityOfPage: canonicalUrl,
+    });
+  }
+  // BreadcrumbList — Home > page, and Home > Blog > post for articles.
+  // The homepage itself gets none.
+  if (page !== "home") {
+    const crumbs = [
+      { "@type": "ListItem", position: 1, name: "ToolVena", item: `${origin}/${lang}/` },
+    ];
+    if (page === "blog" && post) {
+      crumbs.push({
+        "@type": "ListItem",
+        position: 2,
+        name: pageMeta("blog", lang, null)[0],
+        item: `${origin}/${lang}/blog/`,
+      });
+      crumbs.push({ "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl });
+    } else {
+      crumbs.push({ "@type": "ListItem", position: 2, name: title, item: canonicalUrl });
+    }
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: crumbs,
     });
   }
   // id matches the runtime injector in src/utils/seo.ts so it replaces (not duplicates) this block
@@ -2164,7 +2427,7 @@ let count = 0;
 const emittedUrls = [];
 function emitFile(lang, routePath, title, description, page, post = null) {
   const canonicalUrl = `${origin}/${lang}${routePath}`;
-  emittedUrls.push({ url: canonicalUrl, routePath, page });
+  emittedUrls.push({ url: canonicalUrl, routePath, page, lang, postSlug: post ? post.slug : null });
   let html = template;
 
   // <html lang> + dir
@@ -2198,6 +2461,19 @@ function emitFile(lang, routePath, title, description, page, post = null) {
       /(<link rel="canonical" href="[^"]*" \/>\n)/,
       `$1${hreflangLinks(origin, routePath)}\n`
     );
+  } else if (post) {
+    // Only verified translation twins (same article id, another language)
+    // get alternates — every other article is a single-language original.
+    const twins = BLOG_TWIN_CLUSTERS.get(`${lang}|${post.slug}`);
+    if (twins && twins.length > 1) {
+      const cluster = twins
+        .map(
+          (t) =>
+            `    <link rel="alternate" hreflang="${t.language}" href="${origin}/${t.language}/blog/${t.slug}/" />`
+        )
+        .join("\n");
+      html = html.replace(/(<link rel="canonical" href="[^"]*" \/>\n)/, (m) => `${m}${cluster}\n`);
+    }
   }
   // OpenGraph / Twitter
   html = html.replace(
@@ -2223,6 +2499,24 @@ function emitFile(lang, routePath, title, description, page, post = null) {
     <meta property="og:site_name" content="ToolVena" />`
     );
   }
+  // Articles are articles, and when an article has its own large image it
+  // becomes the og:image / twitter:image (otherwise the logo stays).
+  if (page === "blog" && post) {
+    html = html.replace(
+      /<meta property="og:type" content="[^"]*" \/>/,
+      `<meta property="og:type" content="article" />`
+    );
+    if (post.image) {
+      html = html.replace(
+        /<meta property="og:image" content="[^"]*" \/>/,
+        `<meta property="og:image" content="${origin}${post.image}" />`
+      );
+      html = html.replace(
+        /<meta name="twitter:image" content="[^"]*" \/>/,
+        `<meta name="twitter:image" content="${origin}${post.image}" />`
+      );
+    }
+  }
   html = html.replace(
     /<meta name="twitter:title" content="[^"]*" \/>/,
     `<meta name="twitter:title" content="${esc(title)}" />`
@@ -2240,9 +2534,50 @@ function emitFile(lang, routePath, title, description, page, post = null) {
   // Use clean title without year suffix for heading
   const h1Text = esc(title.replace(/\s*[–-]\s*\(?2026\)?\s*$/, "").trim());
   const h2Text = esc(description);
+  // F6 (2026-10-10): visible prerender, POLICY-BOUND: it may contain ONLY
+  // words the app itself renders on that very page — homepage hero strings
+  // from HOME_COPY and, for articles, the post's own title/summary/opening
+  // paragraphs (the exact strings BlogSection renders). Identical words
+  // for crawler and user; no invented or hidden text. Tool pages keep the
+  // F3 pattern (hidden H1 + crawlable nav) because each workspace renders
+  // its own hero strings in its own shape; an unverified copy would risk
+  // a shell/app mismatch, so tools are honestly deferred in the record.
+  const prerenderHtml = (() => {
+    const wrap = (inner) =>
+      `<div data-prerender="1" style="max-width:64rem;margin:0 auto;padding:2.5rem 1.25rem 2rem;">${inner}</div>`;
+    const h1Style =
+      "font-size:2rem;line-height:1.25;font-weight:800;margin:0 0 1rem;color:#1c1917;";
+    const pStyle =
+      "font-size:1.05rem;line-height:1.7;color:#44403c;margin:0 0 1rem;max-width:46rem;";
+    if (page === "home") {
+      const hc = HOME_COPY[lang] || HOME_COPY.en;
+      if (!hc || !hc.heroH1A) return "";
+      const h1 = fillHomeCopy(`${hc.heroH1A} ${hc.heroH1B || ""}`.trim());
+      const intro = hc.heroIntro ? fillHomeCopy(hc.heroIntro) : "";
+      return wrap(
+        `<h1 style="${h1Style}">${esc(h1)}</h1>` +
+          (intro ? `<p style="${pStyle}">${esc(intro)}</p>` : "")
+      );
+    }
+    if (page === "blog" && post) {
+      const paras = [];
+      if (post.summary) paras.push(post.summary);
+      const c = Array.isArray(post.content) ? post.content : [];
+      const firstReal = c.length > 1 ? c[1] : c[0];
+      if (firstReal && firstReal !== post.summary) paras.push(firstReal);
+      return wrap(
+        `<h1 style="${h1Style}">${esc(post.title || h1Text)}</h1>` +
+          paras.map((p) => `<p style="${pStyle}">${esc(p)}</p>`).join("")
+      );
+    }
+    return "";
+  })();
   html = html.replace(
     /<div id="root">/,
-    `<div id="root"><h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">${h1Text}</h1>`
+    () =>
+      prerenderHtml
+        ? `<div id="root">${prerenderHtml}${staticNavHtml(lang)}`
+        : `<div id="root"><h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">${h1Text}</h1>${staticNavHtml(lang)}`
   );
 
   const outDir = path.join(dist, lang, routePath.replace(/^\/|\/$/g, ""));
@@ -2308,6 +2643,14 @@ for (const u of emittedUrls) {
       sm += `    <xhtml:link rel="alternate" hreflang="${URPK_HREFLANG}" href="${origin}/${URPK_LANG}${u.routePath}" />\n`;
     }
     sm += `    <xhtml:link rel="alternate" hreflang="x-default" href="${origin}/en${u.routePath}" />\n`;
+  } else if (u.postSlug) {
+    // Blog post: only its verified translation twins (if any) are alternates.
+    const twins = BLOG_TWIN_CLUSTERS.get(`${u.lang}|${u.postSlug}`);
+    if (twins && twins.length > 1) {
+      for (const t of twins) {
+        sm += `    <xhtml:link rel="alternate" hreflang="${t.language}" href="${origin}/${t.language}/blog/${t.slug}/" />\n`;
+      }
+    }
   }
   sm += `  </url>\n`;
 }

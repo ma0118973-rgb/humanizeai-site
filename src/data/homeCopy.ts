@@ -96,7 +96,7 @@ export const HOME_COPY: Record<LanguageCode, HomeCopy> = {
     whyItems: [
       { h: "Private by design.", t: "Most tools run in your browser on your own device — your text and files are not uploaded." },
       { h: "No sign-up wall.", t: "Open a tool and use it. No account, no password, no email gate." },
-      { h: "Your language.", t: "The same tools in 12 languages, switchable from the top of any page." },
+      { h: "Your language.", t: "The same tools in 13 languages, switchable from the top of any page." },
       { h: "Honest limits.", t: "Where a result is an estimate or a helper rather than a verdict, the tool says so plainly." },
     ],
     howTitle: "How it works",
@@ -106,7 +106,7 @@ export const HOME_COPY: Record<LanguageCode, HomeCopy> = {
       { h: "Copy or download the result", t: "Take the text, image or PDF with you. Close the tab and nothing is kept." },
     ],
     langsTitle: "ToolVena in your language",
-    langsNote: "Every tool, guide and page is available in 12 languages. Tap your language to open the homepage there.",
+    langsNote: "Every tool, guide and page is available in 13 languages. Tap your language to open the homepage there.",
     youAreHere: "You are here",
     guidesTitle: "Guides that show the work",
     guidesNote:

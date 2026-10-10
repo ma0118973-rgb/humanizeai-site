@@ -2789,6 +2789,8 @@
     <loc>https://www.toolvena.com/es/blog/conversor-de-unidades-guia/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/blog/conversor-de-unidades-guia/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/blog/conversor-de-unidades-guia/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/es/blog/teleprompter-en-linea-guia/</loc>
@@ -2819,6 +2821,8 @@
     <loc>https://www.toolvena.com/es/blog/codificador-url-guia/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/blog/codificador-url-guia/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/blog/codificador-url-guia/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/es/blog/constructor-utm-guia/</loc>
@@ -8414,6 +8418,8 @@
     <loc>https://www.toolvena.com/pt/blog/conversor-de-unidades-guia/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/blog/conversor-de-unidades-guia/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/blog/conversor-de-unidades-guia/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/pt/blog/teleprompter-online-guia/</loc>
@@ -8444,6 +8450,8 @@
     <loc>https://www.toolvena.com/pt/blog/codificador-url-guia/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.toolvena.com/es/blog/codificador-url-guia/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.toolvena.com/pt/blog/codificador-url-guia/" />
   </url>
   <url>
     <loc>https://www.toolvena.com/pt/blog/construtor-utm-guia/</loc>
@@ -17907,6 +17915,31 @@
   </url>
   <url>
     <loc>https://www.toolvena.com/ur-pk/blog/utm-link-banaein-urdu-rahnuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/ur-pk/blog/morse-code-urdu-rahnuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/ur-pk/blog/regex-tester-urdu-rahnuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/ur-pk/blog/bay-tarteeb-number-urdu-rahnuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/ur-pk/blog/online-timer-urdu-rahnuma/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolvena.com/ur-pk/blog/teleprompter-urdu-rahnuma/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

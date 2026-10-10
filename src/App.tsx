@@ -10,10 +10,12 @@ import { HomePage } from "./components/HomePage";
 import { ToolLoadingSkeleton } from "./components/ToolLoadingSkeleton";
 import { DedicatedSeoArticleSection } from "./components/DedicatedSeoArticleSection";
 import { FaqAndCompetitorSection } from "./components/FaqAndCompetitorSection";
+import { ToolFaqSection } from "./components/ToolFaqSection";
 import { HistoryDrawer } from "./components/HistoryDrawer";
 import { ActivePage, LanguageCode, SavedDraft } from "./types";
 import { applyPageSeo, SEO_CONFIGS, ALL_SUPPORTED_LANGUAGES, URPK_PAGES } from "./utils/seo";
 import { findBlogPostBySlug, BlogPost } from "./data/blogArticles";
+import { TRANSLATIONS, ensureTranslations } from "./data/translations";
 import { DiagnosticBoundary } from "./components/DiagnosticBoundary";
 
 // Lazy-load secondary workspaces and modal dialogs to maximize Core Web Vitals (LCP, INP, CLS)
@@ -454,6 +456,29 @@ export default function App() {
 
   const [activePage, setActivePage] = useState<ActivePage>(initialRoute.page);
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageCode>(initialRoute.lang);
+
+  // F5 (2026-10-10): language dictionaries are split chunks (English stays
+  // bundled as default/fallback). Until the active language's dict chunk is
+  // in, the app waits on a skeleton instead of flashing English strings.
+  const [dictReady, setDictReady] = useState<boolean>(() =>
+    Boolean(TRANSLATIONS[selectedLanguage])
+  );
+  useEffect(() => {
+    if (TRANSLATIONS[selectedLanguage]) {
+      setDictReady(true);
+      return;
+    }
+    setDictReady(false);
+    let alive = true;
+    ensureTranslations(selectedLanguage)
+      .catch(() => undefined)
+      .then(() => {
+        if (alive) setDictReady(true);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [selectedLanguage]);
   const [activeBlogSlug, setActiveBlogSlug] = useState<string | null>(initialRoute.blogSlug);
 
   // The bare root "/" stays the English homepage (that is the entry
@@ -509,7 +534,7 @@ export default function App() {
     } catch {
       /* sandboxed iframe */
     }
-  }, [activePage, selectedLanguage, activeBlogSlug]);
+  }, [activePage, selectedLanguage, activeBlogSlug, dictReady]);
 
   // Synchronize browser history and back/forward navigation
   useEffect(() => {
@@ -720,6 +745,24 @@ export default function App() {
     activePage === "voiceCloner" ||
     activePage === "museAiHub" ||
     activePage === "pdfTools";
+
+  // F5 gate: the selected language's dictionary chunk has not arrived yet.
+  // The static shell already shows the page's real H1/intro; here we simply
+  // wait on a neutral skeleton instead of rendering half-English chrome.
+  if (!dictReady) {
+    return (
+      <DiagnosticBoundary>
+        <div className="min-h-screen bg-white text-stone-900 flex flex-col font-sans w-full max-w-full overflow-x-hidden">
+          <main
+            id="active-tool-workspace"
+            className="flex-1 scroll-mt-6 w-full max-w-full overflow-x-hidden min-w-0"
+          >
+            <ToolLoadingSkeleton />
+          </main>
+        </div>
+      </DiagnosticBoundary>
+    );
+  }
 
   return (
     <DiagnosticBoundary>
@@ -1443,6 +1486,12 @@ export default function App() {
               onNavigateHome={() => handlePageChange("humanizer")}
             />
           </Suspense>
+        )}
+
+        {/* Per-tool AEO/GEO section (quick facts + common questions) —
+            English tool pages; text matches the FAQPage schema exactly. */}
+        {isToolPage && (
+          <ToolFaqSection page={activePage} lang={selectedLanguage} />
         )}
 
         {/* Global Competitor & FAQ Section with AdSense Leaderboard */}

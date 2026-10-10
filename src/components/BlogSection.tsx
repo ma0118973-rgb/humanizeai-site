@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BookOpen, Clock, Tag, User, ArrowRight, Share2, Sparkles, Search, ShieldCheck } from "lucide-react";
-import { BLOG_POSTS, BlogPost, findBlogPostBySlug } from "../data/blogArticles";
+import { BLOG_POSTS, BlogPost, findBlogPostBySlug, loadBlogContent } from "../data/blogArticles";
 import { ActivePage, LanguageCode } from "../types";
 
 interface BlogSectionProps {
@@ -25,6 +25,28 @@ export function BlogSection({
     return null;
   });
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
+  // F5 (2026-10-10): article bodies are split chunks; metadata renders at
+  // once, paragraphs stream in from the post's language chunk.
+  const [bodyParas, setBodyParas] = useState<string[] | null>(null);
+  useEffect(() => {
+    if (!selectedPost) {
+      setBodyParas(null);
+      return;
+    }
+    if (selectedPost.content && selectedPost.content.length) {
+      setBodyParas(selectedPost.content);
+      return;
+    }
+    setBodyParas(null);
+    let alive = true;
+    loadBlogContent(selectedPost).then((paras) => {
+      if (alive) setBodyParas(paras);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [selectedPost]);
 
   useEffect(() => {
     if (initialSlug) {
@@ -141,7 +163,7 @@ export function BlogSection({
             <div className="rounded-2xl overflow-hidden shadow-md">
               <img
                 src={selectedPost.image}
-                alt={selectedPost.title}
+                alt={selectedPost.imageAlt || selectedPost.title}
                 className="w-full h-auto object-cover"
                 loading="lazy"
               />
@@ -153,9 +175,19 @@ export function BlogSection({
           </div>
 
           <div className="space-y-6 text-stone-800 text-base sm:text-lg leading-8 sm:leading-9">
-            {selectedPost.content.map((paragraph, idx) => (
-              <p key={idx} className={idx === 0 ? "text-lg sm:text-xl font-medium text-stone-900 leading-8 sm:leading-9" : ""}>{paragraph}</p>
-            ))}
+            {bodyParas === null ? (
+              <div aria-busy="true" className="space-y-4 animate-pulse">
+                <div className="h-5 bg-stone-200 rounded w-11/12" />
+                <div className="h-5 bg-stone-200 rounded w-full" />
+                <div className="h-5 bg-stone-200 rounded w-4/5" />
+                <div className="h-5 bg-stone-200 rounded w-full" />
+                <div className="h-5 bg-stone-200 rounded w-3/5" />
+              </div>
+            ) : (
+              bodyParas.map((paragraph, idx) => (
+                <p key={idx} className={idx === 0 ? "text-lg sm:text-xl font-medium text-stone-900 leading-8 sm:leading-9" : ""}>{paragraph}</p>
+              ))
+            )}
           </div>
 
           {/* Internal Links & Free Tool CTAs */}

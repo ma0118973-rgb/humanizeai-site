@@ -134,7 +134,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
               <span className="font-bold text-white text-sm">ToolVena</span>
             </div>
             <p className="text-slate-400 text-[11px] leading-relaxed">
-              ToolVena offers free browser tools for writing, text, images, PDFs and everyday tasks in 12 languages.
+              ToolVena offers free browser tools for writing, text, images, PDFs and everyday tasks in 13 languages.
             </p>
           </div>
 

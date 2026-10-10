@@ -16,6 +16,27 @@ export default defineConfig(({mode}) => {
         transformIndexHtml: (html: string) => html.replace(/__SITE_URL__/g, siteUrl),
       },
     ],
+    // F5 (2026-10-10): vendor code into stable long-lived chunks so app-code
+    // changes don't bust the browser cache for react/motion/icons. Route and
+    // data chunks (workspaces, i18n, blog bodies) split via dynamic import.
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id: string) {
+            if (!id.includes('node_modules')) return undefined;
+            if (
+              id.includes('/react/') ||
+              id.includes('/react-dom/') ||
+              id.includes('/scheduler/')
+            )
+              return 'vendor-react';
+            if (id.includes('/motion/')) return 'vendor-motion';
+            if (id.includes('/lucide-react/')) return 'vendor-icons';
+            return undefined;
+          },
+        },
+      },
+    },
     resolve: {
       alias: {'@': path.resolve(__dirname, '.')},
     },

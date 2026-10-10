@@ -1,0 +1,1622 @@
+{
+  "humanizer": {
+    "faqs": [
+      {
+        "q": "How does ToolVena make AI text sound more natural?",
+        "a": "ToolVena varies sentence length and rhythm, replaces common AI-style clichés with plainer wording, and adds natural contractions where they fit. The built-in rewriting runs in your browser; an optional AI enhancement is labelled on the page when it is used. Results vary by text, and no tool can guarantee a specific detector score."
+      },
+      {
+        "q": "Is the AI humanizer free?",
+        "a": "Yes. It is free with no sign-up. The editor accepts up to 3,000 words at a time, so split longer documents into sections."
+      },
+      {
+        "q": "Will this guarantee a detector result?",
+        "a": "No. This is an editing aid that helps writing read more naturally; it cannot guarantee any detector score or outcome. Always review the rewritten text for accuracy and follow your school, employer or platform rules on AI assistance."
+      },
+      {
+        "q": "Is my text uploaded?",
+        "a": "The built-in rewriting runs locally in your browser. If you switch on the optional AI enhancement, the text you enter is sent to the configured AI service so it can return a result — the page says so before you use it."
+      },
+      {
+        "q": "Why did it say no rewrite was needed?",
+        "a": "The local engine found nothing it would honestly change — your text already reads naturally, so the result matches your input. That is an honest outcome, not a fake rewrite."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (optional labelled AI enhancement)",
+      "Limit: up to 3,000 words at a time",
+      "Your text stays in this browser unless you use the AI option"
+    ]
+  },
+  "detector": {
+    "faqs": [
+      {
+        "q": "What does the AI content detector check?",
+        "a": "It is ToolVena's own heuristic scanner: it compares sentence-length variety, repeated stock phrases and common AI-style wording, then shows a sentence-by-sentence pattern heatmap. Concise or formulaic writing can score as AI-like even when a person wrote it."
+      },
+      {
+        "q": "Is this an official Turnitin or GPTZero result?",
+        "a": "No. It is ToolVena's independent estimate only. It does not run or reproduce Turnitin, GPTZero, Copyleaks or Originality.ai, and its score is not evidence of how a text was written."
+      },
+      {
+        "q": "Can it prove a text was written by AI?",
+        "a": "No detector can prove authorship from style alone. Use the highlights as editing prompts — stiff, repetitive sentences are worth revising whoever wrote them — and make your own judgement."
+      },
+      {
+        "q": "Is the detector free?",
+        "a": "Yes. It is free with no sign-up, and the scan runs in your browser."
+      },
+      {
+        "q": "Is my text uploaded or stored?",
+        "a": "The scanner analyses your text in this browser tab. Your text is not uploaded to our server by this tool; closing the tab clears it."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (heuristic pattern scan)",
+      "Result: ToolVena's own estimate, not an official detector verdict",
+      "Your text is not uploaded by this tool"
+    ]
+  },
+  "media": {
+    "faqs": [
+      {
+        "q": "What can I do in the Video & Image Media Tools?",
+        "a": "You can trim edge areas of your own videos, adjust pacing and pull still frames for Shorts and TikTok, and clean C2PA metadata from images. Everything is processed in your browser."
+      },
+      {
+        "q": "Whose videos and images may I edit?",
+        "a": "Only media you own or have permission to edit. Do not use these tools to repost other people's content or to remove ownership or credit information."
+      },
+      {
+        "q": "Is my media uploaded?",
+        "a": "No. Trimming, pacing, frame capture and metadata cleaning run locally in your browser tab; your files are not sent to our server."
+      },
+      {
+        "q": "Is it free?",
+        "a": "Yes. The media tools are free with no sign-up."
+      },
+      {
+        "q": "Any limits?",
+        "a": "Very large video files depend on your device's memory and browser. If a file struggles, try a shorter clip or a lower-resolution copy."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (trim, pacing, frames, metadata)",
+      "Use only media you own or may edit",
+      "Files are not uploaded"
+    ]
+  },
+  "seo": {
+    "faqs": [
+      {
+        "q": "What does the SEO Meta & Hashtag Generator do?",
+        "a": "You enter a topic or draft, and it suggests title ideas, meta-description drafts, keyword ideas and hashtags for pages and short videos. These are writing aids to plan content, not an analysis of a live page."
+      },
+      {
+        "q": "Will this guarantee a Google ranking?",
+        "a": "No tool can guarantee rankings. Search results depend on content quality, links and the rest of your site. Treat the ideas as a starting point and verify them against real search data."
+      },
+      {
+        "q": "Does it analyse my video or website automatically?",
+        "a": "No. It works from the topic or text you type in. It does not fetch, watch or grade your actual video or page."
+      },
+      {
+        "q": "Is it free?",
+        "a": "Yes. It is free with no sign-up and runs in your browser."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser from the topic you type",
+      "Output: title, meta, keyword and hashtag ideas",
+      "No ranking is promised or implied"
+    ]
+  },
+  "citation": {
+    "faqs": [
+      {
+        "q": "Which citation styles are supported?",
+        "a": "APA 7th, MLA 9th, Chicago 17th and Harvard. Enter the source details and the generator formats the reference and in-text citation for the style you pick."
+      },
+      {
+        "q": "How do I use generated citations safely?",
+        "a": "Verify each generated reference against the official style manual and your institution's requirements before submitting. Check author names, years, titles and page numbers character by character."
+      },
+      {
+        "q": "Does it find sources for me?",
+        "a": "No. It formats the details you enter; it does not search for or invent sources. Only cite works you have actually read and can locate."
+      },
+      {
+        "q": "Is the citation generator free?",
+        "a": "Yes. It is free with no sign-up and runs in your browser; nothing you type is uploaded by this tool."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Styles: APA 7, MLA 9, Chicago 17, Harvard",
+      "Always verify against the official style manual"
+    ]
+  },
+  "expander": {
+    "faqs": [
+      {
+        "q": "What does the sentence expander do?",
+        "a": "It takes short, compressed sentences and expands them into fuller paragraphs with added connective detail and varied sentence lengths, so an idea reads as developed prose instead of a note."
+      },
+      {
+        "q": "Will expansion change my meaning?",
+        "a": "It can shift wording and emphasis, so compare the result with your original and check every fact, name and number before using it. It is a drafting aid, not a substitute for your own judgement."
+      },
+      {
+        "q": "Does it guarantee a readability or detector result?",
+        "a": "No. Longer, more varied sentences often read better, but no tool can guarantee a readability grade or any detector outcome."
+      },
+      {
+        "q": "Is it free? Is my text uploaded?",
+        "a": "Yes, it is free with no sign-up. The built-in expansion runs in your browser; if an optional AI option is offered and used, the page labels it before anything is sent."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Output: fuller paragraphs from short sentences",
+      "Review facts and tone before use"
+    ]
+  },
+  "summarizer": {
+    "faqs": [
+      {
+        "q": "How does the text summarizer work?",
+        "a": "Our summarizer uses extractive summarization: it scores every sentence by word frequency, position, and key-fact signals, then selects the most important sentences in their original order. It never invents content — every word comes from your text."
+      },
+      {
+        "q": "Is the text summarizer free?",
+        "a": "Yes, completely free with no sign-up, no word limits, and no text leaving your device. Everything runs in your browser."
+      },
+      {
+        "q": "Which languages does the summarizer support?",
+        "a": "The summarizer works with 8 languages: English, Spanish, Urdu (Roman Urdu), German, French, Turkish, Portuguese, and Japanese. The extractive algorithm is language-agnostic."
+      },
+      {
+        "q": "What's the difference between Brief, Balanced, and Detailed summaries?",
+        "a": "Brief keeps ~25% of sentences for a quick overview. Balanced keeps ~40% for a solid summary. Detailed keeps ~60% for comprehensive coverage while still saving reading time."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (extractive — sentences from your own text)",
+      "Lengths: Brief ~25%, Balanced ~40%, Detailed ~60%",
+      "Nothing is invented; every word comes from your text"
+    ]
+  },
+  "voiceTyping": {
+    "faqs": [
+      {
+        "q": "Is this voice typing tool free?",
+        "a": "Yes. It is free to use with no sign-up and no install. It runs in your browser using the browser's built-in speech recognition."
+      },
+      {
+        "q": "Which browsers support voice typing?",
+        "a": "Google Chrome and Microsoft Edge work best because they include speech recognition. Some other browsers do not support it yet; the tool tells you honestly when that is the case."
+      },
+      {
+        "q": "Is my voice recorded or stored?",
+        "a": "This website does not receive or store your audio. In Chrome and Edge, the browser maker's speech service converts your voice to text, and the text stays in your browser tab."
+      },
+      {
+        "q": "How accurate is voice typing?",
+        "a": "Accuracy is usually good in a quiet room at a natural speaking pace, but background noise, very fast speech and strong accents can cause mistakes. Always proofread the result before using it."
+      },
+      {
+        "q": "Can I dictate in Urdu and other languages?",
+        "a": "Yes. You can pick from 13 dictation languages, including Urdu, English, Hindi, Arabic, Spanish, German, French, Turkish, Portuguese, Japanese, Italian, Dutch and Norwegian."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (Web Speech API; needs microphone permission)",
+      "Works best in Chrome/Edge with a quiet room",
+      "Audio handling follows your browser's speech service"
+    ]
+  },
+  "cvBuilder": {
+    "faqs": [
+      {
+        "q": "Is this CV builder free?",
+        "a": "Yes. It is free with no sign-up. Fill the form, preview your CV, and print it or save it as a PDF."
+      },
+      {
+        "q": "Is my CV data uploaded anywhere?",
+        "a": "No. Everything runs in your browser and your entries are saved only on your own device, so you can continue editing later. We never receive or store your CV data."
+      },
+      {
+        "q": "Will this CV pass applicant tracking systems (ATS)?",
+        "a": "The clean, simple layouts with standard headings are the kind applicant tracking systems read most reliably. No builder can guarantee selection, but honest keywords from the job ad and a simple format give your CV its best reading."
+      },
+      {
+        "q": "Should I add a photo to my CV?",
+        "a": "It depends on the country and the job. Photos are common in much of Europe and parts of Asia, and usually left out in the US and UK. The photo here is optional — add one only if it is normal for the job you want."
+      },
+      {
+        "q": "Can the builder write my experience for me?",
+        "a": "No — and it should not. The builder handles layout and formatting; your experience and words must be your own. Invented experience on a CV is dishonest and usually falls apart in the interview."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Output: a clean resume you can download/print",
+      "Your details are not uploaded by this tool"
+    ]
+  },
+  "wordCounter": {
+    "faqs": [
+      {
+        "q": "Is this word counter free?",
+        "a": "Yes. It is free with no sign-up. Paste, type or open a text file and the statistics update live in your browser."
+      },
+      {
+        "q": "Is my text uploaded or stored?",
+        "a": "No. The counting happens locally in your browser tab. This tool does not upload your text or save it on a server."
+      },
+      {
+        "q": "Why can two word counters give different results?",
+        "a": "Tools handle hyphenated words, numbers, URLs, abbreviations, emoji, decimal numbers and scripts without spaces differently. When an exact limit matters, compare every draft with the same counter."
+      },
+      {
+        "q": "How are reading and speaking time calculated?",
+        "a": "Reading time uses about 200 words per minute and speaking time about 130 words per minute. Real speed depends on the reader, language, text difficulty and pauses."
+      },
+      {
+        "q": "How should Japanese text be counted?",
+        "a": "Japanese usually does not separate words with spaces, so the character count is the reliable main figure. A spaces-based word count is best treated as a rough guide for space-separated or mixed text."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser as you type",
+      "Counts: words, characters, sentences, paragraphs, reading/speaking time",
+      "Your text is not uploaded or stored"
+    ]
+  },
+  "characterCounter": {
+    "faqs": [
+      {
+        "q": "Is this character counter free?",
+        "a": "Yes. It is free with no sign-up. Paste, type or open a text file and the character counts update live in your browser."
+      },
+      {
+        "q": "Is my text uploaded or stored?",
+        "a": "No. The counting happens locally in your browser tab. This tool does not upload your text or save it on a server."
+      },
+      {
+        "q": "Why do character counters disagree about emoji?",
+        "a": "Because a character can be counted four ways: as one grapheme cluster (what a reader sees), as Unicode code points, as UTF-16 code units (the browser/JavaScript length), or as UTF-8 bytes. One emoji can be 1, 2 or more code points, 2 UTF-16 units and 4 or more bytes. This tool shows all four counts and names the method behind each."
+      },
+      {
+        "q": "Are the platform limits guaranteed?",
+        "a": "No. The presets are the commonly published limits at the time of writing — such as 280 characters for an X post, 2,200 for an Instagram caption, 3,000 for a LinkedIn post and 160 for an SMS — and platforms change them without notice and count emoji, links and line breaks their own way. Treat the presets as planning guidance and trust the counter inside the app you post to for the final word."
+      },
+      {
+        "q": "Why does an SMS shrink from 160 to 70 characters?",
+        "a": "A plain SMS uses the GSM-7 alphabet at 160 characters per segment. Add any character outside that set — Urdu or Arabic script, many emoji — and the whole message is encoded as Unicode (UCS-2) at 70 characters per segment, so it splits into more segments sooner than the headline number suggests."
+      },
+      {
+        "q": "What is the difference between the Character Counter and the Word Counter?",
+        "a": "The Word Counter answers how much you wrote: words, sentences, paragraphs, reading time and your most repeated words. This Character Counter answers whether it fits and how it is counted: exact characters by four methods and live checks against platform limits. Each page links to the other."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Counts: characters with/without spaces, Unicode points, UTF-8 bytes",
+      "Includes platform character-limit checks"
+    ]
+  },
+  "textToSpeech": {
+    "faqs": [
+      {
+        "q": "Is this text to speech tool free?",
+        "a": "Yes. It is free with no sign-up, and there is no character limit from us: long texts are split into sentence-sized parts and read in sequence in your browser."
+      },
+      {
+        "q": "Is my text uploaded or stored?",
+        "a": "No. The reading happens locally in your browser tab using your device's own voice. Your text is never sent to a server."
+      },
+      {
+        "q": "Can I download the reading as an MP3?",
+        "a": "No, and this page says so honestly: browser voices play live and a web page cannot save them as an audio file. Sites that generate MP3 files do it on their own servers, which means uploading your text to them."
+      },
+      {
+        "q": "Why does my language have no voice, or a different voice than my friend's phone?",
+        "a": "The voices come from your own device and browser — websites cannot install them. If a language is missing, add its voice in your system settings (Android: Accessibility → Text-to-speech output; Windows: Time & language → Speech), then reload. Chrome often includes extra voices."
+      },
+      {
+        "q": "Why does the reading pause strangely, or restart instead of resuming?",
+        "a": "Pause and resume behaviour is controlled by each browser and device, and they differ. Some browsers restart the current part instead of continuing mid-sentence. Stopping and pressing Play again always restarts cleanly."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: with your device's built-in voices",
+      "Voices and quality depend on your device/browser",
+      "Your text is read aloud locally; nothing is uploaded by this tool"
+    ]
+  },
+  "typingTest": {
+    "faqs": [
+      {
+        "q": "Is this typing speed test free?",
+        "a": "Yes. All modes, passages and languages are free with no sign-up and no usage limit from us. Everything runs in your browser."
+      },
+      {
+        "q": "How is WPM calculated?",
+        "a": "WPM = correct characters ÷ 5 ÷ minutes. One word counts as 5 characters including spaces, the standard convention. Gross WPM counts every character typed; net WPM counts only the correct ones, which is the honest figure."
+      },
+      {
+        "q": "Is anything I type uploaded or stored?",
+        "a": "No. The passage, your typing and the scoring all happen in your browser tab. Nothing is sent to a server, and your best score is kept only in this browser on this device."
+      },
+      {
+        "q": "Can I compare my phone score with my computer score?",
+        "a": "Not fairly. Phone keyboards usually score far lower than physical keyboards, and different layouts and passages change results. Compare your own repeated scores on the same device and keyboard instead."
+      },
+      {
+        "q": "Does this test give me a certificate for jobs?",
+        "a": "No. This is a practice score, not an official certificate, and no employer body recognizes it. Employers test typing with their own tools; this page helps you prepare honestly."
+      },
+      {
+        "q": "How is Japanese typing scored?",
+        "a": "Japanese is not space-separated, so the test counts characters. Word modes use a fixed character count, and WPM applies the standard 5 characters = 1 word convention, with the character count shown as the main number."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Modes: 30s/60s timed or 25/50 words, live WPM and accuracy",
+      "Nothing is uploaded"
+    ]
+  },
+  "caseConverter": {
+    "faqs": [
+      {
+        "q": "Is this case converter free?",
+        "a": "Yes. It is free with no sign-up, and every conversion happens in your browser."
+      },
+      {
+        "q": "Is my text uploaded or stored?",
+        "a": "No. The conversion and counting happen in this browser tab. Your text is not uploaded, stored on a server or shared by this tool."
+      },
+      {
+        "q": "Does Sentence case fix grammar?",
+        "a": "No. Sentence case is a capitalization transform, not grammar correction. It can flatten intentional capitals in names, acronyms and brands, so review the result before using it."
+      },
+      {
+        "q": "Why can Title Case look different in different places?",
+        "a": "Title Case rules vary by language and editorial style guide, especially for short words. This tool applies one consistent heading pattern; check your publisher's own rules when they matter."
+      },
+      {
+        "q": "Does it handle Turkish, German and Japanese text correctly?",
+        "a": "Case changes follow the language selected on the page: Turkish i becomes İ and dotless ı becomes I, German ß becomes SS in UPPERCASE, and scripts without letter case, such as Japanese kana and kanji, are left unchanged."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Cases: UPPER, lower, Title, Sentence, aLtErNaTiNg and more",
+      "Your text is not uploaded"
+    ]
+  },
+  "passwordGenerator": {
+    "faqs": [
+      {
+        "q": "Is this password generator free?",
+        "a": "Yes. It is free with no sign-up and no account. Everything runs in your browser."
+      },
+      {
+        "q": "Are my passwords uploaded, stored or logged?",
+        "a": "No. Passwords are generated locally in your browser tab with the Web Crypto API and never leave your device. There is no history: closing the tab forgets everything."
+      },
+      {
+        "q": "How does the strength estimate work?",
+        "a": "It estimates entropy as password length times log2 of the character pool size. It is a rough estimate of guessing difficulty, not a promise — no password is unhackable, and a unique password plus two-factor authentication matters more than any label."
+      },
+      {
+        "q": "Why exclude look-alike characters?",
+        "a": "Characters like I, l, 1, O and 0 are easy to confuse when reading or retyping a password. Excluding them trades a little pool size for far fewer typing mistakes."
+      },
+      {
+        "q": "Where should I keep the password I generate?",
+        "a": "In a reputable password manager, protected by a strong master password you can remember — a long passphrase works well for that. Do not keep passwords in notes apps, chats or email, and use a different password for every account."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: on your device (Web Crypto randomness)",
+      "Options: length, symbols, ambiguous-character exclusion",
+      "Generated passwords are never sent or stored — save them in a password manager"
+    ]
+  },
+  "duplicateLines": {
+    "faqs": [
+      {
+        "q": "Is this remove duplicate lines tool free?",
+        "a": "Yes. It is free with no sign-up. Paste a list or open a .txt file and the cleaned result updates live in your browser."
+      },
+      {
+        "q": "Which copy of a repeated line is kept?",
+        "a": "The first occurrence. Later lines that match under your chosen case, space and blank-line options are removed."
+      },
+      {
+        "q": "Is my list uploaded or stored?",
+        "a": "No. The list is processed in your browser tab, and a .txt file you open is read on your device. This tool does not upload or store your text on a server."
+      },
+      {
+        "q": "What do the matching options change?",
+        "a": "Case-sensitive decides whether Apple and apple are different. Trim spaces removes spaces at the edges before comparing. Ignore blank lines leaves blanks out of the result. Sort A-Z orders the unique lines after cleaning."
+      },
+      {
+        "q": "Does it merge lines that are almost the same?",
+        "a": "No. It compares whole lines exactly under the options you choose. Near matches such as 'seo tool' and 'seo tools', or different spellings, stay as separate lines."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Removes exact duplicate lines; trim/case options shown on the page",
+      "Your text is not uploaded"
+    ]
+  },
+  "textRepeater": {
+    "faqs": [
+      {
+        "q": "Is this text repeater free?",
+        "a": "Yes. It is free with no sign-up. Repeat text up to 1,000 times and copy or download the result from your browser."
+      },
+      {
+        "q": "Why is there a limit of 1,000 repeats and 200,000 characters?",
+        "a": "Rendering millions of characters in a browser tab would freeze the page, especially on phones. The tool produces as many complete copies as fit in 200,000 characters and tells you when the result was shortened, instead of locking up."
+      },
+      {
+        "q": "Is my text uploaded or stored?",
+        "a": "No. Your text and the repeated result are created in your browser tab. This tool does not upload, store or share them, and closing the tab forgets everything."
+      },
+      {
+        "q": "What is the difference between whole-text and each-word mode?",
+        "a": "Whole-text mode repeats your full text as one block, copy after copy. Each-word mode repeats every word one by one, so 'go team' at 3 repeats becomes 'go go go team team team'."
+      },
+      {
+        "q": "Can I use repeated text to flood chats or comments?",
+        "a": "Please don't. This tool is for formatting, placeholders, test data, patterns and practice. Messaging and social platforms limit message length and can restrict accounts that paste huge repeated blocks; flooding can also get you muted or banned."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Repeats text or lines up to the count you set",
+      "Your text is not uploaded"
+    ]
+  },
+  "invisibleCharacter": {
+    "faqs": [
+      {
+        "q": "Is this invisible character tool free?",
+        "a": "Yes. It is free with no sign-up. Copy one character, generate up to 1,000 repeated characters, and inspect pasted text in your browser."
+      },
+      {
+        "q": "Which characters are really invisible?",
+        "a": "Zero Width Space U+200B, Zero Width Non-Joiner U+200C, Zero Width Joiner U+200D and Word Joiner U+2060 have no visible glyph or width by themselves, although joiners can affect neighbouring letters and emoji. Braille Pattern Blank U+2800 and Hangul Filler U+3164 render as blank space with width in fonts that support them."
+      },
+      {
+        "q": "Is my text uploaded or stored?",
+        "a": "No. Generated text and text pasted into the tester are processed in your browser tab. This tool does not upload, store or share them."
+      },
+      {
+        "q": "Will invisible text work in every game or social app?",
+        "a": "No. Platforms can strip, block, normalize, reject or change how they handle these Unicode characters at any time, and some fonts or screen readers behave differently. Test in the destination and follow that platform's rules."
+      },
+      {
+        "q": "Why is U+FE0F not offered as a blank character?",
+        "a": "U+FE0F is Variation Selector-16. It modifies the character or emoji before it and is not blank text by itself, so this tool does not pretend it is a standalone invisible character. The tester will still label it when it appears in pasted text."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Copies blank/invisible characters for captions and bios",
+      "Platforms can change how these render — check the preview after pasting"
+    ]
+  },
+  "wordFrequency": {
+    "faqs": [
+      {
+        "q": "Is this word frequency counter free?",
+        "a": "Yes. It is free with no sign-up. Paste, type or open a text file and the ranked frequency table updates live in your browser."
+      },
+      {
+        "q": "Is my text uploaded or stored?",
+        "a": "No. The counting happens locally in your browser tab, including when you open a text file. This tool does not upload your text or save it on a server."
+      },
+      {
+        "q": "How is the percentage calculated?",
+        "a": "Percentage = count divided by the analyzed total, times 100. The analyzed total is the count after the minimum length and stop-word rules you selected, and for 2- or 3-word phrases it is the number of analyzed phrase windows."
+      },
+      {
+        "q": "Does a high keyword frequency improve Google ranking?",
+        "a": "Not by itself, and there is no perfect percentage. Frequency is a diagnostic that can reveal repeated wording, missing variety or an overused phrase. Search engines also judge relevance, quality, clarity and natural language, so write for readers first."
+      },
+      {
+        "q": "Why can two frequency counters give different results?",
+        "a": "Counters differ on case handling, punctuation, contractions, numbers, minimum length, stop words and phrase boundaries. This tool shows its counting rules beside the table so you can compare like with like."
+      },
+      {
+        "q": "How should Japanese text be counted?",
+        "a": "Japanese does not normally separate words with spaces, so the browser's segmentation is a guide rather than an exact word count. For submissions with strict limits, check the character count as well."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Counts: most repeated words and phrases in your text",
+      "Your text is not uploaded"
+    ]
+  },
+  "readingTime": {
+    "faqs": [
+      {
+        "q": "Is this reading time calculator free?",
+        "a": "Yes. It is free with no sign-up. Paste, type or open a text file and the estimate updates live in your browser."
+      },
+      {
+        "q": "Is my text uploaded or stored?",
+        "a": "No. The counting and timing happen locally in your browser tab, including when you open a text file. This tool does not upload your text or save it on a server."
+      },
+      {
+        "q": "What reading and speaking speeds does it assume?",
+        "a": "Silent reading starts at 200 words per minute and speaking at 140 words per minute. Published studies put average adult silent reading near 200–238 wpm and presentation speaking near 130–150 wpm. These are averages, not promises, and both sliders can be changed to match your own pace."
+      },
+      {
+        "q": "What is the pause allowance for?",
+        "a": "Real speeches include pauses, slide changes and audience reactions. Speaking mode can add a pause allowance (for example 10–25%) on top of the raw speaking time so presentation planning is more realistic."
+      },
+      {
+        "q": "How accurate is the estimate?",
+        "a": "It is a planning estimate only. Real speed changes with language, text difficulty, familiarity and purpose. The honest way to calibrate is to time yourself on one page and then set the sliders to your own pace."
+      },
+      {
+        "q": "How does it handle Japanese and other scripts without spaces?",
+        "a": "Word counting follows spaces, punctuation and browser segmentation. Scripts that do not separate words with spaces, such as Japanese, are approximated, so treat those results as a rough guide and check character counts for strict limits."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Estimates reading and speaking time from word count",
+      "Pace assumptions are shown on the page; your real pace will differ"
+    ]
+  },
+  "base64": {
+    "faqs": [
+      {
+        "q": "Is Base64 encryption?",
+        "a": "No. Base64 is encoding, not encryption. Anyone who has the Base64 string can decode it without a key, so never use Base64 to protect passwords, tokens or secrets."
+      },
+      {
+        "q": "Does this tool upload my text or file?",
+        "a": "No. Text and files are processed locally in your browser tab. Nothing is uploaded, saved on a server, or shared by this tool."
+      },
+      {
+        "q": "What is URL-safe Base64?",
+        "a": "URL-safe Base64 replaces + with - and / with _, and usually drops the trailing = padding. It carries the same data in an alphabet that is safer inside URLs and filenames."
+      },
+      {
+        "q": "Why did my Base64 fail to decode?",
+        "a": "Usually a character is missing, extra or changed, padding is in the wrong place, or the decoded bytes are binary data rather than UTF-8 text. This tool explains the specific problem instead of silently showing garbled output."
+      },
+      {
+        "q": "Can I encode a file to Base64 here?",
+        "a": "Yes, for small files under 2 MB. Base64 output is about one-third larger than the original file, and very large files can slow or freeze a browser tab, so this feature is deliberately limited."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (text and small files under 2 MB)",
+      "Base64 is encoding, not encryption — never protect secrets with it",
+      "Nothing is uploaded"
+    ]
+  },
+  "slugGenerator": {
+    "faqs": [
+      {
+        "q": "What is a URL slug?",
+        "a": "The slug is the readable last part of a web address that names one page, such as the 'slug-generator' in example.com/slug-generator. It is usually lowercase words joined by hyphens."
+      },
+      {
+        "q": "Does a clean slug guarantee better Google ranking?",
+        "a": "No. A short, descriptive slug helps people read, type and share a URL, and it describes the page honestly. Ranking and indexing depend on the page content, links and the site as a whole — no slug can guarantee them."
+      },
+      {
+        "q": "Should I use hyphens or underscores in a slug?",
+        "a": "Hyphens are the common choice for web URLs because search engines read them as word separators, while an underscore can read as one joined word. Underscores are still handy for file names, so this tool offers both."
+      },
+      {
+        "q": "What happens to accented and non-Latin letters?",
+        "a": "Accented Latin letters become plain ones (é becomes e) when that option is on, or are removed when it is off. This tool does not transliterate Japanese or Urdu-script text: those characters are removed, so type the romanized form (romaji or Roman Urdu) yourself and check the result."
+      },
+      {
+        "q": "Which stop words are removed?",
+        "a": "Only common English words such as a, an, the, and, or and of. Small words in other languages are left untouched, and the option can be switched off whenever a small word carries meaning in your title."
+      },
+      {
+        "q": "Is my text uploaded anywhere?",
+        "a": "No. The slug is built in your browser tab. Your titles are not uploaded, stored on a server or shared by this tool, and closing the tab forgets everything."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Converts titles (one per line, whole lists at once) into clean URL slugs",
+      "A clean slug does not guarantee indexing or ranking"
+    ]
+  },
+  "jsonFormatter": {
+    "faqs": [
+      {
+        "q": "Is my JSON uploaded anywhere?",
+        "a": "No. The document is parsed in your browser tab with JSON.parse. It is not uploaded, stored on a server, saved to an account or shared by this tool. Even so, never paste passwords, API keys or access tokens into any website tool."
+      },
+      {
+        "q": "Does formatting change my data?",
+        "a": "No. Beautifying and minifying change whitespace only. The tool does not sort keys, repair invalid JSON or change values."
+      },
+      {
+        "q": "Why does the validator reject comments and trailing commas?",
+        "a": "Comments, trailing commas, single quotes and unquoted keys are JavaScript or JSON5 habits, not standard JSON. Remove them or convert the document first; this tool reports the parser error instead of guessing a repair."
+      },
+      {
+        "q": "Why is there no exact error position for some mistakes?",
+        "a": "Browsers report positions differently. When the parser error includes a position, this tool converts it to line and column. When it does not, the tool shows the parser's own message and says the exact position is unavailable rather than inventing one."
+      },
+      {
+        "q": "Can this tool check whether my API will accept the JSON?",
+        "a": "No. It validates syntax only. It does not check a JSON Schema, required fields, field types or business rules, so a syntactically valid document can still be rejected by an API."
+      },
+      {
+        "q": "What happens with repeated keys and very large numbers?",
+        "a": "Standard JSON.parse keeps only the last value when a key repeats, and whole numbers beyond 2^53−1 can lose precision. Keep identifiers and large counters as strings when exact digits matter."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Formats, validates and minifies JSON; syntax check only, not schema validation",
+      "Your JSON is not uploaded"
+    ]
+  },
+  "loremIpsum": {
+    "faqs": [
+      {
+        "q": "Is anything I generate uploaded anywhere?",
+        "a": "No. The word bank lives in the page and the text is shuffled in your browser tab. Nothing is typed into the tool, uploaded, stored on a server, or shared by it."
+      },
+      {
+        "q": "Can I publish lorem ipsum on my live website?",
+        "a": "No. Placeholder text has no meaning and no SEO value, and leftover filler makes a page look unfinished. Replace every block with real content before launch, and search your site for “lorem ipsum” to catch stragglers."
+      },
+      {
+        "q": "Does lorem ipsum mean anything?",
+        "a": "No. It descends from a passage in Cicero's de Finibus (45 BC), but the words were scrambled centuries ago precisely so the result carries no message — readers judge the layout instead of the text."
+      },
+      {
+        "q": "Can I generate an exact number of characters?",
+        "a": "Not directly. Generate by words and watch the character counter, then raise or lower the word count until the total sits close to the limit you need."
+      },
+      {
+        "q": "Why does every generation look different?",
+        "a": "The generator shuffles the traditional Latin word bank on every run, so each result is a fresh sample with different sentence shapes. That is a feature for testing, but it means you should download a version you want to keep."
+      },
+      {
+        "q": "Which output format should I choose?",
+        "a": "Plain text for Figma, Canva, documents and slides; HTML <p> when pasting paragraphs into code; and the list format when you need ready-made <ul> items for menus, benefits or specifications."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Generates placeholder paragraphs, sentences or words",
+      "Placeholder text only — replace before publishing"
+    ]
+  },
+  "daysBetween": {
+    "faqs": [
+      {
+        "q": "How does this calculator count the days between two dates?",
+        "a": "It subtracts the two calendar dates using UTC date math: May 1 to May 2 is 1 day. Because the dates have no time of day, daylight-saving changes and time zones cannot shift the answer, and February 29 in leap years is counted automatically."
+      },
+      {
+        "q": "What is the difference between inclusive and exclusive counting?",
+        "a": "Exclusive counting is the plain gap between the dates: May 1 to May 2 = 1 day. Inclusive counting adds the start day, so both the first and the last day count: May 1 to May 2 = 2 days. Use inclusive when both dates belong to the period, such as the first and last day of a booking."
+      },
+      {
+        "q": "Does the business-day count subtract public holidays?",
+        "a": "No. Business days here mean Monday to Friday only. This calculator has no country holiday calendar, so public holidays are never subtracted. For legal, payroll or court deadlines, always check the result against the official calendar for your country or region."
+      },
+      {
+        "q": "Why are months and years labelled approximate?",
+        "a": "Real months have 28, 29, 30 or 31 days, so a fixed day count cannot equal an exact number of calendar months. The tool shows months and years as approximate equivalents using an average month of about 30.44 days. The exact, reliable figure is always the total day count."
+      },
+      {
+        "q": "Can I find the date N days from today?",
+        "a": "Yes. Switch to Add / subtract days mode, set the base date (today is filled in by default), enter the number of days, choose Add or Subtract, and the resulting calendar date is shown with its weekday."
+      },
+      {
+        "q": "Are my dates uploaded or stored anywhere?",
+        "a": "No. The calculation runs entirely in your browser tab using your device's date functions. Nothing is uploaded, stored on a server, saved to an account or shared, and closing the tab forgets the dates."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Counts days between two dates, with include/exclude options",
+      "Nothing is uploaded"
+    ]
+  },
+  "randomNumber": {
+    "faqs": [
+      {
+        "q": "What does 'allow repeats off' mean?",
+        "a": "With repeats on, the same number can be drawn more than once in a set, like rolling the same die face twice. With repeats off, every number in the set is unique, like drawing numbered tickets out of a hat without putting them back. You cannot draw more unique numbers than the range contains."
+      },
+      {
+        "q": "Is this 'true random' like atmospheric noise?",
+        "a": "No. This tool uses your browser's cryptographic random source — the same kind of randomness browsers and operating systems use for security. It is strong and unpredictable for games, classrooms and giveaways, but it is not randomness harvested from a physical source such as atmospheric noise, and it is not certified for regulated gambling, official lotteries or legal prize draws."
+      },
+      {
+        "q": "Can this tool improve my lottery chances or predict numbers?",
+        "a": "No tool can. Every draw is independent and unpredictable, which is exactly what makes it random. Never pay for 'predicted' lottery numbers, and never gamble money you cannot afford to lose."
+      },
+      {
+        "q": "Are my ranges and results uploaded or stored?",
+        "a": "No. The drawing happens entirely in your browser tab with its built-in cryptographic random function. The short history is kept only in this tab's memory, is never sent anywhere, and is gone when you close the tab."
+      },
+      {
+        "q": "Why are the coin flip and dice roller in the same tool?",
+        "a": "Because they are the same everyday job — a fair, quick random pick — and switching modes here is faster than opening separate coin-flip and dice-roller pages. The coin mode keeps heads/tails counts for classroom experiments, and the dice mode rolls 1 to 6 dice with the total."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: on your device (crypto-grade randomness)",
+      "Set min/max, count and duplicates on/off",
+      "For games and picks, not for security tokens"
+    ]
+  },
+  "onlineTimer": {
+    "faqs": [
+      {
+        "q": "Does this online timer keep working if I switch tabs?",
+        "a": "The reading is recomputed from real timestamps (performance.now deadlines), so when you return to the tab it snaps to approximately the correct remaining or elapsed time instead of resuming from a frozen display. Browsers still throttle hidden tabs, so the finish beep can be delayed and the display only updates when the browser allows it. Keep the tab visible when the exact end moment matters."
+      },
+      {
+        "q": "Why did my countdown finish without a sound?",
+        "a": "The usual causes are a muted device, the sound toggle being off, or the browser blocking audio. Browsers only allow sound after you have interacted with the page, so starting the timer with a tap normally unlocks the beep. The tool also flashes its finish state on screen, and vibration is not used. Check the device volume and keep the tab visible for the final minute when the beep matters."
+      },
+      {
+        "q": "What is the difference between lap time and total time?",
+        "a": "Lap time is how long that single lap took, measured from the previous lap press. Total time is the full elapsed time from the very start at that same moment. Four laps with lap times of about one minute each produce totals of roughly one, two, three and four minutes."
+      },
+      {
+        "q": "Can I use this timer for Pomodoro focus sessions?",
+        "a": "Yes. The 25-minute and 5-minute presets are the classic Pomodoro focus and break lengths. Alternate them manually: 25 minutes of focused work, then a 5-minute break. Presets are conveniences only and make no productivity or health promise."
+      },
+      {
+        "q": "Is it safe to use this timer for medical or emergency timing?",
+        "a": "No. A browser timer is not a certified instrument: background tabs are throttled, devices sleep, and audio can be blocked or delayed. Never rely on it for medication doses, safety cut-offs, laboratory timing or emergencies — use a dedicated physical timer or medical device for anything where a late signal could cause harm."
+      },
+      {
+        "q": "Are my times and laps uploaded or stored anywhere?",
+        "a": "No. The countdown deadline, stopwatch state and lap list live only in this browser tab's memory. Nothing is uploaded, saved to an account or shared, and closing the tab clears everything. If you need a record, use Copy laps before closing."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser tab",
+      "Countdown/stopwatch with an audible alert",
+      "Keep the tab open — browsers can pause background tabs"
+    ]
+  },
+  "invoiceGenerator": {
+    "faqs": [
+      {
+        "q": "Is this invoice generator free?",
+        "a": "Yes. It is free with no sign-up. Build the invoice, check the live totals and print or save as PDF from your browser."
+      },
+      {
+        "q": "How are discount and tax calculated?",
+        "a": "Subtotal is quantity times rate for each line, added together. The discount percentage comes off the subtotal first. Tax is then charged on the amount after discount, and the total is that discounted amount plus its tax. Every intermediate figure is shown so you can verify it."
+      },
+      {
+        "q": "Is this accounting or tax advice? Will my invoice be legally compliant?",
+        "a": "No. This is a document generator that does the arithmetic, not accounting, tax or legal advice. Whether you must charge tax, which rate applies, which registration number to show and how invoices must be numbered depend on your country and status. Verify them with your tax authority or an accountant before sending."
+      },
+      {
+        "q": "Is my invoice uploaded or stored?",
+        "a": "No upload happens. The invoice is built in your browser and printed with your browser's own print function. The draft is saved only in this browser on this device so you can return to it, and Clear All removes it. Save the PDF yourself — there is no server copy."
+      },
+      {
+        "q": "Which currencies are supported and how are they formatted?",
+        "a": "Sixteen currencies are listed, including USD, EUR, GBP, PKR, INR, AED, JPY and others. Amounts are formatted with the browser's Intl.NumberFormat for the chosen currency, so grouping, decimal separators and zero-decimal currencies follow that currency's conventions."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Add items, tax and details; download or print the invoice",
+      "Your business details are not uploaded by this tool"
+    ]
+  },
+  "imageResizer": {
+    "faqs": [
+      {
+        "q": "Is this image resizer free? Is my image uploaded?",
+        "a": "Yes, free with no sign-up, and your image is never uploaded. Decoding, resizing, cropping and encoding all happen in your browser tab with the Canvas API; closing the tab leaves nothing behind."
+      },
+      {
+        "q": "What is the difference between this Resizer and the Image Compressor?",
+        "a": "This Resizer changes pixel dimensions and crop — it makes an image 1080×1080 instead of 4000×3000, or cuts a square from a wide photo. The Image Compressor keeps the exact same dimensions and only re-encodes the file so it weighs less. Resize when the dimensions are wrong; compress when only the file is too heavy."
+      },
+      {
+        "q": "Will resizing or enlarging lose quality?",
+        "a": "Shrinking blends neighbouring pixels together, so fine detail is discarded permanently — the way back is your original file. Enlarging invents in-between pixels by blending neighbours, so the result looks softer, never sharper: no resizer can add real detail the camera never captured. JPG and WebP additionally trade quality for file size at each re-encode, controlled by the quality slider; PNG stays exact but larger."
+      },
+      {
+        "q": "Why did my phone photo appear sideways, and does this tool fix it?",
+        "a": "Phones often store the photo un-rotated and hide the upright instruction in EXIF metadata. This tool decodes with createImageBitmap and the from-image orientation flag where the browser supports it, so most phone photos land upright automatically. Where a browser takes the fallback path, the tool says so under the preview so you can rotate the photo in your photo app first."
+      },
+      {
+        "q": "Which formats and sizes are supported?",
+        "a": "Input and output are JPG, PNG and WebP — the formats browsers can reliably decode and encode. Output is capped at 8000 pixels on a side, far above social, web and print-document needs. A HEIC photo from an iPhone must first be shared or exported as JPG, because browsers cannot decode HEIC."
+      },
+      {
+        "q": "How do the social and A4 presets work? Are they guaranteed?",
+        "a": "Presets simply fill in widely used pixel sizes: Instagram post 1080×1080, story 1080×1920, YouTube thumbnail 1280×720, X post 1200×675, profile 800×800, and A4 expressed as pixels at 150 DPI (1240×1754) for screen documents and 300 DPI (2480×3508) for print. Platforms change their recommended sizes without notice, so treat presets as current best practice and trust the destination uploader's own preview."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Resize by pixels or percent; keeps aspect ratio if you lock it",
+      "Your image is not uploaded"
+    ]
+  },
+  "imageConverter": {
+    "faqs": [
+      {
+        "q": "Is this image converter free? Are my images uploaded?",
+        "a": "Yes, free with no sign-up, and your images are never uploaded. Decoding and re-encoding happen in your browser tab with the Canvas API; closing the tab leaves nothing behind."
+      },
+      {
+        "q": "Which formats can I convert, and why not HEIC or AVIF output?",
+        "a": "Output is PNG, JPG or WebP — the formats browsers can reliably encode with Canvas. Input is whatever this browser can decode, normally JPG, PNG, WebP, GIF, BMP and SVG stills. HEIC/HEIF photos from iPhones usually cannot be decoded in browsers, so export them as JPG first; AVIF decoding varies by browser and AVIF encoding is not reliably available, so neither is promised."
+      },
+      {
+        "q": "What happens to transparency when I convert to JPG?",
+        "a": "JPG has no transparency, so transparent pixels must be painted over a background. This converter warns you and lets you choose that background — white by default, black, or any custom colour — before anything is flattened. To keep transparency, convert to PNG or WebP instead, and always keep your transparent original."
+      },
+      {
+        "q": "Does converting JPG to PNG improve quality? Does converting change dimensions?",
+        "a": "No to both. Converting never changes width or height, and JPG to PNG cannot restore detail JPG already discarded — it only makes a larger file that looks the same. JPG or WebP at lower quality does trade sharpness for a smaller file, so convert from your original, keep the original, and compare the Before/After sizes shown for every file."
+      },
+      {
+        "q": "What is the difference between Converter, Resizer and Compressor?",
+        "a": "The Converter changes the file format at the same dimensions. The Image Resizer changes pixel dimensions and crop. The Image Compressor keeps dimensions and only re-encodes so the file weighs less. Convert when the format is wrong, resize when the dimensions are wrong, compress when only the file is too heavy."
+      },
+      {
+        "q": "Can I convert many images at once?",
+        "a": "Yes. Add a batch to the queue, choose one output format and quality, convert all, then download per file or use Download All, which saves each converted file one by one. Animated GIF or WebP converts as a still first frame, and camera EXIF metadata is not carried into the converted file."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Converts between JPG, PNG and WebP",
+      "Your image is not uploaded"
+    ]
+  },
+  "imageToText": {
+    "faqs": [
+      {
+        "q": "Is this image to text tool free? Is my image uploaded?",
+        "a": "Yes, free with no sign-up, and your image is never uploaded. Recognition runs in your browser tab with the open-source Tesseract OCR engine (WebAssembly). The engine and the language data you pick download from a CDN on first use and are cached by your browser afterwards, so the first run needs internet — but that download is data files, never your image."
+      },
+      {
+        "q": "Which languages and image formats are supported?",
+        "a": "OCR languages with genuinely available Tesseract data: English, Spanish, German, French, Turkish, Portuguese, Italian, Dutch, Norwegian, Japanese and Urdu. One image at a time: JPG, PNG or WebP (and other images your browser can decode). PDFs are not images — export a page as JPG or PNG first. HEIC photos usually cannot be read in browsers; export them as JPG first."
+      },
+      {
+        "q": "How accurate is the OCR? Does it read handwriting?",
+        "a": "No fixed accuracy percentage is promised, because results depend on the image. Clean printed text in good light reads far better than handwriting, which often fails. Skewed, blurry, low-resolution or decorative-font images produce mistakes, and Japanese and Urdu-script text are materially harder than clean Latin text. The result is editable so you can proofread and fix it."
+      },
+      {
+        "q": "Why is Roman Urdu misread, and which language should I pick?",
+        "a": "Roman Urdu is Urdu written in Latin letters, so the engine's shape matcher treats it as English while its vocabulary is Urdu; no Tesseract pack is trained for it. Pick English, expect errors in names and local words, and proofread carefully. For Urdu in its own script, pick the Urdu (urd) pack."
+      },
+      {
+        "q": "Does it work offline?",
+        "a": "Only after the first use. The engine and the chosen language data must download from a CDN once and are then cached by your browser; if you are offline on the very first use, the download fails and OCR cannot start. Your image is never part of any network request."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (OCR on your device)",
+      "Best on clear printed text; handwriting often fails",
+      "Your image is not uploaded; re-check every result"
+    ]
+  },
+  "pdfSplitter": {
+    "faqs": [
+      {
+        "q": "Is this PDF splitter free? Is my file uploaded?",
+        "a": "Yes, free with no sign-up, and your file is never uploaded. Splitting runs entirely in your browser tab with the open-source pdf-lib library, so you can split private documents without sending them to a server."
+      },
+      {
+        "q": "How do I extract only some pages from a PDF?",
+        "a": "Add the PDF, note its real page count, then type the pages like 1-3, 5, 8-10: commas separate groups and a hyphen means a range. Pick One PDF for a single combined file, or Separate PDFs for one file per group, then download."
+      },
+      {
+        "q": "Why did my PDF fail to open?",
+        "a": "Password-protected PDFs cannot be opened by browser PDF libraries — remove the password in a desktop PDF app first. Damaged files, unusual formats, and very large PDFs that exceed the browser's memory can also fail; try smaller ranges or a desktop tool."
+      },
+      {
+        "q": "Does splitting a PDF compress it or make scanned text editable?",
+        "a": "No. Splitting copies pages exactly as they are: file sizes stay roughly proportional to the pages kept, text is not edited, and a scanned page stays a picture of text — there is no OCR. For readable text from a scan, use the Image to Text tool on an exported page image."
+      },
+      {
+        "q": "What is the difference between splitting and merging?",
+        "a": "Splitting takes one PDF apart: selected pages become new, smaller PDFs. Merging does the opposite — several PDFs become one. Use this PDF Splitter to extract pages, and the PDF Tools page (Merge) to combine files."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Split pages or extract a page range into a new PDF",
+      "Your document is not uploaded"
+    ]
+  },
+  "usernameGenerator": {
+    "faqs": [
+      {
+        "q": "Is this username generator free? Is anything uploaded?",
+        "a": "Yes, free with no sign-up. Generation uses local word banks in your browser tab. Your seed word and favourites are not uploaded to a server or written to permanent storage by this tool; favourites stay only in the open tab until you clear them or close it."
+      },
+      {
+        "q": "Are the generated usernames available on YouTube, TikTok, Instagram or other platforms?",
+        "a": "Availability is not checked. A name shown here may already be taken, reserved, suspended or disallowed. Check the exact name on the platform itself and follow that platform's current username rules before you rely on it."
+      },
+      {
+        "q": "How does the seed word and theme change the results?",
+        "a": "Themes load different clean adjective and noun banks for gaming, creator, study, business, aesthetic or funny names. A seed word becomes part of patterns such as seed-plus-noun or adjective-plus-seed, while the numbers, separator and length controls reshape the batch."
+      },
+      {
+        "q": "Can I use a generated username for a business or channel?",
+        "a": "Treat it as a brainstorming candidate, not legal clearance. Avoid names that copy real brands, celebrities, teams in an impersonating way, or official/support accounts. Check the platform, search the exact phrase, and check relevant trademark sources or professional advice before investing in branding."
+      },
+      {
+        "q": "Why does every name show a character count?",
+        "a": "Platforms have different and changing limits for total length, dots, underscores and repeated separators. The character count makes shortlisting easier, but it is not a claim that a name passes any particular platform's rules."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Suggests name ideas from your keywords",
+      "A generated name is not guaranteed available or trademark-free — check before use"
+    ]
+  },
+  "morseCodeTranslator": {
+    "faqs": [
+      {
+        "q": "Is this Morse code translator free? Is my text uploaded?",
+        "a": "Yes, free with no sign-up. Conversion, sound and flash all run in your browser tab with the Web Audio API — nothing you type is uploaded, stored or logged by this tool."
+      },
+      {
+        "q": "How do I write Morse code so it decodes correctly?",
+        "a": "Use a dot (.) for a short signal and a dash (-) for a long one. Put one space between letters of the same word and a slash with spaces ( / ) between words, for example ... --- ... for SOS. Morse is case-insensitive; decoded text is shown in capitals."
+      },
+      {
+        "q": "What do the ? marks in my decoded text mean?",
+        "a": "A ? means that dot-dash group matches no letter, digit or punctuation mark in International Morse — usually a merged or split letter. Check the spacing around that group against the chart on the page and try again."
+      },
+      {
+        "q": "Can I convert Urdu, Arabic or Japanese text into Morse code?",
+        "a": "Not directly. Standard International Morse carries Latin letters, digits and common punctuation only. Write the words in Latin letters first (transliteration) and convert that. Japanese kana Morse (Wabun) is a separate system and is not used here."
+      },
+      {
+        "q": "What does the WPM speed mean, and is the flash safe?",
+        "a": "WPM is words per minute using the standard PARIS timing: one dot lasts 1200 ÷ WPM milliseconds, a dash is 3 dots, and the gaps are 1, 3 and 7 dots. The flash lamp simply follows that timing and never strobes faster; if flashing lights bother you or you have photosensitive epilepsy, leave the flash off and use sound only."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Text ⇄ Morse with audio playback of the signal",
+      "Nothing is uploaded"
+    ]
+  },
+  "voiceRecorder": {
+    "faqs": [
+      {
+        "q": "Is this voice recorder free, and is my voice uploaded?",
+        "a": "Yes, free with no sign-up. Recording runs entirely in your browser with the MediaRecorder API — your voice is never uploaded, stored on a server or shared by this tool. It stays in this tab until you download it."
+      },
+      {
+        "q": "Why is my download a WebM or MP4 file, not MP3?",
+        "a": "The browser itself chooses the recording format: Chrome and Firefox usually save WebM, Safari saves MP4. We label and save that real format instead of promising an MP3 the browser never made. If you need another format, you can convert the downloaded file with a tool you trust."
+      },
+      {
+        "q": "Can I pause a recording and continue on the same take?",
+        "a": "Yes. Pause stops the clock and the microphone feed for that section, and Resume continues the same recording, so a lecture, song or voice note can be captured in one file with breaks in the middle."
+      },
+      {
+        "q": "Why did the recorder say the microphone was blocked?",
+        "a": "The browser only hands the microphone to a page after you allow it. If you denied the prompt, or blocked it earlier, allow microphone access in the browser's site settings and try again — nothing was recorded while access was blocked."
+      },
+      {
+        "q": "May I record other people with this tool?",
+        "a": "Only with their permission. Recording laws differ by place, and recording a conversation without consent can be illegal. Record yourself freely; for anyone else, ask first."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (needs microphone permission)",
+      "Record, play back and download your audio",
+      "Recordings stay on your device unless you download/share them"
+    ]
+  },
+  "onlineNotepad": {
+    "faqs": [
+      {
+        "q": "Is this online notepad free? Is my text uploaded?",
+        "a": "Yes, free with no sign-up. Notes are saved only in this browser's local storage on this device and are never uploaded, stored on a server or shared by this tool."
+      },
+      {
+        "q": "Will my notes still be here when I come back?",
+        "a": "Yes, on the same browser and device, until you delete them or clear browser site data. They do not sync to another browser, phone or computer, and private browsing leaves nothing behind when the window closes."
+      },
+      {
+        "q": "How many notes can I keep, and can I download them?",
+        "a": "You can keep several titled notes in the note list and switch between them. Any note can be copied or downloaded as a plain .txt file; download important notes because browser storage is not a backup."
+      },
+      {
+        "q": "What happens when I clear all notes?",
+        "a": "Clearing asks for confirmation first, then deletes every note saved in this browser and starts one fresh empty note. Deleted notes cannot be recovered from the browser, so download anything you need beforehand."
+      },
+      {
+        "q": "Can I store passwords or important secrets in the notepad?",
+        "a": "No. Anyone who can open this browser on this device can read saved notes, and browser storage is not a password manager. Never keep passwords, recovery codes, bank or card details, or other secrets here."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (notes kept in this browser's storage)",
+      "Copy or download any note as a .txt file",
+      "Browser storage is not a backup — download important notes"
+    ]
+  },
+  "unitConverter": {
+    "faqs": [
+      {
+        "q": "Is this unit converter free?",
+        "a": "Yes. It is free with no sign-up. Ten categories — length, weight, temperature, volume, area, speed, time, data storage, pressure and energy — convert instantly in your browser."
+      },
+      {
+        "q": "Why is there no currency converter?",
+        "a": "Exchange rates change every day, so a money conversion without live rates would be a guess dressed up as an answer. This tool deliberately excludes currency; use your bank or a live-rate service for money."
+      },
+      {
+        "q": "How accurate are the conversions?",
+        "a": "They use established SI and NIST factors — 1 inch is exactly 2.54 cm and 1 pound is exactly 0.45359237 kg — and the formula is shown with every result. Results are rounded to sensible significant figures for everyday use."
+      },
+      {
+        "q": "Can I use these results for medical, engineering or aviation work?",
+        "a": "No. These are everyday conversions for school, cooking, travel and shopping. For medical dosing, engineering sign-off, aviation or anything safety-critical, verify professionally with the proper instruments."
+      },
+      {
+        "q": "Is anything I type uploaded or stored?",
+        "a": "No. Every calculation happens in your browser tab. Nothing is uploaded, stored on a server or shared by this tool."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "10 categories (length, weight, temperature, volume, area, speed, time, data, pressure, energy)",
+      "No currency — exchange rates need live data this tool deliberately avoids"
+    ]
+  },
+  "onlineTeleprompter": {
+    "faqs": [
+      {
+        "q": "Is this online teleprompter free? Does it record me?",
+        "a": "Free with no sign-up. It only scrolls text: it does not record video or audio, use your camera, or save your script anywhere. Record with a camera app you already trust while this page scrolls."
+      },
+      {
+        "q": "What is mirror mode for?",
+        "a": "Mirror mode flips the text for physical teleprompter glass, so it reads correctly in the reflection. On a normal screen the flipped text looks reversed, which is expected; turn it off for direct reading."
+      },
+      {
+        "q": "How does the speaking-time estimate work?",
+        "a": "Your word count is divided by a calm speaking pace of 150 words per minute, the same convention as this site's reading-time tools. Your real pace will differ, so rehearse once and adjust the scroll speed."
+      },
+      {
+        "q": "Can I pause the scrolling without the mouse?",
+        "a": "Yes. Press the Spacebar outside the script box to play or pause, the arrow keys to change speed, and use fullscreen for a distraction-free stage."
+      },
+      {
+        "q": "Is my script uploaded or stored?",
+        "a": "No. Your script is processed only in this browser tab and is gone when you close it."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser; it scrolls text and never records you",
+      "Mirror mode for teleprompter glass; speaking-time estimate at 150 wpm",
+      "Your script stays in this tab"
+    ]
+  },
+  "uuidGenerator": {
+    "faqs": [
+      {
+        "q": "Is this UUID generator free?",
+        "a": "Yes. It is free with no sign-up. Generate one UUID v4 or a bulk list of up to 100, with uppercase and hyphen options, and copy one or copy all."
+      },
+      {
+        "q": "Can two generated UUIDs ever be the same?",
+        "a": "A version 4 UUID carries 122 random bits, so a duplicate is astronomically unlikely — you would need to generate an enormous number before a collision became plausible. It is not mathematically impossible, and this page does not promise otherwise."
+      },
+      {
+        "q": "Why only version 4? What about version 1?",
+        "a": "Version 4 is purely random, which is what most databases, APIs and tests need. Version 1 embeds time and machine-style identifiers that can leak information, so this tool deliberately does not generate it."
+      },
+      {
+        "q": "Are my UUIDs uploaded or stored?",
+        "a": "No. UUIDs are generated on your device with the Web Crypto API (crypto.randomUUID, with a crypto.getRandomValues fallback). Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything."
+      },
+      {
+        "q": "Can I use a UUID as a password or secret token?",
+        "a": "No. A UUID is an identifier, not a secret. Use a password generator and a reputable password manager for credentials, and proper token systems for security-sensitive values."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: on your device (Web Crypto)",
+      "UUID v4, bulk up to 100, uppercase/hyphen options",
+      "A UUID is an identifier, not a password or secret"
+    ]
+  },
+  "timestampConverter": {
+    "faqs": [
+      {
+        "q": "How does it know seconds from milliseconds?",
+        "a": "In Auto mode, values of 1,000,000,000,000 or more are treated as milliseconds and smaller values as seconds. The assumed unit is always displayed and can be overridden."
+      },
+      {
+        "q": "Why do UTC and local time differ?",
+        "a": "A Unix timestamp is one instant in UTC. The local line renders the same instant in your device timezone, so the clock reading differs by your UTC offset. Both lines describe the same moment."
+      },
+      {
+        "q": "Is anything uploaded?",
+        "a": "No. All conversions run in your browser tab. Nothing is uploaded, stored or shared."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Seconds ⇄ milliseconds auto-detect (assumption always shown)",
+      "UTC and local lines shown side by side"
+    ]
+  },
+  "jsonToCsv": {
+    "faqs": [
+      {
+        "q": "How are nested objects flattened?",
+        "a": "Nested objects become dot-path columns (address.city). Lists of plain values are joined with '; ' in one cell; lists containing objects stay as compact JSON text in one cell so one record stays one row. The rule is printed on the page."
+      },
+      {
+        "q": "Why does Safe export add an apostrophe?",
+        "a": "A cell beginning with =, +, - or @ can be treated as a formula by Excel or Google Sheets. Safe export prefixes such fields with an apostrophe so they open as plain text instead of running as formulas."
+      },
+      {
+        "q": "Is anything uploaded?",
+        "a": "No. JSON is parsed and converted in your browser tab. Nothing is uploaded, stored or shared."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Nested objects become dot-path columns; Safe export guards formula injection",
+      "Your JSON is not uploaded"
+    ]
+  },
+  "regexTester": {
+    "faqs": [
+      {
+        "q": "Is this regex tester free?",
+        "a": "Yes. It is free with no sign-up. Write a pattern, toggle the g/i/m/s/u/y flags, and see highlighted matches, positions, captured groups and a replace preview. A small library of common patterns is included as starting points."
+      },
+      {
+        "q": "Which regex flavour does it use?",
+        "a": "JavaScript (ECMAScript), the RegExp engine in your browser. Regex dialects differ — lookbehind, named groups, Unicode behaviour and even what d matches can vary in Python, PHP, Java or PCRE. Treat a pass here as a strong draft and run the final check in the engine your code actually uses."
+      },
+      {
+        "q": "Why did matching stop, and why can a pattern be slow?",
+        "a": "To keep the tab responsive there are printed caps: patterns up to 1,000 characters, test text up to 20,000 characters, and matching stops after 1,000 matches. Separately, nested quantifiers such as (a+)+ can cause catastrophic backtracking and make any regex engine grind; test risky patterns on a few lines first."
+      },
+      {
+        "q": "Can I use the built-in patterns as validators?",
+        "a": "They are teaching examples and starting points, not guarantees. The IPv4 example accepts 999.1.1.1, and no email regex can replace the receiving server's own decision. For validation people depend on, add real checks behind the regex."
+      },
+      {
+        "q": "Is my pattern or text uploaded?",
+        "a": "No. Matching runs locally with the RegExp engine in your browser tab. Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (JavaScript RegExp engine)",
+      "Live matches, groups and find-replace preview",
+      "Dialects differ — verify in the engine your code really uses"
+    ]
+  },
+  "urlEncoder": {
+    "faqs": [
+      {
+        "q": "What is the difference between Full URL and Single value mode?",
+        "a": "Full URL mode (encodeURI/decodeURI) keeps : / ? & = # working as link structure and only fixes unsafe characters. Single value mode (encodeURIComponent/decodeURIComponent) encodes those characters too (%26, %3D, %3F), which is what one query value needs so its own & or = cannot split the link."
+      },
+      {
+        "q": "Why did decoding say the percent-encoding is invalid?",
+        "a": "There is a broken percent sign in the text: a trailing %, a short %2, a non-hex %ZZ, or bytes that are not valid UTF-8. The tool explains the problem instead of guessing a half-decoded result."
+      },
+      {
+        "q": "Is URL encoding encryption or security?",
+        "a": "No. Percent-encoding is transport formatting that anyone can reverse instantly. It hides nothing, so never put a password, API key or token in a URL expecting encoding to protect it."
+      },
+      {
+        "q": "Is anything uploaded?",
+        "a": "No. Conversion runs in your browser tab with the built-in encodeURI/encodeURIComponent functions. Nothing is uploaded, stored or shared."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Encode/decode URLs and query components",
+      "Nothing is uploaded"
+    ]
+  },
+  "utmLinkBuilder": {
+    "faqs": [
+      {
+        "q": "Which UTM parameters should every link have?",
+        "a": "At minimum utm_source, utm_medium and utm_campaign. utm_term is mainly for paid search keywords and utm_content separates versions that share one campaign."
+      },
+      {
+        "q": "Why lowercase and consistent UTM values?",
+        "a": "Most analytics tools are case-sensitive, so Facebook and facebook count as two sources, and one channel written three ways becomes three report rows. Use lowercase, hyphens or underscores instead of spaces, and the exact same spelling every time."
+      },
+      {
+        "q": "Can I put personal data in UTM values?",
+        "a": "Never put names, email addresses or other personal data in UTM values. Links are forwarded, logged and pasted into chats, so anything inside a URL travels. Label the campaign, never the person."
+      },
+      {
+        "q": "Does a correct UTM link guarantee correct reporting?",
+        "a": "No. Analytics must be installed on the landing page; consent mode or blockers can prevent recording; redirects can drop the query string; and some platforms strip parameters when a link is shared onward. Tag external links only."
+      },
+      {
+        "q": "Is anything uploaded?",
+        "a": "No. The link is built in your browser tab with encodeURIComponent, and saved presets stay on this device. Nothing is uploaded, stored on a server or shared."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Builds utm_source/medium/campaign/term/content with live preview",
+      "UTMs do not guarantee attribution — test the final link"
+    ]
+  },
+  "metaChecker": {
+    "faqs": [
+      {
+        "q": "Why show pixels as well as characters?",
+        "a": "Letters have different widths (WWW is wider than iii), so the same character count can take up different space. Google truncates closer to display width than to a fixed character number. The pixel figure here is an approximation from canvas measurement and is labelled approximate."
+      },
+      {
+        "q": "What length is good, and does it help ranking?",
+        "a": "Only display guidance can be given: about 30–60 characters for a title and 120–160 for a description on desktop, less on mobile. Fitting a band makes truncation less likely; it does not improve ranking, and Google sets no fixed limit."
+      },
+      {
+        "q": "Will Google show exactly what I typed?",
+        "a": "Often not. Google frequently rewrites titles and replaces descriptions with a snippet from page content, varying by query and device. No checker can guarantee display or ranking. Put important words first and treat any preview as a writing aid."
+      },
+      {
+        "q": "Should I add meta keywords?",
+        "a": "No. Google does not use the meta keywords tag for ranking. This checker deliberately ignores it."
+      },
+      {
+        "q": "Is anything uploaded?",
+        "a": "No. Counting and pixel measurement run in your browser tab. Nothing is uploaded, stored or shared."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (canvas pixel-width estimate)",
+      "Desktop + mobile SERP previews for title and description",
+      "Google often rewrites both — guidance only, never a ranking promise"
+    ]
+  },
+  "instagramLineBreak": {
+    "faqs": [
+      {
+        "q": "Why does Instagram remove my blank lines?",
+        "a": "Instagram's composer strips empty lines and trailing spaces when text is published, so paragraphs typed with blank lines between them collapse into one block. A line that contains an invisible character is not empty, so it survives."
+      },
+      {
+        "q": "What character does this tool put on blank lines?",
+        "a": "By default the Braille Pattern Blank U+2800, a real character that renders as blank space in fonts that support it. You can instead choose a visible dot divider (·) if you prefer a separator readers can see."
+      },
+      {
+        "q": "Is my caption uploaded anywhere?",
+        "a": "No. The conversion happens in your browser tab. Your text is not uploaded, stored on a server or shared by this tool, and closing the tab forgets everything."
+      },
+      {
+        "q": "Will the line breaks always survive on Instagram?",
+        "a": "No tool can promise that. Instagram can change how it treats these characters at any time, a few fonts show a box instead of a blank, and screen readers may read the blank character aloud. Check the preview after pasting before you publish."
+      },
+      {
+        "q": "Do the invisible characters count toward Instagram's limits?",
+        "a": "Yes. Instagram commonly limits captions to 2,200 characters and bios to 150, and spacer characters count toward those numbers. The tool shows the copied length so you can check before pasting."
+      },
+      {
+        "q": "Does this work for bios and comments too?",
+        "a": "The same trick works anywhere Instagram collapses blank lines: captions, bios and comments. Story text and some Reels fields behave differently, so test there first."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Adds clean line breaks for Instagram captions and bios",
+      "Instagram can change limits/rendering — check after pasting"
+    ]
+  },
+  "imageCompressor": {
+    "faqs": [
+      {
+        "q": "How does the image compressor work?",
+        "a": "It re-encodes JPG, PNG and WebP images in your browser at the quality you choose and shows the size before and after, so you can balance file size against how the image looks."
+      },
+      {
+        "q": "Is my image uploaded?",
+        "a": "No. Compression happens locally in your browser tab with canvas; your image is not sent to our server."
+      },
+      {
+        "q": "Why did the compressed file come out larger?",
+        "a": "If the original was already very small, re-encoding can make it bigger. The tool tells you honestly when that happens — keep your original in that case, or try a lower quality setting."
+      },
+      {
+        "q": "Is it free?",
+        "a": "Yes. It is free with no sign-up and no watermark."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser (canvas re-encode)",
+      "JPG, PNG and WebP with before/after sizes",
+      "Your image is not uploaded; no watermark"
+    ]
+  },
+  "pdfTools": {
+    "faqs": [
+      {
+        "q": "What can the PDF Tools do?",
+        "a": "Two jobs: merge several PDF files into one, and convert JPG or PNG images into a single PDF. Pick your files, arrange the order, and download the result."
+      },
+      {
+        "q": "Are my PDFs uploaded?",
+        "a": "No. Merging and conversion run entirely in your browser; your documents never leave your device."
+      },
+      {
+        "q": "Is it free?",
+        "a": "Yes. It is free with no sign-up and no watermark."
+      },
+      {
+        "q": "Any limits?",
+        "a": "Very large files are limited by your device's memory. This tool merges and converts; it does not edit PDF text or run OCR — for text from a scanned page, use the Image to Text tool."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Merge PDFs; convert JPG/PNG images to one PDF",
+      "Your documents are not uploaded"
+    ]
+  },
+  "audioToText": {
+    "faqs": [
+      {
+        "q": "Is this audio to text converter free?",
+        "a": "Yes. It is free with no sign-up and no per-minute charge. Transcription runs on your own device in your browser."
+      },
+      {
+        "q": "Is my audio uploaded anywhere?",
+        "a": "No. Your file is decoded and transcribed inside your browser tab. The only download is a one-time copy of the compact Whisper speech model (about 40 MB) from a public model library, which your browser then caches."
+      },
+      {
+        "q": "Which audio formats can I use?",
+        "a": "MP3, WAV, M4A and MP4 work well, plus any audio or video format your browser itself can play. If a file cannot be decoded, the tool says so plainly instead of guessing."
+      },
+      {
+        "q": "How accurate is the transcript?",
+        "a": "It is at its best with short, clear recordings: one speaker, little background noise, roughly a few minutes at a time. Long, noisy or multi-speaker recordings will contain more mistakes, and names and technical words are usually the first to go wrong. Always proofread before relying on the text."
+      },
+      {
+        "q": "Can I get subtitles for a video?",
+        "a": "Yes. After transcribing, download the .srt or .vtt export — both carry the model's timestamps as subtitle cues. If you edit the transcript text, the subtitle export falls back to one cue holding the edited text."
+      },
+      {
+        "q": "Does it work offline?",
+        "a": "After the first visit, the speech model is cached by your browser, so transcription keeps working without an internet connection. The very first transcription needs to be online to fetch the model."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up, no per-minute charge",
+      "Runs: on your device in the browser (Whisper model, ~40 MB one-time download)",
+      "Your audio is never uploaded",
+      "Accuracy depends on recording quality and language"
+    ]
+  },
+  "backgroundRemover": {
+    "faqs": [
+      {
+        "q": "How does the background remover work?",
+        "a": "An AI model runs directly in your browser (ONNX). The first use downloads the model once — a few tens of megabytes — and your browser caches it; after that, images are processed on your own device."
+      },
+      {
+        "q": "Is my photo uploaded?",
+        "a": "No. After the one-time model download, your photo is processed on your device and is not sent to our server."
+      },
+      {
+        "q": "What do I get?",
+        "a": "A transparent-background PNG at full resolution, free with no watermark and no sign-up."
+      },
+      {
+        "q": "Any limits?",
+        "a": "Fine hair, glass and busy edges can come out imperfect, and very large photos may be slow on low-end phones. A plain, well-lit background gives the cleanest result."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up, no watermark",
+      "Runs: on your device (AI model downloads once, then cached)",
+      "Output: full-resolution transparent PNG",
+      "Your photo is not uploaded"
+    ]
+  },
+  "voiceCloner": {
+    "faqs": [
+      {
+        "q": "What works right now on the AI Voice Cloner page?",
+        "a": "Free, natural-sounding text-to-speech voices that run in your browser: type text, pick a voice, and listen or save the audio. The first use downloads a compact voice model (about 90 MB) and caches it on your device."
+      },
+      {
+        "q": "Can it clone my own voice today?",
+        "a": "Not yet — honestly. Cloning your own voice needs a server GPU, and that part is still being connected; the page says 'server not connected' instead of pretending. Free voices work now; cloning arrives only when it can be done properly."
+      },
+      {
+        "q": "Is it free?",
+        "a": "The built-in voices are free with no sign-up. When voice cloning launches it will be a paid extra (a server costs money to run), and the free voices will stay free."
+      },
+      {
+        "q": "Which languages do the free voices speak?",
+        "a": "The free voices are English voices. We do not claim Urdu or other-language cloning that the underlying technology does not officially support."
+      },
+      {
+        "q": "Is my text or voice uploaded?",
+        "a": "The free voices generate speech on your device; your text is not uploaded for them. Nothing about cloning is collected while that feature is paused."
+      }
+    ],
+    "facts": [
+      "Free built-in voices — no sign-up (voice model ~90 MB, cached on device)",
+      "Own-voice cloning: not yet available — server still being connected, stated honestly on the page",
+      "Free voices are English voices; no unsupported-language clone is claimed",
+      "Free-voice speech is generated on your device"
+    ]
+  },
+  "museAiHub": {
+    "faqs": [
+      {
+        "q": "Which countries is Muse AI available in?",
+        "a": "Based on Meta's own announcements checked on 10 October 2026: the United States (launch, 8 September 2026) and Canada (confirmed 29 September 2026). Meta has announced no other launch country and no launch dates for anywhere else."
+      },
+      {
+        "q": "Is Muse AI available in Pakistan or India?",
+        "a": "Not yet. Meta has announced only the United States and Canada (checked 10 October 2026) and has published no date for Pakistan or India. Sign in at muse.ai to see whether a waitlist opens for your region."
+      },
+      {
+        "q": "What is the difference between Muse and Meta AI?",
+        "a": "Meta AI is the assistant inside Meta's apps (WhatsApp, Instagram, Facebook, Messenger) — you ask it something and it answers. Muse is Meta's newer personal agent that can take a goal, research across sources, plan steps, and work on tasks for you. They are two different products."
+      },
+      {
+        "q": "Is Muse free?",
+        "a": "Meta's official FAQ says Muse is available for free with a usage limit. If you hit that limit you can upgrade to a paid subscription for a higher limit or wait for the free limit to refresh. Meta had not published exact paid-plan amounts on its public pages as of 10 October 2026."
+      },
+      {
+        "q": "What are Muse tokens? Can I buy '1 billion tokens'?",
+        "a": "Tokens are units of usage — they measure how much work Muse does for you, like minutes on a phone plan. They are not money and not cryptocurrency. Third-party blogs claim '1 billion token' invite codes, but Meta's official pages publish no such programme. Never give your Meta login to a site promising tokens."
+      },
+      {
+        "q": "How do I join the official waitlist?",
+        "a": "Go to muse.ai and sign in with your Meta account. If a waitlist is offered for your country you will see it there. That is the only official route; nobody legitimate sells or swaps waitlist positions."
+      },
+      {
+        "q": "Can I use a VPN or a friend's foreign account to get Muse early?",
+        "a": "We do not recommend it, and this page never teaches ways around the launch regions: using a service from a country where it has not launched can break Meta's terms and put your Meta account at risk. The safe route is the official waitlist."
+      },
+      {
+        "q": "When will Muse launch in my country?",
+        "a": "Meta has not announced dates beyond the United States and Canada. ToolVena's checker marks every other country 'not yet' and updates the moment Meta's official pages change."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Type: independent information hub (not affiliated with Meta)",
+      "Availability data checked against Meta's official pages (10 Oct 2026)",
+      "No VPN or bypass advice is given, ever"
+    ]
+  },
+  "cleaner": {
+    "faqs": [
+      {
+        "q": "What does the Cliché Cleaner do?",
+        "a": "It scans your text for repeated stock phrases that can make writing feel formulaic — phrases like 'delve', 'rich tapestry', 'testament to' or 'pivotal role' — and suggests plainer wording in your own voice."
+      },
+      {
+        "q": "Does a flagged phrase prove AI wrote my text?",
+        "a": "No. People use these phrases too. A flag only means the phrase is overused; whether to change it is an editing decision, not a verdict on authorship."
+      },
+      {
+        "q": "Is it free? Is my text uploaded?",
+        "a": "Yes, it is free with no sign-up and runs in your browser; your text is not uploaded by this tool."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Flags overused stock phrases and suggests plainer wording",
+      "A flagged phrase never proves how a text was written"
+    ]
+  },
+  "diff": {
+    "faqs": [
+      {
+        "q": "What does the diff checker's similarity score mean?",
+        "a": "It calculates word-level similarity between two texts you provide and highlights exactly which words were added, removed or kept. A lower similarity score means more of the wording was altered. It is a comparison aid, not a prediction of any detector's verdict."
+      },
+      {
+        "q": "Is this a plagiarism checker?",
+        "a": "No. It compares two texts you paste against each other; it does not search the web or any database, and it cannot say where a text came from."
+      },
+      {
+        "q": "Is it free? Is my text uploaded?",
+        "a": "Yes, it is free with no sign-up and the comparison runs in your browser."
+      }
+    ],
+    "facts": [
+      "Price: Free — no sign-up",
+      "Runs: in your browser",
+      "Word-level diff and similarity % between two texts you paste",
+      "Not a plagiarism or detector verdict"
+    ]
+  }
+}

@@ -234,7 +234,7 @@ export const HOME_FAQS = [
   },
   {
     q: "Which languages is ToolVena available in?",
-    a: "ToolVena is available in 11 languages: English, Spanish, Urdu, German, French, Portuguese, Italian, Turkish, Japanese, Norwegian and Dutch. Use the language menu at the top of any page, or pick your language below.",
+    a: "ToolVena is available in 13 languages: English, Spanish, Urdu (in both Roman and Urdu script), German, French, Portuguese, Italian, Turkish, Japanese, Norwegian, Dutch and Russian. Use the language menu at the top of any page, or pick your language below.",
   },
   {
     q: "Do the tools work on a phone?",

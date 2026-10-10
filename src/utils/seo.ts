@@ -1,6 +1,7 @@
 import { ActivePage, LanguageCode } from "../types";
 import { BLOG_POSTS, BlogPost } from "../data/blogArticles";
 import { TRANSLATIONS } from "../data/translations";
+import TOOL_FAQS from "../data/toolFaqs.json";
 
 export interface PageSeoConfig {
   title: string;
@@ -14,7 +15,7 @@ export interface PageSeoConfig {
 export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   home: {
     title: "ToolVena – Free Online Tools, No Sign-Up",
-    description: "ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser, in 12 languages.",
+    description: "ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser, in 13 languages.",
     canonicalPath: "/",
     ogType: "website",
     schemaType: "WebPage",
@@ -482,7 +483,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   },
   about: {
     title: "About Us – ToolVena",
-    description: "ToolVena provides free online tools for writing, text, images, PDFs and everyday tasks in 12 languages.",
+    description: "ToolVena provides free online tools for writing, text, images, PDFs and everyday tasks in 13 languages.",
     canonicalPath: "/about/",
     ogType: "website",
     schemaType: "WebPage",
@@ -816,13 +817,13 @@ export function applyPageSeo(
   setMeta("og:url", canonicalUrl, true);
   setMeta("og:type", blogPost ? "article" : baseConfig.ogType, true);
   setMeta("og:site_name", "ToolVena", true);
-  setMeta("og:image", `${origin}/pwa-512x512.png`, true);
+  setMeta("og:image", blogPost?.image ? `${origin}${blogPost.image}` : `${origin}/pwa-512x512.png`, true);
 
   // 6. Twitter / X Cards
   setMeta("twitter:card", "summary_large_image");
   setMeta("twitter:title", title);
   setMeta("twitter:description", description);
-  setMeta("twitter:image", `${origin}/pwa-512x512.png`);
+  setMeta("twitter:image", blogPost?.image ? `${origin}${blogPost.image}` : `${origin}/pwa-512x512.png`);
 
   // 7. Dynamic Self-Referencing Canonical Link
   let canonicalEl = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -953,6 +954,7 @@ function updateJsonLd(
       "@type": "Article",
       "headline": blogPost.title,
       "description": blogPost.summary,
+      "image": blogPost.image ? `${origin}${blogPost.image}` : undefined,
       "author": {
         "@type": blogPost.author && blogPost.author.includes("Editorial Team") ? "Organization" : "Person",
         "name": blogPost.author,
@@ -1003,7 +1005,7 @@ function updateJsonLd(
       { q: "Do I need to create an account?", a: "No. Open any tool and use it straight away — there is no account to create, no password to remember and no email gate before a result." },
       { q: "Are my files or text uploaded to a server?", a: "Most ToolVena tools run entirely in your browser, on your own device, so the text and files you work with never leave your device. A few optional AI-assisted features need a server to work; when one does, the tool says so before you use it." },
       { q: "Why is it free — what is the catch?", a: "There is no hidden catch in the tools themselves: because most of them run on your own device's processor instead of an expensive server, they cost very little to keep online. The site is supported by advertising and, in future, optional paid extras that will be clearly labelled." },
-      { q: "Which languages is ToolVena available in?", a: "ToolVena is available in 12 languages: English, Spanish, Urdu, German, French, Portuguese, Italian, Turkish, Japanese, Norwegian, Dutch and Russian. Use the language menu at the top of any page, or pick your language below." },
+      { q: "Which languages is ToolVena available in?", a: "ToolVena is available in 13 languages: English, Spanish, Urdu (in both Roman and Urdu script), German, French, Portuguese, Italian, Turkish, Japanese, Norwegian, Dutch and Russian. Use the language menu at the top of any page, or pick your language below." },
       { q: "Do the tools work on a phone?", a: "Yes. The pages are built mobile-first and most tools work in a phone browser. A few heavier tools (like background removal) download a small model the first time you use them, then run on the device itself." },
     ];
     const homeSeo = (TRANSLATIONS[lang] || TRANSLATIONS.en).seo as
@@ -1023,93 +1025,7 @@ function updateJsonLd(
     });
   }
 
-  // Include FAQPage schema on tools
-  if (
-    page === "humanizer" ||
-    page === "detector" ||
-    page === "citation" ||
-    page === "expander" ||
-    page === "cleaner" ||
-    page === "diff"
-  ) {    const faqEntities: any[] = [
-      {
-        "@type": "Question",
-        "name": "How does ToolVena make AI text sound more natural?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ToolVena varies sentence length and rhythm, replaces common AI-style clichés with plainer wording, and adds natural contractions where they fit. Results vary by text, and no tool can guarantee a specific detector score.",
-        },
-      },
-      {
-        "@type": "Question",
-        "name": "Is ToolVena free to use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. ToolVena's tools are free to use and no account sign-up is required. The humanizer editor accepts up to 3,000 words at a time, so split longer documents into sections.",
-        },
-      },
-      {
-        "@type": "Question",
-        "name": "My AI-generated text sounds robotic — how do I fix it?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Robotic text usually comes from uniform sentence lengths and overused phrases. Vary your sentence rhythm, swap stiff connectors (furthermore, moreover) for natural ones, and read the text aloud. A humanizer tool can automate those patterns — always review the rewritten result.",
-        },
-      },
-      {
-        "@type": "Question",
-        "name": "How can I check whether my essay sounds like AI?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "An AI writing detector analyzes sentence-length variety, cliché density, and natural phrasing markers, then highlights sentences that read as robotic. Such scores are heuristic estimates, not official verdicts of any institutional detector.",
-        },
-      },
-    ];
 
-    if (page === "citation") {
-      faqEntities.push({
-        "@type": "Question",
-        "name": "How do I use generated citations to avoid plagiarism flags?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The generator structures references according to official APA 7th, MLA 9th, Chicago 17th, and Harvard style guides. Always verify each generated reference against the official style manual and your institution's requirements before submitting.",
-        },
-      });
-    } else if (page === "expander") {
-      faqEntities.push({
-        "@type": "Question",
-        "name": "How does sentence expansion change readability metrics?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Expanding concise points with causal evidence and varied sentence lengths increases sentence-length variance (burstiness) and readability depth. Results vary by text and detector, and no tool can guarantee a specific detection score.",
-        },
-      });
-    } else if (page === "cleaner") {
-      faqEntities.push({
-        "@type": "Question",
-        "name": "Which phrases can make writing sound formulaic?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Repeated stock phrases such as 'delve', 'rich tapestry', 'testament to', 'pivotal role' and 'crucial' can make prose feel formulaic. Rewriting them in your own words can make the text clearer. No single phrase proves how a text was written.",
-        },
-      });
-    } else if (page === "diff") {
-      faqEntities.push({
-        "@type": "Question",
-        "name": "What does the diff checker's similarity score mean?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "It calculates word-level similarity between your original draft and the rewritten text, showing exactly which words changed. A lower similarity score means more of the wording was altered. This is a text-comparison aid, not a prediction of any detector's verdict.",
-        },
-      });
-    }
-
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqEntities,
-    });
-  }
 
 
   // Homepage: ItemList of popular tools + honest FAQ
@@ -1143,24 +1059,14 @@ function updateJsonLd(
         { "@type": "Question", "name": "Are ToolVena tools really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tools on ToolVena are free to open and use, and no account sign-up is required. Optional AI-assisted features are clearly labelled where they appear." } },
         { "@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "No. You can open a tool and use it straight away. There is no account to create and no password to remember." } },
         { "@type": "Question", "name": "Is my text or file uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "Most ToolVena tools run entirely in your browser on your own device, so your text and files stay with you. Where an optional AI feature needs a server, the tool says so before you use it." } },
-        { "@type": "Question", "name": "Which languages does ToolVena support?", "acceptedAnswer": { "@type": "Answer", "text": "ToolVena is available in 12 languages, including English, Spanish, Urdu, German, French, Turkish, Portuguese, Japanese, Norwegian, Dutch, Italian and Russian. Use the language menu at the top of any page." } },
+        { "@type": "Question", "name": "Which languages does ToolVena support?", "acceptedAnswer": { "@type": "Answer", "text": "ToolVena is available in 13 languages, including English, Spanish, Urdu (in Roman and Urdu script), German, French, Turkish, Portuguese, Japanese, Norwegian, Dutch, Italian and Russian. Use the language menu at the top of any page." } },
       ],
     });
   }
 
   // Unix Timestamp Converter: FAQ + HowTo (unit assumption + UTC/local honesty)
   if (page === "timestampConverter" && !blogPost) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", name: "Is this Unix timestamp converter free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. The live epoch clock, timestamp-to-date and date-to-timestamp conversions all run in your browser." } },
-        { "@type": "Question", name: "How does it know seconds from milliseconds?", acceptedAnswer: { "@type": "Answer", text: "In Auto mode, values of 1,000,000,000,000 or more are treated as milliseconds and smaller values as seconds — the rule most current-era timestamps follow. The assumed unit is always displayed, and you can override it with the Seconds / Milliseconds selector." } },
-        { "@type": "Question", name: "Why do UTC and my local time differ?", acceptedAnswer: { "@type": "Answer", text: "A Unix timestamp identifies one instant in UTC. Your local line renders that same instant in your device timezone, so the clock reading differs by your UTC offset (and daylight saving). Neither line is wrong; they are two readings of one instant." } },
-        { "@type": "Question", name: "What does the date picker assume?", acceptedAnswer: { "@type": "Answer", text: "A date-time picker value has no timezone, so you choose As my local time or As UTC. The outputs (seconds, milliseconds and ISO 8601) follow that choice; mixing the two up is the usual cause of results that are wrong by a few hours." } },
-        { "@type": "Question", name: "Is anything I paste uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. Every calculation happens in your browser tab with the JavaScript Date object. Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
-      ],
-    });
+    
     schemas.push({
       "@context": "https://schema.org",
       "@type": "HowTo",
@@ -1176,37 +1082,7 @@ function updateJsonLd(
 
   // Unit Converter: FAQ + HowTo (honest, no currency, safety note)
   if (page === "unitConverter" && !blogPost) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is this unit converter free?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is free with no sign-up. Ten categories — length, weight, temperature, volume, area, speed, time, data storage, pressure and energy — convert instantly in your browser." },
-        },
-        {
-          "@type": "Question",
-          "name": "Why is there no currency converter?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Exchange rates change every day, so a money conversion without live rates would be a guess dressed up as an answer. This tool deliberately excludes currency; use your bank or a live-rate service for money." },
-        },
-        {
-          "@type": "Question",
-          "name": "How accurate are the conversions?",
-          "acceptedAnswer": { "@type": "Answer", "text": "They use established SI and NIST factors — 1 inch is exactly 2.54 cm and 1 pound is exactly 0.45359237 kg — and the formula is shown with every result. Results are rounded to sensible significant figures for everyday use." },
-        },
-        {
-          "@type": "Question",
-          "name": "Can I use these results for medical, engineering or aviation work?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. These are everyday conversions for school, cooking, travel and shopping. For medical dosing, engineering sign-off, aviation or anything safety-critical, verify professionally with the proper instruments." },
-        },
-        {
-          "@type": "Question",
-          "name": "Is anything I type uploaded or stored?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Every calculation happens in your browser tab. Nothing is uploaded, stored on a server or shared by this tool." },
-        },
-      ],
-    });
+    
     schemas.push({
       "@context": "https://schema.org",
       "@type": "HowTo",
@@ -1222,17 +1098,7 @@ function updateJsonLd(
 
   // Online Teleprompter: FAQ + HowTo (text only, mirror warning, no recording)
   if (page === "onlineTeleprompter" && !blogPost) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", name: "Is this online teleprompter free? Does it record me?", acceptedAnswer: { "@type": "Answer", text: "Free with no sign-up. It only scrolls text: it does not record video or audio, use your camera, or save your script anywhere. Record with a camera app you already trust while this page scrolls." } },
-        { "@type": "Question", name: "What is mirror mode for?", acceptedAnswer: { "@type": "Answer", text: "Mirror mode flips the text for physical teleprompter glass, so it reads correctly in the reflection. On a normal screen the flipped text looks reversed, which is expected; turn it off for direct reading." } },
-        { "@type": "Question", name: "How does the speaking-time estimate work?", acceptedAnswer: { "@type": "Answer", text: "Your word count is divided by a calm speaking pace of 150 words per minute, the same convention as this site's reading-time tools. Your real pace will differ, so rehearse once and adjust the scroll speed." } },
-        { "@type": "Question", name: "Can I pause the scrolling without the mouse?", acceptedAnswer: { "@type": "Answer", text: "Yes. Press the Spacebar outside the script box to play or pause, the arrow keys to change speed, and use fullscreen for a distraction-free stage." } },
-        { "@type": "Question", name: "Is my script uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. Your script is processed only in this browser tab and is gone when you close it." } },
-      ],
-    });
+    
     schemas.push({
       "@context": "https://schema.org",
       "@type": "HowTo",
@@ -1248,17 +1114,7 @@ function updateJsonLd(
 
   // UUID Generator: FAQ + HowTo (v4 only, honest collision note, fully local)
   if (page === "uuidGenerator" && !blogPost) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", name: "Is this UUID generator free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Generate one UUID v4 or a bulk list of up to 100, with uppercase and hyphen options, and copy one or copy all." } },
-        { "@type": "Question", name: "Can two generated UUIDs ever be the same?", acceptedAnswer: { "@type": "Answer", text: "A version 4 UUID carries 122 random bits, so a duplicate is astronomically unlikely — you would need to generate an enormous number before a collision became plausible. It is not mathematically impossible, and this page does not promise otherwise." } },
-        { "@type": "Question", name: "Why only version 4? What about version 1?", acceptedAnswer: { "@type": "Answer", text: "Version 4 is purely random, which is what most databases, APIs and tests need. Version 1 embeds time and machine-style identifiers that can leak information, so this tool deliberately does not generate it." } },
-        { "@type": "Question", name: "Are my UUIDs uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. UUIDs are generated on your device with the Web Crypto API (crypto.randomUUID, with a crypto.getRandomValues fallback). Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
-        { "@type": "Question", name: "Can I use a UUID as a password or secret token?", acceptedAnswer: { "@type": "Answer", text: "No. A UUID is an identifier, not a secret. Use a password generator and a reputable password manager for credentials, and proper token systems for security-sensitive values." } },
-      ],
-    });
+    
     schemas.push({
       "@context": "https://schema.org",
       "@type": "HowTo",
@@ -1274,17 +1130,7 @@ function updateJsonLd(
 
   // JSON to CSV Converter: FAQ + HowTo (flattening rule + formula-injection safety)
   if (page === "jsonToCsv" && !blogPost) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", name: "Is this JSON to CSV converter free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Paste or upload JSON, preview the flattened table, choose comma, semicolon or tab, then download or copy the CSV." } },
-        { "@type": "Question", name: "How are nested objects and arrays flattened?", acceptedAnswer: { "@type": "Answer", text: "Nested objects become dot-path columns, so address.city is one column. A list of plain values is joined with '; ' inside one cell. A list that contains objects stays as compact JSON text in one cell, because one JSON record always stays one CSV row. There is no single correct flattening, so the rule is printed on the page." } },
-        { "@type": "Question", name: "Why do some fields start with an apostrophe in the CSV?", acceptedAnswer: { "@type": "Answer", text: "That is Safe export. A cell beginning with =, +, - or @ can be treated as a formula by Excel or Google Sheets (formula injection). Safe export prefixes such fields with an apostrophe so they open as plain text. Turn it off only if you truly want those fields to act as formulas." } },
-        { "@type": "Question", name: "What JSON shapes can it convert?", acceptedAnswer: { "@type": "Answer", text: "An array of objects converts best: one object becomes one row. A single object becomes one row. A list of plain values becomes one 'value' column. A single number, text value or true/false cannot become a table and returns a plain-language explanation instead." } },
-        { "@type": "Question", name: "Is my JSON uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. The JSON is parsed in your browser tab with JSON.parse and converted locally. Nothing is uploaded, stored on a server or shared, and closing the tab forgets it. Still, keep real passwords and API keys out of every web tool." } },
-      ],
-    });
+    
     schemas.push({
       "@context": "https://schema.org",
       "@type": "HowTo",
@@ -1300,17 +1146,7 @@ function updateJsonLd(
 
   // Regex Tester: FAQ + HowTo (JavaScript flavour, honest caps, slow-pattern guidance)
   if (page === "regexTester" && !blogPost) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", name: "Is this regex tester free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Write a pattern, toggle the g/i/m/s/u/y flags, and see highlighted matches, positions, captured groups and a replace preview. A small library of common patterns is included as starting points." } },
-        { "@type": "Question", name: "Which regex flavour does it use?", acceptedAnswer: { "@type": "Answer", text: "JavaScript (ECMAScript), the RegExp engine in your browser. Regex dialects differ — lookbehind, named groups, Unicode behaviour and even what \d matches can vary in Python, PHP, Java or PCRE. Treat a pass here as a strong draft and run the final check in the engine your code actually uses." } },
-        { "@type": "Question", name: "Why did matching stop, and why can a pattern be slow?", acceptedAnswer: { "@type": "Answer", text: "To keep the tab responsive there are printed caps: patterns up to 1,000 characters, test text up to 20,000 characters, and matching stops after 1,000 matches. Separately, nested quantifiers such as (a+)+ can cause catastrophic backtracking and make any regex engine grind; test risky patterns on a few lines first." } },
-        { "@type": "Question", name: "Can I use the built-in patterns as validators?", acceptedAnswer: { "@type": "Answer", text: "They are teaching examples and starting points, not guarantees. The IPv4 example accepts 999.1.1.1, and no email regex can replace the receiving server's own decision. For validation people depend on, add real checks behind the regex." } },
-        { "@type": "Question", name: "Is my pattern or text uploaded?", acceptedAnswer: { "@type": "Answer", text: "No. Matching runs locally with the RegExp engine in your browser tab. Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
-      ],
-    });
+    
     schemas.push({
       "@context": "https://schema.org",
       "@type": "HowTo",
@@ -1326,18 +1162,7 @@ function updateJsonLd(
 
   // UTM Link Builder: FAQ + HowTo (naming consistency, personal-data warning, no attribution guarantee)
   if (page === "utmLinkBuilder" && !blogPost) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", name: "Is this UTM link builder free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Build a tagged campaign URL with source, medium, campaign and optional term and content, preview it live and copy it in one click. Presets are saved only on your device." } },
-        { "@type": "Question", name: "Which UTM parameters should every link have?", acceptedAnswer: { "@type": "Answer", text: "At minimum utm_source (where the traffic comes from), utm_medium (the kind of channel) and utm_campaign (the specific campaign). utm_term is mainly for paid search keywords and utm_content separates versions that share one campaign, such as two buttons in one email." } },
-        { "@type": "Question", name: "Why must UTM values be lowercase and consistent?", acceptedAnswer: { "@type": "Answer", text: "Most analytics tools are case-sensitive, so Facebook and facebook are counted as two different sources, and one channel written three ways becomes three separate report rows. Pick lowercase spellings once, use hyphens or underscores instead of spaces, and reuse the exact same values — presets on this page exist for that habit." } },
-        { "@type": "Question", name: "Can I put a name or email address in a UTM value?", acceptedAnswer: { "@type": "Answer", text: "Never. Links are forwarded, screenshotted, logged and pasted into chats, so personal data inside a URL travels with it. Label the campaign, never the person." } },
-        { "@type": "Question", name: "Does a correct UTM link guarantee my analytics will show the campaign?", acceptedAnswer: { "@type": "Answer", text: "No. Analytics must be installed on the landing page, consent mode or blockers can prevent recording, a redirect can drop the query string, and some platforms strip parameters when a link is shared onward. UTMs also belong only on external links; tagging links inside your own site overwrites the visitor's real source." } },
-        { "@type": "Question", name: "Is anything I type uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. The link is built in your browser tab and values are encoded with encodeURIComponent. Saved presets stay in this browser on this device and are never uploaded or shared." } },
-      ],
-    });
+    
     schemas.push({
       "@context": "https://schema.org",
       "@type": "HowTo",
@@ -1353,18 +1178,7 @@ function updateJsonLd(
 
   // Meta Title & Description Length Checker: FAQ + HowTo (display guidance only, Google rewrites, no ranking guarantee)
   if (page === "metaChecker" && !blogPost) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", name: "Is this meta title and description length checker free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Type a title and a description and see live character counts, an approximate pixel-width estimate and desktop and mobile SERP previews. Everything runs in your browser tab." } },
-        { "@type": "Question", name: "Why show pixels as well as characters?", acceptedAnswer: { "@type": "Answer", text: "Letters are not the same width: WWW is far wider than iii, so two texts with the same character count can take up very different space in a search result. Google truncates closer to display width than to a universal character number, which is why this checker measures both. The pixel figure is an approximation, measured here with canvas text measurement at common SERP sizes, and is labelled approximate." } },
-        { "@type": "Question", name: "What length is \"good\"?", acceptedAnswer: { "@type": "Answer", text: "Only display guidance can be given. Common editing ranges are about 30–60 characters for a title and about 120–160 characters for a description on desktop, with less room on mobile. Staying inside a band makes truncation less likely; it does not improve ranking, and Google sets no fixed character limit." } },
-        { "@type": "Question", name: "Will Google show exactly what I typed?", acceptedAnswer: { "@type": "Answer", text: "Often not. Google frequently rewrites titles and replaces descriptions with a snippet taken from page content, depending on the query and device. No checker can guarantee how a result will display or rank. Write a clear title and description, put the important words first, and treat any preview as a writing aid." } },
-        { "@type": "Question", name: "Should I add meta keywords?", acceptedAnswer: { "@type": "Answer", text: "No. The old meta keywords tag is not used by Google for ranking and this checker deliberately does not ask for it. Focus on an accurate title, a helpful description and page content that matches them." } },
-        { "@type": "Question", name: "Is anything I type uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. Counting and pixel measurement happen in your browser tab. Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
-      ],
-    });
+    
     schemas.push({
       "@context": "https://schema.org",
       "@type": "HowTo",
@@ -1380,17 +1194,7 @@ function updateJsonLd(
 
   // URL Encoder / Decoder: FAQ + HowTo (two modes, honest "not encryption" note, fully local)
   if (page === "urlEncoder" && !blogPost) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", name: "Is this URL encoder and decoder free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up. Encode or decode a full URL or a single query value, copy the result or swap it back — all in your browser." } },
-        { "@type": "Question", name: "What is the difference between Full URL and Single value mode?", acceptedAnswer: { "@type": "Answer", text: "Full URL mode (encodeURI/decodeURI) keeps the link structure characters : / ? & = # working and only fixes unsafe characters, so a complete link stays a link. Single value mode (encodeURIComponent/decodeURIComponent) encodes those characters too (%26, %3D, %3F), which is what one query value needs so its own & or = cannot split the link into stray parameters." } },
-        { "@type": "Question", name: "Why did decoding say the percent-encoding is invalid?", acceptedAnswer: { "@type": "Answer", text: "Somewhere in the text there is a broken percent sign: a trailing %, a short sequence like %2, a non-hex sequence like %ZZ, or encoded bytes that do not form valid UTF-8 text. The tool stops and explains instead of guessing a half-decoded result; fix or remove that sequence and the decoded text appears." } },
-        { "@type": "Question", name: "Is URL encoding a way to hide or protect data?", acceptedAnswer: { "@type": "Answer", text: "No. Percent-encoding is formatting for transport: anyone can decode %26 back into & instantly, with this tool. It is not encryption and gives no security, so never place a password, API key, token or secret in a URL expecting encoding to protect it." } },
-        { "@type": "Question", name: "Is anything I paste uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "No. Conversion runs in your browser tab with the built-in encodeURI/encodeURIComponent functions. Nothing is uploaded, stored on a server or shared, and closing the tab forgets everything." } },
-      ],
-    });
+    
     schemas.push({
       "@context": "https://schema.org",
       "@type": "HowTo",
@@ -1431,6 +1235,25 @@ function updateJsonLd(
           text: "Click Humanize Text, review the rewritten result and copy it.",
         },
       ],
+    });
+  }
+
+  // Tool FAQPage schema — single source of truth: src/data/toolFaqs.json.
+  // The visible "Quick facts + Common questions" section on English tool
+  // pages (ToolFaqSection) renders exactly these questions and answers,
+  // so schema text and page text always match. English batch first;
+  // other languages follow in their own batches.
+  const toolFaqEntry = (TOOL_FAQS as Record<string, { faqs: { q: string; a: string }[] }>)[page];
+  if (lang === "en" && !blogPost && toolFaqEntry && toolFaqEntry.faqs.length) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: "en",
+      mainEntity: toolFaqEntry.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
     });
   }
 
