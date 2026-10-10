@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MobileToolHero } from "./MobileToolHero";
-import { GitCompare, Copy, Check, Sparkles, ArrowRight, ShieldCheck, CheckCircle2, AlertTriangle } from "lucide-react";
+import { GitCompare, Copy, Check, Sparkles, ArrowRight, ShieldCheck, CheckCircle2, AlertTriangle, Eraser } from "lucide-react";
 import { calculateTextDiff } from "../utils/localEngines";
 import { LanguageCode } from "../types";
 import { TRANSLATIONS } from "../data/translations";
@@ -15,6 +15,7 @@ export function DiffCheckerWorkspace({
   onSendToHumanizer,
 }: DiffCheckerWorkspaceProps) {
   const t = TRANSLATIONS[selectedLanguage] || TRANSLATIONS.en;
+  const dc = (t as any).diffChecker || {};
 
   const [origText, setOrigText] = useState<string>(
     "Artificial intelligence creates efficiencies across modern industries. Moreover, it is crucial to recognize that automated workflows enhance productivity. In conclusion, companies must adopt these technologies."
@@ -96,9 +97,14 @@ export function DiffCheckerWorkspace({
               <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
               <h3 className="text-sm font-bold text-stone-900">Original Text (Before)</h3>
             </div>
-            <span className="text-xs text-stone-500 font-mono">
-              {origText.trim().split(/\s+/).filter(Boolean).length} words
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-stone-500 font-mono">
+                {origText.trim().split(/\s+/).filter(Boolean).length} words
+              </span>
+              <button onClick={() => setOrigText("")} disabled={!origText} className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-rose-50 text-rose-700 text-xs font-bold hover:bg-rose-100 disabled:opacity-50 cursor-pointer">
+                <Eraser className="w-4 h-4" /> {dc.clearBtn || "Clear"}
+              </button>
+            </div>
           </div>
 
           <textarea
@@ -116,9 +122,14 @@ export function DiffCheckerWorkspace({
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
               <h3 className="text-sm font-bold text-stone-900">Revised Text (After)</h3>
             </div>
-            <span className="text-xs text-stone-500 font-mono">
-              {humanText.trim().split(/\s+/).filter(Boolean).length} words
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-stone-500 font-mono">
+                {humanText.trim().split(/\s+/).filter(Boolean).length} words
+              </span>
+              <button onClick={() => setHumanText("")} disabled={!humanText} className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-rose-50 text-rose-700 text-xs font-bold hover:bg-rose-100 disabled:opacity-50 cursor-pointer">
+                <Eraser className="w-4 h-4" /> {dc.clearBtn || "Clear"}
+              </button>
+            </div>
           </div>
 
           <textarea

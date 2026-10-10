@@ -19,7 +19,7 @@ const ALL_LANGS: LanguageCode[] = ["en", "es", "ur", "de", "fr", "tr", "pt", "ja
 const LANG_NAMES: Record<LanguageCode, string> = {
   en: "English",
   es: "Español",
-  ur: "Roman Urdu",
+  ur: "Roman Urdu", "ur-pk": "اردو",
   de: "Deutsch",
   fr: "Français",
   tr: "Türkçe",
@@ -28,6 +28,7 @@ const LANG_NAMES: Record<LanguageCode, string> = {
   no: "Norsk",
   nl: "Nederlands",
   it: "Italiano",
+  ru: "Русский",
 };
 
 // Original practice passages written for this tool (3 per language).
@@ -47,6 +48,10 @@ const PASSAGES: Record<LanguageCode, string[]> = {
     "Subah ka bazaar bohat jaldi khul jata hai, jab galiyan abhi khaamosh hoti hain. Dukandaar apni dukaan sajata hai, naan wala tandoor se garam naan nikaalta hai aur khushboo poori gali mein phail jati hai. Thori dair mein log ana shuru ho jate hain, koi sabzi leta hai, koi phal, aur sab hasb e mamool apna kaam karte rehte hain.",
     "Keyboard par tez likhna ek hunar hai jo roz ki mashq se aata hai. Pehle pehle ungliyan slow hoti hain aur har lafz par ghalti hoti hai, lekin pareshan hone ki zaroorat nahi. Roz sirf das minute ki mashq se haathon ko key ka rasta yaad ho jata hai, phir aap screen par dekh kar likhte hain, keyboard par nahi.",
     "Mera dost Ali roz shaam ko park mein sair ke liye jata hai. Wahan wo purane doston se milta hai, chai peeta hai aur din bhar ki baatein sunata hai. Us ka kehna hai ke sair se badan bhi halka hota hai aur mind bhi fresh ho jata hai, is liye wo chaahe kitna bhi busy ho, ye adha ghanta nahi chhorta.",
+  ], "ur-pk": [
+    "صبح کا بازار بہت جلدی کھل جاتا ہے، جب گلیاں ابھی خاموش ہوتی ہیں۔ دکاندار اپنی دکان سجاتا ہے، نان والا تندور سے گرم نان نکالتا ہے اور خوشبو پوری گلی میں پھیل جاتی ہے۔ تھوڑی دیر میں لوگ آنا شروع ہو جاتے ہیں، کوئی سبزی لیتا ہے، کوئی پھل، اور سب حسبِ معمول اپنا کام کرتے رہتے ہیں۔",
+    "کی بورڈ پر تیز لکھنا ایک ہنر ہے جو روز کی مشق سے آتا ہے۔ پہلے پہلے انگلیاں سست ہوتی ہیں اور ہر لفظ پر غلطی ہوتی ہے، لیکن پریشان ہونے کی ضرورت نہیں۔ روز صرف دس منٹ کی مشق سے ہاتھوں کو چابی کا راستہ یاد ہو جاتا ہے، پھر آپ اسکرین پر دیکھ کر لکھتے ہیں، کی بورڈ پر نہیں۔",
+    "میرا دوست علی روز شام کو پارک میں سیر کے لیے جاتا ہے۔ وہاں وہ پرانے دوستوں سے ملتا ہے، چائے پیتا ہے اور دن بھر کی باتیں سناتا ہے۔ اس کا کہنا ہے کہ سیر سے بدن بھی ہلکا ہوتا ہے اور ذہن بھی تازہ ہو جاتا ہے، اس لیے وہ چاہے کتنا بھی مصروف ہو، یہ آدھا گھنٹہ نہیں چھوڑتا۔",
   ],
   de: [
     "Der kleine Markt in unserer Straße öffnet früh am Morgen, wenn die Stadt noch ruhig ist. Die Händler bauen ihre Stände auf, der Bäcker holt das warme Brot aus dem Ofen und der Duft zieht bis zur Ecke. Nach und nach kommen die Nachbarn mit ihren Taschen, grüßen freundlich und wählen in Ruhe aus, was sie für die Woche brauchen.",
@@ -87,6 +92,11 @@ const PASSAGES: Record<LanguageCode, string[]> = {
     "Il piccolo mercato del nostro quartiere apre presto la mattina, quando le strade sono ancora tranquille. I venditori preparano i banchi, il fornaio tira fuori il pane caldo e il profumo arriva fino all'angolo. Piano piano arrivano i vicini con le borse, salutano e scelgono con calma quello che serve per la settimana.",
     "Imparare a scrivere veloce e senza errori richiede tempo e pazienza. All'inizio le dita esitano, gli accenti spariscono e qualche parola esce storta. Con pochi minuti di esercizio ogni giorno, le mani imparano la strada da sole e lo sguardo resta sullo schermo, invece di cercare ogni tasto della tastiera.",
     "La biblioteca della città è un posto tranquillo, con tavoli lunghi e finestre alte. Gli studenti preparano gli esami, una signora legge il giornale vicino alla finestra e i bambini cercano storie nella saletta. Quando arriva la sera, il silenzio si fa più profondo e viene voglia di restare ancora un poco.",
+  ],
+  ru: [
+    "Утренний рынок открывается рано, когда улицы ещё тихие. Продавцы раскладывают товар, пекарь достаёт из печи тёплый хлеб, и запах свежей выпечки тянется до самого угла. Постепенно приходят соседи с сумками, здороваются, сравнивают цены и спокойно выбирают всё, что нужно на неделю.",
+    "Печатать быстро и без ошибок учатся не за один день. Сначала пальцы путаются, буквы выскакивают не в том порядке, а взгляд то и дело ищет нужную клавишу. Но стоит заниматься по десять минут в день, и руки сами запоминают дорогу, а глаза остаются на экране, где им и место.",
+    "Городская библиотека — тихое место с длинными столами и высокими окнами. Студенты готовятся здесь к экзаменам, пожилая женщина читает газету у окна, а дети ищут интересные истории в маленьком зале. К вечеру тишина становится глубже, и уходить совсем не хочется.",
   ],
 };
 

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Download, Smartphone, Apple, X, Check, Share, PlusSquare, Copy } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Download, Smartphone, Apple, X, Check, Share, PlusSquare, Copy, Info } from "lucide-react";
 import { usePWAInstall } from "../hooks/usePWAInstall";
 
 interface PWAInstallModalProps {
@@ -8,20 +8,31 @@ interface PWAInstallModalProps {
 }
 
 export function PWAInstallModal({ isOpen, onClose }: PWAInstallModalProps) {
-  const { isInstallable, isIOS, isAndroid, isInstalled, install } = usePWAInstall();
-  const [selectedTab, setSelectedTab] = useState<"auto" | "ios" | "android">(
+  const { isInstallable, isIOS, isInstalled, promptDismissed, install } = usePWAInstall();
+  const [selectedTab, setSelectedTab] = useState<"auto" | "ios" | "android">(() =>
     isIOS ? "ios" : "auto"
   );
   const [installSuccess, setInstallSuccess] = useState(false);
+  const [installing, setInstalling] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
-  if (!isOpen) return null;
+  // Already installed (now or earlier): the popup must not appear at all.
+  useEffect(() => {
+    if (isOpen && isInstalled && !installSuccess) {
+      onClose();
+    }
+  }, [isOpen, isInstalled, installSuccess, onClose]);
 
-  const handleNativeInstall = async () => {
+  if (!isOpen || (isInstalled && !installSuccess)) return null;
+
+  const handleInstall = async () => {
+    setInstalling(true);
     const success = await install();
+    setInstalling(false);
     if (success) {
       setInstallSuccess(true);
       setTimeout(() => {
+        setInstallSuccess(false);
         onClose();
       }, 1800);
     }
@@ -32,6 +43,8 @@ export function PWAInstallModal({ isOpen, onClose }: PWAInstallModalProps) {
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
   };
+
+  const showIOS = selectedTab === "ios" || (selectedTab === "auto" && isIOS);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
@@ -54,14 +67,9 @@ export function PWAInstallModal({ isOpen, onClose }: PWAInstallModalProps) {
             <Smartphone className="w-7 h-7 text-stone-950 stroke-[2.5]" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 tracking-tight">
-                Install WebApp
-              </h3>
-              <span className="px-2 py-0.5 text-[10px] font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full">
-                Native PWA
-              </span>
-            </div>
+            <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 tracking-tight">
+              Install WebApp
+            </h3>
             <p className="text-xs text-stone-400">
               ToolVena for iPhone, iPad & Android
             </p>
@@ -113,7 +121,7 @@ export function PWAInstallModal({ isOpen, onClose }: PWAInstallModalProps) {
         </div>
 
         {/* Tab Content: iOS Safari Guide */}
-        {selectedTab === "ios" || (selectedTab === "auto" && isIOS) ? (
+        {showIOS ? (
           <div className="space-y-4">
             <div className="p-4 rounded-2xl bg-[#fffdf8] border border-amber-200 space-y-3 text-xs">
               <div className="flex items-center justify-between text-stone-700 font-bold border-b border-amber-200 pb-2">
@@ -125,6 +133,10 @@ export function PWAInstallModal({ isOpen, onClose }: PWAInstallModalProps) {
                   Safari
                 </span>
               </div>
+              <p className="leading-relaxed text-stone-500">
+                Safari on iPhone does not offer one-tap installs, so the icon is
+                added manually — it only takes a few seconds:
+              </p>
               <ol className="space-y-2.5 text-stone-600">
                 <li className="flex items-start gap-2.5">
                   <span className="w-5 h-5 rounded-full bg-amber-50 text-emerald-400 flex items-center justify-center font-bold shrink-0 text-[11px]">
@@ -176,15 +188,47 @@ export function PWAInstallModal({ isOpen, onClose }: PWAInstallModalProps) {
         ) : (
           /* Android / Universal Chromium Tab */
           <div className="space-y-3">
-            {isInstallable ? (
+            {isInstallable || installSuccess ? (
               <button
                 type="button"
-                onClick={handleNativeInstall}
-                className="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 active:scale-98 text-stone-950 font-extrabold text-sm shadow-xl shadow-emerald-500/25 flex items-center justify-center gap-2.5 transition-all cursor-pointer"
+                onClick={handleInstall}
+                disabled={installing || installSuccess}
+                className="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 active:scale-98 text-stone-950 font-extrabold text-sm shadow-xl shadow-emerald-500/25 flex items-center justify-center gap-2.5 transition-all cursor-pointer disabled:opacity-80"
               >
-                <Download className="w-5 h-5" />
-                <span>{installSuccess ? "Installed Successfully!" : "Install App to Home Screen"}</span>
+                {installSuccess ? (
+                  <Check className="w-5 h-5" />
+                ) : (
+                  <Download className="w-5 h-5" />
+                )}
+                <span>
+                  {installSuccess
+                    ? "Installed — check your home screen"
+                    : installing
+                      ? "Opening install…"
+                      : "Install App to Home Screen"}
+                </span>
               </button>
+            ) : promptDismissed ? (
+              <div className="p-4 rounded-2xl bg-[#fffdf8] border border-amber-200 space-y-2.5 text-xs text-stone-600">
+                <div className="font-bold text-stone-900 flex items-center gap-1.5">
+                  <Info className="w-4 h-4 text-emerald-400" />
+                  <span>Install prompt was closed</span>
+                </div>
+                <p className="leading-relaxed">
+                  No problem — nothing was installed. Chrome pauses its own
+                  install prompt for a while after it is closed, so the button
+                  cannot reopen it right now. You can still install manually:
+                </p>
+                <p className="leading-relaxed">
+                  1. Tap the three dots menu (<span className="font-mono text-emerald-400 font-bold">⋮</span>) in the top right corner of Chrome.
+                </p>
+                <p className="leading-relaxed">
+                  2. Tap <strong>"Install app"</strong> or <strong>"Add to Home screen"</strong>.
+                </p>
+                <p className="leading-relaxed">
+                  3. Tap <strong>Install</strong> to confirm.
+                </p>
+              </div>
             ) : (
               <div className="p-4 rounded-2xl bg-[#fffdf8] border border-amber-200 space-y-2.5 text-xs text-stone-600">
                 <div className="font-bold text-stone-900 flex items-center gap-1.5">
@@ -199,6 +243,11 @@ export function PWAInstallModal({ isOpen, onClose }: PWAInstallModalProps) {
                 </p>
                 <p className="leading-relaxed">
                   3. Tap <strong>Install</strong> to confirm.
+                </p>
+                <p className="leading-relaxed text-stone-500">
+                  If "Install app" is missing, the app may already be installed,
+                  or Chrome has paused the suggestion for now — it will offer it
+                  again later on its own.
                 </p>
               </div>
             )}

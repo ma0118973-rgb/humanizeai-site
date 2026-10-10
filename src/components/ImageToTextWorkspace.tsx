@@ -15,7 +15,7 @@ interface ImageToTextWorkspaceProps { selectedLanguage?: LanguageCode; }
 /** Default OCR pack per site language (only packs that genuinely exist). */
 const SITE_TO_OCR: Partial<Record<LanguageCode, string>> = {
   en: "eng", es: "spa", ur: "urd", de: "deu", fr: "fra", tr: "tur",
-  pt: "por", ja: "jpn", no: "nor", nl: "nld", it: "ita",
+  pt: "por", ja: "jpn", no: "nor", nl: "nld", it: "ita", ru: "rus", "ur-pk": "urd",
 };
 
 export function ImageToTextWorkspace({ selectedLanguage = "en" }: ImageToTextWorkspaceProps) {

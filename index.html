@@ -3,13 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>ToolVena – Free AI Text Humanizer for Natural-Sounding Writing</title>
-    <meta name="description" content="Free AI text humanizer and writing pattern checker. Rewrite robotic ChatGPT text into more natural, human-sounding writing." />
+    <title>ToolVena – Free Online Tools, No Sign-Up</title>
+    <meta name="description" content="ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser, in 11 languages." />
     <meta name="robots" content="index, follow" />
     
     <!-- PWA Web App Manifest & Mobile App Capabilities -->
     <link rel="manifest" href="/manifest.json" />
-    <link rel="canonical" href="__SITE_URL__/en/ai-humanizer/" />
+    <script>
+      // Capture Chrome's one-time install prompt before the app bundle loads,
+      // otherwise the event is gone before React can listen for it.
+      window.__toolvenaPWA = window.__toolvenaPWA || {
+        deferredPrompt: null,
+        installed: false,
+        listeners: [],
+      };
+      window.addEventListener("beforeinstallprompt", function (e) {
+        e.preventDefault();
+        window.__toolvenaPWA.deferredPrompt = e;
+        window.__toolvenaPWA.listeners.forEach(function (fn) {
+          try { fn(); } catch (err) {}
+        });
+      });
+      window.addEventListener("appinstalled", function () {
+        window.__toolvenaPWA.installed = true;
+        window.__toolvenaPWA.deferredPrompt = null;
+        window.__toolvenaPWA.listeners.forEach(function (fn) {
+          try { fn(); } catch (err) {}
+        });
+      });
+    </script>
+    <link rel="canonical" href="__SITE_URL__/en/" />
     <meta name="theme-color" content="#0c0a09" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -19,62 +42,67 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     
     <!-- Multilingual Hreflang Tags for all 11 Supported Languages -->
-    <link rel="alternate" hreflang="en" href="__SITE_URL__/en/ai-humanizer/" />
-    <link rel="alternate" hreflang="es" href="__SITE_URL__/es/ai-humanizer/" />
-    <link rel="alternate" hreflang="tr" href="__SITE_URL__/tr/ai-humanizer/" />
-    <link rel="alternate" hreflang="de" href="__SITE_URL__/de/ai-humanizer/" />
-    <link rel="alternate" hreflang="fr" href="__SITE_URL__/fr/ai-humanizer/" />
-    <link rel="alternate" hreflang="pt" href="__SITE_URL__/pt/ai-humanizer/" />
-    <link rel="alternate" hreflang="ja" href="__SITE_URL__/ja/ai-humanizer/" />
-    <link rel="alternate" hreflang="ur" href="__SITE_URL__/ur/ai-humanizer/" />
-    <link rel="alternate" hreflang="no" href="__SITE_URL__/no/ai-humanizer/" />
-    <link rel="alternate" hreflang="nl" href="__SITE_URL__/nl/ai-humanizer/" />
-    <link rel="alternate" hreflang="it" href="__SITE_URL__/it/ai-humanizer/" />
-    <link rel="alternate" hreflang="x-default" href="__SITE_URL__/en/ai-humanizer/" />
+    <link rel="alternate" hreflang="en" href="__SITE_URL__/en/" />
+    <link rel="alternate" hreflang="es" href="__SITE_URL__/es/" />
+    <link rel="alternate" hreflang="tr" href="__SITE_URL__/tr/" />
+    <link rel="alternate" hreflang="de" href="__SITE_URL__/de/" />
+    <link rel="alternate" hreflang="fr" href="__SITE_URL__/fr/" />
+    <link rel="alternate" hreflang="pt" href="__SITE_URL__/pt/" />
+    <link rel="alternate" hreflang="ja" href="__SITE_URL__/ja/" />
+    <link rel="alternate" hreflang="ur" href="__SITE_URL__/ur/" />
+    <link rel="alternate" hreflang="no" href="__SITE_URL__/no/" />
+    <link rel="alternate" hreflang="nl" href="__SITE_URL__/nl/" />
+    <link rel="alternate" hreflang="it" href="__SITE_URL__/it/" />
+    <link rel="alternate" hreflang="x-default" href="__SITE_URL__/en/" />
 
     <!-- OpenGraph Tags -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="ToolVena – Free AI Text Humanizer for Natural-Sounding Writing" />
-    <meta property="og:description" content="Free AI text humanizer and writing pattern checker. Rewrite robotic ChatGPT text into more natural, human-sounding writing." />
+    <meta property="og:title" content="ToolVena – Free Online Tools, No Sign-Up" />
+    <meta property="og:description" content="ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser, in 11 languages." />
     <meta property="og:site_name" content="ToolVena" />
     <meta property="og:image" content="__SITE_URL__/pwa-512x512.png" />
     
     <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="__SITE_URL__/pwa-512x512.png" />
-    <meta name="twitter:title" content="ToolVena – Free AI Text Humanizer for Natural-Sounding Writing" />
-    <meta name="twitter:description" content="Free AI text humanizer and writing pattern checker. Rewrite robotic ChatGPT text into more natural, human-sounding writing." />
+    <meta name="twitter:title" content="ToolVena – Free Online Tools, No Sign-Up" />
+    <meta name="twitter:description" content="ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser, in 11 languages." />
     
-    <!-- Schema.org WebApplication & Organization Structured Data -->
+    <!-- Schema.org WebSite, Organization & Homepage Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "WebApplication",
+          "@type": "WebSite",
+          "@id": "https://www.toolvena.com/#website",
           "name": "ToolVena",
-          "applicationCategory": "ProductivityApplication",
-          "operatingSystem": "All",
-          "description": "Free online tools for writing, text, images, PDFs and everyday tasks — in 11 languages.",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
-          "featureList": [
-            "50 free online tools",
-            "AI writing helpers, text utilities, image and PDF tools",
-            "Most tools run on your device in the browser; optional AI features are clearly labelled"
-          ]
+          "url": "https://www.toolvena.com/",
+          "description": "ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser.",
+          "inLanguage": ["en", "es", "ur", "de", "fr", "pt", "tr", "ja", "no", "nl", "it"],
+          "publisher": { "@id": "https://www.toolvena.com/#organization" }
         },
         {
           "@type": "Organization",
+          "@id": "https://www.toolvena.com/#organization",
           "name": "ToolVena",
           "url": "https://www.toolvena.com/",
+          "logo": "https://www.toolvena.com/toolvena-logo.svg",
+          "sameAs": [
+            "https://www.pinterest.com/ToolVena/",
+            "https://www.tumblr.com/toolvena"
+          ],
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "Customer Support"
           }
+        },
+        {
+          "@type": "WebPage",
+          "name": "ToolVena – Free Online Tools, No Sign-Up",
+          "url": "https://www.toolvena.com/en/",
+          "description": "ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser, in 11 languages.",
+          "isPartOf": { "@id": "https://www.toolvena.com/#website" }
         }
       ]
     }

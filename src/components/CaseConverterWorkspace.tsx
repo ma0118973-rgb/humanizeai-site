@@ -16,8 +16,8 @@ interface CaseConverterWorkspaceProps {
 type CaseKind = "upper" | "lower" | "sentence" | "capitalized" | "title" | "alternating" | "inverse";
 
 const LOCALES: Record<LanguageCode, string> = {
-  en: "en", es: "es", ur: "ur", de: "de", fr: "fr", tr: "tr",
-  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb",
+  en: "en", es: "es", ur: "ur", "ur-pk": "ur-PK", de: "de", fr: "fr", tr: "tr",
+  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru",
 };
 
 const TITLE_MINOR_WORDS: Record<string, Set<string>> = {
@@ -31,6 +31,7 @@ const TITLE_MINOR_WORDS: Record<string, Set<string>> = {
   ja: new Set(["a", "an", "the", "and", "or", "but", "in", "on", "of", "to", "for", "with", "by", "at", "from"]),
   it: new Set(["il", "lo", "la", "i", "gli", "le", "un", "uno", "una", "e", "o", "di", "a", "da", "in", "con", "su", "per", "tra", "fra", "del", "della", "dei", "delle", "nel", "nella", "al", "alla"]),
   nl: new Set(["de", "het", "een", "en", "of", "in", "op", "aan", "van", "voor", "met", "zonder", "tot", "bij", "naar", "door", "over", "onder", "tussen", "te", "ten"]),
+  ru: new Set(["и", "или", "а", "но", "в", "на", "с", "по", "к", "у", "о", "от", "до", "из", "за", "для", "не", "что", "это", "как", "при", "про", "над", "под", "без", "через", "между"]),
   nb: new Set(["og", "eller", "i", "på", "til", "av", "for", "med", "uten", "en", "et", "ei", "den", "det", "de", "som", "om", "fra", "mot", "over", "under", "mellom"]),
 };
 

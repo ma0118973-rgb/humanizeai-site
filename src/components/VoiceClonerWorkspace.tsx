@@ -218,6 +218,63 @@ const STRINGS: Partial<Record<LanguageCode, Record<string, any>>> = {
       "Copying your real voice needs our large AI computers (GPU servers) running behind the scenes, and we pay that bill — so full voice cloning is paid. Everyone still gets 3 free clone tries every day.",
     cloneSentenceHint: "Tip: read a natural sentence, like “Hello, my name is … and I am recording this to create my voice.”",
   },
+  "ur-pk": {
+    naturalTab: "قدرتی آوازیں — مفت",
+    cloneTab: "میری آواز کلون کریں",
+    naturalIntro:
+      "متن لکھیں یا چسپاں کریں اور قدرتی آواز میں بولا ہوا سنیں۔ آواز کا انجن آپ کے براؤزر کے اندر چلتا ہے — آپ کا متن کبھی اپ لوڈ نہیں ہوتا، اور سائن اپ بھی نہیں چاہیے۔",
+    textLabel: "آپ کا متن",
+    textPlaceholder: "یہاں کچھ لکھیں، پھر بنائیں دبائیں…",
+    voiceLabel: "آواز",
+    speedLabel: "رفتار",
+    generate: "آواز بنائیں",
+    generating: "بول رہا ہے…",
+    modelLoading: "آواز کا ماڈل ڈاؤن لوڈ ہو رہا ہے (صرف پہلی بار، تقریباً 92 MB)…",
+    modelReady: "آواز کا ماڈل تیار ہے — یہ آپ کے براؤزر میں کیش رہتا ہے۔",
+    downloadWav: "WAV ڈاؤن لوڈ کریں",
+    erase: "صاف کریں",
+    limitNote: "مفت براؤزر درجہ: ایک بار میں 1,000 حروف تک۔ لمبا متن حصوں میں پڑھ کر ایک فائل میں جوڑ دیا جاتا ہے۔",
+    privacyNote: "ڈیزائن ہی پرائیویٹ ہے: سب کچھ آپ کے آلے پر ہوتا ہے۔",
+    cloneIntro:
+      "اپنی آواز کے تقریباً 10 سیکنڈ ریکارڈ کریں، کوئی متن لکھیں، اور اسے اپنی آواز میں بولا ہوا سنیں۔ کلوننگ ہمارے آواز سرور پر چلتی ہے، آپ کے فون پر نہیں۔",
+    cloneSetupNote:
+      "اس سہولت کو ToolVena آواز سرور چاہیے۔ اگر سرور ابھی جڑا نہیں ہے تو آپ کو نیچے واضح پیغام نظر آئے گا — ہم کبھی جعلی نتیجہ نہیں بناتے۔",
+    recordLabel: "1. اپنی آواز ریکارڈ کریں (5–15 سیکنڈ)",
+    recordStart: "ریکارڈنگ شروع کریں",
+    recordStop: "روکیں",
+    recording: "ریکارڈ ہو رہا ہے… ایک دو واضح جملے بولیں۔",
+    uploadLabel: "…یا مختصر آواز کلپ اپ لوڈ کریں",
+    previewLabel: "آپ کا حوالہ کلپ",
+    cloneTextLabel: "2. آپ کی آواز میں بولا جانے والا متن",
+    cloneLangLabel: "متن کی بولی جانے والی زبان",
+    consent: "یہ میری اپنی آواز ہے (یا میرے پاس بولنے والے کی اجازت ہے) اور میں اسے ذمہ داری سے کلون کرنے پر متفق ہوں۔",
+    cloneNow: "میری آواز کلون کریں",
+    cloneSending: "آواز سرور کو بھیجا جا رہا ہے… پہلی بار تھوڑا زیادہ وقت لگ سکتا ہے۔",
+    cloneDone: "آپ کی کلون شدہ تقریر تیار ہے۔",
+    triesLeft: (n: number) => `آج مفت کلون کوششیں باقی: ${n}`,
+    triesOver: "آج کی مفت کلون کوششیں ختم ہو گئی ہیں۔ بامعاوضہ منصوبہ روزانہ کی حد ختم کر دیتا ہے۔",
+    backendMissing:
+      "آواز-کلون سرور ابھی جڑا نہیں ہے، اس لیے کلوننگ رکی हुई ہے۔ اوپر والی مفت قدرتی آوازیں ابھی چل رہی ہیں۔",
+    errText: "براہ کرم پہلے کچھ متن لکھیں۔",
+    errConsent: "براہ کرم رضامندی خانہ نشان زد کریں — ہم آواز صرف اس کے مالک کی اجازت سے کلون کرتے ہیں۔",
+    errRecord: "براہ کرم پہلے مختصر آواز کلپ ریکارڈ یا اپ لوڈ کریں (کم از کم 5 سیکنڈ)۔",
+    errMic: "مائیکروفون رسائی روک دی گئی۔ آپ اسے براؤزر میں دے سکتے ہیں، یا اس کے بجائے کلپ اپ لوڈ کریں۔",
+    errTooLong: (n: number) => `براہ کرم اسے ایک بار میں ${n} حروف سے کم رکھیں۔`,
+    errGenerate: "آواز انجن ختم ہونے سے پہلے رک گیا۔ براہ کرم چھوٹے متن کے ساتھ دوبارہ کوشش کریں۔",
+    errLoadModel: "آواز ماڈل اس آلے پر شروع نہیں ہو سکا۔ براہ کرم اپنا کنکشن جانچیں اور بنائیں دوبارہ دبائیں۔",
+    errPartial: "آپ کے متن کا صرف پہلا حصہ بولا جا سکا — وہ حصہ نیچے تیار ہے۔ باقی اس آلے پر رک گیا، اس لیے ہم آپ کو بالکل وہی دکھا رہے ہیں جو بنا، کچھ چھپا نہیں۔",
+    partProgress: (_done: number, _total: number) => `حصہ ${_done} از ${_total} بولا جا رہا ہے…`,
+    errClone: "آواز سرور یہ کلون مکمل نہیں کر سکا۔ کچھ بھی چارج نہیں ہوا — براہ کرم دوبارہ کوشش کریں۔",
+    langHonesty:
+      "اردو آوازیں ابھی دستیاب نہیں ہیں: جن اوپن آواز ماڈلوں کو ہم قانونی طور پر استعمال کر سکتے ہیں ان میں سے کوئی آج اردو کی حمایت نہیں کرتا۔ ہم جعلی بنانے کے بجائے آپ کو بتانا پسند کرتے ہیں۔",
+    freeBannerTitle: "بالکل مفت — لامحدود",
+    freeBannerWhy:
+      "یہ قدرتی آوازیں آپ کے اپنے فون یا کمپیوٹر کے اندر بنتی ہیں — ہمارا سرور کوئی کام نہیں کرتا، اس لیے ہمارا کوئی بل نہیں، اور یہ درجہ ہمیشہ مفت رہے گا۔",
+    cloneBannerTitle: "کلون — یہ بامعاوضہ کیوں ہے؟",
+    cloneBannerWhy:
+      "آپ کی اصل آواز کی نقالی کو پس پردہ ہمارے بڑے AI کمپیوٹر (GPU سرور) چلانے پڑتے ہیں، اور وہ بل ہم دیتے ہیں — اس لیے مکمل آواز کلوننگ بامعاوضہ ہے۔ ہر کسی کو پھر بھی ہر روز 3 مفت کلون کوششیں ملتی ہیں۔",
+    cloneSentenceHint: "نصحیت: قدرتی جملہ پڑھیں، جیسے «السلام علیکم، میرا نام … ہے اور میں اپنی آواز بنانے کے لیے یہ ریکارڈ کر رہا ہوں۔»",
+  },
   ur: {
     naturalTab: "Natural awazein — muft",
     cloneTab: "Meri awaz clone karo",
@@ -872,6 +929,7 @@ export function VoiceClonerWorkspace({ selectedLanguage = "en" }: VoiceClonerWor
   const [chunkInfo, setChunkInfo] = useState("");
 
   const ttsRef = useRef<any>(null);
+  const ttsPromiseRef = useRef<Promise<any> | null>(null);
   const ttsDevRef = useRef<string>("wasm");
   const naturalAudioRef = useRef<HTMLAudioElement | null>(null);
   const naturalUrlRef = useRef<string>("");
@@ -937,34 +995,81 @@ export function VoiceClonerWorkspace({ selectedLanguage = "en" }: VoiceClonerWor
     });
   };
 
-  const getTts = async (forceWasm = false): Promise<any> => {
-    if (ttsRef.current && (!forceWasm || ttsDevRef.current === "wasm")) return ttsRef.current;
-    setNPhase("loading-model");
-    setModelPct(0);
-    const mod: any = await import("kokoro-js");
-    // "gpu in navigator" is NOT enough: on many devices (headless browsers,
-    // blocklisted GPUs, some Android builds) requestAdapter() returns null,
-    // and choosing webgpu there used to explode AFTER the 92 MB download.
-    // Only take the WebGPU path when a real adapter answers.
-    let device: "webgpu" | "wasm" = "wasm";
-    if (!forceWasm && typeof navigator !== "undefined" && "gpu" in navigator) {
+  // The model is ~92 MB and first-load session init can stall indefinitely
+  // on some phones (notably WebGPU session creation that never resolves and
+  // never throws). Without a timeout the UI sits on "Downloading…" forever
+  // and no error ever appears — so cap the wait and let the existing
+  // webgpu→wasm fallback / error message handle the rest.
+  const MODEL_LOAD_TIMEOUT_MS = 300_000;
+  const GENERATE_TIMEOUT_MS = 240_000; // per ~280-char chunk; a stalled ONNX session must end in a visible error, not endless "Speaking…"
+  const withTimeout = <T,>(p: Promise<T>, ms: number): Promise<T> =>
+    Promise.race([
+      p,
+      new Promise<T>((_, reject) =>
+        setTimeout(() => reject(new Error("model load timeout")), ms),
+      ),
+    ]);
+
+  const getTts = (forceWasm = false): Promise<any> => {
+    if (ttsRef.current && (!forceWasm || ttsDevRef.current === "wasm")) return Promise.resolve(ttsRef.current);
+    // Share ONE in-flight load between the on-arrival prefetch and Generate —
+    // the 92 MB model must never download twice.
+    if (ttsPromiseRef.current && !forceWasm) return ttsPromiseRef.current;
+    const p = (async () => {
+      setNPhase("loading-model");
+      setModelPct(0);
+      const mod: any = await import("kokoro-js");
+      // "gpu in navigator" is NOT enough: on many devices (headless browsers,
+      // blocklisted GPUs, some Android builds) requestAdapter() returns null,
+      // and choosing webgpu there used to explode AFTER the 92 MB download.
+      // Only take the WebGPU path when a real adapter answers.
+      let device: "webgpu" | "wasm" = "wasm";
+      if (!forceWasm && typeof navigator !== "undefined" && "gpu" in navigator) {
+        try {
+          const adapter = await (navigator as any).gpu.requestAdapter();
+          if (adapter) device = "webgpu";
+        } catch { /* no usable adapter — stay on the safe wasm path */ }
+      }
       try {
-        const adapter = await (navigator as any).gpu.requestAdapter();
-        if (adapter) device = "webgpu";
-      } catch { /* no usable adapter — stay on the safe wasm path */ }
-    }
-    try {
-      const tts = await loadKokoro(mod, device);
-      ttsRef.current = tts;
-      ttsDevRef.current = device;
-      return tts;
-    } catch (err) {
-      // never keep a broken instance around; one automatic retry on wasm
-      ttsRef.current = null;
-      if (device === "webgpu") return getTts(true);
-      throw err;
-    }
+        const tts = await withTimeout(loadKokoro(mod, device), MODEL_LOAD_TIMEOUT_MS);
+        ttsRef.current = tts;
+        ttsDevRef.current = device;
+        return tts;
+      } catch (err) {
+        // never keep a broken instance around; one automatic retry on wasm
+        ttsRef.current = null;
+        if (device === "webgpu") return getTts(true);
+        throw err;
+      }
+    })();
+    ttsPromiseRef.current = p;
+    const clear = () => { if (ttsPromiseRef.current === p) ttsPromiseRef.current = null; };
+    p.then(clear, clear);
+    return p;
   };
+
+  // Owner requirement (2026-10-10): the one-time ~92 MB download must start
+  // on its own as soon as the visitor arrives on this page — not only after
+  // pressing Generate. Deferred just past first paint, and it goes through
+  // the same shared getTts() load, so progress (%) is the real one and a
+  // Generate press during prefetch simply awaits the same promise. If the
+  // model is already in the browser cache, the load resolves from cache and
+  // the "model ready" line appears with no network wait.
+  useEffect(() => {
+    let cancelled = false;
+    const settle = () => {
+      if (!cancelled) setNPhase((ph) => (ph === "loading-model" ? "idle" : ph));
+    };
+    const kick = () => { if (!cancelled) void getTts().then(settle, settle); };
+    const ric: any = (window as any).requestIdleCallback;
+    if (typeof ric === "function") {
+      const id = ric(kick, { timeout: 2500 });
+      return () => { cancelled = true; (window as any).cancelIdleCallback?.(id); };
+    }
+    const id = window.setTimeout(kick, 800);
+    return () => { cancelled = true; window.clearTimeout(id); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // kokoro-js generate() resolves a transformers RawAudio: the samples live
   // on `.audio` (24 kHz) — older code read `.data`, which is always undefined,
@@ -1008,7 +1113,7 @@ export function VoiceClonerWorkspace({ selectedLanguage = "en" }: VoiceClonerWor
         setChunkInfo(s.partProgress(i + 1, chunks.length));
       }
       try {
-        const audio: any = await tts.generate(chunks[i], { voice: voiceId });
+        const audio: any = await withTimeout(tts.generate(chunks[i], { voice: voiceId, speed }), GENERATE_TIMEOUT_MS);
         const data = readSamples(audio);
         if (!data.length) throw new Error("empty audio");
         parts.push(data);
@@ -1041,7 +1146,17 @@ export function VoiceClonerWorkspace({ selectedLanguage = "en" }: VoiceClonerWor
     const joined = new Float32Array(total);
     let offset = 0;
     for (const p of parts) { joined.set(p, offset); offset += p.length; }
-    setNaturalObjectUrl(encodeWavBlob(joined, 24000));
+    try {
+      setNaturalObjectUrl(encodeWavBlob(joined, 24000));
+    } catch (err) {
+      // last-resort guard: the button must always resolve to a player or a
+      // visible error — never stay on "Speaking…" with no sound.
+      console.error("WAV encode failed", err);
+      setChunkInfo("");
+      setNPhase("error");
+      setNaturalError(s.errGenerate);
+      return;
+    }
     setNPhase("ready");
     if (partial) setNaturalError(s.errPartial || s.errGenerate);
   };

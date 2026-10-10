@@ -13,6 +13,7 @@ Each tool solves one small everyday job: writing and text work, file and image j
 - Word Counter: https://www.toolvena.com/en/word-counter/
 - AI Text Humanizer: https://www.toolvena.com/en/ai-text-humanizer/
 - Text Summarizer: https://www.toolvena.com/en/text-summarizer/
+- Muse AI Availability Checker: https://www.toolvena.com/en/muse-ai-availability-checker/
 - Image Compressor: https://www.toolvena.com/en/image-compressor/
 - Background Remover: https://www.toolvena.com/en/background-remover/
 - Audio to Text Converter: https://www.toolvena.com/en/audio-to-text-converter/

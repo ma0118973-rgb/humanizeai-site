@@ -1,5 +1,32 @@
 @import "tailwindcss";
 
+/* ToolVena brand tokens — Direction A "Midnight Workshop" (template-design-spec.md) */
+:root {
+  --tv-navy: #0b2440;
+  --tv-navy-2: #0f2b46;
+  --tv-navy-3: #0d3a54;
+  --tv-amber: #fbbf24;
+  --tv-amber-ink: #78350f;
+  --tv-teal: #2dd4bf;
+  --tv-ink: #1c1917;
+  --tv-ink-2: #57534e;
+  --tv-line: #e7e5e4;
+  --tv-paper: #fafaf9;
+}
+
+@theme {
+  --color-tv-navy: #0b2440;
+  --color-tv-navy-2: #0f2b46;
+  --color-tv-navy-3: #0d3a54;
+  --color-tv-amber: #fbbf24;
+  --color-tv-amber-ink: #78350f;
+  --color-tv-teal: #2dd4bf;
+  --color-tv-ink: #1c1917;
+  --color-tv-ink-2: #57534e;
+  --color-tv-line: #e7e5e4;
+  --color-tv-paper: #fafaf9;
+}
+
 /* 100% Mobile Viewport & Zero Horizontal Overflow Guarantee */
 html {
   scroll-behavior: smooth;

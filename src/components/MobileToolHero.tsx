@@ -9,7 +9,7 @@ interface ToolHeroInfo {
   tagline: string;
 }
 
-const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
+const HERO_DATA: Record<string, Partial<Record<LanguageCode, ToolHeroInfo>>> = {
   humanizer: {
     en: { icon: "✨", name: "AI Text Humanizer", tagline: "Make robotic text sound natural and human" },
     es: { icon: "✨", name: "Humanizador de Texto", tagline: "Haz que el texto robótico suene natural" },
@@ -22,6 +22,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "✨", name: "Tekst-Humanizer", tagline: "Gjør robottekst naturlig" },
     nl: { icon: "✨", name: "Tekst-Humanizer", tagline: "Maak robottekst natuurlijk" },
     it: { icon: "✨", name: "Umanizzatore di Testo", tagline: "Rendi naturale il testo robotico" },
+    ru: { icon: "✨", name: "ИИ-гуманизатор", tagline: "Сделайте текст человечным" },
+    "ur-pk": { icon: "✨", name: "اے آئی ٹیکسٹ ہیومنائزر", tagline: "مشینی متن کو قدرتی انسانی لکھائی بنائیں" },
   },
   detector: {
     en: { icon: "🔍", name: "AI Content Detector", tagline: "Check which sentences sound AI-written" },
@@ -35,6 +37,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔍", name: "AI-Detektor", tagline: "Sjekk hvilke setninger som høres AI ut" },
     nl: { icon: "🔍", name: "AI-Detector", tagline: "Check welke zinnen AI-achtig klinken" },
     it: { icon: "🔍", name: "Rilevatore IA", tagline: "Controlla le frasi che sembrano IA" },
+    ru: { icon: "🔍", name: "Детектор ИИ", tagline: "Проверьте текст на нейросеть" },
+    "ur-pk": { icon: "🔍", name: "اے آئی مواد شناخت کار", tagline: "جانچیں کون سے جملے اے آئی جیسے لگتے ہیں" },
   },
   citation: {
     en: { icon: "📚", name: "Citation Generator", tagline: "Create APA, MLA, Chicago references in seconds" },
@@ -48,6 +52,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📚", name: "Siteringsgenerator", tagline: "Lag APA, MLA referanser på sekunder" },
     nl: { icon: "📚", name: "Citatiegenerator", tagline: "Maak APA, MLA referenties in seconden" },
     it: { icon: "📚", name: "Generatore di Citazioni", tagline: "Crea citazioni APA, MLA in secondi" },
+    ru: { icon: "📚", name: "Генератор цитирования", tagline: "Ссылки APA, MLA и ГОСТ" },
+    "ur-pk": { icon: "📚", name: "حوالہ بنانے والا", tagline: "APA، MLA، شکاگو حوالے لمحوں میں بنائیں" },
   },
   expander: {
     en: { icon: "📝", name: "Sentence Expander", tagline: "Turn short sentences into detailed paragraphs" },
@@ -61,6 +67,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📝", name: "Setningsutvider", tagline: "Gjør korte setninger til avsnitt" },
     nl: { icon: "📝", name: "Zinsuitbreider", tagline: "Maak van zinnen alinea's" },
     it: { icon: "📝", name: "Espansore di Frasi", tagline: "Trasforma frasi in paragrafi" },
+    ru: { icon: "📝", name: "Расширитель текста", tagline: "Увеличьте объём текста" },
+    "ur-pk": { icon: "📝", name: "جملہ پھیلانے والا", tagline: "چھوٹے جملے تفصیلی پیراگراف بنائیں" },
   },
   summarizer: {
     en: { icon: "📄", name: "Text Summarizer", tagline: "Shrink long articles into key points" },
@@ -74,6 +82,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📄", name: "Tekstsammendrag", tagline: "Forkort lange artikler" },
     nl: { icon: "📄", name: "Tekstsamentatter", tagline: "Vat lange teksten samen" },
     it: { icon: "📄", name: "Riassuntore", tagline: "Riassumi articoli lunghi" },
+    ru: { icon: "📄", name: "Сокращатель текста", tagline: "Краткое содержание текста" },
+    "ur-pk": { icon: "📄", name: "اے آئی متن خلاصہ کار", tagline: "کسی بھی متن کا خلاصہ لمحوں میں" },
   },
   voiceTyping: {
     en: { icon: "🎙️", name: "Voice Typing", tagline: "Speak and watch your words become text" },
@@ -87,6 +97,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🎙️", name: "Stemmeskriving", tagline: "Snakk og se ordene bli til tekst" },
     nl: { icon: "🎙️", name: "Spraaktypen", tagline: "Spreek en je woorden worden tekst" },
     it: { icon: "🎙️", name: "Dettatura Vocale", tagline: "Parla e le parole diventano testo" },
+    ru: { icon: "🎙️", name: "Голосовой ввод", tagline: "Диктуйте и получайте текст" },
+    "ur-pk": { icon: "🎙️", name: "بول کر لکھنا", tagline: "بولیں اور آپ کے الفاظ خود متن بن جائیں" },
   },
   audioToText: {
     en: { icon: "🎧", name: "Audio to Text Converter", tagline: "Turn recordings into text — right on your device" },
@@ -100,6 +112,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🎧", name: "Lyd til Tekst", tagline: "Gjør opptak om til tekst på enheten din" },
     nl: { icon: "🎧", name: "Audio naar Tekst", tagline: "Zet opnames op je apparaat om in tekst" },
     it: { icon: "🎧", name: "Audio in Testo", tagline: "Trasforma le registrazioni in testo sul tuo dispositivo" },
+    ru: { icon: "🎧", name: "Аудио в текст", tagline: "Расшифровка аудио онлайн" },
+    "ur-pk": { icon: "🎧", name: "آڈیو سے متن کنورٹر", tagline: "ریکارڈنگ کو متن میں بدلیں — سیدھا اپنے آلے پر" },
   },
   backgroundRemover: {
     en: { icon: "✨", name: "Background Remover", tagline: "Remove image background instantly in your browser using AI." },
@@ -113,6 +127,23 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "✨", name: "Bakgrunnsfjerner", tagline: "Fjern bakgrunnen på bildene dine i nettleseren med KI." },
     nl: { icon: "✨", name: "Achtergrond Gum", tagline: "Verwijder foto-achtergronden direct in je browser met AI." },
     it: { icon: "✨", name: "Rimuovi Sfondo", tagline: "Scontorna le foto direttamente nel browser con l'IA." },
+    ru: { icon: "✨", name: "Удаление фона", tagline: "Уберите фон с фото" },
+    "ur-pk": { icon: "✨", name: "پس منظر ہٹانے والا", tagline: "تصویر کا پس منظر براؤزر میں ہٹائیں" },
+  },
+  museAiHub: {
+    en: { icon: "🌍", name: "Muse AI Availability Checker", tagline: "Check if Meta's Muse AI is officially available in your country" },
+    es: { icon: "🌍", name: "Verificador de disponibilidad de Muse AI", tagline: "Comprueba si Muse AI de Meta está disponible oficialmente en tu país" },
+    ur: { icon: "🌍", name: "Muse AI Availability Checker", tagline: "Check karen ke Meta ka Muse AI aap ke mulk mein officially available hai ya nahi" },
+    de: { icon: "🌍", name: "Muse AI Verfügbarkeits-Check", tagline: "Prüfen Sie, ob Metas Muse AI in Ihrem Land offiziell verfügbar ist" },
+    fr: { icon: "🌍", name: "Vérificateur de disponibilité Muse AI", tagline: "Vérifiez si Muse AI de Meta est officiellement disponible dans votre pays" },
+    pt: { icon: "🌍", name: "Verificador de Disponibilidade do Muse AI", tagline: "Veja se o Muse AI da Meta está oficialmente disponível no seu país" },
+    it: { icon: "🌍", name: "Verifica disponibilità Muse AI", tagline: "Controlla se Muse AI di Meta è ufficialmente disponibile nel tuo paese" },
+    ru: { icon: "🌍", name: "Muse AI", tagline: "Доступность и новости" },
+    tr: { icon: "🌍", name: "Muse AI Erişilebilirlik Denetleyicisi", tagline: "Meta Muse AI'nin ülkenizde resmen kullanılabilir olup olmadığını kontrol edin" },
+    ja: { icon: "🌍", name: "Muse AI 提供状況チェッカー", tagline: "MetaのMuse AIがあなたの国で公式に利用できるか確認できます" },
+    no: { icon: "🌍", name: "Muse AI tilgjengelighetssjekk", tagline: "Sjekk om Metas Muse AI er offisielt tilgjengelig i landet ditt" },
+    nl: { icon: "🌍", name: "Muse AI Beschikbaarheidschecker", tagline: "Controleer of Muse AI van Meta officieel beschikbaar is in jouw land" },
+    "ur-pk": { icon: "🌍", name: "Muse AI دستیابی", tagline: "Muse AI کی دستیابی کی حیثیت جانچیں" },
   },
   voiceCloner: {
     en: { icon: "🎙️", name: "AI Voice Cloner", tagline: "Clone your voice, or hear text in natural voices — in your browser" },
@@ -126,6 +157,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🎙️", name: "AI-stemmekloner", tagline: "Klon stemmen din, eller hør tekst med naturlige stemmer" },
     nl: { icon: "🎙️", name: "AI-stemkloon", tagline: "Kloon je stem of luister naar tekst in natuurlijke stemmen" },
     it: { icon: "🎙️", name: "Clonatore Vocale IA", tagline: "Clona la tua voce o ascolta testi in voci naturali" },
+    ru: { icon: "🎙️", name: "Клонирование голоса", tagline: "Голоса и свой голос" },
+    "ur-pk": { icon: "🎙️", name: "آواز کلون اسٹوڈیو", tagline: "مختلف آوازوں میں متن بول کر سنیں" },
   },
   textToSpeech: {
     en: { icon: "🔊", name: "Text to Speech", tagline: "Hear your text read aloud by your device's voices" },
@@ -139,6 +172,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔊", name: "Tekst til Tale", tagline: "Hør teksten lest høyt med enhetens stemmer" },
     nl: { icon: "🔊", name: "Tekst naar Spraak", tagline: "Hoor je tekst voorlezen met apparaatstemmen" },
     it: { icon: "🔊", name: "Sintesi Vocale", tagline: "Ascolta i tuoi testi con le voci del dispositivo" },
+    ru: { icon: "🔊", name: "Озвучка текста", tagline: "Текст в речь онлайн" },
+    "ur-pk": { icon: "🔊", name: "متن سے آواز", tagline: "اپنا متن آلے کی آواز میں بولا ہوا سنیں" },
   },
   wordCounter: {
     en: { icon: "🔢", name: "Word Counter", tagline: "Count words, characters and reading time" },
@@ -152,6 +187,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔢", name: "Ordteller", tagline: "Tell ord, tegn og lesetid" },
     nl: { icon: "🔢", name: "Woordenteller", tagline: "Tel woorden, tekens en leestijd" },
     it: { icon: "🔢", name: "Contatore di Parole", tagline: "Conta parole, caratteri e tempo di lettura" },
+    ru: { icon: "🔢", name: "Счётчик слов", tagline: "Слова и символы онлайн" },
+    "ur-pk": { icon: "🔢", name: "لفظ گننے والا", tagline: "الفاظ، حروف اور پڑھنے کا وقت لائیو گنیں" },
   },
   characterCounter: {
     en: { icon: "🔠", name: "Character Counter", tagline: "Exact characters & platform limits" },
@@ -165,6 +202,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔠", name: "Tegnteller", tagline: "Nøyaktige tegn og grenser" },
     nl: { icon: "🔠", name: "Karakters Tellen", tagline: "Exacte tekens en platformlimieten" },
     it: { icon: "🔠", name: "Contatore Caratteri", tagline: "Caratteri esatti e limiti piattaforme" },
+    ru: { icon: "🔠", name: "Счётчик символов", tagline: "Знаки с пробелами и без" },
+    "ur-pk": { icon: "🔠", name: "حرف گننے والا", tagline: "حروف درست گنیں اور حد جانچیں" },
   },
   typingTest: {
     en: { icon: "⌨️", name: "Typing Speed Test", tagline: "Check your WPM & accuracy in 11 languages" },
@@ -178,6 +217,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "⌨️", name: "Skrivehastighet", tagline: "Mål WPM og nøyaktighet direkte" },
     nl: { icon: "⌨️", name: "Typesnelheid Test", tagline: "Meet je WPM en nauwkeurigheid live" },
     it: { icon: "⌨️", name: "Velocità di Digitazione", tagline: "Misura WPM e precisione dal vivo" },
+    ru: { icon: "⌨️", name: "Тест печати", tagline: "Скорость набора онлайн" },
+    "ur-pk": { icon: "⌨️", name: "ٹائپنگ رفتار ٹیسٹ", tagline: "اپنی WPM اور درستگی ناپیں" },
   },
   caseConverter: {
     en: { icon: "🔤", name: "Case Converter", tagline: "UPPERCASE, lowercase & Title Case in one tap" },    es: { icon: "🔤", name: "Convertidor de Mayúsculas", tagline: "MAYÚSCULAS, minúsculas y Título con un toque" },
@@ -190,6 +231,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔤", name: "Store Små Bokstaver", tagline: "STORE, små og Tittel med ett trykk" },
     nl: { icon: "🔤", name: "Hoofdletterconverter", tagline: "HOOFDLETTERS, klein en Titel met één tik" },
     it: { icon: "🔤", name: "Convertitore Maiuscole", tagline: "MAIUSCOLO, minuscolo e Titolo con un tocco" },
+    ru: { icon: "🔤", name: "Регистр текста", tagline: "Заглавные и строчные буквы" },
+    "ur-pk": { icon: "🔤", name: "کیس کنورٹر", tagline: "ایک کلک میں متن کی شکل بدلیں" },
   },
   passwordGenerator: {
     en: { icon: "🔑", name: "Password Generator", tagline: "Strong random passwords, made on your device" },
@@ -203,6 +246,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔑", name: "Passordgenerator", tagline: "Sterke tilfeldige passord, på din enhet" },
     nl: { icon: "🔑", name: "Wachtwoordgenerator", tagline: "Sterke willekeurige wachtwoorden, lokaal" },
     it: { icon: "🔑", name: "Generatore di Password", tagline: "Password casuali sicure, sul tuo dispositivo" },
+    ru: { icon: "🔑", name: "Генератор паролей", tagline: "Надёжные пароли онлайн" },
+    "ur-pk": { icon: "🔑", name: "پاس ورڈ بنانے والا", tagline: "مضبوط بے ترتیب پاس ورڈ فوراً بنائیں" },
   },
   duplicateLines: {
     en: { icon: "🧾", name: "Remove Duplicate Lines", tagline: "Keep the first copy of every line" },
@@ -216,6 +261,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🧾", name: "Fjern Duplikater", tagline: "Behold første kopi av hver linje" },
     nl: { icon: "🧾", name: "Dubbele Regels", tagline: "Behoud de eerste kopie van elke regel" },
     it: { icon: "🧾", name: "Righe Duplicate", tagline: "Tieni la prima copia di ogni riga" },
+    ru: { icon: "🧾", name: "Дубли строк", tagline: "Удалите повторы строк" },
+    "ur-pk": { icon: "🧾", name: "دہرائی سطریں ختم کریں", tagline: "فہرست سے دہرائی سطریں ایک کلک میں ہٹائیں" },
   },
   invisibleCharacter: {
     en: { icon: "👻", name: "Invisible Character", tagline: "Copy blank text & reveal hidden text" },
@@ -229,6 +276,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "👻", name: "Usynlig Tegn", tagline: "Kopier blank tekst og se skjulte tegn" },
     nl: { icon: "👻", name: "Onzichtbaar Teken", tagline: "Kopieer lege tekst, toon verborgen tekens" },
     it: { icon: "👻", name: "Carattere Invisibile", tagline: "Copia testo vuoto e rivela il nascosto" },
+    ru: { icon: "👻", name: "Невидимый символ", tagline: "Пустой символ для ника" },
+    "ur-pk": { icon: "👻", name: "پوشیدہ حرف", tagline: "پوشیدہ حروف کاپی کریں، خالی متن بنائیں" },
   },
   wordFrequency: {
     en: { icon: "📊", name: "Word Frequency Counter", tagline: "Rank repeated words & phrases" },
@@ -242,6 +291,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📊", name: "Ordfrekvens", tagline: "Ranger gjentatte ord og fraser" },
     nl: { icon: "📊", name: "Woordfrequentie", tagline: "Rangschik herhaalde woorden en zinnen" },
     it: { icon: "📊", name: "Frequenza Parole", tagline: "Classifica parole e frasi ripetute" },
+    ru: { icon: "📊", name: "Частота слов", tagline: "Повторы слов в тексте" },
+    "ur-pk": { icon: "📊", name: "لفظ تکرار گننے والا", tagline: "دیکھیں کون سے الفاظ سب سے زیادہ دہرائے" },
   },
   readingTime: {
     en: { icon: "⏱️", name: "Reading Time Calculator", tagline: "How long to read or say your text" },
@@ -255,6 +306,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "⏱️", name: "Lesetid Kalkulator", tagline: "Hvor lang tid tar det å lese eller si" },
     nl: { icon: "⏱️", name: "Leestijd Calculator", tagline: "Hoe lang lezen of spreken duurt" },
     it: { icon: "⏱️", name: "Tempo di Lettura", tagline: "Quanto tempo per leggere o dire il testo" },
+    ru: { icon: "⏱️", name: "Время чтения", tagline: "Сколько минут читать текст" },
+    "ur-pk": { icon: "⏱️", name: "پڑھنے کا وقت", tagline: "متن پڑھنے یا بولنے میں کتنا وقت لگے گا" },
   },
   base64: {
     en: { icon: "🔣", name: "Base64 Encoder & Decoder", tagline: "UTF-8 text, URL-safe mode and clear errors" },
@@ -268,6 +321,7 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔣", name: "Base64 Koding/Dekoding", tagline: "UTF-8, URL-sikker og tydelige feil" },
     nl: { icon: "🔣", name: "Base64 Coderen/Decoderen", tagline: "UTF-8, URL-veilig en duidelijke fouten" },
     it: { icon: "🔣", name: "Base64 Codifica/Decodifica", tagline: "UTF-8, URL safe ed errori chiari" },
+    ru: { icon: "🔣", name: "Время чтения", tagline: "Сколько минут читать текст" },
   },
   instagramLineBreak: {
     en: { icon: "📸", name: "Instagram Line Breaks", tagline: "Blank lines that survive the post" },
@@ -281,6 +335,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📸", name: "Instagram Linjeskift", tagline: "Tomme linjer som overlever innlegget" },
     nl: { icon: "📸", name: "Instagram Regelafbreking", tagline: "Lege regels die de post overleven" },
     it: { icon: "📸", name: "Interruzioni Instagram", tagline: "Righe vuote che restano dopo la pubblicazione" },
+    ru: { icon: "📸", name: "Абзацы для Instagram", tagline: "Переносы строк в посте" },
+    "ur-pk": { icon: "📸", name: "انسٹاگرام سطر وقفہ", tagline: "کیپشن میں سطر وقفے برقرار رکھیں" },
   },
   jsonFormatter: {
     en: { icon: "🧩", name: "JSON Formatter", tagline: "Beautify, minify & validate JSON" },
@@ -294,6 +350,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🧩", name: "JSON-formatverktøy", tagline: "Formater, minifiser og valider JSON" },
     nl: { icon: "🧩", name: "JSON Formatter", tagline: "JSON opmaken, minificeren en valideren" },
     it: { icon: "🧩", name: "Formattatore JSON", tagline: "Abbella, minimizza e convalida JSON" },
+    ru: { icon: "🧩", name: "JSON форматтер", tagline: "Форматирование и проверка" },
+    "ur-pk": { icon: "🧩", name: "JSON فارمیٹر", tagline: "JSON خوبصورت بنائیں، چھوٹا کریں، جانچیں" },
   },
   loremIpsum: {
     en: { icon: "📄", name: "Lorem Ipsum Generator", tagline: "Paragraphs, sentences & words" },
@@ -307,6 +365,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📄", name: "Lorem Ipsum-generator", tagline: "Avsnitt, setninger og ord" },
     nl: { icon: "📄", name: "Lorem Ipsum Generator", tagline: "Alinea's, zinnen en woorden" },
     it: { icon: "📄", name: "Generatore Lorem Ipsum", tagline: "Paragrafi, frasi e parole" },
+    ru: { icon: "📄", name: "Lorem Ipsum", tagline: "Генератор текста-рыбы" },
+    "ur-pk": { icon: "📄", name: "لورم اپسم بنانے والا", tagline: "ترتیب کے لیے نمونہ متن فوراً بنائیں" },
   },
   daysBetween: {
     en: { icon: "📅", name: "Days Between Dates", tagline: "Total days, weeks & business days" },
@@ -320,6 +380,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📅", name: "Dager Mellom Datoer", tagline: "Dager totalt, uker og virkedager" },
     nl: { icon: "📅", name: "Dagen Tussen Datums", tagline: "Dagen totaal, weken en werkdagen" },
     it: { icon: "📅", name: "Giorni Tra Date", tagline: "Giorni totali, settimane e giorni lavorativi" },
+    ru: { icon: "📅", name: "Дни между датами", tagline: "Калькулятор дат онлайн" },
+    "ur-pk": { icon: "📅", name: "دن کیلکولیٹر", tagline: "دو تاریخوں کے درمیان دن گنیں" },
   },
   randomNumber: {
     en: { icon: "🎲", name: "Random Number Generator", tagline: "Numbers, coin flip & dice rolls" },
@@ -333,6 +395,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🎲", name: "Tilfeldig Tallgenerator", tagline: "Tall, myntkast og terning" },
     nl: { icon: "🎲", name: "Willekeurig Getalgenerator", tagline: "Getallen, munt en dobbelstenen" },
     it: { icon: "🎲", name: "Generatore di Numeri Casuali", tagline: "Numeri, moneta e dadi" },
+    ru: { icon: "🎲", name: "Случайные числа", tagline: "Генератор чисел онлайн" },
+    "ur-pk": { icon: "🎲", name: "بے ترتیب عدد بنانے والا", tagline: "منصفانہ بے ترتیب عدد، سکہ اور پاسہ" },
   },
   imageConverter: {
     en: { icon: "🔁", name: "Image Converter", tagline: "JPG, PNG & WebP, same size" },
@@ -346,6 +410,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔁", name: "Bildekonverter", tagline: "JPG, PNG og WebP, samme størrelse" },
     nl: { icon: "🔁", name: "Afbeelding Converter", tagline: "JPG, PNG en WebP, zelfde grootte" },
     it: { icon: "🔁", name: "Convertitore Immagini", tagline: "JPG, PNG e WebP, stessa dimensione" },
+    ru: { icon: "🔁", name: "Конвертер картинок", tagline: "JPG, PNG и WebP" },
+    "ur-pk": { icon: "🔁", name: "تصویر شکل بدلنے والا", tagline: "JPG، PNG اور WebP کے درمیان بدلیں" },
   },
   imageToText: {
     en: { icon: "🔍", name: "Image to Text OCR", tagline: "Extract text from JPG, PNG & WebP" },
@@ -359,6 +425,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔍", name: "Bilde til Tekst", tagline: "Tekst fra JPG, PNG og WebP" },
     nl: { icon: "🔍", name: "Afbeelding naar Tekst", tagline: "Tekst uit JPG, PNG en WebP" },
     it: { icon: "🔍", name: "Immagine a Testo", tagline: "Testo da JPG, PNG e WebP" },
+    ru: { icon: "🔍", name: "Текст с картинки", tagline: "Распознавание текста OCR" },
+    "ur-pk": { icon: "🔍", name: "تصویر سے متن (OCR)", tagline: "تصویر سے قابلِ ترمیم متن نکالیں" },
   },
   pdfSplitter: {
     en: { icon: "✂️", name: "PDF Splitter", tagline: "Extract pages & split ranges" },
@@ -372,6 +440,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "✂️", name: "Del PDF", tagline: "Hent ut sider og intervaller" },
     nl: { icon: "✂️", name: "PDF Splitsen", tagline: "Pagina's en bereiken uitpakken" },
     it: { icon: "✂️", name: "Dividi PDF", tagline: "Estrai pagine e intervalli" },
+    ru: { icon: "✂️", name: "Разделить PDF", tagline: "Страницы из PDF файла" },
+    "ur-pk": { icon: "✂️", name: "PDF الگ کرنے والا", tagline: "PDF سے مطلوبہ صفحات نکالیں" },
   },
   usernameGenerator: {
     en: { icon: "@", name: "Username Generator", tagline: "Ideas for games, creators & brands" },
@@ -385,6 +455,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "@", name: "Brukernavn Generator", tagline: "Ideer for spill, skapere og merker" },
     nl: { icon: "@", name: "Gebruikersnaam Generator", tagline: "Ideeën voor games, makers en merken" },
     it: { icon: "@", name: "Generatore Username", tagline: "Idee per giochi, creator e marchi" },
+    ru: { icon: "@", name: "Генератор ников", tagline: "Идеи никнеймов онлайн" },
+    "ur-pk": { icon: "@", name: "صارف نام بنانے والا", tagline: "20 صاف صارف نام خیالات حاصل کریں" },
   },
   onlineNotepad: {
     en: { icon: "📝", name: "Online Notepad", tagline: "Type now — it saves itself in this browser" },
@@ -398,6 +470,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📝", name: "Notatblokk på nett", tagline: "Skriv no — lagrar seg sjølv i nettlesaren" },
     nl: { icon: "📝", name: "Online kladblok", tagline: "Typ direct — slaat zichzelf op in je browser" },
     it: { icon: "📝", name: "Blocco note online", tagline: "Scrivi ora — si salva da solo in questo browser" },
+    ru: { icon: "📝", name: "Блокнот онлайн", tagline: "Заметки в браузере" },
+    "ur-pk": { icon: "📝", name: "آن لائن نوٹ پیڈ", tagline: "کھولتے ہی لکھیں، خود محفوظ ہو جائے" },
   },
   onlineTeleprompter: {
     en: { icon: "🎬", name: "Online Teleprompter", tagline: "Scrolling script, mirror & countdown" },
@@ -411,6 +485,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🎬", name: "Teleprompter", tagline: "Rullende tekst, speil og nedtelling" },
     nl: { icon: "🎬", name: "Teleprompter", tagline: "Scrollende tekst, spiegel en aftellen" },
     it: { icon: "🎬", name: "Teleprompter", tagline: "Testo scorrevole, specchio e conto" },
+    ru: { icon: "🎬", name: "Телесуфлёр", tagline: "Суфлёр для записи видео" },
+    "ur-pk": { icon: "🎬", name: "آن لائن ٹیلی پرامپٹر", tagline: "اسکرپٹ پڑھیں جبکہ وہ سکون سے گزرے" },
   },
   timestampConverter: {
     en: { icon: "🕐", name: "Timestamp Converter", tagline: "Epoch, UTC & local — unit stated" },
@@ -424,6 +500,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🕐", name: "Tidsstempel-omregner", tagline: "Epoch, UTC og lokal, enhet vist" },
     nl: { icon: "🕐", name: "Timestamp Converter", tagline: "Epoch, UTC & lokaal, eenheid vermeld" },
     it: { icon: "🕐", name: "Convertitore Timestamp", tagline: "Epoch, UTC e locale, unità chiara" },
+    ru: { icon: "🕐", name: "Конвертер времени", tagline: "Unix timestamp в дату" },
+    "ur-pk": { icon: "🕐", name: "ٹائم اسٹیمپ کنورٹر", tagline: "یونکس وقت کو تاریخ میں اور واپس بدلیں" },
   },
   utmLinkBuilder: {
     en: { icon: "📣", name: "UTM Link Builder", tagline: "Source, medium & campaign — tagged right" },
@@ -437,6 +515,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📣", name: "UTM-lenkebygger", tagline: "Kilde, medium og kampanje merket riktig" },
     nl: { icon: "📣", name: "UTM-linkbouwer", tagline: "Bron, medium en campagne goed getagd" },
     it: { icon: "📣", name: "Generatore UTM", tagline: "Fonte, mezzo e campagna etichettati bene" },
+    ru: { icon: "📣", name: "UTM метки", tagline: "Ссылки для рекламы" },
+    "ur-pk": { icon: "📣", name: "UTM لنک بنانے والا", tagline: "ماخذ، ذریعہ اور مہم کے ساتھ لنک ٹیگ کریں" },
   },
   metaChecker: {
     en: { icon: "🔍", name: "Meta Length Checker", tagline: "Characters, pixels & SERP preview" },
@@ -450,6 +530,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔍", name: "Meta-lengdesjekk", tagline: "Tegn, piksler og SERP-visning" },
     nl: { icon: "🔍", name: "Meta Lengtechecker", tagline: "Tekens, pixels & SERP-voorbeeld" },
     it: { icon: "🔍", name: "Lunghezza Meta", tagline: "Caratteri, pixel e anteprima SERP" },
+    ru: { icon: "🔍", name: "Проверка мета-тегов", tagline: "Title и description" },
+    "ur-pk": { icon: "🔍", name: "میٹا جانچنے والا", tagline: "عنوان و تفصیل کی لمبائی اور جھلک جانچیں" },
   },
   urlEncoder: {
     en: { icon: "🔗", name: "URL Encoder / Decoder", tagline: "Full links or single values — encoded right" },
@@ -463,6 +545,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔗", name: "URL-koder", tagline: "Hele lenker eller enkelverdier, riktig kodet" },
     nl: { icon: "🔗", name: "URL-encoder", tagline: "Hele links of losse waarden, goed gecodeerd" },
     it: { icon: "🔗", name: "Codificatore URL", tagline: "Link interi o singoli valori, codifica giusta" },
+    ru: { icon: "🔗", name: "Кодирование URL", tagline: "Encode и decode онлайн" },
+    "ur-pk": { icon: "🔗", name: "URL انکوڈر / ڈیکوڈر", tagline: "URL یا ایک قدر کو انکوڈ ڈیکوڈ کریں" },
   },
   regexTester: {
     en: { icon: "🔎", name: "Regex Tester", tagline: "Matches, groups & replace — live" },
@@ -476,6 +560,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔎", name: "Regex-tester", tagline: "Treff, grupper og erstatning direkte" },
     nl: { icon: "🔎", name: "Regex Tester", tagline: "Matches, groepen en vervangen live" },
     it: { icon: "🔎", name: "Tester Regex", tagline: "Corrispondenze, gruppi e sostituzione" },
+    ru: { icon: "🔎", name: "Тестер regex", tagline: "Регулярные выражения" },
+    "ur-pk": { icon: "🔎", name: "ریگ ایکس جانچنے والا", tagline: "نمونہ لائیو جانچیں، مماثلتیں دیکھیں" },
   },
   jsonToCsv: {
     en: { icon: "📊", name: "JSON to CSV Converter", tagline: "Flatten, preview & safe export" },
@@ -489,6 +575,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📊", name: "JSON til CSV-omformer", tagline: "Flat ut, forhåndsvis, trygg eksport" },
     nl: { icon: "📊", name: "JSON naar CSV-converter", tagline: "Afplatten, voorbeeld, veilige export" },
     it: { icon: "📊", name: "Convertitore JSON in CSV", tagline: "Appiattisci, anteprima, export sicuro" },
+    ru: { icon: "📊", name: "JSON в CSV", tagline: "Конвертер таблиц онлайн" },
+    "ur-pk": { icon: "📊", name: "JSON سے CSV کنورٹر", tagline: "JSON کو صاف اسپریڈ شیٹ CSV بنائیں" },
   },
   uuidGenerator: {
     en: { icon: "🆔", name: "UUID Generator", tagline: "Random v4 IDs, bulk & one-tap copy" },
@@ -502,6 +590,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🆔", name: "UUID-generator", tagline: "UUID v4 i bulk, kopi med ett trykk" },
     nl: { icon: "🆔", name: "UUID Generator", tagline: "UUID v4 in bulk, kopiëren met één tik" },
     it: { icon: "🆔", name: "Generatore UUID", tagline: "UUID v4 in blocco, copia con un tocco" },
+    ru: { icon: "🆔", name: "Генератор UUID", tagline: "GUID в один клик" },
+    "ur-pk": { icon: "🆔", name: "UUID بنانے والا", tagline: "UUID v4 فوراً بنائیں، ایک یا سو" },
   },
   unitConverter: {
     en: { icon: "📏", name: "Unit Converter", tagline: "Length, weight, temperature & more — no currency" },
@@ -515,6 +605,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📏", name: "Enhetsomregner", tagline: "Lengde, vekt, temperatur og mer" },
     nl: { icon: "📏", name: "Eenheden Omrekenen", tagline: "Lengte, gewicht, temperatuur en meer" },
     it: { icon: "📏", name: "Convertitore di Unità", tagline: "Lunghezza, peso, temperatura e altro" },
+    ru: { icon: "📏", name: "Конвертер единиц", tagline: "Длина, вес, температура" },
+    "ur-pk": { icon: "📏", name: "یونٹ کنورٹر", tagline: "لمبائی، وزن، درجہ حرارت اور مزید بدلیں" },
   },
   voiceRecorder: {
     en: { icon: "🎙️", name: "Online Voice Recorder", tagline: "Record, pause & download — no upload" },
@@ -528,6 +620,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🎙️", name: "Taleopptaker på Nett", tagline: "Ta opp, pause og last ned" },
     nl: { icon: "🎙️", name: "Online Spraakrecorder", tagline: "Opnemen, pauzeren & downloaden" },
     it: { icon: "🎙️", name: "Registratore Vocale Online", tagline: "Registra, metti in pausa e scarica" },
+    ru: { icon: "🎙️", name: "Диктофон онлайн", tagline: "Запись голоса в браузере" },
+    "ur-pk": { icon: "🎙️", name: "آن لائن آواز ریکارڈر", tagline: "براؤزر میں آواز ریکارڈ کریں، ڈاؤن لوڈ کریں" },
   },
   morseCodeTranslator: {
     en: { icon: "📡", name: "Morse Code Translator", tagline: "Dots, dashes, sound & flash" },
@@ -541,6 +635,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📡", name: "Morsekode Oversetter", tagline: "Prikker, streker, lyd og lys" },
     nl: { icon: "📡", name: "Morsecode Vertaler", tagline: "Punten, strepen, geluid & licht" },
     it: { icon: "📡", name: "Traduttore Codice Morse", tagline: "Punti, linee, suono e luce" },
+    ru: { icon: "📡", name: "Азбука Морзе", tagline: "Переводчик туда и обратно" },
+    "ur-pk": { icon: "📡", name: "مورس کوڈ مترجم", tagline: "متن کو نقطوں لکیروں میں اور واپس بدلیں" },
   },
   imageResizer: {
     en: { icon: "🖼️", name: "Image Resizer", tagline: "Exact pixels, crop & social presets" },
@@ -554,6 +650,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🖼️", name: "Bildestørrelse", tagline: "Nøyaktige piksler, beskjæring og forvalg" },
     nl: { icon: "🖼️", name: "Formaat Wijzigen", tagline: "Exacte pixels, bijsnijden en presets" },
     it: { icon: "🖼️", name: "Ridimensiona", tagline: "Pixel esatti, ritaglio e preset" },
+    ru: { icon: "🖼️", name: "Размер фото", tagline: "Изменить размер картинки" },
+    "ur-pk": { icon: "🖼️", name: "تصویر سائز بدلنے والا", tagline: "تصویر کو درست سائز میں بدلیں اور تراشیں" },
   },
   invoiceGenerator: {
     en: { icon: "🧾", name: "Invoice Generator", tagline: "Make a clean invoice and print or save PDF" },
@@ -567,6 +665,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🧾", name: "Fakturagenerator", tagline: "Lag en ryddig faktura, skriv ut eller PDF" },
     nl: { icon: "🧾", name: "Factuurgenerator", tagline: "Maak een nette factuur, druk af of PDF" },
     it: { icon: "🧾", name: "Generatore di Fatture", tagline: "Crea una fattura pulita, stampa o PDF" },
+    ru: { icon: "🧾", name: "Счета онлайн", tagline: "Генератор счетов на оплату" },
+    "ur-pk": { icon: "🧾", name: "رسید بنانے والا", tagline: "منٹوں میں صاف رسید بنائیں اور چھاپیں" },
   },
   onlineTimer: {
     en: { icon: "⏱️", name: "Online Timer & Stopwatch", tagline: "Countdown, laps & big readable digits" },
@@ -580,6 +680,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "⏱️", name: "Tidtaker og Stoppeklokke", tagline: "Nedtelling, runder og store sifre" },
     nl: { icon: "⏱️", name: "Timer en Stopwatch", tagline: "Aftellen, ronden en grote cijfers" },
     it: { icon: "⏱️", name: "Timer e Cronometro", tagline: "Conto alla rovescia, giri e cifre grandi" },
+    ru: { icon: "⏱️", name: "Таймер онлайн", tagline: "Обратный отсчёт со звуком" },
+    "ur-pk": { icon: "⏱️", name: "آن لائن ٹائمر", tagline: "الٹی گنتی اور اسٹاپ واچ ایک ہی جگہ" },
   },
   slugGenerator: {
     en: { icon: "🔗", name: "Slug Generator", tagline: "Titles into clean URL slugs" },
@@ -593,6 +695,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔗", name: "Slug-generator", tagline: "Titler til rene URL-slugger" },
     nl: { icon: "🔗", name: "Slug Generator", tagline: "Titels naar schone URL-slugs" },
     it: { icon: "🔗", name: "Generatore di Slug", tagline: "Titoli in slug puliti" },
+    ru: { icon: "🔗", name: "Генератор слага", tagline: "ЧПУ и транслит в URL" },
+    "ur-pk": { icon: "🔗", name: "سلگ بنانے والا", tagline: "عنوان کو صاف URL سلگ بنائیں" },
   },
   textRepeater: {
     en: { icon: "🔁", name: "Text Repeater", tagline: "Repeat any text up to 1,000 times" },
@@ -606,6 +710,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🔁", name: "Tekstgjentaker", tagline: "Gjenta tekst opptil 1 000 ganger" },
     nl: { icon: "🔁", name: "Tekstherhaler", tagline: "Herhaal tekst tot 1.000 keer" },
     it: { icon: "🔁", name: "Ripetitore di Testo", tagline: "Ripeti il testo fino a 1.000 volte" },
+    ru: { icon: "🔁", name: "Повторитель текста", tagline: "Повторить текст много раз" },
+    "ur-pk": { icon: "🔁", name: "متن دہرانے والا", tagline: "کوئی متن 1,000 بار تک دہرائیں" },
   },
   cvBuilder: {
     en: { icon: "💼", name: "CV Builder", tagline: "Make a professional CV in minutes" },
@@ -619,6 +725,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "💼", name: "CV-Bygger", tagline: "Profesjonell CV på minutter" },
     nl: { icon: "💼", name: "CV-Maker", tagline: "In minuten een professioneel CV" },
     it: { icon: "💼", name: "Creatore di CV", tagline: "Un CV professionale in pochi minuti" },
+    ru: { icon: "💼", name: "Конструктор резюме", tagline: "Резюме онлайн бесплатно" },
+    "ur-pk": { icon: "💼", name: "CV بنانے والا", tagline: "صاف پیشہ ورانہ CV بنائیں اور چھاپیں" },
   },
   imageCompressor: {
     en: { icon: "🖼️", name: "Image Compressor", tagline: "Reduce image file size in your browser" },
@@ -632,6 +740,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🖼️", name: "Bildekompressor", tagline: "Reduser bildefilstørrelsen i nettleseren" },
     nl: { icon: "🖼️", name: "Afbeeldingcompressor", tagline: "Verklein afbeeldingsbestanden in je browser" },
     it: { icon: "🖼️", name: "Compressore Immagini", tagline: "Riduci la dimensione delle immagini nel browser" },
+    ru: { icon: "🖼️", name: "Сжать фото", tagline: "Уменьшить размер картинки" },
+    "ur-pk": { icon: "🖼️", name: "تصویر سائز گھٹانے والا", tagline: "تصاویر کا سائز کم کریں، معیار برقرار" },
   },
   pdfTools: {
     en: { icon: "📕", name: "PDF Tools", tagline: "Merge PDFs & turn images into PDF" },
@@ -645,6 +755,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📕", name: "PDF-Verktøy", tagline: "Slå sammen PDF og lag PDF av bilder" },
     nl: { icon: "📕", name: "PDF-Tools", tagline: "Voeg PDFs samen, maak PDF van foto's" },
     it: { icon: "📕", name: "Strumenti PDF", tagline: "Unisci PDF e crea PDF da immagini" },
+    ru: { icon: "📕", name: "PDF инструменты", tagline: "Объединить и разделить PDF" },
+    "ur-pk": { icon: "📕", name: "PDF ٹولز", tagline: "PDF جوڑیں اور تصویریں PDF بنائیں" },
   },
   media: {
     en: { icon: "🎬", name: "Video Studio", tagline: "Edit media you have permission to use" },
@@ -658,6 +770,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🎬", name: "Videostudio", tagline: "Rediger videoer og bilder du har lov til å bruke" },
     nl: { icon: "🎬", name: "Videostudio", tagline: "Bewerk video's en afbeeldingen die je mag gebruiken" },
     it: { icon: "🎬", name: "Studio Video", tagline: "Modifica video e immagini che hai il diritto di usare" },
+    ru: { icon: "🎬", name: "Видео инструменты", tagline: "Инструменты для видео" },
+    "ur-pk": { icon: "🎬", name: "میڈیا ٹولز", tagline: "ویڈیو و تصویر کے تخلیقی اوزار" },
   },
   seo: {
     en: { icon: "📈", name: "SEO & Hashtags", tagline: "Generate title, keyword & hashtag ideas" },
@@ -671,6 +785,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "📈", name: "SEO og Hashtagger", tagline: "Generer titler og hashtags" },
     nl: { icon: "📈", name: "SEO & Hashtags", tagline: "Genereer titels en hashtags" },
     it: { icon: "📈", name: "SEO e Hashtag", tagline: "Genera titoli e hashtag" },
+    ru: { icon: "📈", name: "SEO инструменты", tagline: "Заголовки и мета-описания" },
+    "ur-pk": { icon: "📈", name: "SEO مددگار", tagline: "میٹا اور ہیش ٹیگ خیالات بنائیں" },
   },
   cleaner: {
     en: { icon: "🧹", name: "Cliché Cleaner", tagline: "Remove AI buzzwords & robotic phrases" },
@@ -684,6 +800,8 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "🧹", name: "Klisjéfjerner", tagline: "Fjern AI-klisjeer" },
     nl: { icon: "🧹", name: "Clichéverwijderaar", tagline: "Verwijder AI-clichés" },
     it: { icon: "🧹", name: "Pulitore di Cliché", tagline: "Rimuovi frasi robotiche" },
+    ru: { icon: "🧹", name: "Убрать клише", tagline: "Текст без штампов" },
+    "ur-pk": { icon: "🧹", name: "کلشے صاف کرنے والا", tagline: "گھسے پٹے جملے تلاش کر کے بہتر بنائیں" },
   },
   diff: {
     en: { icon: "⚖️", name: "Text Diff Checker", tagline: "Compare two texts side by side" },
@@ -697,13 +815,15 @@ const HERO_DATA: Record<string, Record<LanguageCode, ToolHeroInfo>> = {
     no: { icon: "⚖️", name: "Tekstsammenligner", tagline: "Sammenlign to tekster" },
     nl: { icon: "⚖️", name: "Tekstvergelijker", tagline: "Vergelijk twee teksten" },
     it: { icon: "⚖️", name: "Confronto Testi", tagline: "Confronta due testi" },
+    ru: { icon: "⚖️", name: "Сравнение текстов", tagline: "Найти различия в текстах" },
+    "ur-pk": { icon: "⚖️", name: "فرق جانچنے والا", tagline: "دو متنوں کا فرق قطار بہ قطار دیکھیں" },
   },
 };
 
 const FREE_BADGE: Record<LanguageCode, string> = {
   en: "Free", es: "Gratis", ur: "Muft", de: "Kostenlos",
   fr: "Gratuit", tr: "Ücretsiz", pt: "Grátis", ja: "無料",
-  no: "Gratis", nl: "Gratis", it: "Gratis",
+  no: "Gratis", nl: "Gratis", it: "Gratis", ru: "Бесплатно", "ur-pk": "مفت",
 };
 
 // Map tool to its guide article slug (Urdu guides exist for all)
@@ -759,19 +879,21 @@ const TOOL_ARTICLE_SLUG: Record<string, string> = {
   seo: "seo-tools-urdu-guide",
   cleaner: "cliche-cleaner-urdu-guide",
   diff: "diff-checker-urdu-guide",
+  voiceCloner: "voice-cloner-guide",
+  museAiHub: "muse-ai-availability-checker-guide",
 };
 
 const GUIDE_TEXT: Record<LanguageCode, string> = {
   en: "📖 Read Guide", es: "📖 Leer Guía", ur: "📖 Guide Parhen",
   de: "📖 Anleitung", fr: "📖 Lire le Guide", tr: "📖 Rehberi Oku",
   pt: "📖 Ler Guia", ja: "📖 ガイドを読む", no: "📖 Les Guide",
-  nl: "📖 Lees Gids", it: "📖 Leggi Guida",
+  nl: "📖 Lees Gids", it: "📖 Leggi Guida", ru: "📖 Читать руководство", "ur-pk": "📖 رہنما پڑھیں",
 };
 
 const PRIVATE_BADGE: Record<LanguageCode, string> = {
   en: "Private", es: "Privado", ur: "Mehfooz", de: "Privat",
   fr: "Privé", tr: "Gizli", pt: "Privado", ja: "プライベート",
-  no: "Privat", nl: "Privé", it: "Privato",
+  no: "Privat", nl: "Privé", it: "Privato", ru: "Приватно", "ur-pk": "محفوظ",
 };
 
 interface Props {

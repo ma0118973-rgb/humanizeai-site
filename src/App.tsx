@@ -6,12 +6,13 @@ import { PWAInstallModal } from "./components/PWAInstallModal";
 import { OtherToolsSection } from "./components/OtherToolsSection";
 import { MobileToolHero } from "./components/MobileToolHero";
 import { HumanizerWorkspace } from "./components/HumanizerWorkspace";
+import { HomePage } from "./components/HomePage";
 import { ToolLoadingSkeleton } from "./components/ToolLoadingSkeleton";
 import { DedicatedSeoArticleSection } from "./components/DedicatedSeoArticleSection";
 import { FaqAndCompetitorSection } from "./components/FaqAndCompetitorSection";
 import { HistoryDrawer } from "./components/HistoryDrawer";
 import { ActivePage, LanguageCode, SavedDraft } from "./types";
-import { applyPageSeo, SEO_CONFIGS, ALL_SUPPORTED_LANGUAGES } from "./utils/seo";
+import { applyPageSeo, SEO_CONFIGS, ALL_SUPPORTED_LANGUAGES, URPK_PAGES } from "./utils/seo";
 import { findBlogPostBySlug, BlogPost } from "./data/blogArticles";
 import { DiagnosticBoundary } from "./components/DiagnosticBoundary";
 
@@ -175,6 +176,9 @@ const BackgroundRemoverWorkspace = lazy(() =>
 const VoiceClonerWorkspace = lazy(() =>
   import("./components/VoiceClonerWorkspace").then((m) => ({ default: m.VoiceClonerWorkspace }))
 );
+const MuseAiHubWorkspace = lazy(() =>
+  import("./components/MuseAiHubWorkspace").then((m) => ({ default: m.MuseAiHubWorkspace }))
+);
 const CompliancePages = lazy(() =>
   import("./components/CompliancePages").then((m) => ({ default: m.CompliancePages }))
 );
@@ -206,11 +210,12 @@ function parseCurrentRoute(): ParsedRoute {
     remainingSegments = segments.slice(1);
   }
 
-  // If no remaining segments, it's home / humanizer in that language
+  // If no remaining segments, it is the language homepage
   if (remainingSegments.length === 0) {
     // Check hash fallback
     const hash = window.location.hash.replace("#", "") as ActivePage;
     const validPages: ActivePage[] = [
+      "home",
       "humanizer",
       "detector",
       "media",
@@ -225,7 +230,7 @@ function parseCurrentRoute(): ParsedRoute {
     if (validPages.includes(hash)) {
       return { page: hash, lang, blogSlug: null };
     }
-    return { page: "humanizer", lang, blogSlug: null };
+    return { page: "home", lang, blogSlug: null };
   }
 
   const primarySlug = remainingSegments[0].toLowerCase();
@@ -395,6 +400,9 @@ function parseCurrentRoute(): ParsedRoute {
   if (primarySlug === "voice-cloner" || primarySlug === "ai-voice-cloner" || primarySlug === "voice-clone" || primarySlug === "voiceCloner") {
     return { page: "voiceCloner", lang, blogSlug: null };
   }
+  if (primarySlug === "muse-ai-availability-checker" || primarySlug === "muse-ai" || primarySlug === "muse-availability" || primarySlug === "muse-ai-hub" || primarySlug === "museAiHub") {
+    return { page: "museAiHub", lang, blogSlug: null };
+  }
   if (primarySlug === "cliche-cleaner" || primarySlug === "cleaner" || primarySlug === "ai-cliche-cleaner") {
     return { page: "cleaner", lang, blogSlug: null };
   }
@@ -427,6 +435,9 @@ function parseCurrentRoute(): ParsedRoute {
 
 function buildCanonicalUrl(page: ActivePage, lang: LanguageCode, blogSlug?: string | null): string {
   const langPrefix = `/${lang}`;
+  if (page === "home") {
+    return `${langPrefix}/`;
+  }
   if (page === "blog") {
     if (blogSlug) {
       return `${langPrefix}/blog/${blogSlug}/`;
@@ -444,6 +455,26 @@ export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>(initialRoute.page);
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageCode>(initialRoute.lang);
   const [activeBlogSlug, setActiveBlogSlug] = useState<string | null>(initialRoute.blogSlug);
+
+  // The bare root "/" stays the English homepage (that is the entry
+  // search engines index). If this visitor previously picked another
+  // language with the switcher, we remembered it — send them straight
+  // to that language's homepage instead of making them switch again.
+  // First-time visitors are never force-redirected: the switcher sits
+  // at the top of every page.
+  useEffect(() => {
+    try {
+      const path = window.location.pathname.replace(/\/+$/, "");
+      if (path === "") {
+        const pref = window.localStorage.getItem("toolvena_lang");
+        if (pref && pref !== "en" && (ALL_SUPPORTED_LANGUAGES as string[]).includes(pref)) {
+          window.location.replace(`/${pref}/`);
+        }
+      }
+    } catch {
+      // Storage blocked — stay on the default English homepage.
+    }
+  }, []);
 
   const [isBlueprintOpen, setIsBlueprintOpen] = useState(false);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
@@ -582,6 +613,26 @@ export default function App() {
   const handleLanguageChange = useCallback(
     (newLang: LanguageCode) => {
       setSelectedLanguage(newLang);
+      // Remember this visitor's language so the bare root "/" can send
+      // them to their own homepage next time (see the effect above).
+      try {
+        window.localStorage.setItem("toolvena_lang", newLang);
+      } catch {
+        // Storage blocked — the switcher still works this visit.
+      }
+      // Urdu script (ur-pk) is a partial locale: pages outside URPK_PAGES do
+      // not exist there. Switching to it from any other page lands on the
+      // ur-pk homepage instead of a URL that would 404 on reload.
+      if (newLang === "ur-pk" && !URPK_PAGES.has(activePage)) {
+        setActivePage("home");
+        setActiveBlogSlug(null);
+        try {
+          window.history.pushState({ page: "home", lang: newLang, blogSlug: null }, "", "/ur-pk/");
+        } catch {
+          // Fallback
+        }
+        return;
+      }
       // When reading a blog article, go back to the blog listing in the new
       // language — articles are written per-language (not translated), so the
       // same article slug does not exist in other languages.
@@ -667,11 +718,12 @@ export default function App() {
     activePage === "audioToText" ||
     activePage === "backgroundRemover" ||
     activePage === "voiceCloner" ||
+    activePage === "museAiHub" ||
     activePage === "pdfTools";
 
   return (
     <DiagnosticBoundary>
-    <div className="min-h-screen bg-gradient-to-b from-amber-50/60 via-white to-yellow-50/40 text-stone-900 flex flex-col font-sans selection:bg-amber-100 selection:text-amber-900 w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen bg-white text-stone-900 flex flex-col font-sans selection:bg-amber-100 selection:text-amber-900 w-full max-w-full overflow-x-hidden">
       {/* Mobile App Install Smart Banner (Top 1-Tap Trigger) */}
       <MobileAppBanner onOpenInstall={() => setIsInstallOpen(true)} />
 
@@ -692,6 +744,10 @@ export default function App() {
 
       {/* Main Content Area: Active Tool Appears Directly At Top */}
       <main id="active-tool-workspace" className="flex-1 scroll-mt-6 w-full max-w-full overflow-x-hidden min-w-0">
+        {activePage === "home" && (
+          <HomePage onSelectPage={handlePageChange} selectedLanguage={selectedLanguage} />
+        )}
+
         {activePage === "humanizer" && (
           <>
             <HumanizerWorkspace
@@ -1316,6 +1372,17 @@ export default function App() {
           </Suspense>
         )}
 
+        {activePage === "museAiHub" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <MuseAiHubWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
         {activePage === "audioToText" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <AudioToTextWorkspace selectedLanguage={selectedLanguage} />
@@ -1361,10 +1428,10 @@ export default function App() {
             <h1 className="text-3xl font-bold text-stone-900">404 – Page not found</h1>
             <p className="mt-3 text-stone-600">This page does not exist or has moved.</p>
             <button
-              onClick={() => handlePageChange("humanizer")}
+              onClick={() => handlePageChange("home")}
               className="mt-6 px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700"
             >
-              Go to AI Humanizer
+              Go to homepage
             </button>
           </section>
         )}
@@ -1402,7 +1469,7 @@ export default function App() {
         </Suspense>
       )}
 
-      {/* Native WebApp PWA Installation Modal (iPhone & Android) */}
+      {/* PWA Installation Modal (iPhone & Android) */}
       <PWAInstallModal
         isOpen={isInstallOpen}
         onClose={() => setIsInstallOpen(false)}

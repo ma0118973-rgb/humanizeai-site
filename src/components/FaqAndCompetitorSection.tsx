@@ -123,31 +123,31 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
       </div>
 
       {/* Footer */}
-      <footer className="pt-10 border-t border-stone-200 text-stone-600 space-y-6">
+      <footer className="mt-4 px-4 sm:px-6 pt-10 pb-6 bg-tv-navy text-slate-300 space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-xs">
           {/* Col 1: About */}
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">
+              <div className="w-6 h-6 rounded-lg bg-tv-amber text-tv-amber-ink flex items-center justify-center font-bold text-xs">
                 T
               </div>
-              <span className="font-bold text-stone-900 text-sm">ToolVena</span>
+              <span className="font-bold text-white text-sm">ToolVena</span>
             </div>
-            <p className="text-stone-500 text-[11px] leading-relaxed">
-              ToolVena offers free browser tools for writing, text, images, PDFs and everyday tasks in 11 languages.
+            <p className="text-slate-400 text-[11px] leading-relaxed">
+              ToolVena offers free browser tools for writing, text, images, PDFs and everyday tasks in 12 languages.
             </p>
           </div>
 
           {/* Col 2: Navigation */}
           <div className="space-y-2">
-            <h4 className="font-bold text-stone-900 uppercase text-[11px] tracking-wider">
+            <h4 className="font-bold text-white uppercase text-[11px] tracking-wider">
               Core Tools
             </h4>
             <ul className="space-y-1.5 text-[12px]">
               <li>
                 <button
                   onClick={() => onNavigatePage("humanizer")}
-                  className="hover:text-emerald-600 transition-colors"
+                  className="hover:text-tv-amber transition-colors"
                 >
                   AI Text Humanizer
                 </button>
@@ -155,7 +155,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
               <li>
                 <button
                   onClick={() => onNavigatePage("detector")}
-                  className="hover:text-emerald-600 transition-colors"
+                  className="hover:text-tv-amber transition-colors"
                 >
                   AI Detector
                 </button>
@@ -163,7 +163,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
               <li>
                 <button
                   onClick={() => onNavigatePage("seo")}
-                  className="hover:text-emerald-600 transition-colors"
+                  className="hover:text-tv-amber transition-colors"
                 >
                   SEO Keywords & Hashtags
                 </button>
@@ -173,14 +173,14 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
 
           {/* Col 3: AdSense Policy Pages */}
           <div className="space-y-2">
-            <h4 className="font-bold text-stone-900 uppercase text-[11px] tracking-wider">
+            <h4 className="font-bold text-white uppercase text-[11px] tracking-wider">
               Legal & Compliance
             </h4>
             <ul className="space-y-1.5 text-[12px]">
               <li>
                 <button
                   onClick={() => onNavigatePage("privacy")}
-                  className="hover:text-emerald-600 transition-colors"
+                  className="hover:text-tv-amber transition-colors"
                 >
                   Privacy Policy (GDPR & CCPA)
                 </button>
@@ -188,7 +188,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
               <li>
                 <button
                   onClick={() => onNavigatePage("terms")}
-                  className="hover:text-emerald-600 transition-colors"
+                  className="hover:text-tv-amber transition-colors"
                 >
                   Terms of Service
                 </button>
@@ -196,7 +196,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
               <li>
                 <button
                   onClick={() => onNavigatePage("disclaimer")}
-                  className="hover:text-emerald-600 transition-colors"
+                  className="hover:text-tv-amber transition-colors"
                 >
                   Academic Disclaimer
                 </button>
@@ -204,7 +204,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
               <li>
                 <button
                   onClick={() => onNavigatePage("about")}
-                  className="hover:text-emerald-600 transition-colors"
+                  className="hover:text-tv-amber transition-colors"
                 >
                   About Our Organization
                 </button>
@@ -212,7 +212,7 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
               <li>
                 <button
                   onClick={() => onNavigatePage("contact")}
-                  className="hover:text-emerald-600 transition-colors"
+                  className="hover:text-tv-amber transition-colors"
                 >
                   Contact Support
                 </button>
@@ -222,23 +222,23 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
 
           {/* Col 4: Official Contact Information */}
           <div className="space-y-2">
-            <h4 className="font-bold text-stone-900 uppercase text-[11px] tracking-wider">
+            <h4 className="font-bold text-white uppercase text-[11px] tracking-wider">
               Contact
             </h4>
             <div className="space-y-1.5 text-[12px]">
               <a
                 href={`mailto:${contactEmail}`}
-                className="flex items-center gap-1.5 hover:text-emerald-600 transition-colors"
+                className="flex items-center gap-1.5 hover:text-tv-amber transition-colors"
               >
-                <Mail className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <Mail className="w-3.5 h-3.5 text-tv-teal shrink-0" />
                 <span className="break-all">{contactEmail}</span>
               </a>
-              <p className="text-[11px] text-stone-600 pt-1">Use the Contact page for support and feedback.</p>
+              <p className="text-[11px] text-slate-400 pt-1">Use the Contact page for support and feedback.</p>
             </div>
           </div>
         </div>
 
-        <div className="pt-6 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-600 gap-2">
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-2">
           <p>© 2026 ToolVena. All rights reserved.</p>
           <div className="flex items-center gap-3">
             <button onClick={() => onNavigatePage("privacy")} className="hover:underline">

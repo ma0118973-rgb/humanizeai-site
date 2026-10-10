@@ -226,7 +226,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
             <div className="border-b border-stone-100 pb-4">
               <span className="text-xs font-bold text-emerald-600 uppercase tracking-wider">Our Story</span>
               <h1 className="text-2xl sm:text-3xl font-bold text-stone-900 mt-1">About ToolVena</h1>
-              <p className="text-xs text-stone-500 mt-1">Free tools for better writing, in 11 languages</p>
+              <p className="text-xs text-stone-500 mt-1">Free tools for better writing, in 12 languages</p>
             </div>
 
             <p>
@@ -259,7 +259,7 @@ export function CompliancePages({ page, onNavigateHome }: CompliancePagesProps) 
                 <p className="text-xs text-emerald-700">Free tools, no sign-up</p>
               </div>
               <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200 text-center space-y-1">
-                <div className="text-2xl font-bold text-stone-900">11 Languages</div>
+                <div className="text-2xl font-bold text-stone-900">12 Languages</div>
                 <p className="text-xs text-stone-600">Urdu, English, Spanish & more</p>
               </div>
               <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200 text-center space-y-1">

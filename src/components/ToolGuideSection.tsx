@@ -55,6 +55,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   audioToText: "audio-to-text-converter-urdu-guide",
   backgroundRemover: "background-remover-guide",
   voiceCloner: "voice-cloner-guide",
+  museAiHub: "muse-ai-availability-checker-guide",
   media: "video-tools-urdu-guide",
   seo: "seo-tools-urdu-guide",
   cleaner: "cliche-cleaner-urdu-guide",
@@ -73,6 +74,8 @@ const SECTION_TITLE: Record<LanguageCode, string> = {
   no: "📖 Lær Å Bruke Dette Verktøyet",
   nl: "📖 Leer Deze Tool Gebruiken",
   it: "📖 Impara a Usare Questo Strumento",
+  ru: "📖 Как пользоваться этим инструментом",
+  "ur-pk": "📖 یہ ٹول استعمال کرنا سیکھیں",
 };
 
 const READ_FULL: Record<LanguageCode, string> = {
@@ -87,6 +90,8 @@ const READ_FULL: Record<LanguageCode, string> = {
   no: "Les Full Guide",
   nl: "Lees Volledige Gids",
   it: "Leggi la Guida Completa",
+  ru: "Читать полное руководство",
+  "ur-pk": "مکمل رہنما پڑھیں",
 };
 
 interface Props {

@@ -807,6 +807,20 @@ export function OtherToolsSection({ activePage, onSelectPage, selectedLanguage =
       bullets: ["Natural Voices On-Device", "Clone From a 10s Clip", "Text Never Uploaded"],
       stat: "Free",
     },
+    {
+      id: "museAiHub" as ActivePage,
+      title: "Muse AI Availability Checker",
+      subtitle: "Is Meta's Muse AI Available in Your Country?",
+      badge: "🌍 Free Checker",
+      badgeColor: "bg-teal-100 text-teal-800 border-teal-300",
+      iconBg: "bg-gradient-to-tr from-teal-600 to-cyan-500 text-white",
+      cardBorder: "hover:border-teal-500 hover:shadow-teal-500/10",
+      ctaBg: "bg-teal-600 hover:bg-teal-500 text-white",
+      icon: Search,
+      desc: "Check whether Meta's Muse AI has officially launched in your country — date-checked against Meta's own pages — plus honest tokens & plans info and a free prompt builder.",
+      bullets: ["Checked Against Meta's Pages", "Tokens & Plans, Honestly", "Free Prompt Helper"],
+      stat: "Free",
+    },
   ];
 
   // Show all other tools (excluding current active page)
@@ -914,6 +928,7 @@ export function OtherToolsSection({ activePage, onSelectPage, selectedLanguage =
     audioToText: "audio-to-text-converter-guide",
     backgroundRemover: "background-remover-guide",
     voiceCloner: "voice-cloner-guide",
+    museAiHub: "muse-ai-availability-checker-guide",
     seo: "google-helpful-content-ai-seo-2026",
     humanizer: "how-to-make-chatgpt-text-sound-natural-guide",
   };

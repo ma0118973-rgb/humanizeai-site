@@ -12,6 +12,14 @@ export interface PageSeoConfig {
 }
 
 export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
+  home: {
+    title: "ToolVena – Free Online Tools, No Sign-Up",
+    description: "ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser, in 12 languages.",
+    canonicalPath: "/",
+    ogType: "website",
+    schemaType: "WebPage",
+    toolName: "ToolVena – Free Online Tools",
+  },
   humanizer: {
     title: "AI Humanizer – Free AI Text Rewriter for Natural-Sounding Writing",
     description: "Convert ChatGPT, Claude & Gemini text into natural, human-sounding writing with varied sentence rhythm. Free, no sign-up. Results vary and are not guaranteed.",
@@ -110,7 +118,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   },
   typingTest: {
     title: "Free Typing Speed Test – Check Your WPM & Accuracy Online",
-    description: "Free typing speed test. Timed 30s and 60s tests plus 25/50 word modes with live WPM, accuracy and character stats in 11 languages. No sign-up, nothing uploaded.",
+    description: "Free typing speed test. Timed 30s and 60s tests plus 25/50 word modes with live WPM, accuracy and character stats in 12 languages. No sign-up, nothing uploaded.",
     canonicalPath: "/typing-test/",
     ogType: "website",
     schemaType: "WebApplication",
@@ -420,6 +428,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "AI Voice Cloner",
   },
+  museAiHub: {
+    title: "Muse AI Availability Checker – Available in Your Country?",
+    description: "Check whether Meta's Muse AI is officially available in your country — date-checked from Meta's own pages, with tokens & plans info and a free prompt helper.",
+    canonicalPath: "/muse-ai-availability-checker/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Muse AI Availability Checker",
+  },
   cleaner: {
     title: "AI Cliché Checker – Find Repetitive AI-Style Phrases",
     description: "Find common AI-style clichés like 'delve', 'tapestry' and 'testament', review each match in context, and rewrite them in your own words.",
@@ -466,7 +482,7 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
   },
   about: {
     title: "About Us – ToolVena",
-    description: "ToolVena provides free online tools for writing, text, images, PDFs and everyday tasks in 11 languages.",
+    description: "ToolVena provides free online tools for writing, text, images, PDFs and everyday tasks in 12 languages.",
     canonicalPath: "/about/",
     ogType: "website",
     schemaType: "WebPage",
@@ -509,7 +525,70 @@ export const ALL_SUPPORTED_LANGUAGES: LanguageCode[] = [
   "no",
   "nl",
   "it",
+  "ru",
+  "ur-pk",
 ];
+
+// Urdu script locale (ur-PK): as of phase 2 (2026-10-10) the homepage and
+// all 53 tool pages have real /ur-pk/ versions, so hreflang may advertise
+// ur-PK on exactly those pages (reciprocal-only rule stays in force:
+// no ur-PK alternate is emitted for any page not listed here).
+export const URPK_PAGES: ReadonlySet<string> = new Set([
+  "home",
+  "humanizer",
+  "detector",
+  "media",
+  "seo",
+  "citation",
+  "expander",
+  "summarizer",
+  "voiceTyping",
+  "cvBuilder",
+  "wordCounter",
+  "characterCounter",
+  "textToSpeech",
+  "typingTest",
+  "caseConverter",
+  "passwordGenerator",
+  "duplicateLines",
+  "textRepeater",
+  "invisibleCharacter",
+  "wordFrequency",
+  "readingTime",
+  "slugGenerator",
+  "jsonFormatter",
+  "loremIpsum",
+  "daysBetween",
+  "randomNumber",
+  "onlineTimer",
+  "invoiceGenerator",
+  "imageResizer",
+  "imageConverter",
+  "imageToText",
+  "pdfSplitter",
+  "usernameGenerator",
+  "morseCodeTranslator",
+  "voiceRecorder",
+  "onlineNotepad",
+  "unitConverter",
+  "onlineTeleprompter",
+  "uuidGenerator",
+  "timestampConverter",
+  "jsonToCsv",
+  "regexTester",
+  "urlEncoder",
+  "utmLinkBuilder",
+  "metaChecker",
+  "instagramLineBreak",
+  "imageCompressor",
+  "pdfTools",
+  "audioToText",
+  "backgroundRemover",
+  "voiceCloner",
+  "museAiHub",
+  "cleaner",
+  "diff",
+]);
 
 /**
  * Updates browser title, meta tags, OpenGraph, Twitter cards, hreflang tags, and Schema.org JSON-LD
@@ -527,7 +606,10 @@ export function applyPageSeo(
   let title = baseConfig.title;
   let description = baseConfig.description;
 
-  if (page === "humanizer") {
+  if (page === "home") {
+    title = (t.seo as any)?.homeTitle || baseConfig.title;
+    description = (t.seo as any)?.homeDesc || baseConfig.description;
+  } else if (page === "humanizer") {
     title = t.seo?.humanizerTitle ?? baseConfig.title;
     description = t.seo?.humanizerDesc ?? baseConfig.description;
   } else if (page === "detector") {
@@ -674,6 +756,9 @@ export function applyPageSeo(
   } else if (page === "voiceCloner") {
     title = (t.seo as any).voiceClonerTitle || baseConfig.title;
     description = (t.seo as any).voiceClonerDesc || baseConfig.description;
+  } else if (page === "museAiHub") {
+    title = (t.seo as any).museAiHubTitle || baseConfig.title;
+    description = (t.seo as any).museAiHubDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;
@@ -701,8 +786,8 @@ export function applyPageSeo(
   document.title = title;
 
   // 2. Language attribute
-  document.documentElement.lang = lang;
-  if (lang === "ur") {
+  document.documentElement.lang = lang === "ur-pk" ? "ur-PK" : lang;
+  if (lang === "ur" || lang === "ur-pk") {
     document.documentElement.dir = "rtl";
   } else {
     document.documentElement.dir = "ltr";
@@ -748,19 +833,21 @@ export function applyPageSeo(
   canonicalEl.setAttribute("href", canonicalUrl);
 
   // 8. Dynamic hreflang alternates for all supported languages
-  updateHreflangTags(origin, pathWithoutLang);
+  updateHreflangTags(origin, pathWithoutLang, page);
 
   // 9. Dynamic JSON-LD Structured Data
-  updateJsonLd(page, baseConfig, canonicalUrl, origin, blogPost);
+  updateJsonLd(page, baseConfig, canonicalUrl, origin, blogPost, lang);
 }
 
-function updateHreflangTags(origin: string, pathWithoutLang: string) {
+function updateHreflangTags(origin: string, pathWithoutLang: string, page?: string) {
   // Remove existing hreflang tags
   const existing = document.querySelectorAll('link[rel="alternate"][hreflang]');
   existing.forEach((el) => el.remove());
 
-  // Generate hreflang for all real supported languages
+  // Generate hreflang for all real supported languages. ur-PK is a partial
+  // locale (phase 1): only advertise it on pages that truly exist in ur-pk.
   ALL_SUPPORTED_LANGUAGES.forEach((l) => {
+    if (l === "ur-pk" && !(page && URPK_PAGES.has(page))) return;
     const link = document.createElement("link");
     link.setAttribute("rel", "alternate");
     link.setAttribute("hreflang", l);
@@ -781,7 +868,8 @@ function updateJsonLd(
   config: PageSeoConfig,
   canonicalUrl: string,
   origin: string,
-  blogPost?: BlogPost | null
+  blogPost?: BlogPost | null,
+  lang: LanguageCode = "en"
 ) {
   const existingScript = document.getElementById("toolvena-schema-jsonld");
   if (existingScript) {
@@ -796,16 +884,24 @@ function updateJsonLd(
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": `${origin}/#website`,
       "name": "ToolVena",
       "url": `${origin}/`,
-      "description": "Free online tools for writing, text, images, PDFs and everyday tasks.",
+      "description": "ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser.",
+      "inLanguage": ALL_SUPPORTED_LANGUAGES,
+      "publisher": { "@id": `${origin}/#organization` },
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": `${origin}/#organization`,
       "name": "ToolVena",
       "url": `${origin}/`,
-      "logo": `${origin}/icon.svg`,
+      "logo": `${origin}/toolvena-logo.svg`,
+      "sameAs": [
+        "https://www.pinterest.com/ToolVena/",
+        "https://www.tumblr.com/toolvena",
+      ],
     },
     {
       "@context": "https://schema.org",
@@ -870,6 +966,37 @@ function updateJsonLd(
         "Free online tool",
         "No sign-up required",
       ],
+    });
+  }
+
+  // FAQPage schema on the homepage — mirrors the visible homepage FAQ.
+  // Single source of truth: translations.ts `seo.homeFaqs` per language
+  // (the English literals below are only the fallback if a language's
+  // block is ever missing; scripts/generate-static-pages.mjs reads the
+  // same source for the static homepages).
+  if (page === "home") {
+    const HOME_FAQ_FALLBACK_EN = [
+      { q: "Are ToolVena tools really free?", a: "Yes. Every tool on ToolVena is free to open and use, with no account sign-up. Optional AI-assisted features are clearly labelled where they appear, and their honest limits are written on the tool itself." },
+      { q: "Do I need to create an account?", a: "No. Open any tool and use it straight away — there is no account to create, no password to remember and no email gate before a result." },
+      { q: "Are my files or text uploaded to a server?", a: "Most ToolVena tools run entirely in your browser, on your own device, so the text and files you work with never leave your device. A few optional AI-assisted features need a server to work; when one does, the tool says so before you use it." },
+      { q: "Why is it free — what is the catch?", a: "There is no hidden catch in the tools themselves: because most of them run on your own device's processor instead of an expensive server, they cost very little to keep online. The site is supported by advertising and, in future, optional paid extras that will be clearly labelled." },
+      { q: "Which languages is ToolVena available in?", a: "ToolVena is available in 12 languages: English, Spanish, Urdu, German, French, Portuguese, Italian, Turkish, Japanese, Norwegian, Dutch and Russian. Use the language menu at the top of any page, or pick your language below." },
+      { q: "Do the tools work on a phone?", a: "Yes. The pages are built mobile-first and most tools work in a phone browser. A few heavier tools (like background removal) download a small model the first time you use them, then run on the device itself." },
+    ];
+    const homeSeo = (TRANSLATIONS[lang] || TRANSLATIONS.en).seo as
+      | { homeFaqs?: { q: string; a: string }[] }
+      | undefined;
+    const homeFaqs =
+      homeSeo?.homeFaqs?.length ? homeSeo.homeFaqs : HOME_FAQ_FALLBACK_EN;
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": lang,
+      "mainEntity": homeFaqs.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a },
+      })),
     });
   }
 
@@ -958,6 +1085,43 @@ function updateJsonLd(
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": faqEntities,
+    });
+  }
+
+
+  // Homepage: ItemList of popular tools + honest FAQ
+  if (page === "home" && !blogPost) {
+    const langPrefix = canonicalUrl.replace(origin, "").replace(/\/$/, "");
+    const popular: Array<[string, string]> = [
+      ["AI Text Humanizer", "/ai-humanizer/"],
+      ["Text Summarizer", "/text-summarizer/"],
+      ["Word Counter", "/word-counter/"],
+      ["Image Compressor", "/image-compressor/"],
+      ["PDF Tools", "/pdf-tools/"],
+      ["CV Builder", "/cv-builder/"],
+      ["Background Remover", "/background-remover/"],
+      ["Audio to Text Converter", "/audio-to-text-converter/"],
+    ];
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Popular free online tools on ToolVena",
+      "itemListElement": popular.map(([name, path], i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": name,
+        "url": `${origin}${langPrefix}${path}`,
+      })),
+    });
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Are ToolVena tools really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tools on ToolVena are free to open and use, and no account sign-up is required. Optional AI-assisted features are clearly labelled where they appear." } },
+        { "@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "No. You can open a tool and use it straight away. There is no account to create and no password to remember." } },
+        { "@type": "Question", "name": "Is my text or file uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "Most ToolVena tools run entirely in your browser on your own device, so your text and files stay with you. Where an optional AI feature needs a server, the tool says so before you use it." } },
+        { "@type": "Question", "name": "Which languages does ToolVena support?", "acceptedAnswer": { "@type": "Answer", "text": "ToolVena is available in 12 languages, including English, Spanish, Urdu, German, French, Turkish, Portuguese, Japanese, Norwegian, Dutch, Italian and Russian. Use the language menu at the top of any page." } },
+      ],
     });
   }
 

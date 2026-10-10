@@ -49,7 +49,7 @@ export function MobileAppBanner({ onOpenInstall }: MobileAppBannerProps) {
               </span>
             </div>
             <p className="text-[11px] text-stone-600 truncate">
-              Fast 1-tap home screen access • Works offline
+              Fast 1-tap home screen access • Pages you have opened also load offline
             </p>
           </div>
         </div>

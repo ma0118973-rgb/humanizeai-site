@@ -52,7 +52,16 @@ function loadConst(tsPath, constName) {
 const TRANSLATIONS = loadConst(path.join(root, "src/data/translations.ts"), "TRANSLATIONS");
 const BLOG_POSTS = loadConst(path.join(root, "src/data/blogArticles.ts"), "BLOG_POSTS");
 
-const LANGUAGES = ["en", "es", "ur", "de", "fr", "pt", "tr", "ja", "no", "nl", "it"];
+const LANGUAGES = ["en", "es", "ur", "de", "fr", "pt", "tr", "ja", "no", "nl", "it", "ru"];
+
+// Urdu script locale: lives at /ur-pk/ (hreflang "ur-PK"). Phase 2
+// (2026-10-10) covers the homepage and all 53 tool routes below. It still
+// must NOT join LANGUAGES above — blog articles and compliance pages have
+// no ur-pk versions yet, so those routes must not generate or advertise
+// ur-PK alternates (reciprocal rule).
+const URPK_LANG = "ur-pk";
+const URPK_HREFLANG = "ur-PK";
+const URPK_ROUTE_PATHS = new Set(["/", "/ai-humanizer/", "/ai-detector/", "/video-tools/", "/seo-tools/", "/citation-generator/", "/sentence-expander/", "/text-summarizer/", "/voice-typing/", "/cv-builder/", "/word-counter/", "/character-counter/", "/text-to-speech/", "/typing-test/", "/case-converter/", "/password-generator/", "/remove-duplicate-lines/", "/text-repeater/", "/invisible-character/", "/word-frequency-counter/", "/reading-time-calculator/", "/slug-generator/", "/json-formatter/", "/lorem-ipsum-generator/", "/days-between-dates/", "/random-number-generator/", "/online-timer/", "/invoice-generator/", "/image-resizer/", "/image-converter/", "/image-to-text/", "/pdf-splitter/", "/username-generator/", "/morse-code-translator/", "/online-voice-recorder/", "/online-notepad/", "/unit-converter/", "/online-teleprompter/", "/uuid-generator/", "/unix-timestamp-converter/", "/json-to-csv-converter/", "/regex-tester/", "/url-encoder-decoder/", "/utm-link-builder/", "/meta-title-description-checker/", "/instagram-line-break-generator/", "/image-compressor/", "/pdf-tools/", "/audio-to-text-converter/", "/background-remover/", "/voice-cloner/", "/muse-ai-availability-checker/", "/cliche-cleaner/", "/diff-checker/"]);
 
 // [pageId, canonicalPath] — canonicalPath mirrors SEO_CONFIGS in src/utils/seo.ts
 const ROUTES = [
@@ -107,6 +116,7 @@ const ROUTES = [
   ["audioToText", "/audio-to-text-converter/"],
   ["backgroundRemover", "/background-remover/"],
   ["voiceCloner", "/voice-cloner/"],
+  ["museAiHub", "/muse-ai-availability-checker/"],
   ["cleaner", "/cliche-cleaner/"],
   ["diff", "/diff-checker/"],
   ["blog", "/blog/"],
@@ -118,11 +128,25 @@ const ROUTES = [
 ];
 
 // English fallback meta for compliance pages (matches SEO_CONFIGS in seo.ts)
+const HOME_META = ["ToolVena – Free Online Tools, No Sign-Up", "ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser, in 12 languages."];
+
+// English fallback for the homepage FAQPage schema. The live source of
+// truth is translations.ts `seo.homeFaqs` per language; this only applies
+// if a language's block is ever missing.
+const HOME_FAQ_FALLBACK = [
+  { q: "Are ToolVena tools really free?", a: "Yes. Every tool on ToolVena is free to open and use, with no account sign-up. Optional AI-assisted features are clearly labelled where they appear, and their honest limits are written on the tool itself." },
+  { q: "Do I need to create an account?", a: "No. Open any tool and use it straight away — there is no account to create, no password to remember and no email gate before a result." },
+  { q: "Are my files or text uploaded to a server?", a: "Most ToolVena tools run entirely in your browser, on your own device, so the text and files you work with never leave your device. A few optional AI-assisted features need a server to work; when one does, the tool says so before you use it." },
+  { q: "Why is it free — what is the catch?", a: "There is no hidden catch in the tools themselves: because most of them run on your own device's processor instead of an expensive server, they cost very little to keep online. The site is supported by advertising and, in future, optional paid extras that will be clearly labelled." },
+  { q: "Which languages is ToolVena available in?", a: "ToolVena is available in 12 languages: English, Spanish, Urdu, German, French, Portuguese, Italian, Turkish, Japanese, Norwegian, Dutch and Russian. Use the language menu at the top of any page, or pick your language below." },
+  { q: "Do the tools work on a phone?", a: "Yes. The pages are built mobile-first and most tools work in a phone browser. A few heavier tools (like background removal) download a small model the first time you use them, then run on the device itself." },
+];
+
 const COMPLIANCE_META = {
   privacy: ["Privacy Policy – ToolVena", "Learn how ToolVena handles the information used by its browser tools, optional AI features, analytics and ads."],
   terms: ["Terms of Service – ToolVena", "Read the Terms of Service for using ToolVena's free web tools, content guidelines, and ethical usage standards."],
   disclaimer: ["Disclaimer & Academic Integrity Policy – ToolVena", "ToolVena's limits for AI writing estimates, research assistance, and academic integrity in educational environments."],
-  about: ["About Us – ToolVena", "ToolVena provides free online tools for writing, text, images, PDFs and everyday tasks in 11 languages."],
+  about: ["About Us – ToolVena", "ToolVena provides free online tools for writing, text, images, PDFs and everyday tasks in 12 languages."],
   contact: ["Contact & Support – ToolVena", "Send ToolVena feedback, support questions and guide requests."],
 };
 
@@ -193,8 +217,11 @@ function pageMeta(page, lang, blogPost) {
       return [seo.backgroundRemoverTitle || fb.backgroundRemoverTitle, seo.backgroundRemoverDesc || fb.backgroundRemoverDesc];
     case "voiceCloner":
       return [seo.voiceClonerTitle || fb.voiceClonerTitle, seo.voiceClonerDesc || fb.voiceClonerDesc];
+    case "museAiHub":
+      return [seo.museAiHubTitle || fb.museAiHubTitle, seo.museAiHubDesc || fb.museAiHubDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
     case "diff": return [seo.diffTitle || fb.diffTitle, seo.diffDesc || fb.diffDesc];
+    case "home": return [seo.homeTitle || HOME_META[0], seo.homeDesc || HOME_META[1]];
     case "blog":
       if (blogPost) {
         const tab = (t.nav && t.nav.humanizerTab) || "AI Humanizer";
@@ -212,6 +239,9 @@ function hreflangLinks(origin, pathWithoutLang) {
   for (const l of LANGUAGES) {
     s += `    <link rel="alternate" hreflang="${l}" href="${origin}/${l}${pathWithoutLang}" />\n`;
   }
+  if (URPK_ROUTE_PATHS.has(pathWithoutLang)) {
+    s += `    <link rel="alternate" hreflang="${URPK_HREFLANG}" href="${origin}/${URPK_LANG}${pathWithoutLang}" />\n`;
+  }
   s += `    <link rel="alternate" hreflang="x-default" href="${origin}/en${pathWithoutLang}" />`;
   return s;
 }
@@ -221,16 +251,24 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": `${origin}/#website`,
       name: "ToolVena",
       url: `${origin}/`,
-      description: "Free online tools for writing, text, images, PDFs and everyday tasks.",
+      description: "ToolVena offers free online tools for writing, text, images, PDFs and study. No sign-up; most tools run privately in your browser.",
+      inLanguage: LANGUAGES,
+      publisher: { "@id": `${origin}/#organization` },
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": `${origin}/#organization`,
       name: "ToolVena",
       url: `${origin}/`,
-      logo: `${origin}/icon.svg`,
+      logo: `${origin}/toolvena-logo.svg`,
+      sameAs: [
+        "https://www.pinterest.com/ToolVena/",
+        "https://www.tumblr.com/toolvena",
+      ],
     },
     {
       "@context": "https://schema.org",
@@ -241,8 +279,48 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
       inLanguage: lang,
     },
   ];
+  if (page === "home") {
+    const homeTools = [
+      ["AI Text Humanizer", "/ai-humanizer/"],
+      ["Text Summarizer", "/text-summarizer/"],
+      ["Word Counter", "/word-counter/"],
+      ["Image Compressor", "/image-compressor/"],
+      ["PDF Tools", "/pdf-tools/"],
+      ["CV Builder", "/cv-builder/"],
+      ["Background Remover", "/background-remover/"],
+      ["Audio to Text Converter", "/audio-to-text-converter/"],
+    ];
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Popular free online tools on ToolVena",
+      itemListElement: homeTools.map(([name, path], i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name,
+        url: `${origin}/${lang}${path}`,
+      })),
+    });
+    // FAQPage — mirrors the visible homepage FAQ for this language.
+    // Single source of truth: translations.ts `seo.homeFaqs` (English
+    // fallback only if a language block is ever missing).
+    const homeFaqs =
+      TRANSLATIONS[lang] && TRANSLATIONS[lang].seo && TRANSLATIONS[lang].seo.homeFaqs && TRANSLATIONS[lang].seo.homeFaqs.length
+        ? TRANSLATIONS[lang].seo.homeFaqs
+        : HOME_FAQ_FALLBACK;
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: homeFaqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "audioToText", "backgroundRemover", "voiceCloner", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "metaChecker", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "audioToText", "backgroundRemover", "voiceCloner", "museAiHub", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "metaChecker", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -277,6 +355,23 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
         { "@type": "HowToStep", position: 1, name: "Paste the timestamp", text: "Paste your epoch value and check the displayed assumption: seconds or milliseconds." },
         { "@type": "HowToStep", position: 2, name: "Read UTC and local", text: "Compare the UTC and local lines and copy the ISO 8601 value when you need an unambiguous string." },
         { "@type": "HowToStep", position: 3, name: "Or pick a date", text: "Choose a date and time, select local or UTC meaning, and copy seconds or milliseconds." },
+      ],
+    });
+  }
+  if (page === "museAiHub") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "Which countries is Muse AI available in?", acceptedAnswer: { "@type": "Answer", text: "Based on Meta's own announcements checked on 10 October 2026: the United States (launch, 8 September 2026) and Canada (confirmed 29 September 2026). Meta has announced no other launch country and no launch dates for anywhere else." } },
+        { "@type": "Question", name: "Is Muse AI available in Pakistan or India?", acceptedAnswer: { "@type": "Answer", text: "Not yet. Meta has announced only the United States and Canada (checked 10 October 2026) and has published no date for Pakistan or India. Sign in at muse.ai to see whether a waitlist opens for your region." } },
+        { "@type": "Question", name: "What is the difference between Muse and Meta AI?", acceptedAnswer: { "@type": "Answer", text: "Meta AI is the assistant inside Meta's apps (WhatsApp, Instagram, Facebook, Messenger) — you ask it something and it answers. Muse is Meta's newer personal agent that can take a goal, research across sources, plan steps, and work on tasks for you. They are two different products." } },
+        { "@type": "Question", name: "Is Muse free?", acceptedAnswer: { "@type": "Answer", text: "Meta's official FAQ says Muse is available for free with a usage limit. If you hit that limit you can upgrade to a paid subscription for a higher limit or wait for the free limit to refresh. Meta had not published exact paid-plan amounts on its public pages as of 10 October 2026." } },
+        { "@type": "Question", name: "What are Muse tokens? Can I buy '1 billion tokens'?", acceptedAnswer: { "@type": "Answer", text: "Tokens are units of usage — they measure how much work Muse does for you, like minutes on a phone plan. They are not money and not cryptocurrency. Third-party blogs claim '1 billion token' invite codes, but Meta's official pages publish no such programme. Never give your Meta login to a site promising tokens." } },
+        { "@type": "Question", name: "How do I join the official waitlist?", acceptedAnswer: { "@type": "Answer", text: "Go to muse.ai and sign in with your Meta account. If a waitlist is offered for your country you will see it there. That is the only official route; nobody legitimate sells or swaps waitlist positions." } },
+        { "@type": "Question", name: "Can I use a VPN or a friend's foreign account to get Muse early?", acceptedAnswer: { "@type": "Answer", text: "We do not recommend it, and this page never teaches ways around the launch regions: using a service from a country where it has not launched can break Meta's terms and put your Meta account at risk. The safe route is the official waitlist." } },
+        { "@type": "Question", name: "When will Muse launch in my country?", acceptedAnswer: { "@type": "Answer", text: "Meta has not announced dates beyond the United States and Canada. ToolVena's checker marks every other country 'not yet' and updates the moment Meta's official pages change." } },
       ],
     });
   }
@@ -2054,8 +2149,15 @@ const template = fs.readFileSync(indexPath, "utf8");
 
 const canonMatch = template.match(/<link rel="canonical" href="([^"]+)" \/>/);
 const origin = canonMatch
-  ? canonMatch[1].replace(/\/en\/ai-humanizer\/$/, "").replace(/\/$/, "")
+  ? canonMatch[1].replace(/\/en\/ai-humanizer\/$/, "").replace(/\/en\/$/, "").replace(/\/$/, "")
   : "https://www.toolvena.com";
+// P0 guard (2026-10-10): a build without SITE_URL silently produced relative
+// canonicals/sitemap URLs. Fail the build loudly instead of shipping that.
+if (!origin || !/^https:\/\/[a-z0-9.-]+$/i.test(origin)) {
+  console.error("[static-seo] FATAL: no valid absolute site origin in dist/index.html canonical.");
+  console.error("[static-seo] Rebuild with SITE_URL set, e.g. SITE_URL=https://www.toolvena.com npm run build");
+  process.exit(1);
+}
 console.log(`[static-seo] origin: ${origin}`);
 
 let count = 0;
@@ -2066,9 +2168,11 @@ function emitFile(lang, routePath, title, description, page, post = null) {
   let html = template;
 
   // <html lang> + dir
-  html = html.replace(/<html lang="[^"]*"/, `<html lang="${lang}"`);
-  if (lang === "ur") {
-    html = html.replace(/<html lang="ur"/, '<html lang="ur" dir="rtl"');
+  if (lang === "ur" || lang === URPK_LANG) {
+    const htmlLang = lang === URPK_LANG ? URPK_HREFLANG : lang;
+    html = html.replace(/<html lang="[^"]*"/, `<html lang="${htmlLang}" dir="rtl"`);
+  } else {
+    html = html.replace(/<html lang="[^"]*"/, `<html lang="${lang}"`);
   }
 
   // title
@@ -2148,10 +2252,10 @@ function emitFile(lang, routePath, title, description, page, post = null) {
 }
 
 for (const lang of LANGUAGES) {
-  // Bare /<lang>/ -> humanizer
+  // Bare /<lang>/ -> homepage
   {
-    const [title, desc] = pageMeta("humanizer", lang, null);
-    emitFile(lang, "/", title, desc, "humanizer");
+    const [title, desc] = pageMeta("home", lang, null);
+    emitFile(lang, "/", title, desc, "home");
   }
   for (const [page, routePath] of ROUTES) {
     const [title, desc] = pageMeta(page, lang, null);
@@ -2165,17 +2269,43 @@ for (const lang of LANGUAGES) {
   }
 }
 
+// Urdu-script locale (ur-pk): phase 2 — homepage + all 53 tool routes.
+// TRANSLATIONS["ur-pk"] carries the localised strings for every one.
+// Articles join from batch 1 onward: only real ur-pk BLOG_POSTS below are
+// emitted, together with the /ur-pk/blog/ listing shell. Other languages'
+// blog routes and compliance pages remain outside this route set.
+{
+  const [homeTitle, homeDesc] = pageMeta("home", URPK_LANG, null);
+  emitFile(URPK_LANG, "/", homeTitle, homeDesc, "home");
+  for (const [page, routePath] of ROUTES) {
+    if (!URPK_ROUTE_PATHS.has(routePath)) continue;
+    const [title, desc] = pageMeta(page, URPK_LANG, null);
+    emitFile(URPK_LANG, routePath, title, desc, page);
+  }
+  // ur-pk blog: listing shell + only the articles actually written in
+  // Urdu script. No other-language copies are emitted under /ur-pk/blog/.
+  const [blogTitle, blogDesc] = pageMeta("blog", URPK_LANG, null);
+  emitFile(URPK_LANG, "/blog/", blogTitle, blogDesc, "blog");
+  for (const post of BLOG_POSTS.filter((p) => p.language === URPK_LANG)) {
+    const [title, desc] = pageMeta("blog", URPK_LANG, post);
+    emitFile(URPK_LANG, `/blog/${post.slug}/`, title, desc, "blog", post);
+  }
+}
+
 console.log(`[static-seo] ${count} static SEO pages written to dist/`);
 
 // ---- sitemap.xml (auto-generated so new articles are always included) ----
 const today = new Date().toISOString().slice(0, 10);
 let sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
 for (const u of emittedUrls) {
-  const priority = u.page === "humanizer" ? "1.0" : u.page === "blog" ? "0.6" : "0.8";
+  const priority = u.page === "humanizer" || u.page === "home" ? "1.0" : u.page === "blog" ? "0.6" : "0.8";
   sm += `  <url>\n    <loc>${u.url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n`;
   if (u.page !== "blog") {
     for (const l of LANGUAGES) {
       sm += `    <xhtml:link rel="alternate" hreflang="${l}" href="${origin}/${l}${u.routePath}" />\n`;
+    }
+    if (URPK_ROUTE_PATHS.has(u.routePath)) {
+      sm += `    <xhtml:link rel="alternate" hreflang="${URPK_HREFLANG}" href="${origin}/${URPK_LANG}${u.routePath}" />\n`;
     }
     sm += `    <xhtml:link rel="alternate" hreflang="x-default" href="${origin}/en${u.routePath}" />\n`;
   }

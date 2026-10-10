@@ -77,17 +77,15 @@ export function Navbar({
   const t = TRANSLATIONS[selectedLanguage] || TRANSLATIONS.en;
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-amber-200 text-stone-900 w-full max-w-full overflow-hidden">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-tv-line text-stone-900 w-full max-w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12 sm:h-16 gap-1 sm:gap-4">
           {/* Brand Logo & Title */}
           <div
-            onClick={() => setActivePage("humanizer")}
+            onClick={() => setActivePage("home")}
             className="flex items-center gap-1.5 sm:gap-3 cursor-pointer select-none min-w-0 shrink"
           >
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-md sm:shadow-lg shadow-emerald-500/20 shrink-0">
-              <ShieldCheck className="w-4 h-4 sm:w-6 sm:h-6 text-stone-950 stroke-[2.5]" />
-            </div>
+            <img src="/icon.svg" alt="ToolVena logo — free online tools" width="40" height="40" className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl shadow-md sm:shadow-lg shadow-[rgba(11,36,64,0.25)] shrink-0" />
             <div className="min-w-0">
               <div className="flex items-center gap-1 sm:gap-2">
                 <span className="text-base sm:text-xl font-extrabold tracking-tight text-stone-900 font-sans truncate">
@@ -995,13 +993,13 @@ export function Navbar({
 
             {/* Language Selector */}
             <div className="relative flex items-center shrink-0">
-              <div className="flex items-center gap-1 px-1.5 py-1.5 sm:px-2 sm:py-2 bg-amber-50/80 hover:bg-amber-50 border border-amber-200/60 rounded-xl text-xs font-semibold text-stone-700 cursor-pointer">
-                <Globe className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-1 px-1.5 py-1.5 sm:px-2 sm:py-2 bg-tv-navy hover:bg-tv-navy-2 border border-tv-navy-3 rounded-xl text-xs font-semibold text-white shadow-sm cursor-pointer">
+                <Globe className="w-3.5 h-3.5 text-tv-amber shrink-0" />
                 <select
                   id="nav-language-select"
                   value={selectedLanguage}
                   onChange={(e) => onLanguageChange(e.target.value as LanguageCode)}
-                  className="bg-transparent text-stone-700 outline-none cursor-pointer text-xs font-semibold pr-0.5 max-w-[55px] xs:max-w-[75px] sm:max-w-none"
+                  className="bg-transparent text-white outline-none cursor-pointer text-xs font-semibold pr-0.5 max-w-[110px] sm:max-w-none"
                   aria-label="Select Language"
                 >
                   {SUPPORTED_LANGUAGES.map((lang) => (

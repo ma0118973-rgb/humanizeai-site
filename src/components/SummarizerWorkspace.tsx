@@ -88,7 +88,7 @@ export function SummarizerWorkspace({ selectedLanguage = "en" }: SummarizerWorks
               <FileText className="w-3.5 h-3.5 text-violet-400" />
               {sum.badge || "AI Text Summarizer"}
             </span>
-            <span className="text-xs text-stone-500 font-mono">Free • 11 Languages • No sign-up</span>
+            <span className="text-xs text-stone-500 font-mono">Free • 12 Languages • No sign-up</span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
             {sum.title || "Summarize Any Text in Seconds"}

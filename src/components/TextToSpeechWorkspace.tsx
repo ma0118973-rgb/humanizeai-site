@@ -14,14 +14,14 @@ interface TextToSpeechWorkspaceProps {
 }
 
 const LOCALES: Record<LanguageCode, string> = {
-  en: "en", es: "es", ur: "ur", de: "de", fr: "fr", tr: "tr",
-  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb",
+  en: "en", es: "es", ur: "ur", "ur-pk": "ur-PK", de: "de", fr: "fr", tr: "tr",
+  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru",
 };
 
 const SAMPLES: Record<LanguageCode, string> = {
   en: "Reading your own words out loud is the fastest way to catch mistakes. Sentences that looked fine on the screen suddenly reveal their rough edges when you hear them. Press play, listen carefully, and notice how the rhythm of your writing changes the way it feels.",
   es: "Escuchar tus propias palabras en voz alta es la forma más rápida de encontrar errores. Frases que parecían perfectas en la pantalla muestran sus fallos cuando las oyes. Pulsa reproducir, escucha con atención y nota cómo cambia el ritmo de tu texto.",
-  ur: "Apne alfaz ko bol kar sunna ghaltiyan pakarne ka sab se tez tareeqa hai. Jo jumlay screen par theek lagte hain, sunne par un ki khamiyan samne aa jati hain. Play dabayen, ghour se sunain aur dekhen ke aap ki tehreer ka andaaz kaisa lagta hai.",
+  ur: "Apne alfaz ko bol kar sunna ghaltiyan pakarne ka sab se tez tareeqa hai. Jo jumlay screen par theek lagte hain, sunne par un ki khamiyan samne aa jati hain. Play dabayen, ghour se sunain aur dekhen ke aap ki tehreer ka andaaz kaisa lagta hai.", "ur-pk": "اپنے الفاظ کو بول کر سننا غلطیاں پکڑنے کا سب سے تیز طریقہ ہے۔ جو جملے اسکرین پر ٹھیک لگتے ہیں، سننے پر ان کی خامیاں سامنے آ جاتی ہیں۔ چلائیں دبائیں، غور سے سنیں اور دیکھیں کہ آپ کی تحریر کا انداز کیسا لگتا ہے۔",
   de: "Die eigenen Worte laut zu hören ist der schnellste Weg, Fehler zu finden. Sätze, die auf dem Bildschirm gut aussahen, zeigen beim Hören plötzlich ihre Schwächen. Drücken Sie auf Abspielen, hören Sie genau hin und achten Sie darauf, wie sich der Rhythmus Ihres Textes anfühlt.",
   fr: "Entendre vos propres mots à voix haute est le moyen le plus rapide de repérer les erreurs. Des phrases qui semblaient parfaites à l'écran révèlent leurs défauts quand on les écoute. Appuyez sur lecture, écoutez attentivement et remarquez comment le rythme de votre texte change tout.",
   tr: "Kendi kelimelerinizi sesli duymak, hataları yakalamanın en hızlı yoludur. Ekranda düzgün görünen cümleler, duyduğunuzda aniden pürüzlerini belli eder. Oynat düğmesine basın, dikkatle dinleyin ve yazınızın ritminin nasıl hissettirdiğine bakın.",
@@ -30,6 +30,7 @@ const SAMPLES: Record<LanguageCode, string> = {
   it: "Ascoltare le tue parole ad alta voce è il modo più rapido per trovare gli errori. Frasi che sembravano perfette sullo schermo mostrano i loro difetti quando le senti. Premi play, ascolta con attenzione e nota come cambia il ritmo del tuo testo.",
   nl: "Je eigen woorden hardop horen is de snelste manier om fouten te vinden. Zinnen die er op het scherm goed uitzagen, laten plotseling hun zwakke plekken horen. Druk op afspelen, luister goed en merk hoe het ritme van je tekst alles verandert.",
   no: "Å høre dine egne ord høyt er den raskeste måten å finne feil på. Setninger som så fine ut på skjermen, viser plutselig svakhetene sine når du hører dem. Trykk på spill av, lytt nøye, og legg merke til hvordan rytmen i teksten din føles.",
+  ru: "Короткий текст долетает далеко. Заголовок, пара слов о себе и одно честное предложение скажут больше, чем длинный абзац, который никто не дочитывает до конца.",
 };
 
 function splitIntoChunks(text: string, maxLen = 200): string[] {

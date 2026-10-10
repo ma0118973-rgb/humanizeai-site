@@ -190,7 +190,7 @@ export function ReadabilityDashboard({
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Paste or write text here to evaluate readability ease, passive voice percentage, and plagiarism safety in real-time..."
+          placeholder="Paste or write text here to evaluate readability ease, passive voice percentage, and repeated phrasing in real-time..."
           className="w-full h-28 p-3 text-xs bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-emerald-500 text-stone-800 leading-relaxed resize-none"
         />
       </div>

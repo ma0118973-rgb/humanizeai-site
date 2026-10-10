@@ -30,14 +30,14 @@ interface TextStats {
 }
 
 const LOCALES: Record<LanguageCode, string> = {
-  en: "en", es: "es", ur: "ur", de: "de", fr: "fr", tr: "tr",
-  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb",
+  en: "en", es: "es", ur: "ur", "ur-pk": "ur-PK", de: "de", fr: "fr", tr: "tr",
+  pt: "pt", ja: "ja", it: "it", nl: "nl", no: "nb", ru: "ru",
 };
 
 const SAMPLES: Record<LanguageCode, string> = {
   en: "A clear plan saves time. When writers know the length of a draft, they can cut repetition, keep the useful details, and finish before the deadline.",
   es: "Un plan claro ahorra tiempo. Cuando sabes cuánto ocupa un texto, puedes cortar repeticiones, conservar los datos útiles y terminar antes de la fecha límite.",
-  ur: "Ek saaf plan waqt bachata hai. Jab likhne wale ko apni tehreer ki lambai pata ho, wo takrar kaat sakta hai, kaam ki baatein rakh sakta hai aur deadline se pehle kaam mukammal kar sakta hai.",
+  ur: "Ek saaf plan waqt bachata hai. Jab likhne wale ko apni tehreer ki lambai pata ho, wo takrar kaat sakta hai, kaam ki baatein rakh sakta hai aur deadline se pehle kaam mukammal kar sakta hai.", "ur-pk": "ایک صاف منصوبہ وقت بچاتا ہے۔ جب لکھنے والے کو اپنی تحریر کی لمبائی پتہ ہو، وہ تکرار کاٹ سکتا ہے، کام کی باتیں رکھ سکتا ہے اور آخری تاریخ سے پہلے کام مکمل کر سکتا ہے۔",
   de: "Ein klarer Plan spart Zeit. Wer die Länge eines Entwurfs kennt, kann Wiederholungen streichen, wichtige Details behalten und vor der Frist fertig werden.",
   fr: "Un plan clair fait gagner du temps. Quand on connaît la longueur d’un brouillon, on peut couper les répétitions, garder les détails utiles et finir avant la date limite.",
   tr: "Net bir plan zaman kazandırır. Bir taslağın uzunluğunu bilen kişi tekrarları keser, yararlı ayrıntıları korur ve son tarihten önce bitirir.",
@@ -46,6 +46,7 @@ const SAMPLES: Record<LanguageCode, string> = {
   it: "Un piano chiaro fa risparmiare tempo. Chi conosce la lunghezza di una bozza può tagliare le ripetizioni, tenere i dettagli utili e finire prima della scadenza.",
   nl: "Een duidelijk plan bespaart tijd. Wie de lengte van een concept kent, kan herhaling schrappen, nuttige details behouden en voor de deadline klaar zijn.",
   no: "En klar plan sparer tid. Når du vet hvor langt et utkast er, kan du kutte gjentakelser, beholde nyttige detaljer og bli ferdig før fristen.",
+  ru: "Короткий текст долетает далеко. Заголовок, пара слов о себе и одно честное предложение скажут больше, чем длинный абзац, который никто не дочитывает до конца.",
 };
 
 function graphemeSegments(text: string, locale: string): string[] {
