@@ -181,6 +181,10 @@ export function ImageToTextWorkspace({ selectedLanguage = "en" }: ImageToTextWor
                 <p className="text-[11px] text-stone-400 mt-2">{o.langDownloadNote || "First use of a language downloads its data file from a CDN (cached afterwards). Your image never leaves this device."}</p>
               </div>
 
+              <div className="rounded-xl bg-cyan-50/70 border border-cyan-200/60 px-3 py-2.5">
+                <p className="text-[11px] sm:text-xs text-stone-600 leading-relaxed">{o.prepNote || "Automatic image cleanup: before reading, we brighten, sharpen and enlarge your photo automatically (still fully on this device) so small or faded text reads better. A sharper original still gives the best result."}</p>
+              </div>
+
               <div className="flex flex-wrap gap-2">
                 <button onClick={runOcr} disabled={busy} className="px-4 py-3 rounded-2xl bg-cyan-700 hover:bg-cyan-600 disabled:opacity-50 text-white text-sm font-extrabold cursor-pointer shadow flex items-center gap-2">
                   <Sparkles className="w-4 h-4" /> {busy ? (o.extracting || "Reading image…") : (o.extractBtn || "Extract Text")}
@@ -228,7 +232,7 @@ export function ImageToTextWorkspace({ selectedLanguage = "en" }: ImageToTextWor
           <h3 className="text-sm font-bold text-amber-900 mb-1">{o.supportTitle || "What this tool accepts"}</h3>
           <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">{o.supportText || "One image at a time: JPG, PNG or WebP. PDFs are not images — export a page as JPG or PNG first."}</p>
           <h3 className="text-sm font-bold text-amber-900 mt-4 mb-1">{o.honestTitle || "Honest limits"}</h3>
-          <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">{o.honestText || "Printed text reads far better than handwriting. No fixed accuracy percentage is promised. Proofread every result."}</p>
+          <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">{o.honestText?.includes("sharp") ? o.honestText : "Printed text on a sharp, straight photo reads far better than handwriting; blur or glare hurts accuracy the most. No fixed accuracy percentage is promised. Proofread every result."}</p>
         </div>
         <div className="bg-emerald-50/80 border border-emerald-200/80 rounded-2xl p-4 sm:p-5">
           <h3 className="text-sm font-bold text-emerald-900 mb-1 flex items-center gap-1.5"><ShieldCheck className="w-4 h-4" /> {o.privacyTitle || "Private by design"}</h3>

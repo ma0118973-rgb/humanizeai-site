@@ -172,6 +172,9 @@ const AudioToTextWorkspace = lazy(() =>
 const BackgroundRemoverWorkspace = lazy(() =>
   import("./components/BackgroundRemoverWorkspace").then((m) => ({ default: m.BackgroundRemoverWorkspace }))
 );
+const VoiceClonerWorkspace = lazy(() =>
+  import("./components/VoiceClonerWorkspace").then((m) => ({ default: m.VoiceClonerWorkspace }))
+);
 const CompliancePages = lazy(() =>
   import("./components/CompliancePages").then((m) => ({ default: m.CompliancePages }))
 );
@@ -388,6 +391,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "background-remover" || primarySlug === "remove-background" || primarySlug === "remove-bg" || primarySlug === "bg-remover") {
     return { page: "backgroundRemover", lang, blogSlug: null };
+  }
+  if (primarySlug === "voice-cloner" || primarySlug === "ai-voice-cloner" || primarySlug === "voice-clone" || primarySlug === "voiceCloner") {
+    return { page: "voiceCloner", lang, blogSlug: null };
   }
   if (primarySlug === "cliche-cleaner" || primarySlug === "cleaner" || primarySlug === "ai-cliche-cleaner") {
     return { page: "cleaner", lang, blogSlug: null };
@@ -660,6 +666,7 @@ export default function App() {
     activePage === "imageCompressor" ||
     activePage === "audioToText" ||
     activePage === "backgroundRemover" ||
+    activePage === "voiceCloner" ||
     activePage === "pdfTools";
 
   return (
@@ -1290,6 +1297,17 @@ export default function App() {
         {activePage === "backgroundRemover" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <BackgroundRemoverWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "voiceCloner" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <VoiceClonerWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

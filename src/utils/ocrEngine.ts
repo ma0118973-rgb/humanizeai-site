@@ -47,6 +47,98 @@ interface ActiveRun {
 let activeRun: ActiveRun | null = null;
 
 /**
+ * Client-side image preprocessing for OCR (still 100% privacy-safe: the
+ * image never leaves the browser). Three steps, in order:
+ *   1) Upscale 2x — Tesseract/LSTM reads bigger glyphs noticeably better;
+ *   2) Per-pixel grayscale (luminance) + autocontrast normalize —
+ *     stretches the histogram to near-black..near-white, sharpening text
+ *     against its background without binarizing (thin strokes and subtle
+ *     antialiasing survive, which usually reads best for real-world
+ *     photos/screenshots at low resolution);
+ *   3) High-quality smoothing during the upscale.
+ * Returns a canvas ready for Tesseract, or null if preprocessing failed
+ * (caller falls back to the untouched original image).
+ */
+export function preprocessForOcr(source: ImageBitmap | HTMLImageElement): Promise<HTMLCanvasElement | null> {
+  return new Promise((resolve) => {
+    try {
+      const w = source.width;
+      const h = source.height;
+      if (!w || !h) { resolve(null); return; }
+      const canvas = document.createElement("canvas");
+      const scale = 2;
+      canvas.width = Math.min(w * scale, 8192);
+      canvas.height = Math.min(canvas.width * (h / w), 8192);
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      if (!ctx) { resolve(null); return; }
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(source, 0, 0, canvas.width, canvas.height);
+
+      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const d = imgData.data;
+      const lut = new Uint8ClampedArray(256);
+      // Pass 1: find min/max of the raw pixels.
+      let minv = 255, maxv = 0;
+      for (let i = 0; i < d.length; i += 4) {
+        const g = luminance(d[i], d[i + 1], d[i + 2]);
+        if (g < minv) minv = g;
+        if (g > maxv) maxv = g;
+      }
+      // Stretch contrast only if there is meaningful range.
+      const range = maxv - minv;
+      for (let v = 0; v < 256; v++) {
+        lut[v] = range > 32 ? Math.max(0, Math.min(255, Math.round(((v - minv) / range) * 255))) : v;
+      }
+      // Pass 2: grayscale + lookup.
+      for (let i = 0; i < d.length; i += 4) {
+        const g = lut[luminance(d[i], d[i + 1], d[i + 2])];
+        d[i] = g; d[i + 1] = g; d[i + 2] = g;
+        d[i + 3] = 255;
+      }
+      ctx.putImageData(imgData, 0, 0);
+      resolve(canvas);
+    } catch {
+      resolve(null);
+    }
+  });
+}
+
+function luminance(r: number, g: number, b: number): number {
+  // Rec. 601 luma coefficients (fine for OCR prep).
+  return (r * 299 + g * 587 + b * 114) / 1000;
+}
+
+/** Decodes a File/Blob into an ImageBitmap; returns null when decode fails
+ * (HEIC-family in non-Safari browsers surfaces cleanly as a null here). */
+export async function decodeForOcr(image: File | Blob): Promise<ImageBitmap | null> {
+  try {
+    return await createImageBitmap(image, { imageOrientation: "from-image" });
+  } catch {
+    // Fallback through <img> for browsers where createImageBitmap rejects.
+    try {
+      const url = URL.createObjectURL(image);
+      const img = new Image();
+      await new Promise<void>((res, rej) => {
+        img.onload = () => res();
+        img.onerror = () => rej(new Error("decode"));
+        img.src = url;
+      });
+      try {
+        const bmp = await createImageBitmap(img);
+        URL.revokeObjectURL(url);
+        return bmp;
+      } catch {
+        URL.revokeObjectURL(url);
+        return null;
+      }
+    } catch {
+      return null;
+    }
+  }
+}
+
+/**
  * Runs OCR on one image, reporting real status/progress from the engine.
  * Rejects with Error("OCR_CANCELLED") when cancelOcr() is called, or with the
  * underlying engine error (e.g. first-use CDN download failed while offline).
@@ -78,7 +170,13 @@ export async function recognizeImageText(
     const worker = await Tesseract.createWorker(langCode, Tesseract.OEM ? Tesseract.OEM.DEFAULT : undefined, { logger } as any);
     run.worker = worker;
     if (run.cancelled) throw new Error("OCR_CANCELLED");
-    const result: any = await worker.recognize(image as any);
+    // Preprocess client-side (grayscale + autocontrast + 2x upscale).
+    // Falls back silently to the untouched original image if decode or any
+    // canvas step fails — preprocessing must never break the OCR path.
+    const decoded = await decodeForOcr(image);
+    const prepared = decoded ? await preprocessForOcr(decoded) : null;
+    const payload: any = prepared || image;
+    const result: any = await worker.recognize(payload);
     if (run.cancelled) throw new Error("OCR_CANCELLED");
     return (result && result.data && typeof result.data.text === "string") ? result.data.text : "";
   } finally {

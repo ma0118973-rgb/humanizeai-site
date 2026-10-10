@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { MobileToolHero } from "./MobileToolHero";
 import { Tag, Search, Copy, Check, Sparkles, Hash, Globe, Code, Layers, Wand2 } from "lucide-react";
-import { SeoResult } from "../types";
-import { runLocalSeoOptimization } from "../utils/localEngines";
+import { SeoResult, SeoContentAnalysis } from "../types";
+import { runLocalSeoOptimization, analyzeSeoContent } from "../utils/localEngines";
 import { tryAiAssist } from "../utils/aiAssist";
 import { getSiteOrigin } from "../utils/seo";
 import { LanguageCode } from "../types";
@@ -19,6 +19,7 @@ export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerW
   const [region, setRegion] = useState("United States & Global");
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<SeoResult | null>(null);
+  const [analysis, setAnalysis] = useState<SeoContentAnalysis | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [aiSuggestions, setAiSuggestions] = useState<string | null>(null);
@@ -38,6 +39,8 @@ export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerW
       // 100% Client-side local deterministic fallback
       const localResult = runLocalSeoOptimization(topic, region);
       setResult(localResult);
+      // Basic on-page analysis when a real draft (30+ words) was pasted
+      setAnalysis(analyzeSeoContent(topic));
     } catch (err: any) {
       console.error(err);
       setError(err.message || s.errorFailed || "Failed to generate SEO assets.");
@@ -270,6 +273,83 @@ export function SeoOptimizerWorkspace({ selectedLanguage = "en" }: SeoOptimizerW
                   ))}
                 </div>
               </div>
+
+              {/* Basic Content Analysis (only when a real draft was pasted) */}
+              {analysis ? (
+                <div className="space-y-3 p-4 bg-emerald-50/60 rounded-xl border border-emerald-200">
+                  <div className="flex items-center gap-2">
+                    <Search className="w-4 h-4 text-emerald-700" />
+                    <span className="text-xs font-bold text-emerald-900 uppercase tracking-wider">
+                      {s.analysisTitle || "Content Analysis"}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                    <div className="bg-white rounded-lg border border-emerald-100 p-2.5">
+                      <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">
+                        {s.analysisWords || "Words"}
+                      </div>
+                      <div className="text-base font-extrabold text-stone-800">{analysis.wordCount}</div>
+                    </div>
+                    <div className="bg-white rounded-lg border border-emerald-100 p-2.5">
+                      <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">
+                        {s.analysisKeyword || "Focus keyword"}
+                      </div>
+                      <div className="text-base font-extrabold text-stone-800 truncate" title={analysis.keyword}>
+                        {analysis.keyword || "—"}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg border border-emerald-100 p-2.5">
+                      <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">
+                        {s.analysisUsed || "Keyword used"}
+                      </div>
+                      <div className="text-base font-extrabold text-stone-800">
+                        {analysis.keywordCount}× · {analysis.densityPercent}%
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg border border-emerald-100 p-2.5">
+                      <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">
+                        {s.analysisFirst100 || "In first 100 words"}
+                      </div>
+                      <div className="text-base font-extrabold text-stone-800">
+                        {analysis.inFirst100Words ? s.analysisYes || "Yes" : s.analysisNo || "No"}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg border border-emerald-100 p-2.5">
+                      <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">
+                        {s.analysisReading || "Reading ease"}
+                      </div>
+                      <div className="text-base font-extrabold text-stone-800">{analysis.readingEase}/100</div>
+                      <div className="text-[10px] text-stone-500">
+                        {analysis.readingEaseLabel} · Grade {analysis.readingGrade}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg border border-emerald-100 p-2.5">
+                      <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">
+                        {s.analysisAvgSentence || "Avg sentence"}
+                      </div>
+                      <div className="text-base font-extrabold text-stone-800">
+                        {analysis.avgSentenceLength} {s.analysisWordsUnit || "words"}
+                      </div>
+                    </div>
+                  </div>
+                  <ul className="text-[11px] text-stone-600 space-y-1">
+                    {analysis.keywordCount === 0 && (
+                      <li>• {s.analysisNoKeyword || "Your focus keyword does not appear in the text yet."}</li>
+                    )}
+                    {analysis.densityPercent > 3 && (
+                      <li>• {s.analysisHighDensity || "Density above 3% can read as keyword stuffing — many guides suggest roughly 0.5–2.5% as a natural range. This is a rough guide, not a ranking rule."}</li>
+                    )}
+                    {analysis.keywordCount > 0 && !analysis.inFirst100Words && (
+                      <li>• {s.analysisLateKeyword || "The keyword first appears after the opening 100 words — many writers place it early so readers (and search engines) see the topic fast."}</li>
+                    )}
+                    <li>• {s.analysisNote || "Basic checks only, measured on your actual text. They do not guarantee any search ranking."}</li>
+                  </ul>
+                </div>
+              ) : (
+                <p className="text-[11px] text-stone-500 bg-stone-50 border border-stone-200 rounded-xl p-3">
+                  {s.analysisHint || "Tip: paste a full draft (30+ words) in the box above and Generate also gives you a basic content analysis — keyword count and density, whether the keyword appears in the first 100 words, and a reading-ease estimate."}
+                </p>
+              )}
 
               {/* Viral Social Hashtags */}
               <div className="space-y-2">

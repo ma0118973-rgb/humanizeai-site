@@ -412,6 +412,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "Background Remover",
   },
+  voiceCloner: {
+    title: "AI Voice Cloner – Clone Your Voice Free in Your Browser",
+    description: "Free AI voice cloner: hear text in natural voices that run in your browser, or clone your own voice from a 10-second clip. No sign-up.",
+    canonicalPath: "/voice-cloner/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "AI Voice Cloner",
+  },
   cleaner: {
     title: "AI Cliché Checker – Find Repetitive AI-Style Phrases",
     description: "Find common AI-style clichés like 'delve', 'tapestry' and 'testament', review each match in context, and rewrite them in your own words.",
@@ -663,6 +671,9 @@ export function applyPageSeo(
   } else if (page === "backgroundRemover") {
     title = (t.seo as any).backgroundRemoverTitle || baseConfig.title;
     description = (t.seo as any).backgroundRemoverDesc || baseConfig.description;
+  } else if (page === "voiceCloner") {
+    title = (t.seo as any).voiceClonerTitle || baseConfig.title;
+    description = (t.seo as any).voiceClonerDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;

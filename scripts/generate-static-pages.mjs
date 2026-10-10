@@ -106,6 +106,7 @@ const ROUTES = [
   ["pdfTools", "/pdf-tools/"],
   ["audioToText", "/audio-to-text-converter/"],
   ["backgroundRemover", "/background-remover/"],
+  ["voiceCloner", "/voice-cloner/"],
   ["cleaner", "/cliche-cleaner/"],
   ["diff", "/diff-checker/"],
   ["blog", "/blog/"],
@@ -190,6 +191,8 @@ function pageMeta(page, lang, blogPost) {
     case "audioToText": return [seo.audioToTextTitle || fb.audioToTextTitle, seo.audioToTextDesc || fb.audioToTextDesc];
     case "backgroundRemover":
       return [seo.backgroundRemoverTitle || fb.backgroundRemoverTitle, seo.backgroundRemoverDesc || fb.backgroundRemoverDesc];
+    case "voiceCloner":
+      return [seo.voiceClonerTitle || fb.voiceClonerTitle, seo.voiceClonerDesc || fb.voiceClonerDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
     case "diff": return [seo.diffTitle || fb.diffTitle, seo.diffDesc || fb.diffDesc];
     case "blog":
@@ -239,7 +242,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "audioToText", "backgroundRemover", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "metaChecker", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "audioToText", "backgroundRemover", "voiceCloner", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "metaChecker", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",

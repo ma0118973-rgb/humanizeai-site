@@ -42,6 +42,8 @@ export interface TranslationDict {
     audioToTextDesc?: string;
     backgroundRemoverTitle?: string;
     backgroundRemoverDesc?: string;
+    voiceClonerTitle?: string;
+    voiceClonerDesc?: string;
     textToSpeechTitle?: string;
     textToSpeechDesc?: string;
     typingTestTitle?: string;
@@ -135,6 +137,8 @@ export interface TranslationDict {
     stages: { title: string; desc: string }[];
     aiOptInLabel?: string;
     aiOptInNote?: string;
+    noChangeChip?: string;
+    noChangeNote?: string;
   };
   summarizer?: {
     badge: string;
@@ -294,6 +298,21 @@ export interface TranslationDict {
     copyHashtags?: string;
     errorEmpty?: string;
     errorFailed?: string;
+    analysisTitle?: string;
+    analysisWords?: string;
+    analysisKeyword?: string;
+    analysisUsed?: string;
+    analysisFirst100?: string;
+    analysisYes?: string;
+    analysisNo?: string;
+    analysisReading?: string;
+    analysisAvgSentence?: string;
+    analysisWordsUnit?: string;
+    analysisNoKeyword?: string;
+    analysisHighDensity?: string;
+    analysisLateKeyword?: string;
+    analysisNote?: string;
+    analysisHint?: string;
   };
   imageCompressor?: {
     badge?: string;
@@ -315,6 +334,8 @@ export interface TranslationDict {
     free?: string;
     quickAnswerTitle?: string;
     quickAnswer?: string;
+    bigger?: string;
+    biggerNote?: string;
   };
   detector?: {
     badge: string;
@@ -1516,6 +1537,8 @@ timestampConverter: {
       audioToTextTitle: "Audio to Text Converter – Transcribe MP3, WAV & M4A Free, On Your Device",
       backgroundRemoverTitle: "Free AI Background Remover",
       backgroundRemoverDesc: "Remove image backgrounds directly in your browser with AI. 100% private, full resolution, free transparent PNG downloads.",
+      voiceClonerTitle: "AI Voice Cloner – Clone Your Voice Free in Your Browser",
+      voiceClonerDesc: "Free AI voice cloner: hear any text in natural voices in your browser, or clone your own voice from a 10-second clip. No sign-up.",
       audioToTextDesc: "Free audio to text converter. Transcribe MP3, WAV, M4A and MP4 audio into text with a speech model that runs in your browser — your file never leaves your device, no sign-up and no per-minute charge. One small model download on first use, then it works offline. Short, clear clips work best.",
       textToSpeechTitle: "Free Text to Speech – Hear Your Text Read Aloud Online",
       textToSpeechDesc: "Free text to speech. Paste text and hear it read aloud with your device's own voices, right in your browser. No sign-up, nothing uploaded.",
@@ -1616,6 +1639,21 @@ timestampConverter: {
       copyHashtags: "Copy All Hashtags",
       errorEmpty: "Please enter a topic or text.",
       errorFailed: "Failed to generate. Try again.",
+      analysisTitle: "Content Analysis",
+      analysisWords: "Words",
+      analysisKeyword: "Focus keyword",
+      analysisUsed: "Keyword used",
+      analysisFirst100: "In first 100 words",
+      analysisYes: "Yes",
+      analysisNo: "No",
+      analysisReading: "Reading ease",
+      analysisAvgSentence: "Avg sentence",
+      analysisWordsUnit: "words",
+      analysisNoKeyword: "Your focus keyword does not appear in the text yet.",
+      analysisHighDensity: "Density above 3% can read as keyword stuffing — many guides suggest roughly 0.5–2.5% as a natural range. This is a rough guide, not a ranking rule.",
+      analysisLateKeyword: "The keyword first appears after the opening 100 words — many writers place it early so readers (and search engines) see the topic fast.",
+      analysisNote: "Basic checks only, measured on your actual text. They do not guarantee any search ranking.",
+      analysisHint: "Tip: paste a full draft (30+ words) in the box above and Generate also gives you a basic content analysis — keyword count and density, whether the keyword appears in the first 100 words, and a reading-ease estimate.",
     },
     voiceTyping: {
       badge: "Voice Typing",
@@ -2268,6 +2306,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "Image Compressor",
       title: "Compress Images Online — Free, Private, Instant",
+      bigger: "Larger",
+      biggerNote: "These files were already very small, so re-encoding made the result bigger — your original file is the smaller one. Try a lower quality setting, or simply keep the original.",
     },
     summarizer: {
       badge: "AI Text Summarizer",
@@ -2284,6 +2324,8 @@ timestampConverter: {
       humanizeBtn: "Humanize Text",
       processingBtn: "Synthesizing Organic Human Cadence...",
       outputTitle: "Humanized Output & Live Authenticity Metrics",
+      noChangeChip: "No rewrite needed",
+      noChangeNote: "The local engine found nothing it needed to change in this text — it already reads naturally, so the result is identical to what you wrote. That is an honest result, not a pretend rewrite. For a deeper rewrite, switch on the AI option at the top (your text then leaves the browser).",
       outputEmpty: "Click 'Humanize Text' to see your rewritten text and readability metrics.",
       tones: {
         conversational: "Conversational & Natural",
@@ -3524,6 +3566,8 @@ timestampConverter: {
       audioToTextTitle: "Convertidor de Audio a Texto – Transcribe MP3, WAV y M4A Gratis en tu Dispositivo",
       backgroundRemoverTitle: "Eliminador de Fondos con IA Gratis",
       backgroundRemoverDesc: "Elimina fondos de imágenes directamente en tu navegador con IA. 100% privado, alta resolución y descargas PNG transparentes gratis.",
+      voiceClonerTitle: "Clonador de Voz IA – Clona tu voz gratis en tu navegador",
+      voiceClonerDesc: "Escucha cualquier texto con voces naturales en tu navegador o clona tu voz con una muestra de 10 segundos. Gratis y sin registro.",
       audioToTextDesc: "Convertidor de audio a texto gratuito. Transcribe MP3, WAV, M4A y MP4 a texto con un modelo de voz que funciona en tu navegador: tu archivo nunca sale de tu dispositivo, sin registro ni pago por minuto. Descarga única de un modelo pequeño la primera vez; después funciona sin conexión. Los clips cortos y claros dan mejores resultados.",
       textToSpeechTitle: "Texto a Voz Gratis – Escucha tu Texto en Voz Alta",
       textToSpeechDesc: "Texto a voz gratuito. Pega tu texto y escúchalo con las voces de tu dispositivo, en tu navegador. Sin registro y sin subir tu texto.",
@@ -4276,6 +4320,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "Compresor de Imágenes",
       title: "Comprime Imágenes Online — Gratis, Privado, Instantáneo",
+      bigger: "Más grande",
+      biggerNote: "Estos archivos ya eran muy pequeños, así que volver a codificarlos hizo el resultado más grande: tu original es el más pequeño. Prueba una calidad menor o quédate con el original.",
     },
     summarizer: {
       badge: "Resumidor de Texto IA",
@@ -4292,6 +4338,8 @@ timestampConverter: {
       humanizeBtn: "Humanizar Texto Ahora",
       processingBtn: "Sintetizando Redacción Humana Natural...",
       outputTitle: "Texto Humanizado y Métricas de Autenticidad",
+      noChangeChip: "No necesita cambios",
+      noChangeNote: "El motor local no encontró nada que cambiar: el texto ya suena natural, así que el resultado es idéntico a tu entrada. Es un resultado honesto, no una reescritura fingida. Para una reescritura más profunda, activa la opción de IA arriba (el texto saldrá del navegador).",
       outputEmpty: "Haz clic en 'Humanizar Texto' para reescribir tu texto con un estilo más natural y verificarlo en vivo.",
       tones: {
         conversational: "Conversacional y Cercano",
@@ -5530,6 +5578,8 @@ timestampConverter: {
       audioToTextTitle: "Audio to Text Converter – MP3, WAV aur M4A ko Muft Text Mein Badlen, Apne Device Par",
       backgroundRemoverTitle: "Muft AI Background Remover",
       backgroundRemoverDesc: "Apne browser mein AI ki madad se tasweeron ka background foran hatayein. 100% private, full resolution, free transparent PNG download.",
+      voiceClonerTitle: "AI Voice Cloner – Apni Awaz Clone Karein Bilkul Free",
+      voiceClonerDesc: "Muft AI voice cloner: browser mein qudarti awazon mein koi bhi text sunain, ya apni awaz ka 10-second sample de kar use clone karein. Sign-up nahi.",
       audioToTextDesc: "Muft audio to text converter. MP3, WAV, M4A aur MP4 awaz ko text mein badlen — speech model aap ke browser mein chalta hai, file device se bahar nahi jati, na sign-up na minute ki fees. Pehli dafa chhota sa model download hoga, phir offline chalega. Chhoti aur saaf awaz sab se behtareen result deti hai.",
       textToSpeechTitle: "Muft Text to Speech – Text Bol Kar Sunain",
       textToSpeechDesc: "Muft text to speech. Apna text paste karein aur apne device ki awazon ke saath browser mein hi sunain. Koi sign-up nahi, text upload nahi hota.",
@@ -6282,6 +6332,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "Image Compressor",
       title: "Images Ko Online Compress Karen — Muft, Private, Fori",
+      bigger: "Asal se bari",
+      biggerNote: "Ye file pehle hi bohat chhoti thi, is liye dobara encode karne se ye bari ho gayi — aap ki asal file hi chhoti hai. Quality thori kam karke dekhen, ya asal file hi rakhen.",
     },
     summarizer: {
       badge: "AI Text Summarizer",
@@ -6298,6 +6350,8 @@ timestampConverter: {
       humanizeBtn: "Text Ko Abhi Humanize Karein",
       processingBtn: "Insani lehja aur rawani shamil ki ja rahi hai...",
       outputTitle: "Humanized Nateeja Aur Barah-e-Rast Sadaqat Ke Metrics",
+      noChangeChip: "Koi tabdeeli ki zaroorat nahi",
+      noChangeNote: "Local engine ko is text me badalnay-wala kuch nahi mila — ye pehle hi natural lag raha hai, is liye nateeja bilkul aap ki tehreer jaisa hi hai. Ye imaandaar nateeja hai, nakli tabdeeli nahi. Aur gehra dobara-likhna chahiye ho to upar AI wala option ON karen (phir text browser se bahar jaye ga).",
       outputEmpty: "Qudrati insani tehreer ke liye 'Text Ko Abhi Humanize Karein' par click karein.",
       tones: {
         conversational: "Guftagu ka rawayati andaz (Conversational)",
@@ -7538,6 +7592,8 @@ timestampConverter: {
       audioToTextTitle: "Audio zu Text Konverter – MP3, WAV & M4A kostenlos auf Ihrem Gerät transkribieren",
       backgroundRemoverTitle: "Kostenloser KI-Hintergrundentferner",
       backgroundRemoverDesc: "Entfernen Sie Bildhintergründe direkt in Ihrem Browser mit KI. 100% privat, volle Auflösung, kostenlose transparente PNG-Downloads.",
+      voiceClonerTitle: "KI Stimmen-Kloner – Klonen Sie Ihre Stimme kostenlos",
+      voiceClonerDesc: "Hören Sie Text mit natürlichen Stimmen direkt im Browser oder klonen Sie Ihre Stimme aus einem 10-Sekunden-Clip. Kostenlos, ohne Anmeldung.",
       audioToTextDesc: "Kostenloser Audio-zu-Text-Konverter. Wandeln Sie MP3, WAV, M4A und MP4 in Text um – das Sprachmodell läuft in Ihrem Browser, Ihre Datei verlässt Ihr Gerät nie. Keine Anmeldung, keine Minutenpreise. Beim ersten Mal wird ein kleines Modell geladen, danach geht es offline. Kurze, klare Aufnahmen funktionieren am besten.",
       textToSpeechTitle: "Kostenloser Text zu Sprache – Text laut Vorlesen Lassen",
       textToSpeechDesc: "Kostenloser Text-zu-Sprache-Vorleser. Text einfügen und mit den Stimmen Ihres Geräts direkt im Browser anhören. Ohne Anmeldung, ohne Upload.",
@@ -8290,6 +8346,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "Bildkompressor",
       title: "Bilder Online Komprimieren — Kostenlos, Privat, Sofort",
+      bigger: "Grösser",
+      biggerNote: "Diese Dateien waren schon sehr klein — durch das erneute Kodieren wurde das Ergebnis grösser. Ihr Original ist das kleinere. Versuchen Sie eine niedrigere Qualität oder behalten Sie das Original.",
     },
     summarizer: {
       badge: "KI-Text-Zusammenfasser",
@@ -8306,6 +8364,8 @@ timestampConverter: {
       humanizeBtn: "Text Jetzt Humanisieren",
       processingBtn: "Menschlicher Schreibstil wird generiert...",
       outputTitle: "Humanisierter Text & Echtheits-Metriken",
+      noChangeChip: "Keine Änderung nötig",
+      noChangeNote: "Die lokale Engine fand nichts zu ändern — der Text klingt schon natürlich, darum ist das Ergebnis identisch mit Ihrer Eingabe. Ein ehrliches Ergebnis, keine vorgetäuschte Umschreibung. Für eine tiefere Umschreibung schalten Sie oben die KI-Option ein (der Text verlässt dann den Browser).",
       outputEmpty: "Klicken Sie auf 'Text Jetzt Humanisieren' für natürlichere Texte.",
       tones: {
         conversational: "Umgangssprachlich & Natürlich",
@@ -9544,6 +9604,8 @@ timestampConverter: {
       audioToTextTitle: "Convertisseur Audio en Texte – Transcrivez MP3, WAV et M4A gratuitement sur votre appareil",
       backgroundRemoverTitle: "Supprimeur de Fond IA Gratuit",
       backgroundRemoverDesc: "Supprimez les arrière-plans d’images directement dans votre navigateur avec l’IA. 100% privé, haute résolution, téléchargements PNG transparents gratuits.",
+      voiceClonerTitle: "Clonage de Voix IA – Clonez votre voix gratuitement",
+      voiceClonerDesc: "Clonage de voix IA gratuit : écoutez tout texte avec des voix naturelles dans votre navigateur, ou clonez votre voix en 10 secondes. Sans inscription.",
       audioToTextDesc: "Convertisseur audio en texte gratuit. Transcrivez des MP3, WAV, M4A et MP4 en texte grâce à un modèle vocal qui tourne dans votre navigateur : votre fichier ne quitte jamais votre appareil, sans inscription ni tarif à la minute. Un petit modèle se télécharge au premier usage, puis tout fonctionne hors ligne. Les extraits courts et nets donnent les meilleurs résultats.",
       textToSpeechTitle: "Synthèse Vocale Gratuite – Faites Lire vos Textes à Voix Haute",
       textToSpeechDesc: "Synthèse vocale gratuite. Collez votre texte et écoutez-le avec les voix de votre appareil, dans votre navigateur. Sans inscription, sans envoi.",
@@ -10294,6 +10356,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "Compresseur d'Images",
       title: "Compressez des Images en Ligne — Gratuit, Privé, Instantané",
+      bigger: "Plus grand",
+      biggerNote: "Ces fichiers étaient déjà très petits ; le ré-encodage a rendu le résultat plus gros — votre original est le plus petit. Essayez une qualité plus faible ou gardez l'original.",
     },
     summarizer: {
       badge: "Résumeur de Texte IA",
@@ -10310,6 +10374,8 @@ timestampConverter: {
       humanizeBtn: "Humaniser le Texte Maintenant",
       processingBtn: "Génération du style humain naturel...",
       outputTitle: "Texte Humanisé & Scores d'Authenticité",
+      noChangeChip: "Aucun changement nécessaire",
+      noChangeNote: "Le moteur local n'a rien trouvé à changer : le texte semble déjà naturel, le résultat est donc identique à votre saisie. C'est un résultat honnête, pas une réécriture simulée. Pour une réécriture plus profonde, activez l'option IA ci-dessus (le texte quitte alors le navigateur).",
       outputEmpty: "Cliquez sur 'Humaniser le Texte' pour un style plus naturel.",
       tones: {
         conversational: "Conversationnel & Naturel",
@@ -11546,6 +11612,10 @@ timestampConverter: {
       wordCounterTitle: "Ücretsiz Kelime Sayacı – Kelime ve Karakter Sayma",
       wordCounterDesc: "Ücretsiz kelime sayacı. Kelime, karakter, cümle, paragraf ve okuma süresini tarayıcınızda canlı sayın. Kayıt yok, metin yüklenmez.",
       audioToTextTitle: "Sesten Metne Dönüştürücü – MP3, WAV ve M4A'yı cihazınızda ücretsiz yazıya dökün",
+      backgroundRemoverTitle: "Ücretsiz Yapay Zeka Arka Plan Kaldırıcı",
+      backgroundRemoverDesc: "Yapay zeka ile tarayıcınızda doğrudan resim arka planlarını kaldırın. %100 gizli, tam çözünürlük, ücretsiz şeffaf PNG indirmeleri.",
+      voiceClonerTitle: "Yapay Zeka Ses Klonlayıcı – Sesinizi Ücretsiz Klonlayın",
+      voiceClonerDesc: "Ücretsiz yapay zeka ses klonlayıcı: tarayıcınızda doğal seslerle her metni dinleyin veya 10 saniyelik kayıtla kendi sesinizi klonlayın. Kayıt gerekmez.",
       audioToTextDesc: "Ücretsiz sesten metne dönüştürücü. MP3, WAV, M4A ve MP4 sesini, tarayıcınızda çalışan bir konuşma modeliyle metne çevirin — dosyanız cihazınızdan asla çıkmaz, kayıt yok, dakika ücreti yok. İlk kullanımda küçük bir model iner, sonra çevrimdışı çalışır. Kısa ve net kayıtlar en iyi sonucu verir.",
       textToSpeechTitle: "Ücretsiz Metinden Sese – Metninizi Sesli Dinleyin",
       textToSpeechDesc: "Ücretsiz metinden sese. Metninizi yapıştırın, cihazınızın sesleriyle tarayıcınızda dinleyin. Kayıt yok, metin yüklenmez.",
@@ -12296,6 +12366,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "Görüntü Sıkıştırıcı",
       title: "Görüntüleri Çevrimiçi Sıkıştırın — Ücretsiz, Gizli, Anında",
+      bigger: "Daha büyük",
+      biggerNote: "Bu dosyalar zaten çok küçüktü; yeniden kodlamak sonucu büyüttü — orijinaliniz daha küçük. Daha düşük kalite deneyin ya da orijinali koruyun.",
     },
     summarizer: {
       badge: "AI Metin Özetleyici",
@@ -12312,6 +12384,8 @@ timestampConverter: {
       humanizeBtn: "Metni Şimdi İnsanlaştır",
       processingBtn: "Doğal İfade Tarzı Ekleniyor...",
       outputTitle: "İnsanlaştırılmış Metin ve Özgünlük Verileri",
+      noChangeChip: "Değişiklik gerekmiyor",
+      noChangeNote: "Yerel motor bu metinde değiştirilecek bir şey bulamadı — metin zaten doğal okunuyor, bu yüzden sonuç girdinizle aynı. Bu dürüst bir sonuçtur, sahte bir yeniden yazım değil. Daha derin bir yeniden yazım için yukarıdaki yapay zekâ seçeneğini açın (metin tarayıcıdan çıkar).",
       outputEmpty: "Yapay zeka tespitini aşmak için 'Metni Şimdi İnsanlaştır'a tıklayın.",
       tones: {
         conversational: "Samimi & Doğal Konuşma",
@@ -13548,6 +13622,10 @@ timestampConverter: {
       wordCounterTitle: "Contador de Palavras Grátis – Contar Palavras e Caracteres",
       wordCounterDesc: "Contador de palavras gratuito. Conte palavras, caracteres, frases, parágrafos e tempo de leitura no navegador. Sem cadastro e sem enviar seu texto.",
       audioToTextTitle: "Conversor de Áudio para Texto – Transcreva MP3, WAV e M4A grátis no seu dispositivo",
+      backgroundRemoverTitle: "Removedor de Fundo com IA Grátis",
+      backgroundRemoverDesc: "Remova fundos de imagens diretamente no seu navegador com IA. 100% privado, alta resolução e downloads de PNG transparente gratuitos.",
+      voiceClonerTitle: "Clonador de Voz IA – Clone sua voz grátis no navegador",
+      voiceClonerDesc: "Clonador de voz com IA gratuito: ouça qualquer texto com vozes naturais no navegador ou clone sua voz com um clipe de 10 segundos. Sem cadastro.",
       audioToTextDesc: "Conversor de áudio para texto gratuito. Transcreva MP3, WAV, M4A e MP4 para texto com um modelo de voz que roda no seu navegador — seu arquivo nunca sai do seu dispositivo, sem cadastro e sem cobrança por minuto. Um modelo pequeno é baixado no primeiro uso; depois funciona offline. Trechos curtos e limpos funcionam melhor.",
       textToSpeechTitle: "Texto para Fala Grátis – Ouça seu Texto em Voz Alta",
       textToSpeechDesc: "Texto para fala gratuito. Cole seu texto e ouça com as vozes do seu aparelho, no navegador. Sem cadastro e sem enviar seu texto.",
@@ -14298,6 +14376,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "Compressor de Imagens",
       title: "Comprima Imagens Online — Grátis, Privado, Instantâneo",
+      bigger: "Maior",
+      biggerNote: "Estes ficheiros já eram muito pequenos, por isso recodificá-los tornou o resultado maior — o seu original é o mais pequeno. Experimente uma qualidade menor ou fique com o original.",
     },
     summarizer: {
       badge: "Resumidor de Texto IA",
@@ -14314,6 +14394,8 @@ timestampConverter: {
       humanizeBtn: "Humanizar Texto Agora",
       processingBtn: "Gerando Estilo de Escrita Humana...",
       outputTitle: "Texto Humanizado e Métricas de Autenticidade",
+      noChangeChip: "Nada a alterar",
+      noChangeNote: "O motor local não encontrou nada para mudar: o texto já soa natural, por isso o resultado é idêntico ao que escreveu. É um resultado honesto, não uma reescrita fingida. Para uma reescrita mais profunda, ative a opção de IA acima (o texto sai do navegador).",
       outputEmpty: "Clique em 'Humanizar Texto Agora' para contornar detectores de IA.",
       tones: {
         conversational: "Conversacional & Natural",
@@ -15550,6 +15632,10 @@ timestampConverter: {
       wordCounterTitle: "無料ワードカウンター – 文字数と語数を数える",
       wordCounterDesc: "無料の文字数・ワードカウンター。文字、単語、文、段落、読了時間をブラウザでその場で数えます。登録不要、文章は送信されません。",
       audioToTextTitle: "音声テキスト変換 – MP3・WAV・M4Aを端末上で無料で文字起こし",
+      backgroundRemoverTitle: "無料AI背景リムーバー",
+      backgroundRemoverDesc: "AIを使用してブラウザで直接画像から背景を削除します。100%プライベート、フル解像度、無料の透明PNGダウンロード。",
+      voiceClonerTitle: "AI音声クローン – ブラウザで自分の声を無料でクローン",
+      voiceClonerDesc: "無料のAI音声クローン：ブラウザで自然な声でテキストを読み上げ、10秒の録音で自分の声もクローンできます。登録不要で今すぐ使えます。",
       audioToTextDesc: "無料の音声テキスト変換ツール。MP3、WAV、M4A、MP4の音声を、ブラウザ内で動く音声モデルでテキスト化します。ファイルが端末から出ることはなく、登録不要・分単位の料金も不要です。初回だけ小さなモデルをダウンロードし、その後はオフラインで使えます。短くて聞き取りやすい音声が最適です。",
       textToSpeechTitle: "無料テキスト読み上げ – Text to Speech Online",
       textToSpeechDesc: "無料のテキスト読み上げ。テキストを貼るだけで、端末の音声でブラウザが読み上げます。登録不要、テキストは送信されません。",
@@ -16302,6 +16388,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "画像圧縮ツール",
       title: "画像をオンラインで圧縮 — 無料・プライベート・即時",
+      bigger: "元のファイルより大きい",
+      biggerNote: "このファイルはもともと非常に小さいため、再変換で大きくなりました。画質を下げるか、元のファイルのままご利用ください。",
     },
     summarizer: {
       badge: "AI要約ツール",
@@ -16318,6 +16406,8 @@ timestampConverter: {
       humanizeBtn: "テキストを今すぐ人間化（自然な文体に変換）",
       processingBtn: "自然な文章リズムに再構成中...",
       outputTitle: "人間化された出力＆リアルタイム検知スコア",
+      noChangeChip: "変更は不要です",
+      noChangeNote: "ローカルエンジンが変更すべき点を見つけられませんでした。文章はすでに自然に読めるため、結果は入力と同一です。これは正直な結果であり、見せかけの書き換えではありません。より深い書き換えには、上部のAIオプションをオンにしてください（テキストはブラウザの外へ送信されます）。",
       outputEmpty: "「テキストを今すぐ人間化」を押すと、書き換え結果が表示されます。",
       tones: {
         conversational: "会話調・親しみやすい文体",
@@ -17538,6 +17628,10 @@ timestampConverter: {
       wordCounterTitle: "Gratis Ordteller – Tell Ord og Tegn",
       wordCounterDesc: "Gratis ordteller. Tell ord, tegn, setninger, avsnitt og lesetid direkte i nettleseren. Ingen registrering, ingen opplasting.",
       audioToTextTitle: "Lyd til tekst-konverter – Transkriber MP3, WAV og M4A gratis på enheten din",
+      backgroundRemoverTitle: "Gratis AI Bakgrunnsfjerner",
+      backgroundRemoverDesc: "Fjern bildebakgrunner direkte i nettleseren din med AI. 100% privat, full oppløsning, gratis transparente PNG-nedlastinger.",
+      voiceClonerTitle: "AI Stemmekloner – Klon stemmen din gratis",
+      voiceClonerDesc: "Hør tekst med naturlige stemmer i nettleseren, eller klon din egen stemme fra et 10-sekunders klipp. Gratis og uten registrering.",
       audioToTextDesc: "Gratis lyd-til-tekst-konverter. Gjør MP3, WAV, M4A og MP4 om til tekst med en talemodell som kjører i nettleseren — filen forlater aldri enheten din, ingen registrering og ingen minuttpris. En liten modell lastes ned første gang; deretter virker den uten nett. Korte, klare opptak fungerer best.",
       textToSpeechTitle: "Gratis Tekst til Tale – Hør Teksten din Lest Høyt",
       textToSpeechDesc: "Gratis tekst til tale. Lim inn tekst og hør den lest høyt med stemmene på enheten din, i nettleseren. Ingen registrering, ingenting lastes opp.",
@@ -18293,6 +18387,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "Bildekompressor",
       title: "Komprimer Bilder Online — Gratis, Privat, Øyeblikkelig",
+      bigger: "Større",
+      biggerNote: "Disse filene var allerede svært små, så ny koding gjorde resultatet større — originalen er den minste. Prøv lavere kvalitet, eller behold originalen.",
       subtitle: "Slipp bildene dine nedenfor. De forlater aldri enheten din — komprimering skjer i nettleseren.",
       dropTitle: "Slipp bilder her eller klikk for å bla gjennom",
       dropSubtitle: "JPG, PNG, WebP, GIF — behandles lokalt, lastes aldri opp",
@@ -19440,6 +19536,10 @@ timestampConverter: {
       wordCounterTitle: "Gratis Woordenteller – Woorden & Tekens Tellen",
       wordCounterDesc: "Gratis woordenteller. Tel woorden, tekens, zinnen, alinea's en leestijd live in je browser. Geen account, niets uploaden.",
       audioToTextTitle: "Audio naar Tekst Converter – Transcribeer MP3, WAV en M4A gratis op je apparaat",
+      backgroundRemoverTitle: "Gratis AI Achtergrond Verwijderaar",
+      backgroundRemoverDesc: "Verwijder afbeeldingsachtergronden rechtstreeks in je browser met AI. 100% privé, volledige resolutie, gratis transparante PNG-downloads.",
+      voiceClonerTitle: "AI Stem Kloon – Kloon je stem gratis in je browser",
+      voiceClonerDesc: "Gratis AI-stemkloon: luister naar elke tekst met natuurlijke stemmen in je browser, of kloon je eigen stem met een clip van 10 seconden. Geen registratie.",
       audioToTextDesc: "Gratis audio-naar-tekst converter. Zet MP3, WAV, M4A en MP4 om in tekst met een spraakmodel dat in je browser draait — je bestand verlaat je apparaat nooit, geen registratie en geen kosten per minuut. Bij het eerste gebruik wordt een klein model gedownload; daarna werkt het offline. Korte, heldere opnames werken het best.",
       textToSpeechTitle: "Gratis Tekst naar Spraak – Laat je Tekst Voorlezen",
       textToSpeechDesc: "Gratis tekst naar spraak. Plak je tekst en hoor hem voorlezen met de stemmen van je apparaat, in je browser. Geen account, niets geüpload.",
@@ -20195,6 +20295,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "Afbeelding Compressor",
       title: "Comprimeer Afbeeldingen Online — Gratis, Privé, Direct",
+      bigger: "Groter",
+      biggerNote: "Deze bestanden waren al erg klein; opnieuw coderen maakte het resultaat groter — uw origineel is het kleinst. Probeer een lagere kwaliteit of behoud het origineel.",
       subtitle: "Sleep je afbeeldingen hieronder. Ze verlaten nooit je apparaat — compressie gebeurt in je browser.",
       dropTitle: "Sleep afbeeldingen hierheen of klik om te bladeren",
       dropSubtitle: "JPG, PNG, WebP, GIF — lokaal verwerkt, nooit geüpload",
@@ -21342,6 +21444,10 @@ timestampConverter: {
       wordCounterTitle: "Contatore di Parole Gratuito – Conta Parole e Caratteri",
       wordCounterDesc: "Contatore di parole gratuito. Conta parole, caratteri, frasi, paragrafi e tempo di lettura nel browser. Senza registrazione, senza caricare il testo.",
       audioToTextTitle: "Convertitore Audio in Testo – Trascrivi MP3, WAV e M4A gratis sul tuo dispositivo",
+      backgroundRemoverTitle: "Rimuovi Sfondo IA Gratuito",
+      backgroundRemoverDesc: "Rimuovi gli sfondi delle immagini direttamente nel tuo browser con l’IA. 100% privato, risoluzione completa e download PNG trasparenti gratuiti.",
+      voiceClonerTitle: "Clonatore Vocale IA – Clona la tua voce gratis nel browser",
+      voiceClonerDesc: "Clonatore vocale IA gratuito: ascolta qualsiasi testo con voci naturali nel browser o clona la tua voce con un clip di 10 secondi. Senza registrazione.",
       audioToTextDesc: "Convertitore audio in testo gratuito. Trascrivi MP3, WAV, M4A e MP4 in testo con un modello vocale che gira nel tuo browser: il file non lascia mai il tuo dispositivo, niente registrazione e nessun costo al minuto. Al primo uso si scarica un piccolo modello; poi funziona offline. Le clip brevi e chiare danno i risultati migliori.",
       textToSpeechTitle: "Sintesi Vocale Gratuita – Ascolta i tuoi Testi ad Alta Voce",
       textToSpeechDesc: "Sintesi vocale gratuita. Incolla il testo e ascoltalo con le voci del tuo dispositivo, nel browser. Senza registrazione, senza inviare il testo.",
@@ -22097,6 +22203,8 @@ timestampConverter: {
     imageCompressor: {
       badge: "Compressore Immagini",
       title: "Comprimi Immagini Online — Gratis, Privato, Istantaneo",
+      bigger: "Più grande",
+      biggerNote: "Questi file erano già molto piccoli: ricodificarli ha reso il risultato più grande. Prova una qualità più bassa o tieni l'originale.",
       subtitle: "Trascina le tue immagini qui sotto. Non lasciano mai il tuo dispositivo — la compressione avviene nel browser.",
       dropTitle: "Trascina le immagini qui o clicca per sfogliare",
       dropSubtitle: "JPG, PNG, WebP, GIF — elaborate localmente, mai caricate",

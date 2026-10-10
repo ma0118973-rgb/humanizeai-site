@@ -1,0 +1,16 @@
+# Cloudflare Pages cache headers — ToolVena
+# Qaaida: bade model/runtime files + hashed build files aik saal cache (immutable).
+# HTML safhon par jaan boojh kar kuch NAHI lagaya — woh max-age=0 hi raheinge
+# taake content updates foran live dikhen.
+
+/models/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/ort/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/transformers/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -41,6 +41,18 @@ export interface SeoResult {
   schemaJsonPreview?: string;
 }
 
+export interface SeoContentAnalysis {
+  wordCount: number;
+  keyword: string;
+  keywordCount: number;
+  densityPercent: number;
+  inFirst100Words: boolean;
+  avgSentenceLength: number;
+  readingEase: number;
+  readingEaseLabel: string;
+  readingGrade: number;
+}
+
 export interface SavedDraft {
   id: string;
   timestamp: number;
@@ -103,6 +115,7 @@ export type ActivePage =
   | "pdfTools"
   | "audioToText"
   | "backgroundRemover"
+  | "voiceCloner"
   | "cleaner"
   | "diff"
   | "privacy"

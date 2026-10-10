@@ -75,6 +75,8 @@ export function HumanizerWorkspace({
   const [progressPercent, setProgressPercent] = useState(15);
   const [result, setResult] = useState<HumanizeResult | null>(null);
   const [engineUsed, setEngineUsed] = useState<"ai" | "local" | null>(null);
+  // honesty flag: true when the produced text is identical to the input
+  const [noChange, setNoChange] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const [copied, setCopied] = useState(false);
@@ -141,6 +143,10 @@ export function HumanizerWorkspace({
         aiOptIn
       );
       setEngineUsed(engine);
+      setNoChange(
+        inputText.trim().replace(/\s+/g, " ").toLowerCase() ===
+          payloadData.humanizedText.trim().replace(/\s+/g, " ").toLowerCase()
+      );
 
       setProgressPercent(100);
       setResult(payloadData);
@@ -179,6 +185,10 @@ export function HumanizerWorkspace({
       console.warn("API request failed or unavailable, running client-side humanizer engine:", err);
       const localData = runLocalHumanize(inputText, tone, level, selectedLanguage);
       setEngineUsed("local");
+      setNoChange(
+        inputText.trim().replace(/\s+/g, " ").toLowerCase() ===
+          localData.humanizedText.trim().replace(/\s+/g, " ").toLowerCase()
+      );
       setProgressPercent(100);
       setResult(localData);
       setMobileTab("output");
@@ -737,9 +747,14 @@ export function HumanizerWorkspace({
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span className="font-extrabold text-stone-800 text-sm">{t.humanizer?.outputTitle}</span>
-              {result && (
+              {result && !noChange && (
                 <span className="text-xs text-emerald-800 font-bold bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
                   <Check className="w-3 h-3 text-emerald-600 stroke-[3]" /> Humanized
+                </span>
+              )}
+              {result && noChange && (
+                <span className="text-xs text-amber-800 font-bold bg-amber-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+                  {(t.humanizer as any)?.noChangeChip || "No rewrite needed"}
                 </span>
               )}
               {result && engineUsed && (
@@ -924,6 +939,12 @@ export function HumanizerWorkspace({
             {/* Output Rendering */}
             {result && !isLoading && (
               <div className="space-y-4">
+                {noChange && (
+                  <p className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2.5 text-sm font-medium text-amber-800">
+                    {(t.humanizer as any)?.noChangeNote ||
+                      "The local engine found nothing it needed to change in this text — it already reads naturally, so the result is identical to what you wrote. That is an honest result, not a pretend rewrite. For a deeper rewrite, switch on the AI option at the top (your text then leaves the browser)."}
+                  </p>
+                )}
                 {viewMode === "diff" ? (
                   <DiffHighlighter
                     originalText={inputText}

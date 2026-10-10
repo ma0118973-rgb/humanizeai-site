@@ -1,28 +1,117 @@
-import { ToneType, BypassLevel, LanguageCode, HumanizeResult, DetectionResult, SeoResult } from "../types";
+import { ToneType, BypassLevel, LanguageCode, HumanizeResult, DetectionResult, SeoResult, SeoContentAnalysis } from "../types";
 
 // ==========================================
 // 1. STATISTICAL LINGUISTIC AI DETECTOR ENGINE (100% Client-Side Heuristics)
 // ==========================================
 
-const AI_CLICHE_WORDS = [
-  "delve", "delving", "tapestry", "beacon", "testament", "realm", "pivotal",
-  "crucial", "imperative", "game-changer", "transformative", "foster", "fostering",
-  "embark", "embarking", "furthermore", "moreover", "in conclusion", "it is worth noting",
-  "underscores", "interplay", "paramount", "multifaceted", "contemporary epoch",
-  "pedagogical paradigm", "transformative tapestry", "testament to", "beacon of hope",
-  "rich tapestry", "pivotal role", "crucial aspect", "seamlessly integrate", "in summary"
+// AI-filler phrases: multi-word (or hallmark single-word) phrases that appear
+// far more often in LLM output than in everyday human writing. Strong
+// template phrases weigh 2, ordinary hallmark words weigh 1.
+const AI_FILLER_PHRASES: { phrase: string; weight: number }[] = [
+  { phrase: "it is important to note", weight: 2 },
+  { phrase: "it's important to note", weight: 2 },
+  { phrase: "it is worth noting", weight: 2 },
+  { phrase: "it is worth mentioning", weight: 2 },
+  { phrase: "in today's fast-paced world", weight: 2 },
+  { phrase: "in the ever-evolving world", weight: 2 },
+  { phrase: "plays a crucial role", weight: 2 },
+  { phrase: "plays a vital role", weight: 2 },
+  { phrase: "a testament to", weight: 2 },
+  { phrase: "rich tapestry", weight: 2 },
+  { phrase: "when it comes to", weight: 1 },
+  { phrase: "a wide range of", weight: 1 },
+  { phrase: "in the realm of", weight: 1 },
+  { phrase: "in conclusion", weight: 1 },
+  { phrase: "in summary", weight: 1 },
+  { phrase: "first and foremost", weight: 1 },
+  { phrase: "last but not least", weight: 1 },
+  { phrase: "needless to say", weight: 1 },
+  { phrase: "furthermore", weight: 1 },
+  { phrase: "moreover", weight: 1 },
+  { phrase: "additionally", weight: 1 },
+  { phrase: "consequently", weight: 1 },
+  { phrase: "delve", weight: 1 },
+  { phrase: "delving", weight: 1 },
+  { phrase: "tapestry", weight: 1 },
+  { phrase: "beacon of", weight: 1 },
+  { phrase: "testament to", weight: 1 },
+  { phrase: "pivotal", weight: 1 },
+  { phrase: "crucial", weight: 1 },
+  { phrase: "imperative", weight: 1 },
+  { phrase: "game-changer", weight: 1 },
+  { phrase: "transformative", weight: 1 },
+  { phrase: "foster", weight: 1 },
+  { phrase: "fostering", weight: 1 },
+  { phrase: "embark", weight: 1 },
+  { phrase: "underscores", weight: 1 },
+  { phrase: "interplay", weight: 1 },
+  { phrase: "paramount", weight: 1 },
+  { phrase: "multifaceted", weight: 1 },
+  { phrase: "seamlessly", weight: 1 },
+];
+
+// Formal / bureaucratic vocabulary that LLM output leans on heavily.
+// Counted as a density per 100 words, not as a phrase.
+const AI_FORMAL_LEXICON = new Set([
+  "facilitate", "facilitates", "facilitated", "facilitating",
+  "implementation", "implementations",
+  "systematic", "systematically", "methodology", "methodologies",
+  "optimal", "optimally",
+  "utilize", "utilizes", "utilized", "utilizing", "utilization",
+  "leverage", "leverages", "leveraged", "leveraging",
+  "comprehensive", "numerous", "various", "significant", "significantly",
+  "demonstrate", "demonstrates", "demonstrated",
+  "approximately", "sufficient", "individuals",
+  "enhance", "enhances", "enhanced", "enhancing",
+  "ensure", "ensures", "ensured", "ensuring",
+  "furthermore", "moreover", "consequently", "additionally",
+  "nevertheless", "nonetheless",
+  "outcomes", "aspects", "factors",
+  "robust", "intricate", "nuanced", "nuances",
+  "crucial", "pivotal", "essential",
+  "realm", "realms",
+  "achieve", "achieves", "achieved",
+  "indicate", "indicates", "overall",
+  "paramount", "multifaceted",
+]);
+
+const AI_SENTENCE_STARTERS = [
+  "moreover", "furthermore", "additionally", "consequently", "therefore",
+  "in conclusion", "in summary", "overall", "notably", "indeed",
+  "it is important", "it is worth",
 ];
 
 const HUMAN_CONTRACTIONS = [
   "it's", "don't", "can't", "won't", "we've", "you'll", "they're", "there's",
   "didn't", "doesn't", "wasn't", "couldn't", "shouldn't", "aren't", "isn't",
-  "i'm", "i've", "we're", "you're", "they've", "let's"
+  "i'm", "i've", "we're", "you're", "they've", "let's",
 ];
 
-const HUMAN_TRANSITIONS = [
-  "truth is", "honestly", "in practice", "here's the thing", "at the end of the day",
-  "to be fair", "let's be honest", "come to think of it", "in real life", "oddly enough"
-];
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Count phrase hits on a mutable copy of the lowercased text, longest
+// phrases first, blanking out matched spans so a phrase is never
+// double-counted (e.g. "a testament to" inside "testament to").
+function countFillerPhrases(lowerText: string): { weighted: number; hits: string[]; count: number } {
+  let work = ` ${lowerText} `;
+  let weighted = 0;
+  let count = 0;
+  const hits: string[] = [];
+  const sorted = [...AI_FILLER_PHRASES].sort((a, b) => b.phrase.length - a.phrase.length);
+  for (const { phrase, weight } of sorted) {
+    const reg = new RegExp(`\\b${escapeRegExp(phrase)}\\b`, "g");
+    const m = work.match(reg);
+    if (m) {
+      count += m.length;
+      weighted += m.length * weight;
+      hits.push(phrase);
+      work = work.replace(reg, " ");
+    }
+  }
+  return { weighted, hits, count };
+}
 
 export function runLocalAiDetection(text: string): DetectionResult {
   const clean = text.trim();
@@ -30,24 +119,33 @@ export function runLocalAiDetection(text: string): DetectionResult {
     return {
       overallAiProbability: 0,
       overallHumanProbability: 100,
-            verdict: "Entirely Human",
+      verdict: "Entirely Human",
       keySignals: ["No text provided"],
       sentenceAnalysis: [],
     };
   }
 
-  // Split into sentences
+  const lower = clean.toLowerCase();
+
+  // --- Sentences & word tokens -------------------------------------------
   const rawSentences = clean
     .split(/(?<=[.?!])\s+/)
     .map((s) => s.trim())
     .filter((s) => s.length > 0);
-
   const sentences = rawSentences.length > 0 ? rawSentences : [clean];
-  const sentenceWordCounts = sentences.map((s) => s.split(/\s+/).filter(Boolean).length);
-  const totalWords = sentenceWordCounts.reduce((a, b) => a + b, 0) || 1;
-  const avgSentenceLength = totalWords / sentences.length;
+  const tokenize = (s: string) =>
+    s
+      .toLowerCase()
+      .split(/\s+/)
+      .map((w) => w.replace(/^[^a-z0-9']+|[^a-z0-9']+$/g, ""))
+      .filter(Boolean);
+  const allTokens = tokenize(clean);
+  const totalWords = Math.max(allTokens.length, 1);
+  const sentenceTokens = sentences.map(tokenize);
+  const sentenceWordCounts = sentenceTokens.map((t) => t.length);
 
-  // Burstiness calculation: variance and std deviation of sentence lengths
+  // Measured signal 1: sentence-length variance (burstiness σ)
+  const avgSentenceLength = totalWords / sentences.length;
   const variance =
     sentences.length > 1
       ? sentenceWordCounts.reduce((sum, len) => sum + Math.pow(len - avgSentenceLength, 2), 0) /
@@ -55,128 +153,154 @@ export function runLocalAiDetection(text: string): DetectionResult {
       : 0;
   const burstinessStdDev = Math.sqrt(variance);
 
-  // Cliché density check
-  const lower = clean.toLowerCase();
-  let clicheCount = 0;
-  const detectedCliches: string[] = [];
-  for (const c of AI_CLICHE_WORDS) {
-    const reg = new RegExp(`\\b${c}\\b`, "gi");
-    const m = clean.match(reg);
-    if (m) {
-      clicheCount += m.length;
-      detectedCliches.push(c);
-    }
+  // Measured signal 2: AI-filler phrase hits (weighted)
+  const filler = countFillerPhrases(lower);
+
+  // Measured signal 3: formal/AI-typical vocabulary density
+  let formalCount = 0;
+  for (const tok of allTokens) {
+    if (AI_FORMAL_LEXICON.has(tok)) formalCount++;
+  }
+  const formalPer100 = (formalCount / totalWords) * 100;
+
+  // Measured signal 4: contractions (don't / it's / we're ...) — natural signal
+  const contractionMatches = clean.match(/\b[a-zA-Z]+['’](t|s|re|ve|ll|d|m)\b/g) || [];
+  const contractionCount = contractionMatches.length;
+  const contractionPer100 = (contractionCount / totalWords) * 100;
+
+  // Measured signal 5: sentences that open with a template transition
+  let starterCount = 0;
+  for (const s of sentences) {
+    const sl = s.toLowerCase().replace(/^[^a-z]+/, "");
+    if (AI_SENTENCE_STARTERS.some((p) => sl.startsWith(p))) starterCount++;
   }
 
-  // Contraction & organic phrasing count
-  let humanMarkerCount = 0;
-  for (const c of HUMAN_CONTRACTIONS) {
-    const reg = new RegExp(`\\b${c.replace("'", "['’]")}\\b`, "gi");
-    const m = clean.match(reg);
-    if (m) humanMarkerCount += m.length;
-  }
-  for (const t of HUMAN_TRANSITIONS) {
-    if (lower.includes(t)) humanMarkerCount += 2;
+  // Measured signal 6: mid-band regularity — most sentences 13–27 words
+  const midBandCount = sentenceWordCounts.filter((n) => n >= 13 && n <= 27).length;
+  const midBandRatio = sentences.length > 0 ? midBandCount / sentences.length : 0;
+
+  // Measured signal 7: punctuation variety (questions, dashes, semicolons)
+  const hasVariedPunct = /[?!;]/.test(clean) || /—|–|\.\.\./.test(clean);
+
+  // Measured signal 8: lexical diversity (only meaningful on longer texts)
+  const uniqueRatio = new Set(allTokens).size / totalWords;
+
+  // --- Score: every feature moves the number, nothing pins it ------------
+  let score = 20;
+
+  score += Math.min(42, filler.weighted * 7); // filler phrases: strongest signal
+
+  if (formalPer100 > 1) {
+    score += Math.min(24, (formalPer100 - 1) * 3.2); // formal vocabulary density
   }
 
-  // Analyze each sentence
-  const sentenceAnalysis = sentences.map((sentence) => {
-    const sLower = sentence.toLowerCase();
-    const words = sentence.split(/\s+/).filter(Boolean).length;
-    let hasCliche = false;
-    for (const c of AI_CLICHE_WORDS) {
-      if (sLower.includes(c)) {
-        hasCliche = true;
-        break;
-      }
-    }
-    const hasContraction = HUMAN_CONTRACTIONS.some((c) =>
-      sLower.includes(c.replace("'", "")) || sLower.includes(c)
-    );
+  if (sentences.length >= 3) {
+    if (burstinessStdDev < 2.0) score += 22; // robotic, metronome rhythm
+    else if (burstinessStdDev < 3.2) score += 14;
+    else if (burstinessStdDev < 4.5) score += 6;
+    else if (burstinessStdDev >= 7.0) score -= 14; // very uneven: human-like
+    else if (burstinessStdDev >= 5.5) score -= 8;
+  } else if (sentences.length === 2) {
+    if (burstinessStdDev < 2.0) score += 10;
+    else if (burstinessStdDev >= 5.5) score -= 7;
+  }
 
-    // Sentence classification
+  if (
+    sentences.length >= 3 &&
+    midBandRatio >= 0.75 &&
+    avgSentenceLength >= 13 &&
+    avgSentenceLength <= 27
+  ) {
+    score += 8; // almost every sentence the same "safe" length
+  }
+
+  score += Math.min(10, starterCount * 4); // template sentence openers
+
+  if (totalWords >= 25) {
+    if (contractionPer100 >= 1.5) score -= 16;
+    else if (contractionPer100 >= 0.6) score -= 9;
+    else if (contractionCount === 0) score += 5; // zero contractions in a longer text
+  }
+
+  if (hasVariedPunct) score -= 5;
+  else if (totalWords > 60) score += 3;
+
+  if (totalWords >= 60) {
+    if (uniqueRatio < 0.42) score += 5; // heavy word repetition
+    else if (uniqueRatio > 0.8) score -= 5;
+  }
+
+  const overallAiProbability = Math.min(97, Math.max(2, Math.round(score)));
+  const overallHumanProbability = 100 - overallAiProbability;
+
+  // --- Per-sentence heatmap (uses sentence-level signals only) ------------
+  const sentenceAnalysis = sentences.map((sentence, i) => {
+    const toks = sentenceTokens[i];
+    const wc = toks.length;
+    const sFiller = countFillerPhrases(` ${sentence.toLowerCase()} `);
+    let sFormal = 0;
+    for (const tok of toks) if (AI_FORMAL_LEXICON.has(tok)) sFormal++;
+    const sHasContraction = /\b[a-zA-Z]+['’](t|s|re|ve|ll|d|m)\b/.test(sentence);
+    const sHasQuestionOrBang = /[?!]/.test(sentence);
+
     let status: "ai" | "mixed" | "human" = "human";
-    if (hasCliche && words >= 14 && words <= 24) {
+    if (sFiller.count > 0 || sFormal >= 3) {
       status = "ai";
-    } else if (hasCliche || (words >= 15 && words <= 22 && !hasContraction && burstinessStdDev < 3.0)) {
+    } else if (sHasContraction || sHasQuestionOrBang || wc < 9 || wc > 32) {
+      status = "human";
+    } else if (sFormal >= 1 || (wc >= 13 && wc <= 27)) {
       status = "mixed";
-    } else if (hasContraction || words < 9 || words > 26 || burstinessStdDev >= 4.5) {
-      status = "human";
-    } else {
-      status = "human";
     }
     return { sentence, status };
   });
 
-  const aiCount = sentenceAnalysis.filter((s) => s.status === "ai").length;
-  const mixedCount = sentenceAnalysis.filter((s) => s.status === "mixed").length;
-  const humanCount = sentenceAnalysis.filter((s) => s.status === "human").length;
-
-  // Compute Overall AI Probability (0 - 100)
-  // Low burstiness + high cliches = High AI score
-  // High burstiness + contractions + 0 cliches = Very low AI score (0-3%)
-  let baseAi = 0;
-  if (clicheCount > 0) {
-    baseAi += Math.min(60, clicheCount * 18);
-  }
-  if (burstinessStdDev < 2.5) {
-    baseAi += 35; // monotonic robotic rhythm
-  } else if (burstinessStdDev < 3.8) {
-    baseAi += 15;
-  } else if (burstinessStdDev >= 5.0) {
-    baseAi -= 25; // high natural variance
-  }
-
-  if (humanMarkerCount > 0) {
-    baseAi -= Math.min(40, humanMarkerCount * 12);
-  }
-
-  // Factor in sentence ratio
-  const sentenceAiRatio = (aiCount * 1.0 + mixedCount * 0.4) / sentences.length;
-  baseAi = baseAi * 0.5 + sentenceAiRatio * 100 * 0.5;
-
-  let overallAiProbability = Math.min(99, Math.max(1, Math.round(baseAi)));
-
-  // Algorithmic safeguard for genuinely humanized or high-variance text
-  if (clicheCount === 0 && burstinessStdDev >= 4.0) {
-    overallAiProbability = Math.min(overallAiProbability, 3);
-  }
-
-  const overallHumanProbability = 100 - overallAiProbability;
-
-
-  // Verdict
+  // --- Verdict --------------------------------------------------------------
   let verdict = "Entirely Human";
-  if (overallAiProbability >= 70) {
+  if (overallAiProbability >= 65) {
     verdict = "Likely AI-Generated";
-  } else if (overallAiProbability >= 25) {
+  } else if (overallAiProbability >= 30) {
     verdict = "Mixed / Partially AI";
   }
 
-  // Key Signals
+  // --- Key signals: the actual measured numbers, nothing decorative --------
   const keySignals: string[] = [];
-  if (burstinessStdDev >= 4.5) {
-    keySignals.push(`Dynamic sentence length burstiness (σ = ${burstinessStdDev.toFixed(1)}) matches natural human writing.`);
-  } else if (burstinessStdDev < 2.5) {
-    keySignals.push(`Monotonic sentence cadences detected (σ = ${burstinessStdDev.toFixed(1)}), characteristic of LLM generators.`);
+  keySignals.push(
+    `Sentence-length variation σ = ${burstinessStdDev.toFixed(1)} across ${sentences.length} sentence(s) (average ${avgSentenceLength.toFixed(1)} words). ` +
+      (burstinessStdDev < 2.5
+        ? "Very even lengths feel mechanical."
+        : burstinessStdDev >= 5.5
+          ? "Uneven lengths read naturally."
+          : "Moderately varied lengths.")
+  );
+  if (filler.count === 0) {
+    keySignals.push("No common AI filler phrases found.");
   } else {
-    keySignals.push(`Balanced sentence variation (σ = ${burstinessStdDev.toFixed(1)}).`);
+    keySignals.push(
+      `AI-style filler phrases found (${filler.count}): ${filler.hits
+        .slice(0, 5)
+        .map((h) => `"${h}"`)
+        .join(", ")}.`
+    );
   }
-
-  if (clicheCount === 0) {
-    keySignals.push("Zero high-frequency AI hallmark clichés detected.");
-  } else {
-    keySignals.push(`Found ${clicheCount} robotic hallmark transitions (${detectedCliches.slice(0, 4).join(", ")}).`);
+  keySignals.push(
+    `Formal, AI-typical vocabulary: ${formalCount} word(s) — ${formalPer100.toFixed(1)} per 100 words.`
+  );
+  if (contractionCount > 0) {
+    keySignals.push(`Contractions found: ${contractionCount} — a natural-writing signal.`);
+  } else if (totalWords >= 25) {
+    keySignals.push("No contractions found — text keeps a fully formal tone throughout.");
   }
-
-  if (humanMarkerCount > 0) {
-    keySignals.push(`Natural colloquial connectors & contractions present (${humanMarkerCount} markers).`);
+  if (starterCount > 0) {
+    keySignals.push(`Template sentence openers (Moreover / Furthermore / In conclusion…): ${starterCount}.`);
+  }
+  if (sentences.length < 3) {
+    keySignals.push("Short text: fewer than 3 sentences, so treat this estimate as rough — paste a longer sample for a steadier read.");
   }
 
   return {
     overallAiProbability,
     overallHumanProbability,
-        verdict,
+    verdict,
     keySignals,
     sentenceAnalysis,
   };
@@ -582,46 +706,13 @@ export function runLocalHumanize(
     return modified.join(" ");
   });
 
-  // 3b. Fallback: if nothing changed, apply natural human touches so output is never identical
-  const totalChanges = clicheReplacements + contractionsApplied + sentencesSplit + plainSwaps + fillerCuts;
-  let finalText = rewrittenParagraphs.join("\n\n");
-  if (totalChanges === 0 && finalText.trim()) {
-    const sentences = finalText.split(/(?<=[.?!])\s+/).filter(Boolean);
-    // Natural contractions
-    finalText = finalText
-      .replace(/\bIt is\b/g, "It's")
-      .replace(/\bThere is\b/g, "There's")
-      .replace(/\bI am\b/g, "I'm")
-      .replace(/\bWe are\b/g, "We're")
-      .replace(/\bYou are\b/g, "You're")
-      .replace(/\bThey are\b/g, "They're")
-      .replace(/\bDo not\b/g, "Don't")
-      .replace(/\bDoes not\b/g, "Doesn't")
-      .replace(/\bDid not\b/g, "Didn't")
-      .replace(/\bCannot\b/g, "Can't")
-      .replace(/\bWill not\b/g, "Won't")
-      .replace(/\bShould not\b/g, "Shouldn't")
-      .replace(/\bCould not\b/g, "Couldn't")
-      .replace(/\bWould not\b/g, "Wouldn't")
-      .replace(/\bHave not\b/g, "Haven't")
-      .replace(/\bHas not\b/g, "Hasn't");
-    // Add natural variety to repetitive sentence starts
-    if (sentences.length >= 3) {
-      const varied = sentences.map((s, i) => {
-        s = s.trim();
-        if (i > 0 && i % 3 === 2 && s.length > 15) {
-          // Every 3rd sentence: add a natural connector for flow
-          const connectors = ["And ", "Plus, ", "Also, "];
-          const conn = connectors[i % connectors.length];
-          if (!/^(And|But|So|Plus|Also|However)/i.test(s)) {
-            s = conn.charAt(0).toLowerCase() + conn.slice(1) + s.charAt(0).toLowerCase() + s.slice(1);
-          }
-        }
-        return s;
-      });
-      finalText = varied.join(" ");
-    }
-  }
+  // 3b. Honesty rule (replaces the old "never identical" fallback): the old
+  // fallback sprinkled forced contractions and random "Plus,"/"Also,"
+  // connectors into unchanged text just so the output would LOOK different —
+  // a fake change. Removed. If the rules above found nothing to change, the
+  // output is honestly identical to the input, and the UI says so plainly
+  // (see noChange handling in HumanizerWorkspace). Real changes only.
+  const finalText = rewrittenParagraphs.join("\n\n");
 
   const finalHumanizedText = finalText;
 
@@ -810,6 +901,137 @@ export function runLocalSeoOptimization(topicOrText: string, targetAudience = "G
     openGraphTitle,
     openGraphDescription,
     schemaJsonPreview,
+  };
+}
+
+// ==========================================
+// 3b. BASIC ON-PAGE CONTENT ANALYSIS (keyword use + readability)
+// Honest, measurable checks only: keyword count/density, whether the
+// keyword appears early, and a standard Flesch readability estimate.
+// Returns null for short inputs (< 30 words) where the numbers would
+// be meaningless.
+// ==========================================
+
+const SEO_STOP_WORDS = new Set([
+  "the", "a", "an", "and", "or", "but", "if", "then", "else", "for", "of", "on", "in", "at", "to",
+  "from", "by", "with", "without", "about", "as", "is", "are", "was", "were", "be", "been", "being",
+  "it", "its", "this", "that", "these", "those", "you", "your", "we", "our", "they", "their", "he",
+  "she", "his", "her", "i", "me", "my", "can", "could", "should", "would", "will", "shall", "may",
+  "might", "do", "does", "did", "have", "has", "had", "not", "no", "yes", "so", "than", "too",
+  "very", "just", "also", "into", "over", "under", "between", "through", "during", "before",
+  "after", "when", "where", "which", "who", "whom", "what", "why", "how", "all", "any", "each",
+  "every", "both", "few", "more", "most", "other", "some", "such", "only", "own", "same", "now",
+]);
+
+function countSyllables(word: string): number {
+  const w = word.toLowerCase().replace(/[^a-z]/g, "");
+  if (!w) return 0;
+  if (w.length <= 3) return 1;
+  const groups = w.replace(/e$/, "").match(/[aeiouy]+/g);
+  return Math.max(1, groups ? groups.length : 1);
+}
+
+export function analyzeSeoContent(text: string, preferredKeyword?: string): SeoContentAnalysis | null {
+  const clean = text.trim();
+  const rawWords = clean.split(/\s+/).filter(Boolean);
+  if (rawWords.length < 30) return null;
+
+  const tokens = rawWords.map((w) => w.toLowerCase().replace(/^[^a-z0-9']+|[^a-z0-9']+$/g, ""));
+  const wordCount = tokens.filter(Boolean).length || rawWords.length;
+
+  // --- Focus keyword: caller's choice, else the most repeated meaningful
+  // bigram (two-word phrase), else the most repeated meaningful word.
+  let keyword = (preferredKeyword || "").trim().toLowerCase().replace(/\s+/g, " ");
+  if (!keyword) {
+    const bigramCounts = new Map<string, number>();
+    for (let i = 0; i + 1 < tokens.length; i++) {
+      const a = tokens[i];
+      const b = tokens[i + 1];
+      if (!a || !b || a.length < 3 || b.length < 3) continue;
+      if (SEO_STOP_WORDS.has(a) || SEO_STOP_WORDS.has(b)) continue;
+      const bg = `${a} ${b}`;
+      bigramCounts.set(bg, (bigramCounts.get(bg) || 0) + 1);
+    }
+    let bestBigram = "";
+    let bestBigramCount = 1; // must repeat at least twice
+    for (const [bg, c] of bigramCounts) {
+      if (c > bestBigramCount) {
+        bestBigram = bg;
+        bestBigramCount = c;
+      }
+    }
+    if (bestBigram) {
+      keyword = bestBigram;
+    } else {
+      const uniCounts = new Map<string, number>();
+      for (const tok of tokens) {
+        if (!tok || tok.length < 3 || SEO_STOP_WORDS.has(tok)) continue;
+        uniCounts.set(tok, (uniCounts.get(tok) || 0) + 1);
+      }
+      let bestUni = "";
+      let bestUniCount = 0;
+      for (const [w, c] of uniCounts) {
+        if (c > bestUniCount) {
+          bestUni = w;
+          bestUniCount = c;
+        }
+      }
+      keyword = bestUni;
+    }
+  }
+
+  // --- Keyword occurrences & density (counted on words, not characters)
+  const kwTokens = keyword.split(/\s+/).filter(Boolean);
+  let keywordCount = 0;
+  let inFirst100Words = false;
+  if (kwTokens.length > 0) {
+    for (let i = 0; i + kwTokens.length - 1 < tokens.length; i++) {
+      let match = true;
+      for (let k = 0; k < kwTokens.length; k++) {
+        if (tokens[i + k] !== kwTokens[k]) {
+          match = false;
+          break;
+        }
+      }
+      if (match) {
+        keywordCount++;
+        if (i < 100) inFirst100Words = true;
+      }
+    }
+  }
+  const densityPercent = Math.round(((keywordCount / wordCount) * 100) * 10) / 10;
+
+  // --- Readability (Flesch Reading Ease + grade), a standard estimate
+  const sentences = clean
+    .split(/(?<=[.?!])\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const sentenceCount = Math.max(sentences.length, 1);
+  const syllables = tokens.reduce((sum, w) => sum + countSyllables(w), 0);
+  const avgSentenceLength = wordCount / sentenceCount;
+  const flesch = 206.835 - 1.015 * avgSentenceLength - 84.6 * (syllables / wordCount);
+  const readingEase = Math.max(0, Math.min(100, Math.round(flesch)));
+  const gradeRaw = 0.39 * avgSentenceLength + 11.8 * (syllables / wordCount) - 15.59;
+  const readingGrade = Math.max(1, Math.round(gradeRaw));
+
+  let readingEaseLabel = "Very hard to read";
+  if (readingEase >= 90) readingEaseLabel = "Very easy to read";
+  else if (readingEase >= 80) readingEaseLabel = "Easy to read";
+  else if (readingEase >= 70) readingEaseLabel = "Fairly easy to read";
+  else if (readingEase >= 60) readingEaseLabel = "Plain, standard English";
+  else if (readingEase >= 50) readingEaseLabel = "Fairly hard to read";
+  else if (readingEase >= 30) readingEaseLabel = "Hard to read";
+
+  return {
+    wordCount,
+    keyword,
+    keywordCount,
+    densityPercent,
+    inFirst100Words,
+    avgSentenceLength: Math.round(avgSentenceLength * 10) / 10,
+    readingEase,
+    readingEaseLabel,
+    readingGrade,
   };
 }
 

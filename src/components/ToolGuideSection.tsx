@@ -54,6 +54,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   pdfTools: "pdf-tools-urdu-guide",
   audioToText: "audio-to-text-converter-urdu-guide",
   backgroundRemover: "background-remover-guide",
+  voiceCloner: "voice-cloner-guide",
   media: "video-tools-urdu-guide",
   seo: "seo-tools-urdu-guide",
   cleaner: "cliche-cleaner-urdu-guide",

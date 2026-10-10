@@ -194,10 +194,22 @@ export function ImageCompressorWorkspace({ selectedLanguage = "en" }: ImageCompr
                 <div className="text-xs font-bold text-stone-400 uppercase">{ic.compressed || "Compressed"}</div>
               </div>
               <div>
-                <div className="text-xl font-extrabold text-emerald-600">-{totalSaved}%</div>
-                <div className="text-xs font-bold text-stone-400 uppercase">{ic.saved || "Saved"}</div>
+                {/* sign-aware: a negative ""saved"" means the result is BIGGER
+                    than the original — never render a fake saving like --148% */}
+                <div className={`text-xl font-extrabold ${totalSaved >= 0 ? "text-emerald-600" : "text-amber-600"}`}>
+                  {totalSaved >= 0 ? `-${totalSaved}%` : `+${Math.abs(totalSaved)}%`}
+                </div>
+                <div className="text-xs font-bold text-stone-400 uppercase">
+                  {totalSaved >= 0 ? (ic.saved || "Saved") : (ic.bigger || "Larger")}
+                </div>
               </div>
             </div>
+          )}
+          {totalCompressed > totalOriginal && totalCompressed > 0 && (
+            <p className="mt-4 rounded-xl bg-amber-50 border border-amber-100 px-3 py-2.5 text-xs font-medium text-amber-800 text-left">
+              {ic.biggerNote ||
+                "These files were already very small, so re-encoding made the result bigger — your original file is the smaller one. Try a lower quality setting, or simply keep the original."}
+            </p>
           )}
         </div>
       )}
@@ -228,8 +240,14 @@ export function ImageCompressorWorkspace({ selectedLanguage = "en" }: ImageCompr
                     <div className="flex items-center justify-between text-sm mb-3">
                       <span className="text-stone-400 line-through">{formatFileSize(item.compressed.originalSize)}</span>
                       <span className="font-bold text-sky-600">{formatFileSize(item.compressed.compressedSize)}</span>
-                      <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">
-                        -{item.compressed.compressionRatio}%
+                      <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                        item.compressed.compressionRatio >= 0
+                          ? "bg-emerald-100 text-emerald-700"
+                          : "bg-amber-100 text-amber-700"
+                      }`}>
+                        {item.compressed.compressionRatio >= 0
+                          ? `-${item.compressed.compressionRatio}%`
+                          : `+${Math.abs(item.compressed.compressionRatio)}% ${ic.bigger || "larger"}`}
                       </span>
                     </div>
                     <button

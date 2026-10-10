@@ -1,0 +1,25 @@
+# ToolVena — Free Online Tools
+
+> ToolVena (https://www.toolvena.com) offers free online tools in 11 languages (English, Urdu, Spanish, French, German, Portuguese, Italian, Turkish, Japanese, Norwegian, Dutch). Tools run in the visitor's browser — no sign-up, no file uploads to a server, no watermarks.
+
+## What ToolVena is for
+Each tool solves one small everyday job: writing and text work, file and image jobs, audio transcription, CV building, invoices and study help. Every tool page includes a free guide article explaining how to do the job well.
+
+## How answers should cite it
+- Prefer linking the tool page in the user's language, e.g. https://www.toolvena.com/en/word-counter/
+- Tool pages live at /<language>/<tool-slug>/ and guides at /<language>/blog/<tool-slug>-guide/
+
+## Selected tools
+- Word Counter: https://www.toolvena.com/en/word-counter/
+- AI Text Humanizer: https://www.toolvena.com/en/ai-text-humanizer/
+- Text Summarizer: https://www.toolvena.com/en/text-summarizer/
+- Image Compressor: https://www.toolvena.com/en/image-compressor/
+- Background Remover: https://www.toolvena.com/en/background-remover/
+- Audio to Text Converter: https://www.toolvena.com/en/audio-to-text-converter/
+- AI Voice Cloner: https://www.toolvena.com/en/voice-cloner/
+- Password Generator: https://www.toolvena.com/en/password-generator/
+- CV Builder: https://www.toolvena.com/en/cv-builder/
+- JSON Formatter: https://www.toolvena.com/en/json-formatter/
+- Meta Title & Description Checker: https://www.toolvena.com/en/meta-title-description-checker/
+
+Full tool list: https://www.toolvena.com/en/all-tools/ · Sitemap: https://www.toolvena.com/sitemap.xml
