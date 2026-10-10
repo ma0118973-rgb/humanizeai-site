@@ -12063,6 +12063,101 @@ export const BLOG_POSTS: BlogPost[] = [
       "लंबे टेक्स्ट मुख्य बातें"
     ],
     "content": []
+  },
+  {
+    "id": "hi-character-counter-rahnuma",
+    "slug": "character-ginein-hindi-rahnuma",
+    "language": "hi",
+    "title": "कैरेक्टर गिनें: अक्षर, शब्द और लिमिट जांचने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Writing Tools",
+    "summary": "कैरेक्टर काउंटर अक्षर, शब्द, यूनिकोड गिनती, SMS सेगमेंट और प्लेटफ़ॉर्म-लिमिट कैसे जांचता है? UPSC उत्तर और SMS खर्च के असली उदाहरण, कौन-सी गिनती कब, और ईमानदार सीमाएं इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "कैरेक्टर काउंटर",
+      "अक्षर गिनें",
+      "शब्द गिनती जांचें",
+      "SMS सेगमेंट गिनती",
+      "ट्विटर लिमिट जांच"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-case-converter-rahnuma",
+    "slug": "case-badlein-hindi-rahnuma",
+    "language": "hi",
+    "title": "केस कन्वर्टर: UPPERCASE, lowercase और Title Case बदलने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Writing Tools",
+    "summary": "केस कन्वर्टर सात तरीकों से टेक्स्ट का केस कैसे बदलता है? Title Case के नियम, पचास हेडिंग का असली उदाहरण, कैप्स-लॉक की ग़लती ठीक करना और ईमानदार सीमाएं इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "केस कन्वर्टर",
+      "UPPERCASE lowercase बदलें",
+      "Title Case ऑनलाइन",
+      "टेक्स्ट केस बदलें",
+      "कैप्स लॉक ठीक करें"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-dedup-lines-rahnuma",
+    "slug": "duplicate-line-hatayein-hindi-rahnuma",
+    "language": "hi",
+    "title": "डुप्लीकेट लाइन हटाएं: लिस्ट साफ़ करने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Writing Tools",
+    "summary": "डुप्लीकेट लाइन हटाने वाला टूल लिस्ट की दोहराई लाइनें कैसे हटाता है? 800 नामों का असली उदाहरण, चारों विकल्पों की मार्गदर्शिका, और वह ईमानदार हद कि मिलते-जुलते नाम नहीं हटते — इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "डुप्लीकेट लाइन हटाएं",
+      "लिस्ट से डुप्लीकेट हटाएं",
+      "दोहराई लाइन साफ़ करें",
+      "डुप्लीकेट रिमूवर ऑनलाइन",
+      "नामों की लिस्ट साफ़"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-word-frequency-rahnuma",
+    "slug": "shabd-awritti-ginein-hindi-rahnuma",
+    "language": "hi",
+    "title": "शब्द आवृत्ति काउंटर: दोहराए शब्द ढूंढने की मुकम्मल रहनुमाई",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Writing Tools",
+    "summary": "शब्द आवृत्ति काउंटर हर शब्द और 2–3 शब्दों के वाक्यांश की गिनती-प्रतिशत कैसे देता है? थीसिस के दोहराव का असली उदाहरण, CSV विश्लेषण, और ईमानदार सीमाएं इस रहनुमाई में दर्ज हैं।",
+    "keywords": [
+      "शब्द आवृत्ति काउंटर",
+      "दोहराए शब्द गिनें",
+      "वर्ड फ्रिक्वेंसी ऑनलाइन",
+      "तकिया कलाम ढूंढें",
+      "टेक्स्ट विश्लेषण हिंदी"
+    ],
+    "content": []
+  },
+  {
+    "id": "hi-reading-time-rahnuma",
+    "slug": "padhne-ka-samay-hindi-rahnuma",
+    "language": "hi",
+    "title": "पढ़ने का समय कैलकुलेटर: कितनी देर में पढ़ेंगे, इसका ईमानदार अंदाज़ा",
+    "readTime": "10 मिनट पठन",
+    "date": "October 2026",
+    "author": "ToolVena Editorial Team",
+    "category": "Writing Tools",
+    "summary": "पढ़ने का समय कैलकुलेटर शब्दों से पढ़ने और बोलने का समय कैसे निकालता है? अपनी गति नापने का तरीका, ब्लॉग-स्पीच के असली उदाहरण, और वह ईमानदार हद कि यह अनुमान है नाप नहीं — इस रहनुमाई में दर्ज है।",
+    "keywords": [
+      "पढ़ने का समय कैलकुलेटर",
+      "रीडिंग टाइम ऑनलाइन",
+      "लेख पढ़ने में कितना समय",
+      "स्पीच समय अंदाज़ा",
+      "WPM गति"
+    ],
+    "content": []
   }
 ] as BlogPost[];
 
