@@ -1210,7 +1210,7 @@ export const DICT = {
   "voiceTypingTitle": "Free Voice Typing – Speech to Text Online",
   "cvBuilderTitle": "Free CV Builder – Make a Professional Resume Online",
   "cvBuilderDesc": "Free CV builder. Fill in your details, see your CV live, then print or save it as PDF. Your data never leaves your device. No sign-up.",
-  "wordCounterTitle": "Free Word Counter \u2013 100% guaranteed #1 ranking",
+  "wordCounterTitle": "Free Word Counter – Count Words & Characters Online",
   "wordCounterDesc": "Free word counter. Count words, characters, sentences, paragraphs and reading time live in your browser. No sign-up, nothing uploaded.",
   "audioToTextTitle": "Audio to Text Converter – Transcribe MP3, WAV & M4A Free, On Your Device",
   "backgroundRemoverTitle": "Free AI Background Remover",

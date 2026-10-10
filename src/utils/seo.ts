@@ -358,8 +358,8 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     toolName: "URL Encoder / Decoder",
   },
   unitConverter: {
-    title: "Unit Converter — Length, Weight, Temperature, Volume & More, Free",
-    description: "Free unit converter. Convert length, weight, temperature, volume, area, speed, time, data, pressure and energy with real factors, shown formulas and presets. No currency, no sign-up, nothing uploaded.",
+    title: "Unit Converter — Length, Weight, Temperature, Currency (Live Rates) & More, Free",
+    description: "Free unit converter. Convert length, weight, temperature, volume, area, speed, time, data, pressure and energy with real factors, plus currency with live daily exchange rates. Formulas shown, no sign-up, nothing uploaded.",
     canonicalPath: "/unit-converter/",
     ogType: "website",
     schemaType: "WebApplication",
