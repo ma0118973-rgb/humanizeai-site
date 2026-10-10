@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, ShieldCheck, Mail, Phone, ExternalLink, Globe } from "lucide-react";
+import { ChevronDown, ShieldCheck, Mail, ExternalLink, Globe } from "lucide-react";
 import { ActivePage } from "../types";
 import { AdSenseSlot } from "./AdSenseSlot";
 
@@ -11,7 +11,6 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const contactEmail = "yaretmyservin7@gmail.com";
-  const contactPhone = "+1 2535006555";
 
   const faqs = [
     {
@@ -233,13 +232,6 @@ export function FaqAndCompetitorSection({ onNavigatePage }: FaqAndCompetitorSect
               >
                 <Mail className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span className="break-all">{contactEmail}</span>
-              </a>
-              <a
-                href={`tel:${contactPhone}`}
-                className="flex items-center gap-1.5 hover:text-emerald-600 transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>{contactPhone}</span>
               </a>
               <p className="text-[11px] text-stone-600 pt-1">Use the Contact page for support and feedback.</p>
             </div>

@@ -5,10 +5,14 @@ const FUNCTION_URL = "/api/gemini";
 const AI_TIMEOUT_MS = 20000;
 
 /**
- * Humanize with AI when available, always falling back to the local engine.
- * - Tries the Cloudflare Pages Function (Gemini, key kept server-side in env vars).
+ * Humanize text, always falling back to the local engine.
+ * - Privacy default: the user's text is ONLY sent to the AI service (Cloudflare
+ *   Pages Function + Gemini, key kept server-side in env vars) when the user has
+ *   explicitly opted in via the "Improve with AI" toggle (aiOptIn, off by
+ *   default). Without opt-in, the deterministic local engine runs and the text
+ *   never leaves the browser.
  * - On ANY failure — no key configured, quota exhausted (429), rate limit,
- *   timeout, network error — silently uses the deterministic local engine.
+ *   timeout, network error — silently uses the local engine.
  * Returns the result plus which engine produced it.
  */
 export async function humanizeWithFallback(
@@ -16,10 +20,16 @@ export async function humanizeWithFallback(
   tone: ToneType,
   level: BypassLevel,
   targetLanguage: LanguageCode,
-  signal?: AbortSignal
+  signal?: AbortSignal,
+  aiOptIn = false
 ): Promise<{ result: HumanizeResult; engine: "ai" | "local" }> {
   const clean = text.trim();
   if (!clean) {
+    return { result: runLocalHumanize(text, tone, level, targetLanguage), engine: "local" };
+  }
+
+  // No consent, no send: default path is 100% local.
+  if (!aiOptIn) {
     return { result: runLocalHumanize(text, tone, level, targetLanguage), engine: "local" };
   }
 

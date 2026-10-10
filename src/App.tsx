@@ -166,6 +166,9 @@ const ImageCompressorWorkspace = lazy(() =>
 const PdfToolsWorkspace = lazy(() =>
   import("./components/PdfToolsWorkspace").then((m) => ({ default: m.PdfToolsWorkspace }))
 );
+const AudioToTextWorkspace = lazy(() =>
+  import("./components/AudioToTextWorkspace").then((m) => ({ default: m.AudioToTextWorkspace }))
+);
 const CompliancePages = lazy(() =>
   import("./components/CompliancePages").then((m) => ({ default: m.CompliancePages }))
 );
@@ -376,6 +379,9 @@ function parseCurrentRoute(): ParsedRoute {
   }
   if (primarySlug === "pdf-tools" || primarySlug === "merge-pdf" || primarySlug === "pdfTools") {
     return { page: "pdfTools", lang, blogSlug: null };
+  }
+  if (primarySlug === "audio-to-text-converter" || primarySlug === "audio-to-text" || primarySlug === "transcribe-audio" || primarySlug === "mp3-to-text" || primarySlug === "speech-to-text-converter" || primarySlug === "audio-transcription") {
+    return { page: "audioToText", lang, blogSlug: null };
   }
   if (primarySlug === "cliche-cleaner" || primarySlug === "cleaner" || primarySlug === "ai-cliche-cleaner") {
     return { page: "cleaner", lang, blogSlug: null };
@@ -646,6 +652,7 @@ export default function App() {
     activePage === "metaChecker" ||
     activePage === "instagramLineBreak" ||
     activePage === "imageCompressor" ||
+    activePage === "audioToText" ||
     activePage === "pdfTools";
 
   return (
@@ -1265,6 +1272,17 @@ export default function App() {
         {activePage === "pdfTools" && (
             <Suspense fallback={<ToolLoadingSkeleton />}>
             <PdfToolsWorkspace selectedLanguage={selectedLanguage} />
+            <OtherToolsSection
+              activePage={activePage}
+              onSelectPage={handlePageChange}
+              selectedLanguage={selectedLanguage}
+            />
+          </Suspense>
+        )}
+
+        {activePage === "audioToText" && (
+            <Suspense fallback={<ToolLoadingSkeleton />}>
+            <AudioToTextWorkspace selectedLanguage={selectedLanguage} />
             <OtherToolsSection
               activePage={activePage}
               onSelectPage={handlePageChange}

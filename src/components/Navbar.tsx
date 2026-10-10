@@ -98,7 +98,7 @@ export function Navbar({
                 </span>
               </div>
               <p className="text-[10px] sm:text-[11px] text-stone-400 hidden md:block truncate">
-                {t.nav.brandSubtitle}
+                {t.nav?.brandSubtitle}
               </p>
             </div>
           </div>
@@ -115,7 +115,7 @@ export function Navbar({
               }`}
             >
               <Sparkles className="w-4 h-4" />
-              <span>{t.nav.humanizerTab}</span>
+              <span>{t.nav?.humanizerTab}</span>
             </button>
 
             <button
@@ -128,7 +128,7 @@ export function Navbar({
               }`}
             >
               <Search className="w-4 h-4" />
-              <span>{t.nav.detectorTab}</span>
+              <span>{t.nav?.detectorTab}</span>
             </button>
 
             <button
@@ -141,7 +141,7 @@ export function Navbar({
               }`}
             >
               <Video className="w-4 h-4 text-emerald-400" />
-              <span>{t.nav.mediaTab}</span>
+              <span>{t.nav?.mediaTab}</span>
             </button>
 
             <button
@@ -154,7 +154,7 @@ export function Navbar({
               }`}
             >
               <Tag className="w-4 h-4" />
-              <span>{t.nav.blogTab}</span>
+              <span>{t.nav?.blogTab}</span>
             </button>
 
             {/* Academic & SEO More Tools Dropdown */}
@@ -163,7 +163,7 @@ export function Navbar({
                 id="nav-tab-more-tools"
                 onClick={() => setIsToolsDropdownOpen(!isToolsDropdownOpen)}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "metaChecker", "instagramLineBreak", "imageCompressor", "pdfTools"].includes(activePage)
+                  ["citation", "expander", "cleaner", "diff", "seo", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "metaChecker", "instagramLineBreak", "imageCompressor", "pdfTools", "audioToText"].includes(activePage)
                     ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold shadow-md shadow-emerald-500/20"
                     : "text-stone-600 hover:text-amber-700 hover:bg-amber-100/60"
                 }`}
@@ -928,6 +928,22 @@ export function Navbar({
                       <div className="text-[10px] text-stone-400">Merge & Create PDFs</div>
                     </div>
                   </button>
+
+                  <button
+                    onClick={() => {
+                      setActivePage("audioToText");
+                      setIsToolsDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-xs text-left transition-all cursor-pointer ${
+                      activePage === "audioToText" ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold" : "text-stone-700 hover:bg-amber-50"
+                    }`}
+                  >
+                    <Mic className="w-4 h-4 text-cyan-500 shrink-0" />
+                    <div>
+                      <div className="font-bold">Audio to Text</div>
+                      <div className="text-[10px] text-stone-400">Transcribe on your device</div>
+                    </div>
+                  </button>
                 </div>
               )}
             </div>
@@ -944,7 +960,7 @@ export function Navbar({
                 title="Install ToolVena on iPhone or Android"
               >
                 <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
-                <span className="hidden xs:inline">{t.nav.installBtn}</span>
+                <span className="hidden xs:inline">{t.nav?.installBtn}</span>
               </button>
             )}
 
@@ -957,7 +973,7 @@ export function Navbar({
                 title="View Saved Drafts & History"
               >
                 <Clock className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="hidden sm:inline">{t.nav.historyBtn}</span>
+                <span className="hidden sm:inline">{t.nav?.historyBtn}</span>
                 {draftsCount > 0 && (
                   <span className="px-1.5 py-0.2 bg-gradient-to-r from-amber-500 to-yellow-600 text-white text-[10px] font-bold rounded-full font-mono">
                     {draftsCount}
@@ -974,7 +990,7 @@ export function Navbar({
               title="Open the ToolVena writing guide"
             >
               <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-              <span>{t.nav.blueprintBtn}</span>
+              <span>{t.nav?.blueprintBtn}</span>
             </button>
 
             {/* Language Selector */}

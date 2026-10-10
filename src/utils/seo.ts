@@ -396,6 +396,14 @@ export const SEO_CONFIGS: Record<ActivePage, PageSeoConfig> = {
     schemaType: "WebApplication",
     toolName: "PDF Tools",
   },
+  audioToText: {
+    title: "Audio to Text Converter – Transcribe MP3, WAV & M4A Free, On Your Device",
+    description: "Free audio to text converter. Transcribe MP3, WAV, M4A and MP4 audio into text with a speech model that runs in your browser — your file never leaves your device, no sign-up and no per-minute charge. One small model download on first use, then it works offline. Short, clear clips work best.",
+    canonicalPath: "/audio-to-text-converter/",
+    ogType: "website",
+    schemaType: "WebApplication",
+    toolName: "Audio to Text Converter",
+  },
   cleaner: {
     title: "AI Cliché Checker – Find Repetitive AI-Style Phrases",
     description: "Find common AI-style clichés like 'delve', 'tapestry' and 'testament', review each match in context, and rewrite them in your own words.",
@@ -504,17 +512,17 @@ export function applyPageSeo(
   let description = baseConfig.description;
 
   if (page === "humanizer") {
-    title = t.seo.humanizerTitle;
-    description = t.seo.humanizerDesc;
+    title = t.seo?.humanizerTitle ?? baseConfig.title;
+    description = t.seo?.humanizerDesc ?? baseConfig.description;
   } else if (page === "detector") {
-    title = t.seo.detectorTitle;
-    description = t.seo.detectorDesc;
+    title = t.seo?.detectorTitle ?? baseConfig.title;
+    description = t.seo?.detectorDesc ?? baseConfig.description;
   } else if (page === "media") {
-    title = t.seo.mediaTitle;
-    description = t.seo.mediaDesc;
+    title = t.seo?.mediaTitle ?? baseConfig.title;
+    description = t.seo?.mediaDesc ?? baseConfig.description;
   } else if (page === "seo") {
-    title = t.seo.seoTitle;
-    description = t.seo.seoDesc;
+    title = t.seo?.seoTitle ?? baseConfig.title;
+    description = t.seo?.seoDesc ?? baseConfig.description;
   } else if (page === "citation") {
     title = (t.seo as any).citationTitle || baseConfig.title;
     description = (t.seo as any).citationDesc || baseConfig.description;
@@ -641,16 +649,19 @@ export function applyPageSeo(
   } else if (page === "instagramLineBreak") {
     title = (t.seo as any).instagramLineBreakTitle || baseConfig.title;
     description = (t.seo as any).instagramLineBreakDesc || baseConfig.description;
+  } else if (page === "audioToText") {
+    title = (t.seo as any).audioToTextTitle || baseConfig.title;
+    description = (t.seo as any).audioToTextDesc || baseConfig.description;
   } else if (page === "voiceTyping") {
     title = (t.seo as any).voiceTypingTitle || baseConfig.title;
     description = (t.seo as any).voiceTypingDesc || baseConfig.description;
   } else if (page === "blog") {
     if (blogPost) {
-      title = `${blogPost.title} – ${t.nav.humanizerTab}`;
+      title = `${blogPost.title} – ${t.nav?.humanizerTab ?? ""}`;
       description = blogPost.summary;
     } else {
-      title = t.seo.blogTitle;
-      description = t.seo.blogDesc;
+      title = t.seo?.blogTitle ?? baseConfig.title;
+      description = t.seo?.blogDesc ?? baseConfig.description;
     }
   }
 

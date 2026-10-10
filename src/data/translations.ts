@@ -38,6 +38,8 @@ export interface TranslationDict {
     cvBuilderDesc?: string;
     wordCounterTitle?: string;
     wordCounterDesc?: string;
+    audioToTextTitle?: string;
+    audioToTextDesc?: string;
     textToSpeechTitle?: string;
     textToSpeechDesc?: string;
     typingTestTitle?: string;
@@ -129,6 +131,8 @@ export interface TranslationDict {
     sampleSelectLabel: string;
     wordCountLabel: string;
     stages: { title: string; desc: string }[];
+    aiOptInLabel?: string;
+    aiOptInNote?: string;
   };
   summarizer?: {
     badge: string;
@@ -165,6 +169,7 @@ export interface TranslationDict {
     previewSummary?: string; previewExperience?: string; previewEducation?: string;
     previewSkills?: string; previewLanguages?: string; printHint?: string;
   };
+  audioToText?: Record<string, any>;
   wordCounter?: {
     badge?: string; title?: string; subtitle?: string;
     quickAnswerTitle?: string; quickAnswer?: string; editorLabel?: string;
@@ -257,10 +262,6 @@ export interface TranslationDict {
     badge?: string;
     title?: string;
   };
-  otherTools?: {
-    heading?: string;
-    subheading?: string;
-  };
   expander?: {
     badge?: string; title?: string; desc?: string;
     sampleMedia?: string; sampleClimate?: string;
@@ -333,6 +334,13 @@ export interface TranslationDict {
     tabSeo: string;
     tabVideo: string;
     tabImage: string;
+    uploadVideo?: string;
+    downloadVideo?: string;
+    uploadImage?: string;
+    downloadImage?: string;
+    noVideo?: string;
+    readyDownload?: string;
+    popular?: string;
   };
   seoTool?: {
     badge: string;
@@ -343,11 +351,13 @@ export interface TranslationDict {
     generateBtn: string;
   };
   otherTools?: {
-    badge: string;
-    title: string;
-    subtitle: string;
-    launchBtn: string;
-    tools: {
+    heading?: string;
+    subheading?: string;
+    badge?: string;
+    title?: string;
+    subtitle?: string;
+    launchBtn?: string;
+    tools?: {
       humanizer: { title: string; subtitle: string; desc: string; bullets: string[] };
       detector: { title: string; subtitle: string; desc: string; bullets: string[] };
       media: { title: string; subtitle: string; desc: string; bullets: string[] };
@@ -376,7 +386,12 @@ export const SUPPORTED_LANGUAGES: {
   { code: "it", label: "Italiano", flag: "🇮🇹", region: "Italia" },
 ];
 
-export const TRANSLATIONS: Record<LanguageCode, TranslationDict> = {
+// Note: the literal also carries one legacy top-level "expander" section key
+// (not a language). It is never selected as a language; typed here so the
+// record stays fully checked without changing any runtime data.
+export const TRANSLATIONS: Record<LanguageCode, TranslationDict> & {
+  expander?: TranslationDict["expander"];
+} = {
   // ==========================================
   // ENGLISH (Targeting High-Volume Low-Competition Search Intent)
   // ==========================================
@@ -1496,6 +1511,8 @@ timestampConverter: {
       cvBuilderDesc: "Free CV builder. Fill in your details, see your CV live, then print or save it as PDF. Your data never leaves your device. No sign-up.",
       wordCounterTitle: "Free Word Counter – Count Words & Characters Online",
       wordCounterDesc: "Free word counter. Count words, characters, sentences, paragraphs and reading time live in your browser. No sign-up, nothing uploaded.",
+      audioToTextTitle: "Audio to Text Converter – Transcribe MP3, WAV & M4A Free, On Your Device",
+      audioToTextDesc: "Free audio to text converter. Transcribe MP3, WAV, M4A and MP4 audio into text with a speech model that runs in your browser — your file never leaves your device, no sign-up and no per-minute charge. One small model download on first use, then it works offline. Short, clear clips work best.",
       textToSpeechTitle: "Free Text to Speech – Hear Your Text Read Aloud Online",
       textToSpeechDesc: "Free text to speech. Paste text and hear it read aloud with your device's own voices, right in your browser. No sign-up, nothing uploaded.",
       typingTestTitle: "Free Typing Speed Test – Check Your WPM & Accuracy Online",
@@ -1574,10 +1591,6 @@ timestampConverter: {
       cleanerDesc: "Find common AI-style clichés like 'delve', 'tapestry' and 'testament', review each match in context, and rewrite them in your own words.",
       diffTitle: "Text Similarity & Diff Checker – Word-by-Word Comparison",
       diffDesc: "Compare two versions side by side with a colour-coded word diff and wording-overlap estimate. It does not predict Turnitin or any other service.",
-    },
-    otherTools: {
-      heading: "Explore More Free Tools",
-      subheading: "Switch between ToolVena's writing, text, image, PDF and everyday tools.",
     },
     seoTools: {
       mainTitle: "SEO Meta Generator, Meta Tags & Hashtag Ideas",
@@ -1806,6 +1819,44 @@ timestampConverter: {
       "managerText": "Save each password in a reputable password manager and turn on two-factor authentication for important accounts. Do not keep passwords in notes files, screenshots, or chat messages.",
       "copyBtn": "Copy",
 },
+    audioToText: {
+      badge: "Audio to Text Converter",
+      title: "Turn Audio Into Text, Right in Your Browser",
+      subtitle: "Choose an MP3, WAV, M4A or MP4 file and get a transcript from a speech model that runs on your own device. Your audio is never uploaded — after a one-time model download of about 40 MB, this even works offline.",
+      quickAnswerTitle: "Quick Answer: How Does This Audio to Text Converter Work?",
+      quickAnswer: "You pick an audio file, this page decodes it in your browser, resamples it to the 16 kHz mono the speech model expects, and a compact Whisper model transcribes it locally. You can then copy the text or download it as TXT, SRT or VTT subtitles. The first transcription downloads the model files once (about 40 MB); later visits reuse the cached copy, and no audio or transcript ever leaves your device.",
+      dropTitle: "Click to choose an audio file, or drop it here",
+      dropHint: "MP3, WAV, M4A, MP4 and other formats your browser can play",
+      transcribeBtn: "Transcribe audio",
+      statusReading: "Reading your audio file…",
+      statusDecoding: "Decoding audio…",
+      statusPreparing: "Preparing audio for the speech model…",
+      statusStarting: "Starting the on-device speech engine…",
+      statusDownloading: "Downloading the speech model (first time only)…",
+      statusModelReady: "Speech model ready.",
+      statusAnalyzing: "Listening and writing your transcript…",
+      statusDone: "Transcript ready.",
+      outputTitle: "Your transcript",
+      outputPlaceholder: "Your transcript will appear here. You can edit it before copying or downloading.",
+      copyBtn: "Copy transcript",
+      copied: "Copied!",
+      downloadTxt: "Download .txt",
+      downloadSrt: "Download .srt",
+      downloadVtt: "Download .vtt",
+      clearBtn: "Clear",
+      wordsLabel: "words",
+      charsLabel: "characters",
+      selectedLabel: "Selected file",
+      modelNoteTitle: "One small download, then it is yours",
+      modelNoteText: "The speech model (about 40 MB) downloads once from a public model library and is cached by your browser. After that, transcriptions run entirely on your device — even with the internet switched off. Nothing about your audio is sent anywhere by this tool.",
+      limitsTitle: "Honest limits",
+      limitsText: "This tool uses a compact speech model so it can run on ordinary phones and laptops. It is at its best with short, clear recordings — roughly a few minutes, one speaker, little background noise. Long meetings, overlapping voices, heavy accents and noisy rooms will produce more mistakes, and names or technical words are often the first to go wrong. Always proofread the transcript before you rely on it.",
+      privacyTitle: "Private by design",
+      privacyNote: "Your audio file is decoded and transcribed inside this browser tab. It is not uploaded to ToolVena or any transcription service, and the transcript exists only in this tab until you copy or download it. Closing the tab forgets everything.",
+      errorDecode: "That file could not be decoded as audio. Please try an MP3, WAV or M4A file.",
+      errorFailed: "Transcription stopped before it finished. A shorter or clearer clip, or a page reload, usually helps.",
+      errorBrowser: "This browser could not start the on-device speech engine. A current version of Chrome, Edge, Firefox or Safari works best.",
+    },
     wordCounter: {
       charCounterLink: "Need exact characters and platform limits? Open the Character Counter →",
           "avgSentence": "Avg. sentence",
@@ -2250,6 +2301,8 @@ timestampConverter: {
         { title: "Purging Synthetic Hallmarks", desc: "Removing sterile vocabulary cliches ('delve', 'tapestry', 'testament')..." },
         { title: "Final Review", desc: "Final readability and flow check..." },
       ],
+      aiOptInLabel: "Improve with AI (optional)",
+      aiOptInNote: "Off by default. Only when this is ON, your text (up to 4,000 characters) is sent to an AI service (Google Gemini) to rewrite it. With it off, everything runs offline in your browser and your text never leaves your device.",
     },
     detector: {
       badge: "Pattern-Based Writing Analyzer",
@@ -3464,6 +3517,8 @@ timestampConverter: {
       cvBuilderDesc: "Creador de currículum gratuito. Completa tus datos, mira tu CV en vivo e imprímelo o guárdalo como PDF. Sin registro.",
       wordCounterTitle: "Contador de Palabras Gratis – Cuenta Palabras y Caracteres",
       wordCounterDesc: "Contador de palabras gratuito. Cuenta palabras, caracteres, frases, párrafos y tiempo de lectura en tu navegador. Sin registro y sin subir tu texto.",
+      audioToTextTitle: "Convertidor de Audio a Texto – Transcribe MP3, WAV y M4A Gratis en tu Dispositivo",
+      audioToTextDesc: "Convertidor de audio a texto gratuito. Transcribe MP3, WAV, M4A y MP4 a texto con un modelo de voz que funciona en tu navegador: tu archivo nunca sale de tu dispositivo, sin registro ni pago por minuto. Descarga única de un modelo pequeño la primera vez; después funciona sin conexión. Los clips cortos y claros dan mejores resultados.",
       textToSpeechTitle: "Texto a Voz Gratis – Escucha tu Texto en Voz Alta",
       textToSpeechDesc: "Texto a voz gratuito. Pega tu texto y escúchalo con las voces de tu dispositivo, en tu navegador. Sin registro y sin subir tu texto.",
       typingTestTitle: "Test de Velocidad de Escritura Gratis – WPM y Precisión",
@@ -3542,10 +3597,6 @@ timestampConverter: {
       cleanerDesc: "Detecta y elimina palabras delatoras de ChatGPT ('crucial', 'tapiz', 'testimonio') sustituyéndolas por vocabulario humano natural.",
       diffTitle: "Comparador de Similitud y Diferencias de Texto – Análisis de Cambios",
       diffDesc: "Compara el borrador original de IA con el texto humanizado en tiempo real. Diferencias visuales palabra por palabra y porcentaje de similitud.",
-    },
-    otherTools: {
-      heading: "Explora Otras Herramientas Potentes",
-      subheading: "Cambia de herramienta con un toque — todo lo que necesitas.",
     },
     seoTools: {
       mainTitle: "Motor SEO Viral, Meta Tags y Hashtags",
@@ -3774,6 +3825,44 @@ timestampConverter: {
       "managerText": "Guardá cada contraseña en un gestor de contraseñas de confianza y activá la verificación en dos pasos en las cuentas importantes. No guardes contraseñas en notas, capturas de pantalla ni mensajes de chat.",
       "copyBtn": "Copiar",
 },
+    audioToText: {
+      badge: "Convertidor de Audio a Texto",
+      title: "Convierte audio en texto, directamente en tu navegador",
+      subtitle: "Elige un archivo MP3, WAV, M4A o MP4 y obtén una transcripción de un modelo de voz que funciona en tu propio dispositivo. Tu audio nunca se sube: tras una única descarga del modelo de unos 40 MB, esto funciona incluso sin conexión.",
+      quickAnswerTitle: "Respuesta rápida: ¿cómo funciona este convertidor de audio a texto?",
+      quickAnswer: "Eliges un archivo de audio, esta página lo decodifica en tu navegador, lo remuestrea a los 16 kHz mono que espera el modelo de voz y un modelo Whisper compacto lo transcribe localmente. Después puedes copiar el texto o descargarlo como TXT, SRT o VTT. La primera transcripción descarga los archivos del modelo una sola vez (unos 40 MB); las visitas siguientes reutilizan la copia en caché, y ni el audio ni la transcripción salen de tu dispositivo.",
+      dropTitle: "Haz clic para elegir un archivo de audio, o suéltalo aquí",
+      dropHint: "MP3, WAV, M4A, MP4 y otros formatos que tu navegador pueda reproducir",
+      transcribeBtn: "Transcribir audio",
+      statusReading: "Leyendo tu archivo de audio…",
+      statusDecoding: "Decodificando el audio…",
+      statusPreparing: "Preparando el audio para el modelo de voz…",
+      statusStarting: "Iniciando el motor de voz en el dispositivo…",
+      statusDownloading: "Descargando el modelo de voz (solo la primera vez)…",
+      statusModelReady: "Modelo de voz listo.",
+      statusAnalyzing: "Escuchando y escribiendo tu transcripción…",
+      statusDone: "Transcripción lista.",
+      outputTitle: "Tu transcripción",
+      outputPlaceholder: "Tu transcripción aparecerá aquí. Puedes editarla antes de copiarla o descargarla.",
+      copyBtn: "Copiar transcripción",
+      copied: "¡Copiado!",
+      downloadTxt: "Descargar .txt",
+      downloadSrt: "Descargar .srt",
+      downloadVtt: "Descargar .vtt",
+      clearBtn: "Borrar",
+      wordsLabel: "palabras",
+      charsLabel: "caracteres",
+      selectedLabel: "Archivo seleccionado",
+      modelNoteTitle: "Una pequeña descarga, y luego es tuyo",
+      modelNoteText: "El modelo de voz (unos 40 MB) se descarga una vez desde una biblioteca pública de modelos y tu navegador lo guarda en caché. Después, las transcripciones se hacen por completo en tu dispositivo, incluso sin internet. Esta herramienta no envía tu audio a ninguna parte.",
+      limitsTitle: "Límites honestos",
+      limitsText: "Esta herramienta usa un modelo de voz compacto para funcionar en teléfonos y portátiles normales. Rinde mejor con grabaciones cortas y claras: unos pocos minutos, un solo hablante y poco ruido de fondo. Reuniones largas, voces que se solapan, acentos marcados y habitaciones ruidosas producirán más errores, y los nombres o términos técnicos suelen ser los primeros en fallar. Revisa siempre la transcripción antes de fiarte de ella.",
+      privacyTitle: "Privado por diseño",
+      privacyNote: "Tu archivo de audio se decodifica y se transcribe dentro de esta pestaña del navegador. No se sube a ToolVena ni a ningún servicio de transcripción, y la transcripción solo existe en esta pestaña hasta que la copies o la descargues. Al cerrar la pestaña, todo se olvida.",
+      errorDecode: "Ese archivo no pudo decodificarse como audio. Prueba con un archivo MP3, WAV o M4A.",
+      errorFailed: "La transcripción se detuvo antes de terminar. Un clip más corto o más claro, o recargar la página, suele ayudar.",
+      errorBrowser: "Este navegador no pudo iniciar el motor de voz en el dispositivo. Una versión actual de Chrome, Edge, Firefox o Safari funciona mejor.",
+    },
     wordCounter: {
       charCounterLink: "¿Necesitas caracteres exactos y límites de cada plataforma? Abre el Contador de Caracteres →",
           "avgSentence": "Frase media",
@@ -5432,6 +5521,8 @@ timestampConverter: {
       cvBuilderDesc: "Muft CV builder. Apni maloomat likhen, CV live dekhen, phir print karen ya PDF save karen. Data aap ke device par hi rehta hai. Koi sign-up nahi.",
       wordCounterTitle: "Muft Word Counter – Alfaz aur Characters Ginain",
       wordCounterDesc: "Muft word counter. Alfaz, characters, jumlay, paragraphs aur parhne ka waqt browser mein live ginain. Koi sign-up nahi, text upload nahi hota.",
+      audioToTextTitle: "Audio to Text Converter – MP3, WAV aur M4A ko Muft Text Mein Badlen, Apne Device Par",
+      audioToTextDesc: "Muft audio to text converter. MP3, WAV, M4A aur MP4 awaz ko text mein badlen — speech model aap ke browser mein chalta hai, file device se bahar nahi jati, na sign-up na minute ki fees. Pehli dafa chhota sa model download hoga, phir offline chalega. Chhoti aur saaf awaz sab se behtareen result deti hai.",
       textToSpeechTitle: "Muft Text to Speech – Text Bol Kar Sunain",
       textToSpeechDesc: "Muft text to speech. Apna text paste karein aur apne device ki awazon ke saath browser mein hi sunain. Koi sign-up nahi, text upload nahi hota.",
       typingTestTitle: "Muft Typing Speed Test – WPM aur Accuracy Check Karain",
@@ -5510,10 +5601,6 @@ timestampConverter: {
       cleanerDesc: "Aam AI-style cliches ('delve', 'tapestry', 'testament') talash karein, har match ko us ke context mein dekhein aur apne alfaz mein dobara likhein.",
       diffTitle: "Text Mushabihat Aur Farq Checker \u2013 Lafz Ba Lafz Muqabla",
       diffDesc: "Do versions ka aamne saamne muqabla karein, rangeen lafz ba lafz farq aur alfaz ke overlap ka andaza dekhein. Yeh Turnitin ya kisi aur service ki peshgoi nahi karta.",
-    },
-    otherTools: {
-      heading: "Mazeed Muft Tools Dekhen",
-      subheading: "ToolVena ke tehreer, text, tasaveer, PDF aur rozmarra tools ke darmiyan switch karein.",
     },
     seoTools: {
       mainTitle: "SEO Meta Generator, Meta Tags aur Hashtag Ideas",
@@ -5742,6 +5829,44 @@ timestampConverter: {
       "managerText": "Har password ek moatabar password manager mein rakhein aur ahem accounts par two-factor on karein. Passwords notes, screenshots ya chat messages mein mat rakhein.",
       "copyBtn": "Copy karein",
 },
+    audioToText: {
+      badge: "Audio to Text Converter",
+      title: "Awaz ko Text Mein Badlen, Seedha Apne Browser Mein",
+      subtitle: "MP3, WAV, M4A ya MP4 file chunen aur transcript hasil karen — speech model aap ke apne device par chalta hai. Aap ki awaz kahin upload nahi hoti. Pehli dafa takreeban 40 MB ka model download hoga, us ke baad ye offline bhi chalta hai.",
+      quickAnswerTitle: "Quick Jawab: Ye Audio to Text Converter Kaam Kaise Karta Hai?",
+      quickAnswer: "Aap audio file chunte hain, ye page usay browser mein decode karke 16 kHz mono mein tabdeel karta hai, aur ek compact Whisper model usay aap ke device par hi text mein badal deta hai. Phir aap text copy kar sakte hain ya TXT, SRT ya VTT file download kar sakte hain. Pehli transcription par model files ek dafa download hoti hain (takreeban 40 MB); baad ki visits mein cached copy istemal hoti hai, aur na awaz na transcript kabhi device se bahar jata hai.",
+      dropTitle: "Audio file chunne ke liye click karen, ya yahan drop karen",
+      dropHint: "MP3, WAV, M4A, MP4 aur woh formats jo aap ka browser chala sakta hai",
+      transcribeBtn: "Transcribe karen",
+      statusReading: "Aap ki audio file parhi ja rahi hai…",
+      statusDecoding: "Audio decode ho rahi hai…",
+      statusPreparing: "Audio speech model ke liye tayyar ho rahi hai…",
+      statusStarting: "Device par speech engine shuru ho raha hai…",
+      statusDownloading: "Speech model download ho raha hai (sirf pehli dafa)…",
+      statusModelReady: "Speech model tayyar hai.",
+      statusAnalyzing: "Suna ja raha hai aur transcript likha ja raha hai…",
+      statusDone: "Transcript tayyar hai.",
+      outputTitle: "Aap ka transcript",
+      outputPlaceholder: "Aap ka transcript yahan aayega. Copy ya download se pehle aap isay edit bhi kar sakte hain.",
+      copyBtn: "Transcript copy karen",
+      copied: "Copy ho gaya!",
+      downloadTxt: ".txt download karen",
+      downloadSrt: ".srt download karen",
+      downloadVtt: ".vtt download karen",
+      clearBtn: "Saaf karen",
+      wordsLabel: "alfaz",
+      charsLabel: "characters",
+      selectedLabel: "Chuni hui file",
+      modelNoteTitle: "Ek chhota download, phir ye aap ka hai",
+      modelNoteText: "Speech model (takreeban 40 MB) ek public model library se ek dafa download hota hai aur browser usay cache kar leta hai. Us ke baad har transcription aap ke device par hi hoti hai — internet band ho tab bhi. Is tool ke zariye aap ki awaz kahin bheji nahi jati.",
+      limitsTitle: "Sachi hudood",
+      limitsText: "Ye tool ek compact speech model istemal karta hai taake aam phone aur laptop par chal sake. Chhoti aur saaf recordings par ye sab se behtareen kaam karta hai — takreeban chand minute, ek bolne wala, kam background shor. Lambi meetings, ek sath kai awazen, gehre accents aur shore wale kamre zyada ghaltiyan paida karenge, aur naam ya technical words sab se pehle bigarte hain. Bharosa karne se pehle transcript hamesha parh kar check karen.",
+      privacyTitle: "Design hi private hai",
+      privacyNote: "Aap ki audio file isi browser tab mein decode aur transcribe hoti hai. Ye na ToolVena par upload hoti hai, na kisi transcription service ko jati hai, aur transcript sirf is tab mein rehta hai jab tak aap copy ya download na karen. Tab band karen to sab bhool jata hai.",
+      errorDecode: "Wo file audio ke tor par decode nahi ho saki. Meharbani karke MP3, WAV ya M4A file try karen.",
+      errorFailed: "Transcription mukammal honay se pehle ruk gayi. Chhoti ya saaf clip, ya page reload, aam tor par madad karta hai.",
+      errorBrowser: "Ye browser device par speech engine shuru nahi kar saka. Chrome, Edge, Firefox ya Safari ka current version sab se behtareen chalta hai.",
+    },
     wordCounter: {
       charCounterLink: "Saheeh characters aur platform limits chahiye? Character Counter kholen →",
           "avgSentence": "Ausat jumla",
@@ -6186,6 +6311,8 @@ timestampConverter: {
         { title: "Masnoi Alfaz Ki Safai", desc: "Machinei lage bandhe fiqron aur rawayati AI cliches ki tatheer..." },
         { title: "Hatmi Jaiza", desc: "Rawani aur parhne ki aasani ki aakhri jaanch..." },
       ],
+      aiOptInLabel: "AI se behtar likhwao (ikhtiari)",
+      aiOptInNote: "Default band hai. Sirf jab ye ON ho, aap ka text (4,000 characters tak) AI service (Google Gemini) ko rewrite ke liye bheja jata hai. Band honay par sab kuch aap ke browser mein hi hota hai aur text aap ke device se bahar nahi jata.",
     },
     detector: {
       badge: "Tehreeri Pattern Check Karne Wala AI Scanner",
@@ -7400,6 +7527,8 @@ timestampConverter: {
       cvBuilderDesc: "Kostenloser Lebenslauf-Ersteller. Daten eintragen, Vorschau prüfen, als PDF speichern oder drucken. Ohne Anmeldung, Daten bleiben auf Ihrem Gerät.",
       wordCounterTitle: "Kostenloser Wortzähler – Wörter & Zeichen Zählen",
       wordCounterDesc: "Kostenloser Wortzähler. Zählen Sie Wörter, Zeichen, Sätze, Absätze und Lesezeit live im Browser. Ohne Anmeldung, ohne Upload.",
+      audioToTextTitle: "Audio zu Text Konverter – MP3, WAV & M4A kostenlos auf Ihrem Gerät transkribieren",
+      audioToTextDesc: "Kostenloser Audio-zu-Text-Konverter. Wandeln Sie MP3, WAV, M4A und MP4 in Text um – das Sprachmodell läuft in Ihrem Browser, Ihre Datei verlässt Ihr Gerät nie. Keine Anmeldung, keine Minutenpreise. Beim ersten Mal wird ein kleines Modell geladen, danach geht es offline. Kurze, klare Aufnahmen funktionieren am besten.",
       textToSpeechTitle: "Kostenloser Text zu Sprache – Text laut Vorlesen Lassen",
       textToSpeechDesc: "Kostenloser Text-zu-Sprache-Vorleser. Text einfügen und mit den Stimmen Ihres Geräts direkt im Browser anhören. Ohne Anmeldung, ohne Upload.",
       typingTestTitle: "Kostenloser Tippgeschwindigkeit Test – WPM & Genauigkeit",
@@ -7476,10 +7605,8 @@ timestampConverter: {
       summarizerDesc: "Kostenloser Text-Zusammenfasser. Lange Artikel einfügen — sofortige Zusammenfassungen in 8 Sprachen. Keine Anmeldung.",
       cleanerTitle: "KI-Klischee-Entferner – Floskeln Kostenlos Bereinigen",
       cleanerDesc: "KI-Floskeln und Buzzwords finden und durch natürliche Formulierungen ersetzen.",
-    },
-    otherTools: {
-      heading: "Weitere Hochleistungs-Tools Entdecken",
-      subheading: "Mit einem Tipp zwischen Tools wechseln — alles was Sie brauchen.",
+      diffTitle: "Textähnlichkeit & Diff-Checker – Wort-für-Wort-Vergleich",
+      diffDesc: "Vergleichen Sie zwei Versionen nebeneinander mit farbcodiertem Wort-für-Wort-Vergleich und einer Schätzung der übereinstimmenden Formulierungen. Es trifft keine Vorhersage für Turnitin oder einen anderen Dienst.",
     },
     seoTools: {
       mainTitle: "Virale SEO-Engine, Meta-Tags & Hashtags",
@@ -7708,6 +7835,44 @@ timestampConverter: {
       "managerText": "Speichern Sie jedes Passwort einzeln in einem seriösen Passwortmanager und aktivieren Sie, wo möglich, die Zwei-Faktor-Anmeldung per App. So bleibt ein Leak ein Ärger, kein Schaden.",
       "copyBtn": "Kopieren",
 },
+    audioToText: {
+      badge: "Audio zu Text Konverter",
+      title: "Audio direkt im Browser in Text verwandeln",
+      subtitle: "Wählen Sie eine MP3-, WAV-, M4A- oder MP4-Datei und erhalten Sie ein Transkript von einem Sprachmodell, das auf Ihrem eigenen Gerät läuft. Ihr Audio wird nie hochgeladen – nach einem einmaligen Modell-Download von etwa 40 MB funktioniert das sogar offline.",
+      quickAnswerTitle: "Kurzantwort: Wie funktioniert dieser Audio-zu-Text-Konverter?",
+      quickAnswer: "Sie wählen eine Audiodatei, diese Seite dekodiert sie in Ihrem Browser, rechnet sie in die 16 kHz Mono um, die das Sprachmodell erwartet, und ein kompaktes Whisper-Modell transkribiert sie lokal. Danach können Sie den Text kopieren oder als TXT, SRT oder VTT herunterladen. Die erste Transkription lädt die Modelldateien einmalig herunter (etwa 40 MB); spätere Besuche nutzen die zwischengespeicherte Kopie, und weder Audio noch Transkript verlassen je Ihr Gerät.",
+      dropTitle: "Klicken, um eine Audiodatei zu wählen, oder hier ablegen",
+      dropHint: "MP3, WAV, M4A, MP4 und andere Formate, die Ihr Browser abspielen kann",
+      transcribeBtn: "Audio transkribieren",
+      statusReading: "Ihre Audiodatei wird gelesen…",
+      statusDecoding: "Audio wird dekodiert…",
+      statusPreparing: "Audio wird für das Sprachmodell vorbereitet…",
+      statusStarting: "Sprach-Engine auf dem Gerät wird gestartet…",
+      statusDownloading: "Sprachmodell wird geladen (nur beim ersten Mal)…",
+      statusModelReady: "Sprachmodell bereit.",
+      statusAnalyzing: "Es wird zugehört und Ihr Transkript geschrieben…",
+      statusDone: "Transkript fertig.",
+      outputTitle: "Ihr Transkript",
+      outputPlaceholder: "Ihr Transkript erscheint hier. Sie können es vor dem Kopieren oder Herunterladen bearbeiten.",
+      copyBtn: "Transkript kopieren",
+      copied: "Kopiert!",
+      downloadTxt: ".txt herunterladen",
+      downloadSrt: ".srt herunterladen",
+      downloadVtt: ".vtt herunterladen",
+      clearBtn: "Leeren",
+      wordsLabel: "Wörter",
+      charsLabel: "Zeichen",
+      selectedLabel: "Gewählte Datei",
+      modelNoteTitle: "Ein kleiner Download, dann gehört es Ihnen",
+      modelNoteText: "Das Sprachmodell (etwa 40 MB) wird einmal aus einer öffentlichen Modellbibliothek geladen und von Ihrem Browser zwischengespeichert. Danach laufen Transkriptionen vollständig auf Ihrem Gerät – auch ohne Internet. Dieses Werkzeug sendet Ihr Audio nirgendwohin.",
+      limitsTitle: "Ehrliche Grenzen",
+      limitsText: "Dieses Werkzeug nutzt ein kompaktes Sprachmodell, damit es auf normalen Handys und Laptops läuft. Am besten funktioniert es mit kurzen, klaren Aufnahmen: wenige Minuten, ein Sprecher, wenig Hintergrundgeräusche. Lange Meetings, überlappende Stimmen, starke Akzente und laute Räume führen zu mehr Fehlern, und Namen oder Fachbegriffe gehen oft zuerst verloren. Lesen Sie das Transkript immer Korrektur, bevor Sie sich darauf verlassen.",
+      privacyTitle: "Privat von Grund auf",
+      privacyNote: "Ihre Audiodatei wird in diesem Browser-Tab dekodiert und transkribiert. Sie wird weder zu ToolVena noch zu einem Transkriptionsdienst hochgeladen, und das Transkript existiert nur in diesem Tab, bis Sie es kopieren oder herunterladen. Tab schließen – alles ist vergessen.",
+      errorDecode: "Diese Datei konnte nicht als Audio dekodiert werden. Bitte versuchen Sie eine MP3-, WAV- oder M4A-Datei.",
+      errorFailed: "Die Transkription wurde vor dem Ende gestoppt. Ein kürzerer oder klarerer Clip oder ein Neuladen der Seite hilft meist.",
+      errorBrowser: "Dieser Browser konnte die Sprach-Engine auf dem Gerät nicht starten. Eine aktuelle Version von Chrome, Edge, Firefox oder Safari funktioniert am besten.",
+    },
     wordCounter: {
       charCounterLink: "Genaue Zeichen und Plattform-Limits gefällig? Zeichenzähler öffnen →",
           "avgSentence": "Ø Satzlänge",
@@ -9366,6 +9531,8 @@ timestampConverter: {
       cvBuilderDesc: "Créez un CV professionnel gratuitement. Remplissez vos infos, voyez l'aperçu en direct, imprimez ou enregistrez en PDF. Sans inscription.",
       wordCounterTitle: "Compteur de Mots Gratuit – Compter Mots et Caractères",
       wordCounterDesc: "Compteur de mots gratuit. Comptez mots, caractères, phrases, paragraphes et temps de lecture dans votre navigateur. Sans inscription, sans envoi.",
+      audioToTextTitle: "Convertisseur Audio en Texte – Transcrivez MP3, WAV et M4A gratuitement sur votre appareil",
+      audioToTextDesc: "Convertisseur audio en texte gratuit. Transcrivez des MP3, WAV, M4A et MP4 en texte grâce à un modèle vocal qui tourne dans votre navigateur : votre fichier ne quitte jamais votre appareil, sans inscription ni tarif à la minute. Un petit modèle se télécharge au premier usage, puis tout fonctionne hors ligne. Les extraits courts et nets donnent les meilleurs résultats.",
       textToSpeechTitle: "Synthèse Vocale Gratuite – Faites Lire vos Textes à Voix Haute",
       textToSpeechDesc: "Synthèse vocale gratuite. Collez votre texte et écoutez-le avec les voix de votre appareil, dans votre navigateur. Sans inscription, sans envoi.",
       typingTestTitle: "Test de Vitesse de Frappe Gratuit – Vitesse et Précision",
@@ -9442,10 +9609,6 @@ timestampConverter: {
       summarizerDesc: "Résumeur de texte gratuit. Collez de longs articles — obtenez des résumés instantanés en 8 langues. Sans inscription.",
       cleanerTitle: "Nettoyeur de Clichés IA – Style Naturel Gratuit",
       cleanerDesc: "Détectez les clichés de l'IA et remplacez-les par un style naturel.",
-    },
-    otherTools: {
-      heading: "Explorez d'Autres Outils Puissants",
-      subheading: "Passez d'un outil à l'autre en un tap — tout ce dont vous avez besoin.",
     },
     seoTools: {
       mainTitle: "Moteur SEO Viral, Meta Tags et Hashtags",
@@ -9674,6 +9837,44 @@ timestampConverter: {
       "managerText": "Enregistrez chaque mot de passe, unique, dans un gestionnaire réputé et activez la vérification en deux étapes par application quand elle existe. Une fuite restera un souci, pas un dégât.",
       "copyBtn": "Copier",
 },
+    audioToText: {
+      badge: "Convertisseur Audio en Texte",
+      title: "Transformez l'audio en texte, directement dans votre navigateur",
+      subtitle: "Choisissez un fichier MP3, WAV, M4A ou MP4 et obtenez une transcription grâce à un modèle vocal qui tourne sur votre propre appareil. Votre audio n'est jamais envoyé : après un téléchargement unique du modèle (environ 40 Mo), tout fonctionne même hors ligne.",
+      quickAnswerTitle: "Réponse rapide : comment fonctionne ce convertisseur audio en texte ?",
+      quickAnswer: "Vous choisissez un fichier audio, cette page le décode dans votre navigateur, le rééchantillonne en mono 16 kHz comme l'attend le modèle vocal, et un modèle Whisper compact le transcrit localement. Vous pouvez ensuite copier le texte ou le télécharger en TXT, SRT ou VTT. La première transcription télécharge les fichiers du modèle une seule fois (environ 40 Mo) ; les visites suivantes réutilisent la copie en cache, et ni l'audio ni la transcription ne quittent votre appareil.",
+      dropTitle: "Cliquez pour choisir un fichier audio, ou déposez-le ici",
+      dropHint: "MP3, WAV, M4A, MP4 et autres formats lisibles par votre navigateur",
+      transcribeBtn: "Transcrire l'audio",
+      statusReading: "Lecture de votre fichier audio…",
+      statusDecoding: "Décodage de l'audio…",
+      statusPreparing: "Préparation de l'audio pour le modèle vocal…",
+      statusStarting: "Démarrage du moteur vocal sur l'appareil…",
+      statusDownloading: "Téléchargement du modèle vocal (première fois seulement)…",
+      statusModelReady: "Modèle vocal prêt.",
+      statusAnalyzing: "Écoute en cours et rédaction de votre transcription…",
+      statusDone: "Transcription prête.",
+      outputTitle: "Votre transcription",
+      outputPlaceholder: "Votre transcription apparaîtra ici. Vous pouvez la modifier avant de la copier ou de la télécharger.",
+      copyBtn: "Copier la transcription",
+      copied: "Copié !",
+      downloadTxt: "Télécharger .txt",
+      downloadSrt: "Télécharger .srt",
+      downloadVtt: "Télécharger .vtt",
+      clearBtn: "Effacer",
+      wordsLabel: "mots",
+      charsLabel: "caractères",
+      selectedLabel: "Fichier sélectionné",
+      modelNoteTitle: "Un petit téléchargement, puis il est à vous",
+      modelNoteText: "Le modèle vocal (environ 40 Mo) est téléchargé une fois depuis une bibliothèque publique de modèles et mis en cache par votre navigateur. Ensuite, les transcriptions se font entièrement sur votre appareil, même sans internet. Cet outil n'envoie votre audio nulle part.",
+      limitsTitle: "Limites honnêtes",
+      limitsText: "Cet outil utilise un modèle vocal compact pour fonctionner sur les téléphones et portables ordinaires. Il donne le meilleur de lui-même avec des enregistrements courts et nets : quelques minutes, un seul locuteur, peu de bruit de fond. Les longues réunions, les voix qui se chevauchent, les accents prononcés et les pièces bruyantes produiront plus d'erreurs, et les noms ou termes techniques sont souvent les premiers à être mal retranscrits. Relisez toujours la transcription avant de vous y fier.",
+      privacyTitle: "Privé par conception",
+      privacyNote: "Votre fichier audio est décodé et transcrit dans cet onglet du navigateur. Il n'est envoyé ni à ToolVena ni à un service de transcription, et la transcription n'existe que dans cet onglet jusqu'à ce que vous la copiiez ou la téléchargiez. Fermer l'onglet fait tout oublier.",
+      errorDecode: "Ce fichier n'a pas pu être décodé comme audio. Essayez un fichier MP3, WAV ou M4A.",
+      errorFailed: "La transcription s'est arrêtée avant la fin. Un extrait plus court ou plus net, ou un rechargement de la page, aide généralement.",
+      errorBrowser: "Ce navigateur n'a pas pu démarrer le moteur vocal sur l'appareil. Une version récente de Chrome, Edge, Firefox ou Safari fonctionne le mieux.",
+    },
     wordCounter: {
       charCounterLink: "Il vous faut les caractères exacts et les limites ? Ouvrez le Compteur de Caractères →",
           "avgSentence": "Phrase moyenne",
@@ -11332,6 +11533,8 @@ timestampConverter: {
       cvBuilderDesc: "Ücretsiz CV oluşturucu. Bilgilerinizi yazın, canlı önizleyin, yazdırın veya PDF kaydedin. Kayıt yok, veriler cihazınızda kalır.",
       wordCounterTitle: "Ücretsiz Kelime Sayacı – Kelime ve Karakter Sayma",
       wordCounterDesc: "Ücretsiz kelime sayacı. Kelime, karakter, cümle, paragraf ve okuma süresini tarayıcınızda canlı sayın. Kayıt yok, metin yüklenmez.",
+      audioToTextTitle: "Sesten Metne Dönüştürücü – MP3, WAV ve M4A'yı cihazınızda ücretsiz yazıya dökün",
+      audioToTextDesc: "Ücretsiz sesten metne dönüştürücü. MP3, WAV, M4A ve MP4 sesini, tarayıcınızda çalışan bir konuşma modeliyle metne çevirin — dosyanız cihazınızdan asla çıkmaz, kayıt yok, dakika ücreti yok. İlk kullanımda küçük bir model iner, sonra çevrimdışı çalışır. Kısa ve net kayıtlar en iyi sonucu verir.",
       textToSpeechTitle: "Ücretsiz Metinden Sese – Metninizi Sesli Dinleyin",
       textToSpeechDesc: "Ücretsiz metinden sese. Metninizi yapıştırın, cihazınızın sesleriyle tarayıcınızda dinleyin. Kayıt yok, metin yüklenmez.",
       typingTestTitle: "Ücretsiz Yazma Hızı Testi – WPM ve Doğruluk Ölçümü",
@@ -11408,10 +11611,6 @@ timestampConverter: {
       summarizerDesc: "Ücretsiz metin özetleyici. Uzun makaleleri yapıştırın — 8 dilde anında özet alın. Kayıt yok.",
       cleanerTitle: "Yapay Zeka Klişe Temizleyici – Ücretsiz",
       cleanerDesc: "Yapay zeka klişelerini bulup doğal ifadelerle değiştirin.",
-    },
-    otherTools: {
-      heading: "Diğer Güçlü Araçları Keşfedin",
-      subheading: "Tek dokunuşla araçlar arası geçiş — ihtiyacınız olan her şey.",
     },
     seoTools: {
       mainTitle: "Viral SEO Motoru, Meta Etiketleri ve Hashtagler",
@@ -11640,6 +11839,44 @@ timestampConverter: {
       "managerText": "Her şifreyi benzersiz biçimde saygın bir şifre yöneticisine kaydedin ve mümkün olduğunda uygulama ile iki faktörlü doğrulamayı açın. Böylece sızıntı zarara değil, yalnızca uğraşa dönüşür.",
       "copyBtn": "Kopyala",
 },
+    audioToText: {
+      badge: "Sesten Metne Dönüştürücü",
+      title: "Sesi doğrudan tarayıcınızda metne çevirin",
+      subtitle: "Bir MP3, WAV, M4A veya MP4 dosyası seçin; kendi cihazınızda çalışan bir konuşma modelinden döküm alın. Sesiniz asla yüklenmez — yaklaşık 40 MB'lık tek seferlik model indirmesinden sonra çevrimdışı bile çalışır.",
+      quickAnswerTitle: "Kısa cevap: Bu sesten metne dönüştürücü nasıl çalışır?",
+      quickAnswer: "Bir ses dosyası seçersiniz; bu sayfa onu tarayıcınızda çözer, konuşma modelinin beklediği 16 kHz mono biçimine yeniden örnekler ve kompakt bir Whisper modeli onu yerel olarak yazıya döker. Sonra metni kopyalayabilir ya da TXT, SRT veya VTT olarak indirebilirsiniz. İlk dökümde model dosyaları bir kez indirilir (yaklaşık 40 MB); sonraki ziyaretler önbellekteki kopyayı kullanır ve ne ses ne de döküm cihazınızdan asla çıkmaz.",
+      dropTitle: "Bir ses dosyası seçmek için tıklayın ya da buraya bırakın",
+      dropHint: "MP3, WAV, M4A, MP4 ve tarayıcınızın çalabildiği diğer biçimler",
+      transcribeBtn: "Sesi yazıya dök",
+      statusReading: "Ses dosyanız okunuyor…",
+      statusDecoding: "Ses çözülüyor…",
+      statusPreparing: "Ses, konuşma modeli için hazırlanıyor…",
+      statusStarting: "Cihazdaki konuşma motoru başlatılıyor…",
+      statusDownloading: "Konuşma modeli indiriliyor (yalnızca ilk sefer)…",
+      statusModelReady: "Konuşma modeli hazır.",
+      statusAnalyzing: "Dinleniyor ve dökümünüz yazılıyor…",
+      statusDone: "Döküm hazır.",
+      outputTitle: "Dökümünüz",
+      outputPlaceholder: "Dökümünüz burada görünecek. Kopyalamadan veya indirmeden önce düzenleyebilirsiniz.",
+      copyBtn: "Dökümü kopyala",
+      copied: "Kopyalandı!",
+      downloadTxt: ".txt indir",
+      downloadSrt: ".srt indir",
+      downloadVtt: ".vtt indir",
+      clearBtn: "Temizle",
+      wordsLabel: "kelime",
+      charsLabel: "karakter",
+      selectedLabel: "Seçilen dosya",
+      modelNoteTitle: "Küçük bir indirme, sonrası sizin",
+      modelNoteText: "Konuşma modeli (yaklaşık 40 MB) herkese açık bir model kitaplığından bir kez indirilir ve tarayıcınız tarafından önbelleğe alınır. Bundan sonra dökümler tamamen cihazınızda yapılır — internet kapalıyken bile. Bu araç sesinizi hiçbir yere göndermez.",
+      limitsTitle: "Dürüst sınırlar",
+      limitsText: "Bu araç, sıradan telefon ve dizüstülerde çalışabilmesi için kompakt bir konuşma modeli kullanır. En iyi sonucu kısa ve net kayıtlarda verir: birkaç dakika, tek konuşmacı, az arka plan gürültüsü. Uzun toplantılar, üst üste binen sesler, güçlü aksanlar ve gürültülü odalar daha fazla hata üretir; isimler ve teknik kelimeler genellikle ilk bozulanlar olur. Döküme güvenmeden önce mutlaka gözden geçirin.",
+      privacyTitle: "Tasarımı gereği özel",
+      privacyNote: "Ses dosyanız bu tarayıcı sekmesinin içinde çözülür ve yazıya dökülür. Ne ToolVena'ya ne de bir döküm servisine yüklenir; döküm, siz kopyalayana veya indirene kadar yalnızca bu sekmede durur. Sekmeyi kapatmak her şeyi unutturur.",
+      errorDecode: "Bu dosya ses olarak çözülemedi. Lütfen bir MP3, WAV veya M4A dosyası deneyin.",
+      errorFailed: "Döküm bitmeden durdu. Daha kısa veya daha net bir klip ya da sayfayı yenilemek genellikle işe yarar.",
+      errorBrowser: "Bu tarayıcı cihazdaki konuşma motorunu başlatamadı. Chrome, Edge, Firefox veya Safari'nin güncel bir sürümü en iyi sonucu verir.",
+    },
     wordCounter: {
       charCounterLink: "Precisa de caracteres exatos e limites das plataformas? Abra o Contador de Caracteres →",
           "avgSentence": "Ortalama cümle",
@@ -13298,6 +13535,8 @@ timestampConverter: {
       cvBuilderDesc: "Crie um currículo profissional grátis. Preencha seus dados, veja a prévia ao vivo, imprima ou salve como PDF. Sem cadastro.",
       wordCounterTitle: "Contador de Palavras Grátis – Contar Palavras e Caracteres",
       wordCounterDesc: "Contador de palavras gratuito. Conte palavras, caracteres, frases, parágrafos e tempo de leitura no navegador. Sem cadastro e sem enviar seu texto.",
+      audioToTextTitle: "Conversor de Áudio para Texto – Transcreva MP3, WAV e M4A grátis no seu dispositivo",
+      audioToTextDesc: "Conversor de áudio para texto gratuito. Transcreva MP3, WAV, M4A e MP4 para texto com um modelo de voz que roda no seu navegador — seu arquivo nunca sai do seu dispositivo, sem cadastro e sem cobrança por minuto. Um modelo pequeno é baixado no primeiro uso; depois funciona offline. Trechos curtos e limpos funcionam melhor.",
       textToSpeechTitle: "Texto para Fala Grátis – Ouça seu Texto em Voz Alta",
       textToSpeechDesc: "Texto para fala gratuito. Cole seu texto e ouça com as vozes do seu aparelho, no navegador. Sem cadastro e sem enviar seu texto.",
       typingTestTitle: "Teste de Velocidade de Digitação Grátis – PPM e Precisão",
@@ -13374,10 +13613,6 @@ timestampConverter: {
       summarizerDesc: "Resumidor de texto gratuito. Cole artigos longos — obtenha resumos instantâneos em 8 idiomas. Sem cadastro.",
       cleanerTitle: "Limpador de Clichês de IA – Grátis",
       cleanerDesc: "Encontre clichês de IA e substitua por um estilo natural.",
-    },
-    otherTools: {
-      heading: "Explore Outras Ferramentas Potentes",
-      subheading: "Alterne entre ferramentas com um toque — tudo que você precisa.",
     },
     seoTools: {
       mainTitle: "Motor SEO Viral, Meta Tags e Hashtags",
@@ -13606,6 +13841,44 @@ timestampConverter: {
       "upperLabel": "ABC Maiúsculas",
       "copyBtn": "Copiar",
 },
+    audioToText: {
+      badge: "Conversor de Áudio para Texto",
+      title: "Transforme áudio em texto, direto no seu navegador",
+      subtitle: "Escolha um arquivo MP3, WAV, M4A ou MP4 e receba uma transcrição de um modelo de voz que roda no seu próprio dispositivo. Seu áudio nunca é enviado — depois de um único download do modelo de cerca de 40 MB, funciona até offline.",
+      quickAnswerTitle: "Resposta rápida: como funciona este conversor de áudio para texto?",
+      quickAnswer: "Você escolhe um arquivo de áudio, esta página o decodifica no seu navegador, o reamostra para os 16 kHz mono que o modelo de voz espera e um modelo Whisper compacto o transcreve localmente. Depois você pode copiar o texto ou baixá-lo como TXT, SRT ou VTT. A primeira transcrição baixa os arquivos do modelo uma única vez (cerca de 40 MB); as visitas seguintes reutilizam a cópia em cache, e nem o áudio nem a transcrição saem do seu dispositivo.",
+      dropTitle: "Clique para escolher um arquivo de áudio, ou solte-o aqui",
+      dropHint: "MP3, WAV, M4A, MP4 e outros formatos que seu navegador consiga reproduzir",
+      transcribeBtn: "Transcrever áudio",
+      statusReading: "Lendo seu arquivo de áudio…",
+      statusDecoding: "Decodificando o áudio…",
+      statusPreparing: "Preparando o áudio para o modelo de voz…",
+      statusStarting: "Iniciando o mecanismo de voz no dispositivo…",
+      statusDownloading: "Baixando o modelo de voz (somente na primeira vez)…",
+      statusModelReady: "Modelo de voz pronto.",
+      statusAnalyzing: "Ouvindo e escrevendo sua transcrição…",
+      statusDone: "Transcrição pronta.",
+      outputTitle: "Sua transcrição",
+      outputPlaceholder: "Sua transcrição aparecerá aqui. Você pode editá-la antes de copiar ou baixar.",
+      copyBtn: "Copiar transcrição",
+      copied: "Copiado!",
+      downloadTxt: "Baixar .txt",
+      downloadSrt: "Baixar .srt",
+      downloadVtt: "Baixar .vtt",
+      clearBtn: "Limpar",
+      wordsLabel: "palavras",
+      charsLabel: "caracteres",
+      selectedLabel: "Arquivo selecionado",
+      modelNoteTitle: "Um pequeno download, e depois é seu",
+      modelNoteText: "O modelo de voz (cerca de 40 MB) é baixado uma vez de uma biblioteca pública de modelos e guardado em cache pelo navegador. Depois disso, as transcrições rodam inteiramente no seu dispositivo — mesmo sem internet. Esta ferramenta não envia seu áudio para lugar nenhum.",
+      limitsTitle: "Limites honestos",
+      limitsText: "Esta ferramenta usa um modelo de voz compacto para rodar em celulares e notebooks comuns. Ela funciona melhor com gravações curtas e claras: poucos minutos, um único falante, pouco ruído de fundo. Reuniões longas, vozes sobrepostas, sotaques fortes e ambientes barulhentos gerarão mais erros, e nomes ou termos técnicos costumam ser os primeiros a sair errados. Sempre revise a transcrição antes de confiar nela.",
+      privacyTitle: "Privado por design",
+      privacyNote: "Seu arquivo de áudio é decodificado e transcrito dentro desta aba do navegador. Ele não é enviado ao ToolVena nem a qualquer serviço de transcrição, e a transcrição só existe nesta aba até você copiá-la ou baixá-la. Fechar a aba apaga tudo.",
+      errorDecode: "Esse arquivo não pôde ser decodificado como áudio. Tente um arquivo MP3, WAV ou M4A.",
+      errorFailed: "A transcrição parou antes de terminar. Um trecho mais curto ou mais limpo, ou recarregar a página, costuma ajudar.",
+      errorBrowser: "Este navegador não conseguiu iniciar o mecanismo de voz no dispositivo. Uma versão atual do Chrome, Edge, Firefox ou Safari funciona melhor.",
+    },
     wordCounter: {
       charCounterLink: "Birebir karakter ve platform sınırları mı lazım? Karakter Sayacını açın →",
           "avgSentence": "Frase média",
@@ -15264,6 +15537,8 @@ timestampConverter: {
       cvBuilderDesc: "無料のCV作成ツール。情報を入力するとレジュメがその場で完成。印刷・PDF保存も可能。登録不要、データは端末内のみ。",
       wordCounterTitle: "無料ワードカウンター – 文字数と語数を数える",
       wordCounterDesc: "無料の文字数・ワードカウンター。文字、単語、文、段落、読了時間をブラウザでその場で数えます。登録不要、文章は送信されません。",
+      audioToTextTitle: "音声テキスト変換 – MP3・WAV・M4Aを端末上で無料で文字起こし",
+      audioToTextDesc: "無料の音声テキスト変換ツール。MP3、WAV、M4A、MP4の音声を、ブラウザ内で動く音声モデルでテキスト化します。ファイルが端末から出ることはなく、登録不要・分単位の料金も不要です。初回だけ小さなモデルをダウンロードし、その後はオフラインで使えます。短くて聞き取りやすい音声が最適です。",
       textToSpeechTitle: "無料テキスト読み上げ – Text to Speech Online",
       textToSpeechDesc: "無料のテキスト読み上げ。テキストを貼るだけで、端末の音声でブラウザが読み上げます。登録不要、テキストは送信されません。",
       typingTestTitle: "無料タイピング速度テスト – WPMと正確さをチェック",
@@ -15340,10 +15615,6 @@ timestampConverter: {
       summarizerDesc: "無料の文章要約ツール。長い記事を貼り付けて8言語ですぐに要約。登録不要。",
       cleanerTitle: "AI特有の言い回し修正ツール – 無料",
       cleanerDesc: "AI特有の言い回しを見つけて自然な表現に置き換え。",
-    },
-    otherTools: {
-      heading: "他の高性能ツールを探索",
-      subheading: "ワンタップでツールを切り替え — 必要なものがすべて。",
     },
     seoTools: {
       mainTitle: "バイラルSEOエンジン、メタタグ＆ハッシュタグ",
@@ -15572,6 +15843,44 @@ timestampConverter: {
       "upperLabel": "大文字 ABC",
       "copyBtn": "コピー",
 },
+    audioToText: {
+      badge: "音声テキスト変換",
+      title: "ブラウザ内でそのまま音声をテキストに変換",
+      subtitle: "MP3、WAV、M4A、MP4ファイルを選ぶだけで、あなたの端末上で動く音声モデルが文字起こしします。音声がアップロードされることは決してありません。初回に約40MBのモデルをダウンロードすれば、その後はオフラインでも使えます。",
+      quickAnswerTitle: "クイック回答：この音声テキスト変換はどう動きますか？",
+      quickAnswer: "音声ファイルを選ぶと、このページがブラウザ内でデコードし、音声モデルの想定する16kHzモノラルにリサンプリングして、コンパクトなWhisperモデルが端末上で文字起こしします。テキストはコピーでき、TXT、SRT、VTT形式でもダウンロードできます。モデルファイルのダウンロードは初回のみ（約40MB）で、次回からはキャッシュが使われ、音声もテキストも端末の外に出ることはありません。",
+      dropTitle: "クリックして音声ファイルを選ぶか、ここにドロップしてください",
+      dropHint: "MP3、WAV、M4A、MP4など、ブラウザで再生できる形式",
+      transcribeBtn: "文字起こしする",
+      statusReading: "音声ファイルを読み込んでいます…",
+      statusDecoding: "音声をデコードしています…",
+      statusPreparing: "音声モデル用に音声を準備しています…",
+      statusStarting: "端末上の音声エンジンを起動しています…",
+      statusDownloading: "音声モデルをダウンロード中（初回のみ）…",
+      statusModelReady: "音声モデルの準備ができました。",
+      statusAnalyzing: "聞き取りながら文字起こししています…",
+      statusDone: "文字起こしが完了しました。",
+      outputTitle: "文字起こし結果",
+      outputPlaceholder: "ここに文字起こし結果が表示されます。コピーやダウンロードの前に編集できます。",
+      copyBtn: "テキストをコピー",
+      copied: "コピーしました！",
+      downloadTxt: ".txt をダウンロード",
+      downloadSrt: ".srt をダウンロード",
+      downloadVtt: ".vtt をダウンロード",
+      clearBtn: "クリア",
+      wordsLabel: "語",
+      charsLabel: "文字",
+      selectedLabel: "選択中のファイル",
+      modelNoteTitle: "小さなダウンロード1回で、あとはあなたのもの",
+      modelNoteText: "音声モデル（約40MB）は公開モデルライブラリから1回だけダウンロードされ、ブラウザにキャッシュされます。その後の文字起こしはすべて端末上で行われ、インターネットが切れていても動作します。このツールがあなたの音声をどこかへ送信することはありません。",
+      limitsTitle: "正直な限界",
+      limitsText: "このツールは、一般的なスマートフォンやノートPCで動くよう、コンパクトな音声モデルを使っています。最も得意なのは、数分程度・話者1人・背景ノイズの少ない、短くて明瞭な録音です。長い会議、重なった声、強い訛り、騒がしい部屋では誤りが増え、人名や専門用語が最初に崩れがちです。使う前に必ず結果を確認してください。",
+      privacyTitle: "設計からプライベート",
+      privacyNote: "音声ファイルはこのブラウザタブの中でデコードされ、文字起こしされます。ToolVenaにも文字起こしサービスにもアップロードされず、結果はコピーやダウンロードをするまでこのタブの中だけにあります。タブを閉じればすべて消えます。",
+      errorDecode: "そのファイルを音声としてデコードできませんでした。MP3、WAV、M4Aファイルでお試しください。",
+      errorFailed: "文字起こしが途中で止まりました。短く明瞭な音声にするか、ページを再読み込みすると直ることが多いです。",
+      errorBrowser: "このブラウザでは端末上の音声エンジンを起動できませんでした。Chrome、Edge、Firefox、Safariの最新版が最適です。",
+    },
     wordCounter: {
       charCounterLink: "正確な文字数と各プラットフォームの制限はこちら →",
           "avgSentence": "平均文長",
@@ -17216,6 +17525,8 @@ timestampConverter: {
       cvBuilderDesc: "Gratis CV-bygger. Fyll inn opplysninger, se CV-en live, skriv ut eller lagre som PDF. Ingen registrering.",
       wordCounterTitle: "Gratis Ordteller – Tell Ord og Tegn",
       wordCounterDesc: "Gratis ordteller. Tell ord, tegn, setninger, avsnitt og lesetid direkte i nettleseren. Ingen registrering, ingen opplasting.",
+      audioToTextTitle: "Lyd til tekst-konverter – Transkriber MP3, WAV og M4A gratis på enheten din",
+      audioToTextDesc: "Gratis lyd-til-tekst-konverter. Gjør MP3, WAV, M4A og MP4 om til tekst med en talemodell som kjører i nettleseren — filen forlater aldri enheten din, ingen registrering og ingen minuttpris. En liten modell lastes ned første gang; deretter virker den uten nett. Korte, klare opptak fungerer best.",
       textToSpeechTitle: "Gratis Tekst til Tale – Hør Teksten din Lest Høyt",
       textToSpeechDesc: "Gratis tekst til tale. Lim inn tekst og hør den lest høyt med stemmene på enheten din, i nettleseren. Ingen registrering, ingenting lastes opp.",
       typingTestTitle: "Gratis Skrivehastighet Test – Sjekk WPM og Nøyaktighet",
@@ -17525,6 +17836,44 @@ timestampConverter: {
       "upperLabel": "Store bokstaver ABC",
       "copyBtn": "Kopier",
 },
+    audioToText: {
+      badge: "Lyd til tekst-konverter",
+      title: "Gjør lyd om til tekst, rett i nettleseren",
+      subtitle: "Velg en MP3-, WAV-, M4A- eller MP4-fil og få et utskrift fra en talemodell som kjører på din egen enhet. Lyden din lastes aldri opp — etter én modellnedlasting på ca. 40 MB fungerer dette til og med uten nett.",
+      quickAnswerTitle: "Raskt svar: Hvordan fungerer denne lyd-til-tekst-konverteren?",
+      quickAnswer: "Du velger en lydfil, denne siden dekoder den i nettleseren, samler den på nytt til 16 kHz mono som talemodellen forventer, og en kompakt Whisper-modell transkriberer den lokalt. Deretter kan du kopiere teksten eller laste den ned som TXT, SRT eller VTT. Den første transkripsjonen laster ned modellfilene én gang (ca. 40 MB); senere besøk bruker den bufrede kopien, og verken lyd eller utskrift forlater enheten din.",
+      dropTitle: "Klikk for å velge en lydfil, eller slipp den her",
+      dropHint: "MP3, WAV, M4A, MP4 og andre formater nettleseren kan spille av",
+      transcribeBtn: "Transkriber lyd",
+      statusReading: "Leser lydfilen din…",
+      statusDecoding: "Dekoder lyd…",
+      statusPreparing: "Klargjør lyden for talemodellen…",
+      statusStarting: "Starter talemotoren på enheten…",
+      statusDownloading: "Laster ned talemodellen (kun første gang)…",
+      statusModelReady: "Talemodellen er klar.",
+      statusAnalyzing: "Lytter og skriver utskriften din…",
+      statusDone: "Utskriften er klar.",
+      outputTitle: "Utskriften din",
+      outputPlaceholder: "Utskriften vises her. Du kan redigere den før du kopierer eller laster ned.",
+      copyBtn: "Kopier utskrift",
+      copied: "Kopiert!",
+      downloadTxt: "Last ned .txt",
+      downloadSrt: "Last ned .srt",
+      downloadVtt: "Last ned .vtt",
+      clearBtn: "Tøm",
+      wordsLabel: "ord",
+      charsLabel: "tegn",
+      selectedLabel: "Valgt fil",
+      modelNoteTitle: "Én liten nedlasting, så er den din",
+      modelNoteText: "Talemodellen (ca. 40 MB) lastes ned én gang fra et offentlig modellbibliotek og bufres av nettleseren. Etter det skjer transkripsjonene helt på enheten din — selv uten internett. Dette verktøyet sender ikke lyden din noe sted.",
+      limitsTitle: "Ærlige begrensninger",
+      limitsText: "Dette verktøyet bruker en kompakt talemodell for å kunne kjøre på vanlige telefoner og bærbare. Det fungerer best med korte, klare opptak: noen få minutter, én stemme, lite bakgrunnsstøy. Lange møter, overlappende stemmer, sterke dialekter og støyende rom gir flere feil, og navn eller fagord er ofte de første som går galt. Korrekturles alltid utskriften før du stoler på den.",
+      privacyTitle: "Privat av design",
+      privacyNote: "Lydfilen din dekodes og transkriberes inne i denne nettleserfanen. Den lastes ikke opp til ToolVena eller noen transkripsjonstjeneste, og utskriften finnes bare i denne fanen til du kopierer eller laster den ned. Lukker du fanen, er alt glemt.",
+      errorDecode: "Den filen kunne ikke dekodes som lyd. Prøv en MP3-, WAV- eller M4A-fil.",
+      errorFailed: "Transkripsjonen stoppet før den var ferdig. Et kortere eller klarere klipp, eller å laste siden på nytt, hjelper som regel.",
+      errorBrowser: "Denne nettleseren kunne ikke starte talemotoren på enheten. En oppdatert versjon av Chrome, Edge, Firefox eller Safari fungerer best.",
+    },
     wordCounter: {
       charCounterLink: "Trenger du nøyaktige tegn og plattformgrenser? Åpne Tegntelleren →",
           "avgSentence": "Sn. setning",
@@ -19078,6 +19427,8 @@ timestampConverter: {
       cvBuilderDesc: "Gratis CV-maker. Vul je gegevens in, bekijk je CV live, print of bewaar als PDF. Geen account nodig.",
       wordCounterTitle: "Gratis Woordenteller – Woorden & Tekens Tellen",
       wordCounterDesc: "Gratis woordenteller. Tel woorden, tekens, zinnen, alinea's en leestijd live in je browser. Geen account, niets uploaden.",
+      audioToTextTitle: "Audio naar Tekst Converter – Transcribeer MP3, WAV en M4A gratis op je apparaat",
+      audioToTextDesc: "Gratis audio-naar-tekst converter. Zet MP3, WAV, M4A en MP4 om in tekst met een spraakmodel dat in je browser draait — je bestand verlaat je apparaat nooit, geen registratie en geen kosten per minuut. Bij het eerste gebruik wordt een klein model gedownload; daarna werkt het offline. Korte, heldere opnames werken het best.",
       textToSpeechTitle: "Gratis Tekst naar Spraak – Laat je Tekst Voorlezen",
       textToSpeechDesc: "Gratis tekst naar spraak. Plak je tekst en hoor hem voorlezen met de stemmen van je apparaat, in je browser. Geen account, niets geüpload.",
       typingTestTitle: "Gratis Typesnelheid Test – Controleer WPM & Nauwkeurigheid",
@@ -19387,6 +19738,44 @@ timestampConverter: {
       "upperLabel": "Hoofdletters ABC",
       "copyBtn": "Kopiëren",
 },
+    audioToText: {
+      badge: "Audio naar Tekst Converter",
+      title: "Zet audio om in tekst, direct in je browser",
+      subtitle: "Kies een MP3-, WAV-, M4A- of MP4-bestand en krijg een transcript van een spraakmodel dat op je eigen apparaat draait. Je audio wordt nooit geüpload — na één modeldownload van ongeveer 40 MB werkt dit zelfs offline.",
+      quickAnswerTitle: "Snel antwoord: hoe werkt deze audio-naar-tekst converter?",
+      quickAnswer: "Je kiest een audiobestand, deze pagina decodeert het in je browser, hersamplet het naar de 16 kHz mono die het spraakmodel verwacht, en een compact Whisper-model transcribeert het lokaal. Daarna kun je de tekst kopiëren of downloaden als TXT, SRT of VTT. De eerste transcriptie downloadt de modelbestanden één keer (ongeveer 40 MB); latere bezoeken hergebruiken de gecachte kopie, en audio noch transcript verlaat ooit je apparaat.",
+      dropTitle: "Klik om een audiobestand te kiezen, of sleep het hierheen",
+      dropHint: "MP3, WAV, M4A, MP4 en andere formaten die je browser kan afspelen",
+      transcribeBtn: "Audio transcriberen",
+      statusReading: "Je audiobestand wordt gelezen…",
+      statusDecoding: "Audio wordt gedecodeerd…",
+      statusPreparing: "Audio wordt klaargemaakt voor het spraakmodel…",
+      statusStarting: "De spraakengine op het apparaat start…",
+      statusDownloading: "Spraakmodel wordt gedownload (alleen de eerste keer)…",
+      statusModelReady: "Spraakmodel klaar.",
+      statusAnalyzing: "Er wordt geluisterd en je transcript wordt geschreven…",
+      statusDone: "Transcript klaar.",
+      outputTitle: "Je transcript",
+      outputPlaceholder: "Je transcript verschijnt hier. Je kunt het bewerken voordat je het kopieert of downloadt.",
+      copyBtn: "Transcript kopiëren",
+      copied: "Gekopieerd!",
+      downloadTxt: ".txt downloaden",
+      downloadSrt: ".srt downloaden",
+      downloadVtt: ".vtt downloaden",
+      clearBtn: "Wissen",
+      wordsLabel: "woorden",
+      charsLabel: "tekens",
+      selectedLabel: "Geselecteerd bestand",
+      modelNoteTitle: "Eén kleine download, daarna is hij van jou",
+      modelNoteText: "Het spraakmodel (ongeveer 40 MB) wordt één keer gedownload uit een openbare modelbibliotheek en door je browser in de cache gezet. Daarna draaien transcripties volledig op je apparaat — zelfs zonder internet. Deze tool stuurt je audio nergens heen.",
+      limitsTitle: "Eerlijke grenzen",
+      limitsText: "Deze tool gebruikt een compact spraakmodel om op gewone telefoons en laptops te kunnen draaien. Hij werkt het best met korte, heldere opnames: een paar minuten, één spreker, weinig achtergrondgeluid. Lange vergaderingen, overlappende stemmen, sterke accenten en lawaaierige ruimtes geven meer fouten, en namen of vakwoorden gaan vaak als eerste mis. Lees het transcript altijd na voordat je erop vertrouwt.",
+      privacyTitle: "Privé by design",
+      privacyNote: "Je audiobestand wordt in dit browsertabblad gedecodeerd en getranscribeerd. Het wordt niet geüpload naar ToolVena of een transcriptiedienst, en het transcript bestaat alleen in dit tabblad totdat je het kopieert of downloadt. Tabblad sluiten betekent alles vergeten.",
+      errorDecode: "Dat bestand kon niet als audio worden gedecodeerd. Probeer een MP3-, WAV- of M4A-bestand.",
+      errorFailed: "De transcriptie stopte voordat ze klaar was. Een korter of helderder fragment, of de pagina opnieuw laden, helpt meestal.",
+      errorBrowser: "Deze browser kon de spraakengine op het apparaat niet starten. Een actuele versie van Chrome, Edge, Firefox of Safari werkt het best.",
+    },
     wordCounter: {
       charCounterLink: "Exacte tekens en platformlimieten nodig? Open Karakters Tellen →",
           "avgSentence": "Gem. zin",
@@ -20940,6 +21329,8 @@ timestampConverter: {
       cvBuilderDesc: "Crea un curriculum professionale gratis. Inserisci i tuoi dati, guarda l'anteprima, stampa o salva in PDF. Senza registrazione.",
       wordCounterTitle: "Contatore di Parole Gratuito – Conta Parole e Caratteri",
       wordCounterDesc: "Contatore di parole gratuito. Conta parole, caratteri, frasi, paragrafi e tempo di lettura nel browser. Senza registrazione, senza caricare il testo.",
+      audioToTextTitle: "Convertitore Audio in Testo – Trascrivi MP3, WAV e M4A gratis sul tuo dispositivo",
+      audioToTextDesc: "Convertitore audio in testo gratuito. Trascrivi MP3, WAV, M4A e MP4 in testo con un modello vocale che gira nel tuo browser: il file non lascia mai il tuo dispositivo, niente registrazione e nessun costo al minuto. Al primo uso si scarica un piccolo modello; poi funziona offline. Le clip brevi e chiare danno i risultati migliori.",
       textToSpeechTitle: "Sintesi Vocale Gratuita – Ascolta i tuoi Testi ad Alta Voce",
       textToSpeechDesc: "Sintesi vocale gratuita. Incolla il testo e ascoltalo con le voci del tuo dispositivo, nel browser. Senza registrazione, senza inviare il testo.",
       typingTestTitle: "Test di Velocità di Digitazione Gratuito – WPM e Precisione",
@@ -21249,6 +21640,44 @@ timestampConverter: {
       "upperLabel": "ABC Maiuscole",
       "copyBtn": "Copia",
 },
+    audioToText: {
+      badge: "Convertitore Audio in Testo",
+      title: "Trasforma l'audio in testo, direttamente nel browser",
+      subtitle: "Scegli un file MP3, WAV, M4A o MP4 e ottieni una trascrizione da un modello vocale che gira sul tuo dispositivo. Il tuo audio non viene mai caricato: dopo un unico download del modello di circa 40 MB, funziona anche offline.",
+      quickAnswerTitle: "Risposta rapida: come funziona questo convertitore audio in testo?",
+      quickAnswer: "Scegli un file audio, questa pagina lo decodifica nel browser, lo ricampiona a 16 kHz mono come si aspetta il modello vocale e un modello Whisper compatto lo trascrive in locale. Poi puoi copiare il testo o scaricarlo come TXT, SRT o VTT. La prima trascrizione scarica i file del modello una sola volta (circa 40 MB); le visite successive riutilizzano la copia in cache, e né l'audio né la trascrizione lasciano mai il tuo dispositivo.",
+      dropTitle: "Clicca per scegliere un file audio, oppure trascinalo qui",
+      dropHint: "MP3, WAV, M4A, MP4 e altri formati riproducibili dal browser",
+      transcribeBtn: "Trascrivi audio",
+      statusReading: "Lettura del file audio…",
+      statusDecoding: "Decodifica dell'audio…",
+      statusPreparing: "Preparazione dell'audio per il modello vocale…",
+      statusStarting: "Avvio del motore vocale sul dispositivo…",
+      statusDownloading: "Download del modello vocale (solo la prima volta)…",
+      statusModelReady: "Modello vocale pronto.",
+      statusAnalyzing: "Ascolto e scrittura della trascrizione…",
+      statusDone: "Trascrizione pronta.",
+      outputTitle: "La tua trascrizione",
+      outputPlaceholder: "La trascrizione apparirà qui. Puoi modificarla prima di copiarla o scaricarla.",
+      copyBtn: "Copia trascrizione",
+      copied: "Copiato!",
+      downloadTxt: "Scarica .txt",
+      downloadSrt: "Scarica .srt",
+      downloadVtt: "Scarica .vtt",
+      clearBtn: "Cancella",
+      wordsLabel: "parole",
+      charsLabel: "caratteri",
+      selectedLabel: "File selezionato",
+      modelNoteTitle: "Un piccolo download, poi è tuo",
+      modelNoteText: "Il modello vocale (circa 40 MB) viene scaricato una volta da una libreria pubblica di modelli e memorizzato nella cache dal browser. Dopo, le trascrizioni avvengono interamente sul tuo dispositivo — anche senza internet. Questo strumento non invia il tuo audio da nessuna parte.",
+      limitsTitle: "Limiti onesti",
+      limitsText: "Questo strumento usa un modello vocale compatto per funzionare su telefoni e portatili comuni. Dà il meglio con registrazioni brevi e chiare: pochi minuti, un solo parlante, poco rumore di fondo. Riunioni lunghe, voci sovrapposte, accenti marcati e ambienti rumorosi produrranno più errori, e nomi o termini tecnici sono spesso i primi a uscire sbagliati. Rileggi sempre la trascrizione prima di fidarti.",
+      privacyTitle: "Privato per design",
+      privacyNote: "Il tuo file audio viene decodificato e trascritto dentro questa scheda del browser. Non viene caricato su ToolVena né su alcun servizio di trascrizione, e la trascrizione esiste solo in questa scheda finché non la copi o la scarichi. Chiudere la scheda dimentica tutto.",
+      errorDecode: "Impossibile decodificare quel file come audio. Prova un file MP3, WAV o M4A.",
+      errorFailed: "La trascrizione si è fermata prima di finire. Una clip più breve o più chiara, o ricaricare la pagina, di solito aiuta.",
+      errorBrowser: "Questo browser non è riuscito ad avviare il motore vocale sul dispositivo. Una versione recente di Chrome, Edge, Firefox o Safari funziona meglio.",
+    },
     wordCounter: {
       charCounterLink: "Servono caratteri esatti e limiti delle piattaforme? Apri il Contatore Caratteri →",
           "avgSentence": "Frase media",
@@ -21719,6 +22148,6 @@ function deepMerge(base: any, override: any): any {
 // Apply fallback to all non-English languages
 for (const lang of Object.keys(TRANSLATIONS)) {
   if (lang !== "en") {
-    TRANSLATIONS[lang as keyof typeof TRANSLATIONS] = deepMerge(TRANSLATIONS.en, TRANSLATIONS[lang]) as any;
+    TRANSLATIONS[lang as keyof typeof TRANSLATIONS] = deepMerge(TRANSLATIONS.en, TRANSLATIONS[lang as keyof typeof TRANSLATIONS]) as any;
   }
 }

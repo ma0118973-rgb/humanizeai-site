@@ -101,6 +101,7 @@ export type ActivePage =
   | "instagramLineBreak"
   | "imageCompressor"
   | "pdfTools"
+  | "audioToText"
   | "cleaner"
   | "diff"
   | "privacy"

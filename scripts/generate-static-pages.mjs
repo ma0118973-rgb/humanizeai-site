@@ -104,6 +104,7 @@ const ROUTES = [
   ["instagramLineBreak", "/instagram-line-break-generator/"],
   ["imageCompressor", "/image-compressor/"],
   ["pdfTools", "/pdf-tools/"],
+  ["audioToText", "/audio-to-text-converter/"],
   ["cleaner", "/cliche-cleaner/"],
   ["diff", "/diff-checker/"],
   ["blog", "/blog/"],
@@ -185,6 +186,7 @@ function pageMeta(page, lang, blogPost) {
     case "instagramLineBreak": return [seo.instagramLineBreakTitle || fb.instagramLineBreakTitle, seo.instagramLineBreakDesc || fb.instagramLineBreakDesc];
     case "imageCompressor": return [seo.imageCompressorTitle || fb.imageCompressorTitle, seo.imageCompressorDesc || fb.imageCompressorDesc];
     case "pdfTools": return [seo.pdfToolsTitle || fb.pdfToolsTitle, seo.pdfToolsDesc || fb.pdfToolsDesc];
+    case "audioToText": return [seo.audioToTextTitle || fb.audioToTextTitle, seo.audioToTextDesc || fb.audioToTextDesc];
     case "cleaner": return [seo.cleanerTitle || fb.cleanerTitle, seo.cleanerDesc || fb.cleanerDesc];
     case "diff": return [seo.diffTitle || fb.diffTitle, seo.diffDesc || fb.diffDesc];
     case "blog":
@@ -234,7 +236,7 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
     },
   ];
   // WebApplication schema for tool pages
-  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "metaChecker", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
+  const toolPages = ["humanizer", "detector", "imageCompressor", "pdfTools", "audioToText", "summarizer", "voiceTyping", "cvBuilder", "wordCounter", "characterCounter", "textToSpeech", "typingTest", "caseConverter", "passwordGenerator", "duplicateLines", "textRepeater", "invisibleCharacter", "wordFrequency", "readingTime", "base64", "slugGenerator", "jsonFormatter", "loremIpsum", "daysBetween", "randomNumber", "onlineTimer", "invoiceGenerator", "imageResizer", "imageConverter", "imageToText", "pdfSplitter", "usernameGenerator", "morseCodeTranslator", "voiceRecorder", "onlineNotepad", "unitConverter", "onlineTeleprompter", "uuidGenerator", "timestampConverter", "jsonToCsv", "regexTester", "urlEncoder", "utmLinkBuilder", "metaChecker", "instagramLineBreak", "media", "seo", "citation", "expander", "cleaner", "diff"];
   if (toolPages.includes(page)) {
     data.push({
       "@context": "https://schema.org",
@@ -269,6 +271,34 @@ function jsonLd(origin, canonicalUrl, title, description, page, post = null, lan
         { "@type": "HowToStep", position: 1, name: "Paste the timestamp", text: "Paste your epoch value and check the displayed assumption: seconds or milliseconds." },
         { "@type": "HowToStep", position: 2, name: "Read UTC and local", text: "Compare the UTC and local lines and copy the ISO 8601 value when you need an unambiguous string." },
         { "@type": "HowToStep", position: 3, name: "Or pick a date", text: "Choose a date and time, select local or UTC meaning, and copy seconds or milliseconds." },
+      ],
+    });
+  }
+  if (page === "audioToText") {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang,
+      mainEntity: [
+        { "@type": "Question", name: "Is this audio to text converter free?", acceptedAnswer: { "@type": "Answer", text: "Yes. It is free with no sign-up and no per-minute charge. Transcription runs on your own device in your browser." } },
+        { "@type": "Question", name: "Is my audio uploaded anywhere?", acceptedAnswer: { "@type": "Answer", text: "No. Your file is decoded and transcribed inside your browser tab. The only download is a one-time copy of the compact Whisper speech model (about 40 MB) from a public model library, which your browser then caches." } },
+        { "@type": "Question", name: "Which audio formats can I use?", acceptedAnswer: { "@type": "Answer", text: "MP3, WAV, M4A and MP4 work well, plus any audio or video format your browser itself can play. If a file cannot be decoded, the tool says so plainly instead of guessing." } },
+        { "@type": "Question", name: "How accurate is the transcript?", acceptedAnswer: { "@type": "Answer", text: "It is at its best with short, clear recordings: one speaker, little background noise, roughly a few minutes at a time. Long, noisy or multi-speaker recordings will contain more mistakes, and names and technical words are usually the first to go wrong. Always proofread before relying on the text." } },
+        { "@type": "Question", name: "Can I get subtitles for a video?", acceptedAnswer: { "@type": "Answer", text: "Yes. After transcribing, download the .srt or .vtt export — both carry the model's timestamps as subtitle cues. If you edit the transcript text, the subtitle export falls back to one cue holding the edited text." } },
+        { "@type": "Question", name: "Does it work offline?", acceptedAnswer: { "@type": "Answer", text: "After the first visit, the speech model is cached by your browser, so transcription keeps working without an internet connection. The very first transcription needs to be online to fetch the model." } },
+      ],
+    });
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to convert audio to text in 4 steps",
+      description,
+      inLanguage: lang,
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Choose your audio file", text: "Click the upload area or drop in an MP3, WAV, M4A or MP4 file. Nothing is uploaded — the file stays on your device." },
+        { "@type": "HowToStep", position: 2, name: "Press Transcribe and wait for the one-time model download", text: "The first transcription downloads the compact speech model (about 40 MB) with live per-file progress. Later visits reuse the cached model and start almost immediately." },
+        { "@type": "HowToStep", position: 3, name: "Read and fix the transcript", text: "The transcript appears in an editable box. Correct names and unclear words while you still remember what was said." },
+        { "@type": "HowToStep", position: 4, name: "Copy or download", text: "Copy the text, or download it as a .txt transcript or as .srt/.vtt subtitles with timestamps." },
       ],
     });
   }

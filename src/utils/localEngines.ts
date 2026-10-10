@@ -189,13 +189,10 @@ export function runLocalAiDetection(text: string): DetectionResult {
 const CLICHE_REPLACEMENTS: Record<string, string[]> = {
   "delve into": ["explore", "examine", "look into", "break down"],
   "delving into": ["looking into", "exploring", "examining"],
-  "delve": ["dig in", "look closely", "explore"],
   "tapestry of": ["blend of", "network of", "mix of", "broad picture of"],
   "rich tapestry": ["dynamic combination", "rich mix", "diverse mosaic"],
   "beacon of": ["symbol of", "leading guide for", "standard for"],
   "testament to": ["proof of", "clear sign of", "solid evidence of"],
-  "in conclusion": ["all in all", "to sum it up", "at the end of the day", "ultimately"],
-  "furthermore": ["what's more", "on top of that", "in addition", "and beyond that"],
   "moreover": ["besides", "also", "what is more", "on another note"],
   "it is crucial that": ["it really matters that", "we need to remember that", "it pays to note that"],
   "it is imperative that": ["it is essential that", "you have to ensure that", "we must"],

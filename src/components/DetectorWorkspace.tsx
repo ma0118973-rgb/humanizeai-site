@@ -83,14 +83,14 @@ export function DetectorWorkspace({
           <div className="flex items-center gap-2 flex-wrap">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 border border-emerald-300 flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              {t.detector.badge}
+              {t.detector?.badge}
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900">
-            {t.detector.heroTitle}
+            {t.detector?.heroTitle}
           </h1>
           <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
-            {t.detector.heroSubtitle}
+            {t.detector?.heroSubtitle}
           </p>
         </div>
 
@@ -102,12 +102,12 @@ export function DetectorWorkspace({
           {isLoading ? (
             <>
               <div className="w-5 h-5 border-2 border-stone-950/30 border-t-stone-950 rounded-full animate-spin" />
-              <span>{t.detector.scanningBtn}</span>
+              <span>{t.detector?.scanningBtn}</span>
             </>
           ) : (
             <>
               <Search className="w-5 h-5 text-stone-950 group-hover:scale-110 transition-transform stroke-[2.5]" />
-              <span>{t.detector.scanBtn}</span>
+              <span>{t.detector?.scanBtn}</span>
             </>
           )}
         </button>

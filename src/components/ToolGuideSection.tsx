@@ -52,6 +52,7 @@ const TOOL_TO_ARTICLE: Record<string, string> = {
   instagramLineBreak: "instagram-line-break-urdu-guide",
   imageCompressor: "image-compressor-urdu-guide",
   pdfTools: "pdf-tools-urdu-guide",
+  audioToText: "audio-to-text-converter-urdu-guide",
   media: "video-tools-urdu-guide",
   seo: "seo-tools-urdu-guide",
   cleaner: "cliche-cleaner-urdu-guide",
